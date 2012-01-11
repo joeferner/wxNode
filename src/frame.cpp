@@ -19,7 +19,6 @@
 
 /*static*/ v8::Handle<v8::Value> NodeWxFrame::init(const v8::Arguments& args) {
   v8::HandleScope scope;
-  printf("frame:init\n");
   NodeWxFrame *self = new NodeWxFrame();
   self->wrap(args.This());
   return args.This();
@@ -27,8 +26,8 @@
 
 /*static*/ v8::Handle<v8::Value> NodeWxFrame::_show(const v8::Arguments& args) {
   NodeWxFrame *self = unwrap<NodeWxFrame>(args.This());
-  printf("%d\n", (int)args.This()->GetPointerFromInternalField(0));
   // TODO read args
   self->Show(true);
+  printf("z\n");
   return args.This();
 }
