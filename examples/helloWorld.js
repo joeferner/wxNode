@@ -4,7 +4,7 @@ var wxNode = require("../");
 var ID_Quit = 1;
 var ID_About = 2;
 
-var MyApp = wxNode.wxApp.extend({
+var MyApp = wxNode.wxApp.extend({  
   onInit: function() {
     console.log("js:onInit");
     var frame = new MyFrame("Hello World", new wxNode.wxPoint(50, 50), new wxNode.wxSize(450, 340));

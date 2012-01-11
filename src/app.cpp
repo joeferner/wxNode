@@ -20,21 +20,30 @@
 
 /*static*/ v8::Handle<v8::Value> NodeWxApp::init(const v8::Arguments& args) {
   v8::HandleScope scope;
-
   NodeWxApp *self = new NodeWxApp();
-  wrap(args, self);
-
+  self->wrap(args.This());
   return args.This();
 }
 
 bool NodeWxApp::OnInit() {
   printf("OnInit\n");
-  return true;
+  v8::Handle<v8::Value> args[0];
+  v8::Handle<v8::Value> result = call("onInit", 0, args);
+  if(result.IsEmpty()) return false;
+  return result->ToBoolean()->Value();
 }
 
 /*static*/ v8::Handle<v8::Value> NodeWxApp::_run(const v8::Arguments& args) {
   v8::HandleScope scope;
 
+  wxDISABLE_DEBUG_SUPPORT();
+  
+  int argc = 0;
+  char **argv = new char*[1];
+  argv[0] = new char[10];
+  strcpy(argv[0], "dontcare");
+  wxEntry(argc, argv);
+      
   return v8::Undefined();
 }
 

@@ -17,3 +17,5 @@ v8::Handle<v8::Value> EmptyFunc(const v8::Arguments& args) {
   return args.This();
 }
 
+IMPLEMENT_WX_THEME_SUPPORT
+wxApp& wxGetApp() { return *static_cast<wxApp*>(wxApp::GetInstance()); }

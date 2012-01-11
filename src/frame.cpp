@@ -12,15 +12,23 @@
   s_ct->SetClassName(v8::String::NewSymbol("wxFrame"));
 
   NODE_SET_PROTOTYPE_METHOD(s_ct, "init", init);
+  NODE_SET_PROTOTYPE_METHOD(s_ct, "show", _show);
 
   target->Set(v8::String::NewSymbol("wxFrame"), s_ct->GetFunction());
 }
 
 /*static*/ v8::Handle<v8::Value> NodeWxFrame::init(const v8::Arguments& args) {
   v8::HandleScope scope;
-  
+  printf("frame:init\n");
   NodeWxFrame *self = new NodeWxFrame();
-  wrap(args, self);
-  
+  self->wrap(args.This());
+  return args.This();
+}
+
+/*static*/ v8::Handle<v8::Value> NodeWxFrame::_show(const v8::Arguments& args) {
+  NodeWxFrame *self = unwrap<NodeWxFrame>(args.This());
+  printf("%d\n", (int)args.This()->GetPointerFromInternalField(0));
+  // TODO read args
+  self->Show(true);
   return args.This();
 }

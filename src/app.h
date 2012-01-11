@@ -4,7 +4,7 @@
 
 #include "wxnode.h"
 
-class NodeWxApp : public wxApp {
+class NodeWxApp : public wxApp, public wxNodeObject {
 public:
   static void Init(v8::Handle<v8::Object> target);
 
