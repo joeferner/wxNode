@@ -28,5 +28,5 @@ def configure(conf):
 def build(bld):
   obj = bld.new_task_gen("cxx", "shlib", "node_addon")
   obj.target = "wxnode_bindings"
-  obj.source = "src/wxnode_bindings.cpp src/app.cpp"
+  obj.source = "src/wxnode_bindings.cpp src/app.cpp src/frame.cpp"
   obj.includes = "src/"
