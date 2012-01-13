@@ -27,7 +27,8 @@
 /*static*/ v8::Handle<v8::Value> NodeWxFrame::_show(const v8::Arguments& args) {
   NodeWxFrame *self = unwrap<NodeWxFrame>(args.This());
   // TODO read args
+  printf("before: c show\n");
   self->Show(true);
-  printf("z\n");
+  printf("after: c show\n");
   return args.This();
 }

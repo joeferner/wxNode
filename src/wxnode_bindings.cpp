@@ -17,5 +17,15 @@ v8::Handle<v8::Value> EmptyFunc(const v8::Arguments& args) {
   return args.This();
 }
 
-IMPLEMENT_WX_THEME_SUPPORT
-wxApp& wxGetApp() { return *static_cast<wxApp*>(wxApp::GetInstance()); }
+//-----------------------------------------------------------------------------
+// Replacement code for IMPLEMENT_APP_NO_MAIN()
+
+#if wxCHECK_VERSION(2, 8, 0)
+  DECLARE_APP(NodeWxApp)
+  IMPLEMENT_APP(NodeWxApp)
+  static NodeWxApp* _app = NULL;
+#else
+  static NodeWxApp* _app = NULL;
+  wxApp* wxCreateApp() { return _app; }
+  wxAppInitializer wxTheAppInitializer((wxAppInitializerFunction)wxCreateApp);
+#endif
