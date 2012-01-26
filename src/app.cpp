@@ -1,6 +1,8 @@
 
 #include "app.h"
 #include "frame.h"
+#include <wx/evtloop.h>
+#include <wx/apptrait.h>
 
 /* static */ v8::Persistent<v8::FunctionTemplate> NodeWxApp::s_ct;
 
@@ -35,15 +37,33 @@ bool NodeWxApp::OnInit() {
   return result->ToBoolean()->Value();
 }
 
+/*static*/ v8::Handle<v8::Value> NodeWxApp::_loop(const v8::Arguments& args) {
+  wxEventLoopBase* evtLoop = wxEventLoop::GetActive();
+  if(evtLoop) {
+    while(evtLoop->Pending()) {
+      evtLoop->Dispatch();
+    }
+  }
+}
+
 /*static*/ v8::Handle<v8::Value> NodeWxApp::_run(const v8::Arguments& args) {
+  NodeWxApp *self = unwrap<NodeWxApp>(args.This());
   v8::HandleScope scope;
 
-  int argc = 0;
-  char **argv = new char*[1];
-  argv[0] = new char[10];
-  strcpy(argv[0], "dontcare");
-  wxEntry(argc, argv);
+  if(!wxInitialize()) {
+    printf("failed to wxInitialize\n"); // TODO: change to exception
+  }
+  wxEventLoop::SetActive(wxTheApp->GetTraits()->CreateEventLoop());
+  wxTheApp->CallOnInit();
 
+  v8::Local<v8::FunctionTemplate> loopFnTemplate = v8::FunctionTemplate::New(_loop);  
+  
+  v8::Function* setIntervalMethod = v8::Function::Cast(*v8::Context::GetCurrent()->Global()->Get(v8::String::New("setInterval")));  
+  v8::Local<v8::Value> setIntervalArgs[2];
+  setIntervalArgs[0] = loopFnTemplate->GetFunction();
+  setIntervalArgs[1] = v8::Integer::New(1);
+  setIntervalMethod->Call(args.This(), 2, setIntervalArgs);
+  
   return v8::Undefined();
 }
 

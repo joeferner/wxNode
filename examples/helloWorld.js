@@ -45,5 +45,7 @@ var MyFrame = wxNode.wxFrame.extend({
   }
 });
 
+setInterval(function() { console.log("timer"); }, 5000);
+
 var app = new MyApp();
 app.run();
