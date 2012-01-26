@@ -28,6 +28,8 @@ public:
   static void Init(v8::Handle<v8::Object> target);
   void fireEvent(int iListener, wxEvent& event);
 
+  virtual bool Destroy();
+  
 private:
   static v8::Handle<v8::Value> _init(const v8::Arguments& args);
   static v8::Handle<v8::Value> _show(const v8::Arguments& args);

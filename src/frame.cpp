@@ -1,6 +1,7 @@
 
 #include "frame.h"
 #include "menuBar.h"
+#include "app.h"
 
 /* static */ v8::Persistent<v8::FunctionTemplate> NodeWxFrame::s_ct;
 
@@ -87,6 +88,10 @@ NodeWxFrame::NodeWxFrame(wxWindow *parent,
   self->SetStatusText(*text);
 
   return v8::Undefined();
+}
+
+bool NodeWxFrame::Destroy() {
+	return wxFrame::Destroy();
 }
 
 struct EventProxyData : public wxObject {

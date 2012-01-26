@@ -53,9 +53,11 @@ bool NodeWxApp::OnInit() {
   if(!wxInitialize()) {
     printf("failed to wxInitialize\n"); // TODO: change to exception
   }
-  wxEventLoop::SetActive(wxTheApp->GetTraits()->CreateEventLoop());
+  wxEventLoop* loop = new wxEventLoop();
+  wxEventLoop::SetActive(loop);
   wxTheApp->CallOnInit();
 
+  // setInterval the message loop
   v8::Local<v8::FunctionTemplate> loopFnTemplate = v8::FunctionTemplate::New(_loop);  
   
   v8::Function* setIntervalMethod = v8::Function::Cast(*v8::Context::GetCurrent()->Global()->Get(v8::String::New("setInterval")));  
