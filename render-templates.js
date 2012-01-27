@@ -100,6 +100,7 @@ function argJsonToCtx(ctx, rawJson, arg, i) {
   var argUsageCode = "";
   var typeName = type['name'];
   var argName = arg['name'];
+  var argTestCode = "false";
 
   typeName = typeName.replace(/Base$/, '');
 
@@ -110,13 +111,16 @@ function argJsonToCtx(ctx, rawJson, arg, i) {
     } else {
       argCode = util.format("%s %s = (%s)args[%d]->ToInt32()->Value();", typeName, argName, typeName, i);
       argUsageCode = argName;
+      argTestCode = util.format("args[%d]->IsNumber()", i);
     }
   } else if(typeName == "bool") {
     argCode = util.format("bool %s = args[%d]->ToBoolean()->Value();", argName, i);
     argUsageCode = argName;
+    argTestCode = util.format("args[%d]->IsBoolean()", i);
   } else if(typeName == "wxString") {
     argCode = util.format("v8::String::AsciiValue %s(args[%d]->ToString());", argName, i);
     argUsageCode = "*" + argName;
+    argTestCode = util.format("args[%d]->IsString()", i);
   } else if(typeName.match(/^wx.*/)) {
     if(type.pointers == '**') {
       argCode = util.format("%s* %s;", typeName, argName);
@@ -124,6 +128,7 @@ function argJsonToCtx(ctx, rawJson, arg, i) {
     } else {
       argCode = util.format("wxNode_%s* %s = wxNodeObject::unwrap<wxNode_%s>(args[%d]->ToObject());", typeName, argName, typeName, i);
       argUsageCode = argName;
+      argTestCode = util.format("args[%d]->IsObject()", i);
     }
     ctx.includes = concatUnique(ctx.includes, ["wxNode_" + typeName + ".h"]);
   } else {
@@ -138,7 +143,20 @@ function argJsonToCtx(ctx, rawJson, arg, i) {
     typeId: type['id'],
     argCode: argCode,
     argUsageCode: argUsageCode,
+    defaultValue: arg['default'],
+    argTestCode: argTestCode
   };
+}
+
+function getMethodArgTestCode(ctx) {
+  var results = "args.Length() == " + ctx.args.length;
+  for(var i=0; i<ctx.args.length; i++) {
+    var argTestCode = ctx.args[i].argTestCode;
+    if(argTestCode) {
+      results += " && " + argTestCode;
+    }
+  }
+  return results;
 }
 
 function methodJsonToCtx(rawJson, methodJson) {
@@ -166,7 +184,7 @@ function methodJsonToCtx(rawJson, methodJson) {
     }
   }
 
-  ctx.argTestCode = "args.Length() == " + ctx.args.length;
+  ctx.argTestCode = getMethodArgTestCode(ctx);
 
   return ctx;
 }
@@ -236,6 +254,18 @@ function rawJsonToCtx(rawJson, file) {
           var methodJson = methodJsonToCtx(rawJson, member);
           ctx.includes = concatUnique(ctx.includes, methodJson.includes);
           methodGroup.overloads.push(methodJson);
+          
+          // add overloads for each default value parameter
+          for(var argIdx=methodJson.args.length-1; argIdx>0 && methodJson.args[argIdx].defaultValue; argIdx--) {
+            var newMethodJson = JSON.parse(JSON.stringify(methodJson));
+            newMethodJson.args = newMethodJson.args.slice(0, argIdx);
+            if(newMethodJson.args.length>0) {
+              newMethodJson.args[newMethodJson.args.length-1].argUsageCode =
+                newMethodJson.args[newMethodJson.args.length-1].argUsageCode.replace(/,$/, '');
+            }
+            newMethodJson.argTestCode = getMethodArgTestCode(newMethodJson);
+            methodGroup.overloads.push(newMethodJson);
+          }
         }
         continue;
       }
