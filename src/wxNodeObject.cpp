@@ -42,11 +42,14 @@ v8::Handle<v8::Value> wxNodeObject::call(const char *fnName, int argc, v8::Handl
     v8::Local<v8::Value> propVal = subClass->Get(propName);
     v8::Local<v8::Value> basePropVal = result->Get(propName);
 
-    v8::Local<v8::Value> superWrapArgv[2];
-    superWrapArgv[0] = propVal;
-    superWrapArgv[1] = basePropVal;
-
-    result->Set(propName, superWrapMethod->Call(result, 2, superWrapArgv));
+    if(propVal->IsFunction()) {
+      v8::Local<v8::Value> superWrapArgv[2];
+      superWrapArgv[0] = propVal;
+      superWrapArgv[1] = basePropVal;
+      result->Set(propName, superWrapMethod->Call(result, 2, superWrapArgv));
+    } else {
+      result->Set(propName, propVal);
+    }
   }
 
   // call init

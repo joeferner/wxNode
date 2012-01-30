@@ -32,8 +32,8 @@ var MyFrame = wxNode.wxFrame.extend({
     //TODO: this.createStatusBar();
     //TODO: this.setStatusText("Welcome to wxNode!");
 
-    //this.EVT_MENU(ID_About, this.onAbout);
-    //this.EVT_MENU(ID_Quit, this.onQuit);
+    this.EVT_MENU(ID_About, this.onAbout);
+    this.EVT_MENU(ID_Quit, this.onQuit);
   },
 
   onQuit: function(event) {

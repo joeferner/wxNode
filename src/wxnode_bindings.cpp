@@ -5,6 +5,7 @@
 #include "frame.h"
 #include "menu.h"
 #include "menuBar.h"
+#include "messageBox.h"
 
 extern "C" {
   static void init(v8::Handle<v8::Object> target) {
@@ -12,6 +13,7 @@ extern "C" {
     NodeWxFrame::Init(target);
     NodeWxMenu::Init(target);
     NodeWxMenuBar::Init(target);
+    NodeWxMessageBox::Init(target);
   }
 
   NODE_MODULE(wxnode_bindings, init);
