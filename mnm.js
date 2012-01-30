@@ -7,18 +7,23 @@ var builder = new Builder();
 
 builder.appendUnique('CXXFLAGS', ['-Isrc/']);
 
+function build(wxCxxFlags, wxLibs) {
+  builder.appendUnique('CXXFLAGS', wxCxxFlags);
+  builder.appendUnique('LINKFLAGS', wxLibs);
+
+  builder.target = "wxnode_bindings";
+  builder.appendSourceDir('./src');
+  builder.appendUnique('CXXFLAGS', '-Isrc/');
+
+  builder.run();
+}
+
+// get the wx command line flags
 runCommandLine('wx-config', ['--cxxflags'], function(err, wxCxxFlags) {
   if(err) { builder.fail(err); return; }
   runCommandLine('wx-config', ['--libs'], function(err, wxLibs) {
     if(err) { builder.fail(err); return; }
-    builder.appendUnique('CXXFLAGS', wxCxxFlags);
-    builder.appendUnique('LINKFLAGS', wxLibs);
-
-    builder.target = "wxnode_bindings";
-    builder.appendSourceDir('./src');
-    builder.appendUnique('CXXFLAGS', '-Isrc/');
-
-    builder.run();
+    build(wxCxxFlags, wxLibs);
   });
 });
 

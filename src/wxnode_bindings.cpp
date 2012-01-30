@@ -1,9 +1,9 @@
 
 #include <v8.h>
 #include <node.h>
-#include "wxNodeClass.h"
 #include "app.h"
 #include "frame.h"
+#include "wxNodeClass.h"
 
 extern "C" {
   static void init(v8::Handle<v8::Object> target) {

@@ -19,17 +19,18 @@ protected:
 
   v8::Handle<v8::Object> self() { return m_self; }
 
-  v8::Handle<v8::Value> call(const char *fnName, int argc, v8::Handle<v8::Value> args[]) {
-    v8::Local<v8::Value> fnObj = m_self->Get(v8::String::New(fnName));
-    v8::Function *fn = v8::Function::Cast(*fnObj);
-    return fn->Call(self(), argc, args);
-  }
-
   static v8::Handle<v8::Value> NewFunc(const v8::Arguments& args) {
     return args.This();
   }
 
+  v8::Handle<v8::Value> call(const char *fnName, int argc, v8::Handle<v8::Value> args[]);
+
+  static void Init(v8::Handle<v8::FunctionTemplate>& ct);
+
 private:
+  static v8::Handle<v8::Value> extend(const v8::Arguments& args);
+  static v8::Handle<v8::Value> extendCallHandler(const v8::Arguments& args);
+
   v8::Persistent<v8::Object> m_self;
 };
 

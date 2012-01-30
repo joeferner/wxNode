@@ -6,71 +6,22 @@
 /*static*/ void wxNodeClass::Init(v8::Handle<v8::Object> target) {
   v8::HandleScope scope;
 
-  v8::Local<v8::FunctionTemplate> t = v8::FunctionTemplate::New(New);
+  v8::Local<v8::FunctionTemplate> t = v8::FunctionTemplate::New();
   s_ct = v8::Persistent<v8::FunctionTemplate>::New(t);
-  s_ct->InstanceTemplate()->SetInternalFieldCount(1);
-  s_ct->SetClassName(v8::String::NewSymbol("wxClass"));
+  s_ct->InstanceTemplate()->SetInternalFieldCount(2);
+  s_ct->SetClassName(v8::String::NewSymbol("wxNodeClass"));
 
-  NODE_SET_PROTOTYPE_METHOD(s_ct, "extend", extend);
-
-  target->Set(v8::String::NewSymbol("wxClass"), s_ct->GetFunction());
+  target->Set(v8::String::NewSymbol("wxNodeClass"), s_ct->GetFunction());
 }
 
-/*static*/ v8::Handle<v8::Value> wxNodeClass::New(const v8::Arguments& args) {
-  return args.This();
-}
+/*static*/ v8::Local<v8::Object> wxNodeClass::New(wxNodeObject *obj) {
+  v8::HandleScope scope;
+  v8::Local<v8::Function> ctor = s_ct->GetFunction();
+  v8::Local<v8::Object> newObj = ctor->NewInstance();
+  wxNodeClass* c = new wxNodeClass();
+  c->m_self = v8::Persistent<v8::Object>::New(newObj);
+  c->m_self->SetPointerInInternalField(0, obj);
+  c->m_self->SetPointerInInternalField(1, c);
 
-/*static*/ v8::Handle<v8::Value> wxNodeClass::extend(const v8::Arguments& args) {
-  /*
-    var _super = this.prototype;
-
-    // Instantiate a base class (but only create the instance,
-    // don't run the init constructor)
-    initializing = true;
-    var prototype = new this();
-    initializing = false;
-
-    // Copy the properties over onto the new prototype
-    for (var name in prop) {
-      // Check if we're overwriting an existing function
-      prototype[name] = typeof prop[name] == "function" &&
-        typeof _super[name] == "function" && fnTest.test(prop[name]) ?
-        (function(name, fn){
-          return function() {
-            var tmp = this._super;
-
-            // Add a new ._super() method that is the same method
-            // but on the super-class
-            this._super = _super[name];
-
-            // The method only need to be bound temporarily, so we
-            // remove it when we're done executing
-            var ret = fn.apply(this, arguments);
-            this._super = tmp;
-
-            return ret;
-          };
-        })(name, prop[name]) :
-        prop[name];
-    }
-
-    // The dummy class constructor
-    function Class() {
-      // All construction is actually done in the init method
-      if ( !initializing && this.init )
-        this.init.apply(this, arguments);
-    }
-
-    // Populate our constructed prototype object
-    Class.prototype = prototype;
-
-    // Enforce the constructor to be what we expect
-    Class.prototype.constructor = Class;
-
-    // And make this class extendable
-    Class.extend = arguments.callee;
-
-    return Class;
-  */
-  return args.This();
+  return scope.Close(newObj);
 }
