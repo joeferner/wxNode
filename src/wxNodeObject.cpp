@@ -56,6 +56,7 @@ v8::Handle<v8::Value> wxNodeObject::call(const char *fnName, int argc, v8::Handl
     initArgs[i] = args[i];
   }
   v8::Local<v8::Value> initObj = result->Get(v8::String::New("init"));
+
   v8::Function *initFn = v8::Function::Cast(*initObj);
   initFn->Call(result, argc, initArgs);
 
@@ -76,6 +77,9 @@ v8::Handle<v8::Value> wxNodeObject::call(const char *fnName, int argc, v8::Handl
   t->SetCallHandler(extendCallHandler, data);
   t->InstanceTemplate()->SetInternalFieldCount(1);
   v8::Local<v8::Function> ctor = t->GetFunction();
+
+  v8::Local<v8::FunctionTemplate> extend = v8::FunctionTemplate::New(wxNodeObject::extend);
+  ctor->Set(v8::String::New("extend"), extend->GetFunction());
 
   return scope.Close(ctor);
 }

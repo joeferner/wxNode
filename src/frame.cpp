@@ -1,5 +1,6 @@
 
 #include "frame.h"
+#include "menuBar.h"
 
 /* static */ v8::Persistent<v8::FunctionTemplate> NodeWxFrame::s_ct;
 
@@ -23,6 +24,7 @@ NodeWxFrame::NodeWxFrame(wxWindow *parent,
 
   NODE_SET_PROTOTYPE_METHOD(s_ct, "init", _init);
   NODE_SET_PROTOTYPE_METHOD(s_ct, "show", _show);
+  NODE_SET_PROTOTYPE_METHOD(s_ct, "setMenuBar", _setMenuBar);
   wxNodeObject::Init(s_ct);
 
   target->Set(v8::String::NewSymbol("wxFrame"), s_ct->GetFunction());
@@ -41,4 +43,14 @@ NodeWxFrame::NodeWxFrame(wxWindow *parent,
   // TODO read args
   self->wxFrame::Show(true);
   return args.This();
+}
+
+/*static*/ v8::Handle<v8::Value> NodeWxFrame::_setMenuBar(const v8::Arguments& args) {
+  NodeWxFrame *self = unwrap<NodeWxFrame>(args.This());
+
+  v8::Local<v8::Object> menuBarObj = args[0]->ToObject();
+  wxMenuBar* menuBar = wxNodeObject::unwrap<wxMenuBar>(menuBarObj);
+
+  self->SetMenuBar(menuBar);
+  return v8::Undefined();
 }
