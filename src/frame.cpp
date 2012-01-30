@@ -26,6 +26,8 @@ NodeWxFrame::NodeWxFrame(wxWindow *parent,
   NODE_SET_PROTOTYPE_METHOD(s_ct, "show", _show);
   NODE_SET_PROTOTYPE_METHOD(s_ct, "setMenuBar", _setMenuBar);
   NODE_SET_PROTOTYPE_METHOD(s_ct, "close", _close);
+  NODE_SET_PROTOTYPE_METHOD(s_ct, "createStatusBar", _createStatusBar);
+  NODE_SET_PROTOTYPE_METHOD(s_ct, "setStatusText", _setStatusText);
   NODE_SET_PROTOTYPE_METHOD(s_ct, "EVT_MENU", _EVT_MENU);
   wxNodeObject::Init(s_ct);
 
@@ -62,6 +64,27 @@ NodeWxFrame::NodeWxFrame(wxWindow *parent,
 
   // TODO: read args
   self->Close(true);
+
+  return v8::Undefined();
+}
+
+/*static*/ v8::Handle<v8::Value> NodeWxFrame::_createStatusBar(const v8::Arguments& args) {
+  NodeWxFrame *self = unwrap<NodeWxFrame>(args.This());
+
+  // TODO: read args
+  self->CreateStatusBar(true);
+
+  return v8::Undefined();
+}
+
+/*static*/ v8::Handle<v8::Value> NodeWxFrame::_setStatusText(const v8::Arguments& args) {
+  NodeWxFrame *self = unwrap<NodeWxFrame>(args.This());
+
+  // TODO: read args
+  v8::Local<v8::String> textObj = args[0]->ToString();
+  v8::String::AsciiValue text(textObj);
+
+  self->SetStatusText(*text);
 
   return v8::Undefined();
 }

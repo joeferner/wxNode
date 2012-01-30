@@ -33,6 +33,8 @@ private:
   static v8::Handle<v8::Value> _show(const v8::Arguments& args);
   static v8::Handle<v8::Value> _setMenuBar(const v8::Arguments& args);
   static v8::Handle<v8::Value> _close(const v8::Arguments& args);
+  static v8::Handle<v8::Value> _createStatusBar(const v8::Arguments& args);
+  static v8::Handle<v8::Value> _setStatusText(const v8::Arguments& args);
   static v8::Handle<v8::Value> _EVT_MENU(const v8::Arguments& args);
 
   void addCommandRangeListener(int id, int lastId, int eventType, v8::Local<v8::Object> fn);
