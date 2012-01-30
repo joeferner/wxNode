@@ -8,7 +8,7 @@ var MyApp = wxNode.wxApp.extend({
   onInit: function() {
     console.log("js:onInit");
     var frame = new MyFrame("Hello World", new wxNode.wxPoint(50, 50), new wxNode.wxSize(450, 340));
-    console.log("before show");
+    console.log("before show", frame);
     frame.show(true);
     console.log("after show");
     this.setTopWindow(frame);
@@ -17,7 +17,6 @@ var MyApp = wxNode.wxApp.extend({
 });
 
 var MyFrame = wxNode.wxFrame.extend({
-  /*
   init: function(title, pos, size) {
     this._super(null, -1, title, pos, size);
 
@@ -37,7 +36,6 @@ var MyFrame = wxNode.wxFrame.extend({
     this.EVT_MENU(ID_About, this.onAbout);
     this.EVT_MENU(ID_Quit, this.onQuit);
   },
-  */
 
   onQuit: function(event) {
     this.close(true);

@@ -6,6 +6,13 @@
 
 class NodeWxFrame : public wxFrame, public wxNodeObject {
 public:
+  NodeWxFrame(wxWindow *parent,
+    wxWindowID id,
+    const wxString& title,
+    const wxPoint& pos = wxDefaultPosition,
+    const wxSize& size = wxDefaultSize,
+    long style = wxDEFAULT_FRAME_STYLE,
+    const wxString& name = wxFrameNameStr);
   static void Init(v8::Handle<v8::Object> target);
 
 private:

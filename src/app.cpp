@@ -6,7 +6,7 @@
 /*static*/ void NodeWxApp::Init(v8::Handle<v8::Object> target) {
   v8::HandleScope scope;
 
-  v8::Local<v8::FunctionTemplate> t = v8::FunctionTemplate::New(EmptyFunc);
+  v8::Local<v8::FunctionTemplate> t = v8::FunctionTemplate::New(NewFunc);
   s_ct = v8::Persistent<v8::FunctionTemplate>::New(t);
   s_ct->InstanceTemplate()->SetInternalFieldCount(1);
   s_ct->SetClassName(v8::String::NewSymbol("wxApp"));

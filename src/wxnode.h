@@ -7,6 +7,5 @@
 #include <wx/wx.h>
 #include "wxNodeObject.h"
 
-v8::Handle<v8::Value> EmptyFunc(const v8::Arguments& args);
 
 #endif

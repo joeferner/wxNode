@@ -1,16 +1,27 @@
-/* Simple JavaScript Inheritance
- * By John Resig http://ejohn.org/
- * MIT Licensed.
- */
-// Inspired by base2 and Prototype
-(function(){
-  var initializing = false, fnTest = /\b_super\b/;
 
-  // The base Class implementation (does nothing)
-  this.Class = function(){};
+#include "wxNodeClass.h"
 
-  // Create a new Class that inherits from this class
-  Class.extend = function(prop) {
+/* static */ v8::Persistent<v8::FunctionTemplate> wxNodeClass::s_ct;
+
+/*static*/ void wxNodeClass::Init(v8::Handle<v8::Object> target) {
+  v8::HandleScope scope;
+
+  v8::Local<v8::FunctionTemplate> t = v8::FunctionTemplate::New(New);
+  s_ct = v8::Persistent<v8::FunctionTemplate>::New(t);
+  s_ct->InstanceTemplate()->SetInternalFieldCount(1);
+  s_ct->SetClassName(v8::String::NewSymbol("wxClass"));
+
+  NODE_SET_PROTOTYPE_METHOD(s_ct, "extend", extend);
+
+  target->Set(v8::String::NewSymbol("wxClass"), s_ct->GetFunction());
+}
+
+/*static*/ v8::Handle<v8::Value> wxNodeClass::New(const v8::Arguments& args) {
+  return args.This();
+}
+
+/*static*/ v8::Handle<v8::Value> wxNodeClass::extend(const v8::Arguments& args) {
+  /*
     var _super = this.prototype;
 
     // Instantiate a base class (but only create the instance,
@@ -60,5 +71,6 @@
     Class.extend = arguments.callee;
 
     return Class;
-  };
-})();
+  */
+  return args.This();
+}
