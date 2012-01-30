@@ -3,11 +3,9 @@
 #include <node.h>
 #include "app.h"
 #include "frame.h"
-#include "wxNodeClass.h"
 
 extern "C" {
   static void init(v8::Handle<v8::Object> target) {
-    wxNodeClass::Init(target);
     NodeWxApp::Init(target);
     NodeWxFrame::Init(target);
   }

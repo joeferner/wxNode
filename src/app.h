@@ -11,7 +11,7 @@ public:
   virtual bool OnInit();
 
 private:
-  static v8::Handle<v8::Value> New(const v8::Arguments& args);
+  static v8::Handle<v8::Value> _init(const v8::Arguments& args);
   static v8::Handle<v8::Value> _run(const v8::Arguments& args);
   static v8::Handle<v8::Value> _onInit(const v8::Arguments& args);
   static v8::Handle<v8::Value> _setTopWindow(const v8::Arguments& args);

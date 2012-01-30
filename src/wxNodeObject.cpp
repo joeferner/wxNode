@@ -1,7 +1,6 @@
 
 #include "wxnode.h"
 #include "wxNodeObject.h"
-#include "wxNodeClass.h"
 
 v8::Handle<v8::Value> wxNodeObject::call(const char *fnName, int argc, v8::Handle<v8::Value> args[]) {
   v8::HandleScope scope;
@@ -30,47 +29,37 @@ v8::Handle<v8::Value> wxNodeObject::call(const char *fnName, int argc, v8::Handl
   v8::Handle<v8::Object> baseClass = argsData->Get(v8::String::New("baseClass"))->ToObject();
   v8::Handle<v8::Object> subClass = argsData->Get(v8::String::New("subClass"))->ToObject();
 
-  // pass args
+  // create new object
   v8::Local<v8::Value> argv[0];
   result = v8::Object::Cast(*baseClass->CallAsConstructor(0, argv));
 
+  v8::Function* superWrapMethod = v8::Function::Cast(*v8::Context::GetCurrent()->Global()->Get(v8::String::New("__superWrapMethod")));
+
+  // copy subClass methods
   v8::Local<v8::Array> subClassPropNames = subClass->GetPropertyNames();
   for(uint32_t i=0; i<subClassPropNames->Length(); i++) {
     v8::Local<v8::String> propName = subClassPropNames->Get(i)->ToString();
     v8::Local<v8::Value> propVal = subClass->Get(propName);
+    v8::Local<v8::Value> basePropVal = result->Get(propName);
 
-    result->Set(propName, propVal);
+    v8::Local<v8::Value> superWrapArgv[2];
+    superWrapArgv[0] = propVal;
+    superWrapArgv[1] = basePropVal;
+
+    result->Set(propName, superWrapMethod->Call(result, 2, superWrapArgv));
   }
 
-  // TODO: copy subClass methods
+  // call init
+  int argc = args.Length();
+  v8::Handle<v8::Value>* initArgs = new v8::Handle<v8::Value>[argc];
+  for(int i=0; i<argc; i++) {
+    initArgs[i] = args[i];
+  }
+  v8::Local<v8::Value> initObj = result->Get(v8::String::New("init"));
+  v8::Function *initFn = v8::Function::Cast(*initObj);
+  initFn->Call(result, argc, initArgs);
 
   return scope.Close(result);
-
-  /*
-  for (var name in prop) {
-    // Check if we're overwriting an existing function
-    prototype[name] = typeof prop[name] == "function" &&
-      typeof _super[name] == "function" && fnTest.test(prop[name]) ?
-      (function(name, fn){
-        return function() {
-          var tmp = this._super;
-
-          // Add a new ._super() method that is the same method
-          // but on the super-class
-          this._super = _super[name];
-
-          // The method only need to be bound temporarily, so we
-          // remove it when we're done executing
-          var ret = fn.apply(this, arguments);
-          this._super = tmp;
-
-          return ret;
-        };
-      })(name, prop[name]) :
-      prop[name];
-  }
-  */
-
 }
 
 
