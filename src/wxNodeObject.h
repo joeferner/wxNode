@@ -7,14 +7,19 @@
 
 class wxNodeObject {
 protected:
-  void wrap(v8::Handle<v8::Object> handle) {
+  inline void wrap(v8::Handle<v8::Object> handle) {
+    wrap(handle, this);
+  }
+
+  inline void wrap(v8::Handle<v8::Object> handle, void *p) {
     m_self = v8::Persistent<v8::Object>::New(handle);
-    m_self->SetPointerInInternalField(0, this);
+    m_self->SetPointerInInternalField(0, p);
   }
 
   template <class T>
   static inline T* unwrap(v8::Handle<v8::Object> handle) {
-    return static_cast<T*>(handle->GetPointerFromInternalField(0));
+    void *p = handle->GetPointerFromInternalField(0);
+    return static_cast<T*>(p);
   }
 
   v8::Handle<v8::Object> self() { return m_self; }

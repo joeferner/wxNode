@@ -27,20 +27,17 @@ NodeWxFrame::NodeWxFrame(wxWindow *parent,
   target->Set(v8::String::NewSymbol("wxFrame"), s_ct->GetFunction());
 }
 
+
 /*static*/ v8::Handle<v8::Value> NodeWxFrame::New(const v8::Arguments& args) {
   v8::HandleScope scope;
-  printf("init field count %d\n", (int)args.This()->InternalFieldCount());
   NodeWxFrame *self = new NodeWxFrame(NULL, -1, _("Hello World"), wxPoint(50, 50), wxSize(450, 340)); // TODO fill in args
-  printf("self %d\n", (int)self);
-  self->wrap(args.This());
+  self->wrap(args.This(), self);
   return args.This();
 }
 
 /*static*/ v8::Handle<v8::Value> NodeWxFrame::_show(const v8::Arguments& args) {
   NodeWxFrame *self = unwrap<NodeWxFrame>(args.This());
   // TODO read args
-  printf("before: c show %d\n", (int)self);
   self->wxFrame::Show(true);
-  printf("after: c show\n");
   return args.This();
 }

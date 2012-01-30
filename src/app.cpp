@@ -1,5 +1,6 @@
 
 #include "app.h"
+#include "frame.h"
 
 /* static */ v8::Persistent<v8::FunctionTemplate> NodeWxApp::s_ct;
 
@@ -13,6 +14,7 @@
 
   NODE_SET_PROTOTYPE_METHOD(s_ct, "onInit", _onInit);
   NODE_SET_PROTOTYPE_METHOD(s_ct, "run", _run);
+  NODE_SET_PROTOTYPE_METHOD(s_ct, "setTopWindow", _setTopWindow);
   wxNodeObject::Init(s_ct);
 
   target->Set(v8::String::NewSymbol("wxApp"), s_ct->GetFunction());
@@ -26,7 +28,6 @@
 }
 
 bool NodeWxApp::OnInit() {
-  printf("OnInit\n");
   v8::Handle<v8::Value> args[0];
   v8::Handle<v8::Value> result = call("onInit", 0, args);
   if(result.IsEmpty()) return false;
@@ -46,5 +47,13 @@ bool NodeWxApp::OnInit() {
 }
 
 /*static*/ v8::Handle<v8::Value> NodeWxApp::_onInit(const v8::Arguments& args) {
+  return v8::Undefined();
+}
+
+/*static*/ v8::Handle<v8::Value> NodeWxApp::_setTopWindow(const v8::Arguments& args) {
+  NodeWxApp *self = unwrap<NodeWxApp>(args.This());
+  v8::Local<v8::Object> windowObj = args[0]->ToObject();
+  wxFrame* wnd = wxNodeObject::unwrap<wxFrame>(windowObj);
+  self->SetTopWindow(wnd);
   return v8::Undefined();
 }

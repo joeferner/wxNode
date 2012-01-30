@@ -30,6 +30,7 @@ v8::Handle<v8::Value> wxNodeObject::call(const char *fnName, int argc, v8::Handl
   v8::Handle<v8::Object> baseClass = argsData->Get(v8::String::New("baseClass"))->ToObject();
   v8::Handle<v8::Object> subClass = argsData->Get(v8::String::New("subClass"))->ToObject();
 
+  // pass args
   v8::Local<v8::Value> argv[0];
   result = v8::Object::Cast(*baseClass->CallAsConstructor(0, argv));
 
