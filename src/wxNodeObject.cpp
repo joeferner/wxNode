@@ -78,7 +78,7 @@ v8::Handle<v8::Value> wxNodeObject::call(const char *fnName, int argc, v8::Handl
 
   v8::Local<v8::FunctionTemplate> t = v8::FunctionTemplate::New();
   t->SetCallHandler(extendCallHandler, data);
-  t->InstanceTemplate()->SetInternalFieldCount(1);
+  t->InstanceTemplate()->SetInternalFieldCount(2);
   v8::Local<v8::Function> ctor = t->GetFunction();
 
   v8::Local<v8::FunctionTemplate> extend = v8::FunctionTemplate::New(wxNodeObject::extend);

@@ -8,7 +8,7 @@
 
   v8::Local<v8::FunctionTemplate> t = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
   s_ct = v8::Persistent<v8::FunctionTemplate>::New(t);
-  s_ct->InstanceTemplate()->SetInternalFieldCount(1);
+  s_ct->InstanceTemplate()->SetInternalFieldCount(2);
   s_ct->SetClassName(v8::String::NewSymbol("wxMessageBox"));
 
   NODE_SET_METHOD(s_ct, "show", _show);

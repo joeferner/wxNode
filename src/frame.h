@@ -3,20 +3,9 @@
 #define _wxnode_frame_h_
 
 #include "wxnode.h"
-#include <vector>
+#include "evtHandler.h"
 
-class ListenerData {
-public:
-  ListenerData(int eventType, v8::Local<v8::Object> fn) {
-    m_eventType = eventType;
-    m_fn = v8::Persistent<v8::Object>::New(fn); // TODO: cleanup persistent
-  }
-
-  v8::Persistent<v8::Object> m_fn;
-  int m_eventType;
-};
-
-class NodeWxFrame : public wxFrame, public wxNodeObject {
+class NodeWxFrame : public wxFrame, public wxNodeObject, public NodeExEvtHandlerImpl {
 public:
   NodeWxFrame(wxWindow *parent,
     wxWindowID id,
@@ -26,10 +15,10 @@ public:
     long style = wxDEFAULT_FRAME_STYLE,
     const wxString& name = wxFrameNameStr);
   static void Init(v8::Handle<v8::Object> target);
-  void fireEvent(int iListener, wxEvent& event);
+  virtual v8::Handle<v8::Object> self() { return m_self; }
 
   virtual bool Destroy();
-  
+
 private:
   static v8::Handle<v8::Value> _init(const v8::Arguments& args);
   static v8::Handle<v8::Value> _show(const v8::Arguments& args);
@@ -37,15 +26,8 @@ private:
   static v8::Handle<v8::Value> _close(const v8::Arguments& args);
   static v8::Handle<v8::Value> _createStatusBar(const v8::Arguments& args);
   static v8::Handle<v8::Value> _setStatusText(const v8::Arguments& args);
-  static v8::Handle<v8::Value> _EVT_MENU(const v8::Arguments& args);
-
-  void addCommandRangeListener(int id, int lastId, int eventType, v8::Local<v8::Object> fn);
-  void addCommandListener(int id, int eventType, v8::Local<v8::Object> fn);
-  void connect(int id, int lastId, int eventType, int iListener);
 
   static v8::Persistent<v8::FunctionTemplate> s_ct;
-
-  std::vector<ListenerData*> m_listeners;
 };
 
 

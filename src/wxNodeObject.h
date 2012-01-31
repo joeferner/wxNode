@@ -5,15 +5,14 @@
 #include <v8.h>
 #include <assert.h>
 
+class NodeExEvtHandlerImpl;
+
 class wxNodeObject {
 protected:
-  inline void wrap(v8::Handle<v8::Object> handle) {
-    wrap(handle, this);
-  }
-
-  inline void wrap(v8::Handle<v8::Object> handle, void *p) {
+  inline void wrap(v8::Handle<v8::Object> handle, void* self, NodeExEvtHandlerImpl* evtHandler) {
     m_self = v8::Persistent<v8::Object>::New(handle);
-    m_self->SetPointerInInternalField(0, p);
+    m_self->SetPointerInInternalField(0, self);
+    m_self->SetPointerInInternalField(1, evtHandler);
   }
 
   template <class T>
@@ -22,7 +21,12 @@ protected:
     return static_cast<T*>(p);
   }
 
-  v8::Handle<v8::Object> self() { return m_self; }
+  // This is required because of multiple inheritance issues and the "this" pointer.
+  static inline NodeExEvtHandlerImpl* unwrapEvtHandler(v8::Handle<v8::Object> handle) {
+    return static_cast<NodeExEvtHandlerImpl*>(handle->GetPointerFromInternalField(1));
+  }
+
+  virtual v8::Handle<v8::Object> self() { return m_self; }
 
   static v8::Handle<v8::Value> NewFunc(const v8::Arguments& args) {
     return args.This();
@@ -32,7 +36,7 @@ protected:
 
   static void Init(v8::Handle<v8::FunctionTemplate>& ct);
 
-private:
+protected:
   static v8::Handle<v8::Value> extend(const v8::Arguments& args);
   static v8::Handle<v8::Value> extendCallHandler(const v8::Arguments& args);
 

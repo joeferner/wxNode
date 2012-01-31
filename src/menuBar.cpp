@@ -9,7 +9,7 @@
 
   v8::Local<v8::FunctionTemplate> t = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
   s_ct = v8::Persistent<v8::FunctionTemplate>::New(t);
-  s_ct->InstanceTemplate()->SetInternalFieldCount(1);
+  s_ct->InstanceTemplate()->SetInternalFieldCount(2);
   s_ct->SetClassName(v8::String::NewSymbol("wxMenuBar"));
 
   NODE_SET_PROTOTYPE_METHOD(s_ct, "init", _init);
@@ -22,7 +22,7 @@
 /*static*/ v8::Handle<v8::Value> NodeWxMenuBar::_init(const v8::Arguments& args) {
   v8::HandleScope scope;
   NodeWxMenuBar *self = new NodeWxMenuBar();
-  self->wrap(args.This(), self);
+  self->wrap(args.This(), self, NULL);
   return args.This();
 }
 
