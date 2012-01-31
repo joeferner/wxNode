@@ -1,6 +1,6 @@
 
 #include "menuBar.h"
-#include "menu.h"
+#include "wxNode_wxMenu.h"
 
 /* static */ v8::Persistent<v8::FunctionTemplate> NodeWxMenuBar::s_ct;
 
@@ -30,7 +30,7 @@
   NodeWxMenuBar *self = unwrap<NodeWxMenuBar>(args.This());
 
   v8::Local<v8::Object> menuObj = args[0]->ToObject();
-  wxMenu* menu = wxNodeObject::unwrap<wxMenu>(menuObj);
+  wxNode_wxMenu* menu = wxNodeObject::unwrap<wxNode_wxMenu>(menuObj);
 
   v8::Local<v8::String> nameObj = args[1]->ToString();
   v8::String::AsciiValue name(nameObj);

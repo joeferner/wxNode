@@ -16,7 +16,10 @@
     "mnm": "~0.0.2"
   },
   "devDependencies": {
-    "nodeunit": "~0.6.4"
+    "nodeunit": "~0.6.4",
+    "mustache": "git://github.com/janl/mustache.js.git",
+    "JSONPath": "~0.8.5",
+    "xml2js": "~0.1.13"
   },
   "scripts": {
     "test": "nodeunit test",
