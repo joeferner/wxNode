@@ -97,7 +97,7 @@ function argJsonToCtx(ctx, rawJson, arg, i) {
   var typeId = arg['type'];
   var type = lookupClassById(rawJson, typeId);
   var argCode = "unhandled argCode type " + type['name'];
-  var argUsageCode = "";
+  var argCallCode = "";
   var typeName = type['name'];
   var argName = arg['name'];
   var argTestCode = "false";
@@ -107,27 +107,27 @@ function argJsonToCtx(ctx, rawJson, arg, i) {
   if(typeName == "int" || typeName == "long int" || typeName == "size_t") {
     if(type.pointers == '*') {
       argCode = util.format("%s %s;", typeName, argName);
-      argUsageCode = "&" + argName;
+      argCallCode = "&" + argName;
     } else {
       argCode = util.format("%s %s = (%s)args[%d]->ToInt32()->Value();", typeName, argName, typeName, i);
-      argUsageCode = argName;
+      argCallCode = argName;
       argTestCode = util.format("args[%d]->IsNumber()", i);
     }
   } else if(typeName == "bool") {
     argCode = util.format("bool %s = args[%d]->ToBoolean()->Value();", argName, i);
-    argUsageCode = argName;
+    argCallCode = argName;
     argTestCode = util.format("args[%d]->IsBoolean()", i);
   } else if(typeName == "wxString") {
     argCode = util.format("v8::String::AsciiValue %s(args[%d]->ToString());", argName, i);
-    argUsageCode = "*" + argName;
+    argCallCode = "*" + argName;
     argTestCode = util.format("args[%d]->IsString()", i);
   } else if(typeName.match(/^wx.*/)) {
     if(type.pointers == '**') {
       argCode = util.format("%s* %s;", typeName, argName);
-      argUsageCode = "&" + argName;
+      argCallCode = "&" + argName;
     } else {
       argCode = util.format("wxNode_%s* %s = wxNodeObject::unwrap<wxNode_%s>(args[%d]->ToObject());", typeName, argName, typeName, i);
-      argUsageCode = argName;
+      argCallCode = argName;
       argTestCode = util.format("args[%d]->IsObject()", i);
     }
     ctx.includes = concatUnique(ctx.includes, ["wxNode_" + typeName + ".h"]);
@@ -142,7 +142,7 @@ function argJsonToCtx(ctx, rawJson, arg, i) {
     type: typeName,
     typeId: type['id'],
     argCode: argCode,
-    argUsageCode: argUsageCode,
+    argCallCode: argCallCode,
     defaultValue: arg['default'],
     argTestCode: argTestCode
   };
@@ -155,6 +155,17 @@ function getMethodArgTestCode(ctx) {
     if(argTestCode) {
       results += " && " + argTestCode;
     }
+  }
+  return results;
+}
+
+function getMethodArgCallCode(ctx) {
+  var results = "";
+  for(var i=0; i<ctx.args.length; i++) {
+    if(i != 0) {
+      results += ", ";
+    }
+    results += ctx.args[i].argCallCode;
   }
   return results;
 }
@@ -177,16 +188,18 @@ function methodJsonToCtx(rawJson, methodJson) {
   if(args) {
     for(var i=0; i<args.length; i++) {
       var arg = argJsonToCtx(ctx, rawJson, args[i], i);
-      if(i != args.length - 1) {
-        arg.argUsageCode = arg.argUsageCode + ",";
-      }
       ctx.args.push(arg);
     }
   }
 
-  ctx.argTestCode = getMethodArgTestCode(ctx);
+  updateMethodCalculatedFields(ctx);
 
   return ctx;
+}
+
+function updateMethodCalculatedFields(ctx) {
+  ctx.argTestCode = getMethodArgTestCode(ctx);
+  ctx.argCallCode = getMethodArgCallCode(ctx);
 }
 
 function toJsName(str) {
@@ -254,16 +267,12 @@ function rawJsonToCtx(rawJson, file) {
           var methodJson = methodJsonToCtx(rawJson, member);
           ctx.includes = concatUnique(ctx.includes, methodJson.includes);
           methodGroup.overloads.push(methodJson);
-          
+
           // add overloads for each default value parameter
           for(var argIdx=methodJson.args.length-1; argIdx>0 && methodJson.args[argIdx].defaultValue; argIdx--) {
             var newMethodJson = JSON.parse(JSON.stringify(methodJson));
             newMethodJson.args = newMethodJson.args.slice(0, argIdx);
-            if(newMethodJson.args.length>0) {
-              newMethodJson.args[newMethodJson.args.length-1].argUsageCode =
-                newMethodJson.args[newMethodJson.args.length-1].argUsageCode.replace(/,$/, '');
-            }
-            newMethodJson.argTestCode = getMethodArgTestCode(newMethodJson);
+            updateMethodCalculatedFields(newMethodJson);
             methodGroup.overloads.push(newMethodJson);
           }
         }

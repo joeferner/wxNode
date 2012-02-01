@@ -42,10 +42,7 @@
     {{#args}}{{{argCode}}}
     {{/args}}
 
-    self->{{name}}(
-      {{#args}}{{{argUsageCode}}}
-      {{/args}}
-    );
+    self->{{name}}({{{argCallCode}}});
 
     // TODO: handle return type
     return v8::Undefined();

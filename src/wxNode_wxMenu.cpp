@@ -96,11 +96,7 @@
     long int style = (long int)args[1]->ToInt32()->Value(); /* type: _586  */
     
 
-    self->New(
-      *title,
-      style
-      
-    );
+    self->New(*title, style);
 
     // TODO: handle return type
     return v8::Undefined();
@@ -113,10 +109,7 @@
     v8::String::AsciiValue title(args[0]->ToString()); /* type: _14808  */
     
 
-    self->New(
-      *title
-      
-    );
+    self->New(*title);
 
     // TODO: handle return type
     return v8::Undefined();
@@ -141,13 +134,7 @@
     wxNode_wxItemKind* kind = wxNodeObject::unwrap<wxNode_wxItemKind>(args[3]->ToObject()); /* type: _4625  */
     
 
-    self->Append(
-      itemid,
-      *text,
-      *help,
-      kind
-      
-    );
+    self->Append(itemid, *text, *help, kind);
 
     // TODO: handle return type
     return v8::Undefined();
@@ -162,12 +149,7 @@
     v8::String::AsciiValue help(args[2]->ToString()); /* type: _14808  */
     
 
-    self->Append(
-      itemid,
-      *text,
-      *help
-      
-    );
+    self->Append(itemid, *text, *help);
 
     // TODO: handle return type
     return v8::Undefined();
@@ -181,11 +163,7 @@
     v8::String::AsciiValue text(args[1]->ToString()); /* type: _14808  */
     
 
-    self->Append(
-      itemid,
-      *text
-      
-    );
+    self->Append(itemid, *text);
 
     // TODO: handle return type
     return v8::Undefined();
@@ -198,10 +176,7 @@
     int itemid = (int)args[0]->ToInt32()->Value(); /* type: _162  */
     
 
-    self->Append(
-      itemid
-      
-    );
+    self->Append(itemid);
 
     // TODO: handle return type
     return v8::Undefined();
@@ -214,10 +189,7 @@
     wxNode_wxMenuItem* item = wxNodeObject::unwrap<wxNode_wxMenuItem>(args[0]->ToObject()); /* type: _51683 * */
     
 
-    self->Append(
-      item
-      
-    );
+    self->Append(item);
 
     // TODO: handle return type
     return v8::Undefined();
@@ -233,13 +205,7 @@
     bool isCheckable = args[3]->ToBoolean()->Value(); /* type: _14666  */
     
 
-    self->Append(
-      itemid,
-      *text,
-      *help,
-      isCheckable
-      
-    );
+    self->Append(itemid, *text, *help, isCheckable);
 
     // TODO: handle return type
     return v8::Undefined();
@@ -255,13 +221,7 @@
     v8::String::AsciiValue help(args[3]->ToString()); /* type: _14808  */
     
 
-    self->Append(
-      itemid,
-      *text,
-      submenu,
-      *help
-      
-    );
+    self->Append(itemid, *text, submenu, *help);
 
     // TODO: handle return type
     return v8::Undefined();
@@ -276,12 +236,7 @@
     wxNode_wxMenu* submenu = wxNodeObject::unwrap<wxNode_wxMenu>(args[2]->ToObject()); /* type: _52838 * */
     
 
-    self->Append(
-      itemid,
-      *text,
-      submenu
-      
-    );
+    self->Append(itemid, *text, submenu);
 
     // TODO: handle return type
     return v8::Undefined();
@@ -302,9 +257,7 @@
   if(args.Length() == 0) {
     
 
-    self->AppendSeparator(
-      
-    );
+    self->AppendSeparator();
 
     // TODO: handle return type
     return v8::Undefined();
@@ -328,12 +281,7 @@
     v8::String::AsciiValue help(args[2]->ToString()); /* type: _14808  */
     
 
-    self->AppendCheckItem(
-      itemid,
-      *text,
-      *help
-      
-    );
+    self->AppendCheckItem(itemid, *text, *help);
 
     // TODO: handle return type
     return v8::Undefined();
@@ -347,11 +295,7 @@
     v8::String::AsciiValue text(args[1]->ToString()); /* type: _14808  */
     
 
-    self->AppendCheckItem(
-      itemid,
-      *text
-      
-    );
+    self->AppendCheckItem(itemid, *text);
 
     // TODO: handle return type
     return v8::Undefined();
@@ -375,12 +319,7 @@
     v8::String::AsciiValue help(args[2]->ToString()); /* type: _14808  */
     
 
-    self->AppendRadioItem(
-      itemid,
-      *text,
-      *help
-      
-    );
+    self->AppendRadioItem(itemid, *text, *help);
 
     // TODO: handle return type
     return v8::Undefined();
@@ -394,11 +333,7 @@
     v8::String::AsciiValue text(args[1]->ToString()); /* type: _14808  */
     
 
-    self->AppendRadioItem(
-      itemid,
-      *text
-      
-    );
+    self->AppendRadioItem(itemid, *text);
 
     // TODO: handle return type
     return v8::Undefined();
@@ -422,12 +357,7 @@
     v8::String::AsciiValue help(args[2]->ToString()); /* type: _14808  */
     
 
-    self->AppendSubMenu(
-      submenu,
-      *text,
-      *help
-      
-    );
+    self->AppendSubMenu(submenu, *text, *help);
 
     // TODO: handle return type
     return v8::Undefined();
@@ -441,11 +371,7 @@
     v8::String::AsciiValue text(args[1]->ToString()); /* type: _14808  */
     
 
-    self->AppendSubMenu(
-      submenu,
-      *text
-      
-    );
+    self->AppendSubMenu(submenu, *text);
 
     // TODO: handle return type
     return v8::Undefined();
@@ -466,9 +392,7 @@
   if(args.Length() == 0) {
     
 
-    self->Break(
-      
-    );
+    self->Break();
 
     // TODO: handle return type
     return v8::Undefined();
@@ -491,11 +415,7 @@
     wxNode_wxMenuItem* item = wxNodeObject::unwrap<wxNode_wxMenuItem>(args[1]->ToObject()); /* type: _51683 * */
     
 
-    self->Insert(
-      pos,
-      item
-      
-    );
+    self->Insert(pos, item);
 
     // TODO: handle return type
     return v8::Undefined();
@@ -512,14 +432,7 @@
     wxNode_wxItemKind* kind = wxNodeObject::unwrap<wxNode_wxItemKind>(args[4]->ToObject()); /* type: _4625  */
     
 
-    self->Insert(
-      pos,
-      itemid,
-      *text,
-      *help,
-      kind
-      
-    );
+    self->Insert(pos, itemid, *text, *help, kind);
 
     // TODO: handle return type
     return v8::Undefined();
@@ -535,13 +448,7 @@
     v8::String::AsciiValue help(args[3]->ToString()); /* type: _14808  */
     
 
-    self->Insert(
-      pos,
-      itemid,
-      *text,
-      *help
-      
-    );
+    self->Insert(pos, itemid, *text, *help);
 
     // TODO: handle return type
     return v8::Undefined();
@@ -556,12 +463,7 @@
     v8::String::AsciiValue text(args[2]->ToString()); /* type: _14808  */
     
 
-    self->Insert(
-      pos,
-      itemid,
-      *text
-      
-    );
+    self->Insert(pos, itemid, *text);
 
     // TODO: handle return type
     return v8::Undefined();
@@ -575,11 +477,7 @@
     int itemid = (int)args[1]->ToInt32()->Value(); /* type: _162  */
     
 
-    self->Insert(
-      pos,
-      itemid
-      
-    );
+    self->Insert(pos, itemid);
 
     // TODO: handle return type
     return v8::Undefined();
@@ -596,14 +494,7 @@
     v8::String::AsciiValue help(args[4]->ToString()); /* type: _14808  */
     
 
-    self->Insert(
-      pos,
-      itemid,
-      *text,
-      submenu,
-      *help
-      
-    );
+    self->Insert(pos, itemid, *text, submenu, *help);
 
     // TODO: handle return type
     return v8::Undefined();
@@ -619,13 +510,7 @@
     wxNode_wxMenu* submenu = wxNodeObject::unwrap<wxNode_wxMenu>(args[3]->ToObject()); /* type: _52838 * */
     
 
-    self->Insert(
-      pos,
-      itemid,
-      *text,
-      submenu
-      
-    );
+    self->Insert(pos, itemid, *text, submenu);
 
     // TODO: handle return type
     return v8::Undefined();
@@ -642,14 +527,7 @@
     bool isCheckable = args[4]->ToBoolean()->Value(); /* type: _14666  */
     
 
-    self->Insert(
-      pos,
-      itemid,
-      *text,
-      *help,
-      isCheckable
-      
-    );
+    self->Insert(pos, itemid, *text, *help, isCheckable);
 
     // TODO: handle return type
     return v8::Undefined();
@@ -671,10 +549,7 @@
     size_t pos = (size_t)args[0]->ToInt32()->Value(); /* type: _8620  */
     
 
-    self->InsertSeparator(
-      pos
-      
-    );
+    self->InsertSeparator(pos);
 
     // TODO: handle return type
     return v8::Undefined();
@@ -699,13 +574,7 @@
     v8::String::AsciiValue help(args[3]->ToString()); /* type: _14808  */
     
 
-    self->InsertCheckItem(
-      pos,
-      itemid,
-      *text,
-      *help
-      
-    );
+    self->InsertCheckItem(pos, itemid, *text, *help);
 
     // TODO: handle return type
     return v8::Undefined();
@@ -720,12 +589,7 @@
     v8::String::AsciiValue text(args[2]->ToString()); /* type: _14808  */
     
 
-    self->InsertCheckItem(
-      pos,
-      itemid,
-      *text
-      
-    );
+    self->InsertCheckItem(pos, itemid, *text);
 
     // TODO: handle return type
     return v8::Undefined();
@@ -750,13 +614,7 @@
     v8::String::AsciiValue help(args[3]->ToString()); /* type: _14808  */
     
 
-    self->InsertRadioItem(
-      pos,
-      itemid,
-      *text,
-      *help
-      
-    );
+    self->InsertRadioItem(pos, itemid, *text, *help);
 
     // TODO: handle return type
     return v8::Undefined();
@@ -771,12 +629,7 @@
     v8::String::AsciiValue text(args[2]->ToString()); /* type: _14808  */
     
 
-    self->InsertRadioItem(
-      pos,
-      itemid,
-      *text
-      
-    );
+    self->InsertRadioItem(pos, itemid, *text);
 
     // TODO: handle return type
     return v8::Undefined();
@@ -798,10 +651,7 @@
     wxNode_wxMenuItem* item = wxNodeObject::unwrap<wxNode_wxMenuItem>(args[0]->ToObject()); /* type: _51683 * */
     
 
-    self->Prepend(
-      item
-      
-    );
+    self->Prepend(item);
 
     // TODO: handle return type
     return v8::Undefined();
@@ -817,13 +667,7 @@
     wxNode_wxItemKind* kind = wxNodeObject::unwrap<wxNode_wxItemKind>(args[3]->ToObject()); /* type: _4625  */
     
 
-    self->Prepend(
-      itemid,
-      *text,
-      *help,
-      kind
-      
-    );
+    self->Prepend(itemid, *text, *help, kind);
 
     // TODO: handle return type
     return v8::Undefined();
@@ -838,12 +682,7 @@
     v8::String::AsciiValue help(args[2]->ToString()); /* type: _14808  */
     
 
-    self->Prepend(
-      itemid,
-      *text,
-      *help
-      
-    );
+    self->Prepend(itemid, *text, *help);
 
     // TODO: handle return type
     return v8::Undefined();
@@ -857,11 +696,7 @@
     v8::String::AsciiValue text(args[1]->ToString()); /* type: _14808  */
     
 
-    self->Prepend(
-      itemid,
-      *text
-      
-    );
+    self->Prepend(itemid, *text);
 
     // TODO: handle return type
     return v8::Undefined();
@@ -874,10 +709,7 @@
     int itemid = (int)args[0]->ToInt32()->Value(); /* type: _162  */
     
 
-    self->Prepend(
-      itemid
-      
-    );
+    self->Prepend(itemid);
 
     // TODO: handle return type
     return v8::Undefined();
@@ -893,13 +725,7 @@
     v8::String::AsciiValue help(args[3]->ToString()); /* type: _14808  */
     
 
-    self->Prepend(
-      itemid,
-      *text,
-      submenu,
-      *help
-      
-    );
+    self->Prepend(itemid, *text, submenu, *help);
 
     // TODO: handle return type
     return v8::Undefined();
@@ -914,12 +740,7 @@
     wxNode_wxMenu* submenu = wxNodeObject::unwrap<wxNode_wxMenu>(args[2]->ToObject()); /* type: _52838 * */
     
 
-    self->Prepend(
-      itemid,
-      *text,
-      submenu
-      
-    );
+    self->Prepend(itemid, *text, submenu);
 
     // TODO: handle return type
     return v8::Undefined();
@@ -935,13 +756,7 @@
     bool isCheckable = args[3]->ToBoolean()->Value(); /* type: _14666  */
     
 
-    self->Prepend(
-      itemid,
-      *text,
-      *help,
-      isCheckable
-      
-    );
+    self->Prepend(itemid, *text, *help, isCheckable);
 
     // TODO: handle return type
     return v8::Undefined();
@@ -962,9 +777,7 @@
   if(args.Length() == 0) {
     
 
-    self->PrependSeparator(
-      
-    );
+    self->PrependSeparator();
 
     // TODO: handle return type
     return v8::Undefined();
@@ -988,12 +801,7 @@
     v8::String::AsciiValue help(args[2]->ToString()); /* type: _14808  */
     
 
-    self->PrependCheckItem(
-      itemid,
-      *text,
-      *help
-      
-    );
+    self->PrependCheckItem(itemid, *text, *help);
 
     // TODO: handle return type
     return v8::Undefined();
@@ -1007,11 +815,7 @@
     v8::String::AsciiValue text(args[1]->ToString()); /* type: _14808  */
     
 
-    self->PrependCheckItem(
-      itemid,
-      *text
-      
-    );
+    self->PrependCheckItem(itemid, *text);
 
     // TODO: handle return type
     return v8::Undefined();
@@ -1035,12 +839,7 @@
     v8::String::AsciiValue help(args[2]->ToString()); /* type: _14808  */
     
 
-    self->PrependRadioItem(
-      itemid,
-      *text,
-      *help
-      
-    );
+    self->PrependRadioItem(itemid, *text, *help);
 
     // TODO: handle return type
     return v8::Undefined();
@@ -1054,11 +853,7 @@
     v8::String::AsciiValue text(args[1]->ToString()); /* type: _14808  */
     
 
-    self->PrependRadioItem(
-      itemid,
-      *text
-      
-    );
+    self->PrependRadioItem(itemid, *text);
 
     // TODO: handle return type
     return v8::Undefined();
@@ -1080,10 +875,7 @@
     int itemid = (int)args[0]->ToInt32()->Value(); /* type: _162  */
     
 
-    self->Remove(
-      itemid
-      
-    );
+    self->Remove(itemid);
 
     // TODO: handle return type
     return v8::Undefined();
@@ -1096,10 +888,7 @@
     wxNode_wxMenuItem* item = wxNodeObject::unwrap<wxNode_wxMenuItem>(args[0]->ToObject()); /* type: _51683 * */
     
 
-    self->Remove(
-      item
-      
-    );
+    self->Remove(item);
 
     // TODO: handle return type
     return v8::Undefined();
@@ -1121,10 +910,7 @@
     int itemid = (int)args[0]->ToInt32()->Value(); /* type: _162  */
     
 
-    self->Delete(
-      itemid
-      
-    );
+    self->Delete(itemid);
 
     // TODO: handle return type
     return v8::Undefined();
@@ -1137,10 +923,7 @@
     wxNode_wxMenuItem* item = wxNodeObject::unwrap<wxNode_wxMenuItem>(args[0]->ToObject()); /* type: _51683 * */
     
 
-    self->Delete(
-      item
-      
-    );
+    self->Delete(item);
 
     // TODO: handle return type
     return v8::Undefined();
@@ -1162,10 +945,7 @@
     int itemid = (int)args[0]->ToInt32()->Value(); /* type: _162  */
     
 
-    self->Destroy(
-      itemid
-      
-    );
+    self->Destroy(itemid);
 
     // TODO: handle return type
     return v8::Undefined();
@@ -1178,10 +958,7 @@
     wxNode_wxMenuItem* item = wxNodeObject::unwrap<wxNode_wxMenuItem>(args[0]->ToObject()); /* type: _51683 * */
     
 
-    self->Destroy(
-      item
-      
-    );
+    self->Destroy(item);
 
     // TODO: handle return type
     return v8::Undefined();
@@ -1202,9 +979,7 @@
   if(args.Length() == 0) {
     
 
-    self->GetMenuItemCount(
-      
-    );
+    self->GetMenuItemCount();
 
     // TODO: handle return type
     return v8::Undefined();
@@ -1225,9 +1000,7 @@
   if(args.Length() == 0) {
     
 
-    self->GetMenuItems(
-      
-    );
+    self->GetMenuItems();
 
     // TODO: handle return type
     return v8::Undefined();
@@ -1239,9 +1012,7 @@
   if(args.Length() == 0) {
     
 
-    self->GetMenuItems(
-      
-    );
+    self->GetMenuItems();
 
     // TODO: handle return type
     return v8::Undefined();
@@ -1263,10 +1034,7 @@
     v8::String::AsciiValue item(args[0]->ToString()); /* type: _14808  */
     
 
-    self->FindItem(
-      *item
-      
-    );
+    self->FindItem(*item);
 
     // TODO: handle return type
     return v8::Undefined();
@@ -1280,11 +1048,7 @@
     wxMenu* menu; /* type: _65194 ** */
     
 
-    self->FindItem(
-      itemid,
-      &menu
-      
-    );
+    self->FindItem(itemid, &menu);
 
     // TODO: handle return type
     return v8::Undefined();
@@ -1297,10 +1061,7 @@
     int itemid = (int)args[0]->ToInt32()->Value(); /* type: _162  */
     
 
-    self->FindItem(
-      itemid
-      
-    );
+    self->FindItem(itemid);
 
     // TODO: handle return type
     return v8::Undefined();
@@ -1322,10 +1083,7 @@
     size_t position = (size_t)args[0]->ToInt32()->Value(); /* type: _8620  */
     
 
-    self->FindItemByPosition(
-      position
-      
-    );
+    self->FindItemByPosition(position);
 
     // TODO: handle return type
     return v8::Undefined();
@@ -1348,11 +1106,7 @@
     bool enable = args[1]->ToBoolean()->Value(); /* type: _14666  */
     
 
-    self->Enable(
-      itemid,
-      enable
-      
-    );
+    self->Enable(itemid, enable);
 
     // TODO: handle return type
     return v8::Undefined();
@@ -1374,10 +1128,7 @@
     int itemid = (int)args[0]->ToInt32()->Value(); /* type: _162  */
     
 
-    self->IsEnabled(
-      itemid
-      
-    );
+    self->IsEnabled(itemid);
 
     // TODO: handle return type
     return v8::Undefined();
@@ -1400,11 +1151,7 @@
     bool check = args[1]->ToBoolean()->Value(); /* type: _14666  */
     
 
-    self->Check(
-      itemid,
-      check
-      
-    );
+    self->Check(itemid, check);
 
     // TODO: handle return type
     return v8::Undefined();
@@ -1426,10 +1173,7 @@
     int itemid = (int)args[0]->ToInt32()->Value(); /* type: _162  */
     
 
-    self->IsChecked(
-      itemid
-      
-    );
+    self->IsChecked(itemid);
 
     // TODO: handle return type
     return v8::Undefined();
@@ -1452,11 +1196,7 @@
     v8::String::AsciiValue label(args[1]->ToString()); /* type: _14808  */
     
 
-    self->SetLabel(
-      itemid,
-      *label
-      
-    );
+    self->SetLabel(itemid, *label);
 
     // TODO: handle return type
     return v8::Undefined();
@@ -1478,10 +1218,7 @@
     int itemid = (int)args[0]->ToInt32()->Value(); /* type: _162  */
     
 
-    self->GetLabel(
-      itemid
-      
-    );
+    self->GetLabel(itemid);
 
     // TODO: handle return type
     return v8::Undefined();
@@ -1503,10 +1240,7 @@
     int itemid = (int)args[0]->ToInt32()->Value(); /* type: _162  */
     
 
-    self->GetLabelText(
-      itemid
-      
-    );
+    self->GetLabelText(itemid);
 
     // TODO: handle return type
     return v8::Undefined();
@@ -1529,11 +1263,7 @@
     v8::String::AsciiValue helpString(args[1]->ToString()); /* type: _14808  */
     
 
-    self->SetHelpString(
-      itemid,
-      *helpString
-      
-    );
+    self->SetHelpString(itemid, *helpString);
 
     // TODO: handle return type
     return v8::Undefined();
@@ -1555,10 +1285,7 @@
     int itemid = (int)args[0]->ToInt32()->Value(); /* type: _162  */
     
 
-    self->GetHelpString(
-      itemid
-      
-    );
+    self->GetHelpString(itemid);
 
     // TODO: handle return type
     return v8::Undefined();
@@ -1580,10 +1307,7 @@
     v8::String::AsciiValue title(args[0]->ToString()); /* type: _14808  */
     
 
-    self->SetTitle(
-      *title
-      
-    );
+    self->SetTitle(*title);
 
     // TODO: handle return type
     return v8::Undefined();
@@ -1604,9 +1328,7 @@
   if(args.Length() == 0) {
     
 
-    self->GetTitle(
-      
-    );
+    self->GetTitle();
 
     // TODO: handle return type
     return v8::Undefined();
@@ -1628,10 +1350,7 @@
     wxNode_wxEvtHandler* handler = wxNodeObject::unwrap<wxNode_wxEvtHandler>(args[0]->ToObject()); /* type: _1665 * */
     
 
-    self->SetEventHandler(
-      handler
-      
-    );
+    self->SetEventHandler(handler);
 
     // TODO: handle return type
     return v8::Undefined();
@@ -1652,9 +1371,7 @@
   if(args.Length() == 0) {
     
 
-    self->GetEventHandler(
-      
-    );
+    self->GetEventHandler();
 
     // TODO: handle return type
     return v8::Undefined();
@@ -1676,10 +1393,7 @@
     wxNode_wxWindow* win = wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _993 * */
     
 
-    self->SetInvokingWindow(
-      win
-      
-    );
+    self->SetInvokingWindow(win);
 
     // TODO: handle return type
     return v8::Undefined();
@@ -1700,9 +1414,7 @@
   if(args.Length() == 0) {
     
 
-    self->GetInvokingWindow(
-      
-    );
+    self->GetInvokingWindow();
 
     // TODO: handle return type
     return v8::Undefined();
@@ -1723,9 +1435,7 @@
   if(args.Length() == 0) {
     
 
-    self->GetWindow(
-      
-    );
+    self->GetWindow();
 
     // TODO: handle return type
     return v8::Undefined();
@@ -1746,9 +1456,7 @@
   if(args.Length() == 0) {
     
 
-    self->GetStyle(
-      
-    );
+    self->GetStyle();
 
     // TODO: handle return type
     return v8::Undefined();
@@ -1770,10 +1478,7 @@
     wxNode_wxEvtHandler* source = wxNodeObject::unwrap<wxNode_wxEvtHandler>(args[0]->ToObject()); /* type: _1665 * */
     
 
-    self->UpdateUI(
-      source
-      
-    );
+    self->UpdateUI(source);
 
     // TODO: handle return type
     return v8::Undefined();
@@ -1794,9 +1499,7 @@
   if(args.Length() == 0) {
     
 
-    self->GetMenuBar(
-      
-    );
+    self->GetMenuBar();
 
     // TODO: handle return type
     return v8::Undefined();
@@ -1818,10 +1521,7 @@
     wxNode_wxMenuBar* menubar = wxNodeObject::unwrap<wxNode_wxMenuBar>(args[0]->ToObject()); /* type: _59442 * */
     
 
-    self->Attach(
-      menubar
-      
-    );
+    self->Attach(menubar);
 
     // TODO: handle return type
     return v8::Undefined();
@@ -1842,9 +1542,7 @@
   if(args.Length() == 0) {
     
 
-    self->Detach(
-      
-    );
+    self->Detach();
 
     // TODO: handle return type
     return v8::Undefined();
@@ -1865,9 +1563,7 @@
   if(args.Length() == 0) {
     
 
-    self->IsAttached(
-      
-    );
+    self->IsAttached();
 
     // TODO: handle return type
     return v8::Undefined();
@@ -1889,10 +1585,7 @@
     wxNode_wxMenu* parent = wxNodeObject::unwrap<wxNode_wxMenu>(args[0]->ToObject()); /* type: _52838 * */
     
 
-    self->SetParent(
-      parent
-      
-    );
+    self->SetParent(parent);
 
     // TODO: handle return type
     return v8::Undefined();
@@ -1913,9 +1606,7 @@
   if(args.Length() == 0) {
     
 
-    self->GetParent(
-      
-    );
+    self->GetParent();
 
     // TODO: handle return type
     return v8::Undefined();
@@ -1938,11 +1629,7 @@
     size_t pos; /* type: _28691 * */
     
 
-    self->FindChildItem(
-      itemid,
-      &pos
-      
-    );
+    self->FindChildItem(itemid, &pos);
 
     // TODO: handle return type
     return v8::Undefined();
@@ -1955,10 +1642,7 @@
     int itemid = (int)args[0]->ToInt32()->Value(); /* type: _162  */
     
 
-    self->FindChildItem(
-      itemid
-      
-    );
+    self->FindChildItem(itemid);
 
     // TODO: handle return type
     return v8::Undefined();
@@ -1981,11 +1665,7 @@
     int checked = (int)args[1]->ToInt32()->Value(); /* type: _162  */
     
 
-    self->SendEvent(
-      itemid,
-      checked
-      
-    );
+    self->SendEvent(itemid, checked);
 
     // TODO: handle return type
     return v8::Undefined();
@@ -1998,10 +1678,7 @@
     int itemid = (int)args[0]->ToInt32()->Value(); /* type: _162  */
     
 
-    self->SendEvent(
-      itemid
-      
-    );
+    self->SendEvent(itemid);
 
     // TODO: handle return type
     return v8::Undefined();
@@ -2023,10 +1700,7 @@
     bool locked = args[0]->ToBoolean()->Value(); /* type: _14666  */
     
 
-    self->LockAccels(
-      locked
-      
-    );
+    self->LockAccels(locked);
 
     // TODO: handle return type
     return v8::Undefined();
