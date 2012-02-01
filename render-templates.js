@@ -8,8 +8,7 @@ var xml2js = require('xml2js');
 var jsonpath = require('JSONPath');
 
 var files = [
-  { templateFileName: "generic.h", outputFileType: "h", className: 'wxMenu', realClassName: 'wxMenuBase' },
-  { templateFileName: "generic.cpp", outputFileType: "cpp", className: 'wxMenu', realClassName: 'wxMenuBase' }
+  { className: 'wxMenu', realClassName: 'wxMenuBase' }
 ];
 
 fs.readFile('./wxapi.json', 'utf8', function(err, data) {
@@ -277,7 +276,7 @@ function rawJsonToCtx(rawJson, file) {
 
           // add overloads for each default value parameter
           for(var argIdx=methodJson.args.length-1; argIdx>0 && methodJson.args[argIdx].defaultValue; argIdx--) {
-            var newMethodJson = JSON.parse(JSON.stringify(methodJson));
+            var newMethodJson = deepCopy(methodJson);
             newMethodJson.args = newMethodJson.args.slice(0, argIdx);
             updateMethodCalculatedFields(newMethodJson);
             methodGroup.overloads.push(newMethodJson);
@@ -332,7 +331,19 @@ function rawJsonToCtx(rawJson, file) {
 
 function renderFiles(files, rawJson) {
   for(var fileIdx = 0; fileIdx < files.length; fileIdx++) {
-    renderFile(files[fileIdx], rawJson);
+    if(files[fileIdx].outputFileType) {
+      renderFile(files[fileIdx], rawJson);
+    } else {
+      var file_h = deepCopy(files[fileIdx]);
+      file_h.templateFileName = file_h.templateFileName || "generic.h";
+      file_h.outputFileType = "h";
+      renderFile(file_h, rawJson);
+
+      var file_cpp = deepCopy(files[fileIdx]);
+      file_cpp.templateFileName = file_cpp.templateFileName || "generic.cpp";
+      file_cpp.outputFileType = "cpp";
+      renderFile(file_cpp, rawJson);
+    }
   }
 }
 
@@ -349,4 +360,22 @@ function renderFile(file, rawJson) {
     console.log("writing " + ctx.outputFilename);
     fs.writeFile(path.join("./src-generated", ctx.outputFilename), output);
   });
+}
+
+function deepCopy(obj) {
+  if (Object.prototype.toString.call(obj) === '[object Array]') {
+    var out = [], i = 0, len = obj.length;
+    for ( ; i < len; i++ ) {
+      out[i] = deepCopy(obj[i]);
+    }
+    return out;
+  }
+  if (typeof obj === 'object') {
+    var out = {}, i;
+    for ( i in obj ) {
+      out[i] = deepCopy(obj[i]);
+    }
+    return out;
+  }
+  return obj;
 }
