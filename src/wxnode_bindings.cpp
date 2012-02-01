@@ -3,8 +3,8 @@
 #include <node.h>
 #include "app.h"
 #include "frame.h"
+#include "wxNode_wxMenuBar.h"
 #include "wxNode_wxMenu.h"
-#include "menuBar.h"
 #include "messageBox.h"
 
 extern "C" {
@@ -12,7 +12,7 @@ extern "C" {
     NodeWxApp::Init(target);
     NodeWxFrame::Init(target);
     wxNode_wxMenu::Init(target);
-    NodeWxMenuBar::Init(target);
+    wxNode_wxMenuBar::Init(target);
     NodeWxMessageBox::Init(target);
   }
 

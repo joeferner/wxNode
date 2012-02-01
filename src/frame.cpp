@@ -1,7 +1,7 @@
 
 #include "frame.h"
-#include "menuBar.h"
 #include "app.h"
+#include "wxNode_wxMenuBar.h"
 #include "wxNode_wxEvtHandler.h"
 
 /* static */ v8::Persistent<v8::FunctionTemplate> NodeWxFrame::s_ct;

@@ -8,7 +8,8 @@ var xml2js = require('xml2js');
 var jsonpath = require('JSONPath');
 
 var files = [
-  { className: 'wxMenu', realClassName: 'wxMenuBase' }
+  { className: 'wxMenu', realClassName: 'wxMenuBase' },
+  { className: 'wxMenuBar', realClassName: 'wxMenuBarBase' }
 ];
 
 fs.readFile('./wxapi.json', 'utf8', function(err, data) {
@@ -247,6 +248,9 @@ function addMethod(rawJson, ctx, member, dest) {
   if(member['access'] != 'public') {
     return;
   }
+  if(member['attributes'] && member['attributes'].match(/deprecated/)) {
+    return;
+  }
 
   var methodGroup = dest.filter(function(item) { return item.name == member['name']; });
   if(!methodGroup || methodGroup.length == 0) {
@@ -306,7 +310,7 @@ function rawJsonToCtx(rawJson, file) {
     ctx.baseClassName = baseClazz['name'];
     ctx.baseClassId = baseClazz['id'];
     ctx.baseClassAddMethodsCallCode = "wxNode_" + ctx.baseClassName + "::AddMethods(s_ct);";
-    ctx.includes = concatUnique(ctx.includes, ["wxNode_wxEvtHandler.h"]);
+    ctx.includes = concatUnique(ctx.includes, ["wxNode_wxEvtHandler.h", "wxNode_" + ctx.baseClassName + ".h"]);
   }
 
   // process members
@@ -384,8 +388,8 @@ function renderFiles(files, rawJson) {
 }
 
 function renderFile(file, rawJson) {
-  console.log("begin render " + file.templateFileName);
   var ctx = rawJsonToCtx(rawJson, file);
+  console.log("begin render " + file.templateFileName + " -> " + ctx.outputFilename);
 
   fs.readFile(path.join("./src-templates", file.templateFileName), 'utf8', function(err, data) {
     if(err) { throw err; }
