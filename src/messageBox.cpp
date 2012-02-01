@@ -11,8 +11,8 @@
   s_ct->InstanceTemplate()->SetInternalFieldCount(2);
   s_ct->SetClassName(v8::String::NewSymbol("wxMessageBox"));
 
-  NODE_SET_METHOD(s_ct, "show", _show);
   wxNodeObject::AddMethods(s_ct);
+  NODE_SET_METHOD(s_ct, "show", _show);
 
   target->Set(v8::String::NewSymbol("wxMessageBox"), s_ct->GetFunction());
 }

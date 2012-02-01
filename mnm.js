@@ -14,6 +14,8 @@ function build(wxCxxFlags, wxLibs) {
   builder.target = "wxnode_bindings";
   builder.appendSourceDir('./src');
   builder.appendUnique('CXXFLAGS', '-Isrc/');
+  builder.appendSourceDir('./src-generated');
+  builder.appendUnique('CXXFLAGS', '-Isrc-generated/');
 
   builder.run();
 }

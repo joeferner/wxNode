@@ -14,11 +14,11 @@
   s_ct->InstanceTemplate()->SetInternalFieldCount(2);
   s_ct->SetClassName(v8::String::NewSymbol("wxApp"));
 
+  wxNodeObject::AddMethods(s_ct);
   NODE_SET_PROTOTYPE_METHOD(s_ct, "init", _init);
   NODE_SET_PROTOTYPE_METHOD(s_ct, "onInit", _onInit);
   NODE_SET_PROTOTYPE_METHOD(s_ct, "run", _run);
   NODE_SET_PROTOTYPE_METHOD(s_ct, "setTopWindow", _setTopWindow);
-  wxNodeObject::AddMethods(s_ct);
 
   target->Set(v8::String::NewSymbol("wxApp"), s_ct->GetFunction());
 }

@@ -14,7 +14,6 @@
 
   NODE_SET_PROTOTYPE_METHOD(s_ct, "init", _init);
   AddMethods(s_ct);
-  wxNodeObject::Init(s_ct);
 
   target->Set(v8::String::NewSymbol("{{name}}"), s_ct->GetFunction());
 }

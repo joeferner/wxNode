@@ -23,7 +23,6 @@ NodeWxFrame::NodeWxFrame(wxWindow *parent,
   s_ct->InstanceTemplate()->SetInternalFieldCount(2);
   s_ct->SetClassName(v8::String::NewSymbol("wxFrame"));
 
-  wxNodeObject::AddMethods(s_ct);
   wxNode_wxEvtHandler::AddMethods(s_ct);
   NODE_SET_PROTOTYPE_METHOD(s_ct, "init", _init);
   NODE_SET_PROTOTYPE_METHOD(s_ct, "show", _show);

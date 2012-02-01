@@ -17,6 +17,7 @@ fs.readFile('./wxapi.json', 'utf8', function(err, data) {
     console.error("reading xml file");
     fs.readFile('./wxapi.xml', 'utf8', function(err, data) {
       if(err) { throw err; }
+      console.log("wxapi.xml read");
 
       var xmlParser = new xml2js.Parser({
         explicitRoot: true,
@@ -25,6 +26,7 @@ fs.readFile('./wxapi.json', 'utf8', function(err, data) {
       });
       xmlParser.parseString(data, function(err, result) {
         if(err) { throw err; }
+        console.log("wxapi.xml parsed");
 
         fs.writeFile('./wxapi.json', JSON.stringify(result, null, '\t'), function(err) {
           if(err) { throw err; }
@@ -34,8 +36,10 @@ fs.readFile('./wxapi.json', 'utf8', function(err, data) {
       });
     });
   } else {
-    console.error("reading json file");
-    renderFiles(files, JSON.parse(data));
+    console.error("wxapi.json read");
+    var json = JSON.parse(data);
+    console.error("json parsed");
+    renderFiles(files, json);
   }
 });
 
@@ -333,6 +337,7 @@ function renderFiles(files, rawJson) {
 }
 
 function renderFile(file, rawJson) {
+  console.log("begin render " + file.templateFileName);
   var ctx = rawJsonToCtx(rawJson, file);
 
   fs.readFile(path.join("./src-templates", file.templateFileName), 'utf8', function(err, data) {
@@ -342,6 +347,6 @@ function renderFile(file, rawJson) {
       space: true
     })(ctx, null);
     console.log("writing " + ctx.outputFilename);
-    fs.writeFile(path.join("./src", ctx.outputFilename), output);
+    fs.writeFile(path.join("./src-generated", ctx.outputFilename), output);
   });
 }

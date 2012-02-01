@@ -12,9 +12,9 @@
   s_ct->InstanceTemplate()->SetInternalFieldCount(2);
   s_ct->SetClassName(v8::String::NewSymbol("wxMenuBar"));
 
+  wxNodeObject::AddMethods(s_ct);
   NODE_SET_PROTOTYPE_METHOD(s_ct, "init", _init);
   NODE_SET_PROTOTYPE_METHOD(s_ct, "append", _append);
-  wxNodeObject::AddMethods(s_ct);
 
   target->Set(v8::String::NewSymbol("wxMenuBar"), s_ct->GetFunction());
 }

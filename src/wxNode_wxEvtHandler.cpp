@@ -1,5 +1,6 @@
 
 #include "wxNode_wxEvtHandler.h"
+#include "wxNodeObject.h"
 
 ListenerData::ListenerData(int eventType, v8::Local<v8::Object> fn) {
   m_eventType = eventType;
@@ -7,6 +8,7 @@ ListenerData::ListenerData(int eventType, v8::Local<v8::Object> fn) {
 }
 
 /*static*/ void wxNode_wxEvtHandler::AddMethods(v8::Handle<v8::FunctionTemplate> func) {
+  wxNodeObject::AddMethods(func);
   NODE_SET_PROTOTYPE_METHOD(func, "EVT_MENU", _EVT_MENU);
 }
 
