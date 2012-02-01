@@ -17,7 +17,7 @@ v8::Handle<v8::Value> wxNodeObject::call(const char *fnName, int argc, v8::Handl
   return scope.Close(fn->Call(self(), argc, args));
 }
 
-/*static*/ void wxNodeObject::Init(v8::Handle<v8::FunctionTemplate>& ct) {
+/*static*/ void wxNodeObject::AddMethods(v8::Handle<v8::FunctionTemplate>& ct) {
   NODE_SET_METHOD(ct, "extend", extend);
 }
 

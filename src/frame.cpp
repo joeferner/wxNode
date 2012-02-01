@@ -2,7 +2,7 @@
 #include "frame.h"
 #include "menuBar.h"
 #include "app.h"
-#include "evtHandler.h"
+#include "wxNode_wxEvtHandler.h"
 
 /* static */ v8::Persistent<v8::FunctionTemplate> NodeWxFrame::s_ct;
 
@@ -23,14 +23,14 @@ NodeWxFrame::NodeWxFrame(wxWindow *parent,
   s_ct->InstanceTemplate()->SetInternalFieldCount(2);
   s_ct->SetClassName(v8::String::NewSymbol("wxFrame"));
 
+  wxNodeObject::AddMethods(s_ct);
+  wxNode_wxEvtHandler::AddMethods(s_ct);
   NODE_SET_PROTOTYPE_METHOD(s_ct, "init", _init);
   NODE_SET_PROTOTYPE_METHOD(s_ct, "show", _show);
   NODE_SET_PROTOTYPE_METHOD(s_ct, "setMenuBar", _setMenuBar);
   NODE_SET_PROTOTYPE_METHOD(s_ct, "close", _close);
   NODE_SET_PROTOTYPE_METHOD(s_ct, "createStatusBar", _createStatusBar);
   NODE_SET_PROTOTYPE_METHOD(s_ct, "setStatusText", _setStatusText);
-  NodeWxEvtHandler::InitMethods(s_ct);
-  wxNodeObject::Init(s_ct);
 
   target->Set(v8::String::NewSymbol("wxFrame"), s_ct->GetFunction());
 }

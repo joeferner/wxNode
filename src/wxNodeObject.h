@@ -34,7 +34,7 @@ protected:
 
   v8::Handle<v8::Value> call(const char *fnName, int argc, v8::Handle<v8::Value> args[]);
 
-  static void Init(v8::Handle<v8::FunctionTemplate>& ct);
+  static void AddMethods(v8::Handle<v8::FunctionTemplate>& ct);
 
 protected:
   static v8::Handle<v8::Value> extend(const v8::Arguments& args);

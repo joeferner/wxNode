@@ -7,6 +7,7 @@
 class wxNode_wxMenu : public wxMenu, public wxNodeObject {
 public:
   static void Init(v8::Handle<v8::Object> target);
+  static void AddMethods(v8::Handle<v8::FunctionTemplate> target);
 
 private:
   static v8::Handle<v8::Value> _init(const v8::Arguments& args);

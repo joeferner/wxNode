@@ -18,7 +18,7 @@
   NODE_SET_PROTOTYPE_METHOD(s_ct, "onInit", _onInit);
   NODE_SET_PROTOTYPE_METHOD(s_ct, "run", _run);
   NODE_SET_PROTOTYPE_METHOD(s_ct, "setTopWindow", _setTopWindow);
-  wxNodeObject::Init(s_ct);
+  wxNodeObject::AddMethods(s_ct);
 
   target->Set(v8::String::NewSymbol("wxApp"), s_ct->GetFunction());
 }

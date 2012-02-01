@@ -12,7 +12,7 @@
   s_ct->SetClassName(v8::String::NewSymbol("wxMessageBox"));
 
   NODE_SET_METHOD(s_ct, "show", _show);
-  wxNodeObject::Init(s_ct);
+  wxNodeObject::AddMethods(s_ct);
 
   target->Set(v8::String::NewSymbol("wxMessageBox"), s_ct->GetFunction());
 }

@@ -216,7 +216,8 @@ function rawJsonToCtx(rawJson, file) {
     outputFilename: "wxNode" + "_" + file.className + "." + file.outputFileType,
     methods: [],
     constructors: [],
-    includes: []
+    includes: [],
+    baseClassAddMethodsCallCode: ""
   };
   ctx.headerFilename = ctx.outputFilename.replace(/\.cpp$/, '.h');
   ctx.includes.push(ctx.headerFilename);
@@ -237,6 +238,8 @@ function rawJsonToCtx(rawJson, file) {
     var baseClazz = lookupClassById(rawJson, baseId);
     ctx.baseClassName = baseClazz['name'];
     ctx.baseClassId = baseClazz['id'];
+    ctx.baseClassAddMethodsCallCode = "wxNode_" + ctx.baseClassName + "::AddMethods(s_ct);";
+    ctx.includes = concatUnique(ctx.includes, ["wxNode_wxEvtHandler.h"]);
   }
 
   // process members

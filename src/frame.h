@@ -3,7 +3,7 @@
 #define _wxnode_frame_h_
 
 #include "wxnode.h"
-#include "evtHandler.h"
+#include "wxNode_wxEvtHandler.h"
 
 class NodeWxFrame : public wxFrame, public wxNodeObject, public NodeExEvtHandlerImpl {
 public:

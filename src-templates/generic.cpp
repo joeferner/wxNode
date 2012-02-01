@@ -13,11 +13,16 @@
   s_ct->SetClassName(v8::String::NewSymbol("{{name}}"));
 
   NODE_SET_PROTOTYPE_METHOD(s_ct, "init", _init);
-  {{#methods}}NODE_SET_PROTOTYPE_METHOD(s_ct, "{{jsName}}", _{{name}});
-  {{/methods}}
+  AddMethods(s_ct);
   wxNodeObject::Init(s_ct);
 
   target->Set(v8::String::NewSymbol("{{name}}"), s_ct->GetFunction());
+}
+
+/*static*/ void wxNode_{{name}}::AddMethods(v8::Handle<v8::FunctionTemplate> target) {
+  {{{baseClassAddMethodsCallCode}}}
+  {{#methods}}NODE_SET_PROTOTYPE_METHOD(s_ct, "{{jsName}}", _{{name}});
+  {{/methods}}
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_{{name}}::_init(const v8::Arguments& args) {

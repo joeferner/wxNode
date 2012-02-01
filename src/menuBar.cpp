@@ -14,7 +14,7 @@
 
   NODE_SET_PROTOTYPE_METHOD(s_ct, "init", _init);
   NODE_SET_PROTOTYPE_METHOD(s_ct, "append", _append);
-  wxNodeObject::Init(s_ct);
+  wxNodeObject::AddMethods(s_ct);
 
   target->Set(v8::String::NewSymbol("wxMenuBar"), s_ct->GetFunction());
 }
