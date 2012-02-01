@@ -9,6 +9,35 @@
 
 /* static */ v8::Persistent<v8::FunctionTemplate> wxNode_wxMenu::s_ct;
 
+
+
+wxNode_wxMenu::wxNode_wxMenu(const char* title, long int style)
+  : wxMenu(title, style)
+{
+
+}
+
+wxNode_wxMenu::wxNode_wxMenu(const char* title)
+  : wxMenu(title)
+{
+
+}
+
+wxNode_wxMenu::wxNode_wxMenu(long int style)
+  : wxMenu(style)
+{
+
+}
+
+wxNode_wxMenu::wxNode_wxMenu()
+  : wxMenu()
+{
+
+}
+
+
+
+
 /*static*/ void wxNode_wxMenu::Init(v8::Handle<v8::Object> target) {
   v8::HandleScope scope;
 
@@ -80,11 +109,64 @@
 /*static*/ v8::Handle<v8::Value> wxNode_wxMenu::_init(const v8::Arguments& args) {
   v8::HandleScope scope;
 
-  // TODO: handle arguments
+  
+  
+  /*
+   * id: _44712
+   */
+  if(args.Length() == 2 && args[0]->IsString() && args[1]->IsNumber()) {
+    v8::String::AsciiValue title(args[0]->ToString()); /* type: _14808  */
+    long int style = (long int)args[1]->ToInt32()->Value(); /* type: _586  */
+    
 
-  wxNode_wxMenu *self = new wxNode_wxMenu();
-  self->wrap(args.This(), self, NULL);
-  return args.This();
+    wxNode_wxMenu *self = new wxNode_wxMenu(*title, style);
+    NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>(self);
+    self->wrap(args.This(), self, evtHandler);
+    return args.This();
+  }
+  
+  /*
+   * id: _44712
+   */
+  if(args.Length() == 1 && args[0]->IsString()) {
+    v8::String::AsciiValue title(args[0]->ToString()); /* type: _14808  */
+    
+
+    wxNode_wxMenu *self = new wxNode_wxMenu(*title);
+    NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>(self);
+    self->wrap(args.This(), self, evtHandler);
+    return args.This();
+  }
+  
+  /*
+   * id: _44713
+   */
+  if(args.Length() == 1 && args[0]->IsNumber()) {
+    long int style = (long int)args[0]->ToInt32()->Value(); /* type: _586  */
+    
+
+    wxNode_wxMenu *self = new wxNode_wxMenu(style);
+    NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>(self);
+    self->wrap(args.This(), self, evtHandler);
+    return args.This();
+  }
+  
+  /*
+   * id: _44713
+   */
+  if(args.Length() == 0) {
+    
+
+    wxNode_wxMenu *self = new wxNode_wxMenu();
+    NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>(self);
+    self->wrap(args.This(), self, evtHandler);
+    return args.This();
+  }
+  
+  
+
+  // TODO: throw exception on no matches
+  return v8::Undefined();
 }
 
 
@@ -114,6 +196,18 @@
     
 
     self->New(*title);
+
+    // TODO: handle return type
+    return v8::Undefined();
+  }
+  
+  /*
+   * id: _44711
+   */
+  if(args.Length() == 0) {
+    
+
+    self->New();
 
     // TODO: handle return type
     return v8::Undefined();
@@ -1483,6 +1577,18 @@
     
 
     self->UpdateUI(source);
+
+    // TODO: handle return type
+    return v8::Undefined();
+  }
+  
+  /*
+   * id: _44763
+   */
+  if(args.Length() == 0) {
+    
+
+    self->UpdateUI();
 
     // TODO: handle return type
     return v8::Undefined();

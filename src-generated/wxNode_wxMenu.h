@@ -3,11 +3,26 @@
 #define _wxNode_wxMenu_h_
 
 #include "wxnode.h"
+#include "wxNode_wxEvtHandler.h"
 
-class wxNode_wxMenu : public wxMenu, public wxNodeObject {
+class wxNode_wxMenu : public wxMenu, public wxNodeObject, public NodeExEvtHandlerImpl {
 public:
   static void Init(v8::Handle<v8::Object> target);
   static void AddMethods(v8::Handle<v8::FunctionTemplate> target);
+  virtual v8::Handle<v8::Object> self() { return m_self; }
+
+protected:
+  
+  
+  wxNode_wxMenu(const char* title, long int style);
+  
+  wxNode_wxMenu(const char* title);
+  
+  wxNode_wxMenu(long int style);
+  
+  wxNode_wxMenu();
+  
+  
 
 private:
   static v8::Handle<v8::Value> _init(const v8::Arguments& args);

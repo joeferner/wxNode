@@ -101,6 +101,7 @@ function argJsonToCtx(ctx, rawJson, arg, i) {
   var type = lookupClassById(rawJson, typeId);
   var argCode = "unhandled argCode type " + type['name'];
   var argCallCode = "";
+  var argDeclCode = "";
   var typeName = type['name'];
   var argName = arg['name'];
   var argTestCode = "false";
@@ -114,15 +115,18 @@ function argJsonToCtx(ctx, rawJson, arg, i) {
     } else {
       argCode = util.format("%s %s = (%s)args[%d]->ToInt32()->Value();", typeName, argName, typeName, i);
       argCallCode = argName;
+      argDeclCode = util.format("%s %s", typeName, argName);
       argTestCode = util.format("args[%d]->IsNumber()", i);
     }
   } else if(typeName == "bool") {
     argCode = util.format("bool %s = args[%d]->ToBoolean()->Value();", argName, i);
     argCallCode = argName;
+    argDeclCode = util.format("bool %s", argName);
     argTestCode = util.format("args[%d]->IsBoolean()", i);
   } else if(typeName == "wxString") {
     argCode = util.format("v8::String::AsciiValue %s(args[%d]->ToString());", argName, i);
     argCallCode = "*" + argName;
+    argDeclCode = util.format("const char* %s", argName);
     argTestCode = util.format("args[%d]->IsString()", i);
   } else if(typeName.match(/^wx.*/)) {
     if(type.pointers == '**') {
@@ -131,6 +135,7 @@ function argJsonToCtx(ctx, rawJson, arg, i) {
     } else {
       argCode = util.format("wxNode_%s* %s = wxNodeObject::unwrap<wxNode_%s>(args[%d]->ToObject());", typeName, argName, typeName, i);
       argCallCode = argName;
+      argDeclCode = util.format("wxNode_%s* %s", typeName, argName);
       argTestCode = util.format("args[%d]->IsObject()", i);
     }
     ctx.includes = concatUnique(ctx.includes, ["wxNode_" + typeName + ".h"]);
@@ -147,7 +152,8 @@ function argJsonToCtx(ctx, rawJson, arg, i) {
     argCode: argCode,
     argCallCode: argCallCode,
     defaultValue: arg['default'],
-    argTestCode: argTestCode
+    argTestCode: argTestCode,
+    argDeclCode: argDeclCode
   };
 }
 
@@ -173,7 +179,29 @@ function getMethodArgCallCode(ctx) {
   return results;
 }
 
-function methodJsonToCtx(rawJson, methodJson) {
+function getMethodConstructorCallCode(ctx) {
+  var results = "";
+  for(var i=0; i<ctx.args.length; i++) {
+    if(i != 0) {
+      results += ", ";
+    }
+    results += ctx.args[i].argumentName;
+  }
+  return results;
+}
+
+function getMethodArgDeclCode(ctx) {
+  var results = "";
+  for(var i=0; i<ctx.args.length; i++) {
+    if(i != 0) {
+      results += ", ";
+    }
+    results += ctx.args[i].argDeclCode;
+  }
+  return results;
+}
+
+function methodJsonToCtx(parent, rawJson, methodJson) {
   var ctx = {
     name: methodJson['name'],
     id: methodJson['id'],
@@ -203,6 +231,8 @@ function methodJsonToCtx(rawJson, methodJson) {
 function updateMethodCalculatedFields(ctx) {
   ctx.argTestCode = getMethodArgTestCode(ctx);
   ctx.argCallCode = getMethodArgCallCode(ctx);
+  ctx.argConstructorCallCode = getMethodConstructorCallCode(ctx);
+  ctx.argDeclCode = getMethodArgDeclCode(ctx);
 }
 
 function toJsName(str) {
@@ -210,6 +240,40 @@ function toJsName(str) {
     return str.slice(0,1).toLowerCase() + str.slice(1);
   } else {
     return str.toLowerCase();
+  }
+}
+
+function addMethod(rawJson, ctx, member, dest) {
+  if(member['access'] != 'public') {
+    return;
+  }
+
+  var methodGroup = dest.filter(function(item) { return item.name == member['name']; });
+  if(!methodGroup || methodGroup.length == 0) {
+    methodGroup = {
+      name: member['name'],
+      overloads: [],
+      parent: ctx
+    };
+    methodGroup.jsName = toJsName(methodGroup.name);
+    dest.push(methodGroup);
+  } else {
+    methodGroup = methodGroup[0];
+  }
+  var methodJson = methodJsonToCtx(methodGroup, rawJson, member);
+  ctx.includes = concatUnique(ctx.includes, methodJson.includes);
+  methodGroup.overloads.push(methodJson);
+
+  // add overloads for each default value parameter
+  for(var argIdx = methodJson.args.length - 1; argIdx >= 0 && methodJson.args[argIdx].defaultValue; argIdx--) {
+    var newMethodJson = deepCopy(methodJson);
+    newMethodJson.args = newMethodJson.args.slice(0, argIdx);
+    updateMethodCalculatedFields(newMethodJson);
+    methodGroup.overloads.push(newMethodJson);
+  }
+
+  for(var i=0; i<methodGroup.overloads.length; i++) {
+    methodGroup.overloads[i].parent = methodGroup;
   }
 }
 
@@ -257,42 +321,14 @@ function rawJsonToCtx(rawJson, file) {
       var member = jsonpath.eval(rawJson, util.format("$.GCC_XML.Method[?(@.id=='%s')]", memberId));
       if(member && member.length > 0) {
         member = member[0];
-        if(member['access'] == 'public') {
-          var methodGroup = ctx.methods.filter(function(item) { return item.name == member['name']; });
-          if(!methodGroup || methodGroup.length == 0) {
-            methodGroup = {
-              name: member['name'],
-              overloads: [],
-              parent: ctx
-            };
-            methodGroup.jsName = toJsName(methodGroup.name);
-            ctx.methods.push(methodGroup);
-          } else {
-            methodGroup = methodGroup[0];
-          }
-          var methodJson = methodJsonToCtx(rawJson, member);
-          ctx.includes = concatUnique(ctx.includes, methodJson.includes);
-          methodGroup.overloads.push(methodJson);
-
-          // add overloads for each default value parameter
-          for(var argIdx=methodJson.args.length-1; argIdx>0 && methodJson.args[argIdx].defaultValue; argIdx--) {
-            var newMethodJson = deepCopy(methodJson);
-            newMethodJson.args = newMethodJson.args.slice(0, argIdx);
-            updateMethodCalculatedFields(newMethodJson);
-            methodGroup.overloads.push(newMethodJson);
-          }
-        }
+        addMethod(rawJson, ctx, member, ctx.methods);
         continue;
       }
 
       member = jsonpath.eval(rawJson, util.format("$.GCC_XML.Constructor[?(@.id=='%s')]", memberId));
       if(member && member.length > 0) {
         member = member[0];
-        if(member['access'] == 'public') {
-          var methodJson = methodJsonToCtx(rawJson, member);
-          ctx.includes = concatUnique(ctx.includes, methodJson.includes);
-          ctx.constructors.push(methodJson);
-        }
+        addMethod(rawJson, ctx, member, ctx.constructors);
         continue;
       }
 

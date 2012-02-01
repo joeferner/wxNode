@@ -4,6 +4,17 @@
 
 /* static */ v8::Persistent<v8::FunctionTemplate> wxNode_{{name}}::s_ct;
 
+{{#constructors}}
+{{#overloads}}
+wxNode_{{parent.parent.name}}::wxNode_{{parent.parent.name}}({{{argDeclCode}}})
+  : {{parent.parent.name}}({{{argConstructorCallCode}}})
+{
+
+}
+{{/overloads}}
+{{/constructors}}
+
+
 /*static*/ void wxNode_{{name}}::Init(v8::Handle<v8::Object> target) {
   v8::HandleScope scope;
 
@@ -27,11 +38,25 @@
 /*static*/ v8::Handle<v8::Value> wxNode_{{name}}::_init(const v8::Arguments& args) {
   v8::HandleScope scope;
 
-  // TODO: handle arguments
+  {{#constructors}}
+  {{#overloads}}
+  /*
+   * id: {{id}}
+   */
+  if({{{argTestCode}}}) {
+    {{#args}}{{{argCode}}}
+    {{/args}}
 
-  wxNode_{{name}} *self = new wxNode_{{name}}();
-  self->wrap(args.This(), self, NULL);
-  return args.This();
+    wxNode_{{parent.parent.name}} *self = new wxNode_{{parent.parent.name}}({{{argCallCode}}});
+    NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>(self);
+    self->wrap(args.This(), self, evtHandler);
+    return args.This();
+  }
+  {{/overloads}}
+  {{/constructors}}
+
+  // TODO: throw exception on no matches
+  return v8::Undefined();
 }
 
 {{#methods}}
