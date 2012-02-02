@@ -4,6 +4,13 @@
 
 #include "wxnode.h"
 #include "wxNode_wxEvtHandler.h"
+#include "wxNode_wxMenu.h"
+#include "wxNode_wxEvtHandler.h"
+#include "wxNode_wxItemKind.h"
+#include "wxNode_wxMenuItem.h"
+#include "wxNode_wxWindow.h"
+#include "wxNode_wxMenuBar.h"
+
 
 class wxNode_wxMenu : public wxMenu, public wxNodeObject, public NodeExEvtHandlerImpl {
 public:

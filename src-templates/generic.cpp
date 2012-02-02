@@ -31,7 +31,7 @@ wxNode_{{parent.parent.name}}::wxNode_{{parent.parent.name}}({{{argDeclCode}}})
 
 /*static*/ void wxNode_{{name}}::AddMethods(v8::Handle<v8::FunctionTemplate> target) {
   {{{baseClassAddMethodsCallCode}}}
-  {{#methods}}NODE_SET_PROTOTYPE_METHOD(s_ct, "{{jsName}}", _{{name}});
+  {{#methods}}NODE_SET_PROTOTYPE_METHOD(target, "{{jsName}}", _{{name}});
   {{/methods}}
 }
 
@@ -55,12 +55,12 @@ wxNode_{{parent.parent.name}}::wxNode_{{parent.parent.name}}({{{argDeclCode}}})
   {{/overloads}}
   {{/constructors}}
 
-  // TODO: throw exception on no matches
-  return v8::Undefined();
+  return v8::ThrowException(v8::String::New("Could not find matching constructor for arguments (class name: {{name}})."));
 }
 
 {{#methods}}
 /*static*/ v8::Handle<v8::Value> wxNode_{{parent.name}}::_{{name}}(const v8::Arguments& args) {
+  v8::HandleScope scope;
   wxNode_{{parent.name}}* self = unwrap<wxNode_{{parent.name}}>(args.This());
 
   {{#overloads}}
@@ -78,7 +78,6 @@ wxNode_{{parent.parent.name}}::wxNode_{{parent.parent.name}}({{{argDeclCode}}})
   }
   {{/overloads}}
 
-  // TODO: throw exception on no matches
-  return v8::Undefined();
+  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: {{name}})."));
 }
 {{/methods}}

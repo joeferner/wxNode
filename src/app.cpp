@@ -1,6 +1,6 @@
 
 #include "app.h"
-#include "frame.h"
+#include "wxNode_wxFrame.h"
 #include <wx/evtloop.h>
 #include <wx/apptrait.h>
 

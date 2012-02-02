@@ -8,8 +8,10 @@ var xml2js = require('xml2js');
 var jsonpath = require('JSONPath');
 
 var files = [
-  { className: 'wxMenu', realClassName: 'wxMenuBase' },
-  { className: 'wxMenuBar', realClassName: 'wxMenuBarBase' }
+  { className: 'wxMenu', baseClassName: 'wxMenuBase' },
+  { className: 'wxMenuBar', baseClassName: 'wxMenuBarBase' },
+  { className: 'wxFrame', baseClassName: 'wxFrameBase' },
+  { className: 'wxTopLevelWindow', baseClassName: 'wxTopLevelWindowBase' }
 ];
 
 fs.readFile('./wxapi.json', 'utf8', function(err, data) {
@@ -28,10 +30,20 @@ fs.readFile('./wxapi.json', 'utf8', function(err, data) {
         if(err) { throw err; }
         console.log("wxapi.xml parsed");
 
-        fs.writeFile('./wxapi.json', JSON.stringify(result, null, '\t'), function(err) {
+        var apiJson = {};
+        for(var elementName in result['GCC_XML']) {
+          var elem = result['GCC_XML'][elementName];
+          for(var i=0; i<elem.length; i++) {
+            var id = elem[i]['id'];
+            apiJson[id] = elem[i];
+            apiJson[id].elementName = elementName;
+          }
+        }
+
+        fs.writeFile('./wxapi.json', JSON.stringify(apiJson, null, '\t'), function(err) {
           if(err) { throw err; }
 
-          renderFiles(files, result);
+          renderFiles(files, apiJson);
         });
       });
     });
@@ -44,45 +56,43 @@ fs.readFile('./wxapi.json', 'utf8', function(err, data) {
 });
 
 function lookupClassById(rawJson, typeId) {
-  var clazz = jsonpath.eval(rawJson, util.format("$.GCC_XML.Class[?(@.id=='%s')]", typeId));
-  if(clazz && clazz.length == 1) {
-    clazz[0].pointers = '';
-    return clazz[0];
+  var clazz = rawJson[typeId];
+  if(clazz.elementName == "Class") {
+    clazz.pointers = '';
+    clazz.refs = '';
+    return clazz;
   }
 
-  clazz = jsonpath.eval(rawJson, util.format("$.GCC_XML.PointerType[?(@.id=='%s')]", typeId));
-  if(clazz && clazz.length == 1) {
-    var result = lookupClassById(rawJson, clazz[0]['type']);
+  if(clazz.elementName == "PointerType") {
+    var result = lookupClassById(rawJson, clazz['type']);
     result.pointers += '*';
     return result;
   }
 
-  clazz = jsonpath.eval(rawJson, util.format("$.GCC_XML.ReferenceType[?(@.id=='%s')]", typeId));
-  if(clazz && clazz.length == 1) {
-    return lookupClassById(rawJson, clazz[0]['type']);
+  if(clazz.elementName == "ReferenceType") {
+    var result = lookupClassById(rawJson, clazz['type']);
+    result.refs += '&';
+    return result;
   }
 
-  clazz = jsonpath.eval(rawJson, util.format("$.GCC_XML.CvQualifiedType[?(@.id=='%s')]", typeId));
-  if(clazz && clazz.length == 1) {
-    return lookupClassById(rawJson, clazz[0]['type']);
+  if(clazz.elementName == "CvQualifiedType") {
+    return lookupClassById(rawJson, clazz['type']);
   }
 
-  clazz = jsonpath.eval(rawJson, util.format("$.GCC_XML.FundamentalType[?(@.id=='%s')]", typeId));
-  if(clazz && clazz.length == 1) {
-    clazz[0].pointers = '';
-    return clazz[0];
+  if(clazz.elementName == "FundamentalType") {
+    clazz.pointers = '';
+    clazz.refs = '';
+    return clazz;
   }
 
-  clazz = jsonpath.eval(rawJson, util.format("$.GCC_XML.Typedef[?(@.id=='%s')]", typeId));
-  if(clazz && clazz.length == 1) {
-    clazz[0].pointers = '';
-    return clazz[0];
+  if(clazz.elementName == "Typedef") {
+    return lookupClassById(rawJson, clazz['type']);
   }
 
-  clazz = jsonpath.eval(rawJson, util.format("$.GCC_XML.Enumeration[?(@.id=='%s')]", typeId));
-  if(clazz && clazz.length == 1) {
-    clazz[0].pointers = '';
-    return clazz[0];
+  if(clazz.elementName == "Enumeration") {
+    clazz.pointers = '';
+    clazz.refs = '';
+    return clazz;
   }
 
   throw new Error("Could not find class '" + typeId + "'");
@@ -100,7 +110,7 @@ function concatUnique(orig, newItems) {
 function argJsonToCtx(ctx, rawJson, arg, i) {
   var typeId = arg['type'];
   var type = lookupClassById(rawJson, typeId);
-  var argCode = "unhandled argCode type " + type['name'];
+  var argCode = "unhandled argCode type '" + type['name'] + "'";
   var argCallCode = "";
   var argDeclCode = "";
   var typeName = type['name'];
@@ -109,7 +119,7 @@ function argJsonToCtx(ctx, rawJson, arg, i) {
 
   typeName = typeName.replace(/Base$/, '');
 
-  if(typeName == "int" || typeName == "long int" || typeName == "size_t") {
+  if(typeName == "int" || typeName == "long int" || typeName == "size_t" || typeName == "unsigned int") {
     if(type.pointers == '*') {
       argCode = util.format("%s %s;", typeName, argName);
       argCallCode = "&" + argName;
@@ -135,8 +145,13 @@ function argJsonToCtx(ctx, rawJson, arg, i) {
       argCallCode = "&" + argName;
     } else {
       argCode = util.format("wxNode_%s* %s = wxNodeObject::unwrap<wxNode_%s>(args[%d]->ToObject());", typeName, argName, typeName, i);
-      argCallCode = argName;
-      argDeclCode = util.format("wxNode_%s* %s", typeName, argName);
+      if(type.refs == '&') {
+        argCallCode = '*' + argName;
+        argDeclCode = util.format("wxNode_%s* %s", typeName, argName);
+      } else {
+        argCallCode = argName;
+        argDeclCode = util.format("wxNode_%s& %s", typeName, argName);
+      }
       argTestCode = util.format("args[%d]->IsObject()", i);
     }
     ctx.includes = concatUnique(ctx.includes, ["wxNode_" + typeName + ".h"]);
@@ -265,6 +280,9 @@ function addMethod(rawJson, ctx, member, dest) {
     methodGroup = methodGroup[0];
   }
   var methodJson = methodJsonToCtx(methodGroup, rawJson, member);
+  if(methodJson.name.match(/^On/)) {
+    return;
+  }
   ctx.includes = concatUnique(ctx.includes, methodJson.includes);
   methodGroup.overloads.push(methodJson);
 
@@ -281,6 +299,19 @@ function addMethod(rawJson, ctx, member, dest) {
   }
 }
 
+function getClassByName(rawJson, name) {
+  var clazz = jsonpath.eval(rawJson, util.format("$..[?(@.name=='%s')]", name));
+  clazz = clazz.filter(function(item) { return item.elementName == "Class"; });
+  if(!clazz || clazz.length < 1) {
+    throw new Error("Could not find class '" + name + "'");
+  }
+  if(clazz.length > 1) {
+    throw new Error("Found multiple matches for '" + name + "'");
+  }
+  clazz = clazz[0];
+  return clazz;
+}
+
 function rawJsonToCtx(rawJson, file) {
   var ctx = {
     name: file.className,
@@ -293,14 +324,8 @@ function rawJsonToCtx(rawJson, file) {
   ctx.headerFilename = ctx.outputFilename.replace(/\.cpp$/, '.h');
   ctx.includes.push(ctx.headerFilename);
 
-  var clazz = jsonpath.eval(rawJson, util.format("$.GCC_XML.Class[?(@.name=='%s')]", file.realClassName));
-  if(!clazz || clazz.length < 1) {
-    throw new Error("Could not find class '" + file.realClassName + "'");
-  }
-  if(clazz.length > 1) {
-    throw new Error("Found multiple matches for '" + file.realClassName + "'");
-  }
-  clazz = clazz[0];
+  var clazz = getClassByName(rawJson, file.baseClassName);
+  var subClazz = getClassByName(rawJson, file.className);
   ctx.classId = clazz['id'];
 
   // process base class
@@ -308,12 +333,32 @@ function rawJsonToCtx(rawJson, file) {
     var baseId = clazz['Base'][0]['type'];
     var baseClazz = lookupClassById(rawJson, baseId);
     ctx.baseClassName = baseClazz['name'];
+    if(ctx.baseClassName.indexOf('<')) {
+      ctx.baseClassName = ctx.baseClassName.split('<')[0];
+    }
     ctx.baseClassId = baseClazz['id'];
-    ctx.baseClassAddMethodsCallCode = "wxNode_" + ctx.baseClassName + "::AddMethods(s_ct);";
+    ctx.baseClassAddMethodsCallCode = "wxNode_" + ctx.baseClassName + "::AddMethods(target);";
     ctx.includes = concatUnique(ctx.includes, ["wxNode_wxEvtHandler.h", "wxNode_" + ctx.baseClassName + ".h"]);
   }
 
   // process members
+  if(subClazz['members']) {
+    var memberIds = subClazz['members'].split(' ');
+    for(var i=0; i<memberIds.length; i++) {
+      var memberId = memberIds[i];
+      if(memberId.length == 0) {
+        continue;
+      }
+
+      var member = rawJson[memberId];
+
+      if(member.elementName == "Constructor") {
+        addMethod(rawJson, ctx, member, ctx.constructors);
+        continue;
+      }
+    }
+  }
+
   if(clazz['members']) {
     var memberIds = clazz['members'].split(' ');
     for(var i=0; i<memberIds.length; i++) {
@@ -322,41 +367,29 @@ function rawJsonToCtx(rawJson, file) {
         continue;
       }
 
-      var member = jsonpath.eval(rawJson, util.format("$.GCC_XML.Method[?(@.id=='%s')]", memberId));
-      if(member && member.length > 0) {
-        member = member[0];
+      var member = rawJson[memberId];
+      if(member.elementName == "Method") {
         addMethod(rawJson, ctx, member, ctx.methods);
         continue;
       }
 
-      member = jsonpath.eval(rawJson, util.format("$.GCC_XML.Constructor[?(@.id=='%s')]", memberId));
-      if(member && member.length > 0) {
-        member = member[0];
-        addMethod(rawJson, ctx, member, ctx.constructors);
+      if(member.elementName == "Constructor") {
         continue;
       }
 
-      member = jsonpath.eval(rawJson, util.format("$.GCC_XML.Field[?(@.id=='%s')]", memberId));
-      if(member && member.length > 0) {
-        member = member[0];
+      if(member.elementName == "Field") {
         continue;
       }
 
-      member = jsonpath.eval(rawJson, util.format("$.GCC_XML.Variable[?(@.id=='%s')]", memberId));
-      if(member && member.length > 0) {
-        member = member[0];
+      if(member.elementName == "Variable") {
         continue;
       }
 
-      member = jsonpath.eval(rawJson, util.format("$.GCC_XML.Destructor[?(@.id=='%s')]", memberId));
-      if(member && member.length > 0) {
-        member = member[0];
+      if(member.elementName == "Destructor") {
         continue;
       }
 
-      member = jsonpath.eval(rawJson, util.format("$.GCC_XML.OperatorMethod[?(@.id=='%s')]", memberId));
-      if(member && member.length > 0) {
-        member = member[0];
+      if(member.elementName == "OperatorMethod") {
         continue;
       }
 

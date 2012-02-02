@@ -4,6 +4,12 @@
 
 #include "wxnode.h"
 #include "wxNode_wxEvtHandler.h"
+#include "wxNode_wxMenuBar.h"
+#include "wxNode_wxEvtHandler.h"
+#include "wxNode_wxWindow.h"
+#include "wxNode_wxMenu.h"
+#include "wxNode_wxFrame.h"
+
 
 class wxNode_wxMenuBar : public wxMenuBar, public wxNodeObject, public NodeExEvtHandlerImpl {
 public:
@@ -15,6 +21,12 @@ protected:
   
   
   wxNode_wxMenuBar();
+  
+  wxNode_wxMenuBar(long int style);
+  
+  wxNode_wxMenuBar(unsigned int n, , const char* titles, long int style);
+  
+  wxNode_wxMenuBar(unsigned int n, , const char* titles);
   
   
 

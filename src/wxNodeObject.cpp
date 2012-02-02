@@ -46,7 +46,8 @@ v8::Handle<v8::Value> wxNodeObject::call(const char *fnName, int argc, v8::Handl
       v8::Local<v8::Value> superWrapArgv[2];
       superWrapArgv[0] = propVal;
       superWrapArgv[1] = basePropVal;
-      result->Set(propName, superWrapMethod->Call(result, 2, superWrapArgv));
+      propVal = superWrapMethod->Call(result, 2, superWrapArgv);
+      result->Set(propName, propVal);
     } else {
       result->Set(propName, propVal);
     }
@@ -61,7 +62,14 @@ v8::Handle<v8::Value> wxNodeObject::call(const char *fnName, int argc, v8::Handl
   v8::Local<v8::Value> initObj = result->Get(v8::String::New("init"));
 
   v8::Function *initFn = v8::Function::Cast(*initObj);
+
+  v8::TryCatch tryCatch;
   initFn->Call(result, argc, initArgs);
+  if(tryCatch.HasCaught()) {
+    v8::String::AsciiValue errorStr(tryCatch.Exception());
+    printf("%s\n", *errorStr);
+    return v8::Undefined(); // TODO: causes Seg fault
+  }
 
   return scope.Close(result);
 }

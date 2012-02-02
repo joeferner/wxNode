@@ -4,6 +4,8 @@
 
 #include "wxnode.h"
 #include "wxNode_wxEvtHandler.h"
+{{#includes}}#include "{{.}}"
+{{/includes}}
 
 class wxNode_{{name}} : public {{name}}, public wxNodeObject, public NodeExEvtHandlerImpl {
 public:

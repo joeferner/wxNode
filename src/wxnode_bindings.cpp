@@ -2,7 +2,7 @@
 #include <v8.h>
 #include <node.h>
 #include "app.h"
-#include "frame.h"
+#include "wxNode_wxFrame.h"
 #include "wxNode_wxMenuBar.h"
 #include "wxNode_wxMenu.h"
 #include "messageBox.h"
@@ -10,7 +10,7 @@
 extern "C" {
   static void init(v8::Handle<v8::Object> target) {
     NodeWxApp::Init(target);
-    NodeWxFrame::Init(target);
+    wxNode_wxFrame::Init(target);
     wxNode_wxMenu::Init(target);
     wxNode_wxMenuBar::Init(target);
     NodeWxMessageBox::Init(target);

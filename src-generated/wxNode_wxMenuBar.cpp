@@ -16,6 +16,24 @@ wxNode_wxMenuBar::wxNode_wxMenuBar()
 
 }
 
+wxNode_wxMenuBar::wxNode_wxMenuBar(long int style)
+  : wxMenuBar(style)
+{
+
+}
+
+wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, , const char* titles, long int style)
+  : wxMenuBar(n, menus, titles, style)
+{
+
+}
+
+wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, , const char* titles)
+  : wxMenuBar(n, menus, titles)
+{
+
+}
+
 
 
 
@@ -34,36 +52,36 @@ wxNode_wxMenuBar::wxNode_wxMenuBar()
 }
 
 /*static*/ void wxNode_wxMenuBar::AddMethods(v8::Handle<v8::FunctionTemplate> target) {
-  wxNode_wxWindow::AddMethods(s_ct);
-  NODE_SET_PROTOTYPE_METHOD(s_ct, "append", _Append);
-  NODE_SET_PROTOTYPE_METHOD(s_ct, "insert", _Insert);
-  NODE_SET_PROTOTYPE_METHOD(s_ct, "getMenuCount", _GetMenuCount);
-  NODE_SET_PROTOTYPE_METHOD(s_ct, "getMenu", _GetMenu);
-  NODE_SET_PROTOTYPE_METHOD(s_ct, "replace", _Replace);
-  NODE_SET_PROTOTYPE_METHOD(s_ct, "remove", _Remove);
-  NODE_SET_PROTOTYPE_METHOD(s_ct, "enableTop", _EnableTop);
-  NODE_SET_PROTOTYPE_METHOD(s_ct, "isEnabledTop", _IsEnabledTop);
-  NODE_SET_PROTOTYPE_METHOD(s_ct, "setMenuLabel", _SetMenuLabel);
-  NODE_SET_PROTOTYPE_METHOD(s_ct, "getMenuLabel", _GetMenuLabel);
-  NODE_SET_PROTOTYPE_METHOD(s_ct, "getMenuLabelText", _GetMenuLabelText);
-  NODE_SET_PROTOTYPE_METHOD(s_ct, "findMenuItem", _FindMenuItem);
-  NODE_SET_PROTOTYPE_METHOD(s_ct, "findItem", _FindItem);
-  NODE_SET_PROTOTYPE_METHOD(s_ct, "findMenu", _FindMenu);
-  NODE_SET_PROTOTYPE_METHOD(s_ct, "enable", _Enable);
-  NODE_SET_PROTOTYPE_METHOD(s_ct, "check", _Check);
-  NODE_SET_PROTOTYPE_METHOD(s_ct, "isChecked", _IsChecked);
-  NODE_SET_PROTOTYPE_METHOD(s_ct, "isEnabled", _IsEnabled);
-  NODE_SET_PROTOTYPE_METHOD(s_ct, "setLabel", _SetLabel);
-  NODE_SET_PROTOTYPE_METHOD(s_ct, "getLabel", _GetLabel);
-  NODE_SET_PROTOTYPE_METHOD(s_ct, "setHelpString", _SetHelpString);
-  NODE_SET_PROTOTYPE_METHOD(s_ct, "getHelpString", _GetHelpString);
-  NODE_SET_PROTOTYPE_METHOD(s_ct, "getFrame", _GetFrame);
-  NODE_SET_PROTOTYPE_METHOD(s_ct, "isAttached", _IsAttached);
-  NODE_SET_PROTOTYPE_METHOD(s_ct, "attach", _Attach);
-  NODE_SET_PROTOTYPE_METHOD(s_ct, "detach", _Detach);
-  NODE_SET_PROTOTYPE_METHOD(s_ct, "acceptsFocusFromKeyboard", _AcceptsFocusFromKeyboard);
-  NODE_SET_PROTOTYPE_METHOD(s_ct, "updateMenus", _UpdateMenus);
-  NODE_SET_PROTOTYPE_METHOD(s_ct, "canBeOutsideClientArea", _CanBeOutsideClientArea);
+  wxNode_wxWindow::AddMethods(target);
+  NODE_SET_PROTOTYPE_METHOD(target, "append", _Append);
+  NODE_SET_PROTOTYPE_METHOD(target, "insert", _Insert);
+  NODE_SET_PROTOTYPE_METHOD(target, "getMenuCount", _GetMenuCount);
+  NODE_SET_PROTOTYPE_METHOD(target, "getMenu", _GetMenu);
+  NODE_SET_PROTOTYPE_METHOD(target, "replace", _Replace);
+  NODE_SET_PROTOTYPE_METHOD(target, "remove", _Remove);
+  NODE_SET_PROTOTYPE_METHOD(target, "enableTop", _EnableTop);
+  NODE_SET_PROTOTYPE_METHOD(target, "isEnabledTop", _IsEnabledTop);
+  NODE_SET_PROTOTYPE_METHOD(target, "setMenuLabel", _SetMenuLabel);
+  NODE_SET_PROTOTYPE_METHOD(target, "getMenuLabel", _GetMenuLabel);
+  NODE_SET_PROTOTYPE_METHOD(target, "getMenuLabelText", _GetMenuLabelText);
+  NODE_SET_PROTOTYPE_METHOD(target, "findMenuItem", _FindMenuItem);
+  NODE_SET_PROTOTYPE_METHOD(target, "findItem", _FindItem);
+  NODE_SET_PROTOTYPE_METHOD(target, "findMenu", _FindMenu);
+  NODE_SET_PROTOTYPE_METHOD(target, "enable", _Enable);
+  NODE_SET_PROTOTYPE_METHOD(target, "check", _Check);
+  NODE_SET_PROTOTYPE_METHOD(target, "isChecked", _IsChecked);
+  NODE_SET_PROTOTYPE_METHOD(target, "isEnabled", _IsEnabled);
+  NODE_SET_PROTOTYPE_METHOD(target, "setLabel", _SetLabel);
+  NODE_SET_PROTOTYPE_METHOD(target, "getLabel", _GetLabel);
+  NODE_SET_PROTOTYPE_METHOD(target, "setHelpString", _SetHelpString);
+  NODE_SET_PROTOTYPE_METHOD(target, "getHelpString", _GetHelpString);
+  NODE_SET_PROTOTYPE_METHOD(target, "getFrame", _GetFrame);
+  NODE_SET_PROTOTYPE_METHOD(target, "isAttached", _IsAttached);
+  NODE_SET_PROTOTYPE_METHOD(target, "attach", _Attach);
+  NODE_SET_PROTOTYPE_METHOD(target, "detach", _Detach);
+  NODE_SET_PROTOTYPE_METHOD(target, "acceptsFocusFromKeyboard", _AcceptsFocusFromKeyboard);
+  NODE_SET_PROTOTYPE_METHOD(target, "updateMenus", _UpdateMenus);
+  NODE_SET_PROTOTYPE_METHOD(target, "canBeOutsideClientArea", _CanBeOutsideClientArea);
   
 }
 
@@ -73,7 +91,7 @@ wxNode_wxMenuBar::wxNode_wxMenuBar()
   
   
   /*
-   * id: _39534
+   * id: _43397
    */
   if(args.Length() == 0) {
     
@@ -84,14 +102,58 @@ wxNode_wxMenuBar::wxNode_wxMenuBar()
     return args.This();
   }
   
+  /*
+   * id: _43398
+   */
+  if(args.Length() == 1 && args[0]->IsNumber()) {
+    long int style = (long int)args[0]->ToInt32()->Value(); /* type: _586  */
+    
+
+    wxNode_wxMenuBar *self = new wxNode_wxMenuBar(style);
+    NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>(self);
+    self->wrap(args.This(), self, evtHandler);
+    return args.This();
+  }
+  
+  /*
+   * id: _43399
+   */
+  if(args.Length() == 4 && args[0]->IsNumber() && false && args[2]->IsString() && args[3]->IsNumber()) {
+    unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8620  */
+    wxMenu* menus; /* type: _65194 ** */
+    v8::String::AsciiValue titles(args[2]->ToString()); /* type: _20525 * */
+    long int style = (long int)args[3]->ToInt32()->Value(); /* type: _586  */
+    
+
+    wxNode_wxMenuBar *self = new wxNode_wxMenuBar(n, &menus, *titles, style);
+    NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>(self);
+    self->wrap(args.This(), self, evtHandler);
+    return args.This();
+  }
+  
+  /*
+   * id: _43399
+   */
+  if(args.Length() == 3 && args[0]->IsNumber() && false && args[2]->IsString()) {
+    unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8620  */
+    wxMenu* menus; /* type: _65194 ** */
+    v8::String::AsciiValue titles(args[2]->ToString()); /* type: _20525 * */
+    
+
+    wxNode_wxMenuBar *self = new wxNode_wxMenuBar(n, &menus, *titles);
+    NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>(self);
+    self->wrap(args.This(), self, evtHandler);
+    return args.This();
+  }
+  
   
 
-  // TODO: throw exception on no matches
-  return v8::Undefined();
+  return v8::ThrowException(v8::String::New("Could not find matching constructor for arguments (class name: wxMenuBar)."));
 }
 
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxMenuBar::_Append(const v8::Arguments& args) {
+  v8::HandleScope scope;
   wxNode_wxMenuBar* self = unwrap<wxNode_wxMenuBar>(args.This());
 
   
@@ -110,11 +172,11 @@ wxNode_wxMenuBar::wxNode_wxMenuBar()
   }
   
 
-  // TODO: throw exception on no matches
-  return v8::Undefined();
+  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: Append)."));
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxMenuBar::_Insert(const v8::Arguments& args) {
+  v8::HandleScope scope;
   wxNode_wxMenuBar* self = unwrap<wxNode_wxMenuBar>(args.This());
 
   
@@ -122,7 +184,7 @@ wxNode_wxMenuBar::wxNode_wxMenuBar()
    * id: _39537
    */
   if(args.Length() == 3 && args[0]->IsNumber() && args[1]->IsObject() && args[2]->IsString()) {
-    size_t pos = (size_t)args[0]->ToInt32()->Value(); /* type: _8620  */
+    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8620  */
     wxNode_wxMenu* menu = wxNodeObject::unwrap<wxNode_wxMenu>(args[1]->ToObject()); /* type: _52838 * */
     v8::String::AsciiValue title(args[2]->ToString()); /* type: _14808  */
     
@@ -134,11 +196,11 @@ wxNode_wxMenuBar::wxNode_wxMenuBar()
   }
   
 
-  // TODO: throw exception on no matches
-  return v8::Undefined();
+  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: Insert)."));
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxMenuBar::_GetMenuCount(const v8::Arguments& args) {
+  v8::HandleScope scope;
   wxNode_wxMenuBar* self = unwrap<wxNode_wxMenuBar>(args.This());
 
   
@@ -155,11 +217,11 @@ wxNode_wxMenuBar::wxNode_wxMenuBar()
   }
   
 
-  // TODO: throw exception on no matches
-  return v8::Undefined();
+  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: GetMenuCount)."));
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxMenuBar::_GetMenu(const v8::Arguments& args) {
+  v8::HandleScope scope;
   wxNode_wxMenuBar* self = unwrap<wxNode_wxMenuBar>(args.This());
 
   
@@ -167,7 +229,7 @@ wxNode_wxMenuBar::wxNode_wxMenuBar()
    * id: _39539
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    size_t pos = (size_t)args[0]->ToInt32()->Value(); /* type: _8620  */
+    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8620  */
     
 
     self->GetMenu(pos);
@@ -177,11 +239,11 @@ wxNode_wxMenuBar::wxNode_wxMenuBar()
   }
   
 
-  // TODO: throw exception on no matches
-  return v8::Undefined();
+  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: GetMenu)."));
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxMenuBar::_Replace(const v8::Arguments& args) {
+  v8::HandleScope scope;
   wxNode_wxMenuBar* self = unwrap<wxNode_wxMenuBar>(args.This());
 
   
@@ -189,7 +251,7 @@ wxNode_wxMenuBar::wxNode_wxMenuBar()
    * id: _39540
    */
   if(args.Length() == 3 && args[0]->IsNumber() && args[1]->IsObject() && args[2]->IsString()) {
-    size_t pos = (size_t)args[0]->ToInt32()->Value(); /* type: _8620  */
+    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8620  */
     wxNode_wxMenu* menu = wxNodeObject::unwrap<wxNode_wxMenu>(args[1]->ToObject()); /* type: _52838 * */
     v8::String::AsciiValue title(args[2]->ToString()); /* type: _14808  */
     
@@ -201,11 +263,11 @@ wxNode_wxMenuBar::wxNode_wxMenuBar()
   }
   
 
-  // TODO: throw exception on no matches
-  return v8::Undefined();
+  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: Replace)."));
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxMenuBar::_Remove(const v8::Arguments& args) {
+  v8::HandleScope scope;
   wxNode_wxMenuBar* self = unwrap<wxNode_wxMenuBar>(args.This());
 
   
@@ -213,7 +275,7 @@ wxNode_wxMenuBar::wxNode_wxMenuBar()
    * id: _39541
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    size_t pos = (size_t)args[0]->ToInt32()->Value(); /* type: _8620  */
+    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8620  */
     
 
     self->Remove(pos);
@@ -223,11 +285,11 @@ wxNode_wxMenuBar::wxNode_wxMenuBar()
   }
   
 
-  // TODO: throw exception on no matches
-  return v8::Undefined();
+  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: Remove)."));
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxMenuBar::_EnableTop(const v8::Arguments& args) {
+  v8::HandleScope scope;
   wxNode_wxMenuBar* self = unwrap<wxNode_wxMenuBar>(args.This());
 
   
@@ -235,7 +297,7 @@ wxNode_wxMenuBar::wxNode_wxMenuBar()
    * id: _39542
    */
   if(args.Length() == 2 && args[0]->IsNumber() && args[1]->IsBoolean()) {
-    size_t pos = (size_t)args[0]->ToInt32()->Value(); /* type: _8620  */
+    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8620  */
     bool enable = args[1]->ToBoolean()->Value(); /* type: _14666  */
     
 
@@ -246,11 +308,11 @@ wxNode_wxMenuBar::wxNode_wxMenuBar()
   }
   
 
-  // TODO: throw exception on no matches
-  return v8::Undefined();
+  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: EnableTop)."));
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxMenuBar::_IsEnabledTop(const v8::Arguments& args) {
+  v8::HandleScope scope;
   wxNode_wxMenuBar* self = unwrap<wxNode_wxMenuBar>(args.This());
 
   
@@ -258,7 +320,7 @@ wxNode_wxMenuBar::wxNode_wxMenuBar()
    * id: _39543
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    size_t undefined = (size_t)args[0]->ToInt32()->Value(); /* type: _8620  */
+    unsigned int undefined = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8620  */
     
 
     self->IsEnabledTop(undefined);
@@ -268,11 +330,11 @@ wxNode_wxMenuBar::wxNode_wxMenuBar()
   }
   
 
-  // TODO: throw exception on no matches
-  return v8::Undefined();
+  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: IsEnabledTop)."));
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxMenuBar::_SetMenuLabel(const v8::Arguments& args) {
+  v8::HandleScope scope;
   wxNode_wxMenuBar* self = unwrap<wxNode_wxMenuBar>(args.This());
 
   
@@ -280,7 +342,7 @@ wxNode_wxMenuBar::wxNode_wxMenuBar()
    * id: _39544
    */
   if(args.Length() == 2 && args[0]->IsNumber() && args[1]->IsString()) {
-    size_t pos = (size_t)args[0]->ToInt32()->Value(); /* type: _8620  */
+    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8620  */
     v8::String::AsciiValue label(args[1]->ToString()); /* type: _14808  */
     
 
@@ -291,11 +353,11 @@ wxNode_wxMenuBar::wxNode_wxMenuBar()
   }
   
 
-  // TODO: throw exception on no matches
-  return v8::Undefined();
+  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: SetMenuLabel)."));
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxMenuBar::_GetMenuLabel(const v8::Arguments& args) {
+  v8::HandleScope scope;
   wxNode_wxMenuBar* self = unwrap<wxNode_wxMenuBar>(args.This());
 
   
@@ -303,7 +365,7 @@ wxNode_wxMenuBar::wxNode_wxMenuBar()
    * id: _39545
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    size_t pos = (size_t)args[0]->ToInt32()->Value(); /* type: _8620  */
+    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8620  */
     
 
     self->GetMenuLabel(pos);
@@ -313,11 +375,11 @@ wxNode_wxMenuBar::wxNode_wxMenuBar()
   }
   
 
-  // TODO: throw exception on no matches
-  return v8::Undefined();
+  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: GetMenuLabel)."));
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxMenuBar::_GetMenuLabelText(const v8::Arguments& args) {
+  v8::HandleScope scope;
   wxNode_wxMenuBar* self = unwrap<wxNode_wxMenuBar>(args.This());
 
   
@@ -325,7 +387,7 @@ wxNode_wxMenuBar::wxNode_wxMenuBar()
    * id: _39546
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    size_t pos = (size_t)args[0]->ToInt32()->Value(); /* type: _8620  */
+    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8620  */
     
 
     self->GetMenuLabelText(pos);
@@ -335,11 +397,11 @@ wxNode_wxMenuBar::wxNode_wxMenuBar()
   }
   
 
-  // TODO: throw exception on no matches
-  return v8::Undefined();
+  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: GetMenuLabelText)."));
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxMenuBar::_FindMenuItem(const v8::Arguments& args) {
+  v8::HandleScope scope;
   wxNode_wxMenuBar* self = unwrap<wxNode_wxMenuBar>(args.This());
 
   
@@ -358,11 +420,11 @@ wxNode_wxMenuBar::wxNode_wxMenuBar()
   }
   
 
-  // TODO: throw exception on no matches
-  return v8::Undefined();
+  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: FindMenuItem)."));
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxMenuBar::_FindItem(const v8::Arguments& args) {
+  v8::HandleScope scope;
   wxNode_wxMenuBar* self = unwrap<wxNode_wxMenuBar>(args.This());
 
   
@@ -394,11 +456,11 @@ wxNode_wxMenuBar::wxNode_wxMenuBar()
   }
   
 
-  // TODO: throw exception on no matches
-  return v8::Undefined();
+  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: FindItem)."));
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxMenuBar::_FindMenu(const v8::Arguments& args) {
+  v8::HandleScope scope;
   wxNode_wxMenuBar* self = unwrap<wxNode_wxMenuBar>(args.This());
 
   
@@ -416,11 +478,11 @@ wxNode_wxMenuBar::wxNode_wxMenuBar()
   }
   
 
-  // TODO: throw exception on no matches
-  return v8::Undefined();
+  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: FindMenu)."));
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxMenuBar::_Enable(const v8::Arguments& args) {
+  v8::HandleScope scope;
   wxNode_wxMenuBar* self = unwrap<wxNode_wxMenuBar>(args.This());
 
   
@@ -464,11 +526,11 @@ wxNode_wxMenuBar::wxNode_wxMenuBar()
   }
   
 
-  // TODO: throw exception on no matches
-  return v8::Undefined();
+  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: Enable)."));
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxMenuBar::_Check(const v8::Arguments& args) {
+  v8::HandleScope scope;
   wxNode_wxMenuBar* self = unwrap<wxNode_wxMenuBar>(args.This());
 
   
@@ -487,11 +549,11 @@ wxNode_wxMenuBar::wxNode_wxMenuBar()
   }
   
 
-  // TODO: throw exception on no matches
-  return v8::Undefined();
+  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: Check)."));
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxMenuBar::_IsChecked(const v8::Arguments& args) {
+  v8::HandleScope scope;
   wxNode_wxMenuBar* self = unwrap<wxNode_wxMenuBar>(args.This());
 
   
@@ -509,11 +571,11 @@ wxNode_wxMenuBar::wxNode_wxMenuBar()
   }
   
 
-  // TODO: throw exception on no matches
-  return v8::Undefined();
+  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: IsChecked)."));
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxMenuBar::_IsEnabled(const v8::Arguments& args) {
+  v8::HandleScope scope;
   wxNode_wxMenuBar* self = unwrap<wxNode_wxMenuBar>(args.This());
 
   
@@ -543,11 +605,11 @@ wxNode_wxMenuBar::wxNode_wxMenuBar()
   }
   
 
-  // TODO: throw exception on no matches
-  return v8::Undefined();
+  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: IsEnabled)."));
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxMenuBar::_SetLabel(const v8::Arguments& args) {
+  v8::HandleScope scope;
   wxNode_wxMenuBar* self = unwrap<wxNode_wxMenuBar>(args.This());
 
   
@@ -579,11 +641,11 @@ wxNode_wxMenuBar::wxNode_wxMenuBar()
   }
   
 
-  // TODO: throw exception on no matches
-  return v8::Undefined();
+  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: SetLabel)."));
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxMenuBar::_GetLabel(const v8::Arguments& args) {
+  v8::HandleScope scope;
   wxNode_wxMenuBar* self = unwrap<wxNode_wxMenuBar>(args.This());
 
   
@@ -613,11 +675,11 @@ wxNode_wxMenuBar::wxNode_wxMenuBar()
   }
   
 
-  // TODO: throw exception on no matches
-  return v8::Undefined();
+  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: GetLabel)."));
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxMenuBar::_SetHelpString(const v8::Arguments& args) {
+  v8::HandleScope scope;
   wxNode_wxMenuBar* self = unwrap<wxNode_wxMenuBar>(args.This());
 
   
@@ -636,11 +698,11 @@ wxNode_wxMenuBar::wxNode_wxMenuBar()
   }
   
 
-  // TODO: throw exception on no matches
-  return v8::Undefined();
+  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: SetHelpString)."));
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxMenuBar::_GetHelpString(const v8::Arguments& args) {
+  v8::HandleScope scope;
   wxNode_wxMenuBar* self = unwrap<wxNode_wxMenuBar>(args.This());
 
   
@@ -658,11 +720,11 @@ wxNode_wxMenuBar::wxNode_wxMenuBar()
   }
   
 
-  // TODO: throw exception on no matches
-  return v8::Undefined();
+  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: GetHelpString)."));
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxMenuBar::_GetFrame(const v8::Arguments& args) {
+  v8::HandleScope scope;
   wxNode_wxMenuBar* self = unwrap<wxNode_wxMenuBar>(args.This());
 
   
@@ -679,11 +741,11 @@ wxNode_wxMenuBar::wxNode_wxMenuBar()
   }
   
 
-  // TODO: throw exception on no matches
-  return v8::Undefined();
+  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: GetFrame)."));
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxMenuBar::_IsAttached(const v8::Arguments& args) {
+  v8::HandleScope scope;
   wxNode_wxMenuBar* self = unwrap<wxNode_wxMenuBar>(args.This());
 
   
@@ -700,11 +762,11 @@ wxNode_wxMenuBar::wxNode_wxMenuBar()
   }
   
 
-  // TODO: throw exception on no matches
-  return v8::Undefined();
+  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: IsAttached)."));
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxMenuBar::_Attach(const v8::Arguments& args) {
+  v8::HandleScope scope;
   wxNode_wxMenuBar* self = unwrap<wxNode_wxMenuBar>(args.This());
 
   
@@ -722,11 +784,11 @@ wxNode_wxMenuBar::wxNode_wxMenuBar()
   }
   
 
-  // TODO: throw exception on no matches
-  return v8::Undefined();
+  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: Attach)."));
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxMenuBar::_Detach(const v8::Arguments& args) {
+  v8::HandleScope scope;
   wxNode_wxMenuBar* self = unwrap<wxNode_wxMenuBar>(args.This());
 
   
@@ -743,11 +805,11 @@ wxNode_wxMenuBar::wxNode_wxMenuBar()
   }
   
 
-  // TODO: throw exception on no matches
-  return v8::Undefined();
+  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: Detach)."));
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxMenuBar::_AcceptsFocusFromKeyboard(const v8::Arguments& args) {
+  v8::HandleScope scope;
   wxNode_wxMenuBar* self = unwrap<wxNode_wxMenuBar>(args.This());
 
   
@@ -764,11 +826,11 @@ wxNode_wxMenuBar::wxNode_wxMenuBar()
   }
   
 
-  // TODO: throw exception on no matches
-  return v8::Undefined();
+  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: AcceptsFocusFromKeyboard)."));
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxMenuBar::_UpdateMenus(const v8::Arguments& args) {
+  v8::HandleScope scope;
   wxNode_wxMenuBar* self = unwrap<wxNode_wxMenuBar>(args.This());
 
   
@@ -785,11 +847,11 @@ wxNode_wxMenuBar::wxNode_wxMenuBar()
   }
   
 
-  // TODO: throw exception on no matches
-  return v8::Undefined();
+  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: UpdateMenus)."));
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxMenuBar::_CanBeOutsideClientArea(const v8::Arguments& args) {
+  v8::HandleScope scope;
   wxNode_wxMenuBar* self = unwrap<wxNode_wxMenuBar>(args.This());
 
   
@@ -806,7 +868,6 @@ wxNode_wxMenuBar::wxNode_wxMenuBar()
   }
   
 
-  // TODO: throw exception on no matches
-  return v8::Undefined();
+  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: CanBeOutsideClientArea)."));
 }
 
