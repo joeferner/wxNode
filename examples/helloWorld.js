@@ -17,7 +17,7 @@ var MyApp = wxNode.wxApp.extend({
 
 var MyFrame = wxNode.wxFrame.extend({
   init: function(title, pos, size) {
-    console.log(this._super(null, -1, title, pos, size));
+    this._super(null, -1, title, pos, size);
 
     var menuFile = new wxNode.wxMenu();
     menuFile.append(ID_About, "&About");

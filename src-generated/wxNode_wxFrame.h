@@ -28,15 +28,15 @@ protected:
   
   wxNode_wxFrame();
   
-  wxNode_wxFrame(wxNode_wxWindow& parent, int id, const char* title, wxNode_wxPoint* pos, wxNode_wxSize* size, long int style, const char* name);
+  wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& title, wxNode_wxPoint& pos, wxNode_wxSize& size, long int style, const wxString& name);
   
-  wxNode_wxFrame(wxNode_wxWindow& parent, int id, const char* title, wxNode_wxPoint* pos, wxNode_wxSize* size, long int style);
+  wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& title, wxNode_wxPoint& pos, wxNode_wxSize& size, long int style);
   
-  wxNode_wxFrame(wxNode_wxWindow& parent, int id, const char* title, wxNode_wxPoint* pos, wxNode_wxSize* size);
+  wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& title, wxNode_wxPoint& pos, wxNode_wxSize& size);
   
-  wxNode_wxFrame(wxNode_wxWindow& parent, int id, const char* title, wxNode_wxPoint* pos);
+  wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& title, wxNode_wxPoint& pos);
   
-  wxNode_wxFrame(wxNode_wxWindow& parent, int id, const char* title);
+  wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& title);
   
   
 

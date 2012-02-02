@@ -11,13 +11,13 @@
 
 
 
-wxNode_wxMenu::wxNode_wxMenu(const char* title, long int style)
+wxNode_wxMenu::wxNode_wxMenu(const wxString& title, long int style)
   : wxMenu(title, style)
 {
 
 }
 
-wxNode_wxMenu::wxNode_wxMenu(const char* title)
+wxNode_wxMenu::wxNode_wxMenu(const wxString& title)
   : wxMenu(title)
 {
 

@@ -122,6 +122,7 @@ function argJsonToCtx(ctx, rawJson, arg, i) {
   if(typeName == "int" || typeName == "long int" || typeName == "size_t" || typeName == "unsigned int") {
     if(type.pointers == '*') {
       argCode = util.format("%s %s;", typeName, argName);
+      argDeclCode = util.format("%s* %s", typeName, argName);
       argCallCode = "&" + argName;
     } else {
       argCode = util.format("%s %s = (%s)args[%d]->ToInt32()->Value();", typeName, argName, typeName, i);
@@ -137,20 +138,21 @@ function argJsonToCtx(ctx, rawJson, arg, i) {
   } else if(typeName == "wxString") {
     argCode = util.format("v8::String::AsciiValue %s(args[%d]->ToString());", argName, i);
     argCallCode = "*" + argName;
-    argDeclCode = util.format("const char* %s", argName);
+    argDeclCode = util.format("const wxString& %s", argName);
     argTestCode = util.format("args[%d]->IsString()", i);
   } else if(typeName.match(/^wx.*/)) {
     if(type.pointers == '**') {
       argCode = util.format("%s* %s;", typeName, argName);
+      argDeclCode = util.format("%s** %s", typeName, argName);
       argCallCode = "&" + argName;
     } else {
       argCode = util.format("wxNode_%s* %s = wxNodeObject::unwrap<wxNode_%s>(args[%d]->ToObject());", typeName, argName, typeName, i);
       if(type.refs == '&') {
         argCallCode = '*' + argName;
-        argDeclCode = util.format("wxNode_%s* %s", typeName, argName);
+        argDeclCode = util.format("wxNode_%s& %s", typeName, argName);
       } else {
         argCallCode = argName;
-        argDeclCode = util.format("wxNode_%s& %s", typeName, argName);
+        argDeclCode = util.format("wxNode_%s* %s", typeName, argName);
       }
       argTestCode = util.format("args[%d]->IsObject()", i);
     }

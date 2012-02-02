@@ -26,15 +26,15 @@ protected:
   
   wxNode_wxTopLevelWindow();
   
-  wxNode_wxTopLevelWindow(wxNode_wxWindow& parent, int winid, const char* title, wxNode_wxPoint* pos, wxNode_wxSize* size, long int style, const char* name);
+  wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int winid, const wxString& title, wxNode_wxPoint& pos, wxNode_wxSize& size, long int style, const wxString& name);
   
-  wxNode_wxTopLevelWindow(wxNode_wxWindow& parent, int winid, const char* title, wxNode_wxPoint* pos, wxNode_wxSize* size, long int style);
+  wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int winid, const wxString& title, wxNode_wxPoint& pos, wxNode_wxSize& size, long int style);
   
-  wxNode_wxTopLevelWindow(wxNode_wxWindow& parent, int winid, const char* title, wxNode_wxPoint* pos, wxNode_wxSize* size);
+  wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int winid, const wxString& title, wxNode_wxPoint& pos, wxNode_wxSize& size);
   
-  wxNode_wxTopLevelWindow(wxNode_wxWindow& parent, int winid, const char* title, wxNode_wxPoint* pos);
+  wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int winid, const wxString& title, wxNode_wxPoint& pos);
   
-  wxNode_wxTopLevelWindow(wxNode_wxWindow& parent, int winid, const char* title);
+  wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int winid, const wxString& title);
   
   
 
