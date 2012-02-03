@@ -2,6 +2,7 @@
 #ifndef _wxNode_{{name}}_h_
 #define _wxNode_{{name}}_h_
 
+class wxNode_wxWindow;
 #include "wxnode.h"
 #include "wxNode_wxEvtHandler.h"
 {{#includes}}#include "{{.}}"

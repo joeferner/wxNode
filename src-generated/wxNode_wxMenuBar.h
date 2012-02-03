@@ -2,6 +2,7 @@
 #ifndef _wxNode_wxMenuBar_h_
 #define _wxNode_wxMenuBar_h_
 
+class wxNode_wxWindow;
 #include "wxnode.h"
 #include "wxNode_wxEvtHandler.h"
 #include "wxNode_wxMenuBar.h"
@@ -18,13 +19,17 @@ public:
   virtual v8::Handle<v8::Object> self() { return m_self; }
 
 protected:
-
-
+  
+  
   wxNode_wxMenuBar();
-
+  
   wxNode_wxMenuBar(long int style);
-
-
+  
+  wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxString* titles, long int style);
+  
+  wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxString* titles);
+  
+  
 
 private:
   static v8::Handle<v8::Value> _init(const v8::Arguments& args);
@@ -58,7 +63,7 @@ private:
   static v8::Handle<v8::Value> _AcceptsFocusFromKeyboard(const v8::Arguments& args);
   static v8::Handle<v8::Value> _UpdateMenus(const v8::Arguments& args);
   static v8::Handle<v8::Value> _CanBeOutsideClientArea(const v8::Arguments& args);
-
+  
 
   static v8::Persistent<v8::FunctionTemplate> s_ct;
 };

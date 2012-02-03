@@ -1,7 +1,6 @@
 
 #include "wxNode_wxMenu.h"
 #include "wxNode_wxEvtHandler.h"
-#include "wxNode_wxItemKind.h"
 #include "wxNode_wxMenuItem.h"
 #include "wxNode_wxWindow.h"
 #include "wxNode_wxMenuBar.h"
@@ -225,11 +224,11 @@ wxNode_wxMenu::wxNode_wxMenu()
   /*
    * id: _44715
    */
-  if(args.Length() == 4 && args[0]->IsNumber() && args[1]->IsString() && args[2]->IsString() && args[3]->IsObject()) {
+  if(args.Length() == 4 && args[0]->IsNumber() && args[1]->IsString() && args[2]->IsString() && args[3]->IsNumber()) {
     int itemid = (int)args[0]->ToInt32()->Value(); /* type: _162  */
     v8::String::AsciiValue text(args[1]->ToString()); /* type: _14808  */
     v8::String::AsciiValue help(args[2]->ToString()); /* type: _14808  */
-    wxNode_wxItemKind* kind = wxNodeObject::unwrap<wxNode_wxItemKind>(args[3]->ToObject()); /* type: _4625  */
+    wxItemKind kind; /* type: _4625  */
     
 
     self->Append(itemid, *text, *help, kind);
@@ -283,8 +282,8 @@ wxNode_wxMenu::wxNode_wxMenu()
   /*
    * id: _44720
    */
-  if(args.Length() == 1 && args[0]->IsObject()) {
-    wxNode_wxMenuItem* item = wxNodeObject::unwrap<wxNode_wxMenuItem>(args[0]->ToObject()); /* type: _51683 * */
+  if(args.Length() == 1 && (args[0]->IsNull() || args[0]->IsObject())) {
+    wxNode_wxMenuItem* item = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenuItem>(args[0]->ToObject()); /* type: _51683 * */
     
 
     self->Append(item);
@@ -312,10 +311,10 @@ wxNode_wxMenu::wxNode_wxMenu()
   /*
    * id: _44773
    */
-  if(args.Length() == 4 && args[0]->IsNumber() && args[1]->IsString() && args[2]->IsObject() && args[3]->IsString()) {
+  if(args.Length() == 4 && args[0]->IsNumber() && args[1]->IsString() && (args[2]->IsNull() || args[2]->IsObject()) && args[3]->IsString()) {
     int itemid = (int)args[0]->ToInt32()->Value(); /* type: _162  */
     v8::String::AsciiValue text(args[1]->ToString()); /* type: _14808  */
-    wxNode_wxMenu* submenu = wxNodeObject::unwrap<wxNode_wxMenu>(args[2]->ToObject()); /* type: _52838 * */
+    wxNode_wxMenu* submenu = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenu>(args[2]->ToObject()); /* type: _52838 * */
     v8::String::AsciiValue help(args[3]->ToString()); /* type: _14808  */
     
 
@@ -328,10 +327,10 @@ wxNode_wxMenu::wxNode_wxMenu()
   /*
    * id: _44773
    */
-  if(args.Length() == 3 && args[0]->IsNumber() && args[1]->IsString() && args[2]->IsObject()) {
+  if(args.Length() == 3 && args[0]->IsNumber() && args[1]->IsString() && (args[2]->IsNull() || args[2]->IsObject())) {
     int itemid = (int)args[0]->ToInt32()->Value(); /* type: _162  */
     v8::String::AsciiValue text(args[1]->ToString()); /* type: _14808  */
-    wxNode_wxMenu* submenu = wxNodeObject::unwrap<wxNode_wxMenu>(args[2]->ToObject()); /* type: _52838 * */
+    wxNode_wxMenu* submenu = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenu>(args[2]->ToObject()); /* type: _52838 * */
     
 
     self->Append(itemid, *text, submenu);
@@ -449,8 +448,8 @@ wxNode_wxMenu::wxNode_wxMenu()
   /*
    * id: _44719
    */
-  if(args.Length() == 3 && args[0]->IsObject() && args[1]->IsString() && args[2]->IsString()) {
-    wxNode_wxMenu* submenu = wxNodeObject::unwrap<wxNode_wxMenu>(args[0]->ToObject()); /* type: _52838 * */
+  if(args.Length() == 3 && (args[0]->IsNull() || args[0]->IsObject()) && args[1]->IsString() && args[2]->IsString()) {
+    wxNode_wxMenu* submenu = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenu>(args[0]->ToObject()); /* type: _52838 * */
     v8::String::AsciiValue text(args[1]->ToString()); /* type: _14808  */
     v8::String::AsciiValue help(args[2]->ToString()); /* type: _14808  */
     
@@ -464,8 +463,8 @@ wxNode_wxMenu::wxNode_wxMenu()
   /*
    * id: _44719
    */
-  if(args.Length() == 2 && args[0]->IsObject() && args[1]->IsString()) {
-    wxNode_wxMenu* submenu = wxNodeObject::unwrap<wxNode_wxMenu>(args[0]->ToObject()); /* type: _52838 * */
+  if(args.Length() == 2 && (args[0]->IsNull() || args[0]->IsObject()) && args[1]->IsString()) {
+    wxNode_wxMenu* submenu = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenu>(args[0]->ToObject()); /* type: _52838 * */
     v8::String::AsciiValue text(args[1]->ToString()); /* type: _14808  */
     
 
@@ -508,9 +507,9 @@ wxNode_wxMenu::wxNode_wxMenu()
   /*
    * id: _44722
    */
-  if(args.Length() == 2 && args[0]->IsNumber() && args[1]->IsObject()) {
+  if(args.Length() == 2 && args[0]->IsNumber() && (args[1]->IsNull() || args[1]->IsObject())) {
     unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8620  */
-    wxNode_wxMenuItem* item = wxNodeObject::unwrap<wxNode_wxMenuItem>(args[1]->ToObject()); /* type: _51683 * */
+    wxNode_wxMenuItem* item = args[1]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenuItem>(args[1]->ToObject()); /* type: _51683 * */
     
 
     self->Insert(pos, item);
@@ -522,12 +521,12 @@ wxNode_wxMenu::wxNode_wxMenu()
   /*
    * id: _44723
    */
-  if(args.Length() == 5 && args[0]->IsNumber() && args[1]->IsNumber() && args[2]->IsString() && args[3]->IsString() && args[4]->IsObject()) {
+  if(args.Length() == 5 && args[0]->IsNumber() && args[1]->IsNumber() && args[2]->IsString() && args[3]->IsString() && args[4]->IsNumber()) {
     unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8620  */
     int itemid = (int)args[1]->ToInt32()->Value(); /* type: _162  */
     v8::String::AsciiValue text(args[2]->ToString()); /* type: _14808  */
     v8::String::AsciiValue help(args[3]->ToString()); /* type: _14808  */
-    wxNode_wxItemKind* kind = wxNodeObject::unwrap<wxNode_wxItemKind>(args[4]->ToObject()); /* type: _4625  */
+    wxItemKind kind; /* type: _4625  */
     
 
     self->Insert(pos, itemid, *text, *help, kind);
@@ -584,11 +583,11 @@ wxNode_wxMenu::wxNode_wxMenu()
   /*
    * id: _44727
    */
-  if(args.Length() == 5 && args[0]->IsNumber() && args[1]->IsNumber() && args[2]->IsString() && args[3]->IsObject() && args[4]->IsString()) {
+  if(args.Length() == 5 && args[0]->IsNumber() && args[1]->IsNumber() && args[2]->IsString() && (args[3]->IsNull() || args[3]->IsObject()) && args[4]->IsString()) {
     unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8620  */
     int itemid = (int)args[1]->ToInt32()->Value(); /* type: _162  */
     v8::String::AsciiValue text(args[2]->ToString()); /* type: _14808  */
-    wxNode_wxMenu* submenu = wxNodeObject::unwrap<wxNode_wxMenu>(args[3]->ToObject()); /* type: _52838 * */
+    wxNode_wxMenu* submenu = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenu>(args[3]->ToObject()); /* type: _52838 * */
     v8::String::AsciiValue help(args[4]->ToString()); /* type: _14808  */
     
 
@@ -601,11 +600,11 @@ wxNode_wxMenu::wxNode_wxMenu()
   /*
    * id: _44727
    */
-  if(args.Length() == 4 && args[0]->IsNumber() && args[1]->IsNumber() && args[2]->IsString() && args[3]->IsObject()) {
+  if(args.Length() == 4 && args[0]->IsNumber() && args[1]->IsNumber() && args[2]->IsString() && (args[3]->IsNull() || args[3]->IsObject())) {
     unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8620  */
     int itemid = (int)args[1]->ToInt32()->Value(); /* type: _162  */
     v8::String::AsciiValue text(args[2]->ToString()); /* type: _14808  */
-    wxNode_wxMenu* submenu = wxNodeObject::unwrap<wxNode_wxMenu>(args[3]->ToObject()); /* type: _52838 * */
+    wxNode_wxMenu* submenu = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenu>(args[3]->ToObject()); /* type: _52838 * */
     
 
     self->Insert(pos, itemid, *text, submenu);
@@ -745,8 +744,8 @@ wxNode_wxMenu::wxNode_wxMenu()
   /*
    * id: _44728
    */
-  if(args.Length() == 1 && args[0]->IsObject()) {
-    wxNode_wxMenuItem* item = wxNodeObject::unwrap<wxNode_wxMenuItem>(args[0]->ToObject()); /* type: _51683 * */
+  if(args.Length() == 1 && (args[0]->IsNull() || args[0]->IsObject())) {
+    wxNode_wxMenuItem* item = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenuItem>(args[0]->ToObject()); /* type: _51683 * */
     
 
     self->Prepend(item);
@@ -758,11 +757,11 @@ wxNode_wxMenu::wxNode_wxMenu()
   /*
    * id: _44729
    */
-  if(args.Length() == 4 && args[0]->IsNumber() && args[1]->IsString() && args[2]->IsString() && args[3]->IsObject()) {
+  if(args.Length() == 4 && args[0]->IsNumber() && args[1]->IsString() && args[2]->IsString() && args[3]->IsNumber()) {
     int itemid = (int)args[0]->ToInt32()->Value(); /* type: _162  */
     v8::String::AsciiValue text(args[1]->ToString()); /* type: _14808  */
     v8::String::AsciiValue help(args[2]->ToString()); /* type: _14808  */
-    wxNode_wxItemKind* kind = wxNodeObject::unwrap<wxNode_wxItemKind>(args[3]->ToObject()); /* type: _4625  */
+    wxItemKind kind; /* type: _4625  */
     
 
     self->Prepend(itemid, *text, *help, kind);
@@ -816,10 +815,10 @@ wxNode_wxMenu::wxNode_wxMenu()
   /*
    * id: _44733
    */
-  if(args.Length() == 4 && args[0]->IsNumber() && args[1]->IsString() && args[2]->IsObject() && args[3]->IsString()) {
+  if(args.Length() == 4 && args[0]->IsNumber() && args[1]->IsString() && (args[2]->IsNull() || args[2]->IsObject()) && args[3]->IsString()) {
     int itemid = (int)args[0]->ToInt32()->Value(); /* type: _162  */
     v8::String::AsciiValue text(args[1]->ToString()); /* type: _14808  */
-    wxNode_wxMenu* submenu = wxNodeObject::unwrap<wxNode_wxMenu>(args[2]->ToObject()); /* type: _52838 * */
+    wxNode_wxMenu* submenu = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenu>(args[2]->ToObject()); /* type: _52838 * */
     v8::String::AsciiValue help(args[3]->ToString()); /* type: _14808  */
     
 
@@ -832,10 +831,10 @@ wxNode_wxMenu::wxNode_wxMenu()
   /*
    * id: _44733
    */
-  if(args.Length() == 3 && args[0]->IsNumber() && args[1]->IsString() && args[2]->IsObject()) {
+  if(args.Length() == 3 && args[0]->IsNumber() && args[1]->IsString() && (args[2]->IsNull() || args[2]->IsObject())) {
     int itemid = (int)args[0]->ToInt32()->Value(); /* type: _162  */
     v8::String::AsciiValue text(args[1]->ToString()); /* type: _14808  */
-    wxNode_wxMenu* submenu = wxNodeObject::unwrap<wxNode_wxMenu>(args[2]->ToObject()); /* type: _52838 * */
+    wxNode_wxMenu* submenu = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenu>(args[2]->ToObject()); /* type: _52838 * */
     
 
     self->Prepend(itemid, *text, submenu);
@@ -982,8 +981,8 @@ wxNode_wxMenu::wxNode_wxMenu()
   /*
    * id: _44735
    */
-  if(args.Length() == 1 && args[0]->IsObject()) {
-    wxNode_wxMenuItem* item = wxNodeObject::unwrap<wxNode_wxMenuItem>(args[0]->ToObject()); /* type: _51683 * */
+  if(args.Length() == 1 && (args[0]->IsNull() || args[0]->IsObject())) {
+    wxNode_wxMenuItem* item = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenuItem>(args[0]->ToObject()); /* type: _51683 * */
     
 
     self->Remove(item);
@@ -1017,8 +1016,8 @@ wxNode_wxMenu::wxNode_wxMenu()
   /*
    * id: _44737
    */
-  if(args.Length() == 1 && args[0]->IsObject()) {
-    wxNode_wxMenuItem* item = wxNodeObject::unwrap<wxNode_wxMenuItem>(args[0]->ToObject()); /* type: _51683 * */
+  if(args.Length() == 1 && (args[0]->IsNull() || args[0]->IsObject())) {
+    wxNode_wxMenuItem* item = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenuItem>(args[0]->ToObject()); /* type: _51683 * */
     
 
     self->Delete(item);
@@ -1052,8 +1051,8 @@ wxNode_wxMenu::wxNode_wxMenu()
   /*
    * id: _44739
    */
-  if(args.Length() == 1 && args[0]->IsObject()) {
-    wxNode_wxMenuItem* item = wxNodeObject::unwrap<wxNode_wxMenuItem>(args[0]->ToObject()); /* type: _51683 * */
+  if(args.Length() == 1 && (args[0]->IsNull() || args[0]->IsObject())) {
+    wxNode_wxMenuItem* item = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenuItem>(args[0]->ToObject()); /* type: _51683 * */
     
 
     self->Destroy(item);
@@ -1444,8 +1443,8 @@ wxNode_wxMenu::wxNode_wxMenu()
   /*
    * id: _44757
    */
-  if(args.Length() == 1 && args[0]->IsObject()) {
-    wxNode_wxEvtHandler* handler = wxNodeObject::unwrap<wxNode_wxEvtHandler>(args[0]->ToObject()); /* type: _1665 * */
+  if(args.Length() == 1 && (args[0]->IsNull() || args[0]->IsObject())) {
+    wxNode_wxEvtHandler* handler = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxEvtHandler>(args[0]->ToObject()); /* type: _1665 * */
     
 
     self->SetEventHandler(handler);
@@ -1487,8 +1486,8 @@ wxNode_wxMenu::wxNode_wxMenu()
   /*
    * id: _44759
    */
-  if(args.Length() == 1 && args[0]->IsObject()) {
-    wxNode_wxWindow* win = wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _993 * */
+  if(args.Length() == 1 && (args[0]->IsNull() || args[0]->IsObject())) {
+    wxNode_wxWindow* win = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _993 * */
     
 
     self->SetInvokingWindow(win);
@@ -1572,8 +1571,8 @@ wxNode_wxMenu::wxNode_wxMenu()
   /*
    * id: _44763
    */
-  if(args.Length() == 1 && args[0]->IsObject()) {
-    wxNode_wxEvtHandler* source = wxNodeObject::unwrap<wxNode_wxEvtHandler>(args[0]->ToObject()); /* type: _1665 * */
+  if(args.Length() == 1 && (args[0]->IsNull() || args[0]->IsObject())) {
+    wxNode_wxEvtHandler* source = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxEvtHandler>(args[0]->ToObject()); /* type: _1665 * */
     
 
     self->UpdateUI(source);
@@ -1627,8 +1626,8 @@ wxNode_wxMenu::wxNode_wxMenu()
   /*
    * id: _44765
    */
-  if(args.Length() == 1 && args[0]->IsObject()) {
-    wxNode_wxMenuBar* menubar = wxNodeObject::unwrap<wxNode_wxMenuBar>(args[0]->ToObject()); /* type: _59442 * */
+  if(args.Length() == 1 && (args[0]->IsNull() || args[0]->IsObject())) {
+    wxNode_wxMenuBar* menubar = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenuBar>(args[0]->ToObject()); /* type: _59442 * */
     
 
     self->Attach(menubar);
@@ -1691,8 +1690,8 @@ wxNode_wxMenu::wxNode_wxMenu()
   /*
    * id: _44768
    */
-  if(args.Length() == 1 && args[0]->IsObject()) {
-    wxNode_wxMenu* parent = wxNodeObject::unwrap<wxNode_wxMenu>(args[0]->ToObject()); /* type: _52838 * */
+  if(args.Length() == 1 && (args[0]->IsNull() || args[0]->IsObject())) {
+    wxNode_wxMenu* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenu>(args[0]->ToObject()); /* type: _52838 * */
     
 
     self->SetParent(parent);

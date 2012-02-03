@@ -11,7 +11,27 @@ var files = [
   { className: 'wxMenu', baseClassName: 'wxMenuBase' },
   { className: 'wxMenuBar', baseClassName: 'wxMenuBarBase' },
   { className: 'wxFrame', baseClassName: 'wxFrameBase' },
-  { className: 'wxTopLevelWindow', baseClassName: 'wxTopLevelWindowBase' }
+  { className: 'wxTopLevelWindow', baseClassName: 'wxTopLevelWindowBase' },
+  { className: 'wxNonOwnedWindow', baseClassName: 'wxNonOwnedWindowBase' },
+  { className: 'wxWindow', baseClassName: 'wxWindowBase', excludeIds: ['_43125', '_43080'] },
+  /*
+  { className: 'wxBitmap', baseClassName: 'wxBitmapBase' },
+  { className: 'wxInputStream', baseClassName: 'wxStreamBase' },
+  { className: 'wxOutputStream', baseClassName: 'wxStreamBase' },
+  { className: 'wxPalette', baseClassName: 'wxPaletteBase' },
+  */
+  /*
+  { className: 'wxGDIObject' },
+  { className: 'wxObject' },
+  { className: 'wxClassInfo' },
+  { className: 'wxRefCounter' },
+  { className: 'wxRect' },
+  { className: 'wxPolygonFillMode' },
+  { className: 'wxBitmapType' },
+  { className: 'wxImage' },
+  { className: 'wxStreamError' },
+  { className: 'wxImageResizeQuality' },
+  */
 ];
 
 fs.readFile('./wxapi.json', 'utf8', function(err, data) {
@@ -30,13 +50,19 @@ fs.readFile('./wxapi.json', 'utf8', function(err, data) {
         if(err) { throw err; }
         console.log("wxapi.xml parsed");
 
-        var apiJson = {};
+        var apiJson = {
+          classNameToId: {}
+        };
         for(var elementName in result['GCC_XML']) {
           var elem = result['GCC_XML'][elementName];
           for(var i=0; i<elem.length; i++) {
             var id = elem[i]['id'];
             apiJson[id] = elem[i];
             apiJson[id].elementName = elementName;
+            if(elementName == "Class" || elementName == "Enumeration") {
+              var name = removeTemplateFromClassName(elem[i]['name']);
+              apiJson.classNameToId[name] = id;
+            }
           }
         }
 
@@ -57,7 +83,7 @@ fs.readFile('./wxapi.json', 'utf8', function(err, data) {
 
 function lookupClassById(rawJson, typeId) {
   var clazz = rawJson[typeId];
-  if(clazz.elementName == "Class") {
+  if(clazz.elementName == "Class" || clazz.elementName == "Struct") {
     clazz.pointers = '';
     clazz.refs = '';
     return clazz;
@@ -80,6 +106,12 @@ function lookupClassById(rawJson, typeId) {
   }
 
   if(clazz.elementName == "FundamentalType") {
+    clazz.pointers = '';
+    clazz.refs = '';
+    return clazz;
+  }
+  
+  if(clazz.elementName == "FunctionType") {
     clazz.pointers = '';
     clazz.refs = '';
     return clazz;
@@ -114,10 +146,12 @@ function argJsonToCtx(ctx, rawJson, arg, i) {
   var argCallCode = "";
   var argDeclCode = "";
   var typeName = type['name'];
-  var argName = arg['name'];
+  var argName = arg['name'] || ("arg" + i);
   var argTestCode = "false";
 
-  typeName = typeName.replace(/Base$/, '');
+  if(typeName) {
+    typeName = typeName.replace(/Base$/, '');
+  }
 
   if(typeName == "int" || typeName == "long int" || typeName == "size_t" || typeName == "unsigned int") {
     if(type.pointers == '*') {
@@ -135,18 +169,47 @@ function argJsonToCtx(ctx, rawJson, arg, i) {
     argCallCode = argName;
     argDeclCode = util.format("bool %s", argName);
     argTestCode = util.format("args[%d]->IsBoolean()", i);
+  } else if(typeName == "unsigned char") {
+    argCode = util.format("unsigned char %s = args[%d]->ToInt32()->Value();", argName, i);
+    argCallCode = argName;
+    argDeclCode = util.format("unsigned char %s", argName);
+    argTestCode = util.format("args[%d]->IsNumber()", i);
   } else if(typeName == "wxString") {
-    argCode = util.format("v8::String::AsciiValue %s(args[%d]->ToString());", argName, i);
-    argCallCode = "*" + argName;
-    argDeclCode = util.format("const wxString& %s", argName);
-    argTestCode = util.format("args[%d]->IsString()", i);
-  } else if(typeName.match(/^wx.*/)) {
+    if(type.pointers == '*') {
+      argCode = util.format("wxString* %s;", argName);
+      argCallCode = argName;
+      argDeclCode = util.format("const wxString%s %s", type.refs + type.pointers, argName);
+      argTestCode = util.format("args[%d]->IsString()", i);
+    } else {
+      argCode = util.format("v8::String::AsciiValue %s(args[%d]->ToString());", argName, i);
+      argCallCode = "*" + argName;
+      argDeclCode = util.format("const wxString%s %s", type.refs + type.pointers, argName);
+      argTestCode = util.format("args[%d]->IsString()", i);
+    }
+  } else if(typeName == "wchar_t") {
+    if(type.pointers == '*') {
+      argCode = util.format("wchar_t* %s;", argName);
+      argCallCode = argName;
+      argDeclCode = util.format("const wchar_t%s %s", type.refs + type.pointers, argName);
+      argTestCode = util.format("args[%d]->IsString()", i);
+    } else {
+      argCode = util.format("v8::String::AsciiValue %s(args[%d]->ToString());", argName, i);
+      argCallCode = "*" + argName;
+      argDeclCode = util.format("const wchar_t%s %s", type.refs + type.pointers, argName);
+      argTestCode = util.format("args[%d]->IsString()", i);
+    }
+  } else if(type.elementName == "Enumeration") {
+    argCode = util.format("%s %s;", typeName, argName);
+    argCallCode = argName;
+    argDeclCode = util.format("%s%s %s", typeName, type.refs + type.pointers, argName);
+    argTestCode = util.format("args[%d]->IsNumber()", i);
+  } else if(typeName && (typeName.match(/^wx.*/) || typeName == "Origin")) {
     if(type.pointers == '**') {
       argCode = util.format("%s* %s;", typeName, argName);
       argDeclCode = util.format("%s** %s", typeName, argName);
       argCallCode = "&" + argName;
     } else {
-      argCode = util.format("wxNode_%s* %s = wxNodeObject::unwrap<wxNode_%s>(args[%d]->ToObject());", typeName, argName, typeName, i);
+      argCode = util.format("wxNode_%s* %s = args[%d]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_%s>(args[%d]->ToObject());", typeName, argName, i, typeName, i);
       if(type.refs == '&') {
         argCallCode = '*' + argName;
         argDeclCode = util.format("wxNode_%s& %s", typeName, argName);
@@ -154,7 +217,7 @@ function argJsonToCtx(ctx, rawJson, arg, i) {
         argCallCode = argName;
         argDeclCode = util.format("wxNode_%s* %s", typeName, argName);
       }
-      argTestCode = util.format("args[%d]->IsObject()", i);
+      argTestCode = util.format("(args[%d]->IsNull() || args[%d]->IsObject())", i, i);
     }
     ctx.includes = concatUnique(ctx.includes, ["wxNode_" + typeName + ".h"]);
   } else {
@@ -302,16 +365,19 @@ function addMethod(rawJson, ctx, member, dest) {
 }
 
 function getClassByName(rawJson, name) {
-  var clazz = jsonpath.eval(rawJson, util.format("$..[?(@.name=='%s')]", name));
-  clazz = clazz.filter(function(item) { return item.elementName == "Class"; });
-  if(!clazz || clazz.length < 1) {
+  var clazzId = rawJson.classNameToId[name];
+  if(!clazzId) {
     throw new Error("Could not find class '" + name + "'");
   }
-  if(clazz.length > 1) {
-    throw new Error("Found multiple matches for '" + name + "'");
-  }
-  clazz = clazz[0];
+  var clazz = rawJson[clazzId];
   return clazz;
+}
+
+function removeTemplateFromClassName(name) {
+  if(name.indexOf('<')) {
+    name = name.split('<')[0];
+  }
+  return name;
 }
 
 function rawJsonToCtx(rawJson, file) {
@@ -326,24 +392,24 @@ function rawJsonToCtx(rawJson, file) {
   ctx.headerFilename = ctx.outputFilename.replace(/\.cpp$/, '.h');
   ctx.includes.push(ctx.headerFilename);
 
-  var clazz = getClassByName(rawJson, file.baseClassName);
-  var subClazz = getClassByName(rawJson, file.className);
-  ctx.classId = clazz['id'];
-
+  if(!file.baseClassName) {
+    file.baseClassName = file.className;
+  }
+  
   // process base class
+  var clazz = getClassByName(rawJson, file.baseClassName);
+  ctx.classId = clazz['id'];
   if(clazz['Base'] && clazz['Base'].length > 0) {
     var baseId = clazz['Base'][0]['type'];
     var baseClazz = lookupClassById(rawJson, baseId);
-    ctx.baseClassName = baseClazz['name'];
-    if(ctx.baseClassName.indexOf('<')) {
-      ctx.baseClassName = ctx.baseClassName.split('<')[0];
-    }
+    ctx.baseClassName = removeTemplateFromClassName(baseClazz['name']);
     ctx.baseClassId = baseClazz['id'];
     ctx.baseClassAddMethodsCallCode = "wxNode_" + ctx.baseClassName + "::AddMethods(target);";
     ctx.includes = concatUnique(ctx.includes, ["wxNode_wxEvtHandler.h", "wxNode_" + ctx.baseClassName + ".h"]);
   }
 
   // process members
+  var subClazz = getClassByName(rawJson, file.className);
   if(subClazz['members']) {
     var memberIds = subClazz['members'].split(' ');
     for(var i=0; i<memberIds.length; i++) {
@@ -366,6 +432,9 @@ function rawJsonToCtx(rawJson, file) {
     for(var i=0; i<memberIds.length; i++) {
       var memberId = memberIds[i];
       if(memberId.length == 0) {
+        continue;
+      }
+      if(file.excludeIds && file.excludeIds.indexOf(memberId) >= 0) {
         continue;
       }
 
@@ -395,6 +464,18 @@ function rawJsonToCtx(rawJson, file) {
         continue;
       }
 
+      if(member.elementName == "Typedef") {
+        continue;
+      }
+
+      if(member.elementName == "Class") {
+        continue;
+      }
+
+      if(member.elementName == "Enumeration") {
+        continue;
+      }
+      
       throw new Error("Could not find member with id '" + memberId + "'");
     }
   }

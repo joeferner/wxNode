@@ -2,6 +2,7 @@
 #ifndef _wxNode_wxFrame_h_
 #define _wxNode_wxFrame_h_
 
+class wxNode_wxWindow;
 #include "wxnode.h"
 #include "wxNode_wxEvtHandler.h"
 #include "wxNode_wxFrame.h"

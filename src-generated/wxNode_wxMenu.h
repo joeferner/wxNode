@@ -2,11 +2,11 @@
 #ifndef _wxNode_wxMenu_h_
 #define _wxNode_wxMenu_h_
 
+class wxNode_wxWindow;
 #include "wxnode.h"
 #include "wxNode_wxEvtHandler.h"
 #include "wxNode_wxMenu.h"
 #include "wxNode_wxEvtHandler.h"
-#include "wxNode_wxItemKind.h"
 #include "wxNode_wxMenuItem.h"
 #include "wxNode_wxWindow.h"
 #include "wxNode_wxMenuBar.h"

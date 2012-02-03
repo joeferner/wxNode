@@ -35,7 +35,7 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
 }
 
 wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& title, wxNode_wxPoint& pos, wxNode_wxSize& size)
-  : wxFrame(parent, id, title, pos, size)
+  : wxFrame(parent, id, title)
 {
 
 }
@@ -99,112 +99,112 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
   NODE_SET_PROTOTYPE_METHOD(target, "onInternalIdle", _OnInternalIdle);
   NODE_SET_PROTOTYPE_METHOD(target, "doGiveHelp", _DoGiveHelp);
   NODE_SET_PROTOTYPE_METHOD(target, "isClientAreaChild", _IsClientAreaChild);
-
+  
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxFrame::_init(const v8::Arguments& args) {
   v8::HandleScope scope;
 
-
-
+  
+  
   /*
    * id: _35552
    */
   if(args.Length() == 0) {
-
+    
 
     wxNode_wxFrame *self = new wxNode_wxFrame();
     NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>(self);
     self->wrap(args.This(), self, evtHandler);
     return args.This();
   }
-
+  
   /*
    * id: _35553
    */
-  if(args.Length() == 7 && args[0]->IsObject() && args[1]->IsNumber() && args[2]->IsString() && args[3]->IsObject() && args[4]->IsObject() && args[5]->IsNumber() && args[6]->IsString()) {
-    wxNode_wxWindow* parent = wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _993 * */
+  if(args.Length() == 7 && (args[0]->IsNull() || args[0]->IsObject()) && args[1]->IsNumber() && args[2]->IsString() && (args[3]->IsNull() || args[3]->IsObject()) && (args[4]->IsNull() || args[4]->IsObject()) && args[5]->IsNumber() && args[6]->IsString()) {
+    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _993 * */
     int id = (int)args[1]->ToInt32()->Value(); /* type: _8633  */
     v8::String::AsciiValue title(args[2]->ToString()); /* type: _14808  */
-    wxNode_wxPoint* pos = wxNodeObject::unwrap<wxNode_wxPoint>(args[3]->ToObject()); /* type: _20412  */
-    wxNode_wxSize* size = wxNodeObject::unwrap<wxNode_wxSize>(args[4]->ToObject()); /* type: _20522  */
+    wxNode_wxPoint* pos = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[3]->ToObject()); /* type: _20412  */
+    wxNode_wxSize* size = args[4]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[4]->ToObject()); /* type: _20522  */
     long int style = (long int)args[5]->ToInt32()->Value(); /* type: _586  */
     v8::String::AsciiValue name(args[6]->ToString()); /* type: _14808  */
-
+    
 
     wxNode_wxFrame *self = new wxNode_wxFrame(parent, id, *title, *pos, *size, style, *name);
     NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>(self);
     self->wrap(args.This(), self, evtHandler);
     return args.This();
   }
-
+  
   /*
    * id: _35553
    */
-  if(args.Length() == 6 && args[0]->IsObject() && args[1]->IsNumber() && args[2]->IsString() && args[3]->IsObject() && args[4]->IsObject() && args[5]->IsNumber()) {
-    wxNode_wxWindow* parent = wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _993 * */
+  if(args.Length() == 6 && (args[0]->IsNull() || args[0]->IsObject()) && args[1]->IsNumber() && args[2]->IsString() && (args[3]->IsNull() || args[3]->IsObject()) && (args[4]->IsNull() || args[4]->IsObject()) && args[5]->IsNumber()) {
+    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _993 * */
     int id = (int)args[1]->ToInt32()->Value(); /* type: _8633  */
     v8::String::AsciiValue title(args[2]->ToString()); /* type: _14808  */
-    wxNode_wxPoint* pos = wxNodeObject::unwrap<wxNode_wxPoint>(args[3]->ToObject()); /* type: _20412  */
-    wxNode_wxSize* size = wxNodeObject::unwrap<wxNode_wxSize>(args[4]->ToObject()); /* type: _20522  */
+    wxNode_wxPoint* pos = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[3]->ToObject()); /* type: _20412  */
+    wxNode_wxSize* size = args[4]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[4]->ToObject()); /* type: _20522  */
     long int style = (long int)args[5]->ToInt32()->Value(); /* type: _586  */
-
+    
 
     wxNode_wxFrame *self = new wxNode_wxFrame(parent, id, *title, *pos, *size, style);
     NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>(self);
     self->wrap(args.This(), self, evtHandler);
     return args.This();
   }
-
+  
   /*
    * id: _35553
    */
-  if(args.Length() == 5 && (args[0]->IsObject() || args[0]->IsNull()) && args[1]->IsNumber() && args[2]->IsString() && args[3]->IsObject() && args[4]->IsObject()) {
+  if(args.Length() == 5 && (args[0]->IsNull() || args[0]->IsObject()) && args[1]->IsNumber() && args[2]->IsString() && (args[3]->IsNull() || args[3]->IsObject()) && (args[4]->IsNull() || args[4]->IsObject())) {
     wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _993 * */
     int id = (int)args[1]->ToInt32()->Value(); /* type: _8633  */
     v8::String::AsciiValue title(args[2]->ToString()); /* type: _14808  */
-    wxNode_wxPoint* pos = wxNodeObject::unwrap<wxNode_wxPoint>(args[3]->ToObject()); /* type: _20412  */
-    wxNode_wxSize* size = wxNodeObject::unwrap<wxNode_wxSize>(args[4]->ToObject()); /* type: _20522  */
+    wxNode_wxPoint* pos = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[3]->ToObject()); /* type: _20412  */
+    wxNode_wxSize* size = args[4]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[4]->ToObject()); /* type: _20522  */
+    
 
-
-    wxNode_wxFrame *self = new wxNode_wxFrame(parent, id, *title);
+    wxNode_wxFrame *self = new wxNode_wxFrame(parent, id, *title, *pos, *size);
     NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>(self);
     self->wrap(args.This(), self, evtHandler);
     return args.This();
   }
-
+  
   /*
    * id: _35553
    */
-  if(args.Length() == 4 && args[0]->IsObject() && args[1]->IsNumber() && args[2]->IsString() && args[3]->IsObject()) {
-    wxNode_wxWindow* parent = wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _993 * */
+  if(args.Length() == 4 && (args[0]->IsNull() || args[0]->IsObject()) && args[1]->IsNumber() && args[2]->IsString() && (args[3]->IsNull() || args[3]->IsObject())) {
+    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _993 * */
     int id = (int)args[1]->ToInt32()->Value(); /* type: _8633  */
     v8::String::AsciiValue title(args[2]->ToString()); /* type: _14808  */
-    wxNode_wxPoint* pos = wxNodeObject::unwrap<wxNode_wxPoint>(args[3]->ToObject()); /* type: _20412  */
-
+    wxNode_wxPoint* pos = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[3]->ToObject()); /* type: _20412  */
+    
 
     wxNode_wxFrame *self = new wxNode_wxFrame(parent, id, *title, *pos);
     NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>(self);
     self->wrap(args.This(), self, evtHandler);
     return args.This();
   }
-
+  
   /*
    * id: _35553
    */
-  if(args.Length() == 3 && args[0]->IsObject() && args[1]->IsNumber() && args[2]->IsString()) {
-    wxNode_wxWindow* parent = wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _993 * */
+  if(args.Length() == 3 && (args[0]->IsNull() || args[0]->IsObject()) && args[1]->IsNumber() && args[2]->IsString()) {
+    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _993 * */
     int id = (int)args[1]->ToInt32()->Value(); /* type: _8633  */
     v8::String::AsciiValue title(args[2]->ToString()); /* type: _14808  */
-
+    
 
     wxNode_wxFrame *self = new wxNode_wxFrame(parent, id, *title);
     NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>(self);
     self->wrap(args.This(), self, evtHandler);
     return args.This();
   }
-
-
+  
+  
 
   return v8::ThrowException(v8::String::New("Could not find matching constructor for arguments (class name: wxFrame)."));
 }
@@ -214,92 +214,92 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
   v8::HandleScope scope;
   wxNode_wxFrame* self = unwrap<wxNode_wxFrame>(args.This());
 
-
+  
   /*
    * id: _29764
    */
-  if(args.Length() == 7 && args[0]->IsObject() && args[1]->IsNumber() && args[2]->IsString() && args[3]->IsObject() && args[4]->IsObject() && args[5]->IsNumber() && args[6]->IsString()) {
-    wxNode_wxWindow* parent = wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _993 * */
+  if(args.Length() == 7 && (args[0]->IsNull() || args[0]->IsObject()) && args[1]->IsNumber() && args[2]->IsString() && (args[3]->IsNull() || args[3]->IsObject()) && (args[4]->IsNull() || args[4]->IsObject()) && args[5]->IsNumber() && args[6]->IsString()) {
+    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _993 * */
     int winid = (int)args[1]->ToInt32()->Value(); /* type: _8633  */
     v8::String::AsciiValue title(args[2]->ToString()); /* type: _14808  */
-    wxNode_wxPoint* pos = wxNodeObject::unwrap<wxNode_wxPoint>(args[3]->ToObject()); /* type: _20412  */
-    wxNode_wxSize* size = wxNodeObject::unwrap<wxNode_wxSize>(args[4]->ToObject()); /* type: _20522  */
+    wxNode_wxPoint* pos = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[3]->ToObject()); /* type: _20412  */
+    wxNode_wxSize* size = args[4]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[4]->ToObject()); /* type: _20522  */
     long int style = (long int)args[5]->ToInt32()->Value(); /* type: _586  */
     v8::String::AsciiValue name(args[6]->ToString()); /* type: _14808  */
-
+    
 
     self->New(parent, winid, *title, *pos, *size, style, *name);
 
     // TODO: handle return type
     return v8::Undefined();
   }
-
+  
   /*
    * id: _29764
    */
-  if(args.Length() == 6 && args[0]->IsObject() && args[1]->IsNumber() && args[2]->IsString() && args[3]->IsObject() && args[4]->IsObject() && args[5]->IsNumber()) {
-    wxNode_wxWindow* parent = wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _993 * */
+  if(args.Length() == 6 && (args[0]->IsNull() || args[0]->IsObject()) && args[1]->IsNumber() && args[2]->IsString() && (args[3]->IsNull() || args[3]->IsObject()) && (args[4]->IsNull() || args[4]->IsObject()) && args[5]->IsNumber()) {
+    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _993 * */
     int winid = (int)args[1]->ToInt32()->Value(); /* type: _8633  */
     v8::String::AsciiValue title(args[2]->ToString()); /* type: _14808  */
-    wxNode_wxPoint* pos = wxNodeObject::unwrap<wxNode_wxPoint>(args[3]->ToObject()); /* type: _20412  */
-    wxNode_wxSize* size = wxNodeObject::unwrap<wxNode_wxSize>(args[4]->ToObject()); /* type: _20522  */
+    wxNode_wxPoint* pos = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[3]->ToObject()); /* type: _20412  */
+    wxNode_wxSize* size = args[4]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[4]->ToObject()); /* type: _20522  */
     long int style = (long int)args[5]->ToInt32()->Value(); /* type: _586  */
-
+    
 
     self->New(parent, winid, *title, *pos, *size, style);
 
     // TODO: handle return type
     return v8::Undefined();
   }
-
+  
   /*
    * id: _29764
    */
-  if(args.Length() == 5 && args[0]->IsObject() && args[1]->IsNumber() && args[2]->IsString() && args[3]->IsObject() && args[4]->IsObject()) {
-    wxNode_wxWindow* parent = wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _993 * */
+  if(args.Length() == 5 && (args[0]->IsNull() || args[0]->IsObject()) && args[1]->IsNumber() && args[2]->IsString() && (args[3]->IsNull() || args[3]->IsObject()) && (args[4]->IsNull() || args[4]->IsObject())) {
+    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _993 * */
     int winid = (int)args[1]->ToInt32()->Value(); /* type: _8633  */
     v8::String::AsciiValue title(args[2]->ToString()); /* type: _14808  */
-    wxNode_wxPoint* pos = wxNodeObject::unwrap<wxNode_wxPoint>(args[3]->ToObject()); /* type: _20412  */
-    wxNode_wxSize* size = wxNodeObject::unwrap<wxNode_wxSize>(args[4]->ToObject()); /* type: _20522  */
-
+    wxNode_wxPoint* pos = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[3]->ToObject()); /* type: _20412  */
+    wxNode_wxSize* size = args[4]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[4]->ToObject()); /* type: _20522  */
+    
 
     self->New(parent, winid, *title, *pos, *size);
 
     // TODO: handle return type
     return v8::Undefined();
   }
-
+  
   /*
    * id: _29764
    */
-  if(args.Length() == 4 && args[0]->IsObject() && args[1]->IsNumber() && args[2]->IsString() && args[3]->IsObject()) {
-    wxNode_wxWindow* parent = wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _993 * */
+  if(args.Length() == 4 && (args[0]->IsNull() || args[0]->IsObject()) && args[1]->IsNumber() && args[2]->IsString() && (args[3]->IsNull() || args[3]->IsObject())) {
+    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _993 * */
     int winid = (int)args[1]->ToInt32()->Value(); /* type: _8633  */
     v8::String::AsciiValue title(args[2]->ToString()); /* type: _14808  */
-    wxNode_wxPoint* pos = wxNodeObject::unwrap<wxNode_wxPoint>(args[3]->ToObject()); /* type: _20412  */
-
+    wxNode_wxPoint* pos = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[3]->ToObject()); /* type: _20412  */
+    
 
     self->New(parent, winid, *title, *pos);
 
     // TODO: handle return type
     return v8::Undefined();
   }
-
+  
   /*
    * id: _29764
    */
-  if(args.Length() == 3 && args[0]->IsObject() && args[1]->IsNumber() && args[2]->IsString()) {
-    wxNode_wxWindow* parent = wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _993 * */
+  if(args.Length() == 3 && (args[0]->IsNull() || args[0]->IsObject()) && args[1]->IsNumber() && args[2]->IsString()) {
+    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _993 * */
     int winid = (int)args[1]->ToInt32()->Value(); /* type: _8633  */
     v8::String::AsciiValue title(args[2]->ToString()); /* type: _14808  */
-
+    
 
     self->New(parent, winid, *title);
 
     // TODO: handle return type
     return v8::Undefined();
   }
-
+  
 
   return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: New)."));
 }
@@ -308,19 +308,19 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
   v8::HandleScope scope;
   wxNode_wxFrame* self = unwrap<wxNode_wxFrame>(args.This());
 
-
+  
   /*
    * id: _29765
    */
   if(args.Length() == 0) {
-
+    
 
     self->GetClientAreaOrigin();
 
     // TODO: handle return type
     return v8::Undefined();
   }
-
+  
 
   return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: GetClientAreaOrigin)."));
 }
@@ -329,20 +329,20 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
   v8::HandleScope scope;
   wxNode_wxFrame* self = unwrap<wxNode_wxFrame>(args.This());
 
-
+  
   /*
    * id: _29766
    */
-  if(args.Length() == 1 && args[0]->IsObject()) {
-    wxNode_wxMenuBar* menubar = wxNodeObject::unwrap<wxNode_wxMenuBar>(args[0]->ToObject()); /* type: _59425 * */
-
+  if(args.Length() == 1 && (args[0]->IsNull() || args[0]->IsObject())) {
+    wxNode_wxMenuBar* menubar = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenuBar>(args[0]->ToObject()); /* type: _59425 * */
+    
 
     self->SetMenuBar(menubar);
 
     // TODO: handle return type
     return v8::Undefined();
   }
-
+  
 
   return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: SetMenuBar)."));
 }
@@ -351,19 +351,19 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
   v8::HandleScope scope;
   wxNode_wxFrame* self = unwrap<wxNode_wxFrame>(args.This());
 
-
+  
   /*
    * id: _29767
    */
   if(args.Length() == 0) {
-
+    
 
     self->GetMenuBar();
 
     // TODO: handle return type
     return v8::Undefined();
   }
-
+  
 
   return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: GetMenuBar)."));
 }
@@ -372,20 +372,20 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
   v8::HandleScope scope;
   wxNode_wxFrame* self = unwrap<wxNode_wxFrame>(args.This());
 
-
+  
   /*
    * id: _29768
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
     int menuId = (int)args[0]->ToInt32()->Value(); /* type: _162  */
-
+    
 
     self->FindItemInMenuBar(menuId);
 
     // TODO: handle return type
     return v8::Undefined();
   }
-
+  
 
   return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: FindItemInMenuBar)."));
 }
@@ -394,33 +394,33 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
   v8::HandleScope scope;
   wxNode_wxFrame* self = unwrap<wxNode_wxFrame>(args.This());
 
-
+  
   /*
    * id: _29769
    */
-  if(args.Length() == 1 && args[0]->IsObject()) {
-    wxNode_wxMenuItem* item = wxNodeObject::unwrap<wxNode_wxMenuItem>(args[0]->ToObject()); /* type: _51683 * */
-
+  if(args.Length() == 1 && (args[0]->IsNull() || args[0]->IsObject())) {
+    wxNode_wxMenuItem* item = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenuItem>(args[0]->ToObject()); /* type: _51683 * */
+    
 
     self->ProcessCommand(item);
 
     // TODO: handle return type
     return v8::Undefined();
   }
-
+  
   /*
    * id: _29770
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
     int winid = (int)args[0]->ToInt32()->Value(); /* type: _162  */
-
+    
 
     self->ProcessCommand(winid);
 
     // TODO: handle return type
     return v8::Undefined();
   }
-
+  
 
   return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: ProcessCommand)."));
 }
@@ -429,7 +429,7 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
   v8::HandleScope scope;
   wxNode_wxFrame* self = unwrap<wxNode_wxFrame>(args.This());
 
-
+  
   /*
    * id: _29771
    */
@@ -438,14 +438,14 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
     long int style = (long int)args[1]->ToInt32()->Value(); /* type: _586  */
     int winid = (int)args[2]->ToInt32()->Value(); /* type: _8633  */
     v8::String::AsciiValue name(args[3]->ToString()); /* type: _14808  */
-
+    
 
     self->CreateStatusBar(number, style, winid, *name);
 
     // TODO: handle return type
     return v8::Undefined();
   }
-
+  
   /*
    * id: _29771
    */
@@ -453,53 +453,53 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
     int number = (int)args[0]->ToInt32()->Value(); /* type: _162  */
     long int style = (long int)args[1]->ToInt32()->Value(); /* type: _586  */
     int winid = (int)args[2]->ToInt32()->Value(); /* type: _8633  */
-
+    
 
     self->CreateStatusBar(number, style, winid);
 
     // TODO: handle return type
     return v8::Undefined();
   }
-
+  
   /*
    * id: _29771
    */
   if(args.Length() == 2 && args[0]->IsNumber() && args[1]->IsNumber()) {
     int number = (int)args[0]->ToInt32()->Value(); /* type: _162  */
     long int style = (long int)args[1]->ToInt32()->Value(); /* type: _586  */
-
+    
 
     self->CreateStatusBar(number, style);
 
     // TODO: handle return type
     return v8::Undefined();
   }
-
+  
   /*
    * id: _29771
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
     int number = (int)args[0]->ToInt32()->Value(); /* type: _162  */
-
+    
 
     self->CreateStatusBar(number);
 
     // TODO: handle return type
     return v8::Undefined();
   }
-
+  
   /*
    * id: _29771
    */
   if(args.Length() == 0) {
-
+    
 
     self->CreateStatusBar();
 
     // TODO: handle return type
     return v8::Undefined();
   }
-
+  
 
   return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: CreateStatusBar)."));
 }
@@ -508,7 +508,7 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
   v8::HandleScope scope;
   wxNode_wxFrame* self = unwrap<wxNode_wxFrame>(args.This());
 
-
+  
 
   return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: OnCreateStatusBar)."));
 }
@@ -517,19 +517,19 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
   v8::HandleScope scope;
   wxNode_wxFrame* self = unwrap<wxNode_wxFrame>(args.This());
 
-
+  
   /*
    * id: _29773
    */
   if(args.Length() == 0) {
-
+    
 
     self->GetStatusBar();
 
     // TODO: handle return type
     return v8::Undefined();
   }
-
+  
 
   return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: GetStatusBar)."));
 }
@@ -538,20 +538,20 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
   v8::HandleScope scope;
   wxNode_wxFrame* self = unwrap<wxNode_wxFrame>(args.This());
 
-
+  
   /*
    * id: _29774
    */
-  if(args.Length() == 1 && args[0]->IsObject()) {
-    wxNode_wxStatusBar* statBar = wxNodeObject::unwrap<wxNode_wxStatusBar>(args[0]->ToObject()); /* type: _62859 * */
-
+  if(args.Length() == 1 && (args[0]->IsNull() || args[0]->IsObject())) {
+    wxNode_wxStatusBar* statBar = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxStatusBar>(args[0]->ToObject()); /* type: _62859 * */
+    
 
     self->SetStatusBar(statBar);
 
     // TODO: handle return type
     return v8::Undefined();
   }
-
+  
 
   return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: SetStatusBar)."));
 }
@@ -560,34 +560,34 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
   v8::HandleScope scope;
   wxNode_wxFrame* self = unwrap<wxNode_wxFrame>(args.This());
 
-
+  
   /*
    * id: _29775
    */
   if(args.Length() == 2 && args[0]->IsString() && args[1]->IsNumber()) {
     v8::String::AsciiValue text(args[0]->ToString()); /* type: _14808  */
     int number = (int)args[1]->ToInt32()->Value(); /* type: _162  */
-
+    
 
     self->SetStatusText(*text, number);
 
     // TODO: handle return type
     return v8::Undefined();
   }
-
+  
   /*
    * id: _29775
    */
   if(args.Length() == 1 && args[0]->IsString()) {
     v8::String::AsciiValue text(args[0]->ToString()); /* type: _14808  */
-
+    
 
     self->SetStatusText(*text);
 
     // TODO: handle return type
     return v8::Undefined();
   }
-
+  
 
   return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: SetStatusText)."));
 }
@@ -596,21 +596,21 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
   v8::HandleScope scope;
   wxNode_wxFrame* self = unwrap<wxNode_wxFrame>(args.This());
 
-
+  
   /*
    * id: _29776
    */
   if(args.Length() == 2 && args[0]->IsNumber() && false) {
     int n = (int)args[0]->ToInt32()->Value(); /* type: _162  */
     int widths_field; /* type: _57431 * */
-
+    
 
     self->SetStatusWidths(n, &widths_field);
 
     // TODO: handle return type
     return v8::Undefined();
   }
-
+  
 
   return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: SetStatusWidths)."));
 }
@@ -619,34 +619,34 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
   v8::HandleScope scope;
   wxNode_wxFrame* self = unwrap<wxNode_wxFrame>(args.This());
 
-
+  
   /*
    * id: _29777
    */
   if(args.Length() == 2 && args[0]->IsString() && args[1]->IsNumber()) {
     v8::String::AsciiValue text(args[0]->ToString()); /* type: _14808  */
     int number = (int)args[1]->ToInt32()->Value(); /* type: _162  */
-
+    
 
     self->PushStatusText(*text, number);
 
     // TODO: handle return type
     return v8::Undefined();
   }
-
+  
   /*
    * id: _29777
    */
   if(args.Length() == 1 && args[0]->IsString()) {
     v8::String::AsciiValue text(args[0]->ToString()); /* type: _14808  */
-
+    
 
     self->PushStatusText(*text);
 
     // TODO: handle return type
     return v8::Undefined();
   }
-
+  
 
   return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: PushStatusText)."));
 }
@@ -655,32 +655,32 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
   v8::HandleScope scope;
   wxNode_wxFrame* self = unwrap<wxNode_wxFrame>(args.This());
 
-
+  
   /*
    * id: _29778
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
     int number = (int)args[0]->ToInt32()->Value(); /* type: _162  */
-
+    
 
     self->PopStatusText(number);
 
     // TODO: handle return type
     return v8::Undefined();
   }
-
+  
   /*
    * id: _29778
    */
   if(args.Length() == 0) {
-
+    
 
     self->PopStatusText();
 
     // TODO: handle return type
     return v8::Undefined();
   }
-
+  
 
   return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: PopStatusText)."));
 }
@@ -689,20 +689,20 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
   v8::HandleScope scope;
   wxNode_wxFrame* self = unwrap<wxNode_wxFrame>(args.This());
 
-
+  
   /*
    * id: _29779
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
     int n = (int)args[0]->ToInt32()->Value(); /* type: _162  */
-
+    
 
     self->SetStatusBarPane(n);
 
     // TODO: handle return type
     return v8::Undefined();
   }
-
+  
 
   return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: SetStatusBarPane)."));
 }
@@ -711,19 +711,19 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
   v8::HandleScope scope;
   wxNode_wxFrame* self = unwrap<wxNode_wxFrame>(args.This());
 
-
+  
   /*
    * id: _29780
    */
   if(args.Length() == 0) {
-
+    
 
     self->GetStatusBarPane();
 
     // TODO: handle return type
     return v8::Undefined();
   }
-
+  
 
   return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: GetStatusBarPane)."));
 }
@@ -732,7 +732,7 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
   v8::HandleScope scope;
   wxNode_wxFrame* self = unwrap<wxNode_wxFrame>(args.This());
 
-
+  
   /*
    * id: _29781
    */
@@ -740,53 +740,53 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
     long int style = (long int)args[0]->ToInt32()->Value(); /* type: _586  */
     int winid = (int)args[1]->ToInt32()->Value(); /* type: _8633  */
     v8::String::AsciiValue name(args[2]->ToString()); /* type: _14808  */
-
+    
 
     self->CreateToolBar(style, winid, *name);
 
     // TODO: handle return type
     return v8::Undefined();
   }
-
+  
   /*
    * id: _29781
    */
   if(args.Length() == 2 && args[0]->IsNumber() && args[1]->IsNumber()) {
     long int style = (long int)args[0]->ToInt32()->Value(); /* type: _586  */
     int winid = (int)args[1]->ToInt32()->Value(); /* type: _8633  */
-
+    
 
     self->CreateToolBar(style, winid);
 
     // TODO: handle return type
     return v8::Undefined();
   }
-
+  
   /*
    * id: _29781
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
     long int style = (long int)args[0]->ToInt32()->Value(); /* type: _586  */
-
+    
 
     self->CreateToolBar(style);
 
     // TODO: handle return type
     return v8::Undefined();
   }
-
+  
   /*
    * id: _29781
    */
   if(args.Length() == 0) {
-
+    
 
     self->CreateToolBar();
 
     // TODO: handle return type
     return v8::Undefined();
   }
-
+  
 
   return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: CreateToolBar)."));
 }
@@ -795,7 +795,7 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
   v8::HandleScope scope;
   wxNode_wxFrame* self = unwrap<wxNode_wxFrame>(args.This());
 
-
+  
 
   return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: OnCreateToolBar)."));
 }
@@ -804,19 +804,19 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
   v8::HandleScope scope;
   wxNode_wxFrame* self = unwrap<wxNode_wxFrame>(args.This());
 
-
+  
   /*
    * id: _29783
    */
   if(args.Length() == 0) {
-
+    
 
     self->GetToolBar();
 
     // TODO: handle return type
     return v8::Undefined();
   }
-
+  
 
   return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: GetToolBar)."));
 }
@@ -825,20 +825,20 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
   v8::HandleScope scope;
   wxNode_wxFrame* self = unwrap<wxNode_wxFrame>(args.This());
 
-
+  
   /*
    * id: _29784
    */
-  if(args.Length() == 1 && args[0]->IsObject()) {
-    wxNode_wxToolBar* toolbar = wxNodeObject::unwrap<wxNode_wxToolBar>(args[0]->ToObject()); /* type: _61119 * */
-
+  if(args.Length() == 1 && (args[0]->IsNull() || args[0]->IsObject())) {
+    wxNode_wxToolBar* toolbar = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxToolBar>(args[0]->ToObject()); /* type: _61119 * */
+    
 
     self->SetToolBar(toolbar);
 
     // TODO: handle return type
     return v8::Undefined();
   }
-
+  
 
   return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: SetToolBar)."));
 }
@@ -847,7 +847,7 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
   v8::HandleScope scope;
   wxNode_wxFrame* self = unwrap<wxNode_wxFrame>(args.This());
 
-
+  
 
   return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: OnMenuOpen)."));
 }
@@ -856,7 +856,7 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
   v8::HandleScope scope;
   wxNode_wxFrame* self = unwrap<wxNode_wxFrame>(args.This());
 
-
+  
 
   return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: OnMenuClose)."));
 }
@@ -865,7 +865,7 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
   v8::HandleScope scope;
   wxNode_wxFrame* self = unwrap<wxNode_wxFrame>(args.This());
 
-
+  
 
   return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: OnMenuHighlight)."));
 }
@@ -874,32 +874,32 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
   v8::HandleScope scope;
   wxNode_wxFrame* self = unwrap<wxNode_wxFrame>(args.This());
 
-
+  
   /*
    * id: _29788
    */
-  if(args.Length() == 1 && args[0]->IsObject()) {
-    wxNode_wxMenu* menu = wxNodeObject::unwrap<wxNode_wxMenu>(args[0]->ToObject()); /* type: _52838 * */
-
+  if(args.Length() == 1 && (args[0]->IsNull() || args[0]->IsObject())) {
+    wxNode_wxMenu* menu = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenu>(args[0]->ToObject()); /* type: _52838 * */
+    
 
     self->DoMenuUpdates(menu);
 
     // TODO: handle return type
     return v8::Undefined();
   }
-
+  
   /*
    * id: _29788
    */
   if(args.Length() == 0) {
-
+    
 
     self->DoMenuUpdates();
 
     // TODO: handle return type
     return v8::Undefined();
   }
-
+  
 
   return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: DoMenuUpdates)."));
 }
@@ -908,32 +908,32 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
   v8::HandleScope scope;
   wxNode_wxFrame* self = unwrap<wxNode_wxFrame>(args.This());
 
-
+  
   /*
    * id: _29789
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
     long int flags = (long int)args[0]->ToInt32()->Value(); /* type: _586  */
-
+    
 
     self->UpdateWindowUI(flags);
 
     // TODO: handle return type
     return v8::Undefined();
   }
-
+  
   /*
    * id: _29789
    */
   if(args.Length() == 0) {
-
+    
 
     self->UpdateWindowUI();
 
     // TODO: handle return type
     return v8::Undefined();
   }
-
+  
 
   return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: UpdateWindowUI)."));
 }
@@ -942,7 +942,7 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
   v8::HandleScope scope;
   wxNode_wxFrame* self = unwrap<wxNode_wxFrame>(args.This());
 
-
+  
 
   return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: OnInternalIdle)."));
 }
@@ -951,21 +951,21 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
   v8::HandleScope scope;
   wxNode_wxFrame* self = unwrap<wxNode_wxFrame>(args.This());
 
-
+  
   /*
    * id: _29791
    */
   if(args.Length() == 2 && args[0]->IsString() && args[1]->IsBoolean()) {
     v8::String::AsciiValue text(args[0]->ToString()); /* type: _14808  */
     bool show = args[1]->ToBoolean()->Value(); /* type: _14666  */
-
+    
 
     self->DoGiveHelp(*text, show);
 
     // TODO: handle return type
     return v8::Undefined();
   }
-
+  
 
   return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: DoGiveHelp)."));
 }
@@ -974,20 +974,21 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
   v8::HandleScope scope;
   wxNode_wxFrame* self = unwrap<wxNode_wxFrame>(args.This());
 
-
+  
   /*
    * id: _29792
    */
-  if(args.Length() == 1 && args[0]->IsObject()) {
-    wxNode_wxWindow* child = wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _62099 * */
-
+  if(args.Length() == 1 && (args[0]->IsNull() || args[0]->IsObject())) {
+    wxNode_wxWindow* child = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _62099 * */
+    
 
     self->IsClientAreaChild(child);
 
     // TODO: handle return type
     return v8::Undefined();
   }
-
+  
 
   return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: IsClientAreaChild)."));
 }
+
