@@ -14,6 +14,8 @@ var files = [
   { className: 'wxTopLevelWindow', baseClassName: 'wxTopLevelWindowBase' },
   { className: 'wxNonOwnedWindow', baseClassName: 'wxNonOwnedWindowBase' },
   { className: 'wxWindow', baseClassName: 'wxWindowBase', excludeIds: ['_43125', '_43080'] },
+  { className: 'wxPoint' },
+  { className: 'wxSize' },
   /*
   { className: 'wxBitmap', baseClassName: 'wxBitmapBase' },
   { className: 'wxInputStream', baseClassName: 'wxStreamBase' },
@@ -160,6 +162,17 @@ function argJsonToCtx(ctx, rawJson, arg, i) {
       argCallCode = "&" + argName;
     } else {
       argCode = util.format("%s %s = (%s)args[%d]->ToInt32()->Value();", typeName, argName, typeName, i);
+      argCallCode = argName;
+      argDeclCode = util.format("%s %s", typeName, argName);
+      argTestCode = util.format("args[%d]->IsNumber()", i);
+    }
+  } else if(typeName == "float") {
+    if(type.pointers == '*') {
+      argCode = util.format("%s %s;", typeName, argName);
+      argDeclCode = util.format("%s* %s", typeName, argName);
+      argCallCode = "&" + argName;
+    } else {
+      argCode = util.format("%s %s = (%s)args[%d]->ToNumber()->Value();", typeName, argName, typeName, i);
       argCallCode = argName;
       argDeclCode = util.format("%s %s", typeName, argName);
       argTestCode = util.format("args[%d]->IsNumber()", i);
@@ -406,6 +419,8 @@ function rawJsonToCtx(rawJson, file) {
     ctx.baseClassId = baseClazz['id'];
     ctx.baseClassAddMethodsCallCode = "wxNode_" + ctx.baseClassName + "::AddMethods(target);";
     ctx.includes = concatUnique(ctx.includes, ["wxNode_wxEvtHandler.h", "wxNode_" + ctx.baseClassName + ".h"]);
+  } else {
+    ctx.baseClassAddMethodsCallCode = "wxNode_wxEvtHandler::AddMethods(target);";
   }
 
   // process members

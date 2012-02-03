@@ -35,7 +35,7 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
 }
 
 wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& title, wxNode_wxPoint& pos, wxNode_wxSize& size)
-  : wxFrame(parent, id, title)
+  : wxFrame(parent, id, title, pos, size)
 {
 
 }

@@ -5,6 +5,8 @@
 #include "wxNode_wxFrame.h"
 #include "wxNode_wxMenuBar.h"
 #include "wxNode_wxMenu.h"
+#include "wxNode_wxPoint.h"
+#include "wxNode_wxSize.h"
 #include "messageBox.h"
 
 extern "C" {
@@ -13,6 +15,8 @@ extern "C" {
     wxNode_wxFrame::Init(target);
     wxNode_wxMenu::Init(target);
     wxNode_wxMenuBar::Init(target);
+    wxNode_wxPoint::Init(target);
+    wxNode_wxSize::Init(target);
     NodeWxMessageBox::Init(target);
   }
 
