@@ -2,14 +2,12 @@
 #ifndef _wxNode_wxMenuBar_h_
 #define _wxNode_wxMenuBar_h_
 
-class wxNode_wxWindow;
 #include "wxnode.h"
 #include "wxNode_wxEvtHandler.h"
-#include "wxNode_wxMenuBar.h"
-#include "wxNode_wxEvtHandler.h"
-#include "wxNode_wxWindow.h"
-#include "wxNode_wxMenu.h"
-#include "wxNode_wxFrame.h"
+class wxNode_wxEvtHandler;
+class wxNode_wxWindow;
+class wxNode_wxMenu;
+class wxNode_wxFrame;
 
 
 class wxNode_wxMenuBar : public wxMenuBar, public wxNodeObject, public NodeExEvtHandlerImpl {

@@ -10,6 +10,7 @@ ListenerData::ListenerData(int eventType, v8::Local<v8::Object> fn) {
 /*static*/ void wxNode_wxEvtHandler::AddMethods(v8::Handle<v8::FunctionTemplate> func) {
   wxNodeObject::AddMethods(func);
   NODE_SET_PROTOTYPE_METHOD(func, "EVT_MENU", _EVT_MENU);
+  NODE_SET_PROTOTYPE_METHOD(func, "EVT_IDLE", _EVT_IDLE);
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxEvtHandler::_EVT_MENU(const v8::Arguments& args) {
@@ -25,6 +26,20 @@ ListenerData::ListenerData(int eventType, v8::Local<v8::Object> fn) {
   v8::Local<v8::Object> fnObj = args[1]->ToObject();
 
   self->addCommandListener(evtHandler, id, wxEVT_COMMAND_MENU_SELECTED, fnObj);
+
+  return v8::Undefined();
+}
+
+/*static*/ v8::Handle<v8::Value> wxNode_wxEvtHandler::_EVT_IDLE(const v8::Arguments& args) {
+  wxNode_wxEvtHandler* evtHandler = unwrap<wxNode_wxEvtHandler>(args.This());
+  NodeExEvtHandlerImpl* self = unwrapEvtHandler(args.This());
+
+  if(!args[0]->IsFunction()) {
+    printf("Invalid Arg\n"); // TODO: throw exception
+  }
+  v8::Local<v8::Object> fnObj = args[0]->ToObject();
+
+  self->addEventListener(evtHandler, wxEVT_IDLE, fnObj);
 
   return v8::Undefined();
 }
@@ -70,6 +85,10 @@ void NodeExEvtHandlerImpl::connect(wxNode_wxEvtHandler* evtHandler, int id, int 
   data->m_iListener = iListener;
 
   evtHandler->Connect(id, lastId, eventType, (wxObjectEventFunction)&EventProxy::forwardEvent, data);
+}
+
+void NodeExEvtHandlerImpl::addEventListener(wxNode_wxEvtHandler* evtHandler, int eventType, v8::Local<v8::Object> fn) {
+  addCommandRangeListener(evtHandler, -1, -1, eventType, fn);
 }
 
 void NodeExEvtHandlerImpl::addCommandRangeListener(wxNode_wxEvtHandler* evtHandler, int id, int lastId, int eventType, v8::Local<v8::Object> fn) {

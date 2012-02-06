@@ -1,4 +1,5 @@
 
+#include <sstream>
 #include "wxNode_wxSize.h"
 #include "wxNode_wxPoint.h"
 
@@ -107,7 +108,14 @@ wxNode_wxSize::wxNode_wxSize(int xx, int yy)
   
   
 
-  return v8::ThrowException(v8::String::New("Could not find matching constructor for arguments (class name: wxSize)."));
+  std::ostringstream errStr;
+  errStr << "Could not find matching constructor for arguments (class name: wxSize).\n";                           \
+  errStr << "  arg count: " << args.Length() << "\n";
+  for(int i = 0; i < args.Length(); i++) {
+    v8::String::AsciiValue argStr(args[i]);
+    errStr << "  arg[" << i << "]: " << *argStr << "\n";
+  }
+  return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
 
 
@@ -130,7 +138,14 @@ wxNode_wxSize::wxNode_wxSize(int xx, int yy)
   }
   
 
-  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: IncTo)."));
+  std::ostringstream errStr;
+  errStr << "Could not find matching method for arguments (method name: IncTo).\n";                           \
+  errStr << "  arg count: " << args.Length() << "\n";
+  for(int i = 0; i < args.Length(); i++) {
+    v8::String::AsciiValue argStr(args[i]);
+    errStr << "  arg[" << i << "]: " << *argStr << "\n";
+  }
+  return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxSize::_DecTo(const v8::Arguments& args) {
@@ -152,7 +167,14 @@ wxNode_wxSize::wxNode_wxSize(int xx, int yy)
   }
   
 
-  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: DecTo)."));
+  std::ostringstream errStr;
+  errStr << "Could not find matching method for arguments (method name: DecTo).\n";                           \
+  errStr << "  arg count: " << args.Length() << "\n";
+  for(int i = 0; i < args.Length(); i++) {
+    v8::String::AsciiValue argStr(args[i]);
+    errStr << "  arg[" << i << "]: " << *argStr << "\n";
+  }
+  return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxSize::_IncBy(const v8::Arguments& args) {
@@ -214,7 +236,14 @@ wxNode_wxSize::wxNode_wxSize(int xx, int yy)
   }
   
 
-  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: IncBy)."));
+  std::ostringstream errStr;
+  errStr << "Could not find matching method for arguments (method name: IncBy).\n";                           \
+  errStr << "  arg count: " << args.Length() << "\n";
+  for(int i = 0; i < args.Length(); i++) {
+    v8::String::AsciiValue argStr(args[i]);
+    errStr << "  arg[" << i << "]: " << *argStr << "\n";
+  }
+  return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxSize::_DecBy(const v8::Arguments& args) {
@@ -276,7 +305,14 @@ wxNode_wxSize::wxNode_wxSize(int xx, int yy)
   }
   
 
-  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: DecBy)."));
+  std::ostringstream errStr;
+  errStr << "Could not find matching method for arguments (method name: DecBy).\n";                           \
+  errStr << "  arg count: " << args.Length() << "\n";
+  for(int i = 0; i < args.Length(); i++) {
+    v8::String::AsciiValue argStr(args[i]);
+    errStr << "  arg[" << i << "]: " << *argStr << "\n";
+  }
+  return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxSize::_Scale(const v8::Arguments& args) {
@@ -299,7 +335,14 @@ wxNode_wxSize::wxNode_wxSize(int xx, int yy)
   }
   
 
-  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: Scale)."));
+  std::ostringstream errStr;
+  errStr << "Could not find matching method for arguments (method name: Scale).\n";                           \
+  errStr << "  arg count: " << args.Length() << "\n";
+  for(int i = 0; i < args.Length(); i++) {
+    v8::String::AsciiValue argStr(args[i]);
+    errStr << "  arg[" << i << "]: " << *argStr << "\n";
+  }
+  return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxSize::_Set(const v8::Arguments& args) {
@@ -322,7 +365,14 @@ wxNode_wxSize::wxNode_wxSize(int xx, int yy)
   }
   
 
-  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: Set)."));
+  std::ostringstream errStr;
+  errStr << "Could not find matching method for arguments (method name: Set).\n";                           \
+  errStr << "  arg count: " << args.Length() << "\n";
+  for(int i = 0; i < args.Length(); i++) {
+    v8::String::AsciiValue argStr(args[i]);
+    errStr << "  arg[" << i << "]: " << *argStr << "\n";
+  }
+  return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxSize::_SetWidth(const v8::Arguments& args) {
@@ -344,7 +394,14 @@ wxNode_wxSize::wxNode_wxSize(int xx, int yy)
   }
   
 
-  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: SetWidth)."));
+  std::ostringstream errStr;
+  errStr << "Could not find matching method for arguments (method name: SetWidth).\n";                           \
+  errStr << "  arg count: " << args.Length() << "\n";
+  for(int i = 0; i < args.Length(); i++) {
+    v8::String::AsciiValue argStr(args[i]);
+    errStr << "  arg[" << i << "]: " << *argStr << "\n";
+  }
+  return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxSize::_SetHeight(const v8::Arguments& args) {
@@ -366,7 +423,14 @@ wxNode_wxSize::wxNode_wxSize(int xx, int yy)
   }
   
 
-  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: SetHeight)."));
+  std::ostringstream errStr;
+  errStr << "Could not find matching method for arguments (method name: SetHeight).\n";                           \
+  errStr << "  arg count: " << args.Length() << "\n";
+  for(int i = 0; i < args.Length(); i++) {
+    v8::String::AsciiValue argStr(args[i]);
+    errStr << "  arg[" << i << "]: " << *argStr << "\n";
+  }
+  return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxSize::_GetWidth(const v8::Arguments& args) {
@@ -387,7 +451,14 @@ wxNode_wxSize::wxNode_wxSize(int xx, int yy)
   }
   
 
-  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: GetWidth)."));
+  std::ostringstream errStr;
+  errStr << "Could not find matching method for arguments (method name: GetWidth).\n";                           \
+  errStr << "  arg count: " << args.Length() << "\n";
+  for(int i = 0; i < args.Length(); i++) {
+    v8::String::AsciiValue argStr(args[i]);
+    errStr << "  arg[" << i << "]: " << *argStr << "\n";
+  }
+  return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxSize::_GetHeight(const v8::Arguments& args) {
@@ -408,7 +479,14 @@ wxNode_wxSize::wxNode_wxSize(int xx, int yy)
   }
   
 
-  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: GetHeight)."));
+  std::ostringstream errStr;
+  errStr << "Could not find matching method for arguments (method name: GetHeight).\n";                           \
+  errStr << "  arg count: " << args.Length() << "\n";
+  for(int i = 0; i < args.Length(); i++) {
+    v8::String::AsciiValue argStr(args[i]);
+    errStr << "  arg[" << i << "]: " << *argStr << "\n";
+  }
+  return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxSize::_IsFullySpecified(const v8::Arguments& args) {
@@ -429,7 +507,14 @@ wxNode_wxSize::wxNode_wxSize(int xx, int yy)
   }
   
 
-  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: IsFullySpecified)."));
+  std::ostringstream errStr;
+  errStr << "Could not find matching method for arguments (method name: IsFullySpecified).\n";                           \
+  errStr << "  arg count: " << args.Length() << "\n";
+  for(int i = 0; i < args.Length(); i++) {
+    v8::String::AsciiValue argStr(args[i]);
+    errStr << "  arg[" << i << "]: " << *argStr << "\n";
+  }
+  return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxSize::_SetDefaults(const v8::Arguments& args) {
@@ -451,7 +536,14 @@ wxNode_wxSize::wxNode_wxSize(int xx, int yy)
   }
   
 
-  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: SetDefaults)."));
+  std::ostringstream errStr;
+  errStr << "Could not find matching method for arguments (method name: SetDefaults).\n";                           \
+  errStr << "  arg count: " << args.Length() << "\n";
+  for(int i = 0; i < args.Length(); i++) {
+    v8::String::AsciiValue argStr(args[i]);
+    errStr << "  arg[" << i << "]: " << *argStr << "\n";
+  }
+  return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxSize::_GetX(const v8::Arguments& args) {
@@ -472,7 +564,14 @@ wxNode_wxSize::wxNode_wxSize(int xx, int yy)
   }
   
 
-  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: GetX)."));
+  std::ostringstream errStr;
+  errStr << "Could not find matching method for arguments (method name: GetX).\n";                           \
+  errStr << "  arg count: " << args.Length() << "\n";
+  for(int i = 0; i < args.Length(); i++) {
+    v8::String::AsciiValue argStr(args[i]);
+    errStr << "  arg[" << i << "]: " << *argStr << "\n";
+  }
+  return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxSize::_GetY(const v8::Arguments& args) {
@@ -493,6 +592,13 @@ wxNode_wxSize::wxNode_wxSize(int xx, int yy)
   }
   
 
-  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: GetY)."));
+  std::ostringstream errStr;
+  errStr << "Could not find matching method for arguments (method name: GetY).\n";                           \
+  errStr << "  arg count: " << args.Length() << "\n";
+  for(int i = 0; i < args.Length(); i++) {
+    v8::String::AsciiValue argStr(args[i]);
+    errStr << "  arg[" << i << "]: " << *argStr << "\n";
+  }
+  return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
 

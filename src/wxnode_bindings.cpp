@@ -7,6 +7,14 @@
 #include "wxNode_wxMenu.h"
 #include "wxNode_wxPoint.h"
 #include "wxNode_wxSize.h"
+#include "wxNode_wxTextCtrl.h"
+#include "wxNode_wxPanel.h"
+#include "wxNode_wxWindow.h"
+#include "wxNode_wxNotebook.h"
+#include "wxNode_wxSizerFlags.h"
+#include "wxNode_wxBoxSizer.h"
+#include "wxNode_wxButton.h"
+#include "wxNode_wxStaticText.h"
 #include "messageBox.h"
 
 extern "C" {
@@ -17,6 +25,14 @@ extern "C" {
     wxNode_wxMenuBar::Init(target);
     wxNode_wxPoint::Init(target);
     wxNode_wxSize::Init(target);
+    wxNode_wxTextCtrl::Init(target);
+    wxNode_wxPanel::Init(target);
+    wxNode_wxSizerFlags::Init(target);
+    wxNode_wxWindow::Init(target);
+    wxNode_wxNotebook::Init(target);
+    wxNode_wxBoxSizer::Init(target);
+    wxNode_wxButton::Init(target);
+    wxNode_wxStaticText::Init(target);
     NodeWxMessageBox::Init(target);
   }
 

@@ -2,18 +2,16 @@
 #ifndef _wxNode_wxTopLevelWindow_h_
 #define _wxNode_wxTopLevelWindow_h_
 
-class wxNode_wxWindow;
 #include "wxnode.h"
 #include "wxNode_wxEvtHandler.h"
-#include "wxNode_wxTopLevelWindow.h"
-#include "wxNode_wxEvtHandler.h"
-#include "wxNode_wxNavigationEnabled.h"
-#include "wxNode_wxWindow.h"
-#include "wxNode_wxPoint.h"
-#include "wxNode_wxSize.h"
-#include "wxNode_wxIcon.h"
-#include "wxNode_wxIconBundle.h"
-#include "wxNode_wxUpdateUIEvent.h"
+class wxNode_wxEvtHandler;
+class wxNode_wxNavigationEnabled;
+class wxNode_wxWindow;
+class wxNode_wxPoint;
+class wxNode_wxSize;
+class wxNode_wxIcon;
+class wxNode_wxIconBundle;
+class wxNode_wxUpdateUIEvent;
 
 
 class wxNode_wxTopLevelWindow : public wxTopLevelWindow, public wxNodeObject, public NodeExEvtHandlerImpl {

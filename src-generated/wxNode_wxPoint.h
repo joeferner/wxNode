@@ -2,11 +2,10 @@
 #ifndef _wxNode_wxPoint_h_
 #define _wxNode_wxPoint_h_
 
-class wxNode_wxWindow;
 #include "wxnode.h"
 #include "wxNode_wxEvtHandler.h"
-#include "wxNode_wxPoint.h"
-#include "wxNode_wxRealPoint.h"
+class wxNode_wxPoint;
+class wxNode_wxRealPoint;
 
 
 class wxNode_wxPoint : public wxPoint, public wxNodeObject, public NodeExEvtHandlerImpl {

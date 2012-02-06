@@ -8,14 +8,25 @@ var xml2js = require('xml2js');
 var jsonpath = require('JSONPath');
 
 var files = [
-  { className: 'wxMenu', baseClassName: 'wxMenuBase' },
-  { className: 'wxMenuBar', baseClassName: 'wxMenuBarBase' },
-  { className: 'wxFrame', baseClassName: 'wxFrameBase' },
-  { className: 'wxTopLevelWindow', baseClassName: 'wxTopLevelWindowBase' },
-  { className: 'wxNonOwnedWindow', baseClassName: 'wxNonOwnedWindowBase' },
-  { className: 'wxWindow', baseClassName: 'wxWindowBase', excludeIds: ['_43125', '_43080'] },
-  { className: 'wxPoint' },
-  { className: 'wxSize' },
+  { className: 'wxMenu', baseClassName: 'wxMenuBase', allowNew: true },
+  { className: 'wxMenuBar', baseClassName: 'wxMenuBarBase', allowNew: true },
+  { className: 'wxFrame', baseClassName: 'wxFrameBase', allowNew: true },
+  { className: 'wxTopLevelWindow', baseClassName: 'wxTopLevelWindowBase', allowNew: true },
+  { className: 'wxNonOwnedWindow', baseClassName: 'wxNonOwnedWindowBase', allowNew: true },
+  { className: 'wxTextCtrl', baseClassName: 'wxTextCtrlBase', allowNew: true },
+  { className: 'wxButton', baseClassName: 'wxButtonBase', allowNew: true },
+  { className: 'wxAnyButton', baseClassName: 'wxAnyButtonBase', allowNew: true },
+  { className: 'wxStaticText', baseClassName: 'wxStaticTextBase', allowNew: true },
+  { className: 'wxControl', baseClassName: 'wxControlBase', allowNew: true },
+  { className: 'wxPanel', baseClassName: 'wxPanelBase', allowNew: true },
+  { className: 'wxNotebook', baseClassName: 'wxNotebookBase', allowNew: true },
+  { className: 'wxBookCtrlBase', baseClassName: 'wxBookCtrlBase', allowNew: false },
+  { className: 'wxWindow', baseClassName: 'wxWindowBase', excludeIds: ['_43125', '_43080'], allowNew: true },
+  { className: 'wxSizer', allowNew: false },
+  { className: 'wxBoxSizer', allowNew: true },
+  { className: 'wxSizerFlags', allowNew: true },
+  { className: 'wxPoint', allowNew: true },
+  { className: 'wxSize', allowNew: true },
   /*
   { className: 'wxBitmap', baseClassName: 'wxBitmapBase' },
   { className: 'wxInputStream', baseClassName: 'wxStreamBase' },
@@ -112,7 +123,7 @@ function lookupClassById(rawJson, typeId) {
     clazz.refs = '';
     return clazz;
   }
-  
+
   if(clazz.elementName == "FunctionType") {
     clazz.pointers = '';
     clazz.refs = '';
@@ -233,6 +244,7 @@ function argJsonToCtx(ctx, rawJson, arg, i) {
       argTestCode = util.format("(args[%d]->IsNull() || args[%d]->IsObject())", i, i);
     }
     ctx.includes = concatUnique(ctx.includes, ["wxNode_" + typeName + ".h"]);
+    ctx.classes = concatUnique(ctx.classes, ["wxNode_" + typeName]);
   } else {
     console.error(argCode);
   }
@@ -300,7 +312,8 @@ function methodJsonToCtx(parent, rawJson, methodJson) {
     name: methodJson['name'],
     id: methodJson['id'],
     args: [],
-    includes: []
+    includes: [],
+    classes: []
   };
 
   if(methodJson['returns']) {
@@ -362,6 +375,7 @@ function addMethod(rawJson, ctx, member, dest) {
     return;
   }
   ctx.includes = concatUnique(ctx.includes, methodJson.includes);
+  ctx.classes = concatUnique(ctx.classes, methodJson.classes);
   methodGroup.overloads.push(methodJson);
 
   // add overloads for each default value parameter
@@ -400,6 +414,7 @@ function rawJsonToCtx(rawJson, file) {
     methods: [],
     constructors: [],
     includes: [],
+    classes: [],
     baseClassAddMethodsCallCode: ""
   };
   ctx.headerFilename = ctx.outputFilename.replace(/\.cpp$/, '.h');
@@ -408,7 +423,7 @@ function rawJsonToCtx(rawJson, file) {
   if(!file.baseClassName) {
     file.baseClassName = file.className;
   }
-  
+
   // process base class
   var clazz = getClassByName(rawJson, file.baseClassName);
   ctx.classId = clazz['id'];
@@ -419,25 +434,28 @@ function rawJsonToCtx(rawJson, file) {
     ctx.baseClassId = baseClazz['id'];
     ctx.baseClassAddMethodsCallCode = "wxNode_" + ctx.baseClassName + "::AddMethods(target);";
     ctx.includes = concatUnique(ctx.includes, ["wxNode_wxEvtHandler.h", "wxNode_" + ctx.baseClassName + ".h"]);
+    ctx.classes = concatUnique(ctx.classes, ["wxNode_wxEvtHandler", "wxNode_" + ctx.baseClassName]);
   } else {
     ctx.baseClassAddMethodsCallCode = "wxNode_wxEvtHandler::AddMethods(target);";
   }
 
   // process members
-  var subClazz = getClassByName(rawJson, file.className);
-  if(subClazz['members']) {
-    var memberIds = subClazz['members'].split(' ');
-    for(var i=0; i<memberIds.length; i++) {
-      var memberId = memberIds[i];
-      if(memberId.length == 0) {
-        continue;
-      }
+  if(file.allowNew) {
+    var subClazz = getClassByName(rawJson, file.className);
+    if(subClazz['members']) {
+      var memberIds = subClazz['members'].split(' ');
+      for(var i=0; i<memberIds.length; i++) {
+        var memberId = memberIds[i];
+        if(memberId.length == 0) {
+          continue;
+        }
 
-      var member = rawJson[memberId];
+        var member = rawJson[memberId];
 
-      if(member.elementName == "Constructor") {
-        addMethod(rawJson, ctx, member, ctx.constructors);
-        continue;
+        if(member.elementName == "Constructor") {
+          addMethod(rawJson, ctx, member, ctx.constructors);
+          continue;
+        }
       }
     }
   }
@@ -490,7 +508,7 @@ function rawJsonToCtx(rawJson, file) {
       if(member.elementName == "Enumeration") {
         continue;
       }
-      
+
       throw new Error("Could not find member with id '" + memberId + "'");
     }
   }

@@ -68,7 +68,7 @@ v8::Handle<v8::Value> wxNodeObject::call(const char *fnName, int argc, v8::Handl
   if(tryCatch.HasCaught()) {
     v8::String::AsciiValue errorStr(tryCatch.Exception());
     printf("%s\n", *errorStr);
-    return v8::Undefined(); // TODO: causes Seg fault
+    return scope.Close(tryCatch.Exception()); // TODO: causes Seg fault
   }
 
   return scope.Close(result);

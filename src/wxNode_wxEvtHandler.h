@@ -25,6 +25,7 @@ public:
 
 protected:
   virtual void fireEvent(uint32_t iListener, wxEvent& event);
+  virtual void addEventListener(wxNode_wxEvtHandler* evtHandler, int eventType, v8::Local<v8::Object> fn);
   virtual void addCommandRangeListener(wxNode_wxEvtHandler* evtHandler, int id, int lastId, int eventType, v8::Local<v8::Object> fn);
   virtual void addCommandListener(wxNode_wxEvtHandler* evtHandler, int id, int eventType, v8::Local<v8::Object> fn);
   virtual void connect(wxNode_wxEvtHandler* evtHandler, int id, int lastId, int eventType, v8::Local<v8::Object> fn);
@@ -51,6 +52,7 @@ public:
 
 protected:
   static v8::Handle<v8::Value> _EVT_MENU(const v8::Arguments& args);
+  static v8::Handle<v8::Value> _EVT_IDLE(const v8::Arguments& args);
 };
 
 #endif

@@ -1,4 +1,5 @@
 
+#include <sstream>
 #include "wxNode_wxFrame.h"
 #include "wxNode_wxEvtHandler.h"
 #include "wxNode_wxTopLevelWindow.h"
@@ -206,7 +207,14 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
   
   
 
-  return v8::ThrowException(v8::String::New("Could not find matching constructor for arguments (class name: wxFrame)."));
+  std::ostringstream errStr;
+  errStr << "Could not find matching constructor for arguments (class name: wxFrame).\n";                           \
+  errStr << "  arg count: " << args.Length() << "\n";
+  for(int i = 0; i < args.Length(); i++) {
+    v8::String::AsciiValue argStr(args[i]);
+    errStr << "  arg[" << i << "]: " << *argStr << "\n";
+  }
+  return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
 
 
@@ -301,7 +309,14 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
   }
   
 
-  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: New)."));
+  std::ostringstream errStr;
+  errStr << "Could not find matching method for arguments (method name: New).\n";                           \
+  errStr << "  arg count: " << args.Length() << "\n";
+  for(int i = 0; i < args.Length(); i++) {
+    v8::String::AsciiValue argStr(args[i]);
+    errStr << "  arg[" << i << "]: " << *argStr << "\n";
+  }
+  return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxFrame::_GetClientAreaOrigin(const v8::Arguments& args) {
@@ -322,7 +337,14 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
   }
   
 
-  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: GetClientAreaOrigin)."));
+  std::ostringstream errStr;
+  errStr << "Could not find matching method for arguments (method name: GetClientAreaOrigin).\n";                           \
+  errStr << "  arg count: " << args.Length() << "\n";
+  for(int i = 0; i < args.Length(); i++) {
+    v8::String::AsciiValue argStr(args[i]);
+    errStr << "  arg[" << i << "]: " << *argStr << "\n";
+  }
+  return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxFrame::_SetMenuBar(const v8::Arguments& args) {
@@ -344,7 +366,14 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
   }
   
 
-  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: SetMenuBar)."));
+  std::ostringstream errStr;
+  errStr << "Could not find matching method for arguments (method name: SetMenuBar).\n";                           \
+  errStr << "  arg count: " << args.Length() << "\n";
+  for(int i = 0; i < args.Length(); i++) {
+    v8::String::AsciiValue argStr(args[i]);
+    errStr << "  arg[" << i << "]: " << *argStr << "\n";
+  }
+  return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxFrame::_GetMenuBar(const v8::Arguments& args) {
@@ -365,7 +394,14 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
   }
   
 
-  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: GetMenuBar)."));
+  std::ostringstream errStr;
+  errStr << "Could not find matching method for arguments (method name: GetMenuBar).\n";                           \
+  errStr << "  arg count: " << args.Length() << "\n";
+  for(int i = 0; i < args.Length(); i++) {
+    v8::String::AsciiValue argStr(args[i]);
+    errStr << "  arg[" << i << "]: " << *argStr << "\n";
+  }
+  return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxFrame::_FindItemInMenuBar(const v8::Arguments& args) {
@@ -387,7 +423,14 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
   }
   
 
-  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: FindItemInMenuBar)."));
+  std::ostringstream errStr;
+  errStr << "Could not find matching method for arguments (method name: FindItemInMenuBar).\n";                           \
+  errStr << "  arg count: " << args.Length() << "\n";
+  for(int i = 0; i < args.Length(); i++) {
+    v8::String::AsciiValue argStr(args[i]);
+    errStr << "  arg[" << i << "]: " << *argStr << "\n";
+  }
+  return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxFrame::_ProcessCommand(const v8::Arguments& args) {
@@ -422,7 +465,14 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
   }
   
 
-  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: ProcessCommand)."));
+  std::ostringstream errStr;
+  errStr << "Could not find matching method for arguments (method name: ProcessCommand).\n";                           \
+  errStr << "  arg count: " << args.Length() << "\n";
+  for(int i = 0; i < args.Length(); i++) {
+    v8::String::AsciiValue argStr(args[i]);
+    errStr << "  arg[" << i << "]: " << *argStr << "\n";
+  }
+  return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxFrame::_CreateStatusBar(const v8::Arguments& args) {
@@ -501,7 +551,14 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
   }
   
 
-  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: CreateStatusBar)."));
+  std::ostringstream errStr;
+  errStr << "Could not find matching method for arguments (method name: CreateStatusBar).\n";                           \
+  errStr << "  arg count: " << args.Length() << "\n";
+  for(int i = 0; i < args.Length(); i++) {
+    v8::String::AsciiValue argStr(args[i]);
+    errStr << "  arg[" << i << "]: " << *argStr << "\n";
+  }
+  return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxFrame::_OnCreateStatusBar(const v8::Arguments& args) {
@@ -510,7 +567,14 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
 
   
 
-  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: OnCreateStatusBar)."));
+  std::ostringstream errStr;
+  errStr << "Could not find matching method for arguments (method name: OnCreateStatusBar).\n";                           \
+  errStr << "  arg count: " << args.Length() << "\n";
+  for(int i = 0; i < args.Length(); i++) {
+    v8::String::AsciiValue argStr(args[i]);
+    errStr << "  arg[" << i << "]: " << *argStr << "\n";
+  }
+  return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxFrame::_GetStatusBar(const v8::Arguments& args) {
@@ -531,7 +595,14 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
   }
   
 
-  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: GetStatusBar)."));
+  std::ostringstream errStr;
+  errStr << "Could not find matching method for arguments (method name: GetStatusBar).\n";                           \
+  errStr << "  arg count: " << args.Length() << "\n";
+  for(int i = 0; i < args.Length(); i++) {
+    v8::String::AsciiValue argStr(args[i]);
+    errStr << "  arg[" << i << "]: " << *argStr << "\n";
+  }
+  return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxFrame::_SetStatusBar(const v8::Arguments& args) {
@@ -553,7 +624,14 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
   }
   
 
-  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: SetStatusBar)."));
+  std::ostringstream errStr;
+  errStr << "Could not find matching method for arguments (method name: SetStatusBar).\n";                           \
+  errStr << "  arg count: " << args.Length() << "\n";
+  for(int i = 0; i < args.Length(); i++) {
+    v8::String::AsciiValue argStr(args[i]);
+    errStr << "  arg[" << i << "]: " << *argStr << "\n";
+  }
+  return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxFrame::_SetStatusText(const v8::Arguments& args) {
@@ -589,7 +667,14 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
   }
   
 
-  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: SetStatusText)."));
+  std::ostringstream errStr;
+  errStr << "Could not find matching method for arguments (method name: SetStatusText).\n";                           \
+  errStr << "  arg count: " << args.Length() << "\n";
+  for(int i = 0; i < args.Length(); i++) {
+    v8::String::AsciiValue argStr(args[i]);
+    errStr << "  arg[" << i << "]: " << *argStr << "\n";
+  }
+  return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxFrame::_SetStatusWidths(const v8::Arguments& args) {
@@ -612,7 +697,14 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
   }
   
 
-  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: SetStatusWidths)."));
+  std::ostringstream errStr;
+  errStr << "Could not find matching method for arguments (method name: SetStatusWidths).\n";                           \
+  errStr << "  arg count: " << args.Length() << "\n";
+  for(int i = 0; i < args.Length(); i++) {
+    v8::String::AsciiValue argStr(args[i]);
+    errStr << "  arg[" << i << "]: " << *argStr << "\n";
+  }
+  return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxFrame::_PushStatusText(const v8::Arguments& args) {
@@ -648,7 +740,14 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
   }
   
 
-  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: PushStatusText)."));
+  std::ostringstream errStr;
+  errStr << "Could not find matching method for arguments (method name: PushStatusText).\n";                           \
+  errStr << "  arg count: " << args.Length() << "\n";
+  for(int i = 0; i < args.Length(); i++) {
+    v8::String::AsciiValue argStr(args[i]);
+    errStr << "  arg[" << i << "]: " << *argStr << "\n";
+  }
+  return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxFrame::_PopStatusText(const v8::Arguments& args) {
@@ -682,7 +781,14 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
   }
   
 
-  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: PopStatusText)."));
+  std::ostringstream errStr;
+  errStr << "Could not find matching method for arguments (method name: PopStatusText).\n";                           \
+  errStr << "  arg count: " << args.Length() << "\n";
+  for(int i = 0; i < args.Length(); i++) {
+    v8::String::AsciiValue argStr(args[i]);
+    errStr << "  arg[" << i << "]: " << *argStr << "\n";
+  }
+  return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxFrame::_SetStatusBarPane(const v8::Arguments& args) {
@@ -704,7 +810,14 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
   }
   
 
-  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: SetStatusBarPane)."));
+  std::ostringstream errStr;
+  errStr << "Could not find matching method for arguments (method name: SetStatusBarPane).\n";                           \
+  errStr << "  arg count: " << args.Length() << "\n";
+  for(int i = 0; i < args.Length(); i++) {
+    v8::String::AsciiValue argStr(args[i]);
+    errStr << "  arg[" << i << "]: " << *argStr << "\n";
+  }
+  return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxFrame::_GetStatusBarPane(const v8::Arguments& args) {
@@ -725,7 +838,14 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
   }
   
 
-  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: GetStatusBarPane)."));
+  std::ostringstream errStr;
+  errStr << "Could not find matching method for arguments (method name: GetStatusBarPane).\n";                           \
+  errStr << "  arg count: " << args.Length() << "\n";
+  for(int i = 0; i < args.Length(); i++) {
+    v8::String::AsciiValue argStr(args[i]);
+    errStr << "  arg[" << i << "]: " << *argStr << "\n";
+  }
+  return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxFrame::_CreateToolBar(const v8::Arguments& args) {
@@ -788,7 +908,14 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
   }
   
 
-  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: CreateToolBar)."));
+  std::ostringstream errStr;
+  errStr << "Could not find matching method for arguments (method name: CreateToolBar).\n";                           \
+  errStr << "  arg count: " << args.Length() << "\n";
+  for(int i = 0; i < args.Length(); i++) {
+    v8::String::AsciiValue argStr(args[i]);
+    errStr << "  arg[" << i << "]: " << *argStr << "\n";
+  }
+  return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxFrame::_OnCreateToolBar(const v8::Arguments& args) {
@@ -797,7 +924,14 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
 
   
 
-  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: OnCreateToolBar)."));
+  std::ostringstream errStr;
+  errStr << "Could not find matching method for arguments (method name: OnCreateToolBar).\n";                           \
+  errStr << "  arg count: " << args.Length() << "\n";
+  for(int i = 0; i < args.Length(); i++) {
+    v8::String::AsciiValue argStr(args[i]);
+    errStr << "  arg[" << i << "]: " << *argStr << "\n";
+  }
+  return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxFrame::_GetToolBar(const v8::Arguments& args) {
@@ -818,7 +952,14 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
   }
   
 
-  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: GetToolBar)."));
+  std::ostringstream errStr;
+  errStr << "Could not find matching method for arguments (method name: GetToolBar).\n";                           \
+  errStr << "  arg count: " << args.Length() << "\n";
+  for(int i = 0; i < args.Length(); i++) {
+    v8::String::AsciiValue argStr(args[i]);
+    errStr << "  arg[" << i << "]: " << *argStr << "\n";
+  }
+  return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxFrame::_SetToolBar(const v8::Arguments& args) {
@@ -840,7 +981,14 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
   }
   
 
-  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: SetToolBar)."));
+  std::ostringstream errStr;
+  errStr << "Could not find matching method for arguments (method name: SetToolBar).\n";                           \
+  errStr << "  arg count: " << args.Length() << "\n";
+  for(int i = 0; i < args.Length(); i++) {
+    v8::String::AsciiValue argStr(args[i]);
+    errStr << "  arg[" << i << "]: " << *argStr << "\n";
+  }
+  return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxFrame::_OnMenuOpen(const v8::Arguments& args) {
@@ -849,7 +997,14 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
 
   
 
-  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: OnMenuOpen)."));
+  std::ostringstream errStr;
+  errStr << "Could not find matching method for arguments (method name: OnMenuOpen).\n";                           \
+  errStr << "  arg count: " << args.Length() << "\n";
+  for(int i = 0; i < args.Length(); i++) {
+    v8::String::AsciiValue argStr(args[i]);
+    errStr << "  arg[" << i << "]: " << *argStr << "\n";
+  }
+  return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxFrame::_OnMenuClose(const v8::Arguments& args) {
@@ -858,7 +1013,14 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
 
   
 
-  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: OnMenuClose)."));
+  std::ostringstream errStr;
+  errStr << "Could not find matching method for arguments (method name: OnMenuClose).\n";                           \
+  errStr << "  arg count: " << args.Length() << "\n";
+  for(int i = 0; i < args.Length(); i++) {
+    v8::String::AsciiValue argStr(args[i]);
+    errStr << "  arg[" << i << "]: " << *argStr << "\n";
+  }
+  return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxFrame::_OnMenuHighlight(const v8::Arguments& args) {
@@ -867,7 +1029,14 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
 
   
 
-  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: OnMenuHighlight)."));
+  std::ostringstream errStr;
+  errStr << "Could not find matching method for arguments (method name: OnMenuHighlight).\n";                           \
+  errStr << "  arg count: " << args.Length() << "\n";
+  for(int i = 0; i < args.Length(); i++) {
+    v8::String::AsciiValue argStr(args[i]);
+    errStr << "  arg[" << i << "]: " << *argStr << "\n";
+  }
+  return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxFrame::_DoMenuUpdates(const v8::Arguments& args) {
@@ -901,7 +1070,14 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
   }
   
 
-  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: DoMenuUpdates)."));
+  std::ostringstream errStr;
+  errStr << "Could not find matching method for arguments (method name: DoMenuUpdates).\n";                           \
+  errStr << "  arg count: " << args.Length() << "\n";
+  for(int i = 0; i < args.Length(); i++) {
+    v8::String::AsciiValue argStr(args[i]);
+    errStr << "  arg[" << i << "]: " << *argStr << "\n";
+  }
+  return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxFrame::_UpdateWindowUI(const v8::Arguments& args) {
@@ -935,7 +1111,14 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
   }
   
 
-  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: UpdateWindowUI)."));
+  std::ostringstream errStr;
+  errStr << "Could not find matching method for arguments (method name: UpdateWindowUI).\n";                           \
+  errStr << "  arg count: " << args.Length() << "\n";
+  for(int i = 0; i < args.Length(); i++) {
+    v8::String::AsciiValue argStr(args[i]);
+    errStr << "  arg[" << i << "]: " << *argStr << "\n";
+  }
+  return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxFrame::_OnInternalIdle(const v8::Arguments& args) {
@@ -944,7 +1127,14 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
 
   
 
-  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: OnInternalIdle)."));
+  std::ostringstream errStr;
+  errStr << "Could not find matching method for arguments (method name: OnInternalIdle).\n";                           \
+  errStr << "  arg count: " << args.Length() << "\n";
+  for(int i = 0; i < args.Length(); i++) {
+    v8::String::AsciiValue argStr(args[i]);
+    errStr << "  arg[" << i << "]: " << *argStr << "\n";
+  }
+  return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxFrame::_DoGiveHelp(const v8::Arguments& args) {
@@ -967,7 +1157,14 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
   }
   
 
-  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: DoGiveHelp)."));
+  std::ostringstream errStr;
+  errStr << "Could not find matching method for arguments (method name: DoGiveHelp).\n";                           \
+  errStr << "  arg count: " << args.Length() << "\n";
+  for(int i = 0; i < args.Length(); i++) {
+    v8::String::AsciiValue argStr(args[i]);
+    errStr << "  arg[" << i << "]: " << *argStr << "\n";
+  }
+  return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxFrame::_IsClientAreaChild(const v8::Arguments& args) {
@@ -989,6 +1186,13 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
   }
   
 
-  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: IsClientAreaChild)."));
+  std::ostringstream errStr;
+  errStr << "Could not find matching method for arguments (method name: IsClientAreaChild).\n";                           \
+  errStr << "  arg count: " << args.Length() << "\n";
+  for(int i = 0; i < args.Length(); i++) {
+    v8::String::AsciiValue argStr(args[i]);
+    errStr << "  arg[" << i << "]: " << *argStr << "\n";
+  }
+  return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
 

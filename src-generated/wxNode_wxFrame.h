@@ -2,20 +2,18 @@
 #ifndef _wxNode_wxFrame_h_
 #define _wxNode_wxFrame_h_
 
-class wxNode_wxWindow;
 #include "wxnode.h"
 #include "wxNode_wxEvtHandler.h"
-#include "wxNode_wxFrame.h"
-#include "wxNode_wxEvtHandler.h"
-#include "wxNode_wxTopLevelWindow.h"
-#include "wxNode_wxWindow.h"
-#include "wxNode_wxPoint.h"
-#include "wxNode_wxSize.h"
-#include "wxNode_wxMenuBar.h"
-#include "wxNode_wxMenuItem.h"
-#include "wxNode_wxStatusBar.h"
-#include "wxNode_wxToolBar.h"
-#include "wxNode_wxMenu.h"
+class wxNode_wxEvtHandler;
+class wxNode_wxTopLevelWindow;
+class wxNode_wxWindow;
+class wxNode_wxPoint;
+class wxNode_wxSize;
+class wxNode_wxMenuBar;
+class wxNode_wxMenuItem;
+class wxNode_wxStatusBar;
+class wxNode_wxToolBar;
+class wxNode_wxMenu;
 
 
 class wxNode_wxFrame : public wxFrame, public wxNodeObject, public NodeExEvtHandlerImpl {

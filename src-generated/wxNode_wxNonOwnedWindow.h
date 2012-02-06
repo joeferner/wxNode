@@ -2,14 +2,12 @@
 #ifndef _wxNode_wxNonOwnedWindow_h_
 #define _wxNode_wxNonOwnedWindow_h_
 
-class wxNode_wxWindow;
 #include "wxnode.h"
 #include "wxNode_wxEvtHandler.h"
-#include "wxNode_wxNonOwnedWindow.h"
-#include "wxNode_wxEvtHandler.h"
-#include "wxNode_wxWindow.h"
-#include "wxNode_wxRegion.h"
-#include "wxNode_wxGraphicsPath.h"
+class wxNode_wxEvtHandler;
+class wxNode_wxWindow;
+class wxNode_wxRegion;
+class wxNode_wxGraphicsPath;
 
 
 class wxNode_wxNonOwnedWindow : public wxNonOwnedWindow, public wxNodeObject, public NodeExEvtHandlerImpl {

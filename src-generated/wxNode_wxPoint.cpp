@@ -1,4 +1,5 @@
 
+#include <sstream>
 #include "wxNode_wxPoint.h"
 #include "wxNode_wxRealPoint.h"
 
@@ -114,7 +115,14 @@ wxNode_wxPoint::wxNode_wxPoint(wxNode_wxRealPoint& pt)
   
   
 
-  return v8::ThrowException(v8::String::New("Could not find matching constructor for arguments (class name: wxPoint)."));
+  std::ostringstream errStr;
+  errStr << "Could not find matching constructor for arguments (class name: wxPoint).\n";                           \
+  errStr << "  arg count: " << args.Length() << "\n";
+  for(int i = 0; i < args.Length(); i++) {
+    v8::String::AsciiValue argStr(args[i]);
+    errStr << "  arg[" << i << "]: " << *argStr << "\n";
+  }
+  return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
 
 
@@ -136,7 +144,14 @@ wxNode_wxPoint::wxNode_wxPoint(wxNode_wxRealPoint& pt)
   }
   
 
-  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: IsFullySpecified)."));
+  std::ostringstream errStr;
+  errStr << "Could not find matching method for arguments (method name: IsFullySpecified).\n";                           \
+  errStr << "  arg count: " << args.Length() << "\n";
+  for(int i = 0; i < args.Length(); i++) {
+    v8::String::AsciiValue argStr(args[i]);
+    errStr << "  arg[" << i << "]: " << *argStr << "\n";
+  }
+  return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxPoint::_SetDefaults(const v8::Arguments& args) {
@@ -158,6 +173,13 @@ wxNode_wxPoint::wxNode_wxPoint(wxNode_wxRealPoint& pt)
   }
   
 
-  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: SetDefaults)."));
+  std::ostringstream errStr;
+  errStr << "Could not find matching method for arguments (method name: SetDefaults).\n";                           \
+  errStr << "  arg count: " << args.Length() << "\n";
+  for(int i = 0; i < args.Length(); i++) {
+    v8::String::AsciiValue argStr(args[i]);
+    errStr << "  arg[" << i << "]: " << *argStr << "\n";
+  }
+  return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
 

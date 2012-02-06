@@ -2,32 +2,31 @@
 #ifndef _wxNode_wxWindow_h_
 #define _wxNode_wxWindow_h_
 
-class wxNode_wxWindow;
 #include "wxnode.h"
 #include "wxNode_wxEvtHandler.h"
-#include "wxNode_wxWindow.h"
-#include "wxNode_wxEvtHandler.h"
-#include "wxNode_wxPoint.h"
-#include "wxNode_wxSize.h"
-#include "wxNode_wxRect.h"
-#include "wxNode_wxScrollHelper.h"
-#include "wxNode_wxKeyEvent.h"
-#include "wxNode_wxEvent.h"
-#include "wxNode_wxValidator.h"
-#include "wxNode_wxAcceleratorTable.h"
-#include "wxNode_wxDC.h"
-#include "wxNode_wxColour.h"
-#include "wxNode_wxFont.h"
-#include "wxNode_wxCursor.h"
-#include "wxNode_wxCaret.h"
-#include "wxNode_wxUpdateUIEvent.h"
-#include "wxNode_wxMenu.h"
-#include "wxNode_wxToolTip.h"
-#include "wxNode_wxDropTarget.h"
-#include "wxNode_wxLayoutConstraints.h"
-#include "wxNode_wxSizer.h"
-#include "wxNode_wxIdleEvent.h"
-#include "wxNode_wxPalette.h"
+class wxNode_wxEvtHandler;
+class wxNode_wxWindow;
+class wxNode_wxPoint;
+class wxNode_wxSize;
+class wxNode_wxRect;
+class wxNode_wxScrollHelper;
+class wxNode_wxKeyEvent;
+class wxNode_wxEvent;
+class wxNode_wxValidator;
+class wxNode_wxAcceleratorTable;
+class wxNode_wxDC;
+class wxNode_wxColour;
+class wxNode_wxFont;
+class wxNode_wxCursor;
+class wxNode_wxCaret;
+class wxNode_wxUpdateUIEvent;
+class wxNode_wxMenu;
+class wxNode_wxToolTip;
+class wxNode_wxDropTarget;
+class wxNode_wxLayoutConstraints;
+class wxNode_wxSizer;
+class wxNode_wxIdleEvent;
+class wxNode_wxPalette;
 
 
 class wxNode_wxWindow : public wxWindow, public wxNodeObject, public NodeExEvtHandlerImpl {

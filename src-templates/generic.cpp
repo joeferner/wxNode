@@ -1,4 +1,5 @@
 
+#include <sstream>
 {{#includes}}#include "{{.}}"
 {{/includes}}
 
@@ -55,7 +56,14 @@ wxNode_{{parent.parent.name}}::wxNode_{{parent.parent.name}}({{{argDeclCode}}})
   {{/overloads}}
   {{/constructors}}
 
-  return v8::ThrowException(v8::String::New("Could not find matching constructor for arguments (class name: {{name}})."));
+  std::ostringstream errStr;
+  errStr << "Could not find matching constructor for arguments (class name: {{name}}).\n";                           \
+  errStr << "  arg count: " << args.Length() << "\n";
+  for(int i = 0; i < args.Length(); i++) {
+    v8::String::AsciiValue argStr(args[i]);
+    errStr << "  arg[" << i << "]: " << *argStr << "\n";
+  }
+  return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
 
 {{#methods}}
@@ -78,6 +86,13 @@ wxNode_{{parent.parent.name}}::wxNode_{{parent.parent.name}}({{{argDeclCode}}})
   }
   {{/overloads}}
 
-  return v8::ThrowException(v8::String::New("Could not find matching method for arguments (method name: {{name}})."));
+  std::ostringstream errStr;
+  errStr << "Could not find matching method for arguments (method name: {{name}}).\n";                           \
+  errStr << "  arg count: " << args.Length() << "\n";
+  for(int i = 0; i < args.Length(); i++) {
+    v8::String::AsciiValue argStr(args[i]);
+    errStr << "  arg[" << i << "]: " << *argStr << "\n";
+  }
+  return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
 {{/methods}}

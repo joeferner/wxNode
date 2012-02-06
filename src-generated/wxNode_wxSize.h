@@ -2,11 +2,10 @@
 #ifndef _wxNode_wxSize_h_
 #define _wxNode_wxSize_h_
 
-class wxNode_wxWindow;
 #include "wxnode.h"
 #include "wxNode_wxEvtHandler.h"
-#include "wxNode_wxSize.h"
-#include "wxNode_wxPoint.h"
+class wxNode_wxSize;
+class wxNode_wxPoint;
 
 
 class wxNode_wxSize : public wxSize, public wxNodeObject, public NodeExEvtHandlerImpl {
