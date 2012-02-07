@@ -35,6 +35,12 @@ var MyFrame = wxNode.wxFrame.extend({
 
     this.EVT_MENU(ID_About, this.onAbout);
     this.EVT_MENU(ID_Quit, this.onQuit);
+
+    this.EVT_CLOSE(this.onClose);
+  },
+
+  onClose: function(event) {
+    process.exit();
   },
 
   onQuit: function(event) {

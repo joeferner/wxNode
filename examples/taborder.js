@@ -118,13 +118,19 @@ var MyFrame = wxNode.wxFrame.extend({
 
     this.createStatusBar(StatusPane_Max);
 
-    this.EVT_MENU(TabOrder_Quit, this.onQuit)
-    this.EVT_MENU(TabOrder_About, this.onAbout)
+    this.EVT_MENU(TabOrder_Quit, this.onQuit);
+    this.EVT_MENU(TabOrder_About, this.onAbout);
 
-    this.EVT_MENU(TabOrder_TabForward, this.onTabForward)
-    this.EVT_MENU(TabOrder_TabBackward, this.onTabBackward)
+    this.EVT_MENU(TabOrder_TabForward, this.onTabForward);
+    this.EVT_MENU(TabOrder_TabBackward, this.onTabBackward);
 
-    this.EVT_IDLE(this.onIdle)
+    this.EVT_IDLE(this.onIdle);
+
+    this.EVT_CLOSE(this.onClose);
+  },
+
+  onClose: function(event) {
+    process.exit();
   },
 
   onQuit: function(event) {

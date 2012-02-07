@@ -47,7 +47,6 @@ bool NodeWxApp::OnInit() {
   wxEventLoopBase* evtLoop = wxEventLoop::GetActive();
   if(evtLoop) {
     while(evtLoop->DispatchTimeout(1) != -1) {
-
     }
   }
 

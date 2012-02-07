@@ -65,6 +65,7 @@ public:
 protected:
   static v8::Handle<v8::Value> _EVT_MENU(const v8::Arguments& args);
   static v8::Handle<v8::Value> _EVT_IDLE(const v8::Arguments& args);
+  static v8::Handle<v8::Value> _EVT_CLOSE(const v8::Arguments& args);
   static v8::Handle<v8::Value> _connect(const v8::Arguments& args);
 };
 

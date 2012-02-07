@@ -11,6 +11,7 @@ ListenerData::ListenerData(int eventType, v8::Local<v8::Object> fn) {
   wxNodeObject::AddMethods(func);
   NODE_SET_PROTOTYPE_METHOD(func, "EVT_MENU", _EVT_MENU);
   NODE_SET_PROTOTYPE_METHOD(func, "EVT_IDLE", _EVT_IDLE);
+  NODE_SET_PROTOTYPE_METHOD(func, "EVT_CLOSE", _EVT_CLOSE);
   NODE_SET_PROTOTYPE_METHOD(func, "connect", _connect);
 }
 
@@ -58,6 +59,20 @@ ListenerData::ListenerData(int eventType, v8::Local<v8::Object> fn) {
   v8::Local<v8::Object> fnObj = args[0]->ToObject();
 
   self->addEventListener(evtHandler, wxEVT_IDLE, fnObj);
+
+  return v8::Undefined();
+}
+
+/*static*/ v8::Handle<v8::Value> wxNode_wxEvtHandler::_EVT_CLOSE(const v8::Arguments& args) {
+  wxNode_wxEvtHandler* evtHandler = unwrap<wxNode_wxEvtHandler>(args.This());
+  NodeExEvtHandlerImpl* self = unwrapEvtHandler(args.This());
+
+  if(!args[0]->IsFunction()) {
+    printf("Invalid Arg\n"); // TODO: throw exception
+  }
+  v8::Local<v8::Object> fnObj = args[0]->ToObject();
+
+  self->addEventListener(evtHandler, wxEVT_CLOSE_WINDOW, fnObj);
 
   return v8::Undefined();
 }
