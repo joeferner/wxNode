@@ -10,6 +10,8 @@
 #include "wxNode_wxKeyEvent.h"
 #include "wxNode_wxUpdateUIEvent.h"
 #include "wxNode_wxTextAttr.h"
+#include "wxNode_wxVisualAttributes.h"
+#include "wxNode_wxClassInfo.h"
 
 
 /* static */ v8::Persistent<v8::FunctionTemplate> wxNode_wxTextCtrl::s_ct;
@@ -260,9 +262,9 @@ wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxNode_wxWindow* parent, int id)
   if(args.Length() == 0) {
     
 
-    self->IsSingleLine();
+    bool returnVal = self->IsSingleLine();
 
-    return v8::Undefined();
+    return scope.Close(v8::Boolean::New(returnVal));
   }
   
 
@@ -287,9 +289,9 @@ wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxNode_wxWindow* parent, int id)
   if(args.Length() == 0) {
     
 
-    self->IsMultiLine();
+    bool returnVal = self->IsMultiLine();
 
-    return v8::Undefined();
+    return scope.Close(v8::Boolean::New(returnVal));
   }
   
 
@@ -315,9 +317,9 @@ wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxNode_wxWindow* parent, int id)
     wxNode_wxKeyEvent* event = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxKeyEvent>(args[0]->ToObject()); /* type: _61563  */
     
 
-    self->EmulateKeyPress(*event);
+    bool returnVal = self->EmulateKeyPress(*event);
 
-    return v8::Undefined();
+    return scope.Close(v8::Boolean::New(returnVal));
   }
   
 
@@ -370,9 +372,9 @@ wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxNode_wxWindow* parent, int id)
   if(args.Length() == 0) {
     
 
-    self->ShouldInheritColours();
+    bool returnVal = self->ShouldInheritColours();
 
-    return v8::Undefined();
+    return scope.Close(v8::Boolean::New(returnVal));
   }
   
 
@@ -399,9 +401,9 @@ wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxNode_wxWindow* parent, int id)
     long int pos; /* type: _20380 * */
     
 
-    self->HitTest(*pt, &pos);
+    int returnVal = (int)self->HitTest(*pt, &pos);
 
-    return v8::Undefined();
+    return scope.Close(v8::Number::New(returnVal));
   }
   
   /*
@@ -413,9 +415,9 @@ wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxNode_wxWindow* parent, int id)
     long int row; /* type: _59564 * */
     
 
-    self->HitTest(*pt, &col, &row);
+    int returnVal = (int)self->HitTest(*pt, &col, &row);
 
-    return v8::Undefined();
+    return scope.Close(v8::Number::New(returnVal));
   }
   
 
@@ -443,9 +445,9 @@ wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxNode_wxWindow* parent, int id)
     wxNode_wxTextAttr* style = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxTextAttr>(args[2]->ToObject()); /* type: _51116  */
     
 
-    self->SetStyle(start, end, *style);
+    bool returnVal = self->SetStyle(start, end, *style);
 
-    return v8::Undefined();
+    return scope.Close(v8::Boolean::New(returnVal));
   }
   
 
@@ -472,9 +474,9 @@ wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxNode_wxWindow* parent, int id)
     wxNode_wxTextAttr* style = args[1]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxTextAttr>(args[1]->ToObject()); /* type: _51115  */
     
 
-    self->GetStyle(position, *style);
+    bool returnVal = self->GetStyle(position, *style);
 
-    return v8::Undefined();
+    return scope.Close(v8::Boolean::New(returnVal));
   }
   
 
@@ -500,9 +502,9 @@ wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxNode_wxWindow* parent, int id)
     wxNode_wxTextAttr* style = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxTextAttr>(args[0]->ToObject()); /* type: _51116  */
     
 
-    self->SetDefaultStyle(*style);
+    bool returnVal = self->SetDefaultStyle(*style);
 
-    return v8::Undefined();
+    return scope.Close(v8::Boolean::New(returnVal));
   }
   
 
@@ -527,9 +529,9 @@ wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxNode_wxWindow* parent, int id)
   if(args.Length() == 0) {
     
 
-    self->GetValue();
+    wxString returnVal = self->GetValue();
 
-    return v8::Undefined();
+    return scope.Close(v8::String::New(returnVal));
   }
   
 
@@ -582,9 +584,18 @@ wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxNode_wxWindow* parent, int id)
   if(args.Length() == 0) {
     
 
-    self->GetDefaultAttributes();
+    wxVisualAttributes returnValTemp = self->GetDefaultAttributes();
 
-    return v8::Undefined();
+    wxVisualAttributes* returnVal = new wxVisualAttributes();
+    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    wxNode_wxVisualAttributes::AddMethods(returnObjFt);
+    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+    v8::Handle<v8::Value> returnObjArgs[0];
+    v8::Local<v8::Object> returnObj = returnObjFn->Call(args.This(), 0, returnObjArgs)->ToObject();
+    returnObj->SetPointerInInternalField(0, returnVal);
+    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+    return scope.Close(returnObj);
   }
   
 
@@ -610,9 +621,18 @@ wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxNode_wxWindow* parent, int id)
     wxWindowVariant variant; /* type: _10472  */
     
 
-    self->GetClassDefaultAttributes(variant);
+    wxVisualAttributes returnValTemp = self->GetClassDefaultAttributes(variant);
 
-    return v8::Undefined();
+    wxVisualAttributes* returnVal = new wxVisualAttributes();
+    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    wxNode_wxVisualAttributes::AddMethods(returnObjFt);
+    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+    v8::Handle<v8::Value> returnObjArgs[0];
+    v8::Local<v8::Object> returnObj = returnObjFn->Call(args.This(), 0, returnObjArgs)->ToObject();
+    returnObj->SetPointerInInternalField(0, returnVal);
+    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+    return scope.Close(returnObj);
   }
   
   /*
@@ -621,9 +641,18 @@ wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxNode_wxWindow* parent, int id)
   if(args.Length() == 0) {
     
 
-    self->GetClassDefaultAttributes();
+    wxVisualAttributes returnValTemp = self->GetClassDefaultAttributes();
 
-    return v8::Undefined();
+    wxVisualAttributes* returnVal = new wxVisualAttributes();
+    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    wxNode_wxVisualAttributes::AddMethods(returnObjFt);
+    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+    v8::Handle<v8::Value> returnObjArgs[0];
+    v8::Local<v8::Object> returnObj = returnObjFn->Call(args.This(), 0, returnObjArgs)->ToObject();
+    returnObj->SetPointerInInternalField(0, returnVal);
+    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+    return scope.Close(returnObj);
   }
   
 
@@ -648,9 +677,18 @@ wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxNode_wxWindow* parent, int id)
   if(args.Length() == 0) {
     
 
-    self->GetClassInfo();
+    wxClassInfo* returnVal = self->GetClassInfo();
 
-    return v8::Undefined();
+    
+    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    wxNode_wxClassInfo::AddMethods(returnObjFt);
+    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+    v8::Handle<v8::Value> returnObjArgs[0];
+    v8::Local<v8::Object> returnObj = returnObjFn->Call(args.This(), 0, returnObjArgs)->ToObject();
+    returnObj->SetPointerInInternalField(0, returnVal);
+    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+    return scope.Close(returnObj);
   }
   
 

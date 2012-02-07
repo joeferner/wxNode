@@ -286,9 +286,9 @@ wxNode_wxButton::wxNode_wxButton(wxNode_wxWindow* parent, int id)
   if(args.Length() == 0) {
     
 
-    self->GetAuthNeeded();
+    bool returnVal = self->GetAuthNeeded();
 
-    return v8::Undefined();
+    return scope.Close(v8::Boolean::New(returnVal));
   }
   
 
@@ -313,9 +313,18 @@ wxNode_wxButton::wxNode_wxButton(wxNode_wxWindow* parent, int id)
   if(args.Length() == 0) {
     
 
-    self->SetDefault();
+    wxWindow* returnVal = self->SetDefault();
 
-    return v8::Undefined();
+    
+    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    wxNode_wxWindow::AddMethods(returnObjFt);
+    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+    v8::Handle<v8::Value> returnObjArgs[0];
+    v8::Local<v8::Object> returnObj = returnObjFn->Call(args.This(), 0, returnObjArgs)->ToObject();
+    returnObj->SetPointerInInternalField(0, returnVal);
+    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+    return scope.Close(returnObj);
   }
   
 
@@ -340,9 +349,18 @@ wxNode_wxButton::wxNode_wxButton(wxNode_wxWindow* parent, int id)
   if(args.Length() == 0) {
     
 
-    self->GetDefaultSize();
+    wxSize returnValTemp = self->GetDefaultSize();
 
-    return v8::Undefined();
+    wxSize* returnVal = new wxSize();
+    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    wxNode_wxSize::AddMethods(returnObjFt);
+    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+    v8::Handle<v8::Value> returnObjArgs[0];
+    v8::Local<v8::Object> returnObj = returnObjFn->Call(args.This(), 0, returnObjArgs)->ToObject();
+    returnObj->SetPointerInInternalField(0, returnVal);
+    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+    return scope.Close(returnObj);
   }
   
 

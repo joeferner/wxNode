@@ -4,6 +4,7 @@
 #include "wxNode_wxEvtHandler.h"
 #include "wxNode_wxWindow.h"
 #include "wxNode_wxMenu.h"
+#include "wxNode_wxMenuItem.h"
 #include "wxNode_wxFrame.h"
 
 
@@ -173,9 +174,9 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
     v8::String::AsciiValue title(args[1]->ToString()); /* type: _14808  */
     
 
-    self->Append(menu, *title);
+    bool returnVal = self->Append(menu, *title);
 
-    return v8::Undefined();
+    return scope.Close(v8::Boolean::New(returnVal));
   }
   
 
@@ -203,9 +204,9 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
     v8::String::AsciiValue title(args[2]->ToString()); /* type: _14808  */
     
 
-    self->Insert(pos, menu, *title);
+    bool returnVal = self->Insert(pos, menu, *title);
 
-    return v8::Undefined();
+    return scope.Close(v8::Boolean::New(returnVal));
   }
   
 
@@ -230,9 +231,9 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
   if(args.Length() == 0) {
     
 
-    self->GetMenuCount();
+    int returnVal = self->GetMenuCount();
 
-    return v8::Undefined();
+    return scope.Close(v8::Number::New(returnVal));
   }
   
 
@@ -258,9 +259,18 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
     unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8620  */
     
 
-    self->GetMenu(pos);
+    wxMenu* returnVal = self->GetMenu(pos);
 
-    return v8::Undefined();
+    
+    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    wxNode_wxMenu::AddMethods(returnObjFt);
+    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+    v8::Handle<v8::Value> returnObjArgs[0];
+    v8::Local<v8::Object> returnObj = returnObjFn->Call(args.This(), 0, returnObjArgs)->ToObject();
+    returnObj->SetPointerInInternalField(0, returnVal);
+    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+    return scope.Close(returnObj);
   }
   
 
@@ -288,9 +298,18 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
     v8::String::AsciiValue title(args[2]->ToString()); /* type: _14808  */
     
 
-    self->Replace(pos, menu, *title);
+    wxMenu* returnVal = self->Replace(pos, menu, *title);
 
-    return v8::Undefined();
+    
+    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    wxNode_wxMenu::AddMethods(returnObjFt);
+    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+    v8::Handle<v8::Value> returnObjArgs[0];
+    v8::Local<v8::Object> returnObj = returnObjFn->Call(args.This(), 0, returnObjArgs)->ToObject();
+    returnObj->SetPointerInInternalField(0, returnVal);
+    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+    return scope.Close(returnObj);
   }
   
 
@@ -316,9 +335,18 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
     unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8620  */
     
 
-    self->Remove(pos);
+    wxMenu* returnVal = self->Remove(pos);
 
-    return v8::Undefined();
+    
+    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    wxNode_wxMenu::AddMethods(returnObjFt);
+    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+    v8::Handle<v8::Value> returnObjArgs[0];
+    v8::Local<v8::Object> returnObj = returnObjFn->Call(args.This(), 0, returnObjArgs)->ToObject();
+    returnObj->SetPointerInInternalField(0, returnVal);
+    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+    return scope.Close(returnObj);
   }
   
 
@@ -373,9 +401,9 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
     unsigned int arg0 = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8620  */
     
 
-    self->IsEnabledTop(arg0);
+    bool returnVal = self->IsEnabledTop(arg0);
 
-    return v8::Undefined();
+    return scope.Close(v8::Boolean::New(returnVal));
   }
   
 
@@ -430,9 +458,9 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
     unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8620  */
     
 
-    self->GetMenuLabel(pos);
+    wxString returnVal = self->GetMenuLabel(pos);
 
-    return v8::Undefined();
+    return scope.Close(v8::String::New(returnVal));
   }
   
 
@@ -458,9 +486,9 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
     unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8620  */
     
 
-    self->GetMenuLabelText(pos);
+    wxString returnVal = self->GetMenuLabelText(pos);
 
-    return v8::Undefined();
+    return scope.Close(v8::String::New(returnVal));
   }
   
 
@@ -487,9 +515,9 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
     v8::String::AsciiValue item(args[1]->ToString()); /* type: _14808  */
     
 
-    self->FindMenuItem(*menu, *item);
+    int returnVal = self->FindMenuItem(*menu, *item);
 
-    return v8::Undefined();
+    return scope.Close(v8::Number::New(returnVal));
   }
   
 
@@ -516,9 +544,18 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
     wxMenu* menu; /* type: _65194 ** */
     
 
-    self->FindItem(itemid, &menu);
+    wxMenuItem* returnVal = self->FindItem(itemid, &menu);
 
-    return v8::Undefined();
+    
+    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    wxNode_wxMenuItem::AddMethods(returnObjFt);
+    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+    v8::Handle<v8::Value> returnObjArgs[0];
+    v8::Local<v8::Object> returnObj = returnObjFn->Call(args.This(), 0, returnObjArgs)->ToObject();
+    returnObj->SetPointerInInternalField(0, returnVal);
+    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+    return scope.Close(returnObj);
   }
   
   /*
@@ -528,9 +565,18 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
     int itemid = (int)args[0]->ToInt32()->Value(); /* type: _162  */
     
 
-    self->FindItem(itemid);
+    wxMenuItem* returnVal = self->FindItem(itemid);
 
-    return v8::Undefined();
+    
+    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    wxNode_wxMenuItem::AddMethods(returnObjFt);
+    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+    v8::Handle<v8::Value> returnObjArgs[0];
+    v8::Local<v8::Object> returnObj = returnObjFn->Call(args.This(), 0, returnObjArgs)->ToObject();
+    returnObj->SetPointerInInternalField(0, returnVal);
+    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+    return scope.Close(returnObj);
   }
   
 
@@ -556,9 +602,9 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
     v8::String::AsciiValue title(args[0]->ToString()); /* type: _14808  */
     
 
-    self->FindMenu(*title);
+    int returnVal = self->FindMenu(*title);
 
-    return v8::Undefined();
+    return scope.Close(v8::Number::New(returnVal));
   }
   
 
@@ -597,9 +643,9 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
     bool enable = args[0]->ToBoolean()->Value(); /* type: _14666  */
     
 
-    self->Enable(enable);
+    bool returnVal = self->Enable(enable);
 
-    return v8::Undefined();
+    return scope.Close(v8::Boolean::New(returnVal));
   }
   
   /*
@@ -608,9 +654,9 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
   if(args.Length() == 0) {
     
 
-    self->Enable();
+    bool returnVal = self->Enable();
 
-    return v8::Undefined();
+    return scope.Close(v8::Boolean::New(returnVal));
   }
   
 
@@ -665,9 +711,9 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
     int itemid = (int)args[0]->ToInt32()->Value(); /* type: _162  */
     
 
-    self->IsChecked(itemid);
+    bool returnVal = self->IsChecked(itemid);
 
-    return v8::Undefined();
+    return scope.Close(v8::Boolean::New(returnVal));
   }
   
 
@@ -693,9 +739,9 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
     int itemid = (int)args[0]->ToInt32()->Value(); /* type: _162  */
     
 
-    self->IsEnabled(itemid);
+    bool returnVal = self->IsEnabled(itemid);
 
-    return v8::Undefined();
+    return scope.Close(v8::Boolean::New(returnVal));
   }
   
   /*
@@ -704,9 +750,9 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
   if(args.Length() == 0) {
     
 
-    self->IsEnabled();
+    bool returnVal = self->IsEnabled();
 
-    return v8::Undefined();
+    return scope.Close(v8::Boolean::New(returnVal));
   }
   
 
@@ -773,9 +819,9 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
     int itemid = (int)args[0]->ToInt32()->Value(); /* type: _162  */
     
 
-    self->GetLabel(itemid);
+    wxString returnVal = self->GetLabel(itemid);
 
-    return v8::Undefined();
+    return scope.Close(v8::String::New(returnVal));
   }
   
   /*
@@ -784,9 +830,9 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
   if(args.Length() == 0) {
     
 
-    self->GetLabel();
+    wxString returnVal = self->GetLabel();
 
-    return v8::Undefined();
+    return scope.Close(v8::String::New(returnVal));
   }
   
 
@@ -841,9 +887,9 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
     int itemid = (int)args[0]->ToInt32()->Value(); /* type: _162  */
     
 
-    self->GetHelpString(itemid);
+    wxString returnVal = self->GetHelpString(itemid);
 
-    return v8::Undefined();
+    return scope.Close(v8::String::New(returnVal));
   }
   
 
@@ -868,9 +914,18 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
   if(args.Length() == 0) {
     
 
-    self->GetFrame();
+    wxFrame* returnVal = self->GetFrame();
 
-    return v8::Undefined();
+    
+    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    wxNode_wxFrame::AddMethods(returnObjFt);
+    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+    v8::Handle<v8::Value> returnObjArgs[0];
+    v8::Local<v8::Object> returnObj = returnObjFn->Call(args.This(), 0, returnObjArgs)->ToObject();
+    returnObj->SetPointerInInternalField(0, returnVal);
+    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+    return scope.Close(returnObj);
   }
   
 
@@ -895,9 +950,9 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
   if(args.Length() == 0) {
     
 
-    self->IsAttached();
+    bool returnVal = self->IsAttached();
 
-    return v8::Undefined();
+    return scope.Close(v8::Boolean::New(returnVal));
   }
   
 
@@ -977,9 +1032,9 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
   if(args.Length() == 0) {
     
 
-    self->AcceptsFocusFromKeyboard();
+    bool returnVal = self->AcceptsFocusFromKeyboard();
 
-    return v8::Undefined();
+    return scope.Close(v8::Boolean::New(returnVal));
   }
   
 
@@ -1031,9 +1086,9 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
   if(args.Length() == 0) {
     
 
-    self->CanBeOutsideClientArea();
+    bool returnVal = self->CanBeOutsideClientArea();
 
-    return v8::Undefined();
+    return scope.Close(v8::Boolean::New(returnVal));
   }
   
 

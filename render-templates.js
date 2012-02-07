@@ -322,18 +322,31 @@ function methodJsonToCtx(parent, rawJson, methodJson) {
     ctx.returnTypeId = returnType['id'];
     ctx.returnEq = "";
     ctx.returnStmt = "return v8::Undefined();";
-    if(ctx.returnTypeName == "int") {
+    if(ctx.returnTypeName == "void" || ctx.returnTypeName == "_GtkWidget") {
+      // do nothing
+    } else if(ctx.returnTypeName == "int" || ctx.returnTypeName == "unsigned int" || ctx.returnTypeName == "long int") {
       ctx.returnEq = "int returnVal = ";
       ctx.returnStmt = "return scope.Close(v8::Number::New(returnVal));";
+    } else if(returnType.elementName == 'Enumeration') {
+      ctx.returnEq = "int returnVal = (int)";
+      ctx.returnStmt = "return scope.Close(v8::Number::New(returnVal));";
+    } else if(ctx.returnTypeName == "bool") {
+      ctx.returnEq = "bool returnVal = ";
+      ctx.returnStmt = "return scope.Close(v8::Boolean::New(returnVal));";
+    } else if(ctx.returnTypeName == "wxString") {
+      ctx.returnEq = "wxString returnVal = ";
+      ctx.returnStmt = "return scope.Close(v8::String::New(returnVal));";
     } else if(ctx.returnTypeName && ctx.returnTypeName.match(/^wx.*/)) {
       ctx.returnStmt = "\n";
-      if(returnType.refs == '&') {
+      if(returnType.refs == '&' || (returnType.refs == '' && returnType.pointers == '')) {
         ctx.returnEq = ctx.returnTypeName + " returnValTemp = ";
         ctx.returnStmt = ctx.returnTypeName + "* returnVal = new " + ctx.returnTypeName + "();\n";
         // TODO
         //ctx.returnStmt += "    memcpy(returnVal, &returnValTemp, sizeof(" + ctx.returnTypeName + "));\n";
+      } else if(returnType.pointers == '*') {
+        ctx.returnEq = ctx.returnTypeName + "* returnVal = ";
       } else {
-        ctx.returnEq = ctx.returnTypeName + " returnVal = ";
+        console.error("Unhandled return pointers", returnType);
       }
       ctx.returnStmt += "    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);\n";
       ctx.returnStmt += "    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);\n";
@@ -344,6 +357,8 @@ function methodJsonToCtx(parent, rawJson, methodJson) {
       ctx.returnStmt += "    returnObj->SetPointerInInternalField(0, returnVal);\n";
       ctx.returnStmt += "    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));\n";
       ctx.returnStmt += "    return scope.Close(returnObj);";
+
+      ctx.includes = concatUnique(ctx.includes, ["wxNode_" + ctx.returnTypeName + ".h"]);
     } else {
       console.error("Unhandled return type", returnType);
     }

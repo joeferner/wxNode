@@ -228,9 +228,9 @@ wxNode_wxStaticText::wxNode_wxStaticText(wxNode_wxWindow* parent, int id, const 
   if(args.Length() == 0) {
     
 
-    self->AcceptsFocus();
+    bool returnVal = self->AcceptsFocus();
 
-    return v8::Undefined();
+    return scope.Close(v8::Boolean::New(returnVal));
   }
   
 
@@ -255,9 +255,9 @@ wxNode_wxStaticText::wxNode_wxStaticText(wxNode_wxWindow* parent, int id, const 
   if(args.Length() == 0) {
     
 
-    self->HasTransparentBackground();
+    bool returnVal = self->HasTransparentBackground();
 
-    return v8::Undefined();
+    return scope.Close(v8::Boolean::New(returnVal));
   }
   
 
@@ -282,9 +282,9 @@ wxNode_wxStaticText::wxNode_wxStaticText(wxNode_wxWindow* parent, int id, const 
   if(args.Length() == 0) {
     
 
-    self->IsEllipsized();
+    bool returnVal = self->IsEllipsized();
 
-    return v8::Undefined();
+    return scope.Close(v8::Boolean::New(returnVal));
   }
   
 

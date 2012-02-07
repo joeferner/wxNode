@@ -6,6 +6,7 @@
 #include "wxNode_wxWindow.h"
 #include "wxNode_wxPoint.h"
 #include "wxNode_wxSize.h"
+#include "wxNode_wxColour.h"
 
 
 /* static */ v8::Persistent<v8::FunctionTemplate> wxNode_wxNotebook::s_ct;
@@ -199,9 +200,9 @@ wxNode_wxNotebook::wxNode_wxNotebook(wxNode_wxWindow* parent, int id)
   if(args.Length() == 0) {
     
 
-    self->GetRowCount();
+    int returnVal = self->GetRowCount();
 
-    return v8::Undefined();
+    return scope.Close(v8::Number::New(returnVal));
   }
   
 
@@ -283,9 +284,18 @@ wxNode_wxNotebook::wxNode_wxNotebook(wxNode_wxWindow* parent, int id)
     wxNode_wxSize* sizePage = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[0]->ToObject()); /* type: _20522  */
     
 
-    self->CalcSizeFromPage(*sizePage);
+    wxSize returnValTemp = self->CalcSizeFromPage(*sizePage);
 
-    return v8::Undefined();
+    wxSize* returnVal = new wxSize();
+    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    wxNode_wxSize::AddMethods(returnObjFt);
+    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+    v8::Handle<v8::Value> returnObjArgs[0];
+    v8::Local<v8::Object> returnObj = returnObjFn->Call(args.This(), 0, returnObjArgs)->ToObject();
+    returnObj->SetPointerInInternalField(0, returnVal);
+    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+    return scope.Close(returnObj);
   }
   
 
@@ -310,9 +320,18 @@ wxNode_wxNotebook::wxNode_wxNotebook(wxNode_wxWindow* parent, int id)
   if(args.Length() == 0) {
     
 
-    self->GetThemeBackgroundColour();
+    wxColour returnValTemp = self->GetThemeBackgroundColour();
 
-    return v8::Undefined();
+    wxColour* returnVal = new wxColour();
+    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    wxNode_wxColour::AddMethods(returnObjFt);
+    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+    v8::Handle<v8::Value> returnObjArgs[0];
+    v8::Local<v8::Object> returnObj = returnObjFn->Call(args.This(), 0, returnObjArgs)->ToObject();
+    returnObj->SetPointerInInternalField(0, returnVal);
+    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+    return scope.Close(returnObj);
   }
   
 
@@ -338,9 +357,9 @@ wxNode_wxNotebook::wxNode_wxNotebook(wxNode_wxWindow* parent, int id)
     int nPage = (int)args[0]->ToInt32()->Value(); /* type: _162  */
     
 
-    self->SendPageChangingEvent(nPage);
+    bool returnVal = self->SendPageChangingEvent(nPage);
 
-    return v8::Undefined();
+    return scope.Close(v8::Boolean::New(returnVal));
   }
   
 
@@ -406,9 +425,9 @@ wxNode_wxNotebook::wxNode_wxNotebook(wxNode_wxWindow* parent, int id)
   if(args.Length() == 0) {
     
 
-    self->AcceptsFocus();
+    bool returnVal = self->AcceptsFocus();
 
-    return v8::Undefined();
+    return scope.Close(v8::Boolean::New(returnVal));
   }
   
 

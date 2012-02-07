@@ -5,7 +5,8 @@
 #define _wxNode_wxMenuItem_
 
 class wxNode_wxMenuItem : public wxMenuItem {
-
+public:
+  static void AddMethods(v8::Handle<v8::FunctionTemplate> target) {}
 };
 
 #endif

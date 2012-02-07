@@ -236,9 +236,18 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
     v8::String::AsciiValue name(args[6]->ToString()); /* type: _14808  */
     
 
-    self->New(parent, winid, *title, *pos, *size, style, *name);
+    wxFrame* returnVal = self->New(parent, winid, *title, *pos, *size, style, *name);
 
-    return v8::Undefined();
+    
+    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    wxNode_wxFrame::AddMethods(returnObjFt);
+    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+    v8::Handle<v8::Value> returnObjArgs[0];
+    v8::Local<v8::Object> returnObj = returnObjFn->Call(args.This(), 0, returnObjArgs)->ToObject();
+    returnObj->SetPointerInInternalField(0, returnVal);
+    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+    return scope.Close(returnObj);
   }
   
   /*
@@ -253,9 +262,18 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
     long int style = (long int)args[5]->ToInt32()->Value(); /* type: _586  */
     
 
-    self->New(parent, winid, *title, *pos, *size, style);
+    wxFrame* returnVal = self->New(parent, winid, *title, *pos, *size, style);
 
-    return v8::Undefined();
+    
+    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    wxNode_wxFrame::AddMethods(returnObjFt);
+    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+    v8::Handle<v8::Value> returnObjArgs[0];
+    v8::Local<v8::Object> returnObj = returnObjFn->Call(args.This(), 0, returnObjArgs)->ToObject();
+    returnObj->SetPointerInInternalField(0, returnVal);
+    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+    return scope.Close(returnObj);
   }
   
   /*
@@ -269,9 +287,18 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
     wxNode_wxSize* size = args[4]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[4]->ToObject()); /* type: _20522  */
     
 
-    self->New(parent, winid, *title, *pos, *size);
+    wxFrame* returnVal = self->New(parent, winid, *title, *pos, *size);
 
-    return v8::Undefined();
+    
+    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    wxNode_wxFrame::AddMethods(returnObjFt);
+    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+    v8::Handle<v8::Value> returnObjArgs[0];
+    v8::Local<v8::Object> returnObj = returnObjFn->Call(args.This(), 0, returnObjArgs)->ToObject();
+    returnObj->SetPointerInInternalField(0, returnVal);
+    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+    return scope.Close(returnObj);
   }
   
   /*
@@ -284,9 +311,18 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
     wxNode_wxPoint* pos = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[3]->ToObject()); /* type: _20412  */
     
 
-    self->New(parent, winid, *title, *pos);
+    wxFrame* returnVal = self->New(parent, winid, *title, *pos);
 
-    return v8::Undefined();
+    
+    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    wxNode_wxFrame::AddMethods(returnObjFt);
+    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+    v8::Handle<v8::Value> returnObjArgs[0];
+    v8::Local<v8::Object> returnObj = returnObjFn->Call(args.This(), 0, returnObjArgs)->ToObject();
+    returnObj->SetPointerInInternalField(0, returnVal);
+    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+    return scope.Close(returnObj);
   }
   
   /*
@@ -298,9 +334,18 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
     v8::String::AsciiValue title(args[2]->ToString()); /* type: _14808  */
     
 
-    self->New(parent, winid, *title);
+    wxFrame* returnVal = self->New(parent, winid, *title);
 
-    return v8::Undefined();
+    
+    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    wxNode_wxFrame::AddMethods(returnObjFt);
+    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+    v8::Handle<v8::Value> returnObjArgs[0];
+    v8::Local<v8::Object> returnObj = returnObjFn->Call(args.This(), 0, returnObjArgs)->ToObject();
+    returnObj->SetPointerInInternalField(0, returnVal);
+    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+    return scope.Close(returnObj);
   }
   
 
@@ -325,9 +370,18 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
   if(args.Length() == 0) {
     
 
-    self->GetClientAreaOrigin();
+    wxPoint returnValTemp = self->GetClientAreaOrigin();
 
-    return v8::Undefined();
+    wxPoint* returnVal = new wxPoint();
+    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    wxNode_wxPoint::AddMethods(returnObjFt);
+    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+    v8::Handle<v8::Value> returnObjArgs[0];
+    v8::Local<v8::Object> returnObj = returnObjFn->Call(args.This(), 0, returnObjArgs)->ToObject();
+    returnObj->SetPointerInInternalField(0, returnVal);
+    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+    return scope.Close(returnObj);
   }
   
 
@@ -380,9 +434,18 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
   if(args.Length() == 0) {
     
 
-    self->GetMenuBar();
+    wxMenuBar* returnVal = self->GetMenuBar();
 
-    return v8::Undefined();
+    
+    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    wxNode_wxMenuBar::AddMethods(returnObjFt);
+    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+    v8::Handle<v8::Value> returnObjArgs[0];
+    v8::Local<v8::Object> returnObj = returnObjFn->Call(args.This(), 0, returnObjArgs)->ToObject();
+    returnObj->SetPointerInInternalField(0, returnVal);
+    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+    return scope.Close(returnObj);
   }
   
 
@@ -408,9 +471,18 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
     int menuId = (int)args[0]->ToInt32()->Value(); /* type: _162  */
     
 
-    self->FindItemInMenuBar(menuId);
+    wxMenuItem* returnVal = self->FindItemInMenuBar(menuId);
 
-    return v8::Undefined();
+    
+    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    wxNode_wxMenuItem::AddMethods(returnObjFt);
+    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+    v8::Handle<v8::Value> returnObjArgs[0];
+    v8::Local<v8::Object> returnObj = returnObjFn->Call(args.This(), 0, returnObjArgs)->ToObject();
+    returnObj->SetPointerInInternalField(0, returnVal);
+    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+    return scope.Close(returnObj);
   }
   
 
@@ -436,9 +508,9 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
     wxNode_wxMenuItem* item = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenuItem>(args[0]->ToObject()); /* type: _51683 * */
     
 
-    self->ProcessCommand(item);
+    bool returnVal = self->ProcessCommand(item);
 
-    return v8::Undefined();
+    return scope.Close(v8::Boolean::New(returnVal));
   }
   
   /*
@@ -448,9 +520,9 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
     int winid = (int)args[0]->ToInt32()->Value(); /* type: _162  */
     
 
-    self->ProcessCommand(winid);
+    bool returnVal = self->ProcessCommand(winid);
 
-    return v8::Undefined();
+    return scope.Close(v8::Boolean::New(returnVal));
   }
   
 
@@ -479,9 +551,18 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
     v8::String::AsciiValue name(args[3]->ToString()); /* type: _14808  */
     
 
-    self->CreateStatusBar(number, style, winid, *name);
+    wxStatusBar* returnVal = self->CreateStatusBar(number, style, winid, *name);
 
-    return v8::Undefined();
+    
+    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    wxNode_wxStatusBar::AddMethods(returnObjFt);
+    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+    v8::Handle<v8::Value> returnObjArgs[0];
+    v8::Local<v8::Object> returnObj = returnObjFn->Call(args.This(), 0, returnObjArgs)->ToObject();
+    returnObj->SetPointerInInternalField(0, returnVal);
+    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+    return scope.Close(returnObj);
   }
   
   /*
@@ -493,9 +574,18 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
     int winid = (int)args[2]->ToInt32()->Value(); /* type: _8633  */
     
 
-    self->CreateStatusBar(number, style, winid);
+    wxStatusBar* returnVal = self->CreateStatusBar(number, style, winid);
 
-    return v8::Undefined();
+    
+    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    wxNode_wxStatusBar::AddMethods(returnObjFt);
+    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+    v8::Handle<v8::Value> returnObjArgs[0];
+    v8::Local<v8::Object> returnObj = returnObjFn->Call(args.This(), 0, returnObjArgs)->ToObject();
+    returnObj->SetPointerInInternalField(0, returnVal);
+    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+    return scope.Close(returnObj);
   }
   
   /*
@@ -506,9 +596,18 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
     long int style = (long int)args[1]->ToInt32()->Value(); /* type: _586  */
     
 
-    self->CreateStatusBar(number, style);
+    wxStatusBar* returnVal = self->CreateStatusBar(number, style);
 
-    return v8::Undefined();
+    
+    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    wxNode_wxStatusBar::AddMethods(returnObjFt);
+    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+    v8::Handle<v8::Value> returnObjArgs[0];
+    v8::Local<v8::Object> returnObj = returnObjFn->Call(args.This(), 0, returnObjArgs)->ToObject();
+    returnObj->SetPointerInInternalField(0, returnVal);
+    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+    return scope.Close(returnObj);
   }
   
   /*
@@ -518,9 +617,18 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
     int number = (int)args[0]->ToInt32()->Value(); /* type: _162  */
     
 
-    self->CreateStatusBar(number);
+    wxStatusBar* returnVal = self->CreateStatusBar(number);
 
-    return v8::Undefined();
+    
+    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    wxNode_wxStatusBar::AddMethods(returnObjFt);
+    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+    v8::Handle<v8::Value> returnObjArgs[0];
+    v8::Local<v8::Object> returnObj = returnObjFn->Call(args.This(), 0, returnObjArgs)->ToObject();
+    returnObj->SetPointerInInternalField(0, returnVal);
+    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+    return scope.Close(returnObj);
   }
   
   /*
@@ -529,9 +637,18 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
   if(args.Length() == 0) {
     
 
-    self->CreateStatusBar();
+    wxStatusBar* returnVal = self->CreateStatusBar();
 
-    return v8::Undefined();
+    
+    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    wxNode_wxStatusBar::AddMethods(returnObjFt);
+    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+    v8::Handle<v8::Value> returnObjArgs[0];
+    v8::Local<v8::Object> returnObj = returnObjFn->Call(args.This(), 0, returnObjArgs)->ToObject();
+    returnObj->SetPointerInInternalField(0, returnVal);
+    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+    return scope.Close(returnObj);
   }
   
 
@@ -572,9 +689,18 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
   if(args.Length() == 0) {
     
 
-    self->GetStatusBar();
+    wxStatusBar* returnVal = self->GetStatusBar();
 
-    return v8::Undefined();
+    
+    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    wxNode_wxStatusBar::AddMethods(returnObjFt);
+    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+    v8::Handle<v8::Value> returnObjArgs[0];
+    v8::Local<v8::Object> returnObj = returnObjFn->Call(args.This(), 0, returnObjArgs)->ToObject();
+    returnObj->SetPointerInInternalField(0, returnVal);
+    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+    return scope.Close(returnObj);
   }
   
 
@@ -805,9 +931,9 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
   if(args.Length() == 0) {
     
 
-    self->GetStatusBarPane();
+    int returnVal = self->GetStatusBarPane();
 
-    return v8::Undefined();
+    return scope.Close(v8::Number::New(returnVal));
   }
   
 
@@ -835,9 +961,18 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
     v8::String::AsciiValue name(args[2]->ToString()); /* type: _14808  */
     
 
-    self->CreateToolBar(style, winid, *name);
+    wxToolBar* returnVal = self->CreateToolBar(style, winid, *name);
 
-    return v8::Undefined();
+    
+    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    wxNode_wxToolBar::AddMethods(returnObjFt);
+    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+    v8::Handle<v8::Value> returnObjArgs[0];
+    v8::Local<v8::Object> returnObj = returnObjFn->Call(args.This(), 0, returnObjArgs)->ToObject();
+    returnObj->SetPointerInInternalField(0, returnVal);
+    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+    return scope.Close(returnObj);
   }
   
   /*
@@ -848,9 +983,18 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
     int winid = (int)args[1]->ToInt32()->Value(); /* type: _8633  */
     
 
-    self->CreateToolBar(style, winid);
+    wxToolBar* returnVal = self->CreateToolBar(style, winid);
 
-    return v8::Undefined();
+    
+    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    wxNode_wxToolBar::AddMethods(returnObjFt);
+    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+    v8::Handle<v8::Value> returnObjArgs[0];
+    v8::Local<v8::Object> returnObj = returnObjFn->Call(args.This(), 0, returnObjArgs)->ToObject();
+    returnObj->SetPointerInInternalField(0, returnVal);
+    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+    return scope.Close(returnObj);
   }
   
   /*
@@ -860,9 +1004,18 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
     long int style = (long int)args[0]->ToInt32()->Value(); /* type: _586  */
     
 
-    self->CreateToolBar(style);
+    wxToolBar* returnVal = self->CreateToolBar(style);
 
-    return v8::Undefined();
+    
+    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    wxNode_wxToolBar::AddMethods(returnObjFt);
+    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+    v8::Handle<v8::Value> returnObjArgs[0];
+    v8::Local<v8::Object> returnObj = returnObjFn->Call(args.This(), 0, returnObjArgs)->ToObject();
+    returnObj->SetPointerInInternalField(0, returnVal);
+    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+    return scope.Close(returnObj);
   }
   
   /*
@@ -871,9 +1024,18 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
   if(args.Length() == 0) {
     
 
-    self->CreateToolBar();
+    wxToolBar* returnVal = self->CreateToolBar();
 
-    return v8::Undefined();
+    
+    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    wxNode_wxToolBar::AddMethods(returnObjFt);
+    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+    v8::Handle<v8::Value> returnObjArgs[0];
+    v8::Local<v8::Object> returnObj = returnObjFn->Call(args.This(), 0, returnObjArgs)->ToObject();
+    returnObj->SetPointerInInternalField(0, returnVal);
+    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+    return scope.Close(returnObj);
   }
   
 
@@ -914,9 +1076,18 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
   if(args.Length() == 0) {
     
 
-    self->GetToolBar();
+    wxToolBar* returnVal = self->GetToolBar();
 
-    return v8::Undefined();
+    
+    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    wxNode_wxToolBar::AddMethods(returnObjFt);
+    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+    v8::Handle<v8::Value> returnObjArgs[0];
+    v8::Local<v8::Object> returnObj = returnObjFn->Call(args.This(), 0, returnObjArgs)->ToObject();
+    returnObj->SetPointerInInternalField(0, returnVal);
+    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+    return scope.Close(returnObj);
   }
   
 
@@ -1141,9 +1312,9 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
     wxNode_wxWindow* child = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _62099 * */
     
 
-    self->IsClientAreaChild(child);
+    bool returnVal = self->IsClientAreaChild(child);
 
-    return v8::Undefined();
+    return scope.Close(v8::Boolean::New(returnVal));
   }
   
 

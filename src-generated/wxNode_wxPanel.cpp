@@ -218,9 +218,9 @@ wxNode_wxPanel::wxNode_wxPanel(wxNode_wxWindow* parent)
     v8::String::AsciiValue name(args[5]->ToString()); /* type: _14808  */
     
 
-    self->Create(parent, winid, *pos, *size, style, *name);
+    bool returnVal = self->Create(parent, winid, *pos, *size, style, *name);
 
-    return v8::Undefined();
+    return scope.Close(v8::Boolean::New(returnVal));
   }
   
   /*
@@ -234,9 +234,9 @@ wxNode_wxPanel::wxNode_wxPanel(wxNode_wxWindow* parent)
     long int style = (long int)args[4]->ToInt32()->Value(); /* type: _586  */
     
 
-    self->Create(parent, winid, *pos, *size, style);
+    bool returnVal = self->Create(parent, winid, *pos, *size, style);
 
-    return v8::Undefined();
+    return scope.Close(v8::Boolean::New(returnVal));
   }
   
   /*
@@ -249,9 +249,9 @@ wxNode_wxPanel::wxNode_wxPanel(wxNode_wxWindow* parent)
     wxNode_wxSize* size = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[3]->ToObject()); /* type: _20522  */
     
 
-    self->Create(parent, winid, *pos, *size);
+    bool returnVal = self->Create(parent, winid, *pos, *size);
 
-    return v8::Undefined();
+    return scope.Close(v8::Boolean::New(returnVal));
   }
   
   /*
@@ -263,9 +263,9 @@ wxNode_wxPanel::wxNode_wxPanel(wxNode_wxWindow* parent)
     wxNode_wxPoint* pos = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[2]->ToObject()); /* type: _20412  */
     
 
-    self->Create(parent, winid, *pos);
+    bool returnVal = self->Create(parent, winid, *pos);
 
-    return v8::Undefined();
+    return scope.Close(v8::Boolean::New(returnVal));
   }
   
   /*
@@ -276,9 +276,9 @@ wxNode_wxPanel::wxNode_wxPanel(wxNode_wxWindow* parent)
     int winid = (int)args[1]->ToInt32()->Value(); /* type: _8633  */
     
 
-    self->Create(parent, winid);
+    bool returnVal = self->Create(parent, winid);
 
-    return v8::Undefined();
+    return scope.Close(v8::Boolean::New(returnVal));
   }
   
   /*
@@ -288,9 +288,9 @@ wxNode_wxPanel::wxNode_wxPanel(wxNode_wxWindow* parent)
     wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _993 * */
     
 
-    self->Create(parent);
+    bool returnVal = self->Create(parent);
 
-    return v8::Undefined();
+    return scope.Close(v8::Boolean::New(returnVal));
   }
   
 

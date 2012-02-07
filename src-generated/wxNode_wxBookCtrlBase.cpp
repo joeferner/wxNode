@@ -6,6 +6,8 @@
 #include "wxNode_wxWindow.h"
 #include "wxNode_wxPoint.h"
 #include "wxNode_wxSize.h"
+#include "wxNode_wxSizer.h"
+#include "wxNode_wxClassInfo.h"
 
 
 /* static */ v8::Persistent<v8::FunctionTemplate> wxNode_wxBookCtrlBase::s_ct;
@@ -98,9 +100,9 @@
     v8::String::AsciiValue name(args[5]->ToString()); /* type: _14808  */
     
 
-    self->Create(parent, winid, *pos, *size, style, *name);
+    bool returnVal = self->Create(parent, winid, *pos, *size, style, *name);
 
-    return v8::Undefined();
+    return scope.Close(v8::Boolean::New(returnVal));
   }
   
   /*
@@ -114,9 +116,9 @@
     long int style = (long int)args[4]->ToInt32()->Value(); /* type: _586  */
     
 
-    self->Create(parent, winid, *pos, *size, style);
+    bool returnVal = self->Create(parent, winid, *pos, *size, style);
 
-    return v8::Undefined();
+    return scope.Close(v8::Boolean::New(returnVal));
   }
   
   /*
@@ -129,9 +131,9 @@
     wxNode_wxSize* size = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[3]->ToObject()); /* type: _20522  */
     
 
-    self->Create(parent, winid, *pos, *size);
+    bool returnVal = self->Create(parent, winid, *pos, *size);
 
-    return v8::Undefined();
+    return scope.Close(v8::Boolean::New(returnVal));
   }
   
   /*
@@ -143,9 +145,9 @@
     wxNode_wxPoint* pos = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[2]->ToObject()); /* type: _20412  */
     
 
-    self->Create(parent, winid, *pos);
+    bool returnVal = self->Create(parent, winid, *pos);
 
-    return v8::Undefined();
+    return scope.Close(v8::Boolean::New(returnVal));
   }
   
   /*
@@ -156,9 +158,9 @@
     int winid = (int)args[1]->ToInt32()->Value(); /* type: _8633  */
     
 
-    self->Create(parent, winid);
+    bool returnVal = self->Create(parent, winid);
 
-    return v8::Undefined();
+    return scope.Close(v8::Boolean::New(returnVal));
   }
   
 
@@ -183,9 +185,9 @@
   if(args.Length() == 0) {
     
 
-    self->GetPageCount();
+    int returnVal = self->GetPageCount();
 
-    return v8::Undefined();
+    return scope.Close(v8::Number::New(returnVal));
   }
   
 
@@ -211,9 +213,18 @@
     unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8620  */
     
 
-    self->GetPage(n);
+    wxWindow* returnVal = self->GetPage(n);
 
-    return v8::Undefined();
+    
+    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    wxNode_wxWindow::AddMethods(returnObjFt);
+    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+    v8::Handle<v8::Value> returnObjArgs[0];
+    v8::Local<v8::Object> returnObj = returnObjFn->Call(args.This(), 0, returnObjArgs)->ToObject();
+    returnObj->SetPointerInInternalField(0, returnVal);
+    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+    return scope.Close(returnObj);
   }
   
 
@@ -238,9 +249,18 @@
   if(args.Length() == 0) {
     
 
-    self->GetCurrentPage();
+    wxWindow* returnVal = self->GetCurrentPage();
 
-    return v8::Undefined();
+    
+    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    wxNode_wxWindow::AddMethods(returnObjFt);
+    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+    v8::Handle<v8::Value> returnObjArgs[0];
+    v8::Local<v8::Object> returnObj = returnObjFn->Call(args.This(), 0, returnObjArgs)->ToObject();
+    returnObj->SetPointerInInternalField(0, returnVal);
+    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+    return scope.Close(returnObj);
   }
   
 
@@ -265,9 +285,9 @@
   if(args.Length() == 0) {
     
 
-    self->GetSelection();
+    int returnVal = self->GetSelection();
 
-    return v8::Undefined();
+    return scope.Close(v8::Number::New(returnVal));
   }
   
 
@@ -294,9 +314,9 @@
     v8::String::AsciiValue strText(args[1]->ToString()); /* type: _14808  */
     
 
-    self->SetPageText(n, *strText);
+    bool returnVal = self->SetPageText(n, *strText);
 
-    return v8::Undefined();
+    return scope.Close(v8::Boolean::New(returnVal));
   }
   
 
@@ -322,9 +342,9 @@
     unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8620  */
     
 
-    self->GetPageText(n);
+    wxString returnVal = self->GetPageText(n);
 
-    return v8::Undefined();
+    return scope.Close(v8::String::New(returnVal));
   }
   
 
@@ -350,9 +370,9 @@
     unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8620  */
     
 
-    self->GetPageImage(n);
+    int returnVal = self->GetPageImage(n);
 
-    return v8::Undefined();
+    return scope.Close(v8::Number::New(returnVal));
   }
   
 
@@ -379,9 +399,9 @@
     int imageId = (int)args[1]->ToInt32()->Value(); /* type: _162  */
     
 
-    self->SetPageImage(n, imageId);
+    bool returnVal = self->SetPageImage(n, imageId);
 
-    return v8::Undefined();
+    return scope.Close(v8::Boolean::New(returnVal));
   }
   
 
@@ -434,9 +454,18 @@
   if(args.Length() == 0) {
     
 
-    self->GetControllerSize();
+    wxSize returnValTemp = self->GetControllerSize();
 
-    return v8::Undefined();
+    wxSize* returnVal = new wxSize();
+    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    wxNode_wxSize::AddMethods(returnObjFt);
+    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+    v8::Handle<v8::Value> returnObjArgs[0];
+    v8::Local<v8::Object> returnObj = returnObjFn->Call(args.This(), 0, returnObjArgs)->ToObject();
+    returnObj->SetPointerInInternalField(0, returnVal);
+    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+    return scope.Close(returnObj);
   }
   
 
@@ -462,9 +491,18 @@
     wxNode_wxSize* sizePage = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[0]->ToObject()); /* type: _20522  */
     
 
-    self->CalcSizeFromPage(*sizePage);
+    wxSize returnValTemp = self->CalcSizeFromPage(*sizePage);
 
-    return v8::Undefined();
+    wxSize* returnVal = new wxSize();
+    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    wxNode_wxSize::AddMethods(returnObjFt);
+    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+    v8::Handle<v8::Value> returnObjArgs[0];
+    v8::Local<v8::Object> returnObj = returnObjFn->Call(args.This(), 0, returnObjArgs)->ToObject();
+    returnObj->SetPointerInInternalField(0, returnVal);
+    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+    return scope.Close(returnObj);
   }
   
 
@@ -489,9 +527,9 @@
   if(args.Length() == 0) {
     
 
-    self->GetInternalBorder();
+    int returnVal = self->GetInternalBorder();
 
-    return v8::Undefined();
+    return scope.Close(v8::Number::New(returnVal));
   }
   
 
@@ -572,9 +610,9 @@
   if(args.Length() == 0) {
     
 
-    self->GetControlMargin();
+    int returnVal = self->GetControlMargin();
 
-    return v8::Undefined();
+    return scope.Close(v8::Number::New(returnVal));
   }
   
 
@@ -599,9 +637,9 @@
   if(args.Length() == 0) {
     
 
-    self->IsVertical();
+    bool returnVal = self->IsVertical();
 
-    return v8::Undefined();
+    return scope.Close(v8::Boolean::New(returnVal));
   }
   
 
@@ -654,9 +692,9 @@
   if(args.Length() == 0) {
     
 
-    self->GetFitToCurrentPage();
+    bool returnVal = self->GetFitToCurrentPage();
 
-    return v8::Undefined();
+    return scope.Close(v8::Boolean::New(returnVal));
   }
   
 
@@ -681,9 +719,18 @@
   if(args.Length() == 0) {
     
 
-    self->GetControlSizer();
+    wxSizer* returnVal = self->GetControlSizer();
 
-    return v8::Undefined();
+    
+    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    wxNode_wxSizer::AddMethods(returnObjFt);
+    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+    v8::Handle<v8::Value> returnObjArgs[0];
+    v8::Local<v8::Object> returnObj = returnObjFn->Call(args.This(), 0, returnObjArgs)->ToObject();
+    returnObj->SetPointerInInternalField(0, returnVal);
+    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+    return scope.Close(returnObj);
   }
   
 
@@ -709,9 +756,9 @@
     unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8620  */
     
 
-    self->DeletePage(n);
+    bool returnVal = self->DeletePage(n);
 
-    return v8::Undefined();
+    return scope.Close(v8::Boolean::New(returnVal));
   }
   
 
@@ -737,9 +784,9 @@
     unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8620  */
     
 
-    self->RemovePage(n);
+    bool returnVal = self->RemovePage(n);
 
-    return v8::Undefined();
+    return scope.Close(v8::Boolean::New(returnVal));
   }
   
 
@@ -764,9 +811,9 @@
   if(args.Length() == 0) {
     
 
-    self->DeleteAllPages();
+    bool returnVal = self->DeleteAllPages();
 
-    return v8::Undefined();
+    return scope.Close(v8::Boolean::New(returnVal));
   }
   
 
@@ -795,9 +842,9 @@
     int imageId = (int)args[3]->ToInt32()->Value(); /* type: _162  */
     
 
-    self->AddPage(page, *text, bSelect, imageId);
+    bool returnVal = self->AddPage(page, *text, bSelect, imageId);
 
-    return v8::Undefined();
+    return scope.Close(v8::Boolean::New(returnVal));
   }
   
   /*
@@ -809,9 +856,9 @@
     bool bSelect = args[2]->ToBoolean()->Value(); /* type: _14666  */
     
 
-    self->AddPage(page, *text, bSelect);
+    bool returnVal = self->AddPage(page, *text, bSelect);
 
-    return v8::Undefined();
+    return scope.Close(v8::Boolean::New(returnVal));
   }
   
   /*
@@ -822,9 +869,9 @@
     v8::String::AsciiValue text(args[1]->ToString()); /* type: _14808  */
     
 
-    self->AddPage(page, *text);
+    bool returnVal = self->AddPage(page, *text);
 
-    return v8::Undefined();
+    return scope.Close(v8::Boolean::New(returnVal));
   }
   
 
@@ -854,9 +901,9 @@
     int imageId = (int)args[4]->ToInt32()->Value(); /* type: _162  */
     
 
-    self->InsertPage(n, page, *text, bSelect, imageId);
+    bool returnVal = self->InsertPage(n, page, *text, bSelect, imageId);
 
-    return v8::Undefined();
+    return scope.Close(v8::Boolean::New(returnVal));
   }
   
   /*
@@ -869,9 +916,9 @@
     bool bSelect = args[3]->ToBoolean()->Value(); /* type: _14666  */
     
 
-    self->InsertPage(n, page, *text, bSelect);
+    bool returnVal = self->InsertPage(n, page, *text, bSelect);
 
-    return v8::Undefined();
+    return scope.Close(v8::Boolean::New(returnVal));
   }
   
   /*
@@ -883,9 +930,9 @@
     v8::String::AsciiValue text(args[2]->ToString()); /* type: _14808  */
     
 
-    self->InsertPage(n, page, *text);
+    bool returnVal = self->InsertPage(n, page, *text);
 
-    return v8::Undefined();
+    return scope.Close(v8::Boolean::New(returnVal));
   }
   
 
@@ -911,9 +958,9 @@
     unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8620  */
     
 
-    self->SetSelection(n);
+    int returnVal = self->SetSelection(n);
 
-    return v8::Undefined();
+    return scope.Close(v8::Number::New(returnVal));
   }
   
 
@@ -939,9 +986,9 @@
     unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8620  */
     
 
-    self->ChangeSelection(n);
+    int returnVal = self->ChangeSelection(n);
 
-    return v8::Undefined();
+    return scope.Close(v8::Number::New(returnVal));
   }
   
 
@@ -1007,9 +1054,9 @@
     long int arg1; /* type: _20380 * */
     
 
-    self->HitTest(*arg0, &arg1);
+    int returnVal = self->HitTest(*arg0, &arg1);
 
-    return v8::Undefined();
+    return scope.Close(v8::Number::New(returnVal));
   }
   
   /*
@@ -1019,9 +1066,9 @@
     wxNode_wxPoint* arg0 = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[0]->ToObject()); /* type: _20412  */
     
 
-    self->HitTest(*arg0);
+    int returnVal = self->HitTest(*arg0);
 
-    return v8::Undefined();
+    return scope.Close(v8::Number::New(returnVal));
   }
   
 
@@ -1046,9 +1093,9 @@
   if(args.Length() == 0) {
     
 
-    self->HasMultiplePages();
+    bool returnVal = self->HasMultiplePages();
 
-    return v8::Undefined();
+    return scope.Close(v8::Boolean::New(returnVal));
   }
   
 
@@ -1073,9 +1120,9 @@
   if(args.Length() == 0) {
     
 
-    self->AcceptsFocus();
+    bool returnVal = self->AcceptsFocus();
 
-    return v8::Undefined();
+    return scope.Close(v8::Boolean::New(returnVal));
   }
   
 
@@ -1100,9 +1147,9 @@
   if(args.Length() == 0) {
     
 
-    self->CanApplyThemeBorder();
+    bool returnVal = self->CanApplyThemeBorder();
 
-    return v8::Undefined();
+    return scope.Close(v8::Boolean::New(returnVal));
   }
   
 
@@ -1127,9 +1174,18 @@
   if(args.Length() == 0) {
     
 
-    self->GetClassInfo();
+    wxClassInfo* returnVal = self->GetClassInfo();
 
-    return v8::Undefined();
+    
+    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    wxNode_wxClassInfo::AddMethods(returnObjFt);
+    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+    v8::Handle<v8::Value> returnObjArgs[0];
+    v8::Local<v8::Object> returnObj = returnObjFn->Call(args.This(), 0, returnObjArgs)->ToObject();
+    returnObj->SetPointerInInternalField(0, returnVal);
+    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+    return scope.Close(returnObj);
   }
   
 

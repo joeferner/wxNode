@@ -137,9 +137,9 @@ wxNode_wxPoint::wxNode_wxPoint(wxNode_wxRealPoint& pt)
   if(args.Length() == 0) {
     
 
-    self->IsFullySpecified();
+    bool returnVal = self->IsFullySpecified();
 
-    return v8::Undefined();
+    return scope.Close(v8::Boolean::New(returnVal));
   }
   
 

@@ -3,6 +3,9 @@
 #include "wxNode_wxBoxSizer.h"
 #include "wxNode_wxEvtHandler.h"
 #include "wxNode_wxSizer.h"
+#include "wxNode_wxSizerItem.h"
+#include "wxNode_wxSize.h"
+#include "wxNode_wxClassInfo.h"
 
 
 /* static */ v8::Persistent<v8::FunctionTemplate> wxNode_wxBoxSizer::s_ct;
@@ -106,9 +109,18 @@ wxNode_wxBoxSizer::wxNode_wxBoxSizer(int orient)
     int size = (int)args[0]->ToInt32()->Value(); /* type: _162  */
     
 
-    self->AddSpacer(size);
+    wxSizerItem* returnVal = self->AddSpacer(size);
 
-    return v8::Undefined();
+    
+    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    wxNode_wxSizerItem::AddMethods(returnObjFt);
+    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+    v8::Handle<v8::Value> returnObjArgs[0];
+    v8::Local<v8::Object> returnObj = returnObjFn->Call(args.This(), 0, returnObjArgs)->ToObject();
+    returnObj->SetPointerInInternalField(0, returnVal);
+    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+    return scope.Close(returnObj);
   }
   
 
@@ -133,9 +145,9 @@ wxNode_wxBoxSizer::wxNode_wxBoxSizer(int orient)
   if(args.Length() == 0) {
     
 
-    self->GetOrientation();
+    int returnVal = self->GetOrientation();
 
-    return v8::Undefined();
+    return scope.Close(v8::Number::New(returnVal));
   }
   
 
@@ -160,9 +172,9 @@ wxNode_wxBoxSizer::wxNode_wxBoxSizer(int orient)
   if(args.Length() == 0) {
     
 
-    self->IsVertical();
+    bool returnVal = self->IsVertical();
 
-    return v8::Undefined();
+    return scope.Close(v8::Boolean::New(returnVal));
   }
   
 
@@ -215,9 +227,18 @@ wxNode_wxBoxSizer::wxNode_wxBoxSizer(int orient)
   if(args.Length() == 0) {
     
 
-    self->CalcMin();
+    wxSize returnValTemp = self->CalcMin();
 
-    return v8::Undefined();
+    wxSize* returnVal = new wxSize();
+    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    wxNode_wxSize::AddMethods(returnObjFt);
+    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+    v8::Handle<v8::Value> returnObjArgs[0];
+    v8::Local<v8::Object> returnObj = returnObjFn->Call(args.This(), 0, returnObjArgs)->ToObject();
+    returnObj->SetPointerInInternalField(0, returnVal);
+    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+    return scope.Close(returnObj);
   }
   
 
@@ -269,9 +290,18 @@ wxNode_wxBoxSizer::wxNode_wxBoxSizer(int orient)
   if(args.Length() == 0) {
     
 
-    self->GetClassInfo();
+    wxClassInfo* returnVal = self->GetClassInfo();
 
-    return v8::Undefined();
+    
+    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    wxNode_wxClassInfo::AddMethods(returnObjFt);
+    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+    v8::Handle<v8::Value> returnObjArgs[0];
+    v8::Local<v8::Object> returnObj = returnObjFn->Call(args.This(), 0, returnObjArgs)->ToObject();
+    returnObj->SetPointerInInternalField(0, returnVal);
+    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+    return scope.Close(returnObj);
   }
   
 

@@ -10,6 +10,7 @@
 #include "wxNode_wxFont.h"
 #include "wxNode_wxUpdateUIEvent.h"
 #include "wxNode_wxDC.h"
+#include "wxNode_wxVisualAttributes.h"
 
 
 /* static */ v8::Persistent<v8::FunctionTemplate> wxNode_wxControl::s_ct;
@@ -243,9 +244,9 @@ wxNode_wxControl::wxNode_wxControl(wxNode_wxWindow* parent, int id)
     v8::String::AsciiValue name(args[6]->ToString()); /* type: _14808  */
     
 
-    self->Create(parent, id, *pos, *size, style, *validator, *name);
+    bool returnVal = self->Create(parent, id, *pos, *size, style, *validator, *name);
 
-    return v8::Undefined();
+    return scope.Close(v8::Boolean::New(returnVal));
   }
   
   /*
@@ -260,9 +261,9 @@ wxNode_wxControl::wxNode_wxControl(wxNode_wxWindow* parent, int id)
     wxNode_wxValidator* validator = args[5]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxValidator>(args[5]->ToObject()); /* type: _59059  */
     
 
-    self->Create(parent, id, *pos, *size, style, *validator);
+    bool returnVal = self->Create(parent, id, *pos, *size, style, *validator);
 
-    return v8::Undefined();
+    return scope.Close(v8::Boolean::New(returnVal));
   }
   
   /*
@@ -276,9 +277,9 @@ wxNode_wxControl::wxNode_wxControl(wxNode_wxWindow* parent, int id)
     long int style = (long int)args[4]->ToInt32()->Value(); /* type: _586  */
     
 
-    self->Create(parent, id, *pos, *size, style);
+    bool returnVal = self->Create(parent, id, *pos, *size, style);
 
-    return v8::Undefined();
+    return scope.Close(v8::Boolean::New(returnVal));
   }
   
   /*
@@ -291,9 +292,9 @@ wxNode_wxControl::wxNode_wxControl(wxNode_wxWindow* parent, int id)
     wxNode_wxSize* size = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[3]->ToObject()); /* type: _20522  */
     
 
-    self->Create(parent, id, *pos, *size);
+    bool returnVal = self->Create(parent, id, *pos, *size);
 
-    return v8::Undefined();
+    return scope.Close(v8::Boolean::New(returnVal));
   }
   
   /*
@@ -305,9 +306,9 @@ wxNode_wxControl::wxNode_wxControl(wxNode_wxWindow* parent, int id)
     wxNode_wxPoint* pos = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[2]->ToObject()); /* type: _20412  */
     
 
-    self->Create(parent, id, *pos);
+    bool returnVal = self->Create(parent, id, *pos);
 
-    return v8::Undefined();
+    return scope.Close(v8::Boolean::New(returnVal));
   }
   
   /*
@@ -318,9 +319,9 @@ wxNode_wxControl::wxNode_wxControl(wxNode_wxWindow* parent, int id)
     int id = (int)args[1]->ToInt32()->Value(); /* type: _8633  */
     
 
-    self->Create(parent, id);
+    bool returnVal = self->Create(parent, id);
 
-    return v8::Undefined();
+    return scope.Close(v8::Boolean::New(returnVal));
   }
   
 
@@ -345,9 +346,9 @@ wxNode_wxControl::wxNode_wxControl(wxNode_wxWindow* parent, int id)
   if(args.Length() == 0) {
     
 
-    self->GetAlignment();
+    int returnVal = self->GetAlignment();
 
-    return v8::Undefined();
+    return scope.Close(v8::Number::New(returnVal));
   }
   
 
@@ -400,9 +401,9 @@ wxNode_wxControl::wxNode_wxControl(wxNode_wxWindow* parent, int id)
   if(args.Length() == 0) {
     
 
-    self->GetLabel();
+    wxString returnVal = self->GetLabel();
 
-    return v8::Undefined();
+    return scope.Close(v8::String::New(returnVal));
   }
   
 
@@ -455,9 +456,9 @@ wxNode_wxControl::wxNode_wxControl(wxNode_wxWindow* parent, int id)
   if(args.Length() == 0) {
     
 
-    self->GetLabelText();
+    wxString returnVal = self->GetLabelText();
 
-    return v8::Undefined();
+    return scope.Close(v8::String::New(returnVal));
   }
   
   /*
@@ -467,9 +468,9 @@ wxNode_wxControl::wxNode_wxControl(wxNode_wxWindow* parent, int id)
     v8::String::AsciiValue label(args[0]->ToString()); /* type: _14808  */
     
 
-    self->GetLabelText(*label);
+    wxString returnVal = self->GetLabelText(*label);
 
-    return v8::Undefined();
+    return scope.Close(v8::String::New(returnVal));
   }
   
 
@@ -495,9 +496,9 @@ wxNode_wxControl::wxNode_wxControl(wxNode_wxWindow* parent, int id)
     v8::String::AsciiValue markup(args[0]->ToString()); /* type: _14808  */
     
 
-    self->SetLabelMarkup(*markup);
+    bool returnVal = self->SetLabelMarkup(*markup);
 
-    return v8::Undefined();
+    return scope.Close(v8::Boolean::New(returnVal));
   }
   
 
@@ -522,9 +523,9 @@ wxNode_wxControl::wxNode_wxControl(wxNode_wxWindow* parent, int id)
   if(args.Length() == 0) {
     
 
-    self->ShouldInheritColours();
+    bool returnVal = self->ShouldInheritColours();
 
-    return v8::Undefined();
+    return scope.Close(v8::Boolean::New(returnVal));
   }
   
 
@@ -578,9 +579,9 @@ wxNode_wxControl::wxNode_wxControl(wxNode_wxWindow* parent, int id)
     wxNode_wxFont* font = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxFont>(args[0]->ToObject()); /* type: _33020  */
     
 
-    self->SetFont(*font);
+    bool returnVal = self->SetFont(*font);
 
-    return v8::Undefined();
+    return scope.Close(v8::Boolean::New(returnVal));
   }
   
 
@@ -634,9 +635,9 @@ wxNode_wxControl::wxNode_wxControl(wxNode_wxWindow* parent, int id)
     v8::String::AsciiValue str(args[0]->ToString()); /* type: _14808  */
     
 
-    self->RemoveMnemonics(*str);
+    wxString returnVal = self->RemoveMnemonics(*str);
 
-    return v8::Undefined();
+    return scope.Close(v8::String::New(returnVal));
   }
   
 
@@ -662,9 +663,9 @@ wxNode_wxControl::wxNode_wxControl(wxNode_wxWindow* parent, int id)
     v8::String::AsciiValue str(args[0]->ToString()); /* type: _14808  */
     
 
-    self->EscapeMnemonics(*str);
+    wxString returnVal = self->EscapeMnemonics(*str);
 
-    return v8::Undefined();
+    return scope.Close(v8::String::New(returnVal));
   }
   
 
@@ -694,9 +695,9 @@ wxNode_wxControl::wxNode_wxControl(wxNode_wxWindow* parent, int id)
     int flags = (int)args[4]->ToInt32()->Value(); /* type: _162  */
     
 
-    self->Ellipsize(*label, *dc, mode, maxWidth, flags);
+    wxString returnVal = self->Ellipsize(*label, *dc, mode, maxWidth, flags);
 
-    return v8::Undefined();
+    return scope.Close(v8::String::New(returnVal));
   }
   
   /*
@@ -709,9 +710,9 @@ wxNode_wxControl::wxNode_wxControl(wxNode_wxWindow* parent, int id)
     int maxWidth = (int)args[3]->ToInt32()->Value(); /* type: _162  */
     
 
-    self->Ellipsize(*label, *dc, mode, maxWidth);
+    wxString returnVal = self->Ellipsize(*label, *dc, mode, maxWidth);
 
-    return v8::Undefined();
+    return scope.Close(v8::String::New(returnVal));
   }
   
 
@@ -738,9 +739,9 @@ wxNode_wxControl::wxNode_wxControl(wxNode_wxWindow* parent, int id)
     wxString* labelOnly; /* type: _23919 * */
     
 
-    self->FindAccelIndex(*label, labelOnly);
+    int returnVal = self->FindAccelIndex(*label, labelOnly);
 
-    return v8::Undefined();
+    return scope.Close(v8::Number::New(returnVal));
   }
   
   /*
@@ -750,9 +751,9 @@ wxNode_wxControl::wxNode_wxControl(wxNode_wxWindow* parent, int id)
     v8::String::AsciiValue label(args[0]->ToString()); /* type: _14808  */
     
 
-    self->FindAccelIndex(*label);
+    int returnVal = self->FindAccelIndex(*label);
 
-    return v8::Undefined();
+    return scope.Close(v8::Number::New(returnVal));
   }
   
 
@@ -778,9 +779,18 @@ wxNode_wxControl::wxNode_wxControl(wxNode_wxWindow* parent, int id)
     wxWindowVariant variant; /* type: _10472  */
     
 
-    self->GetCompositeControlsDefaultAttributes(variant);
+    wxVisualAttributes returnValTemp = self->GetCompositeControlsDefaultAttributes(variant);
 
-    return v8::Undefined();
+    wxVisualAttributes* returnVal = new wxVisualAttributes();
+    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    wxNode_wxVisualAttributes::AddMethods(returnObjFt);
+    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+    v8::Handle<v8::Value> returnObjArgs[0];
+    v8::Local<v8::Object> returnObj = returnObjFn->Call(args.This(), 0, returnObjArgs)->ToObject();
+    returnObj->SetPointerInInternalField(0, returnVal);
+    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+    return scope.Close(returnObj);
   }
   
 

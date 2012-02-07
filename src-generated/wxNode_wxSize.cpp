@@ -318,9 +318,18 @@ wxNode_wxSize::wxNode_wxSize(int xx, int yy)
     float yscale = (float)args[1]->ToNumber()->Value(); /* type: _13252  */
     
 
-    self->Scale(xscale, yscale);
+    wxSize returnValTemp = self->Scale(xscale, yscale);
 
-    return v8::Undefined();
+    wxSize* returnVal = new wxSize();
+    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    wxNode_wxSize::AddMethods(returnObjFt);
+    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+    v8::Handle<v8::Value> returnObjArgs[0];
+    v8::Local<v8::Object> returnObj = returnObjFn->Call(args.This(), 0, returnObjArgs)->ToObject();
+    returnObj->SetPointerInInternalField(0, returnVal);
+    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+    return scope.Close(returnObj);
   }
   
 
@@ -430,9 +439,9 @@ wxNode_wxSize::wxNode_wxSize(int xx, int yy)
   if(args.Length() == 0) {
     
 
-    self->GetWidth();
+    int returnVal = self->GetWidth();
 
-    return v8::Undefined();
+    return scope.Close(v8::Number::New(returnVal));
   }
   
 
@@ -457,9 +466,9 @@ wxNode_wxSize::wxNode_wxSize(int xx, int yy)
   if(args.Length() == 0) {
     
 
-    self->GetHeight();
+    int returnVal = self->GetHeight();
 
-    return v8::Undefined();
+    return scope.Close(v8::Number::New(returnVal));
   }
   
 
@@ -484,9 +493,9 @@ wxNode_wxSize::wxNode_wxSize(int xx, int yy)
   if(args.Length() == 0) {
     
 
-    self->IsFullySpecified();
+    bool returnVal = self->IsFullySpecified();
 
-    return v8::Undefined();
+    return scope.Close(v8::Boolean::New(returnVal));
   }
   
 
@@ -539,9 +548,9 @@ wxNode_wxSize::wxNode_wxSize(int xx, int yy)
   if(args.Length() == 0) {
     
 
-    self->GetX();
+    int returnVal = self->GetX();
 
-    return v8::Undefined();
+    return scope.Close(v8::Number::New(returnVal));
   }
   
 
@@ -566,9 +575,9 @@ wxNode_wxSize::wxNode_wxSize(int xx, int yy)
   if(args.Length() == 0) {
     
 
-    self->GetY();
+    int returnVal = self->GetY();
 
-    return v8::Undefined();
+    return scope.Close(v8::Number::New(returnVal));
   }
   
 

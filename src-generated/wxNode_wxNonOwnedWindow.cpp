@@ -82,9 +82,9 @@ wxNode_wxNonOwnedWindow::wxNode_wxNonOwnedWindow()
     wxNode_wxRegion* region = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxRegion>(args[0]->ToObject()); /* type: _58929  */
     
 
-    self->SetShape(*region);
+    bool returnVal = self->SetShape(*region);
 
-    return v8::Undefined();
+    return scope.Close(v8::Boolean::New(returnVal));
   }
   
   /*
@@ -94,9 +94,9 @@ wxNode_wxNonOwnedWindow::wxNode_wxNonOwnedWindow()
     wxNode_wxGraphicsPath* path = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxGraphicsPath>(args[0]->ToObject()); /* type: _58930  */
     
 
-    self->SetShape(*path);
+    bool returnVal = self->SetShape(*path);
 
-    return v8::Undefined();
+    return scope.Close(v8::Boolean::New(returnVal));
   }
   
 
