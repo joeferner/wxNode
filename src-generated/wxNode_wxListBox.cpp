@@ -130,6 +130,21 @@ wxNode_wxListBox::wxNode_wxListBox(wxNode_wxWindow* parent, int id, wxNode_wxPoi
   
 }
 
+/*static*/ bool wxNode_wxListBox::AssignableFrom(const v8::Handle<v8::String>& className) {
+  v8::String::AsciiValue classNameStr(className);
+  return AssignableFrom(*classNameStr);
+}
+
+/*static*/ bool wxNode_wxListBox::AssignableFrom(const char* className) {
+  if(!strcmp("wxListBox", className)) {
+    return true;
+  }
+  if(wxNode_wxControlWithItems::AssignableFrom(className)) { return true; }
+
+  printf("wxListBox ?== %s\n", className);
+  return false;
+}
+
 /*static*/ v8::Handle<v8::Value> wxNode_wxListBox::_init(const v8::Arguments& args) {
   v8::HandleScope scope;
 
@@ -150,7 +165,7 @@ wxNode_wxListBox::wxNode_wxListBox(wxNode_wxWindow* parent, int id, wxNode_wxPoi
   /*
    * id: _36417
    */
-  if(args.Length() == 9 && (args[0]->IsNull() || args[0]->IsObject()) && args[1]->IsNumber() && (args[2]->IsNull() || args[2]->IsObject()) && (args[3]->IsNull() || args[3]->IsObject()) && args[4]->IsNumber() && args[5]->IsString() && args[6]->IsNumber() && (args[7]->IsNull() || args[7]->IsObject()) && args[8]->IsString()) {
+  if(args.Length() == 9 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxWindow::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsNumber() && (args[2]->IsNull() || (args[2]->IsObject() && wxNode_wxPoint::AssignableFrom(args[2]->ToObject()->GetConstructorName()))) && (args[3]->IsNull() || (args[3]->IsObject() && wxNode_wxSize::AssignableFrom(args[3]->ToObject()->GetConstructorName()))) && args[4]->IsNumber() && args[5]->IsString() && args[6]->IsNumber() && (args[7]->IsNull() || (args[7]->IsObject() && wxNode_wxValidator::AssignableFrom(args[7]->ToObject()->GetConstructorName()))) && args[8]->IsString()) {
     wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _993 * */
     int id = (int)args[1]->ToInt32()->Value(); /* type: _8633  */
     wxNode_wxPoint* pos = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[2]->ToObject()); /* type: _20412  */
@@ -171,7 +186,7 @@ wxNode_wxListBox::wxNode_wxListBox(wxNode_wxWindow* parent, int id, wxNode_wxPoi
   /*
    * id: _36417
    */
-  if(args.Length() == 8 && (args[0]->IsNull() || args[0]->IsObject()) && args[1]->IsNumber() && (args[2]->IsNull() || args[2]->IsObject()) && (args[3]->IsNull() || args[3]->IsObject()) && args[4]->IsNumber() && args[5]->IsString() && args[6]->IsNumber() && (args[7]->IsNull() || args[7]->IsObject())) {
+  if(args.Length() == 8 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxWindow::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsNumber() && (args[2]->IsNull() || (args[2]->IsObject() && wxNode_wxPoint::AssignableFrom(args[2]->ToObject()->GetConstructorName()))) && (args[3]->IsNull() || (args[3]->IsObject() && wxNode_wxSize::AssignableFrom(args[3]->ToObject()->GetConstructorName()))) && args[4]->IsNumber() && args[5]->IsString() && args[6]->IsNumber() && (args[7]->IsNull() || (args[7]->IsObject() && wxNode_wxValidator::AssignableFrom(args[7]->ToObject()->GetConstructorName())))) {
     wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _993 * */
     int id = (int)args[1]->ToInt32()->Value(); /* type: _8633  */
     wxNode_wxPoint* pos = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[2]->ToObject()); /* type: _20412  */
@@ -191,7 +206,7 @@ wxNode_wxListBox::wxNode_wxListBox(wxNode_wxWindow* parent, int id, wxNode_wxPoi
   /*
    * id: _36417
    */
-  if(args.Length() == 7 && (args[0]->IsNull() || args[0]->IsObject()) && args[1]->IsNumber() && (args[2]->IsNull() || args[2]->IsObject()) && (args[3]->IsNull() || args[3]->IsObject()) && args[4]->IsNumber() && args[5]->IsString() && args[6]->IsNumber()) {
+  if(args.Length() == 7 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxWindow::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsNumber() && (args[2]->IsNull() || (args[2]->IsObject() && wxNode_wxPoint::AssignableFrom(args[2]->ToObject()->GetConstructorName()))) && (args[3]->IsNull() || (args[3]->IsObject() && wxNode_wxSize::AssignableFrom(args[3]->ToObject()->GetConstructorName()))) && args[4]->IsNumber() && args[5]->IsString() && args[6]->IsNumber()) {
     wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _993 * */
     int id = (int)args[1]->ToInt32()->Value(); /* type: _8633  */
     wxNode_wxPoint* pos = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[2]->ToObject()); /* type: _20412  */
@@ -210,7 +225,7 @@ wxNode_wxListBox::wxNode_wxListBox(wxNode_wxWindow* parent, int id, wxNode_wxPoi
   /*
    * id: _36417
    */
-  if(args.Length() == 6 && (args[0]->IsNull() || args[0]->IsObject()) && args[1]->IsNumber() && (args[2]->IsNull() || args[2]->IsObject()) && (args[3]->IsNull() || args[3]->IsObject()) && args[4]->IsNumber() && args[5]->IsString()) {
+  if(args.Length() == 6 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxWindow::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsNumber() && (args[2]->IsNull() || (args[2]->IsObject() && wxNode_wxPoint::AssignableFrom(args[2]->ToObject()->GetConstructorName()))) && (args[3]->IsNull() || (args[3]->IsObject() && wxNode_wxSize::AssignableFrom(args[3]->ToObject()->GetConstructorName()))) && args[4]->IsNumber() && args[5]->IsString()) {
     wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _993 * */
     int id = (int)args[1]->ToInt32()->Value(); /* type: _8633  */
     wxNode_wxPoint* pos = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[2]->ToObject()); /* type: _20412  */
@@ -228,7 +243,7 @@ wxNode_wxListBox::wxNode_wxListBox(wxNode_wxWindow* parent, int id, wxNode_wxPoi
   /*
    * id: _36417
    */
-  if(args.Length() == 5 && (args[0]->IsNull() || args[0]->IsObject()) && args[1]->IsNumber() && (args[2]->IsNull() || args[2]->IsObject()) && (args[3]->IsNull() || args[3]->IsObject()) && args[4]->IsNumber()) {
+  if(args.Length() == 5 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxWindow::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsNumber() && (args[2]->IsNull() || (args[2]->IsObject() && wxNode_wxPoint::AssignableFrom(args[2]->ToObject()->GetConstructorName()))) && (args[3]->IsNull() || (args[3]->IsObject() && wxNode_wxSize::AssignableFrom(args[3]->ToObject()->GetConstructorName()))) && args[4]->IsNumber()) {
     wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _993 * */
     int id = (int)args[1]->ToInt32()->Value(); /* type: _8633  */
     wxNode_wxPoint* pos = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[2]->ToObject()); /* type: _20412  */
@@ -245,7 +260,7 @@ wxNode_wxListBox::wxNode_wxListBox(wxNode_wxWindow* parent, int id, wxNode_wxPoi
   /*
    * id: _36417
    */
-  if(args.Length() == 4 && (args[0]->IsNull() || args[0]->IsObject()) && args[1]->IsNumber() && (args[2]->IsNull() || args[2]->IsObject()) && (args[3]->IsNull() || args[3]->IsObject())) {
+  if(args.Length() == 4 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxWindow::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsNumber() && (args[2]->IsNull() || (args[2]->IsObject() && wxNode_wxPoint::AssignableFrom(args[2]->ToObject()->GetConstructorName()))) && (args[3]->IsNull() || (args[3]->IsObject() && wxNode_wxSize::AssignableFrom(args[3]->ToObject()->GetConstructorName())))) {
     wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _993 * */
     int id = (int)args[1]->ToInt32()->Value(); /* type: _8633  */
     wxNode_wxPoint* pos = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[2]->ToObject()); /* type: _20412  */
@@ -261,7 +276,7 @@ wxNode_wxListBox::wxNode_wxListBox(wxNode_wxWindow* parent, int id, wxNode_wxPoi
   /*
    * id: _36417
    */
-  if(args.Length() == 3 && (args[0]->IsNull() || args[0]->IsObject()) && args[1]->IsNumber() && (args[2]->IsNull() || args[2]->IsObject())) {
+  if(args.Length() == 3 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxWindow::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsNumber() && (args[2]->IsNull() || (args[2]->IsObject() && wxNode_wxPoint::AssignableFrom(args[2]->ToObject()->GetConstructorName())))) {
     wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _993 * */
     int id = (int)args[1]->ToInt32()->Value(); /* type: _8633  */
     wxNode_wxPoint* pos = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[2]->ToObject()); /* type: _20412  */
@@ -276,7 +291,7 @@ wxNode_wxListBox::wxNode_wxListBox(wxNode_wxWindow* parent, int id, wxNode_wxPoi
   /*
    * id: _36417
    */
-  if(args.Length() == 2 && (args[0]->IsNull() || args[0]->IsObject()) && args[1]->IsNumber()) {
+  if(args.Length() == 2 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxWindow::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsNumber()) {
     wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _993 * */
     int id = (int)args[1]->ToInt32()->Value(); /* type: _8633  */
     
@@ -290,7 +305,7 @@ wxNode_wxListBox::wxNode_wxListBox(wxNode_wxWindow* parent, int id, wxNode_wxPoi
   /*
    * id: _36418
    */
-  if(args.Length() == 8 && (args[0]->IsNull() || args[0]->IsObject()) && args[1]->IsNumber() && (args[2]->IsNull() || args[2]->IsObject()) && (args[3]->IsNull() || args[3]->IsObject()) && (args[4]->IsNull() || args[4]->IsObject()) && args[5]->IsNumber() && (args[6]->IsNull() || args[6]->IsObject()) && args[7]->IsString()) {
+  if(args.Length() == 8 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxWindow::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsNumber() && (args[2]->IsNull() || (args[2]->IsObject() && wxNode_wxPoint::AssignableFrom(args[2]->ToObject()->GetConstructorName()))) && (args[3]->IsNull() || (args[3]->IsObject() && wxNode_wxSize::AssignableFrom(args[3]->ToObject()->GetConstructorName()))) && (args[4]->IsNull() || (args[4]->IsObject() && wxNode_wxArrayString::AssignableFrom(args[4]->ToObject()->GetConstructorName()))) && args[5]->IsNumber() && (args[6]->IsNull() || (args[6]->IsObject() && wxNode_wxValidator::AssignableFrom(args[6]->ToObject()->GetConstructorName()))) && args[7]->IsString()) {
     wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _993 * */
     int id = (int)args[1]->ToInt32()->Value(); /* type: _8633  */
     wxNode_wxPoint* pos = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[2]->ToObject()); /* type: _20412  */
@@ -310,7 +325,7 @@ wxNode_wxListBox::wxNode_wxListBox(wxNode_wxWindow* parent, int id, wxNode_wxPoi
   /*
    * id: _36418
    */
-  if(args.Length() == 7 && (args[0]->IsNull() || args[0]->IsObject()) && args[1]->IsNumber() && (args[2]->IsNull() || args[2]->IsObject()) && (args[3]->IsNull() || args[3]->IsObject()) && (args[4]->IsNull() || args[4]->IsObject()) && args[5]->IsNumber() && (args[6]->IsNull() || args[6]->IsObject())) {
+  if(args.Length() == 7 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxWindow::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsNumber() && (args[2]->IsNull() || (args[2]->IsObject() && wxNode_wxPoint::AssignableFrom(args[2]->ToObject()->GetConstructorName()))) && (args[3]->IsNull() || (args[3]->IsObject() && wxNode_wxSize::AssignableFrom(args[3]->ToObject()->GetConstructorName()))) && (args[4]->IsNull() || (args[4]->IsObject() && wxNode_wxArrayString::AssignableFrom(args[4]->ToObject()->GetConstructorName()))) && args[5]->IsNumber() && (args[6]->IsNull() || (args[6]->IsObject() && wxNode_wxValidator::AssignableFrom(args[6]->ToObject()->GetConstructorName())))) {
     wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _993 * */
     int id = (int)args[1]->ToInt32()->Value(); /* type: _8633  */
     wxNode_wxPoint* pos = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[2]->ToObject()); /* type: _20412  */
@@ -329,7 +344,7 @@ wxNode_wxListBox::wxNode_wxListBox(wxNode_wxWindow* parent, int id, wxNode_wxPoi
   /*
    * id: _36418
    */
-  if(args.Length() == 6 && (args[0]->IsNull() || args[0]->IsObject()) && args[1]->IsNumber() && (args[2]->IsNull() || args[2]->IsObject()) && (args[3]->IsNull() || args[3]->IsObject()) && (args[4]->IsNull() || args[4]->IsObject()) && args[5]->IsNumber()) {
+  if(args.Length() == 6 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxWindow::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsNumber() && (args[2]->IsNull() || (args[2]->IsObject() && wxNode_wxPoint::AssignableFrom(args[2]->ToObject()->GetConstructorName()))) && (args[3]->IsNull() || (args[3]->IsObject() && wxNode_wxSize::AssignableFrom(args[3]->ToObject()->GetConstructorName()))) && (args[4]->IsNull() || (args[4]->IsObject() && wxNode_wxArrayString::AssignableFrom(args[4]->ToObject()->GetConstructorName()))) && args[5]->IsNumber()) {
     wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _993 * */
     int id = (int)args[1]->ToInt32()->Value(); /* type: _8633  */
     wxNode_wxPoint* pos = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[2]->ToObject()); /* type: _20412  */
@@ -347,7 +362,7 @@ wxNode_wxListBox::wxNode_wxListBox(wxNode_wxWindow* parent, int id, wxNode_wxPoi
   /*
    * id: _36418
    */
-  if(args.Length() == 5 && (args[0]->IsNull() || args[0]->IsObject()) && args[1]->IsNumber() && (args[2]->IsNull() || args[2]->IsObject()) && (args[3]->IsNull() || args[3]->IsObject()) && (args[4]->IsNull() || args[4]->IsObject())) {
+  if(args.Length() == 5 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxWindow::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsNumber() && (args[2]->IsNull() || (args[2]->IsObject() && wxNode_wxPoint::AssignableFrom(args[2]->ToObject()->GetConstructorName()))) && (args[3]->IsNull() || (args[3]->IsObject() && wxNode_wxSize::AssignableFrom(args[3]->ToObject()->GetConstructorName()))) && (args[4]->IsNull() || (args[4]->IsObject() && wxNode_wxArrayString::AssignableFrom(args[4]->ToObject()->GetConstructorName())))) {
     wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _993 * */
     int id = (int)args[1]->ToInt32()->Value(); /* type: _8633  */
     wxNode_wxPoint* pos = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[2]->ToObject()); /* type: _20412  */
@@ -396,7 +411,7 @@ wxNode_wxListBox::wxNode_wxListBox(wxNode_wxWindow* parent, int id, wxNode_wxPoi
   /*
    * id: _47058
    */
-  if(args.Length() == 2 && (args[0]->IsNull() || args[0]->IsObject()) && args[1]->IsNumber()) {
+  if(args.Length() == 2 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxArrayString::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsNumber()) {
     wxNode_wxArrayString* items = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxArrayString>(args[0]->ToObject()); /* type: _20526  */
     unsigned int pos = (unsigned int)args[1]->ToInt32()->Value(); /* type: _43  */
     
@@ -408,7 +423,7 @@ wxNode_wxListBox::wxNode_wxListBox(wxNode_wxWindow* parent, int id, wxNode_wxPoi
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: InsertItems).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxListBox::InsertItems).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -436,7 +451,7 @@ wxNode_wxListBox::wxNode_wxListBox(wxNode_wxWindow* parent, int id, wxNode_wxPoi
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: IsSelected).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxListBox::IsSelected).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -477,7 +492,7 @@ wxNode_wxListBox::wxNode_wxListBox(wxNode_wxWindow* parent, int id, wxNode_wxPoi
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: SetSelection).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxListBox::SetSelection).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -505,7 +520,7 @@ wxNode_wxListBox::wxNode_wxListBox(wxNode_wxWindow* parent, int id, wxNode_wxPoi
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: Deselect).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxListBox::Deselect).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -544,7 +559,7 @@ wxNode_wxListBox::wxNode_wxListBox(wxNode_wxWindow* parent, int id, wxNode_wxPoi
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: DeselectAll).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxListBox::DeselectAll).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -585,7 +600,7 @@ wxNode_wxListBox::wxNode_wxListBox(wxNode_wxWindow* parent, int id, wxNode_wxPoi
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: SetStringSelection).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxListBox::SetStringSelection).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -602,7 +617,7 @@ wxNode_wxListBox::wxNode_wxListBox(wxNode_wxWindow* parent, int id, wxNode_wxPoi
   /*
    * id: _47066
    */
-  if(args.Length() == 1 && (args[0]->IsNull() || args[0]->IsObject())) {
+  if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxArrayInt::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxArrayInt* aSelections = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxArrayInt>(args[0]->ToObject()); /* type: _22498  */
     
 
@@ -613,7 +628,7 @@ wxNode_wxListBox::wxNode_wxListBox(wxNode_wxWindow* parent, int id, wxNode_wxPoi
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: GetSelections).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxListBox::GetSelections).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -653,7 +668,7 @@ wxNode_wxListBox::wxNode_wxListBox(wxNode_wxWindow* parent, int id, wxNode_wxPoi
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: SetFirstItem).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxListBox::SetFirstItem).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -681,7 +696,7 @@ wxNode_wxListBox::wxNode_wxListBox(wxNode_wxWindow* parent, int id, wxNode_wxPoi
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: EnsureVisible).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxListBox::EnsureVisible).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -709,7 +724,7 @@ wxNode_wxListBox::wxNode_wxListBox(wxNode_wxWindow* parent, int id, wxNode_wxPoi
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: AppendAndEnsureVisible).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxListBox::AppendAndEnsureVisible).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -736,7 +751,7 @@ wxNode_wxListBox::wxNode_wxListBox(wxNode_wxWindow* parent, int id, wxNode_wxPoi
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: HasMultipleSelection).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxListBox::HasMultipleSelection).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -763,7 +778,7 @@ wxNode_wxListBox::wxNode_wxListBox(wxNode_wxWindow* parent, int id, wxNode_wxPoi
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: IsSorted).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxListBox::IsSorted).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -780,7 +795,7 @@ wxNode_wxListBox::wxNode_wxListBox(wxNode_wxWindow* parent, int id, wxNode_wxPoi
   /*
    * id: _47073
    */
-  if(args.Length() == 1 && (args[0]->IsNull() || args[0]->IsObject())) {
+  if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxCommandEvent::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxCommandEvent* event = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxCommandEvent>(args[0]->ToObject()); /* type: _58740  */
     
 
@@ -791,7 +806,7 @@ wxNode_wxListBox::wxNode_wxListBox(wxNode_wxWindow* parent, int id, wxNode_wxPoi
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: Command).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxListBox::Command).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -808,7 +823,7 @@ wxNode_wxListBox::wxNode_wxListBox(wxNode_wxWindow* parent, int id, wxNode_wxPoi
   /*
    * id: _47074
    */
-  if(args.Length() == 1 && (args[0]->IsNull() || args[0]->IsObject())) {
+  if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxPoint::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxPoint* point = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[0]->ToObject()); /* type: _20412  */
     
 
@@ -832,7 +847,7 @@ wxNode_wxListBox::wxNode_wxListBox(wxNode_wxWindow* parent, int id, wxNode_wxPoi
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: HitTest).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxListBox::HitTest).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);

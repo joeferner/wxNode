@@ -107,6 +107,21 @@ wxNode_wxMenu::wxNode_wxMenu()
   
 }
 
+/*static*/ bool wxNode_wxMenu::AssignableFrom(const v8::Handle<v8::String>& className) {
+  v8::String::AsciiValue classNameStr(className);
+  return AssignableFrom(*classNameStr);
+}
+
+/*static*/ bool wxNode_wxMenu::AssignableFrom(const char* className) {
+  if(!strcmp("wxMenu", className)) {
+    return true;
+  }
+  if(wxNode_wxEvtHandler::AssignableFrom(className)) { return true; }
+
+  printf("wxMenu ?== %s\n", className);
+  return false;
+}
+
 /*static*/ v8::Handle<v8::Value> wxNode_wxMenu::_init(const v8::Arguments& args) {
   v8::HandleScope scope;
 
@@ -247,7 +262,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: New).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::New).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -354,7 +369,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   /*
    * id: _44720
    */
-  if(args.Length() == 1 && (args[0]->IsNull() || args[0]->IsObject())) {
+  if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxMenuItem::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxMenuItem* item = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenuItem>(args[0]->ToObject()); /* type: _51683 * */
     
 
@@ -390,7 +405,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   /*
    * id: _44773
    */
-  if(args.Length() == 4 && args[0]->IsNumber() && args[1]->IsString() && (args[2]->IsNull() || args[2]->IsObject()) && args[3]->IsString()) {
+  if(args.Length() == 4 && args[0]->IsNumber() && args[1]->IsString() && (args[2]->IsNull() || (args[2]->IsObject() && wxNode_wxMenu::AssignableFrom(args[2]->ToObject()->GetConstructorName()))) && args[3]->IsString()) {
     int itemid = (int)args[0]->ToInt32()->Value(); /* type: _162  */
     v8::String::AsciiValue text(args[1]->ToString()); /* type: _14808  */
     wxNode_wxMenu* submenu = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenu>(args[2]->ToObject()); /* type: _52838 * */
@@ -414,7 +429,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   /*
    * id: _44773
    */
-  if(args.Length() == 3 && args[0]->IsNumber() && args[1]->IsString() && (args[2]->IsNull() || args[2]->IsObject())) {
+  if(args.Length() == 3 && args[0]->IsNumber() && args[1]->IsString() && (args[2]->IsNull() || (args[2]->IsObject() && wxNode_wxMenu::AssignableFrom(args[2]->ToObject()->GetConstructorName())))) {
     int itemid = (int)args[0]->ToInt32()->Value(); /* type: _162  */
     v8::String::AsciiValue text(args[1]->ToString()); /* type: _14808  */
     wxNode_wxMenu* submenu = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenu>(args[2]->ToObject()); /* type: _52838 * */
@@ -436,7 +451,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: Append).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::Append).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -472,7 +487,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: AppendSeparator).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::AppendSeparator).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -533,7 +548,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: AppendCheckItem).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::AppendCheckItem).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -594,7 +609,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: AppendRadioItem).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::AppendRadioItem).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -611,7 +626,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   /*
    * id: _44719
    */
-  if(args.Length() == 3 && (args[0]->IsNull() || args[0]->IsObject()) && args[1]->IsString() && args[2]->IsString()) {
+  if(args.Length() == 3 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxMenu::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsString() && args[2]->IsString()) {
     wxNode_wxMenu* submenu = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenu>(args[0]->ToObject()); /* type: _52838 * */
     v8::String::AsciiValue text(args[1]->ToString()); /* type: _14808  */
     v8::String::AsciiValue help(args[2]->ToString()); /* type: _14808  */
@@ -634,7 +649,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   /*
    * id: _44719
    */
-  if(args.Length() == 2 && (args[0]->IsNull() || args[0]->IsObject()) && args[1]->IsString()) {
+  if(args.Length() == 2 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxMenu::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsString()) {
     wxNode_wxMenu* submenu = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenu>(args[0]->ToObject()); /* type: _52838 * */
     v8::String::AsciiValue text(args[1]->ToString()); /* type: _14808  */
     
@@ -655,7 +670,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: AppendSubMenu).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::AppendSubMenu).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -682,7 +697,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: Break).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::Break).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -699,7 +714,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   /*
    * id: _44722
    */
-  if(args.Length() == 2 && args[0]->IsNumber() && (args[1]->IsNull() || args[1]->IsObject())) {
+  if(args.Length() == 2 && args[0]->IsNumber() && (args[1]->IsNull() || (args[1]->IsObject() && wxNode_wxMenuItem::AssignableFrom(args[1]->ToObject()->GetConstructorName())))) {
     unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8620  */
     wxNode_wxMenuItem* item = args[1]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenuItem>(args[1]->ToObject()); /* type: _51683 * */
     
@@ -815,7 +830,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   /*
    * id: _44727
    */
-  if(args.Length() == 5 && args[0]->IsNumber() && args[1]->IsNumber() && args[2]->IsString() && (args[3]->IsNull() || args[3]->IsObject()) && args[4]->IsString()) {
+  if(args.Length() == 5 && args[0]->IsNumber() && args[1]->IsNumber() && args[2]->IsString() && (args[3]->IsNull() || (args[3]->IsObject() && wxNode_wxMenu::AssignableFrom(args[3]->ToObject()->GetConstructorName()))) && args[4]->IsString()) {
     unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8620  */
     int itemid = (int)args[1]->ToInt32()->Value(); /* type: _162  */
     v8::String::AsciiValue text(args[2]->ToString()); /* type: _14808  */
@@ -840,7 +855,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   /*
    * id: _44727
    */
-  if(args.Length() == 4 && args[0]->IsNumber() && args[1]->IsNumber() && args[2]->IsString() && (args[3]->IsNull() || args[3]->IsObject())) {
+  if(args.Length() == 4 && args[0]->IsNumber() && args[1]->IsNumber() && args[2]->IsString() && (args[3]->IsNull() || (args[3]->IsObject() && wxNode_wxMenu::AssignableFrom(args[3]->ToObject()->GetConstructorName())))) {
     unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8620  */
     int itemid = (int)args[1]->ToInt32()->Value(); /* type: _162  */
     v8::String::AsciiValue text(args[2]->ToString()); /* type: _14808  */
@@ -879,7 +894,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: Insert).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::Insert).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -916,7 +931,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: InsertSeparator).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::InsertSeparator).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -979,7 +994,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: InsertCheckItem).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::InsertCheckItem).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -1042,7 +1057,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: InsertRadioItem).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::InsertRadioItem).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -1059,7 +1074,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   /*
    * id: _44728
    */
-  if(args.Length() == 1 && (args[0]->IsNull() || args[0]->IsObject())) {
+  if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxMenuItem::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxMenuItem* item = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenuItem>(args[0]->ToObject()); /* type: _51683 * */
     
 
@@ -1170,7 +1185,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   /*
    * id: _44733
    */
-  if(args.Length() == 4 && args[0]->IsNumber() && args[1]->IsString() && (args[2]->IsNull() || args[2]->IsObject()) && args[3]->IsString()) {
+  if(args.Length() == 4 && args[0]->IsNumber() && args[1]->IsString() && (args[2]->IsNull() || (args[2]->IsObject() && wxNode_wxMenu::AssignableFrom(args[2]->ToObject()->GetConstructorName()))) && args[3]->IsString()) {
     int itemid = (int)args[0]->ToInt32()->Value(); /* type: _162  */
     v8::String::AsciiValue text(args[1]->ToString()); /* type: _14808  */
     wxNode_wxMenu* submenu = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenu>(args[2]->ToObject()); /* type: _52838 * */
@@ -1194,7 +1209,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   /*
    * id: _44733
    */
-  if(args.Length() == 3 && args[0]->IsNumber() && args[1]->IsString() && (args[2]->IsNull() || args[2]->IsObject())) {
+  if(args.Length() == 3 && args[0]->IsNumber() && args[1]->IsString() && (args[2]->IsNull() || (args[2]->IsObject() && wxNode_wxMenu::AssignableFrom(args[2]->ToObject()->GetConstructorName())))) {
     int itemid = (int)args[0]->ToInt32()->Value(); /* type: _162  */
     v8::String::AsciiValue text(args[1]->ToString()); /* type: _14808  */
     wxNode_wxMenu* submenu = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenu>(args[2]->ToObject()); /* type: _52838 * */
@@ -1231,7 +1246,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: Prepend).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::Prepend).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -1267,7 +1282,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: PrependSeparator).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::PrependSeparator).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -1328,7 +1343,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: PrependCheckItem).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::PrependCheckItem).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -1389,7 +1404,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: PrependRadioItem).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::PrependRadioItem).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -1427,7 +1442,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   /*
    * id: _44735
    */
-  if(args.Length() == 1 && (args[0]->IsNull() || args[0]->IsObject())) {
+  if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxMenuItem::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxMenuItem* item = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenuItem>(args[0]->ToObject()); /* type: _51683 * */
     
 
@@ -1447,7 +1462,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: Remove).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::Remove).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -1476,7 +1491,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   /*
    * id: _44737
    */
-  if(args.Length() == 1 && (args[0]->IsNull() || args[0]->IsObject())) {
+  if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxMenuItem::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxMenuItem* item = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenuItem>(args[0]->ToObject()); /* type: _51683 * */
     
 
@@ -1487,7 +1502,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: Delete).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::Delete).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -1516,7 +1531,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   /*
    * id: _44739
    */
-  if(args.Length() == 1 && (args[0]->IsNull() || args[0]->IsObject())) {
+  if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxMenuItem::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxMenuItem* item = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenuItem>(args[0]->ToObject()); /* type: _51683 * */
     
 
@@ -1527,7 +1542,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: Destroy).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::Destroy).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -1554,7 +1569,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: GetMenuItemCount).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::GetMenuItemCount).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -1610,7 +1625,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: GetMenuItems).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::GetMenuItems).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -1681,7 +1696,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: FindItem).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::FindItem).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -1718,7 +1733,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: FindItemByPosition).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::FindItemByPosition).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -1747,7 +1762,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: Enable).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::Enable).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -1775,7 +1790,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: IsEnabled).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::IsEnabled).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -1804,7 +1819,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: Check).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::Check).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -1832,7 +1847,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: IsChecked).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::IsChecked).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -1861,7 +1876,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: SetLabel).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::SetLabel).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -1889,7 +1904,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: GetLabel).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::GetLabel).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -1917,7 +1932,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: GetLabelText).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::GetLabelText).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -1946,7 +1961,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: SetHelpString).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::SetHelpString).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -1974,7 +1989,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: GetHelpString).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::GetHelpString).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -2002,7 +2017,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: SetTitle).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::SetTitle).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -2029,7 +2044,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: GetTitle).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::GetTitle).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -2046,7 +2061,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   /*
    * id: _44757
    */
-  if(args.Length() == 1 && (args[0]->IsNull() || args[0]->IsObject())) {
+  if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxEvtHandler::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxEvtHandler* handler = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxEvtHandler>(args[0]->ToObject()); /* type: _1665 * */
     
 
@@ -2057,7 +2072,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: SetEventHandler).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::SetEventHandler).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -2093,7 +2108,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: GetEventHandler).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::GetEventHandler).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -2110,7 +2125,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   /*
    * id: _44759
    */
-  if(args.Length() == 1 && (args[0]->IsNull() || args[0]->IsObject())) {
+  if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxWindow::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxWindow* win = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _993 * */
     
 
@@ -2121,7 +2136,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: SetInvokingWindow).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::SetInvokingWindow).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -2157,7 +2172,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: GetInvokingWindow).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::GetInvokingWindow).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -2193,7 +2208,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: GetWindow).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::GetWindow).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -2220,7 +2235,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: GetStyle).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::GetStyle).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -2237,7 +2252,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   /*
    * id: _44763
    */
-  if(args.Length() == 1 && (args[0]->IsNull() || args[0]->IsObject())) {
+  if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxEvtHandler::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxEvtHandler* source = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxEvtHandler>(args[0]->ToObject()); /* type: _1665 * */
     
 
@@ -2259,7 +2274,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: UpdateUI).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::UpdateUI).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -2295,7 +2310,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: GetMenuBar).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::GetMenuBar).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -2312,7 +2327,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   /*
    * id: _44765
    */
-  if(args.Length() == 1 && (args[0]->IsNull() || args[0]->IsObject())) {
+  if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxMenuBar::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxMenuBar* menubar = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenuBar>(args[0]->ToObject()); /* type: _59442 * */
     
 
@@ -2323,7 +2338,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: Attach).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::Attach).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -2350,7 +2365,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: Detach).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::Detach).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -2377,7 +2392,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: IsAttached).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::IsAttached).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -2394,7 +2409,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   /*
    * id: _44768
    */
-  if(args.Length() == 1 && (args[0]->IsNull() || args[0]->IsObject())) {
+  if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxMenu::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxMenu* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenu>(args[0]->ToObject()); /* type: _52838 * */
     
 
@@ -2405,7 +2420,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: SetParent).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::SetParent).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -2441,7 +2456,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: GetParent).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::GetParent).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -2500,7 +2515,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: FindChildItem).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::FindChildItem).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -2541,7 +2556,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: SendEvent).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::SendEvent).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -2569,7 +2584,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: LockAccels).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::LockAccels).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);

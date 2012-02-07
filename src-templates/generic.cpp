@@ -36,6 +36,21 @@ wxNode_{{parent.parent.name}}::wxNode_{{parent.parent.name}}({{{argDeclCode}}})
   {{/methods}}
 }
 
+/*static*/ bool wxNode_{{name}}::AssignableFrom(const v8::Handle<v8::String>& className) {
+  v8::String::AsciiValue classNameStr(className);
+  return AssignableFrom(*classNameStr);
+}
+
+/*static*/ bool wxNode_{{name}}::AssignableFrom(const char* className) {
+  if(!strcmp("{{name}}", className)) {
+    return true;
+  }
+  {{{baseClassAssignableFromCode}}}
+
+  printf("{{name}} ?== %s\n", className);
+  return false;
+}
+
 /*static*/ v8::Handle<v8::Value> wxNode_{{name}}::_init(const v8::Arguments& args) {
   v8::HandleScope scope;
 
@@ -86,7 +101,7 @@ wxNode_{{parent.parent.name}}::wxNode_{{parent.parent.name}}({{{argDeclCode}}})
   {{/overloads}}
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: {{name}}).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: {{parent.name}}::{{name}}).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);

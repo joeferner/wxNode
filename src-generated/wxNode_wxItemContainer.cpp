@@ -47,6 +47,21 @@
   
 }
 
+/*static*/ bool wxNode_wxItemContainer::AssignableFrom(const v8::Handle<v8::String>& className) {
+  v8::String::AsciiValue classNameStr(className);
+  return AssignableFrom(*classNameStr);
+}
+
+/*static*/ bool wxNode_wxItemContainer::AssignableFrom(const char* className) {
+  if(!strcmp("wxItemContainer", className)) {
+    return true;
+  }
+  if(wxNode_wxItemContainerImmutable::AssignableFrom(className)) { return true; }
+
+  printf("wxItemContainer ?== %s\n", className);
+  return false;
+}
+
 /*static*/ v8::Handle<v8::Value> wxNode_wxItemContainer::_init(const v8::Arguments& args) {
   v8::HandleScope scope;
 
@@ -83,7 +98,7 @@
   /*
    * id: _30490
    */
-  if(args.Length() == 2 && args[0]->IsString() && (args[1]->IsNull() || args[1]->IsObject())) {
+  if(args.Length() == 2 && args[0]->IsString() && (args[1]->IsNull() || (args[1]->IsObject() && wxNode_wxClientData::AssignableFrom(args[1]->ToObject()->GetConstructorName())))) {
     v8::String::AsciiValue item(args[0]->ToString()); /* type: _14808  */
     wxNode_wxClientData* clientData = args[1]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxClientData>(args[1]->ToObject()); /* type: _59122 * */
     
@@ -96,7 +111,7 @@
   /*
    * id: _30491
    */
-  if(args.Length() == 1 && (args[0]->IsNull() || args[0]->IsObject())) {
+  if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxArrayString::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxArrayString* items = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxArrayString>(args[0]->ToObject()); /* type: _20526  */
     
 
@@ -108,7 +123,7 @@
   /*
    * id: _30493
    */
-  if(args.Length() == 2 && (args[0]->IsNull() || args[0]->IsObject()) && false) {
+  if(args.Length() == 2 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxArrayString::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && false) {
     wxNode_wxArrayString* items = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxArrayString>(args[0]->ToObject()); /* type: _20526  */
     wxClientData* clientData; /* type: _63159 ** */
     
@@ -147,7 +162,7 @@
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: Append).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxItemContainer::Append).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -175,7 +190,7 @@
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: AppendString).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxItemContainer::AppendString).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -205,7 +220,7 @@
   /*
    * id: _30500
    */
-  if(args.Length() == 3 && args[0]->IsString() && args[1]->IsNumber() && (args[2]->IsNull() || args[2]->IsObject())) {
+  if(args.Length() == 3 && args[0]->IsString() && args[1]->IsNumber() && (args[2]->IsNull() || (args[2]->IsObject() && wxNode_wxClientData::AssignableFrom(args[2]->ToObject()->GetConstructorName())))) {
     v8::String::AsciiValue item(args[0]->ToString()); /* type: _14808  */
     unsigned int pos = (unsigned int)args[1]->ToInt32()->Value(); /* type: _43  */
     wxNode_wxClientData* clientData = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxClientData>(args[2]->ToObject()); /* type: _59122 * */
@@ -219,7 +234,7 @@
   /*
    * id: _30501
    */
-  if(args.Length() == 2 && (args[0]->IsNull() || args[0]->IsObject()) && args[1]->IsNumber()) {
+  if(args.Length() == 2 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxArrayString::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsNumber()) {
     wxNode_wxArrayString* items = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxArrayString>(args[0]->ToObject()); /* type: _20526  */
     unsigned int pos = (unsigned int)args[1]->ToInt32()->Value(); /* type: _43  */
     
@@ -232,7 +247,7 @@
   /*
    * id: _30503
    */
-  if(args.Length() == 3 && (args[0]->IsNull() || args[0]->IsObject()) && args[1]->IsNumber() && false) {
+  if(args.Length() == 3 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxArrayString::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsNumber() && false) {
     wxNode_wxArrayString* items = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxArrayString>(args[0]->ToObject()); /* type: _20526  */
     unsigned int pos = (unsigned int)args[1]->ToInt32()->Value(); /* type: _43  */
     wxClientData* clientData; /* type: _63159 ** */
@@ -274,7 +289,7 @@
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: Insert).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxItemContainer::Insert).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -291,7 +306,7 @@
   /*
    * id: _30507
    */
-  if(args.Length() == 1 && (args[0]->IsNull() || args[0]->IsObject())) {
+  if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxArrayString::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxArrayString* items = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxArrayString>(args[0]->ToObject()); /* type: _20526  */
     
 
@@ -303,7 +318,7 @@
   /*
    * id: _30509
    */
-  if(args.Length() == 2 && (args[0]->IsNull() || args[0]->IsObject()) && false) {
+  if(args.Length() == 2 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxArrayString::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && false) {
     wxNode_wxArrayString* items = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxArrayString>(args[0]->ToObject()); /* type: _20526  */
     wxClientData* clientData; /* type: _63159 ** */
     
@@ -342,7 +357,7 @@
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: Set).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxItemContainer::Set).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -369,7 +384,7 @@
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: Clear).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxItemContainer::Clear).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -397,7 +412,7 @@
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: Delete).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxItemContainer::Delete).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -424,7 +439,7 @@
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: IsSorted).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxItemContainer::IsSorted).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -440,7 +455,7 @@
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: SetClientData).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxItemContainer::SetClientData).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -468,7 +483,7 @@
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: GetClientData).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxItemContainer::GetClientData).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -485,7 +500,7 @@
   /*
    * id: _30518
    */
-  if(args.Length() == 2 && args[0]->IsNumber() && (args[1]->IsNull() || args[1]->IsObject())) {
+  if(args.Length() == 2 && args[0]->IsNumber() && (args[1]->IsNull() || (args[1]->IsObject() && wxNode_wxClientData::AssignableFrom(args[1]->ToObject()->GetConstructorName())))) {
     unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _43  */
     wxNode_wxClientData* clientData = args[1]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxClientData>(args[1]->ToObject()); /* type: _59122 * */
     
@@ -497,7 +512,7 @@
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: SetClientObject).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxItemContainer::SetClientObject).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -534,7 +549,7 @@
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: GetClientObject).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxItemContainer::GetClientObject).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -571,7 +586,7 @@
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: DetachClientObject).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxItemContainer::DetachClientObject).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -598,7 +613,7 @@
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: GetClientDataType).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxItemContainer::GetClientDataType).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -625,7 +640,7 @@
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: HasClientData).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxItemContainer::HasClientData).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -652,7 +667,7 @@
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: HasClientObjectData).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxItemContainer::HasClientObjectData).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -679,7 +694,7 @@
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: HasClientUntypedData).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxItemContainer::HasClientUntypedData).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);

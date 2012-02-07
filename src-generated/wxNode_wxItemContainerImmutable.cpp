@@ -39,6 +39,21 @@
   
 }
 
+/*static*/ bool wxNode_wxItemContainerImmutable::AssignableFrom(const v8::Handle<v8::String>& className) {
+  v8::String::AsciiValue classNameStr(className);
+  return AssignableFrom(*classNameStr);
+}
+
+/*static*/ bool wxNode_wxItemContainerImmutable::AssignableFrom(const char* className) {
+  if(!strcmp("wxItemContainerImmutable", className)) {
+    return true;
+  }
+  if(wxNode_wxEvtHandler::AssignableFrom(className)) { return true; }
+
+  printf("wxItemContainerImmutable ?== %s\n", className);
+  return false;
+}
+
 /*static*/ v8::Handle<v8::Value> wxNode_wxItemContainerImmutable::_init(const v8::Arguments& args) {
   v8::HandleScope scope;
 
@@ -73,7 +88,7 @@
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: GetCount).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxItemContainerImmutable::GetCount).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -100,7 +115,7 @@
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: IsEmpty).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxItemContainerImmutable::IsEmpty).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -128,7 +143,7 @@
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: GetString).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxItemContainerImmutable::GetString).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -164,7 +179,7 @@
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: GetStrings).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxItemContainerImmutable::GetStrings).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -193,7 +208,7 @@
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: SetString).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxItemContainerImmutable::SetString).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -234,7 +249,7 @@
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: FindString).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxItemContainerImmutable::FindString).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -262,7 +277,7 @@
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: SetSelection).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxItemContainerImmutable::SetSelection).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -289,7 +304,7 @@
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: GetSelection).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxItemContainerImmutable::GetSelection).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -317,7 +332,7 @@
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: SetStringSelection).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxItemContainerImmutable::SetStringSelection).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -344,7 +359,7 @@
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: GetStringSelection).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxItemContainerImmutable::GetStringSelection).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -372,7 +387,7 @@
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: Select).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxItemContainerImmutable::Select).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);

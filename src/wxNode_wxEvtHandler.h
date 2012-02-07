@@ -58,6 +58,8 @@ public:
 class wxNode_wxEvtHandler : public wxEvtHandler, public wxNodeObject {
 public:
   static void AddMethods(v8::Handle<v8::FunctionTemplate> func);
+  static bool AssignableFrom(const v8::Handle<v8::String>& className) { return false; }
+  static bool AssignableFrom(const char* className) { return false; }
 
 protected:
   static v8::Handle<v8::Value> _EVT_MENU(const v8::Arguments& args);

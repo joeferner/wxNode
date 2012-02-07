@@ -40,6 +40,21 @@ wxNode_wxNonOwnedWindow::wxNode_wxNonOwnedWindow()
   
 }
 
+/*static*/ bool wxNode_wxNonOwnedWindow::AssignableFrom(const v8::Handle<v8::String>& className) {
+  v8::String::AsciiValue classNameStr(className);
+  return AssignableFrom(*classNameStr);
+}
+
+/*static*/ bool wxNode_wxNonOwnedWindow::AssignableFrom(const char* className) {
+  if(!strcmp("wxNonOwnedWindow", className)) {
+    return true;
+  }
+  if(wxNode_wxWindow::AssignableFrom(className)) { return true; }
+
+  printf("wxNonOwnedWindow ?== %s\n", className);
+  return false;
+}
+
 /*static*/ v8::Handle<v8::Value> wxNode_wxNonOwnedWindow::_init(const v8::Arguments& args) {
   v8::HandleScope scope;
 
@@ -78,7 +93,7 @@ wxNode_wxNonOwnedWindow::wxNode_wxNonOwnedWindow()
   /*
    * id: _30423
    */
-  if(args.Length() == 1 && (args[0]->IsNull() || args[0]->IsObject())) {
+  if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxRegion::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxRegion* region = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxRegion>(args[0]->ToObject()); /* type: _58929  */
     
 
@@ -90,7 +105,7 @@ wxNode_wxNonOwnedWindow::wxNode_wxNonOwnedWindow()
   /*
    * id: _30424
    */
-  if(args.Length() == 1 && (args[0]->IsNull() || args[0]->IsObject())) {
+  if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxGraphicsPath::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxGraphicsPath* path = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxGraphicsPath>(args[0]->ToObject()); /* type: _58930  */
     
 
@@ -101,7 +116,7 @@ wxNode_wxNonOwnedWindow::wxNode_wxNonOwnedWindow()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: SetShape).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxNonOwnedWindow::SetShape).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);

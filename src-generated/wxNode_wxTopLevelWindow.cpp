@@ -113,6 +113,21 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
   
 }
 
+/*static*/ bool wxNode_wxTopLevelWindow::AssignableFrom(const v8::Handle<v8::String>& className) {
+  v8::String::AsciiValue classNameStr(className);
+  return AssignableFrom(*classNameStr);
+}
+
+/*static*/ bool wxNode_wxTopLevelWindow::AssignableFrom(const char* className) {
+  if(!strcmp("wxTopLevelWindow", className)) {
+    return true;
+  }
+  if(wxNode_wxNavigationEnabled::AssignableFrom(className)) { return true; }
+
+  printf("wxTopLevelWindow ?== %s\n", className);
+  return false;
+}
+
 /*static*/ v8::Handle<v8::Value> wxNode_wxTopLevelWindow::_init(const v8::Arguments& args) {
   v8::HandleScope scope;
 
@@ -133,7 +148,7 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
   /*
    * id: _21067
    */
-  if(args.Length() == 7 && (args[0]->IsNull() || args[0]->IsObject()) && args[1]->IsNumber() && args[2]->IsString() && (args[3]->IsNull() || args[3]->IsObject()) && (args[4]->IsNull() || args[4]->IsObject()) && args[5]->IsNumber() && args[6]->IsString()) {
+  if(args.Length() == 7 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxWindow::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsNumber() && args[2]->IsString() && (args[3]->IsNull() || (args[3]->IsObject() && wxNode_wxPoint::AssignableFrom(args[3]->ToObject()->GetConstructorName()))) && (args[4]->IsNull() || (args[4]->IsObject() && wxNode_wxSize::AssignableFrom(args[4]->ToObject()->GetConstructorName()))) && args[5]->IsNumber() && args[6]->IsString()) {
     wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _993 * */
     int winid = (int)args[1]->ToInt32()->Value(); /* type: _8633  */
     v8::String::AsciiValue title(args[2]->ToString()); /* type: _14808  */
@@ -152,7 +167,7 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
   /*
    * id: _21067
    */
-  if(args.Length() == 6 && (args[0]->IsNull() || args[0]->IsObject()) && args[1]->IsNumber() && args[2]->IsString() && (args[3]->IsNull() || args[3]->IsObject()) && (args[4]->IsNull() || args[4]->IsObject()) && args[5]->IsNumber()) {
+  if(args.Length() == 6 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxWindow::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsNumber() && args[2]->IsString() && (args[3]->IsNull() || (args[3]->IsObject() && wxNode_wxPoint::AssignableFrom(args[3]->ToObject()->GetConstructorName()))) && (args[4]->IsNull() || (args[4]->IsObject() && wxNode_wxSize::AssignableFrom(args[4]->ToObject()->GetConstructorName()))) && args[5]->IsNumber()) {
     wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _993 * */
     int winid = (int)args[1]->ToInt32()->Value(); /* type: _8633  */
     v8::String::AsciiValue title(args[2]->ToString()); /* type: _14808  */
@@ -170,7 +185,7 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
   /*
    * id: _21067
    */
-  if(args.Length() == 5 && (args[0]->IsNull() || args[0]->IsObject()) && args[1]->IsNumber() && args[2]->IsString() && (args[3]->IsNull() || args[3]->IsObject()) && (args[4]->IsNull() || args[4]->IsObject())) {
+  if(args.Length() == 5 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxWindow::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsNumber() && args[2]->IsString() && (args[3]->IsNull() || (args[3]->IsObject() && wxNode_wxPoint::AssignableFrom(args[3]->ToObject()->GetConstructorName()))) && (args[4]->IsNull() || (args[4]->IsObject() && wxNode_wxSize::AssignableFrom(args[4]->ToObject()->GetConstructorName())))) {
     wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _993 * */
     int winid = (int)args[1]->ToInt32()->Value(); /* type: _8633  */
     v8::String::AsciiValue title(args[2]->ToString()); /* type: _14808  */
@@ -187,7 +202,7 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
   /*
    * id: _21067
    */
-  if(args.Length() == 4 && (args[0]->IsNull() || args[0]->IsObject()) && args[1]->IsNumber() && args[2]->IsString() && (args[3]->IsNull() || args[3]->IsObject())) {
+  if(args.Length() == 4 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxWindow::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsNumber() && args[2]->IsString() && (args[3]->IsNull() || (args[3]->IsObject() && wxNode_wxPoint::AssignableFrom(args[3]->ToObject()->GetConstructorName())))) {
     wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _993 * */
     int winid = (int)args[1]->ToInt32()->Value(); /* type: _8633  */
     v8::String::AsciiValue title(args[2]->ToString()); /* type: _14808  */
@@ -203,7 +218,7 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
   /*
    * id: _21067
    */
-  if(args.Length() == 3 && (args[0]->IsNull() || args[0]->IsObject()) && args[1]->IsNumber() && args[2]->IsString()) {
+  if(args.Length() == 3 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxWindow::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsNumber() && args[2]->IsString()) {
     wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _993 * */
     int winid = (int)args[1]->ToInt32()->Value(); /* type: _8633  */
     v8::String::AsciiValue title(args[2]->ToString()); /* type: _14808  */
@@ -258,7 +273,7 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: Maximize).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxTopLevelWindow::Maximize).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -285,7 +300,7 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: Restore).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxTopLevelWindow::Restore).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -324,7 +339,7 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: Iconize).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxTopLevelWindow::Iconize).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -351,7 +366,7 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: IsMaximized).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxTopLevelWindow::IsMaximized).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -378,7 +393,7 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: IsAlwaysMaximized).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxTopLevelWindow::IsAlwaysMaximized).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -405,7 +420,7 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: IsIconized).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxTopLevelWindow::IsIconized).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -441,7 +456,7 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: GetIcon).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxTopLevelWindow::GetIcon).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -477,7 +492,7 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: GetIcons).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxTopLevelWindow::GetIcons).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -494,7 +509,7 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
   /*
    * id: _38902
    */
-  if(args.Length() == 1 && (args[0]->IsNull() || args[0]->IsObject())) {
+  if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxIcon::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxIcon* icon = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxIcon>(args[0]->ToObject()); /* type: _15506  */
     
 
@@ -505,7 +520,7 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: SetIcon).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxTopLevelWindow::SetIcon).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -522,7 +537,7 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
   /*
    * id: _38903
    */
-  if(args.Length() == 1 && (args[0]->IsNull() || args[0]->IsObject())) {
+  if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxIconBundle::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxIconBundle* icons = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxIconBundle>(args[0]->ToObject()); /* type: _59912  */
     
 
@@ -533,7 +548,7 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: SetIcons).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxTopLevelWindow::SetIcons).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -574,7 +589,7 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: ShowFullScreen).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxTopLevelWindow::ShowFullScreen).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -601,7 +616,7 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: ShowWithoutActivating).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxTopLevelWindow::ShowWithoutActivating).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -628,7 +643,7 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: IsFullScreen).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxTopLevelWindow::IsFullScreen).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -656,7 +671,7 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: SetTitle).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxTopLevelWindow::SetTitle).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -683,7 +698,7 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: GetTitle).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxTopLevelWindow::GetTitle).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -711,7 +726,7 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: EnableCloseButton).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxTopLevelWindow::EnableCloseButton).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -750,7 +765,7 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: RequestUserAttention).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxTopLevelWindow::RequestUserAttention).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -777,7 +792,7 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: IsActive).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxTopLevelWindow::IsActive).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -804,7 +819,7 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: ShouldPreventAppExit).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxTopLevelWindow::ShouldPreventAppExit).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -843,7 +858,7 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: CentreOnScreen).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxTopLevelWindow::CentreOnScreen).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -882,7 +897,7 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: CenterOnScreen).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxTopLevelWindow::CenterOnScreen).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -918,7 +933,7 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: GetDefaultSize).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxTopLevelWindow::GetDefaultSize).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -954,7 +969,7 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: GetDefaultItem).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxTopLevelWindow::GetDefaultItem).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -971,7 +986,7 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
   /*
    * id: _38917
    */
-  if(args.Length() == 1 && (args[0]->IsNull() || args[0]->IsObject())) {
+  if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxWindow::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxWindow* win = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _993 * */
     
 
@@ -991,7 +1006,7 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: SetDefaultItem).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxTopLevelWindow::SetDefaultItem).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -1027,7 +1042,7 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: GetTmpDefaultItem).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxTopLevelWindow::GetTmpDefaultItem).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -1044,7 +1059,7 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
   /*
    * id: _38919
    */
-  if(args.Length() == 1 && (args[0]->IsNull() || args[0]->IsObject())) {
+  if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxWindow::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxWindow* win = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _993 * */
     
 
@@ -1064,7 +1079,7 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: SetTmpDefaultItem).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxTopLevelWindow::SetTmpDefaultItem).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -1091,7 +1106,7 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: Destroy).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxTopLevelWindow::Destroy).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -1118,7 +1133,7 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: IsTopLevel).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxTopLevelWindow::IsTopLevel).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -1145,7 +1160,7 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: IsTopNavigationDomain).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxTopLevelWindow::IsTopNavigationDomain).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -1172,7 +1187,7 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: IsVisible).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxTopLevelWindow::IsVisible).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -1188,7 +1203,7 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: OnCloseWindow).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxTopLevelWindow::OnCloseWindow).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -1204,7 +1219,7 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: OnSize).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxTopLevelWindow::OnSize).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -1235,7 +1250,7 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: GetRectForTopLevelChildren).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxTopLevelWindow::GetRectForTopLevelChildren).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -1251,7 +1266,7 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: OnActivate).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxTopLevelWindow::OnActivate).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -1268,7 +1283,7 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
   /*
    * id: _38928
    */
-  if(args.Length() == 1 && (args[0]->IsNull() || args[0]->IsObject())) {
+  if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxUpdateUIEvent::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxUpdateUIEvent* event = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxUpdateUIEvent>(args[0]->ToObject()); /* type: _59566  */
     
 
@@ -1279,7 +1294,7 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: DoUpdateWindowUI).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxTopLevelWindow::DoUpdateWindowUI).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -1296,7 +1311,7 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
   /*
    * id: _38929
    */
-  if(args.Length() == 1 && (args[0]->IsNull() || args[0]->IsObject())) {
+  if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxSize::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxSize* minSize = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[0]->ToObject()); /* type: _20522  */
     
 
@@ -1307,7 +1322,7 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: SetMinSize).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxTopLevelWindow::SetMinSize).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -1324,7 +1339,7 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
   /*
    * id: _38930
    */
-  if(args.Length() == 1 && (args[0]->IsNull() || args[0]->IsObject())) {
+  if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxSize::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxSize* maxSize = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[0]->ToObject()); /* type: _20522  */
     
 
@@ -1335,7 +1350,7 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: SetMaxSize).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxTopLevelWindow::SetMaxSize).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -1363,7 +1378,7 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: OSXSetModified).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxTopLevelWindow::OSXSetModified).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -1390,7 +1405,7 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: OSXIsModified).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxTopLevelWindow::OSXIsModified).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -1418,7 +1433,7 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: SetRepresentedFilename).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxTopLevelWindow::SetRepresentedFilename).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);

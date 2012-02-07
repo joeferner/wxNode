@@ -247,7 +247,7 @@ function argJsonToCtx(ctx, rawJson, arg, i) {
         argCallCode = argName;
         argDeclCode = util.format("wxNode_%s* %s", typeName, argName);
       }
-      argTestCode = util.format("(args[%d]->IsNull() || args[%d]->IsObject())", i, i);
+      argTestCode = util.format("(args[%d]->IsNull() || (args[%d]->IsObject() && wxNode_%s::AssignableFrom(args[%d]->ToObject()->GetConstructorName())))", i, i, typeName, i);
     }
     ctx.includes = concatUnique(ctx.includes, ["wxNode_" + typeName + ".h"]);
     ctx.classes = concatUnique(ctx.classes, ["wxNode_" + typeName]);
@@ -356,6 +356,7 @@ function methodJsonToCtx(parent, rawJson, methodJson) {
       }
       ctx.returnStmt += "    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);\n";
       ctx.returnStmt += "    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);\n";
+      ctx.returnStmt += "    returnObjFt->SetClassName(v8::String::NewSymbol(\"" + ctx.returnTypeName + "\"));\n";
       ctx.returnStmt += "    wxNode_" + ctx.returnTypeName + "::AddMethods(returnObjFt);\n";
       ctx.returnStmt += "    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();\n";
       ctx.returnStmt += "    v8::Handle<v8::Value> returnObjArgs[0];\n";
@@ -474,7 +475,8 @@ function rawJsonToCtx(rawJson, file) {
     constructors: [],
     includes: [],
     classes: [],
-    baseClassAddMethodsCallCode: ""
+    baseClassAddMethodsCallCode: "",
+    baseClassAssignableFromCode: ""
   };
   ctx.headerFilename = ctx.outputFilename.replace(/\.cpp$/, '.h');
   ctx.includes.push(ctx.headerFilename);
@@ -493,13 +495,16 @@ function rawJsonToCtx(rawJson, file) {
     ctx.baseClassId = baseClazz['id'];
     if(file.addMethodsClass) {
       ctx.baseClassAddMethodsCallCode = file.addMethodsClass + "::AddMethods(target);";
+      ctx.baseClassAssignableFromCode = "if(" + file.addMethodsClass + "::AssignableFrom(className)) { return true; }";
     } else {
       ctx.baseClassAddMethodsCallCode = "wxNode_" + ctx.baseClassName + "::AddMethods(target);";
+      ctx.baseClassAssignableFromCode = "if(wxNode_" + ctx.baseClassName + "::AssignableFrom(className)) { return true; }";
     }
     ctx.includes = concatUnique(ctx.includes, ["wxNode_wxEvtHandler.h", "wxNode_" + ctx.baseClassName + ".h"]);
     ctx.classes = concatUnique(ctx.classes, ["wxNode_wxEvtHandler", "wxNode_" + ctx.baseClassName]);
   } else {
     ctx.baseClassAddMethodsCallCode = "wxNode_wxEvtHandler::AddMethods(target);";
+    ctx.baseClassAssignableFromCode = "if(wxNode_wxEvtHandler::AssignableFrom(className)) { return true; }";
   }
 
   // process members

@@ -56,6 +56,21 @@ wxNode_wxPoint::wxNode_wxPoint(wxNode_wxRealPoint& pt)
   
 }
 
+/*static*/ bool wxNode_wxPoint::AssignableFrom(const v8::Handle<v8::String>& className) {
+  v8::String::AsciiValue classNameStr(className);
+  return AssignableFrom(*classNameStr);
+}
+
+/*static*/ bool wxNode_wxPoint::AssignableFrom(const char* className) {
+  if(!strcmp("wxPoint", className)) {
+    return true;
+  }
+  if(wxNode_wxEvtHandler::AssignableFrom(className)) { return true; }
+
+  printf("wxPoint ?== %s\n", className);
+  return false;
+}
+
 /*static*/ v8::Handle<v8::Value> wxNode_wxPoint::_init(const v8::Arguments& args) {
   v8::HandleScope scope;
 
@@ -64,7 +79,7 @@ wxNode_wxPoint::wxNode_wxPoint(wxNode_wxRealPoint& pt)
   /*
    * id: _26544
    */
-  if(args.Length() == 1 && (args[0]->IsNull() || args[0]->IsObject())) {
+  if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxPoint::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxPoint* arg0 = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[0]->ToObject()); /* type: _20412  */
     
 
@@ -103,7 +118,7 @@ wxNode_wxPoint::wxNode_wxPoint(wxNode_wxRealPoint& pt)
   /*
    * id: _26547
    */
-  if(args.Length() == 1 && (args[0]->IsNull() || args[0]->IsObject())) {
+  if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxRealPoint::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxRealPoint* pt = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxRealPoint>(args[0]->ToObject()); /* type: _20523  */
     
 
@@ -144,7 +159,7 @@ wxNode_wxPoint::wxNode_wxPoint(wxNode_wxRealPoint& pt)
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: IsFullySpecified).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxPoint::IsFullySpecified).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -161,7 +176,7 @@ wxNode_wxPoint::wxNode_wxPoint(wxNode_wxRealPoint& pt)
   /*
    * id: _26553
    */
-  if(args.Length() == 1 && (args[0]->IsNull() || args[0]->IsObject())) {
+  if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxPoint::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxPoint* pt = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[0]->ToObject()); /* type: _20412  */
     
 
@@ -172,7 +187,7 @@ wxNode_wxPoint::wxNode_wxPoint(wxNode_wxRealPoint& pt)
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: SetDefaults).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxPoint::SetDefaults).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);

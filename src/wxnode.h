@@ -12,5 +12,4 @@
 #include "wxNodeObject.h"
 #include "wxNode_wxWindowWithItems_wxControl_wxItemContainer.h"
 
-
 #endif

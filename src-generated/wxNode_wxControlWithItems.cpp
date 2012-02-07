@@ -30,6 +30,21 @@
   
 }
 
+/*static*/ bool wxNode_wxControlWithItems::AssignableFrom(const v8::Handle<v8::String>& className) {
+  v8::String::AsciiValue classNameStr(className);
+  return AssignableFrom(*classNameStr);
+}
+
+/*static*/ bool wxNode_wxControlWithItems::AssignableFrom(const char* className) {
+  if(!strcmp("wxControlWithItems", className)) {
+    return true;
+  }
+  if(wxNode_wxWindowWithItems_wxControl_wxItemContainer::AssignableFrom(className)) { return true; }
+
+  printf("wxControlWithItems ?== %s\n", className);
+  return false;
+}
+
 /*static*/ v8::Handle<v8::Value> wxNode_wxControlWithItems::_init(const v8::Arguments& args) {
   v8::HandleScope scope;
 
@@ -64,7 +79,7 @@
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: ShouldInheritColours).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxControlWithItems::ShouldInheritColours).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);

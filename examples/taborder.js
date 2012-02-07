@@ -45,7 +45,7 @@ var MyTabTextCtrl = wxNode.wxTextCtrl.extend({
     this._super(parent, wxNode.wxID_ANY, value,
                      wxNode.wxDefaultPosition, wxNode.wxDefaultSize,
                      flags);
-    // TODO: this.connect(wxNode.wxEVT_KEY_DOWN, this.onKeyDown);
+    //TODO: this.connect(wxNode.wxEVT_KEY_DOWN, this.onKeyDown);
   },
 
   onKeyDown: function(event) {
@@ -188,10 +188,8 @@ var MyPanel = wxNode.wxPanel.extend({
     this._super(parent, wxNode.wxID_ANY);
 
     var notebook = new wxNode.wxNotebook(this, wxNode.wxID_ANY);
-/* TODO
     notebook.addPage(this.createButtonPage(notebook), "Button");
     notebook.addPage(this.createTextPage(notebook), "Text");
-*/
     var sizerV = new wxNode.wxBoxSizer(wxNode.wxVERTICAL);
     var sizerFlags = new wxNode.wxSizerFlags(1).expand();
     sizerV.add(notebook, sizerFlags);
@@ -226,7 +224,6 @@ var MyPanel = wxNode.wxPanel.extend({
 
     var sizerPage = new wxNode.wxBoxSizer(wxNode.wxVERTICAL);
     var page = new wxNode.wxPanel(parent);
-
     var sizerH = new wxNode.wxBoxSizer(wxNode.wxHORIZONTAL);
     sizerH.add(new wxNode.wxStaticText(page, wxNode.wxID_ANY, "&Label:"), flagsBorder);
     sizerH.add(new MyTabTextCtrl(page, "TAB ignored here"), flagsBorder);

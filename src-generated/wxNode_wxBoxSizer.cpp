@@ -53,6 +53,21 @@ wxNode_wxBoxSizer::wxNode_wxBoxSizer(int orient)
   
 }
 
+/*static*/ bool wxNode_wxBoxSizer::AssignableFrom(const v8::Handle<v8::String>& className) {
+  v8::String::AsciiValue classNameStr(className);
+  return AssignableFrom(*classNameStr);
+}
+
+/*static*/ bool wxNode_wxBoxSizer::AssignableFrom(const char* className) {
+  if(!strcmp("wxBoxSizer", className)) {
+    return true;
+  }
+  if(wxNode_wxSizer::AssignableFrom(className)) { return true; }
+
+  printf("wxBoxSizer ?== %s\n", className);
+  return false;
+}
+
 /*static*/ v8::Handle<v8::Value> wxNode_wxBoxSizer::_init(const v8::Arguments& args) {
   v8::HandleScope scope;
 
@@ -61,7 +76,7 @@ wxNode_wxBoxSizer::wxNode_wxBoxSizer(int orient)
   /*
    * id: _28123
    */
-  if(args.Length() == 1 && (args[0]->IsNull() || args[0]->IsObject())) {
+  if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxBoxSizer::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxBoxSizer* arg0 = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBoxSizer>(args[0]->ToObject()); /* type: _62616  */
     
 
@@ -125,7 +140,7 @@ wxNode_wxBoxSizer::wxNode_wxBoxSizer(int orient)
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: AddSpacer).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxBoxSizer::AddSpacer).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -152,7 +167,7 @@ wxNode_wxBoxSizer::wxNode_wxBoxSizer(int orient)
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: GetOrientation).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxBoxSizer::GetOrientation).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -179,7 +194,7 @@ wxNode_wxBoxSizer::wxNode_wxBoxSizer(int orient)
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: IsVertical).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxBoxSizer::IsVertical).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -207,7 +222,7 @@ wxNode_wxBoxSizer::wxNode_wxBoxSizer(int orient)
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: SetOrientation).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxBoxSizer::SetOrientation).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -243,7 +258,7 @@ wxNode_wxBoxSizer::wxNode_wxBoxSizer(int orient)
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: CalcMin).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxBoxSizer::CalcMin).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -270,7 +285,7 @@ wxNode_wxBoxSizer::wxNode_wxBoxSizer(int orient)
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: RecalcSizes).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxBoxSizer::RecalcSizes).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -306,7 +321,7 @@ wxNode_wxBoxSizer::wxNode_wxBoxSizer(int orient)
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: GetClassInfo).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxBoxSizer::GetClassInfo).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);

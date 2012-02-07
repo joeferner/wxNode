@@ -12,6 +12,8 @@ public:
   static void Init(v8::Handle<v8::Object> target);
   static void AddMethods(v8::Handle<v8::FunctionTemplate> target);
   virtual v8::Handle<v8::Object> self() { return m_self; }
+  static bool AssignableFrom(const v8::Handle<v8::String>& className);
+  static bool AssignableFrom(const char* className);
 
 protected:
   
