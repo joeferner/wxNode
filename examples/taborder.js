@@ -244,5 +244,7 @@ var MyPanel = wxNode.wxPanel.extend({
   }
 });
 
+setInterval(function() { console.log("timer"); }, 5000);
+
 var app = new MyApp();
 app.run();

@@ -21,6 +21,12 @@
   NODE_SET_PROTOTYPE_METHOD(s_ct, "setTopWindow", _setTopWindow);
 
   target->Set(v8::String::NewSymbol("wxApp"), s_ct->GetFunction());
+
+  if(!wxInitialize()) {
+    printf("failed to wxInitialize\n"); // TODO: change to exception
+  }
+  wxEventLoop* loop = new wxEventLoop();
+  wxEventLoop::SetActive(loop);
 }
 
 /*static*/ v8::Handle<v8::Value> NodeWxApp::_init(const v8::Arguments& args) {
@@ -40,8 +46,8 @@ bool NodeWxApp::OnInit() {
 /*static*/ v8::Handle<v8::Value> NodeWxApp::_loop(const v8::Arguments& args) {
   wxEventLoopBase* evtLoop = wxEventLoop::GetActive();
   if(evtLoop) {
-    while(evtLoop->Pending()) {
-      evtLoop->Dispatch();
+    while(evtLoop->DispatchTimeout(1) != -1) {
+
     }
   }
 
@@ -51,11 +57,6 @@ bool NodeWxApp::OnInit() {
 /*static*/ v8::Handle<v8::Value> NodeWxApp::_run(const v8::Arguments& args) {
   v8::HandleScope scope;
 
-  if(!wxInitialize()) {
-    printf("failed to wxInitialize\n"); // TODO: change to exception
-  }
-  wxEventLoop* loop = new wxEventLoop();
-  wxEventLoop::SetActive(loop);
   wxTheApp->CallOnInit();
 
   // setInterval the message loop
