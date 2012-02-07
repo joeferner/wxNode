@@ -62,12 +62,9 @@ wxNode_wxPoint::wxNode_wxPoint(wxNode_wxRealPoint& pt)
 }
 
 /*static*/ bool wxNode_wxPoint::AssignableFrom(const char* className) {
-  if(!strcmp("wxPoint", className)) {
-    return true;
-  }
-  if(wxNode_wxEvtHandler::AssignableFrom(className)) { return true; }
+  if(!strcmp("wxPoint", className)) { return true; }
+  
 
-  printf("wxPoint ?== %s\n", className);
   return false;
 }
 

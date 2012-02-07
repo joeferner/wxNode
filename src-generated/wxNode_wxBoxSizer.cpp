@@ -59,12 +59,13 @@ wxNode_wxBoxSizer::wxNode_wxBoxSizer(int orient)
 }
 
 /*static*/ bool wxNode_wxBoxSizer::AssignableFrom(const char* className) {
-  if(!strcmp("wxBoxSizer", className)) {
-    return true;
-  }
-  if(wxNode_wxSizer::AssignableFrom(className)) { return true; }
+  if(!strcmp("wxBoxSizer", className)) { return true; }
+  
+  if(!strcmp("wxStaticBoxSizer", className)) { return true; }
+  if(!strcmp("wxWrapSizer", className)) { return true; }
+  if(!strcmp("wxStdDialogButtonSizer", className)) { return true; }
 
-  printf("wxBoxSizer ?== %s\n", className);
+
   return false;
 }
 
@@ -129,6 +130,7 @@ wxNode_wxBoxSizer::wxNode_wxBoxSizer(int orient)
     
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxSizerItem"));
     wxNode_wxSizerItem::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -247,6 +249,7 @@ wxNode_wxBoxSizer::wxNode_wxBoxSizer(int orient)
     wxSize* returnVal = new wxSize();
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxSize"));
     wxNode_wxSize::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -310,6 +313,7 @@ wxNode_wxBoxSizer::wxNode_wxBoxSizer(int orient)
     
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxClassInfo"));
     wxNode_wxClassInfo::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];

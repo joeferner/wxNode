@@ -357,7 +357,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   NODE_SET_PROTOTYPE_METHOD(target, "getMainWindowOfCompositeControl", _GetMainWindowOfCompositeControl);
   NODE_SET_PROTOTYPE_METHOD(target, "isTopNavigationDomain", _IsTopNavigationDomain);
   NODE_SET_PROTOTYPE_METHOD(target, "getClassInfo", _GetClassInfo);
-
+  
 }
 
 /*static*/ bool wxNode_wxWindow::AssignableFrom(const v8::Handle<v8::String>& className) {
@@ -366,53 +366,410 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 }
 
 /*static*/ bool wxNode_wxWindow::AssignableFrom(const char* className) {
-  if(!strcmp("wxWindow", className)) {
-    return true;
-  }
-  if(!strcmp("wxFrame", className)) {
-    return true;
-  }
-  if(!strcmp("wxPanel", className)) {
-    return true;
-  }
-  if(!strcmp("wxNotebook", className)) {
-    return true;
-  }
-  if(!strcmp("wxButton", className)) {
-    return true;
-  }
-  if(!strcmp("wxStaticText", className)) {
-    return true;
-  }
-  if(!strcmp("wxTextCtrl", className)) {
-    return true;
-  }
-  if(!strcmp("wxListBox", className)) {
-    return true;
-  }
-  if(wxNode_wxEvtHandler::AssignableFrom(className)) { return true; }
+  if(!strcmp("wxWindow", className)) { return true; }
+  
+  if(!strcmp("wxWindow", className)) { return true; }
 
-  printf("wxWindow ?== %s\n", className);
+  if(!strcmp("wxRichTextFontPreviewCtrl", className)) { return true; }
+  if(!strcmp("wxNavigationEnabled<wxWindow>", className)) { return true; }
+
+  if(!strcmp("wxPanelBase", className)) { return true; }
+
+  if(!strcmp("wxPanel", className)) { return true; }
+
+  if(!strcmp("wxScrolled<wxPanel>", className)) { return true; }
+
+  if(!strcmp("wxScrolledWindow", className)) { return true; }
+
+  if(!strcmp("wxPreviewCanvas", className)) { return true; }
+  if(!strcmp("wxHtmlWindow", className)) { return true; }
+  if(!strcmp("wxGrid", className)) { return true; }
+  if(!strcmp("wxWizardPage", className)) { return true; }
+
+  if(!strcmp("wxWizardPageSimple", className)) { return true; }
+  if(!strcmp("wxRichTextDialogPage", className)) { return true; }
+
+  if(!strcmp("wxRichTextFontPage", className)) { return true; }
+  if(!strcmp("wxRichTextMarginsPage", className)) { return true; }
+  if(!strcmp("wxRichTextStylePage", className)) { return true; }
+  if(!strcmp("wxRichTextSizePage", className)) { return true; }
+  if(!strcmp("wxRichTextListStylePage", className)) { return true; }
+  if(!strcmp("wxRichTextTabsPage", className)) { return true; }
+  if(!strcmp("wxRichTextBulletsPage", className)) { return true; }
+  if(!strcmp("wxHVScrolledWindow", className)) { return true; }
+  if(!strcmp("wxHScrolledWindow", className)) { return true; }
+  if(!strcmp("wxVScrolledWindow", className)) { return true; }
+
+  if(!strcmp("wxSymbolListCtrl", className)) { return true; }
+  if(!strcmp("wxVListBox", className)) { return true; }
+
+  if(!strcmp("wxVListBoxComboPopup", className)) { return true; }
+  if(!strcmp("wxHtmlListBox", className)) { return true; }
+
+  if(!strcmp("wxRichTextStyleListBox", className)) { return true; }
+
+  if(!strcmp("wxRichTextStyleComboPopup", className)) { return true; }
+  if(!strcmp("wxWindowWithItems<wxHtmlListBox,wxItemContainer>", className)) { return true; }
+
+  if(!strcmp("wxSimpleHtmlListBox", className)) { return true; }
+  if(!strcmp("wxRichTextFontListBox", className)) { return true; }
+  if(!strcmp("wxRearrangeCtrl", className)) { return true; }
+  if(!strcmp("wxEditableListBox", className)) { return true; }
+  if(!strcmp("wxPreviewControlBar", className)) { return true; }
+  if(!strcmp("wxAuiMDIChildFrame", className)) { return true; }
+  if(!strcmp("wxSplitterWindow", className)) { return true; }
+  if(!strcmp("wxCompositeWindow<wxNavigationEnabled<wxWindow> >", className)) { return true; }
+
+  if(!strcmp("wxTreeListCtrl", className)) { return true; }
+  if(!strcmp("wxBannerWindow", className)) { return true; }
+  if(!strcmp("wxNonOwnedWindowBase", className)) { return true; }
+
+  if(!strcmp("wxNonOwnedWindow", className)) { return true; }
+
+  if(!strcmp("wxNavigationEnabled<wxNonOwnedWindow>", className)) { return true; }
+
+  if(!strcmp("wxTopLevelWindowBase", className)) { return true; }
+
+  if(!strcmp("wxTopLevelWindowGTK", className)) { return true; }
+
+  if(!strcmp("wxTopLevelWindow", className)) { return true; }
+
+  if(!strcmp("wxNativeContainerWindow", className)) { return true; }
+  if(!strcmp("wxFrameBase", className)) { return true; }
+
+  if(!strcmp("wxFrame", className)) { return true; }
+
+  if(!strcmp("wxPreviewFrame", className)) { return true; }
+  if(!strcmp("wxAuiMDIParentFrame", className)) { return true; }
+  if(!strcmp("wxDocChildFrameAny<wxFrame,wxFrame>", className)) { return true; }
+
+  if(!strcmp("wxDocChildFrame", className)) { return true; }
+  if(!strcmp("wxSplashScreen", className)) { return true; }
+  if(!strcmp("wxMDIChildFrameBase", className)) { return true; }
+
+  if(!strcmp("wxTDIChildFrame", className)) { return true; }
+
+  if(!strcmp("wxMDIChildFrame", className)) { return true; }
+
+  if(!strcmp("wxDocChildFrameAny<wxMDIChildFrame,wxMDIParentFrame>", className)) { return true; }
+
+  if(!strcmp("wxDocMDIChildFrame", className)) { return true; }
+  if(!strcmp("wxDocParentFrameAny<wxFrame>", className)) { return true; }
+
+  if(!strcmp("wxDocParentFrame", className)) { return true; }
+  if(!strcmp("wxMiniFrame", className)) { return true; }
+
+  if(!strcmp("wxAuiFloatingFrame", className)) { return true; }
+  if(!strcmp("wxHtmlHelpFrame", className)) { return true; }
+  if(!strcmp("wxMDIParentFrameBase", className)) { return true; }
+
+  if(!strcmp("wxMDIParentFrame", className)) { return true; }
+
+  if(!strcmp("wxDocParentFrameAny<wxMDIParentFrame>", className)) { return true; }
+
+  if(!strcmp("wxDocMDIParentFrame", className)) { return true; }
+  if(!strcmp("wxDialogBase", className)) { return true; }
+
+  if(!strcmp("wxDialog", className)) { return true; }
+
+  if(!strcmp("wxFontDialogBase", className)) { return true; }
+
+  if(!strcmp("wxFontDialog", className)) { return true; }
+  if(!strcmp("wxRearrangeDialog", className)) { return true; }
+  if(!strcmp("wxDirDialogBase", className)) { return true; }
+
+  if(!strcmp("wxDirDialog", className)) { return true; }
+  if(!strcmp("wxWizardBase", className)) { return true; }
+
+  if(!strcmp("wxWizard", className)) { return true; }
+  if(!strcmp("wxMessageDialogBase", className)) { return true; }
+
+  if(!strcmp("wxMessageDialog", className)) { return true; }
+  if(!strcmp("wxGenericMessageDialog", className)) { return true; }
+
+  if(!strcmp("wxRichMessageDialogBase", className)) { return true; }
+
+  if(!strcmp("wxGenericRichMessageDialog", className)) { return true; }
+
+  if(!strcmp("wxRichMessageDialog", className)) { return true; }
+  if(!strcmp("wxColourDialog", className)) { return true; }
+  if(!strcmp("wxHtmlHelpDialog", className)) { return true; }
+  if(!strcmp("wxFindReplaceDialogBase", className)) { return true; }
+
+  if(!strcmp("wxFindReplaceDialog", className)) { return true; }
+  if(!strcmp("wxPrintAbortDialog", className)) { return true; }
+  if(!strcmp("wxAnyChoiceDialog", className)) { return true; }
+
+  if(!strcmp("wxSingleChoiceDialog", className)) { return true; }
+  if(!strcmp("wxMultiChoiceDialog", className)) { return true; }
+  if(!strcmp("wxTextEntryDialog", className)) { return true; }
+
+  if(!strcmp("wxPasswordEntryDialog", className)) { return true; }
+  if(!strcmp("wxRichTextStyleOrganiserDialog", className)) { return true; }
+  if(!strcmp("wxPrintDialogBase", className)) { return true; }
+  if(!strcmp("wxPageSetupDialogBase", className)) { return true; }
+  if(!strcmp("wxSymbolPickerDialog", className)) { return true; }
+  if(!strcmp("wxFileDialogBase", className)) { return true; }
+
+  if(!strcmp("wxFileDialog", className)) { return true; }
+  if(!strcmp("wxNumberEntryDialog", className)) { return true; }
+  if(!strcmp("wxPropertySheetDialog", className)) { return true; }
+
+  if(!strcmp("wxRichTextFormattingDialog", className)) { return true; }
+  if(!strcmp("wxGenericProgressDialog", className)) { return true; }
+
+  if(!strcmp("wxProgressDialog", className)) { return true; }
+  if(!strcmp("wxPopupWindowBase", className)) { return true; }
+
+  if(!strcmp("wxPopupWindow", className)) { return true; }
+
+  if(!strcmp("wxPopupTransientWindow", className)) { return true; }
+
+  if(!strcmp("wxTipWindow", className)) { return true; }
+  if(!strcmp("wxMDIClientWindowBase", className)) { return true; }
+
+  if(!strcmp("wxMDIClientWindow", className)) { return true; }
+  if(!strcmp("wxSplashScreenWindow", className)) { return true; }
+  if(!strcmp("wxMenuBarBase", className)) { return true; }
+
+  if(!strcmp("wxMenuBar", className)) { return true; }
+  if(!strcmp("wxHtmlHelpWindow", className)) { return true; }
+  if(!strcmp("wxSashWindow", className)) { return true; }
+
+  if(!strcmp("wxSashLayoutWindow", className)) { return true; }
+  if(!strcmp("wxControlBase", className)) { return true; }
+
+  if(!strcmp("wxControl", className)) { return true; }
+
+  if(!strcmp("wxDateTimePickerCtrlBase", className)) { return true; }
+
+  if(!strcmp("wxDatePickerCtrlBase", className)) { return true; }
+
+  if(!strcmp("wxCompositeWindow<wxDatePickerCtrlBase>", className)) { return true; }
+
+  if(!strcmp("wxDatePickerCtrlGeneric", className)) { return true; }
+
+  if(!strcmp("wxDatePickerCtrl", className)) { return true; }
+  if(!strcmp("wxTimePickerCtrlBase", className)) { return true; }
+
+  if(!strcmp("wxNavigationEnabled<wxTimePickerCtrlBase>", className)) { return true; }
+
+  if(!strcmp("wxCompositeWindow<wxNavigationEnabled<wxTimePickerCtrlBase> >", className)) { return true; }
+
+  if(!strcmp("wxTimePickerCtrlGeneric", className)) { return true; }
+
+  if(!strcmp("wxTimePickerCtrl", className)) { return true; }
+  if(!strcmp("wxGaugeBase", className)) { return true; }
+  if(!strcmp("wxComboCtrlBase", className)) { return true; }
+
+  if(!strcmp("wxGenericComboCtrl", className)) { return true; }
+
+  if(!strcmp("wxComboCtrl", className)) { return true; }
+
+  if(!strcmp("wxRichTextStyleComboCtrl", className)) { return true; }
+  if(!strcmp("wxWindowWithItems<wxComboCtrl,wxItemContainer>", className)) { return true; }
+
+  if(!strcmp("wxOwnerDrawnComboBox", className)) { return true; }
+  if(!strcmp("wxNavigationEnabled<wxControl>", className)) { return true; }
+
+  if(!strcmp("wxPickerBase", className)) { return true; }
+
+  if(!strcmp("wxColourPickerCtrl", className)) { return true; }
+  if(!strcmp("wxFontPickerCtrl", className)) { return true; }
+  if(!strcmp("wxFileDirPickerCtrlBase", className)) { return true; }
+
+  if(!strcmp("wxDirPickerCtrl", className)) { return true; }
+  if(!strcmp("wxFilePickerCtrl", className)) { return true; }
+  if(!strcmp("wxCompositeWindow<wxNavigationEnabled<wxControl> >", className)) { return true; }
+
+  if(!strcmp("wxSearchCtrlBaseBaseClass", className)) { return true; }
+
+  if(!strcmp("wxSearchCtrlBase", className)) { return true; }
+
+  if(!strcmp("wxSearchCtrl", className)) { return true; }
+  if(!strcmp("wxInfoBarBase", className)) { return true; }
+
+  if(!strcmp("wxInfoBarGeneric", className)) { return true; }
+
+  if(!strcmp("wxInfoBar", className)) { return true; }
+  if(!strcmp("wxBookCtrlBase", className)) { return true; }
+
+  if(!strcmp("wxToolbook", className)) { return true; }
+  if(!strcmp("wxNavigationEnabled<wxBookCtrlBase>", className)) { return true; }
+
+  if(!strcmp("wxAuiNotebook", className)) { return true; }
+
+  if(!strcmp("wxAuiMDIClientWindow", className)) { return true; }
+  if(!strcmp("wxChoicebook", className)) { return true; }
+  if(!strcmp("wxNotebookBase", className)) { return true; }
+
+  if(!strcmp("wxNotebook", className)) { return true; }
+  if(!strcmp("wxTreebook", className)) { return true; }
+  if(!strcmp("wxListbook", className)) { return true; }
+  if(!strcmp("wxTextCtrlBase", className)) { return true; }
+
+  if(!strcmp("wxTextCtrl", className)) { return true; }
+  if(!strcmp("wxRadioBox", className)) { return true; }
+  if(!strcmp("wxAnimationCtrlBase", className)) { return true; }
+
+  if(!strcmp("wxAnimationCtrl", className)) { return true; }
+  if(!strcmp("wxStaticBitmapBase", className)) { return true; }
+
+  if(!strcmp("wxStaticBitmap", className)) { return true; }
+  if(!strcmp("wxRichTextCtrl", className)) { return true; }
+  if(!strcmp("wxAnyButtonBase", className)) { return true; }
+
+  if(!strcmp("wxAnyButton", className)) { return true; }
+
+  if(!strcmp("wxToggleButtonBase", className)) { return true; }
+
+  if(!strcmp("wxToggleButton", className)) { return true; }
+
+  if(!strcmp("wxBitmapToggleButton", className)) { return true; }
+  if(!strcmp("wxButtonBase", className)) { return true; }
+
+  if(!strcmp("wxButton", className)) { return true; }
+
+  if(!strcmp("wxBitmapButtonBase", className)) { return true; }
+
+  if(!strcmp("wxBitmapButton", className)) { return true; }
+
+  if(!strcmp("wxContextHelpButton", className)) { return true; }
+  if(!strcmp("wxGenericFileDirButton", className)) { return true; }
+
+  if(!strcmp("wxGenericFileButton", className)) { return true; }
+
+  if(!strcmp("wxFileButton", className)) { return true; }
+  if(!strcmp("wxGenericDirButton", className)) { return true; }
+
+  if(!strcmp("wxDirButton", className)) { return true; }
+  if(!strcmp("wxCommandLinkButtonBase", className)) { return true; }
+
+  if(!strcmp("wxGenericCommandLinkButton", className)) { return true; }
+
+  if(!strcmp("wxCommandLinkButton", className)) { return true; }
+  if(!strcmp("wxFontButton", className)) { return true; }
+  if(!strcmp("wxColourButton", className)) { return true; }
+  if(!strcmp("wxStatusBarBase", className)) { return true; }
+
+  if(!strcmp("wxStatusBar", className)) { return true; }
+  if(!strcmp("wxWindowWithItems<wxControl,wxItemContainer>", className)) { return true; }
+
+  if(!strcmp("wxControlWithItemsBase", className)) { return true; }
+
+  if(!strcmp("wxControlWithItems", className)) { return true; }
+
+  if(!strcmp("wxChoiceBase", className)) { return true; }
+
+  if(!strcmp("wxChoice", className)) { return true; }
+
+  if(!strcmp("wxComboBox", className)) { return true; }
+
+  if(!strcmp("wxBitmapComboBox", className)) { return true; }
+  if(!strcmp("wxDirFilterListCtrl", className)) { return true; }
+  if(!strcmp("wxListBoxBase", className)) { return true; }
+
+  if(!strcmp("wxListBox", className)) { return true; }
+
+  if(!strcmp("wxCheckListBoxBase", className)) { return true; }
+  if(!strcmp("wxCheckListBox", className)) { return true; }
+
+  if(!strcmp("wxRearrangeList", className)) { return true; }
+  if(!strcmp("wxToolBarBase", className)) { return true; }
+
+  if(!strcmp("wxToolBar", className)) { return true; }
+  if(!strcmp("wxSpinButtonBase", className)) { return true; }
+
+  if(!strcmp("wxSpinButton", className)) { return true; }
+  if(!strcmp("wxDataViewCtrlBase", className)) { return true; }
+
+  if(!strcmp("wxDataViewCtrl", className)) { return true; }
+
+  if(!strcmp("wxDataViewListCtrl", className)) { return true; }
+  if(!strcmp("wxDataViewTreeCtrl", className)) { return true; }
+  if(!strcmp("wxHeaderCtrlBase", className)) { return true; }
+
+  if(!strcmp("wxHeaderCtrl", className)) { return true; }
+
+  if(!strcmp("wxHeaderCtrlSimple", className)) { return true; }
+  if(!strcmp("wxSliderBase", className)) { return true; }
+
+  if(!strcmp("wxSlider", className)) { return true; }
+  if(!strcmp("wxCheckBoxBase", className)) { return true; }
+
+  if(!strcmp("wxCheckBox", className)) { return true; }
+  if(!strcmp("wxCollapsiblePaneBase", className)) { return true; }
+
+  if(!strcmp("wxCollapsiblePane", className)) { return true; }
+  if(!strcmp("wxHyperlinkCtrlBase", className)) { return true; }
+
+  if(!strcmp("wxGenericHyperlinkCtrl", className)) { return true; }
+
+  if(!strcmp("wxHyperlinkCtrl", className)) { return true; }
+  if(!strcmp("wxStyledTextCtrl", className)) { return true; }
+  if(!strcmp("wxRichTextStyleListCtrl", className)) { return true; }
+  if(!strcmp("wxStaticTextBase", className)) { return true; }
+
+  if(!strcmp("wxStaticText", className)) { return true; }
+  if(!strcmp("wxScrollBarBase", className)) { return true; }
+
+  if(!strcmp("wxScrollBar", className)) { return true; }
+  if(!strcmp("wxTreeCtrlBase", className)) { return true; }
+
+  if(!strcmp("wxGenericTreeCtrl", className)) { return true; }
+
+  if(!strcmp("wxTreeCtrl", className)) { return true; }
+  if(!strcmp("wxListCtrlBase", className)) { return true; }
+
+  if(!strcmp("wxGenericListCtrl", className)) { return true; }
+
+  if(!strcmp("wxListCtrl", className)) { return true; }
+
+  if(!strcmp("wxListView", className)) { return true; }
+  if(!strcmp("wxSpinCtrlBase", className)) { return true; }
+
+  if(!strcmp("wxSpinCtrlGTKBase", className)) { return true; }
+
+  if(!strcmp("wxSpinCtrlDouble", className)) { return true; }
+  if(!strcmp("wxSpinCtrl", className)) { return true; }
+  if(!strcmp("wxGauge", className)) { return true; }
+  if(!strcmp("wxGtkFileCtrl", className)) { return true; }
+  if(!strcmp("wxAuiToolBar", className)) { return true; }
+  if(!strcmp("wxRadioButton", className)) { return true; }
+  if(!strcmp("wxCalendarCtrlBase", className)) { return true; }
+
+  if(!strcmp("wxGtkCalendarCtrl", className)) { return true; }
+  if(!strcmp("wxGenericDirCtrl", className)) { return true; }
+  if(!strcmp("wxStaticBoxBase", className)) { return true; }
+
+  if(!strcmp("wxStaticBox", className)) { return true; }
+  if(!strcmp("wxAuiTabCtrl", className)) { return true; }
+  if(!strcmp("wxStaticLineBase", className)) { return true; }
+
+  if(!strcmp("wxStaticLine", className)) { return true; }
+  if(!strcmp("wxRichTextColourSwatchCtrl", className)) { return true; }
+
+
   return false;
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxWindow::_init(const v8::Arguments& args) {
   v8::HandleScope scope;
 
-
-
+  
+  
   /*
    * id: _21131
    */
   if(args.Length() == 0) {
-
+    
 
     wxNode_wxWindow *self = new wxNode_wxWindow();
     NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>(self);
     self->wrap(args.This(), self, evtHandler);
     return args.This();
   }
-
+  
   /*
    * id: _21132
    */
@@ -423,14 +780,14 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     wxNode_wxSize* size = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[3]->ToObject()); /* type: _20522  */
     long int style = (long int)args[4]->ToInt32()->Value(); /* type: _586  */
     v8::String::AsciiValue name(args[5]->ToString()); /* type: _14808  */
-
+    
 
     wxNode_wxWindow *self = new wxNode_wxWindow(parent, id, *pos, *size, style, *name);
     NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>(self);
     self->wrap(args.This(), self, evtHandler);
     return args.This();
   }
-
+  
   /*
    * id: _21132
    */
@@ -440,14 +797,14 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     wxNode_wxPoint* pos = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[2]->ToObject()); /* type: _20412  */
     wxNode_wxSize* size = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[3]->ToObject()); /* type: _20522  */
     long int style = (long int)args[4]->ToInt32()->Value(); /* type: _586  */
-
+    
 
     wxNode_wxWindow *self = new wxNode_wxWindow(parent, id, *pos, *size, style);
     NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>(self);
     self->wrap(args.This(), self, evtHandler);
     return args.This();
   }
-
+  
   /*
    * id: _21132
    */
@@ -456,14 +813,14 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     int id = (int)args[1]->ToInt32()->Value(); /* type: _8633  */
     wxNode_wxPoint* pos = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[2]->ToObject()); /* type: _20412  */
     wxNode_wxSize* size = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[3]->ToObject()); /* type: _20522  */
-
+    
 
     wxNode_wxWindow *self = new wxNode_wxWindow(parent, id, *pos, *size);
     NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>(self);
     self->wrap(args.This(), self, evtHandler);
     return args.This();
   }
-
+  
   /*
    * id: _21132
    */
@@ -471,29 +828,29 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _993 * */
     int id = (int)args[1]->ToInt32()->Value(); /* type: _8633  */
     wxNode_wxPoint* pos = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[2]->ToObject()); /* type: _20412  */
-
+    
 
     wxNode_wxWindow *self = new wxNode_wxWindow(parent, id, *pos);
     NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>(self);
     self->wrap(args.This(), self, evtHandler);
     return args.This();
   }
-
+  
   /*
    * id: _21132
    */
   if(args.Length() == 2 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxWindow::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsNumber()) {
     wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _993 * */
     int id = (int)args[1]->ToInt32()->Value(); /* type: _8633  */
-
+    
 
     wxNode_wxWindow *self = new wxNode_wxWindow(parent, id);
     NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>(self);
     self->wrap(args.This(), self, evtHandler);
     return args.This();
   }
-
-
+  
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching constructor for arguments (class name: wxWindow).\n";                           \
@@ -510,30 +867,30 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42830
    */
   if(args.Length() == 1 && args[0]->IsBoolean()) {
     bool force = args[0]->ToBoolean()->Value(); /* type: _14666  */
-
+    
 
     bool returnVal = self->Close(force);
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
   /*
    * id: _42830
    */
   if(args.Length() == 0) {
-
+    
 
     bool returnVal = self->Close();
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::Close).\n";                           \
@@ -549,18 +906,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42831
    */
   if(args.Length() == 0) {
-
+    
 
     bool returnVal = self->Destroy();
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::Destroy).\n";                           \
@@ -576,18 +933,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42832
    */
   if(args.Length() == 0) {
-
+    
 
     bool returnVal = self->DestroyChildren();
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::DestroyChildren).\n";                           \
@@ -603,18 +960,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42833
    */
   if(args.Length() == 0) {
-
+    
 
     bool returnVal = self->IsBeingDeleted();
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::IsBeingDeleted).\n";                           \
@@ -630,19 +987,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42834
    */
   if(args.Length() == 1 && args[0]->IsString()) {
     v8::String::AsciiValue label(args[0]->ToString()); /* type: _14808  */
-
+    
 
     self->SetLabel(*label);
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::SetLabel).\n";                           \
@@ -658,18 +1015,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42835
    */
   if(args.Length() == 0) {
-
+    
 
     wxString returnVal = self->GetLabel();
 
     return scope.Close(v8::String::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetLabel).\n";                           \
@@ -685,19 +1042,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42836
    */
   if(args.Length() == 1 && args[0]->IsString()) {
     v8::String::AsciiValue name(args[0]->ToString()); /* type: _14808  */
-
+    
 
     self->SetName(*name);
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::SetName).\n";                           \
@@ -713,18 +1070,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42837
    */
   if(args.Length() == 0) {
-
+    
 
     wxString returnVal = self->GetName();
 
     return scope.Close(v8::String::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetName).\n";                           \
@@ -740,19 +1097,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42838
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
     wxWindowVariant variant; /* type: _10472  */
-
+    
 
     self->SetWindowVariant(variant);
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::SetWindowVariant).\n";                           \
@@ -768,18 +1125,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42839
    */
   if(args.Length() == 0) {
-
+    
 
     int returnVal = (int)self->GetWindowVariant();
 
     return scope.Close(v8::Number::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetWindowVariant).\n";                           \
@@ -795,18 +1152,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42840
    */
   if(args.Length() == 0) {
-
+    
 
     int returnVal = (int)self->GetLayoutDirection();
 
     return scope.Close(v8::Number::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetLayoutDirection).\n";                           \
@@ -822,19 +1179,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42841
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
     wxLayoutDirection arg0; /* type: _6334  */
-
+    
 
     self->SetLayoutDirection(arg0);
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::SetLayoutDirection).\n";                           \
@@ -850,7 +1207,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42842
    */
@@ -858,13 +1215,13 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     int x = (int)args[0]->ToInt32()->Value(); /* type: _12095  */
     int width = (int)args[1]->ToInt32()->Value(); /* type: _12095  */
     int widthTotal = (int)args[2]->ToInt32()->Value(); /* type: _12095  */
-
+    
 
     int returnVal = self->AdjustForLayoutDirection(x, width, widthTotal);
 
     return scope.Close(v8::Number::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::AdjustForLayoutDirection).\n";                           \
@@ -880,19 +1237,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42843
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
     int winid = (int)args[0]->ToInt32()->Value(); /* type: _8633  */
-
+    
 
     self->SetId(winid);
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::SetId).\n";                           \
@@ -908,18 +1265,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42844
    */
   if(args.Length() == 0) {
-
+    
 
     int returnVal = self->GetId();
 
     return scope.Close(v8::Number::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetId).\n";                           \
@@ -935,30 +1292,30 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42845
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
     int count = (int)args[0]->ToInt32()->Value(); /* type: _162  */
-
+    
 
     int returnVal = self->NewControlId(count);
 
     return scope.Close(v8::Number::New(returnVal));
   }
-
+  
   /*
    * id: _42845
    */
   if(args.Length() == 0) {
-
+    
 
     int returnVal = self->NewControlId();
 
     return scope.Close(v8::Number::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::NewControlId).\n";                           \
@@ -974,32 +1331,32 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42846
    */
   if(args.Length() == 2 && args[0]->IsNumber() && args[1]->IsNumber()) {
     int id = (int)args[0]->ToInt32()->Value(); /* type: _8633  */
     int count = (int)args[1]->ToInt32()->Value(); /* type: _162  */
-
+    
 
     self->UnreserveControlId(id, count);
 
     return v8::Undefined();
   }
-
+  
   /*
    * id: _42846
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
     int id = (int)args[0]->ToInt32()->Value(); /* type: _8633  */
-
+    
 
     self->UnreserveControlId(id);
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::UnreserveControlId).\n";                           \
@@ -1015,7 +1372,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42847
    */
@@ -1025,13 +1382,13 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     int width = (int)args[2]->ToInt32()->Value(); /* type: _162  */
     int height = (int)args[3]->ToInt32()->Value(); /* type: _162  */
     int sizeFlags = (int)args[4]->ToInt32()->Value(); /* type: _162  */
-
+    
 
     self->SetSize(x, y, width, height, sizeFlags);
 
     return v8::Undefined();
   }
-
+  
   /*
    * id: _42847
    */
@@ -1040,63 +1397,63 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     int y = (int)args[1]->ToInt32()->Value(); /* type: _162  */
     int width = (int)args[2]->ToInt32()->Value(); /* type: _162  */
     int height = (int)args[3]->ToInt32()->Value(); /* type: _162  */
-
+    
 
     self->SetSize(x, y, width, height);
 
     return v8::Undefined();
   }
-
+  
   /*
    * id: _42848
    */
   if(args.Length() == 2 && args[0]->IsNumber() && args[1]->IsNumber()) {
     int width = (int)args[0]->ToInt32()->Value(); /* type: _162  */
     int height = (int)args[1]->ToInt32()->Value(); /* type: _162  */
-
+    
 
     self->SetSize(width, height);
 
     return v8::Undefined();
   }
-
+  
   /*
    * id: _42849
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxSize::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxSize* size = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[0]->ToObject()); /* type: _20522  */
-
+    
 
     self->SetSize(*size);
 
     return v8::Undefined();
   }
-
+  
   /*
    * id: _42850
    */
   if(args.Length() == 2 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxRect::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsNumber()) {
     wxNode_wxRect* rect = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxRect>(args[0]->ToObject()); /* type: _24778  */
     int sizeFlags = (int)args[1]->ToInt32()->Value(); /* type: _162  */
-
+    
 
     self->SetSize(*rect, sizeFlags);
 
     return v8::Undefined();
   }
-
+  
   /*
    * id: _42850
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxRect::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxRect* rect = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxRect>(args[0]->ToObject()); /* type: _24778  */
-
+    
 
     self->SetSize(*rect);
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::SetSize).\n";                           \
@@ -1112,7 +1469,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42851
    */
@@ -1120,51 +1477,51 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     int x = (int)args[0]->ToInt32()->Value(); /* type: _162  */
     int y = (int)args[1]->ToInt32()->Value(); /* type: _162  */
     int flags = (int)args[2]->ToInt32()->Value(); /* type: _162  */
-
+    
 
     self->Move(x, y, flags);
 
     return v8::Undefined();
   }
-
+  
   /*
    * id: _42851
    */
   if(args.Length() == 2 && args[0]->IsNumber() && args[1]->IsNumber()) {
     int x = (int)args[0]->ToInt32()->Value(); /* type: _162  */
     int y = (int)args[1]->ToInt32()->Value(); /* type: _162  */
-
+    
 
     self->Move(x, y);
 
     return v8::Undefined();
   }
-
+  
   /*
    * id: _42852
    */
   if(args.Length() == 2 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxPoint::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsNumber()) {
     wxNode_wxPoint* pt = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[0]->ToObject()); /* type: _20412  */
     int flags = (int)args[1]->ToInt32()->Value(); /* type: _162  */
-
+    
 
     self->Move(*pt, flags);
 
     return v8::Undefined();
   }
-
+  
   /*
    * id: _42852
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxPoint::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxPoint* pt = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[0]->ToObject()); /* type: _20412  */
-
+    
 
     self->Move(*pt);
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::Move).\n";                           \
@@ -1180,19 +1537,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42853
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxPoint::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxPoint* pt = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[0]->ToObject()); /* type: _20412  */
-
+    
 
     self->SetPosition(*pt);
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::SetPosition).\n";                           \
@@ -1208,18 +1565,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42854
    */
   if(args.Length() == 0) {
-
+    
 
     self->Raise();
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::Raise).\n";                           \
@@ -1235,18 +1592,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42855
    */
   if(args.Length() == 0) {
-
+    
 
     self->Lower();
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::Lower).\n";                           \
@@ -1262,44 +1619,44 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42856
    */
   if(args.Length() == 2 && args[0]->IsNumber() && args[1]->IsNumber()) {
     int width = (int)args[0]->ToInt32()->Value(); /* type: _162  */
     int height = (int)args[1]->ToInt32()->Value(); /* type: _162  */
-
+    
 
     self->SetClientSize(width, height);
 
     return v8::Undefined();
   }
-
+  
   /*
    * id: _42857
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxSize::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxSize* size = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[0]->ToObject()); /* type: _20522  */
-
+    
 
     self->SetClientSize(*size);
 
     return v8::Undefined();
   }
-
+  
   /*
    * id: _42858
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxRect::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxRect* rect = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxRect>(args[0]->ToObject()); /* type: _24778  */
-
+    
 
     self->SetClientSize(*rect);
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::SetClientSize).\n";                           \
@@ -1315,31 +1672,32 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42859
    */
   if(args.Length() == 2 && false && false) {
     int x; /* type: _16500 * */
     int y; /* type: _16500 * */
-
+    
 
     self->GetPosition(&x, &y);
 
     return v8::Undefined();
   }
-
+  
   /*
    * id: _42860
    */
   if(args.Length() == 0) {
-
+    
 
     wxPoint returnValTemp = self->GetPosition();
 
     wxPoint* returnVal = new wxPoint();
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxPoint"));
     wxNode_wxPoint::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -1348,7 +1706,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetPosition).\n";                           \
@@ -1364,31 +1722,32 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42861
    */
   if(args.Length() == 2 && false && false) {
     int x; /* type: _16500 * */
     int y; /* type: _16500 * */
-
+    
 
     self->GetScreenPosition(&x, &y);
 
     return v8::Undefined();
   }
-
+  
   /*
    * id: _42862
    */
   if(args.Length() == 0) {
-
+    
 
     wxPoint returnValTemp = self->GetScreenPosition();
 
     wxPoint* returnVal = new wxPoint();
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxPoint"));
     wxNode_wxPoint::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -1397,7 +1756,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetScreenPosition).\n";                           \
@@ -1413,31 +1772,32 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42863
    */
   if(args.Length() == 2 && false && false) {
     int w; /* type: _16500 * */
     int h; /* type: _16500 * */
-
+    
 
     self->GetSize(&w, &h);
 
     return v8::Undefined();
   }
-
+  
   /*
    * id: _42864
    */
   if(args.Length() == 0) {
-
+    
 
     wxSize returnValTemp = self->GetSize();
 
     wxSize* returnVal = new wxSize();
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxSize"));
     wxNode_wxSize::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -1446,7 +1806,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetSize).\n";                           \
@@ -1462,31 +1822,32 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42865
    */
   if(args.Length() == 2 && false && false) {
     int w; /* type: _16500 * */
     int h; /* type: _16500 * */
-
+    
 
     self->GetClientSize(&w, &h);
 
     return v8::Undefined();
   }
-
+  
   /*
    * id: _42866
    */
   if(args.Length() == 0) {
-
+    
 
     wxSize returnValTemp = self->GetClientSize();
 
     wxSize* returnVal = new wxSize();
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxSize"));
     wxNode_wxSize::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -1495,7 +1856,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetClientSize).\n";                           \
@@ -1511,18 +1872,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42867
    */
   if(args.Length() == 0) {
-
+    
 
     wxRect returnValTemp = self->GetRect();
 
     wxRect* returnVal = new wxRect();
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxRect"));
     wxNode_wxRect::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -1531,7 +1893,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetRect).\n";                           \
@@ -1547,18 +1909,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42868
    */
   if(args.Length() == 0) {
-
+    
 
     wxRect returnValTemp = self->GetScreenRect();
 
     wxRect* returnVal = new wxRect();
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxRect"));
     wxNode_wxRect::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -1567,7 +1930,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetScreenRect).\n";                           \
@@ -1583,18 +1946,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42869
    */
   if(args.Length() == 0) {
-
+    
 
     wxPoint returnValTemp = self->GetClientAreaOrigin();
 
     wxPoint* returnVal = new wxPoint();
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxPoint"));
     wxNode_wxPoint::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -1603,7 +1967,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetClientAreaOrigin).\n";                           \
@@ -1619,18 +1983,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42870
    */
   if(args.Length() == 0) {
-
+    
 
     wxRect returnValTemp = self->GetClientRect();
 
     wxRect* returnVal = new wxRect();
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxRect"));
     wxNode_wxRect::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -1639,7 +2004,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetClientRect).\n";                           \
@@ -1655,19 +2020,20 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42871
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxSize::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxSize* size = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[0]->ToObject()); /* type: _20522  */
-
+    
 
     wxSize returnValTemp = self->ClientToWindowSize(*size);
 
     wxSize* returnVal = new wxSize();
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxSize"));
     wxNode_wxSize::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -1676,7 +2042,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::ClientToWindowSize).\n";                           \
@@ -1692,19 +2058,20 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42872
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxSize::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxSize* size = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[0]->ToObject()); /* type: _20522  */
-
+    
 
     wxSize returnValTemp = self->WindowToClientSize(*size);
 
     wxSize* returnVal = new wxSize();
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxSize"));
     wxNode_wxSize::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -1713,7 +2080,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::WindowToClientSize).\n";                           \
@@ -1729,18 +2096,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42873
    */
   if(args.Length() == 0) {
-
+    
 
     wxSize returnValTemp = self->GetBestSize();
 
     wxSize* returnVal = new wxSize();
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxSize"));
     wxNode_wxSize::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -1749,20 +2117,20 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
   }
-
+  
   /*
    * id: _42874
    */
   if(args.Length() == 2 && false && false) {
     int w; /* type: _16500 * */
     int h; /* type: _16500 * */
-
+    
 
     self->GetBestSize(&w, &h);
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetBestSize).\n";                           \
@@ -1778,19 +2146,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42875
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxScrollHelper::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxScrollHelper* sh = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxScrollHelper>(args[0]->ToObject()); /* type: _65956 * */
-
+    
 
     self->SetScrollHelper(sh);
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::SetScrollHelper).\n";                           \
@@ -1806,18 +2174,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42876
    */
   if(args.Length() == 0) {
-
+    
 
     wxScrollHelper* returnVal = self->GetScrollHelper();
 
-
+    
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxScrollHelper"));
     wxNode_wxScrollHelper::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -1826,7 +2195,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetScrollHelper).\n";                           \
@@ -1842,18 +2211,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42877
    */
   if(args.Length() == 0) {
-
+    
 
     self->InvalidateBestSize();
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::InvalidateBestSize).\n";                           \
@@ -1869,19 +2238,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42878
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxSize::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxSize* size = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[0]->ToObject()); /* type: _20522  */
-
+    
 
     self->CacheBestSize(*size);
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::CacheBestSize).\n";                           \
@@ -1897,18 +2266,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42879
    */
   if(args.Length() == 0) {
-
+    
 
     wxSize returnValTemp = self->GetEffectiveMinSize();
 
     wxSize* returnVal = new wxSize();
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxSize"));
     wxNode_wxSize::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -1917,7 +2287,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetEffectiveMinSize).\n";                           \
@@ -1933,30 +2303,30 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42882
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxSize::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxSize* size = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[0]->ToObject()); /* type: _20522  */
-
+    
 
     self->SetInitialSize(*size);
 
     return v8::Undefined();
   }
-
+  
   /*
    * id: _42882
    */
   if(args.Length() == 0) {
-
+    
 
     self->SetInitialSize();
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::SetInitialSize).\n";                           \
@@ -1972,30 +2342,30 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42884
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
     int dir = (int)args[0]->ToInt32()->Value(); /* type: _162  */
-
+    
 
     self->Centre(dir);
 
     return v8::Undefined();
   }
-
+  
   /*
    * id: _42884
    */
   if(args.Length() == 0) {
-
+    
 
     self->Centre();
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::Centre).\n";                           \
@@ -2011,30 +2381,30 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42885
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
     int dir = (int)args[0]->ToInt32()->Value(); /* type: _162  */
-
+    
 
     self->Center(dir);
 
     return v8::Undefined();
   }
-
+  
   /*
    * id: _42885
    */
   if(args.Length() == 0) {
-
+    
 
     self->Center();
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::Center).\n";                           \
@@ -2050,30 +2420,30 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42886
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
     int dir = (int)args[0]->ToInt32()->Value(); /* type: _162  */
-
+    
 
     self->CentreOnParent(dir);
 
     return v8::Undefined();
   }
-
+  
   /*
    * id: _42886
    */
   if(args.Length() == 0) {
-
+    
 
     self->CentreOnParent();
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::CentreOnParent).\n";                           \
@@ -2089,30 +2459,30 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42887
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
     int dir = (int)args[0]->ToInt32()->Value(); /* type: _162  */
-
+    
 
     self->CenterOnParent(dir);
 
     return v8::Undefined();
   }
-
+  
   /*
    * id: _42887
    */
   if(args.Length() == 0) {
-
+    
 
     self->CenterOnParent();
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::CenterOnParent).\n";                           \
@@ -2128,18 +2498,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42888
    */
   if(args.Length() == 0) {
-
+    
 
     self->Fit();
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::Fit).\n";                           \
@@ -2155,18 +2525,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42889
    */
   if(args.Length() == 0) {
-
+    
 
     self->FitInside();
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::FitInside).\n";                           \
@@ -2182,7 +2552,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42890
    */
@@ -2193,13 +2563,13 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     int maxH = (int)args[3]->ToInt32()->Value(); /* type: _162  */
     int incW = (int)args[4]->ToInt32()->Value(); /* type: _162  */
     int incH = (int)args[5]->ToInt32()->Value(); /* type: _162  */
-
+    
 
     self->SetSizeHints(minW, minH, maxW, maxH, incW, incH);
 
     return v8::Undefined();
   }
-
+  
   /*
    * id: _42890
    */
@@ -2209,13 +2579,13 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     int maxW = (int)args[2]->ToInt32()->Value(); /* type: _162  */
     int maxH = (int)args[3]->ToInt32()->Value(); /* type: _162  */
     int incW = (int)args[4]->ToInt32()->Value(); /* type: _162  */
-
+    
 
     self->SetSizeHints(minW, minH, maxW, maxH, incW);
 
     return v8::Undefined();
   }
-
+  
   /*
    * id: _42890
    */
@@ -2224,13 +2594,13 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     int minH = (int)args[1]->ToInt32()->Value(); /* type: _162  */
     int maxW = (int)args[2]->ToInt32()->Value(); /* type: _162  */
     int maxH = (int)args[3]->ToInt32()->Value(); /* type: _162  */
-
+    
 
     self->SetSizeHints(minW, minH, maxW, maxH);
 
     return v8::Undefined();
   }
-
+  
   /*
    * id: _42890
    */
@@ -2238,26 +2608,26 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     int minW = (int)args[0]->ToInt32()->Value(); /* type: _162  */
     int minH = (int)args[1]->ToInt32()->Value(); /* type: _162  */
     int maxW = (int)args[2]->ToInt32()->Value(); /* type: _162  */
-
+    
 
     self->SetSizeHints(minW, minH, maxW);
 
     return v8::Undefined();
   }
-
+  
   /*
    * id: _42890
    */
   if(args.Length() == 2 && args[0]->IsNumber() && args[1]->IsNumber()) {
     int minW = (int)args[0]->ToInt32()->Value(); /* type: _162  */
     int minH = (int)args[1]->ToInt32()->Value(); /* type: _162  */
-
+    
 
     self->SetSizeHints(minW, minH);
 
     return v8::Undefined();
   }
-
+  
   /*
    * id: _42891
    */
@@ -2265,38 +2635,38 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     wxNode_wxSize* minSize = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[0]->ToObject()); /* type: _20522  */
     wxNode_wxSize* maxSize = args[1]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[1]->ToObject()); /* type: _20522  */
     wxNode_wxSize* incSize = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[2]->ToObject()); /* type: _20522  */
-
+    
 
     self->SetSizeHints(*minSize, *maxSize, *incSize);
 
     return v8::Undefined();
   }
-
+  
   /*
    * id: _42891
    */
   if(args.Length() == 2 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxSize::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && (args[1]->IsNull() || (args[1]->IsObject() && wxNode_wxSize::AssignableFrom(args[1]->ToObject()->GetConstructorName())))) {
     wxNode_wxSize* minSize = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[0]->ToObject()); /* type: _20522  */
     wxNode_wxSize* maxSize = args[1]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[1]->ToObject()); /* type: _20522  */
-
+    
 
     self->SetSizeHints(*minSize, *maxSize);
 
     return v8::Undefined();
   }
-
+  
   /*
    * id: _42891
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxSize::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxSize* minSize = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[0]->ToObject()); /* type: _20522  */
-
+    
 
     self->SetSizeHints(*minSize);
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::SetSizeHints).\n";                           \
@@ -2312,19 +2682,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42894
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxSize::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxSize* minSize = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[0]->ToObject()); /* type: _20522  */
-
+    
 
     self->SetMinSize(*minSize);
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::SetMinSize).\n";                           \
@@ -2340,19 +2710,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42895
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxSize::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxSize* maxSize = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[0]->ToObject()); /* type: _20522  */
-
+    
 
     self->SetMaxSize(*maxSize);
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::SetMaxSize).\n";                           \
@@ -2368,19 +2738,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42896
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxSize::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxSize* size = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[0]->ToObject()); /* type: _20522  */
-
+    
 
     self->SetMinClientSize(*size);
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::SetMinClientSize).\n";                           \
@@ -2396,19 +2766,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42897
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxSize::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxSize* size = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[0]->ToObject()); /* type: _20522  */
-
+    
 
     self->SetMaxClientSize(*size);
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::SetMaxClientSize).\n";                           \
@@ -2424,18 +2794,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42898
    */
   if(args.Length() == 0) {
-
+    
 
     wxSize returnValTemp = self->GetMinSize();
 
     wxSize* returnVal = new wxSize();
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxSize"));
     wxNode_wxSize::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -2444,7 +2815,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetMinSize).\n";                           \
@@ -2460,18 +2831,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42899
    */
   if(args.Length() == 0) {
-
+    
 
     wxSize returnValTemp = self->GetMaxSize();
 
     wxSize* returnVal = new wxSize();
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxSize"));
     wxNode_wxSize::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -2480,7 +2852,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetMaxSize).\n";                           \
@@ -2496,18 +2868,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42900
    */
   if(args.Length() == 0) {
-
+    
 
     wxSize returnValTemp = self->GetMinClientSize();
 
     wxSize* returnVal = new wxSize();
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxSize"));
     wxNode_wxSize::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -2516,7 +2889,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetMinClientSize).\n";                           \
@@ -2532,18 +2905,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42901
    */
   if(args.Length() == 0) {
-
+    
 
     wxSize returnValTemp = self->GetMaxClientSize();
 
     wxSize* returnVal = new wxSize();
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxSize"));
     wxNode_wxSize::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -2552,7 +2926,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetMaxClientSize).\n";                           \
@@ -2568,18 +2942,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42902
    */
   if(args.Length() == 0) {
-
+    
 
     int returnVal = self->GetMinWidth();
 
     return scope.Close(v8::Number::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetMinWidth).\n";                           \
@@ -2595,18 +2969,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42903
    */
   if(args.Length() == 0) {
-
+    
 
     int returnVal = self->GetMinHeight();
 
     return scope.Close(v8::Number::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetMinHeight).\n";                           \
@@ -2622,18 +2996,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42904
    */
   if(args.Length() == 0) {
-
+    
 
     int returnVal = self->GetMaxWidth();
 
     return scope.Close(v8::Number::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetMaxWidth).\n";                           \
@@ -2649,18 +3023,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42905
    */
   if(args.Length() == 0) {
-
+    
 
     int returnVal = self->GetMaxHeight();
 
     return scope.Close(v8::Number::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetMaxHeight).\n";                           \
@@ -2676,32 +3050,32 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42906
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxSize::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxSize* size = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[0]->ToObject()); /* type: _20522  */
-
+    
 
     self->SetVirtualSize(*size);
 
     return v8::Undefined();
   }
-
+  
   /*
    * id: _42907
    */
   if(args.Length() == 2 && args[0]->IsNumber() && args[1]->IsNumber()) {
     int x = (int)args[0]->ToInt32()->Value(); /* type: _162  */
     int y = (int)args[1]->ToInt32()->Value(); /* type: _162  */
-
+    
 
     self->SetVirtualSize(x, y);
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::SetVirtualSize).\n";                           \
@@ -2717,18 +3091,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42908
    */
   if(args.Length() == 0) {
-
+    
 
     wxSize returnValTemp = self->GetVirtualSize();
 
     wxSize* returnVal = new wxSize();
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxSize"));
     wxNode_wxSize::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -2737,20 +3112,20 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
   }
-
+  
   /*
    * id: _42909
    */
   if(args.Length() == 2 && false && false) {
     int x; /* type: _16500 * */
     int y; /* type: _16500 * */
-
+    
 
     self->GetVirtualSize(&x, &y);
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetVirtualSize).\n";                           \
@@ -2766,20 +3141,20 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42910
    */
   if(args.Length() == 2 && args[0]->IsNumber() && args[1]->IsNumber()) {
     int x = (int)args[0]->ToInt32()->Value(); /* type: _162  */
     int y = (int)args[1]->ToInt32()->Value(); /* type: _162  */
-
+    
 
     self->DoSetVirtualSize(x, y);
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::DoSetVirtualSize).\n";                           \
@@ -2795,18 +3170,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42911
    */
   if(args.Length() == 0) {
-
+    
 
     wxSize returnValTemp = self->DoGetVirtualSize();
 
     wxSize* returnVal = new wxSize();
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxSize"));
     wxNode_wxSize::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -2815,7 +3191,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::DoGetVirtualSize).\n";                           \
@@ -2831,18 +3207,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42912
    */
   if(args.Length() == 0) {
-
+    
 
     wxSize returnValTemp = self->GetBestVirtualSize();
 
     wxSize* returnVal = new wxSize();
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxSize"));
     wxNode_wxSize::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -2851,7 +3228,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetBestVirtualSize).\n";                           \
@@ -2867,18 +3244,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42913
    */
   if(args.Length() == 0) {
-
+    
 
     wxSize returnValTemp = self->GetWindowBorderSize();
 
     wxSize* returnVal = new wxSize();
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxSize"));
     wxNode_wxSize::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -2887,7 +3265,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetWindowBorderSize).\n";                           \
@@ -2903,7 +3281,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42914
    */
@@ -2911,13 +3289,13 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     int direction = (int)args[0]->ToInt32()->Value(); /* type: _162  */
     int size = (int)args[1]->ToInt32()->Value(); /* type: _162  */
     int availableOtherDir = (int)args[2]->ToInt32()->Value(); /* type: _162  */
-
+    
 
     bool returnVal = self->InformFirstDirection(direction, size, availableOtherDir);
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::InformFirstDirection).\n";                           \
@@ -2933,30 +3311,30 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42915
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
     int flags = (int)args[0]->ToInt32()->Value(); /* type: _162  */
-
+    
 
     self->SendSizeEvent(flags);
 
     return v8::Undefined();
   }
-
+  
   /*
    * id: _42915
    */
   if(args.Length() == 0) {
-
+    
 
     self->SendSizeEvent();
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::SendSizeEvent).\n";                           \
@@ -2972,30 +3350,30 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42916
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
     int flags = (int)args[0]->ToInt32()->Value(); /* type: _162  */
-
+    
 
     self->SendSizeEventToParent(flags);
 
     return v8::Undefined();
   }
-
+  
   /*
    * id: _42916
    */
   if(args.Length() == 0) {
-
+    
 
     self->SendSizeEventToParent();
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::SendSizeEventToParent).\n";                           \
@@ -3011,18 +3389,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42917
    */
   if(args.Length() == 0) {
-
+    
 
     self->PostSizeEvent();
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::PostSizeEvent).\n";                           \
@@ -3038,18 +3416,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42918
    */
   if(args.Length() == 0) {
-
+    
 
     self->PostSizeEventToParent();
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::PostSizeEventToParent).\n";                           \
@@ -3065,30 +3443,30 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42919
    */
   if(args.Length() == 1 && args[0]->IsBoolean()) {
     bool show = args[0]->ToBoolean()->Value(); /* type: _14666  */
-
+    
 
     bool returnVal = self->Show(show);
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
   /*
    * id: _42919
    */
   if(args.Length() == 0) {
-
+    
 
     bool returnVal = self->Show();
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::Show).\n";                           \
@@ -3104,18 +3482,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42920
    */
   if(args.Length() == 0) {
-
+    
 
     bool returnVal = self->Hide();
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::Hide).\n";                           \
@@ -3131,32 +3509,32 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42921
    */
   if(args.Length() == 2 && args[0]->IsNumber() && args[1]->IsNumber()) {
     wxShowEffect arg0; /* type: _4482  */
     unsigned int arg1 = (unsigned int)args[1]->ToInt32()->Value(); /* type: _43  */
-
+    
 
     bool returnVal = self->ShowWithEffect(arg0, arg1);
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
   /*
    * id: _42921
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
     wxShowEffect arg0; /* type: _4482  */
-
+    
 
     bool returnVal = self->ShowWithEffect(arg0);
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::ShowWithEffect).\n";                           \
@@ -3172,32 +3550,32 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42922
    */
   if(args.Length() == 2 && args[0]->IsNumber() && args[1]->IsNumber()) {
     wxShowEffect arg0; /* type: _4482  */
     unsigned int arg1 = (unsigned int)args[1]->ToInt32()->Value(); /* type: _43  */
-
+    
 
     bool returnVal = self->HideWithEffect(arg0, arg1);
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
   /*
    * id: _42922
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
     wxShowEffect arg0; /* type: _4482  */
-
+    
 
     bool returnVal = self->HideWithEffect(arg0);
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::HideWithEffect).\n";                           \
@@ -3213,30 +3591,30 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42923
    */
   if(args.Length() == 1 && args[0]->IsBoolean()) {
     bool enable = args[0]->ToBoolean()->Value(); /* type: _14666  */
-
+    
 
     bool returnVal = self->Enable(enable);
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
   /*
    * id: _42923
    */
   if(args.Length() == 0) {
-
+    
 
     bool returnVal = self->Enable();
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::Enable).\n";                           \
@@ -3252,18 +3630,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42924
    */
   if(args.Length() == 0) {
-
+    
 
     bool returnVal = self->Disable();
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::Disable).\n";                           \
@@ -3279,18 +3657,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42925
    */
   if(args.Length() == 0) {
-
+    
 
     bool returnVal = self->IsShown();
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::IsShown).\n";                           \
@@ -3306,18 +3684,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42926
    */
   if(args.Length() == 0) {
-
+    
 
     bool returnVal = self->IsEnabled();
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::IsEnabled).\n";                           \
@@ -3333,18 +3711,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42927
    */
   if(args.Length() == 0) {
-
+    
 
     bool returnVal = self->IsThisEnabled();
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::IsThisEnabled).\n";                           \
@@ -3360,18 +3738,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42928
    */
   if(args.Length() == 0) {
-
+    
 
     bool returnVal = self->IsShownOnScreen();
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::IsShownOnScreen).\n";                           \
@@ -3387,19 +3765,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42929
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
     long int style = (long int)args[0]->ToInt32()->Value(); /* type: _586  */
-
+    
 
     self->SetWindowStyleFlag(style);
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::SetWindowStyleFlag).\n";                           \
@@ -3415,18 +3793,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42930
    */
   if(args.Length() == 0) {
-
+    
 
     int returnVal = self->GetWindowStyleFlag();
 
     return scope.Close(v8::Number::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetWindowStyleFlag).\n";                           \
@@ -3442,19 +3820,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42931
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
     long int style = (long int)args[0]->ToInt32()->Value(); /* type: _586  */
-
+    
 
     self->SetWindowStyle(style);
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::SetWindowStyle).\n";                           \
@@ -3470,18 +3848,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42932
    */
   if(args.Length() == 0) {
-
+    
 
     int returnVal = self->GetWindowStyle();
 
     return scope.Close(v8::Number::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetWindowStyle).\n";                           \
@@ -3497,19 +3875,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42933
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
     int flag = (int)args[0]->ToInt32()->Value(); /* type: _162  */
-
+    
 
     bool returnVal = self->HasFlag(flag);
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::HasFlag).\n";                           \
@@ -3525,18 +3903,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42934
    */
   if(args.Length() == 0) {
-
+    
 
     bool returnVal = self->IsRetained();
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::IsRetained).\n";                           \
@@ -3552,19 +3930,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42935
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
     int flag = (int)args[0]->ToInt32()->Value(); /* type: _162  */
-
+    
 
     bool returnVal = self->ToggleWindowStyle(flag);
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::ToggleWindowStyle).\n";                           \
@@ -3580,19 +3958,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42936
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
     long int exStyle = (long int)args[0]->ToInt32()->Value(); /* type: _586  */
-
+    
 
     self->SetExtraStyle(exStyle);
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::SetExtraStyle).\n";                           \
@@ -3608,18 +3986,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42937
    */
   if(args.Length() == 0) {
-
+    
 
     int returnVal = self->GetExtraStyle();
 
     return scope.Close(v8::Number::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetExtraStyle).\n";                           \
@@ -3635,19 +4013,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42938
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
     int exFlag = (int)args[0]->ToInt32()->Value(); /* type: _162  */
-
+    
 
     bool returnVal = self->HasExtraStyle(exFlag);
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::HasExtraStyle).\n";                           \
@@ -3663,30 +4041,30 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42939
    */
   if(args.Length() == 1 && args[0]->IsBoolean()) {
     bool modal = args[0]->ToBoolean()->Value(); /* type: _14666  */
-
+    
 
     self->MakeModal(modal);
 
     return v8::Undefined();
   }
-
+  
   /*
    * id: _42939
    */
   if(args.Length() == 0) {
-
+    
 
     self->MakeModal();
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::MakeModal).\n";                           \
@@ -3702,19 +4080,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42940
    */
   if(args.Length() == 1 && args[0]->IsBoolean()) {
     bool enableTheme = args[0]->ToBoolean()->Value(); /* type: _14666  */
-
+    
 
     self->SetThemeEnabled(enableTheme);
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::SetThemeEnabled).\n";                           \
@@ -3730,18 +4108,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42941
    */
   if(args.Length() == 0) {
-
+    
 
     bool returnVal = self->GetThemeEnabled();
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetThemeEnabled).\n";                           \
@@ -3757,18 +4135,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42942
    */
   if(args.Length() == 0) {
-
+    
 
     self->SetFocus();
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::SetFocus).\n";                           \
@@ -3784,18 +4162,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42943
    */
   if(args.Length() == 0) {
-
+    
 
     self->SetFocusFromKbd();
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::SetFocusFromKbd).\n";                           \
@@ -3811,18 +4189,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42944
    */
   if(args.Length() == 0) {
-
+    
 
     wxWindow* returnVal = self->FindFocus();
 
-
+    
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxWindow"));
     wxNode_wxWindow::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -3831,7 +4210,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::FindFocus).\n";                           \
@@ -3847,18 +4226,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42945
    */
   if(args.Length() == 0) {
-
+    
 
     wxWindow* returnVal = self->DoFindFocus();
 
-
+    
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxWindow"));
     wxNode_wxWindow::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -3867,7 +4247,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::DoFindFocus).\n";                           \
@@ -3883,18 +4263,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42946
    */
   if(args.Length() == 0) {
-
+    
 
     bool returnVal = self->HasFocus();
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::HasFocus).\n";                           \
@@ -3910,18 +4290,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42947
    */
   if(args.Length() == 0) {
-
+    
 
     bool returnVal = self->AcceptsFocus();
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::AcceptsFocus).\n";                           \
@@ -3937,18 +4317,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42948
    */
   if(args.Length() == 0) {
-
+    
 
     bool returnVal = self->AcceptsFocusRecursively();
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::AcceptsFocusRecursively).\n";                           \
@@ -3964,18 +4344,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42949
    */
   if(args.Length() == 0) {
-
+    
 
     bool returnVal = self->AcceptsFocusFromKeyboard();
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::AcceptsFocusFromKeyboard).\n";                           \
@@ -3991,18 +4371,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42950
    */
   if(args.Length() == 0) {
-
+    
 
     bool returnVal = self->CanBeFocused();
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::CanBeFocused).\n";                           \
@@ -4018,18 +4398,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42951
    */
   if(args.Length() == 0) {
-
+    
 
     bool returnVal = self->IsFocusable();
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::IsFocusable).\n";                           \
@@ -4045,18 +4425,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42952
    */
   if(args.Length() == 0) {
-
+    
 
     bool returnVal = self->CanAcceptFocus();
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::CanAcceptFocus).\n";                           \
@@ -4072,18 +4452,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42953
    */
   if(args.Length() == 0) {
-
+    
 
     bool returnVal = self->CanAcceptFocusFromKeyboard();
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::CanAcceptFocusFromKeyboard).\n";                           \
@@ -4099,19 +4479,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42954
    */
   if(args.Length() == 1 && args[0]->IsBoolean()) {
     bool arg0 = args[0]->ToBoolean()->Value(); /* type: _14666  */
-
+    
 
     self->SetCanFocus(arg0);
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::SetCanFocus).\n";                           \
@@ -4127,30 +4507,30 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42955
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
     int flags = (int)args[0]->ToInt32()->Value(); /* type: _162  */
-
+    
 
     bool returnVal = self->NavigateIn(flags);
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
   /*
    * id: _42955
    */
   if(args.Length() == 0) {
-
+    
 
     bool returnVal = self->NavigateIn();
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::NavigateIn).\n";                           \
@@ -4166,30 +4546,30 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42956
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
     int flags = (int)args[0]->ToInt32()->Value(); /* type: _162  */
-
+    
 
     bool returnVal = self->Navigate(flags);
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
   /*
    * id: _42956
    */
   if(args.Length() == 0) {
-
+    
 
     bool returnVal = self->Navigate();
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::Navigate).\n";                           \
@@ -4205,19 +4585,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42957
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxKeyEvent::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxKeyEvent* event = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxKeyEvent>(args[0]->ToObject()); /* type: _61563  */
-
+    
 
     bool returnVal = self->HandleAsNavigationKey(*event);
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::HandleAsNavigationKey).\n";                           \
@@ -4233,19 +4613,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42958
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxWindow::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxWindow* win = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _993 * */
-
+    
 
     self->MoveBeforeInTabOrder(win);
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::MoveBeforeInTabOrder).\n";                           \
@@ -4261,19 +4641,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42959
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxWindow::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxWindow* win = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _993 * */
-
+    
 
     self->MoveAfterInTabOrder(win);
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::MoveAfterInTabOrder).\n";                           \
@@ -4289,18 +4669,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42960
    */
   if(args.Length() == 0) {
-
+    
 
     wxWindowList returnValTemp = self->GetChildren();
 
     wxWindowList* returnVal = new wxWindowList();
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxWindowList"));
     wxNode_wxWindowList::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -4309,18 +4690,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
   }
-
+  
   /*
    * id: _42961
    */
   if(args.Length() == 0) {
-
+    
 
     wxWindowList returnValTemp = self->GetChildren();
 
     wxWindowList* returnVal = new wxWindowList();
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxWindowList"));
     wxNode_wxWindowList::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -4329,7 +4711,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetChildren).\n";                           \
@@ -4345,18 +4727,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42962
    */
   if(args.Length() == 0) {
-
+    
 
     wxWindowList returnValTemp = self->GetWindowChildren();
 
     wxWindowList* returnVal = new wxWindowList();
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxWindowList"));
     wxNode_wxWindowList::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -4365,7 +4748,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetWindowChildren).\n";                           \
@@ -4381,18 +4764,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42963
    */
   if(args.Length() == 0) {
-
+    
 
     wxWindow* returnVal = self->GetPrevSibling();
 
-
+    
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxWindow"));
     wxNode_wxWindow::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -4401,7 +4785,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetPrevSibling).\n";                           \
@@ -4417,18 +4801,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42964
    */
   if(args.Length() == 0) {
-
+    
 
     wxWindow* returnVal = self->GetNextSibling();
 
-
+    
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxWindow"));
     wxNode_wxWindow::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -4437,7 +4822,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetNextSibling).\n";                           \
@@ -4453,18 +4838,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42965
    */
   if(args.Length() == 0) {
-
+    
 
     wxWindow* returnVal = self->GetParent();
 
-
+    
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxWindow"));
     wxNode_wxWindow::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -4473,7 +4859,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetParent).\n";                           \
@@ -4489,18 +4875,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42966
    */
   if(args.Length() == 0) {
-
+    
 
     wxWindow* returnVal = self->GetGrandParent();
 
-
+    
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxWindow"));
     wxNode_wxWindow::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -4509,7 +4896,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetGrandParent).\n";                           \
@@ -4525,18 +4912,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42967
    */
   if(args.Length() == 0) {
-
+    
 
     bool returnVal = self->IsTopLevel();
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::IsTopLevel).\n";                           \
@@ -4552,19 +4939,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42968
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxWindow::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _51604 * */
-
+    
 
     self->SetParent(parent);
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::SetParent).\n";                           \
@@ -4580,19 +4967,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42969
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxWindow::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxWindow* newParent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _51604 * */
-
+    
 
     bool returnVal = self->Reparent(newParent);
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::Reparent).\n";                           \
@@ -4608,19 +4995,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42970
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxWindow::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxWindow* child = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _51604 * */
-
+    
 
     self->AddChild(child);
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::AddChild).\n";                           \
@@ -4636,19 +5023,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42971
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxWindow::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxWindow* child = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _51604 * */
-
+    
 
     self->RemoveChild(child);
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::RemoveChild).\n";                           \
@@ -4664,19 +5051,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42972
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxWindow::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxWindow* arg0 = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _62099 * */
-
+    
 
     bool returnVal = self->IsClientAreaChild(arg0);
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::IsClientAreaChild).\n";                           \
@@ -4692,19 +5079,20 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42973
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
     long int winid = (long int)args[0]->ToInt32()->Value(); /* type: _586  */
-
+    
 
     wxWindow* returnVal = self->FindWindow(winid);
 
-
+    
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxWindow"));
     wxNode_wxWindow::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -4713,19 +5101,20 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
   }
-
+  
   /*
    * id: _42974
    */
   if(args.Length() == 1 && args[0]->IsString()) {
     v8::String::AsciiValue name(args[0]->ToString()); /* type: _14808  */
-
+    
 
     wxWindow* returnVal = self->FindWindow(*name);
 
-
+    
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxWindow"));
     wxNode_wxWindow::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -4734,7 +5123,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::FindWindow).\n";                           \
@@ -4750,20 +5139,21 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42975
    */
   if(args.Length() == 2 && args[0]->IsNumber() && (args[1]->IsNull() || (args[1]->IsObject() && wxNode_wxWindow::AssignableFrom(args[1]->ToObject()->GetConstructorName())))) {
     long int winid = (long int)args[0]->ToInt32()->Value(); /* type: _586  */
     wxNode_wxWindow* parent = args[1]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[1]->ToObject()); /* type: _62099 * */
-
+    
 
     wxWindow* returnVal = self->FindWindowById(winid, parent);
 
-
+    
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxWindow"));
     wxNode_wxWindow::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -4772,19 +5162,20 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
   }
-
+  
   /*
    * id: _42975
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
     long int winid = (long int)args[0]->ToInt32()->Value(); /* type: _586  */
-
+    
 
     wxWindow* returnVal = self->FindWindowById(winid);
 
-
+    
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxWindow"));
     wxNode_wxWindow::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -4793,7 +5184,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::FindWindowById).\n";                           \
@@ -4809,20 +5200,21 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42976
    */
   if(args.Length() == 2 && args[0]->IsString() && (args[1]->IsNull() || (args[1]->IsObject() && wxNode_wxWindow::AssignableFrom(args[1]->ToObject()->GetConstructorName())))) {
     v8::String::AsciiValue name(args[0]->ToString()); /* type: _14808  */
     wxNode_wxWindow* parent = args[1]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[1]->ToObject()); /* type: _62099 * */
-
+    
 
     wxWindow* returnVal = self->FindWindowByName(*name, parent);
 
-
+    
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxWindow"));
     wxNode_wxWindow::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -4831,19 +5223,20 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
   }
-
+  
   /*
    * id: _42976
    */
   if(args.Length() == 1 && args[0]->IsString()) {
     v8::String::AsciiValue name(args[0]->ToString()); /* type: _14808  */
-
+    
 
     wxWindow* returnVal = self->FindWindowByName(*name);
 
-
+    
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxWindow"));
     wxNode_wxWindow::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -4852,7 +5245,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::FindWindowByName).\n";                           \
@@ -4868,20 +5261,21 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42977
    */
   if(args.Length() == 2 && args[0]->IsString() && (args[1]->IsNull() || (args[1]->IsObject() && wxNode_wxWindow::AssignableFrom(args[1]->ToObject()->GetConstructorName())))) {
     v8::String::AsciiValue label(args[0]->ToString()); /* type: _14808  */
     wxNode_wxWindow* parent = args[1]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[1]->ToObject()); /* type: _62099 * */
-
+    
 
     wxWindow* returnVal = self->FindWindowByLabel(*label, parent);
 
-
+    
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxWindow"));
     wxNode_wxWindow::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -4890,19 +5284,20 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
   }
-
+  
   /*
    * id: _42977
    */
   if(args.Length() == 1 && args[0]->IsString()) {
     v8::String::AsciiValue label(args[0]->ToString()); /* type: _14808  */
-
+    
 
     wxWindow* returnVal = self->FindWindowByLabel(*label);
 
-
+    
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxWindow"));
     wxNode_wxWindow::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -4911,7 +5306,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::FindWindowByLabel).\n";                           \
@@ -4927,18 +5322,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42978
    */
   if(args.Length() == 0) {
-
+    
 
     wxEvtHandler* returnVal = self->GetEventHandler();
 
-
+    
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxEvtHandler"));
     wxNode_wxEvtHandler::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -4947,7 +5343,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetEventHandler).\n";                           \
@@ -4963,19 +5359,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42979
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxEvtHandler::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxEvtHandler* handler = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxEvtHandler>(args[0]->ToObject()); /* type: _1665 * */
-
+    
 
     self->SetEventHandler(handler);
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::SetEventHandler).\n";                           \
@@ -4991,19 +5387,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42980
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxEvtHandler::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxEvtHandler* handler = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxEvtHandler>(args[0]->ToObject()); /* type: _1665 * */
-
+    
 
     self->PushEventHandler(handler);
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::PushEventHandler).\n";                           \
@@ -5019,19 +5415,20 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42981
    */
   if(args.Length() == 1 && args[0]->IsBoolean()) {
     bool deleteHandler = args[0]->ToBoolean()->Value(); /* type: _14666  */
-
+    
 
     wxEvtHandler* returnVal = self->PopEventHandler(deleteHandler);
 
-
+    
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxEvtHandler"));
     wxNode_wxEvtHandler::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -5040,18 +5437,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
   }
-
+  
   /*
    * id: _42981
    */
   if(args.Length() == 0) {
-
+    
 
     wxEvtHandler* returnVal = self->PopEventHandler();
 
-
+    
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxEvtHandler"));
     wxNode_wxEvtHandler::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -5060,7 +5458,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::PopEventHandler).\n";                           \
@@ -5076,19 +5474,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42982
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxEvtHandler::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxEvtHandler* handler = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxEvtHandler>(args[0]->ToObject()); /* type: _1665 * */
-
+    
 
     bool returnVal = self->RemoveEventHandler(handler);
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::RemoveEventHandler).\n";                           \
@@ -5104,19 +5502,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42983
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxEvent::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxEvent* event = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxEvent>(args[0]->ToObject()); /* type: _59065  */
-
+    
 
     bool returnVal = self->ProcessWindowEvent(*event);
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::ProcessWindowEvent).\n";                           \
@@ -5132,19 +5530,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42984
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxEvent::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxEvent* event = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxEvent>(args[0]->ToObject()); /* type: _59065  */
-
+    
 
     bool returnVal = self->ProcessWindowEventLocally(*event);
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::ProcessWindowEventLocally).\n";                           \
@@ -5160,19 +5558,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42985
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxEvent::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxEvent* event = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxEvent>(args[0]->ToObject()); /* type: _59065  */
-
+    
 
     bool returnVal = self->HandleWindowEvent(*event);
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::HandleWindowEvent).\n";                           \
@@ -5188,19 +5586,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42986
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxEvtHandler::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxEvtHandler* handler = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxEvtHandler>(args[0]->ToObject()); /* type: _1665 * */
-
+    
 
     self->SetNextHandler(handler);
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::SetNextHandler).\n";                           \
@@ -5216,19 +5614,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42987
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxEvtHandler::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxEvtHandler* handler = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxEvtHandler>(args[0]->ToObject()); /* type: _1665 * */
-
+    
 
     self->SetPreviousHandler(handler);
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::SetPreviousHandler).\n";                           \
@@ -5244,19 +5642,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42988
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxValidator::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxValidator* validator = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxValidator>(args[0]->ToObject()); /* type: _59059  */
-
+    
 
     self->SetValidator(*validator);
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::SetValidator).\n";                           \
@@ -5272,18 +5670,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42989
    */
   if(args.Length() == 0) {
-
+    
 
     wxValidator* returnVal = self->GetValidator();
 
-
+    
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxValidator"));
     wxNode_wxValidator::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -5292,7 +5691,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetValidator).\n";                           \
@@ -5308,18 +5707,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42990
    */
   if(args.Length() == 0) {
-
+    
 
     bool returnVal = self->Validate();
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::Validate).\n";                           \
@@ -5335,18 +5734,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42991
    */
   if(args.Length() == 0) {
-
+    
 
     bool returnVal = self->TransferDataToWindow();
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::TransferDataToWindow).\n";                           \
@@ -5362,18 +5761,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42992
    */
   if(args.Length() == 0) {
-
+    
 
     bool returnVal = self->TransferDataFromWindow();
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::TransferDataFromWindow).\n";                           \
@@ -5389,18 +5788,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42993
    */
   if(args.Length() == 0) {
-
+    
 
     self->InitDialog();
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::InitDialog).\n";                           \
@@ -5416,19 +5815,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42994
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxAcceleratorTable::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxAcceleratorTable* accel = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxAcceleratorTable>(args[0]->ToObject()); /* type: _64755  */
-
+    
 
     self->SetAcceleratorTable(*accel);
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::SetAcceleratorTable).\n";                           \
@@ -5444,18 +5843,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42995
    */
   if(args.Length() == 0) {
-
+    
 
     wxAcceleratorTable* returnVal = self->GetAcceleratorTable();
 
-
+    
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxAcceleratorTable"));
     wxNode_wxAcceleratorTable::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -5464,7 +5864,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetAcceleratorTable).\n";                           \
@@ -5480,19 +5880,20 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42996
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxPoint::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxPoint* pt = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[0]->ToObject()); /* type: _20412  */
-
+    
 
     wxPoint returnValTemp = self->ConvertPixelsToDialog(*pt);
 
     wxPoint* returnVal = new wxPoint();
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxPoint"));
     wxNode_wxPoint::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -5501,19 +5902,20 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
   }
-
+  
   /*
    * id: _42998
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxSize::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxSize* sz = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[0]->ToObject()); /* type: _20522  */
-
+    
 
     wxSize returnValTemp = self->ConvertPixelsToDialog(*sz);
 
     wxSize* returnVal = new wxSize();
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxSize"));
     wxNode_wxSize::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -5522,7 +5924,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::ConvertPixelsToDialog).\n";                           \
@@ -5538,19 +5940,20 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _42997
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxPoint::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxPoint* pt = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[0]->ToObject()); /* type: _20412  */
-
+    
 
     wxPoint returnValTemp = self->ConvertDialogToPixels(*pt);
 
     wxPoint* returnVal = new wxPoint();
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxPoint"));
     wxNode_wxPoint::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -5559,19 +5962,20 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
   }
-
+  
   /*
    * id: _42999
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxSize::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxSize* sz = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[0]->ToObject()); /* type: _20522  */
-
+    
 
     wxSize returnValTemp = self->ConvertDialogToPixels(*sz);
 
     wxSize* returnVal = new wxSize();
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxSize"));
     wxNode_wxSize::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -5580,7 +5984,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::ConvertDialogToPixels).\n";                           \
@@ -5596,20 +6000,20 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43000
    */
   if(args.Length() == 2 && args[0]->IsNumber() && args[1]->IsNumber()) {
     int x = (int)args[0]->ToInt32()->Value(); /* type: _162  */
     int y = (int)args[1]->ToInt32()->Value(); /* type: _162  */
-
+    
 
     self->WarpPointer(x, y);
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::WarpPointer).\n";                           \
@@ -5625,18 +6029,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43001
    */
   if(args.Length() == 0) {
-
+    
 
     self->CaptureMouse();
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::CaptureMouse).\n";                           \
@@ -5652,18 +6056,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43002
    */
   if(args.Length() == 0) {
-
+    
 
     self->ReleaseMouse();
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::ReleaseMouse).\n";                           \
@@ -5679,18 +6083,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43003
    */
   if(args.Length() == 0) {
-
+    
 
     wxWindow* returnVal = self->GetCapture();
 
-
+    
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxWindow"));
     wxNode_wxWindow::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -5699,7 +6104,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetCapture).\n";                           \
@@ -5715,18 +6120,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43004
    */
   if(args.Length() == 0) {
-
+    
 
     bool returnVal = self->HasCapture();
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::HasCapture).\n";                           \
@@ -5742,43 +6147,43 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43005
    */
   if(args.Length() == 2 && args[0]->IsBoolean() && (args[1]->IsNull() || (args[1]->IsObject() && wxNode_wxRect::AssignableFrom(args[1]->ToObject()->GetConstructorName())))) {
     bool eraseBackground = args[0]->ToBoolean()->Value(); /* type: _14666  */
     wxNode_wxRect* rect = args[1]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxRect>(args[1]->ToObject()); /* type: _59913 * */
-
+    
 
     self->Refresh(eraseBackground, rect);
 
     return v8::Undefined();
   }
-
+  
   /*
    * id: _43005
    */
   if(args.Length() == 1 && args[0]->IsBoolean()) {
     bool eraseBackground = args[0]->ToBoolean()->Value(); /* type: _14666  */
-
+    
 
     self->Refresh(eraseBackground);
 
     return v8::Undefined();
   }
-
+  
   /*
    * id: _43005
    */
   if(args.Length() == 0) {
-
+    
 
     self->Refresh();
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::Refresh).\n";                           \
@@ -5794,32 +6199,32 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43006
    */
   if(args.Length() == 2 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxRect::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsBoolean()) {
     wxNode_wxRect* rect = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxRect>(args[0]->ToObject()); /* type: _24778  */
     bool eraseBackground = args[1]->ToBoolean()->Value(); /* type: _14666  */
-
+    
 
     self->RefreshRect(*rect, eraseBackground);
 
     return v8::Undefined();
   }
-
+  
   /*
    * id: _43006
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxRect::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxRect* rect = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxRect>(args[0]->ToObject()); /* type: _24778  */
-
+    
 
     self->RefreshRect(*rect);
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::RefreshRect).\n";                           \
@@ -5835,18 +6240,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43007
    */
   if(args.Length() == 0) {
-
+    
 
     self->Update();
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::Update).\n";                           \
@@ -5862,18 +6267,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43008
    */
   if(args.Length() == 0) {
-
+    
 
     self->ClearBackground();
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::ClearBackground).\n";                           \
@@ -5889,18 +6294,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43009
    */
   if(args.Length() == 0) {
-
+    
 
     self->Freeze();
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::Freeze).\n";                           \
@@ -5916,18 +6321,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43010
    */
   if(args.Length() == 0) {
-
+    
 
     self->Thaw();
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::Thaw).\n";                           \
@@ -5943,18 +6348,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43011
    */
   if(args.Length() == 0) {
-
+    
 
     bool returnVal = self->IsFrozen();
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::IsFrozen).\n";                           \
@@ -5970,19 +6375,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43012
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxDC::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxDC* arg0 = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxDC>(args[0]->ToObject()); /* type: _58612  */
-
+    
 
     self->PrepareDC(*arg0);
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::PrepareDC).\n";                           \
@@ -5998,18 +6403,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43013
    */
   if(args.Length() == 0) {
-
+    
 
     bool returnVal = self->IsDoubleBuffered();
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::IsDoubleBuffered).\n";                           \
@@ -6025,18 +6430,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43014
    */
   if(args.Length() == 0) {
-
+    
 
     wxRegion returnValTemp = self->GetUpdateRegion();
 
     wxRegion* returnVal = new wxRegion();
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxRegion"));
     wxNode_wxRegion::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -6045,18 +6451,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
   }
-
+  
   /*
    * id: _43015
    */
   if(args.Length() == 0) {
-
+    
 
     wxRegion returnValTemp = self->GetUpdateRegion();
 
     wxRegion* returnVal = new wxRegion();
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxRegion"));
     wxNode_wxRegion::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -6065,7 +6472,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetUpdateRegion).\n";                           \
@@ -6081,18 +6488,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43016
    */
   if(args.Length() == 0) {
-
+    
 
     wxRect returnValTemp = self->GetUpdateClientRect();
 
     wxRect* returnVal = new wxRect();
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxRect"));
     wxNode_wxRect::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -6101,7 +6509,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetUpdateClientRect).\n";                           \
@@ -6117,20 +6525,20 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43017
    */
   if(args.Length() == 2 && args[0]->IsNumber() && args[1]->IsNumber()) {
     int x = (int)args[0]->ToInt32()->Value(); /* type: _162  */
     int y = (int)args[1]->ToInt32()->Value(); /* type: _162  */
-
+    
 
     bool returnVal = self->DoIsExposed(x, y);
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
   /*
    * id: _43018
    */
@@ -6139,13 +6547,13 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     int y = (int)args[1]->ToInt32()->Value(); /* type: _162  */
     int w = (int)args[2]->ToInt32()->Value(); /* type: _162  */
     int h = (int)args[3]->ToInt32()->Value(); /* type: _162  */
-
+    
 
     bool returnVal = self->DoIsExposed(x, y, w, h);
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::DoIsExposed).\n";                           \
@@ -6161,20 +6569,20 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43019
    */
   if(args.Length() == 2 && args[0]->IsNumber() && args[1]->IsNumber()) {
     int x = (int)args[0]->ToInt32()->Value(); /* type: _162  */
     int y = (int)args[1]->ToInt32()->Value(); /* type: _162  */
-
+    
 
     bool returnVal = self->IsExposed(x, y);
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
   /*
    * id: _43020
    */
@@ -6183,37 +6591,37 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     int y = (int)args[1]->ToInt32()->Value(); /* type: _162  */
     int w = (int)args[2]->ToInt32()->Value(); /* type: _162  */
     int h = (int)args[3]->ToInt32()->Value(); /* type: _162  */
-
+    
 
     bool returnVal = self->IsExposed(x, y, w, h);
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
   /*
    * id: _43021
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxPoint::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxPoint* pt = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[0]->ToObject()); /* type: _20412  */
-
+    
 
     bool returnVal = self->IsExposed(*pt);
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
   /*
    * id: _43022
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxRect::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxRect* rect = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxRect>(args[0]->ToObject()); /* type: _24778  */
-
+    
 
     bool returnVal = self->IsExposed(*rect);
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::IsExposed).\n";                           \
@@ -6229,18 +6637,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43023
    */
   if(args.Length() == 0) {
-
+    
 
     wxVisualAttributes returnValTemp = self->GetDefaultAttributes();
 
     wxVisualAttributes* returnVal = new wxVisualAttributes();
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxVisualAttributes"));
     wxNode_wxVisualAttributes::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -6249,7 +6658,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetDefaultAttributes).\n";                           \
@@ -6265,19 +6674,20 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43024
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
     wxWindowVariant variant; /* type: _10472  */
-
+    
 
     wxVisualAttributes returnValTemp = self->GetClassDefaultAttributes(variant);
 
     wxVisualAttributes* returnVal = new wxVisualAttributes();
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxVisualAttributes"));
     wxNode_wxVisualAttributes::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -6286,18 +6696,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
   }
-
+  
   /*
    * id: _43024
    */
   if(args.Length() == 0) {
-
+    
 
     wxVisualAttributes returnValTemp = self->GetClassDefaultAttributes();
 
     wxVisualAttributes* returnVal = new wxVisualAttributes();
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxVisualAttributes"));
     wxNode_wxVisualAttributes::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -6306,7 +6717,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetClassDefaultAttributes).\n";                           \
@@ -6322,19 +6733,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43025
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxColour::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxColour* colour = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxColour>(args[0]->ToObject()); /* type: _15512  */
-
+    
 
     bool returnVal = self->SetBackgroundColour(*colour);
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::SetBackgroundColour).\n";                           \
@@ -6350,19 +6761,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43026
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxColour::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxColour* colour = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxColour>(args[0]->ToObject()); /* type: _15512  */
-
+    
 
     self->SetOwnBackgroundColour(*colour);
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::SetOwnBackgroundColour).\n";                           \
@@ -6378,18 +6789,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43027
    */
   if(args.Length() == 0) {
-
+    
 
     wxColour returnValTemp = self->GetBackgroundColour();
 
     wxColour* returnVal = new wxColour();
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxColour"));
     wxNode_wxColour::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -6398,7 +6810,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetBackgroundColour).\n";                           \
@@ -6414,18 +6826,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43028
    */
   if(args.Length() == 0) {
-
+    
 
     bool returnVal = self->InheritsBackgroundColour();
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::InheritsBackgroundColour).\n";                           \
@@ -6441,18 +6853,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43029
    */
   if(args.Length() == 0) {
-
+    
 
     bool returnVal = self->UseBgCol();
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::UseBgCol).\n";                           \
@@ -6468,19 +6880,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43030
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxColour::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxColour* colour = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxColour>(args[0]->ToObject()); /* type: _15512  */
-
+    
 
     bool returnVal = self->SetForegroundColour(*colour);
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::SetForegroundColour).\n";                           \
@@ -6496,19 +6908,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43031
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxColour::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxColour* colour = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxColour>(args[0]->ToObject()); /* type: _15512  */
-
+    
 
     self->SetOwnForegroundColour(*colour);
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::SetOwnForegroundColour).\n";                           \
@@ -6524,18 +6936,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43032
    */
   if(args.Length() == 0) {
-
+    
 
     wxColour returnValTemp = self->GetForegroundColour();
 
     wxColour* returnVal = new wxColour();
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxColour"));
     wxNode_wxColour::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -6544,7 +6957,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetForegroundColour).\n";                           \
@@ -6560,19 +6973,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43033
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
     wxBackgroundStyle style; /* type: _7585  */
-
+    
 
     bool returnVal = self->SetBackgroundStyle(style);
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::SetBackgroundStyle).\n";                           \
@@ -6588,18 +7001,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43034
    */
   if(args.Length() == 0) {
-
+    
 
     int returnVal = (int)self->GetBackgroundStyle();
 
     return scope.Close(v8::Number::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetBackgroundStyle).\n";                           \
@@ -6615,18 +7028,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43035
    */
   if(args.Length() == 0) {
-
+    
 
     bool returnVal = self->HasTransparentBackground();
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::HasTransparentBackground).\n";                           \
@@ -6642,19 +7055,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43036
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxFont::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxFont* font = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxFont>(args[0]->ToObject()); /* type: _33020  */
-
+    
 
     bool returnVal = self->SetFont(*font);
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::SetFont).\n";                           \
@@ -6670,19 +7083,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43037
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxFont::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxFont* font = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxFont>(args[0]->ToObject()); /* type: _33020  */
-
+    
 
     self->SetOwnFont(*font);
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::SetOwnFont).\n";                           \
@@ -6698,18 +7111,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43038
    */
   if(args.Length() == 0) {
-
+    
 
     wxFont returnValTemp = self->GetFont();
 
     wxFont* returnVal = new wxFont();
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxFont"));
     wxNode_wxFont::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -6718,7 +7132,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetFont).\n";                           \
@@ -6734,19 +7148,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43039
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxCursor::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxCursor* cursor = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxCursor>(args[0]->ToObject()); /* type: _41950  */
-
+    
 
     bool returnVal = self->SetCursor(*cursor);
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::SetCursor).\n";                           \
@@ -6762,18 +7176,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43040
    */
   if(args.Length() == 0) {
-
+    
 
     wxCursor returnValTemp = self->GetCursor();
 
     wxCursor* returnVal = new wxCursor();
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxCursor"));
     wxNode_wxCursor::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -6782,7 +7197,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetCursor).\n";                           \
@@ -6798,19 +7213,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43041
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxCaret::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxCaret* caret = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxCaret>(args[0]->ToObject()); /* type: _65279 * */
-
+    
 
     self->SetCaret(caret);
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::SetCaret).\n";                           \
@@ -6826,18 +7241,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43042
    */
   if(args.Length() == 0) {
-
+    
 
     wxCaret* returnVal = self->GetCaret();
 
-
+    
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxCaret"));
     wxNode_wxCaret::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -6846,7 +7262,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetCaret).\n";                           \
@@ -6862,18 +7278,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43043
    */
   if(args.Length() == 0) {
-
+    
 
     int returnVal = self->GetCharHeight();
 
     return scope.Close(v8::Number::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetCharHeight).\n";                           \
@@ -6889,18 +7305,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43044
    */
   if(args.Length() == 0) {
-
+    
 
     int returnVal = self->GetCharWidth();
 
     return scope.Close(v8::Number::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetCharWidth).\n";                           \
@@ -6916,7 +7332,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43045
    */
@@ -6927,13 +7343,13 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     int descent; /* type: _16500 * */
     int externalLeading; /* type: _16500 * */
     wxNode_wxFont* font = args[5]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxFont>(args[5]->ToObject()); /* type: _61039 * */
-
+    
 
     self->GetTextExtent(*string, &x, &y, &descent, &externalLeading, font);
 
     return v8::Undefined();
   }
-
+  
   /*
    * id: _43045
    */
@@ -6943,13 +7359,13 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     int y; /* type: _16500 * */
     int descent; /* type: _16500 * */
     int externalLeading; /* type: _16500 * */
-
+    
 
     self->GetTextExtent(*string, &x, &y, &descent, &externalLeading);
 
     return v8::Undefined();
   }
-
+  
   /*
    * id: _43045
    */
@@ -6958,13 +7374,13 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     int x; /* type: _16500 * */
     int y; /* type: _16500 * */
     int descent; /* type: _16500 * */
-
+    
 
     self->GetTextExtent(*string, &x, &y, &descent);
 
     return v8::Undefined();
   }
-
+  
   /*
    * id: _43045
    */
@@ -6972,25 +7388,26 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     v8::String::AsciiValue string(args[0]->ToString()); /* type: _14808  */
     int x; /* type: _16500 * */
     int y; /* type: _16500 * */
-
+    
 
     self->GetTextExtent(*string, &x, &y);
 
     return v8::Undefined();
   }
-
+  
   /*
    * id: _43046
    */
   if(args.Length() == 1 && args[0]->IsString()) {
     v8::String::AsciiValue string(args[0]->ToString()); /* type: _14808  */
-
+    
 
     wxSize returnValTemp = self->GetTextExtent(*string);
 
     wxSize* returnVal = new wxSize();
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxSize"));
     wxNode_wxSize::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -6999,7 +7416,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetTextExtent).\n";                           \
@@ -7015,32 +7432,33 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43047
    */
   if(args.Length() == 2 && false && false) {
     int x; /* type: _16500 * */
     int y; /* type: _16500 * */
-
+    
 
     self->ClientToScreen(&x, &y);
 
     return v8::Undefined();
   }
-
+  
   /*
    * id: _43049
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxPoint::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxPoint* pt = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[0]->ToObject()); /* type: _20412  */
-
+    
 
     wxPoint returnValTemp = self->ClientToScreen(*pt);
 
     wxPoint* returnVal = new wxPoint();
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxPoint"));
     wxNode_wxPoint::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -7049,7 +7467,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::ClientToScreen).\n";                           \
@@ -7065,32 +7483,33 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43048
    */
   if(args.Length() == 2 && false && false) {
     int x; /* type: _16500 * */
     int y; /* type: _16500 * */
-
+    
 
     self->ScreenToClient(&x, &y);
 
     return v8::Undefined();
   }
-
+  
   /*
    * id: _43050
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxPoint::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxPoint* pt = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[0]->ToObject()); /* type: _20412  */
-
+    
 
     wxPoint returnValTemp = self->ScreenToClient(*pt);
 
     wxPoint* returnVal = new wxPoint();
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxPoint"));
     wxNode_wxPoint::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -7099,7 +7518,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::ScreenToClient).\n";                           \
@@ -7115,32 +7534,32 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43051
    */
   if(args.Length() == 2 && args[0]->IsNumber() && args[1]->IsNumber()) {
     int x = (int)args[0]->ToInt32()->Value(); /* type: _12095  */
     int y = (int)args[1]->ToInt32()->Value(); /* type: _12095  */
-
+    
 
     int returnVal = (int)self->HitTest(x, y);
 
     return scope.Close(v8::Number::New(returnVal));
   }
-
+  
   /*
    * id: _43052
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxPoint::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxPoint* pt = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[0]->ToObject()); /* type: _20412  */
-
+    
 
     int returnVal = (int)self->HitTest(*pt);
 
     return scope.Close(v8::Number::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::HitTest).\n";                           \
@@ -7156,30 +7575,30 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43053
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
     long int flags = (long int)args[0]->ToInt32()->Value(); /* type: _586  */
-
+    
 
     int returnVal = (int)self->GetBorder(flags);
 
     return scope.Close(v8::Number::New(returnVal));
   }
-
+  
   /*
    * id: _43054
    */
   if(args.Length() == 0) {
-
+    
 
     int returnVal = (int)self->GetBorder();
 
     return scope.Close(v8::Number::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetBorder).\n";                           \
@@ -7195,30 +7614,30 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43055
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
     long int flags = (long int)args[0]->ToInt32()->Value(); /* type: _586  */
-
+    
 
     self->UpdateWindowUI(flags);
 
     return v8::Undefined();
   }
-
+  
   /*
    * id: _43055
    */
   if(args.Length() == 0) {
-
+    
 
     self->UpdateWindowUI();
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::UpdateWindowUI).\n";                           \
@@ -7234,19 +7653,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43056
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxUpdateUIEvent::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxUpdateUIEvent* event = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxUpdateUIEvent>(args[0]->ToObject()); /* type: _59566  */
-
+    
 
     self->DoUpdateWindowUI(*event);
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::DoUpdateWindowUI).\n";                           \
@@ -7262,32 +7681,32 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43057
    */
   if(args.Length() == 2 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxMenu::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && (args[1]->IsNull() || (args[1]->IsObject() && wxNode_wxPoint::AssignableFrom(args[1]->ToObject()->GetConstructorName())))) {
     wxNode_wxMenu* menu = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenu>(args[0]->ToObject()); /* type: _52838 * */
     wxNode_wxPoint* pos = args[1]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[1]->ToObject()); /* type: _20412  */
-
+    
 
     bool returnVal = self->PopupMenu(menu, *pos);
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
   /*
    * id: _43057
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxMenu::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxMenu* menu = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenu>(args[0]->ToObject()); /* type: _52838 * */
-
+    
 
     bool returnVal = self->PopupMenu(menu);
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
   /*
    * id: _43058
    */
@@ -7295,13 +7714,13 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     wxNode_wxMenu* menu = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenu>(args[0]->ToObject()); /* type: _52838 * */
     int x = (int)args[1]->ToInt32()->Value(); /* type: _162  */
     int y = (int)args[2]->ToInt32()->Value(); /* type: _162  */
-
+    
 
     bool returnVal = self->PopupMenu(menu, x, y);
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::PopupMenu).\n";                           \
@@ -7317,32 +7736,32 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43059
    */
   if(args.Length() == 2 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxMenu::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && (args[1]->IsNull() || (args[1]->IsObject() && wxNode_wxPoint::AssignableFrom(args[1]->ToObject()->GetConstructorName())))) {
     wxNode_wxMenu* menu = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenu>(args[0]->ToObject()); /* type: _62015  */
     wxNode_wxPoint* pos = args[1]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[1]->ToObject()); /* type: _20412  */
-
+    
 
     int returnVal = self->GetPopupMenuSelectionFromUser(*menu, *pos);
 
     return scope.Close(v8::Number::New(returnVal));
   }
-
+  
   /*
    * id: _43059
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxMenu::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxMenu* menu = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenu>(args[0]->ToObject()); /* type: _62015  */
-
+    
 
     int returnVal = self->GetPopupMenuSelectionFromUser(*menu);
 
     return scope.Close(v8::Number::New(returnVal));
   }
-
+  
   /*
    * id: _43060
    */
@@ -7350,13 +7769,13 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     wxNode_wxMenu* menu = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenu>(args[0]->ToObject()); /* type: _62015  */
     int x = (int)args[1]->ToInt32()->Value(); /* type: _162  */
     int y = (int)args[2]->ToInt32()->Value(); /* type: _162  */
-
+    
 
     int returnVal = self->GetPopupMenuSelectionFromUser(*menu, x, y);
 
     return scope.Close(v8::Number::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetPopupMenuSelectionFromUser).\n";                           \
@@ -7372,18 +7791,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43061
    */
   if(args.Length() == 0) {
-
+    
 
     bool returnVal = self->HasMultiplePages();
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::HasMultiplePages).\n";                           \
@@ -7399,19 +7818,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43062
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
     int orient = (int)args[0]->ToInt32()->Value(); /* type: _162  */
-
+    
 
     bool returnVal = self->CanScroll(orient);
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::CanScroll).\n";                           \
@@ -7427,19 +7846,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43063
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
     int orient = (int)args[0]->ToInt32()->Value(); /* type: _162  */
-
+    
 
     bool returnVal = self->HasScrollbar(orient);
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::HasScrollbar).\n";                           \
@@ -7455,7 +7874,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43064
    */
@@ -7465,13 +7884,13 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     int thumbvisible = (int)args[2]->ToInt32()->Value(); /* type: _162  */
     int range = (int)args[3]->ToInt32()->Value(); /* type: _162  */
     bool refresh = args[4]->ToBoolean()->Value(); /* type: _14666  */
-
+    
 
     self->SetScrollbar(orient, pos, thumbvisible, range, refresh);
 
     return v8::Undefined();
   }
-
+  
   /*
    * id: _43064
    */
@@ -7480,13 +7899,13 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     int pos = (int)args[1]->ToInt32()->Value(); /* type: _162  */
     int thumbvisible = (int)args[2]->ToInt32()->Value(); /* type: _162  */
     int range = (int)args[3]->ToInt32()->Value(); /* type: _162  */
-
+    
 
     self->SetScrollbar(orient, pos, thumbvisible, range);
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::SetScrollbar).\n";                           \
@@ -7502,7 +7921,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43065
    */
@@ -7510,26 +7929,26 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     int orient = (int)args[0]->ToInt32()->Value(); /* type: _162  */
     int pos = (int)args[1]->ToInt32()->Value(); /* type: _162  */
     bool refresh = args[2]->ToBoolean()->Value(); /* type: _14666  */
-
+    
 
     self->SetScrollPos(orient, pos, refresh);
 
     return v8::Undefined();
   }
-
+  
   /*
    * id: _43065
    */
   if(args.Length() == 2 && args[0]->IsNumber() && args[1]->IsNumber()) {
     int orient = (int)args[0]->ToInt32()->Value(); /* type: _162  */
     int pos = (int)args[1]->ToInt32()->Value(); /* type: _162  */
-
+    
 
     self->SetScrollPos(orient, pos);
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::SetScrollPos).\n";                           \
@@ -7545,19 +7964,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43066
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
     int orient = (int)args[0]->ToInt32()->Value(); /* type: _162  */
-
+    
 
     int returnVal = self->GetScrollPos(orient);
 
     return scope.Close(v8::Number::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetScrollPos).\n";                           \
@@ -7573,19 +7992,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43067
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
     int orient = (int)args[0]->ToInt32()->Value(); /* type: _162  */
-
+    
 
     int returnVal = self->GetScrollThumb(orient);
 
     return scope.Close(v8::Number::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetScrollThumb).\n";                           \
@@ -7601,19 +8020,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43068
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
     int orient = (int)args[0]->ToInt32()->Value(); /* type: _162  */
-
+    
 
     int returnVal = self->GetScrollRange(orient);
 
     return scope.Close(v8::Number::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetScrollRange).\n";                           \
@@ -7629,7 +8048,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43069
    */
@@ -7637,26 +8056,26 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     int dx = (int)args[0]->ToInt32()->Value(); /* type: _162  */
     int dy = (int)args[1]->ToInt32()->Value(); /* type: _162  */
     wxNode_wxRect* rect = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxRect>(args[2]->ToObject()); /* type: _59913 * */
-
+    
 
     self->ScrollWindow(dx, dy, rect);
 
     return v8::Undefined();
   }
-
+  
   /*
    * id: _43069
    */
   if(args.Length() == 2 && args[0]->IsNumber() && args[1]->IsNumber()) {
     int dx = (int)args[0]->ToInt32()->Value(); /* type: _162  */
     int dy = (int)args[1]->ToInt32()->Value(); /* type: _162  */
-
+    
 
     self->ScrollWindow(dx, dy);
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::ScrollWindow).\n";                           \
@@ -7672,19 +8091,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43070
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
     int arg0 = (int)args[0]->ToInt32()->Value(); /* type: _162  */
-
+    
 
     bool returnVal = self->ScrollLines(arg0);
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::ScrollLines).\n";                           \
@@ -7700,19 +8119,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43071
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
     int arg0 = (int)args[0]->ToInt32()->Value(); /* type: _162  */
-
+    
 
     bool returnVal = self->ScrollPages(arg0);
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::ScrollPages).\n";                           \
@@ -7728,18 +8147,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43072
    */
   if(args.Length() == 0) {
-
+    
 
     bool returnVal = self->LineUp();
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::LineUp).\n";                           \
@@ -7755,18 +8174,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43073
    */
   if(args.Length() == 0) {
-
+    
 
     bool returnVal = self->LineDown();
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::LineDown).\n";                           \
@@ -7782,18 +8201,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43074
    */
   if(args.Length() == 0) {
-
+    
 
     bool returnVal = self->PageUp();
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::PageUp).\n";                           \
@@ -7809,18 +8228,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43075
    */
   if(args.Length() == 0) {
-
+    
 
     bool returnVal = self->PageDown();
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::PageDown).\n";                           \
@@ -7836,43 +8255,43 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43076
    */
   if(args.Length() == 2 && args[0]->IsBoolean() && args[1]->IsBoolean()) {
     bool arg0 = args[0]->ToBoolean()->Value(); /* type: _14666  */
     bool arg1 = args[1]->ToBoolean()->Value(); /* type: _14666  */
-
+    
 
     self->AlwaysShowScrollbars(arg0, arg1);
 
     return v8::Undefined();
   }
-
+  
   /*
    * id: _43076
    */
   if(args.Length() == 1 && args[0]->IsBoolean()) {
     bool arg0 = args[0]->ToBoolean()->Value(); /* type: _14666  */
-
+    
 
     self->AlwaysShowScrollbars(arg0);
 
     return v8::Undefined();
   }
-
+  
   /*
    * id: _43076
    */
   if(args.Length() == 0) {
-
+    
 
     self->AlwaysShowScrollbars();
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::AlwaysShowScrollbars).\n";                           \
@@ -7888,19 +8307,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43077
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
     int arg0 = (int)args[0]->ToInt32()->Value(); /* type: _162  */
-
+    
 
     bool returnVal = self->IsScrollbarAlwaysShown(arg0);
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::IsScrollbarAlwaysShown).\n";                           \
@@ -7916,19 +8335,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43078
    */
   if(args.Length() == 1 && args[0]->IsString()) {
     v8::String::AsciiValue text(args[0]->ToString()); /* type: _14808  */
-
+    
 
     self->SetHelpText(*text);
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::SetHelpText).\n";                           \
@@ -7944,18 +8363,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43081
    */
   if(args.Length() == 0) {
-
+    
 
     wxString returnVal = self->GetHelpText();
 
     return scope.Close(v8::String::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetHelpText).\n";                           \
@@ -7971,31 +8390,31 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43082
    */
   if(args.Length() == 1 && args[0]->IsString()) {
     v8::String::AsciiValue tip(args[0]->ToString()); /* type: _14808  */
-
+    
 
     self->SetToolTip(*tip);
 
     return v8::Undefined();
   }
-
+  
   /*
    * id: _43083
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxToolTip::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxToolTip* tip = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxToolTip>(args[0]->ToObject()); /* type: _6541 * */
-
+    
 
     self->SetToolTip(tip);
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::SetToolTip).\n";                           \
@@ -8011,18 +8430,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43084
    */
   if(args.Length() == 0) {
-
+    
 
     self->UnsetToolTip();
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::UnsetToolTip).\n";                           \
@@ -8038,18 +8457,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43085
    */
   if(args.Length() == 0) {
-
+    
 
     wxToolTip* returnVal = self->GetToolTip();
 
-
+    
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxToolTip"));
     wxNode_wxToolTip::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -8058,7 +8478,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetToolTip).\n";                           \
@@ -8074,18 +8494,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43086
    */
   if(args.Length() == 0) {
-
+    
 
     wxString returnVal = self->GetToolTipText();
 
     return scope.Close(v8::String::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetToolTipText).\n";                           \
@@ -8101,19 +8521,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43087
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxToolTip::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxToolTip* tip = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxToolTip>(args[0]->ToObject()); /* type: _6541 * */
-
+    
 
     bool returnVal = self->CopyToolTip(tip);
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::CopyToolTip).\n";                           \
@@ -8129,19 +8549,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43088
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxDropTarget::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxDropTarget* dropTarget = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxDropTarget>(args[0]->ToObject()); /* type: _61035 * */
-
+    
 
     self->SetDropTarget(dropTarget);
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::SetDropTarget).\n";                           \
@@ -8157,18 +8577,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43089
    */
   if(args.Length() == 0) {
-
+    
 
     wxDropTarget* returnVal = self->GetDropTarget();
 
-
+    
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxDropTarget"));
     wxNode_wxDropTarget::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -8177,7 +8598,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetDropTarget).\n";                           \
@@ -8193,19 +8614,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43090
    */
   if(args.Length() == 1 && args[0]->IsBoolean()) {
     bool accept = args[0]->ToBoolean()->Value(); /* type: _14666  */
-
+    
 
     self->DragAcceptFiles(accept);
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::DragAcceptFiles).\n";                           \
@@ -8221,19 +8642,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43091
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxLayoutConstraints::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxLayoutConstraints* constraints = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxLayoutConstraints>(args[0]->ToObject()); /* type: _64237 * */
-
+    
 
     self->SetConstraints(constraints);
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::SetConstraints).\n";                           \
@@ -8249,18 +8670,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43092
    */
   if(args.Length() == 0) {
-
+    
 
     wxLayoutConstraints* returnVal = self->GetConstraints();
 
-
+    
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxLayoutConstraints"));
     wxNode_wxLayoutConstraints::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -8269,7 +8691,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetConstraints).\n";                           \
@@ -8285,19 +8707,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43093
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxLayoutConstraints::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxLayoutConstraints* c = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxLayoutConstraints>(args[0]->ToObject()); /* type: _64237 * */
-
+    
 
     self->UnsetConstraints(c);
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::UnsetConstraints).\n";                           \
@@ -8313,18 +8735,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43094
    */
   if(args.Length() == 0) {
-
+    
 
     wxWindowList* returnVal = self->GetConstraintsInvolvedIn();
 
-
+    
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxWindowList"));
     wxNode_wxWindowList::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -8333,7 +8756,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetConstraintsInvolvedIn).\n";                           \
@@ -8349,19 +8772,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43095
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxWindow::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxWindow* otherWin = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _51604 * */
-
+    
 
     self->AddConstraintReference(otherWin);
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::AddConstraintReference).\n";                           \
@@ -8377,19 +8800,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43096
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxWindow::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxWindow* otherWin = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _51604 * */
-
+    
 
     self->RemoveConstraintReference(otherWin);
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::RemoveConstraintReference).\n";                           \
@@ -8405,18 +8828,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43097
    */
   if(args.Length() == 0) {
-
+    
 
     self->DeleteRelatedConstraints();
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::DeleteRelatedConstraints).\n";                           \
@@ -8432,18 +8855,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43098
    */
   if(args.Length() == 0) {
-
+    
 
     self->ResetConstraints();
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::ResetConstraints).\n";                           \
@@ -8459,30 +8882,30 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43099
    */
   if(args.Length() == 1 && args[0]->IsBoolean()) {
     bool recurse = args[0]->ToBoolean()->Value(); /* type: _14666  */
-
+    
 
     self->SetConstraintSizes(recurse);
 
     return v8::Undefined();
   }
-
+  
   /*
    * id: _43099
    */
   if(args.Length() == 0) {
-
+    
 
     self->SetConstraintSizes();
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::SetConstraintSizes).\n";                           \
@@ -8498,19 +8921,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43100
    */
   if(args.Length() == 1 && false) {
     int noChanges; /* type: _16500 * */
-
+    
 
     bool returnVal = self->LayoutPhase1(&noChanges);
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::LayoutPhase1).\n";                           \
@@ -8526,19 +8949,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43101
    */
   if(args.Length() == 1 && false) {
     int noChanges; /* type: _16500 * */
-
+    
 
     bool returnVal = self->LayoutPhase2(&noChanges);
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::LayoutPhase2).\n";                           \
@@ -8554,19 +8977,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43102
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
     int phase = (int)args[0]->ToInt32()->Value(); /* type: _162  */
-
+    
 
     bool returnVal = self->DoPhase(phase);
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::DoPhase).\n";                           \
@@ -8582,7 +9005,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43103
    */
@@ -8591,13 +9014,13 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     int y = (int)args[1]->ToInt32()->Value(); /* type: _162  */
     int w = (int)args[2]->ToInt32()->Value(); /* type: _162  */
     int h = (int)args[3]->ToInt32()->Value(); /* type: _162  */
-
+    
 
     self->SetSizeConstraint(x, y, w, h);
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::SetSizeConstraint).\n";                           \
@@ -8613,20 +9036,20 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43104
    */
   if(args.Length() == 2 && args[0]->IsNumber() && args[1]->IsNumber()) {
     int x = (int)args[0]->ToInt32()->Value(); /* type: _162  */
     int y = (int)args[1]->ToInt32()->Value(); /* type: _162  */
-
+    
 
     self->MoveConstraint(x, y);
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::MoveConstraint).\n";                           \
@@ -8642,20 +9065,20 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43105
    */
   if(args.Length() == 2 && false && false) {
     int w; /* type: _16500 * */
     int h; /* type: _16500 * */
-
+    
 
     self->GetSizeConstraint(&w, &h);
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetSizeConstraint).\n";                           \
@@ -8671,20 +9094,20 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43106
    */
   if(args.Length() == 2 && false && false) {
     int w; /* type: _16500 * */
     int h; /* type: _16500 * */
-
+    
 
     self->GetClientSizeConstraint(&w, &h);
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetClientSizeConstraint).\n";                           \
@@ -8700,20 +9123,20 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43107
    */
   if(args.Length() == 2 && false && false) {
     int x; /* type: _16500 * */
     int y; /* type: _16500 * */
-
+    
 
     self->GetPositionConstraint(&x, &y);
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetPositionConstraint).\n";                           \
@@ -8729,19 +9152,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43108
    */
   if(args.Length() == 1 && args[0]->IsBoolean()) {
     bool autoLayout = args[0]->ToBoolean()->Value(); /* type: _14666  */
-
+    
 
     self->SetAutoLayout(autoLayout);
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::SetAutoLayout).\n";                           \
@@ -8757,18 +9180,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43109
    */
   if(args.Length() == 0) {
-
+    
 
     bool returnVal = self->GetAutoLayout();
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetAutoLayout).\n";                           \
@@ -8784,18 +9207,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43110
    */
   if(args.Length() == 0) {
-
+    
 
     bool returnVal = self->Layout();
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::Layout).\n";                           \
@@ -8811,32 +9234,32 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43111
    */
   if(args.Length() == 2 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxSizer::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsBoolean()) {
     wxNode_wxSizer* sizer = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSizer>(args[0]->ToObject()); /* type: _58725 * */
     bool deleteOld = args[1]->ToBoolean()->Value(); /* type: _14666  */
-
+    
 
     self->SetSizer(sizer, deleteOld);
 
     return v8::Undefined();
   }
-
+  
   /*
    * id: _43111
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxSizer::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxSizer* sizer = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSizer>(args[0]->ToObject()); /* type: _58725 * */
-
+    
 
     self->SetSizer(sizer);
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::SetSizer).\n";                           \
@@ -8852,32 +9275,32 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43112
    */
   if(args.Length() == 2 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxSizer::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsBoolean()) {
     wxNode_wxSizer* sizer = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSizer>(args[0]->ToObject()); /* type: _58725 * */
     bool deleteOld = args[1]->ToBoolean()->Value(); /* type: _14666  */
-
+    
 
     self->SetSizerAndFit(sizer, deleteOld);
 
     return v8::Undefined();
   }
-
+  
   /*
    * id: _43112
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxSizer::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxSizer* sizer = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSizer>(args[0]->ToObject()); /* type: _58725 * */
-
+    
 
     self->SetSizerAndFit(sizer);
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::SetSizerAndFit).\n";                           \
@@ -8893,18 +9316,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43113
    */
   if(args.Length() == 0) {
-
+    
 
     wxSizer* returnVal = self->GetSizer();
 
-
+    
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxSizer"));
     wxNode_wxSizer::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -8913,7 +9337,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetSizer).\n";                           \
@@ -8929,19 +9353,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43114
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxSizer::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxSizer* sizer = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSizer>(args[0]->ToObject()); /* type: _58725 * */
-
+    
 
     self->SetContainingSizer(sizer);
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::SetContainingSizer).\n";                           \
@@ -8957,18 +9381,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43115
    */
   if(args.Length() == 0) {
-
+    
 
     wxSizer* returnVal = self->GetContainingSizer();
 
-
+    
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxSizer"));
     wxNode_wxSizer::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -8977,7 +9402,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetContainingSizer).\n";                           \
@@ -8993,19 +9418,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43116
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
     unsigned char arg0 = args[0]->ToInt32()->Value(); /* type: _9908  */
-
+    
 
     bool returnVal = self->SetTransparent(arg0);
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::SetTransparent).\n";                           \
@@ -9021,18 +9446,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43117
    */
   if(args.Length() == 0) {
-
+    
 
     bool returnVal = self->CanSetTransparent();
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::CanSetTransparent).\n";                           \
@@ -9048,7 +9473,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::OnSysColourChanged).\n";                           \
@@ -9064,7 +9489,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::OnInitDialog).\n";                           \
@@ -9080,7 +9505,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::OnMiddleClick).\n";                           \
@@ -9096,7 +9521,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::OnHelp).\n";                           \
@@ -9112,7 +9537,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::OnInternalIdle).\n";                           \
@@ -9128,19 +9553,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43123
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxIdleEvent::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxIdleEvent* event = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxIdleEvent>(args[0]->ToObject()); /* type: _61036  */
-
+    
 
     bool returnVal = self->SendIdleEvents(*event);
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::SendIdleEvents).\n";                           \
@@ -9156,18 +9581,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43124
    */
   if(args.Length() == 0) {
-
+    
 
     self->GetHandle();
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetHandle).\n";                           \
@@ -9183,18 +9608,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43126
    */
   if(args.Length() == 0) {
-
+    
 
     self->DissociateHandle();
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::DissociateHandle).\n";                           \
@@ -9210,18 +9635,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43127
    */
   if(args.Length() == 0) {
-
+    
 
     wxPalette returnValTemp = self->GetPalette();
 
     wxPalette* returnVal = new wxPalette();
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxPalette"));
     wxNode_wxPalette::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -9230,7 +9656,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetPalette).\n";                           \
@@ -9246,19 +9672,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43128
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxPalette::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
     wxNode_wxPalette* pal = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPalette>(args[0]->ToObject()); /* type: _59271  */
-
+    
 
     self->SetPalette(*pal);
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::SetPalette).\n";                           \
@@ -9274,18 +9700,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43129
    */
   if(args.Length() == 0) {
-
+    
 
     bool returnVal = self->HasCustomPalette();
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::HasCustomPalette).\n";                           \
@@ -9301,18 +9727,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43130
    */
   if(args.Length() == 0) {
-
+    
 
     wxWindow* returnVal = self->GetAncestorWithCustomPalette();
 
-
+    
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxWindow"));
     wxNode_wxWindow::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -9321,7 +9748,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetAncestorWithCustomPalette).\n";                           \
@@ -9337,18 +9764,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43131
    */
   if(args.Length() == 0) {
-
+    
 
     self->InheritAttributes();
 
     return v8::Undefined();
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::InheritAttributes).\n";                           \
@@ -9364,18 +9791,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43132
    */
   if(args.Length() == 0) {
-
+    
 
     bool returnVal = self->ShouldInheritColours();
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::ShouldInheritColours).\n";                           \
@@ -9391,18 +9818,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43133
    */
   if(args.Length() == 0) {
-
+    
 
     bool returnVal = self->CanBeOutsideClientArea();
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::CanBeOutsideClientArea).\n";                           \
@@ -9418,18 +9845,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43134
    */
   if(args.Length() == 0) {
-
+    
 
     bool returnVal = self->CanApplyThemeBorder();
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::CanApplyThemeBorder).\n";                           \
@@ -9445,18 +9872,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43135
    */
   if(args.Length() == 0) {
-
+    
 
     wxWindow* returnVal = self->GetMainWindowOfCompositeControl();
 
-
+    
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxWindow"));
     wxNode_wxWindow::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -9465,7 +9893,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetMainWindowOfCompositeControl).\n";                           \
@@ -9481,18 +9909,18 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43136
    */
   if(args.Length() == 0) {
-
+    
 
     bool returnVal = self->IsTopNavigationDomain();
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::IsTopNavigationDomain).\n";                           \
@@ -9508,18 +9936,19 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   v8::HandleScope scope;
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
-
+  
   /*
    * id: _43185
    */
   if(args.Length() == 0) {
-
+    
 
     wxClassInfo* returnVal = self->GetClassInfo();
 
-
+    
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxClassInfo"));
     wxNode_wxClassInfo::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -9528,7 +9957,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
   }
-
+  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetClassInfo).\n";                           \
@@ -9539,3 +9968,4 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   }
   return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
+

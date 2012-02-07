@@ -103,12 +103,219 @@ wxNode_wxControl::wxNode_wxControl(wxNode_wxWindow* parent, int id)
 }
 
 /*static*/ bool wxNode_wxControl::AssignableFrom(const char* className) {
-  if(!strcmp("wxControl", className)) {
-    return true;
-  }
-  if(wxNode_wxWindow::AssignableFrom(className)) { return true; }
+  if(!strcmp("wxControl", className)) { return true; }
+  
+  if(!strcmp("wxControl", className)) { return true; }
 
-  printf("wxControl ?== %s\n", className);
+  if(!strcmp("wxDateTimePickerCtrlBase", className)) { return true; }
+
+  if(!strcmp("wxDatePickerCtrlBase", className)) { return true; }
+
+  if(!strcmp("wxCompositeWindow<wxDatePickerCtrlBase>", className)) { return true; }
+
+  if(!strcmp("wxDatePickerCtrlGeneric", className)) { return true; }
+
+  if(!strcmp("wxDatePickerCtrl", className)) { return true; }
+  if(!strcmp("wxTimePickerCtrlBase", className)) { return true; }
+
+  if(!strcmp("wxNavigationEnabled<wxTimePickerCtrlBase>", className)) { return true; }
+
+  if(!strcmp("wxCompositeWindow<wxNavigationEnabled<wxTimePickerCtrlBase> >", className)) { return true; }
+
+  if(!strcmp("wxTimePickerCtrlGeneric", className)) { return true; }
+
+  if(!strcmp("wxTimePickerCtrl", className)) { return true; }
+  if(!strcmp("wxGaugeBase", className)) { return true; }
+  if(!strcmp("wxComboCtrlBase", className)) { return true; }
+
+  if(!strcmp("wxGenericComboCtrl", className)) { return true; }
+
+  if(!strcmp("wxComboCtrl", className)) { return true; }
+
+  if(!strcmp("wxRichTextStyleComboCtrl", className)) { return true; }
+  if(!strcmp("wxWindowWithItems<wxComboCtrl,wxItemContainer>", className)) { return true; }
+
+  if(!strcmp("wxOwnerDrawnComboBox", className)) { return true; }
+  if(!strcmp("wxNavigationEnabled<wxControl>", className)) { return true; }
+
+  if(!strcmp("wxPickerBase", className)) { return true; }
+
+  if(!strcmp("wxColourPickerCtrl", className)) { return true; }
+  if(!strcmp("wxFontPickerCtrl", className)) { return true; }
+  if(!strcmp("wxFileDirPickerCtrlBase", className)) { return true; }
+
+  if(!strcmp("wxDirPickerCtrl", className)) { return true; }
+  if(!strcmp("wxFilePickerCtrl", className)) { return true; }
+  if(!strcmp("wxCompositeWindow<wxNavigationEnabled<wxControl> >", className)) { return true; }
+
+  if(!strcmp("wxSearchCtrlBaseBaseClass", className)) { return true; }
+
+  if(!strcmp("wxSearchCtrlBase", className)) { return true; }
+
+  if(!strcmp("wxSearchCtrl", className)) { return true; }
+  if(!strcmp("wxInfoBarBase", className)) { return true; }
+
+  if(!strcmp("wxInfoBarGeneric", className)) { return true; }
+
+  if(!strcmp("wxInfoBar", className)) { return true; }
+  if(!strcmp("wxBookCtrlBase", className)) { return true; }
+
+  if(!strcmp("wxToolbook", className)) { return true; }
+  if(!strcmp("wxNavigationEnabled<wxBookCtrlBase>", className)) { return true; }
+
+  if(!strcmp("wxAuiNotebook", className)) { return true; }
+
+  if(!strcmp("wxAuiMDIClientWindow", className)) { return true; }
+  if(!strcmp("wxChoicebook", className)) { return true; }
+  if(!strcmp("wxNotebookBase", className)) { return true; }
+
+  if(!strcmp("wxNotebook", className)) { return true; }
+  if(!strcmp("wxTreebook", className)) { return true; }
+  if(!strcmp("wxListbook", className)) { return true; }
+  if(!strcmp("wxTextCtrlBase", className)) { return true; }
+
+  if(!strcmp("wxTextCtrl", className)) { return true; }
+  if(!strcmp("wxRadioBox", className)) { return true; }
+  if(!strcmp("wxAnimationCtrlBase", className)) { return true; }
+
+  if(!strcmp("wxAnimationCtrl", className)) { return true; }
+  if(!strcmp("wxStaticBitmapBase", className)) { return true; }
+
+  if(!strcmp("wxStaticBitmap", className)) { return true; }
+  if(!strcmp("wxRichTextCtrl", className)) { return true; }
+  if(!strcmp("wxAnyButtonBase", className)) { return true; }
+
+  if(!strcmp("wxAnyButton", className)) { return true; }
+
+  if(!strcmp("wxToggleButtonBase", className)) { return true; }
+
+  if(!strcmp("wxToggleButton", className)) { return true; }
+
+  if(!strcmp("wxBitmapToggleButton", className)) { return true; }
+  if(!strcmp("wxButtonBase", className)) { return true; }
+
+  if(!strcmp("wxButton", className)) { return true; }
+
+  if(!strcmp("wxBitmapButtonBase", className)) { return true; }
+
+  if(!strcmp("wxBitmapButton", className)) { return true; }
+
+  if(!strcmp("wxContextHelpButton", className)) { return true; }
+  if(!strcmp("wxGenericFileDirButton", className)) { return true; }
+
+  if(!strcmp("wxGenericFileButton", className)) { return true; }
+
+  if(!strcmp("wxFileButton", className)) { return true; }
+  if(!strcmp("wxGenericDirButton", className)) { return true; }
+
+  if(!strcmp("wxDirButton", className)) { return true; }
+  if(!strcmp("wxCommandLinkButtonBase", className)) { return true; }
+
+  if(!strcmp("wxGenericCommandLinkButton", className)) { return true; }
+
+  if(!strcmp("wxCommandLinkButton", className)) { return true; }
+  if(!strcmp("wxFontButton", className)) { return true; }
+  if(!strcmp("wxColourButton", className)) { return true; }
+  if(!strcmp("wxStatusBarBase", className)) { return true; }
+
+  if(!strcmp("wxStatusBar", className)) { return true; }
+  if(!strcmp("wxWindowWithItems<wxControl,wxItemContainer>", className)) { return true; }
+
+  if(!strcmp("wxControlWithItemsBase", className)) { return true; }
+
+  if(!strcmp("wxControlWithItems", className)) { return true; }
+
+  if(!strcmp("wxChoiceBase", className)) { return true; }
+
+  if(!strcmp("wxChoice", className)) { return true; }
+
+  if(!strcmp("wxComboBox", className)) { return true; }
+
+  if(!strcmp("wxBitmapComboBox", className)) { return true; }
+  if(!strcmp("wxDirFilterListCtrl", className)) { return true; }
+  if(!strcmp("wxListBoxBase", className)) { return true; }
+
+  if(!strcmp("wxListBox", className)) { return true; }
+
+  if(!strcmp("wxCheckListBoxBase", className)) { return true; }
+  if(!strcmp("wxCheckListBox", className)) { return true; }
+
+  if(!strcmp("wxRearrangeList", className)) { return true; }
+  if(!strcmp("wxToolBarBase", className)) { return true; }
+
+  if(!strcmp("wxToolBar", className)) { return true; }
+  if(!strcmp("wxSpinButtonBase", className)) { return true; }
+
+  if(!strcmp("wxSpinButton", className)) { return true; }
+  if(!strcmp("wxDataViewCtrlBase", className)) { return true; }
+
+  if(!strcmp("wxDataViewCtrl", className)) { return true; }
+
+  if(!strcmp("wxDataViewListCtrl", className)) { return true; }
+  if(!strcmp("wxDataViewTreeCtrl", className)) { return true; }
+  if(!strcmp("wxHeaderCtrlBase", className)) { return true; }
+
+  if(!strcmp("wxHeaderCtrl", className)) { return true; }
+
+  if(!strcmp("wxHeaderCtrlSimple", className)) { return true; }
+  if(!strcmp("wxSliderBase", className)) { return true; }
+
+  if(!strcmp("wxSlider", className)) { return true; }
+  if(!strcmp("wxCheckBoxBase", className)) { return true; }
+
+  if(!strcmp("wxCheckBox", className)) { return true; }
+  if(!strcmp("wxCollapsiblePaneBase", className)) { return true; }
+
+  if(!strcmp("wxCollapsiblePane", className)) { return true; }
+  if(!strcmp("wxHyperlinkCtrlBase", className)) { return true; }
+
+  if(!strcmp("wxGenericHyperlinkCtrl", className)) { return true; }
+
+  if(!strcmp("wxHyperlinkCtrl", className)) { return true; }
+  if(!strcmp("wxStyledTextCtrl", className)) { return true; }
+  if(!strcmp("wxRichTextStyleListCtrl", className)) { return true; }
+  if(!strcmp("wxStaticTextBase", className)) { return true; }
+
+  if(!strcmp("wxStaticText", className)) { return true; }
+  if(!strcmp("wxScrollBarBase", className)) { return true; }
+
+  if(!strcmp("wxScrollBar", className)) { return true; }
+  if(!strcmp("wxTreeCtrlBase", className)) { return true; }
+
+  if(!strcmp("wxGenericTreeCtrl", className)) { return true; }
+
+  if(!strcmp("wxTreeCtrl", className)) { return true; }
+  if(!strcmp("wxListCtrlBase", className)) { return true; }
+
+  if(!strcmp("wxGenericListCtrl", className)) { return true; }
+
+  if(!strcmp("wxListCtrl", className)) { return true; }
+
+  if(!strcmp("wxListView", className)) { return true; }
+  if(!strcmp("wxSpinCtrlBase", className)) { return true; }
+
+  if(!strcmp("wxSpinCtrlGTKBase", className)) { return true; }
+
+  if(!strcmp("wxSpinCtrlDouble", className)) { return true; }
+  if(!strcmp("wxSpinCtrl", className)) { return true; }
+  if(!strcmp("wxGauge", className)) { return true; }
+  if(!strcmp("wxGtkFileCtrl", className)) { return true; }
+  if(!strcmp("wxAuiToolBar", className)) { return true; }
+  if(!strcmp("wxRadioButton", className)) { return true; }
+  if(!strcmp("wxCalendarCtrlBase", className)) { return true; }
+
+  if(!strcmp("wxGtkCalendarCtrl", className)) { return true; }
+  if(!strcmp("wxGenericDirCtrl", className)) { return true; }
+  if(!strcmp("wxStaticBoxBase", className)) { return true; }
+
+  if(!strcmp("wxStaticBox", className)) { return true; }
+  if(!strcmp("wxAuiTabCtrl", className)) { return true; }
+  if(!strcmp("wxStaticLineBase", className)) { return true; }
+
+  if(!strcmp("wxStaticLine", className)) { return true; }
+  if(!strcmp("wxRichTextColourSwatchCtrl", className)) { return true; }
+
+
   return false;
 }
 
@@ -799,6 +1006,7 @@ wxNode_wxControl::wxNode_wxControl(wxNode_wxWindow* parent, int id)
     wxVisualAttributes* returnVal = new wxVisualAttributes();
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxVisualAttributes"));
     wxNode_wxVisualAttributes::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];

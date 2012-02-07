@@ -42,12 +42,9 @@ wxNode_{{parent.parent.name}}::wxNode_{{parent.parent.name}}({{{argDeclCode}}})
 }
 
 /*static*/ bool wxNode_{{name}}::AssignableFrom(const char* className) {
-  if(!strcmp("{{name}}", className)) {
-    return true;
-  }
-  {{{baseClassAssignableFromCode}}}
+  if(!strcmp("{{name}}", className)) { return true; }
+  {{{assignableFromCode}}}
 
-  printf("{{name}} ?== %s\n", className);
   return false;
 }
 

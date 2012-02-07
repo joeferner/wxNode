@@ -68,12 +68,9 @@ wxNode_wxSize::wxNode_wxSize(int xx, int yy)
 }
 
 /*static*/ bool wxNode_wxSize::AssignableFrom(const char* className) {
-  if(!strcmp("wxSize", className)) {
-    return true;
-  }
-  if(wxNode_wxEvtHandler::AssignableFrom(className)) { return true; }
+  if(!strcmp("wxSize", className)) { return true; }
+  
 
-  printf("wxSize ?== %s\n", className);
   return false;
 }
 
@@ -338,6 +335,7 @@ wxNode_wxSize::wxNode_wxSize(int xx, int yy)
     wxSize* returnVal = new wxSize();
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxSize"));
     wxNode_wxSize::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];

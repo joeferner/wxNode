@@ -136,12 +136,16 @@ wxNode_wxListBox::wxNode_wxListBox(wxNode_wxWindow* parent, int id, wxNode_wxPoi
 }
 
 /*static*/ bool wxNode_wxListBox::AssignableFrom(const char* className) {
-  if(!strcmp("wxListBox", className)) {
-    return true;
-  }
-  if(wxNode_wxControlWithItems::AssignableFrom(className)) { return true; }
+  if(!strcmp("wxListBox", className)) { return true; }
+  
+  if(!strcmp("wxListBox", className)) { return true; }
 
-  printf("wxListBox ?== %s\n", className);
+  if(!strcmp("wxCheckListBoxBase", className)) { return true; }
+  if(!strcmp("wxCheckListBox", className)) { return true; }
+
+  if(!strcmp("wxRearrangeList", className)) { return true; }
+
+
   return false;
 }
 

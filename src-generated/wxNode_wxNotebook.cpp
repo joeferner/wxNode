@@ -85,12 +85,11 @@ wxNode_wxNotebook::wxNode_wxNotebook(wxNode_wxWindow* parent, int id)
 }
 
 /*static*/ bool wxNode_wxNotebook::AssignableFrom(const char* className) {
-  if(!strcmp("wxNotebook", className)) {
-    return true;
-  }
-  if(wxNode_wxBookCtrlBase::AssignableFrom(className)) { return true; }
+  if(!strcmp("wxNotebook", className)) { return true; }
+  
+  if(!strcmp("wxNotebook", className)) { return true; }
 
-  printf("wxNotebook ?== %s\n", className);
+
   return false;
 }
 
@@ -304,6 +303,7 @@ wxNode_wxNotebook::wxNode_wxNotebook(wxNode_wxWindow* parent, int id)
     wxSize* returnVal = new wxSize();
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxSize"));
     wxNode_wxSize::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -340,6 +340,7 @@ wxNode_wxNotebook::wxNode_wxNotebook(wxNode_wxWindow* parent, int id)
     wxColour* returnVal = new wxColour();
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxColour"));
     wxNode_wxColour::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];

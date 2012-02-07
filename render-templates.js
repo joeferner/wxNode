@@ -68,7 +68,8 @@ fs.readFile('./wxapi.json', 'utf8', function(err, data) {
         console.log("wxapi.xml parsed");
 
         var apiJson = {
-          classNameToId: {}
+          classNameToId: {},
+          subClasses: {}
         };
         for(var elementName in result['GCC_XML']) {
           var elem = result['GCC_XML'][elementName];
@@ -79,6 +80,19 @@ fs.readFile('./wxapi.json', 'utf8', function(err, data) {
             if(elementName == "Class" || elementName == "Enumeration") {
               var name = removeTemplateFromClassName(elem[i]['name']);
               apiJson.classNameToId[name] = id;
+              var bases = elem[i]['bases'];
+              if(bases) {
+                bases = bases.split(' ');
+                for(var baseIdx=0; baseIdx<bases.length; baseIdx++) {
+                  var base = bases[baseIdx];
+                  if(base == "") { continue; }
+                  var subClasses = apiJson.subClasses[base];
+                  if(!subClasses) {
+                    apiJson.subClasses[base] = [];
+                  }
+                  apiJson.subClasses[base].push(id);
+                }
+              }
             }
           }
         }
@@ -467,6 +481,25 @@ function removeTemplateFromClassName(name) {
   return name;
 }
 
+function getAssignableFromCode(rawJson, classId) {
+  var subClasses = rawJson.subClasses[classId];
+  if(!subClasses) {
+    return null;
+  }
+
+  var result = "\n";
+  for(var i=0; i<subClasses.length; i++) {
+    var subClass = lookupClassById(rawJson, subClasses[i]);
+    result += '  if(!strcmp("' + subClass.name + '", className)) { return true; }\n';
+    var t = getAssignableFromCode(rawJson, subClasses[i]);
+    if(t) {
+      result += t;
+    }
+  }
+
+  return result;
+}
+
 function rawJsonToCtx(rawJson, file) {
   var ctx = {
     name: file.className,
@@ -476,7 +509,7 @@ function rawJsonToCtx(rawJson, file) {
     includes: [],
     classes: [],
     baseClassAddMethodsCallCode: "",
-    baseClassAssignableFromCode: ""
+    assignableFromCode: ""
   };
   ctx.headerFilename = ctx.outputFilename.replace(/\.cpp$/, '.h');
   ctx.includes.push(ctx.headerFilename);
@@ -495,17 +528,16 @@ function rawJsonToCtx(rawJson, file) {
     ctx.baseClassId = baseClazz['id'];
     if(file.addMethodsClass) {
       ctx.baseClassAddMethodsCallCode = file.addMethodsClass + "::AddMethods(target);";
-      ctx.baseClassAssignableFromCode = "if(" + file.addMethodsClass + "::AssignableFrom(className)) { return true; }";
     } else {
       ctx.baseClassAddMethodsCallCode = "wxNode_" + ctx.baseClassName + "::AddMethods(target);";
-      ctx.baseClassAssignableFromCode = "if(wxNode_" + ctx.baseClassName + "::AssignableFrom(className)) { return true; }";
     }
     ctx.includes = concatUnique(ctx.includes, ["wxNode_wxEvtHandler.h", "wxNode_" + ctx.baseClassName + ".h"]);
     ctx.classes = concatUnique(ctx.classes, ["wxNode_wxEvtHandler", "wxNode_" + ctx.baseClassName]);
   } else {
     ctx.baseClassAddMethodsCallCode = "wxNode_wxEvtHandler::AddMethods(target);";
-    ctx.baseClassAssignableFromCode = "if(wxNode_wxEvtHandler::AssignableFrom(className)) { return true; }";
   }
+
+  ctx.assignableFromCode = getAssignableFromCode(rawJson, ctx.classId);
 
   // process members
   if(file.allowNew) {

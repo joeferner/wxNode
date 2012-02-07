@@ -73,12 +73,22 @@
 }
 
 /*static*/ bool wxNode_wxBookCtrlBase::AssignableFrom(const char* className) {
-  if(!strcmp("wxBookCtrlBase", className)) {
-    return true;
-  }
-  if(wxNode_wxControl::AssignableFrom(className)) { return true; }
+  if(!strcmp("wxBookCtrlBase", className)) { return true; }
+  
+  if(!strcmp("wxToolbook", className)) { return true; }
+  if(!strcmp("wxNavigationEnabled<wxBookCtrlBase>", className)) { return true; }
 
-  printf("wxBookCtrlBase ?== %s\n", className);
+  if(!strcmp("wxAuiNotebook", className)) { return true; }
+
+  if(!strcmp("wxAuiMDIClientWindow", className)) { return true; }
+  if(!strcmp("wxChoicebook", className)) { return true; }
+  if(!strcmp("wxNotebookBase", className)) { return true; }
+
+  if(!strcmp("wxNotebook", className)) { return true; }
+  if(!strcmp("wxTreebook", className)) { return true; }
+  if(!strcmp("wxListbook", className)) { return true; }
+
+
   return false;
 }
 
@@ -233,6 +243,7 @@
     
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxWindow"));
     wxNode_wxWindow::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -269,6 +280,7 @@
     
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxWindow"));
     wxNode_wxWindow::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -474,6 +486,7 @@
     wxSize* returnVal = new wxSize();
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxSize"));
     wxNode_wxSize::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -511,6 +524,7 @@
     wxSize* returnVal = new wxSize();
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxSize"));
     wxNode_wxSize::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -739,6 +753,7 @@
     
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxSizer"));
     wxNode_wxSizer::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -1194,6 +1209,7 @@
     
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxClassInfo"));
     wxNode_wxClassInfo::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];

@@ -93,12 +93,32 @@ wxNode_wxButton::wxNode_wxButton(wxNode_wxWindow* parent, int id)
 }
 
 /*static*/ bool wxNode_wxButton::AssignableFrom(const char* className) {
-  if(!strcmp("wxButton", className)) {
-    return true;
-  }
-  if(wxNode_wxAnyButton::AssignableFrom(className)) { return true; }
+  if(!strcmp("wxButton", className)) { return true; }
+  
+  if(!strcmp("wxButton", className)) { return true; }
 
-  printf("wxButton ?== %s\n", className);
+  if(!strcmp("wxBitmapButtonBase", className)) { return true; }
+
+  if(!strcmp("wxBitmapButton", className)) { return true; }
+
+  if(!strcmp("wxContextHelpButton", className)) { return true; }
+  if(!strcmp("wxGenericFileDirButton", className)) { return true; }
+
+  if(!strcmp("wxGenericFileButton", className)) { return true; }
+
+  if(!strcmp("wxFileButton", className)) { return true; }
+  if(!strcmp("wxGenericDirButton", className)) { return true; }
+
+  if(!strcmp("wxDirButton", className)) { return true; }
+  if(!strcmp("wxCommandLinkButtonBase", className)) { return true; }
+
+  if(!strcmp("wxGenericCommandLinkButton", className)) { return true; }
+
+  if(!strcmp("wxCommandLinkButton", className)) { return true; }
+  if(!strcmp("wxFontButton", className)) { return true; }
+  if(!strcmp("wxColourButton", className)) { return true; }
+
+
   return false;
 }
 
@@ -333,6 +353,7 @@ wxNode_wxButton::wxNode_wxButton(wxNode_wxWindow* parent, int id)
     
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxWindow"));
     wxNode_wxWindow::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -369,6 +390,7 @@ wxNode_wxButton::wxNode_wxButton(wxNode_wxWindow* parent, int id)
     wxSize* returnVal = new wxSize();
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxSize"));
     wxNode_wxSize::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];

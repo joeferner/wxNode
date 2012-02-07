@@ -80,12 +80,11 @@ wxNode_wxStaticText::wxNode_wxStaticText(wxNode_wxWindow* parent, int id, const 
 }
 
 /*static*/ bool wxNode_wxStaticText::AssignableFrom(const char* className) {
-  if(!strcmp("wxStaticText", className)) {
-    return true;
-  }
-  if(wxNode_wxControl::AssignableFrom(className)) { return true; }
+  if(!strcmp("wxStaticText", className)) { return true; }
+  
+  if(!strcmp("wxStaticText", className)) { return true; }
 
-  printf("wxStaticText ?== %s\n", className);
+
   return false;
 }
 

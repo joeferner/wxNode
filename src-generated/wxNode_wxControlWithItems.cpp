@@ -36,12 +36,28 @@
 }
 
 /*static*/ bool wxNode_wxControlWithItems::AssignableFrom(const char* className) {
-  if(!strcmp("wxControlWithItems", className)) {
-    return true;
-  }
-  if(wxNode_wxWindowWithItems_wxControl_wxItemContainer::AssignableFrom(className)) { return true; }
+  if(!strcmp("wxControlWithItems", className)) { return true; }
+  
+  if(!strcmp("wxControlWithItems", className)) { return true; }
 
-  printf("wxControlWithItems ?== %s\n", className);
+  if(!strcmp("wxChoiceBase", className)) { return true; }
+
+  if(!strcmp("wxChoice", className)) { return true; }
+
+  if(!strcmp("wxComboBox", className)) { return true; }
+
+  if(!strcmp("wxBitmapComboBox", className)) { return true; }
+  if(!strcmp("wxDirFilterListCtrl", className)) { return true; }
+  if(!strcmp("wxListBoxBase", className)) { return true; }
+
+  if(!strcmp("wxListBox", className)) { return true; }
+
+  if(!strcmp("wxCheckListBoxBase", className)) { return true; }
+  if(!strcmp("wxCheckListBox", className)) { return true; }
+
+  if(!strcmp("wxRearrangeList", className)) { return true; }
+
+
   return false;
 }
 

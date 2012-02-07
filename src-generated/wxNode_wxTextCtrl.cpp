@@ -108,12 +108,11 @@ wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxNode_wxWindow* parent, int id)
 }
 
 /*static*/ bool wxNode_wxTextCtrl::AssignableFrom(const char* className) {
-  if(!strcmp("wxTextCtrl", className)) {
-    return true;
-  }
-  if(wxNode_wxControl::AssignableFrom(className)) { return true; }
+  if(!strcmp("wxTextCtrl", className)) { return true; }
+  
+  if(!strcmp("wxTextCtrl", className)) { return true; }
 
-  printf("wxTextCtrl ?== %s\n", className);
+
   return false;
 }
 
@@ -604,6 +603,7 @@ wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxNode_wxWindow* parent, int id)
     wxVisualAttributes* returnVal = new wxVisualAttributes();
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxVisualAttributes"));
     wxNode_wxVisualAttributes::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -641,6 +641,7 @@ wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxNode_wxWindow* parent, int id)
     wxVisualAttributes* returnVal = new wxVisualAttributes();
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxVisualAttributes"));
     wxNode_wxVisualAttributes::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -661,6 +662,7 @@ wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxNode_wxWindow* parent, int id)
     wxVisualAttributes* returnVal = new wxVisualAttributes();
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxVisualAttributes"));
     wxNode_wxVisualAttributes::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -697,6 +699,7 @@ wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxNode_wxWindow* parent, int id)
     
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxClassInfo"));
     wxNode_wxClassInfo::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];

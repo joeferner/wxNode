@@ -53,12 +53,39 @@
 }
 
 /*static*/ bool wxNode_wxItemContainer::AssignableFrom(const char* className) {
-  if(!strcmp("wxItemContainer", className)) {
-    return true;
-  }
-  if(wxNode_wxItemContainerImmutable::AssignableFrom(className)) { return true; }
+  if(!strcmp("wxItemContainer", className)) { return true; }
+  
+  if(!strcmp("wxWindowWithItems<wxComboCtrl,wxItemContainer>", className)) { return true; }
 
-  printf("wxItemContainer ?== %s\n", className);
+  if(!strcmp("wxOwnerDrawnComboBox", className)) { return true; }
+  if(!strcmp("wxWindowWithItems<wxHtmlListBox,wxItemContainer>", className)) { return true; }
+
+  if(!strcmp("wxSimpleHtmlListBox", className)) { return true; }
+  if(!strcmp("wxWindowWithItems<wxControl,wxItemContainer>", className)) { return true; }
+
+  if(!strcmp("wxControlWithItemsBase", className)) { return true; }
+
+  if(!strcmp("wxControlWithItems", className)) { return true; }
+
+  if(!strcmp("wxChoiceBase", className)) { return true; }
+
+  if(!strcmp("wxChoice", className)) { return true; }
+
+  if(!strcmp("wxComboBox", className)) { return true; }
+
+  if(!strcmp("wxBitmapComboBox", className)) { return true; }
+  if(!strcmp("wxDirFilterListCtrl", className)) { return true; }
+  if(!strcmp("wxListBoxBase", className)) { return true; }
+
+  if(!strcmp("wxListBox", className)) { return true; }
+
+  if(!strcmp("wxCheckListBoxBase", className)) { return true; }
+  if(!strcmp("wxCheckListBox", className)) { return true; }
+
+  if(!strcmp("wxRearrangeList", className)) { return true; }
+  if(!strcmp("wxComboBoxBase", className)) { return true; }
+
+
   return false;
 }
 
@@ -538,6 +565,7 @@
     
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxClientData"));
     wxNode_wxClientData::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -575,6 +603,7 @@
     
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxClientData"));
     wxNode_wxClientData::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];

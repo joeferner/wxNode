@@ -84,12 +84,52 @@ wxNode_wxPanel::wxNode_wxPanel(wxNode_wxWindow* parent)
 }
 
 /*static*/ bool wxNode_wxPanel::AssignableFrom(const char* className) {
-  if(!strcmp("wxPanel", className)) {
-    return true;
-  }
-  if(wxNode_wxNavigationEnabled::AssignableFrom(className)) { return true; }
+  if(!strcmp("wxPanel", className)) { return true; }
+  
+  if(!strcmp("wxPanel", className)) { return true; }
 
-  printf("wxPanel ?== %s\n", className);
+  if(!strcmp("wxScrolled<wxPanel>", className)) { return true; }
+
+  if(!strcmp("wxScrolledWindow", className)) { return true; }
+
+  if(!strcmp("wxPreviewCanvas", className)) { return true; }
+  if(!strcmp("wxHtmlWindow", className)) { return true; }
+  if(!strcmp("wxGrid", className)) { return true; }
+  if(!strcmp("wxWizardPage", className)) { return true; }
+
+  if(!strcmp("wxWizardPageSimple", className)) { return true; }
+  if(!strcmp("wxRichTextDialogPage", className)) { return true; }
+
+  if(!strcmp("wxRichTextFontPage", className)) { return true; }
+  if(!strcmp("wxRichTextMarginsPage", className)) { return true; }
+  if(!strcmp("wxRichTextStylePage", className)) { return true; }
+  if(!strcmp("wxRichTextSizePage", className)) { return true; }
+  if(!strcmp("wxRichTextListStylePage", className)) { return true; }
+  if(!strcmp("wxRichTextTabsPage", className)) { return true; }
+  if(!strcmp("wxRichTextBulletsPage", className)) { return true; }
+  if(!strcmp("wxHVScrolledWindow", className)) { return true; }
+  if(!strcmp("wxHScrolledWindow", className)) { return true; }
+  if(!strcmp("wxVScrolledWindow", className)) { return true; }
+
+  if(!strcmp("wxSymbolListCtrl", className)) { return true; }
+  if(!strcmp("wxVListBox", className)) { return true; }
+
+  if(!strcmp("wxVListBoxComboPopup", className)) { return true; }
+  if(!strcmp("wxHtmlListBox", className)) { return true; }
+
+  if(!strcmp("wxRichTextStyleListBox", className)) { return true; }
+
+  if(!strcmp("wxRichTextStyleComboPopup", className)) { return true; }
+  if(!strcmp("wxWindowWithItems<wxHtmlListBox,wxItemContainer>", className)) { return true; }
+
+  if(!strcmp("wxSimpleHtmlListBox", className)) { return true; }
+  if(!strcmp("wxRichTextFontListBox", className)) { return true; }
+  if(!strcmp("wxRearrangeCtrl", className)) { return true; }
+  if(!strcmp("wxEditableListBox", className)) { return true; }
+  if(!strcmp("wxPreviewControlBar", className)) { return true; }
+  if(!strcmp("wxAuiMDIChildFrame", className)) { return true; }
+
+
   return false;
 }
 

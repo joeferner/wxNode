@@ -69,12 +69,41 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
 }
 
 /*static*/ bool wxNode_wxAnyButton::AssignableFrom(const char* className) {
-  if(!strcmp("wxAnyButton", className)) {
-    return true;
-  }
-  if(wxNode_wxControl::AssignableFrom(className)) { return true; }
+  if(!strcmp("wxAnyButton", className)) { return true; }
+  
+  if(!strcmp("wxAnyButton", className)) { return true; }
 
-  printf("wxAnyButton ?== %s\n", className);
+  if(!strcmp("wxToggleButtonBase", className)) { return true; }
+
+  if(!strcmp("wxToggleButton", className)) { return true; }
+
+  if(!strcmp("wxBitmapToggleButton", className)) { return true; }
+  if(!strcmp("wxButtonBase", className)) { return true; }
+
+  if(!strcmp("wxButton", className)) { return true; }
+
+  if(!strcmp("wxBitmapButtonBase", className)) { return true; }
+
+  if(!strcmp("wxBitmapButton", className)) { return true; }
+
+  if(!strcmp("wxContextHelpButton", className)) { return true; }
+  if(!strcmp("wxGenericFileDirButton", className)) { return true; }
+
+  if(!strcmp("wxGenericFileButton", className)) { return true; }
+
+  if(!strcmp("wxFileButton", className)) { return true; }
+  if(!strcmp("wxGenericDirButton", className)) { return true; }
+
+  if(!strcmp("wxDirButton", className)) { return true; }
+  if(!strcmp("wxCommandLinkButtonBase", className)) { return true; }
+
+  if(!strcmp("wxGenericCommandLinkButton", className)) { return true; }
+
+  if(!strcmp("wxCommandLinkButton", className)) { return true; }
+  if(!strcmp("wxFontButton", className)) { return true; }
+  if(!strcmp("wxColourButton", className)) { return true; }
+
+
   return false;
 }
 
@@ -165,6 +194,7 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
     wxBitmap* returnVal = new wxBitmap();
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxBitmap"));
     wxNode_wxBitmap::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -341,6 +371,7 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
     wxBitmap* returnVal = new wxBitmap();
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxBitmap"));
     wxNode_wxBitmap::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -377,6 +408,7 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
     wxBitmap* returnVal = new wxBitmap();
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxBitmap"));
     wxNode_wxBitmap::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -413,6 +445,7 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
     wxBitmap* returnVal = new wxBitmap();
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxBitmap"));
     wxNode_wxBitmap::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -449,6 +482,7 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
     wxBitmap* returnVal = new wxBitmap();
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxBitmap"));
     wxNode_wxBitmap::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -485,6 +519,7 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
     wxBitmap* returnVal = new wxBitmap();
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxBitmap"));
     wxNode_wxBitmap::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -562,6 +597,7 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
     wxSize* returnVal = new wxSize();
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxSize"));
     wxNode_wxSize::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -710,6 +746,7 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
     wxBitmap* returnVal = new wxBitmap();
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxBitmap"));
     wxNode_wxBitmap::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
@@ -746,6 +783,7 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
     wxBitmap* returnVal = new wxBitmap();
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxBitmap"));
     wxNode_wxBitmap::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];

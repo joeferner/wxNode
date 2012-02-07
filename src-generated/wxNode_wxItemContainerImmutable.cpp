@@ -45,12 +45,44 @@
 }
 
 /*static*/ bool wxNode_wxItemContainerImmutable::AssignableFrom(const char* className) {
-  if(!strcmp("wxItemContainerImmutable", className)) {
-    return true;
-  }
-  if(wxNode_wxEvtHandler::AssignableFrom(className)) { return true; }
+  if(!strcmp("wxItemContainerImmutable", className)) { return true; }
+  
+  if(!strcmp("wxRadioBoxBase", className)) { return true; }
 
-  printf("wxItemContainerImmutable ?== %s\n", className);
+  if(!strcmp("wxRadioBox", className)) { return true; }
+  if(!strcmp("wxItemContainer", className)) { return true; }
+
+  if(!strcmp("wxWindowWithItems<wxComboCtrl,wxItemContainer>", className)) { return true; }
+
+  if(!strcmp("wxOwnerDrawnComboBox", className)) { return true; }
+  if(!strcmp("wxWindowWithItems<wxHtmlListBox,wxItemContainer>", className)) { return true; }
+
+  if(!strcmp("wxSimpleHtmlListBox", className)) { return true; }
+  if(!strcmp("wxWindowWithItems<wxControl,wxItemContainer>", className)) { return true; }
+
+  if(!strcmp("wxControlWithItemsBase", className)) { return true; }
+
+  if(!strcmp("wxControlWithItems", className)) { return true; }
+
+  if(!strcmp("wxChoiceBase", className)) { return true; }
+
+  if(!strcmp("wxChoice", className)) { return true; }
+
+  if(!strcmp("wxComboBox", className)) { return true; }
+
+  if(!strcmp("wxBitmapComboBox", className)) { return true; }
+  if(!strcmp("wxDirFilterListCtrl", className)) { return true; }
+  if(!strcmp("wxListBoxBase", className)) { return true; }
+
+  if(!strcmp("wxListBox", className)) { return true; }
+
+  if(!strcmp("wxCheckListBoxBase", className)) { return true; }
+  if(!strcmp("wxCheckListBox", className)) { return true; }
+
+  if(!strcmp("wxRearrangeList", className)) { return true; }
+  if(!strcmp("wxComboBoxBase", className)) { return true; }
+
+
   return false;
 }
 
@@ -168,6 +200,7 @@
     wxArrayString* returnVal = new wxArrayString();
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+    returnObjFt->SetClassName(v8::String::NewSymbol("wxArrayString"));
     wxNode_wxArrayString::AddMethods(returnObjFt);
     v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
     v8::Handle<v8::Value> returnObjArgs[0];
