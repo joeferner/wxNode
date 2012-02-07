@@ -29,6 +29,7 @@ protected:
   virtual void addCommandRangeListener(wxEvtHandler* evtHandler, int id, int lastId, int eventType, v8::Local<v8::Object> fn);
   virtual void addCommandListener(wxEvtHandler* evtHandler, int id, int eventType, v8::Local<v8::Object> fn);
   virtual void connect(wxEvtHandler* evtHandler, int id, int lastId, int eventType, v8::Local<v8::Object> fn);
+  virtual void connect(wxEvtHandler* evtHandler, int eventType, v8::Local<v8::Object> fn);
 
   virtual v8::Handle<v8::Object> self() = 0;
 
@@ -64,6 +65,7 @@ public:
 protected:
   static v8::Handle<v8::Value> _EVT_MENU(const v8::Arguments& args);
   static v8::Handle<v8::Value> _EVT_IDLE(const v8::Arguments& args);
+  static v8::Handle<v8::Value> _connect(const v8::Arguments& args);
 };
 
 #endif

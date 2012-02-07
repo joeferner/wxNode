@@ -11,6 +11,24 @@ ListenerData::ListenerData(int eventType, v8::Local<v8::Object> fn) {
   wxNodeObject::AddMethods(func);
   NODE_SET_PROTOTYPE_METHOD(func, "EVT_MENU", _EVT_MENU);
   NODE_SET_PROTOTYPE_METHOD(func, "EVT_IDLE", _EVT_IDLE);
+  NODE_SET_PROTOTYPE_METHOD(func, "connect", _connect);
+}
+
+/*static*/ v8::Handle<v8::Value> wxNode_wxEvtHandler::_connect(const v8::Arguments& args) {
+  wxEvtHandler* evtHandler = unwrap<wxEvtHandler>(args.This());
+  NodeExEvtHandlerImpl* self = unwrapEvtHandler(args.This());
+
+  v8::Local<v8::Int32> idObj = args[0]->ToInt32();
+  int32_t eventType = idObj->Value();
+
+  if(!args[1]->IsFunction()) {
+    printf("Invalid Arg\n"); // TODO: throw exception
+  }
+  v8::Local<v8::Object> fnObj = args[1]->ToObject();
+
+  self->connect(evtHandler, eventType, fnObj);
+
+  return v8::Undefined();
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxEvtHandler::_EVT_MENU(const v8::Arguments& args) {
@@ -86,6 +104,18 @@ void NodeExEvtHandlerImpl::connect(wxEvtHandler* evtHandler, int id, int lastId,
   data->m_iListener = iListener;
 
   evtHandler->Connect(id, lastId, eventType, (wxObjectEventFunction)&EventProxy::forwardEvent, data);
+}
+
+void NodeExEvtHandlerImpl::connect(wxEvtHandler* evtHandler, int eventType, v8::Local<v8::Object> fn) {
+  // TODO: memory cleanup
+  m_listeners->push_back(new ListenerData(eventType, fn));
+  int iListener = m_listeners->size() - 1;
+
+  EventProxyData* data = new EventProxyData();
+  data->m_self = this;
+  data->m_iListener = iListener;
+
+  evtHandler->Connect(eventType, (wxObjectEventFunction)&EventProxy::forwardEvent, data);
 }
 
 void NodeExEvtHandlerImpl::addEventListener(wxEvtHandler* evtHandler, int eventType, v8::Local<v8::Object> fn) {

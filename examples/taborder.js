@@ -45,11 +45,11 @@ var MyTabTextCtrl = wxNode.wxTextCtrl.extend({
     this._super(parent, wxNode.wxID_ANY, value,
                      wxNode.wxDefaultPosition, wxNode.wxDefaultSize,
                      flags);
-    //TODO: this.connect(wxNode.wxEVT_KEY_DOWN, this.onKeyDown);
+    this.connect(wxNode.wxEVT_KEY_DOWN, this.onKeyDown);
   },
 
   onKeyDown: function(event) {
-    if ( event.GetKeyCode() == wxNode.WXK_TAB &&
+    if ( event.getKeyCode() == wxNode.WXK_TAB &&
             wxNode.wxMessageBox
             (
                 "Let the Tab be used for navigation?",
@@ -63,7 +63,7 @@ var MyTabTextCtrl = wxNode.wxTextCtrl.extend({
       return;
     }
 
-    event.Skip();
+    event.skip();
   }
 });
 
