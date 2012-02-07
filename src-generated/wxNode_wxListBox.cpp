@@ -383,7 +383,7 @@ wxNode_wxListBox::wxNode_wxListBox(wxNode_wxWindow* parent, int id, wxNode_wxPoi
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching constructor for arguments (class name: wxListBox).\n";                           \
+  errStr << "Could not find matching constructor for arguments (class name: wxListBox).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -427,7 +427,7 @@ wxNode_wxListBox::wxNode_wxListBox(wxNode_wxWindow* parent, int id, wxNode_wxPoi
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxListBox::InsertItems).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxListBox::InsertItems).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -455,7 +455,7 @@ wxNode_wxListBox::wxNode_wxListBox(wxNode_wxWindow* parent, int id, wxNode_wxPoi
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxListBox::IsSelected).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxListBox::IsSelected).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -496,7 +496,7 @@ wxNode_wxListBox::wxNode_wxListBox(wxNode_wxWindow* parent, int id, wxNode_wxPoi
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxListBox::SetSelection).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxListBox::SetSelection).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -524,7 +524,7 @@ wxNode_wxListBox::wxNode_wxListBox(wxNode_wxWindow* parent, int id, wxNode_wxPoi
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxListBox::Deselect).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxListBox::Deselect).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -563,7 +563,7 @@ wxNode_wxListBox::wxNode_wxListBox(wxNode_wxWindow* parent, int id, wxNode_wxPoi
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxListBox::DeselectAll).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxListBox::DeselectAll).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -604,7 +604,7 @@ wxNode_wxListBox::wxNode_wxListBox(wxNode_wxWindow* parent, int id, wxNode_wxPoi
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxListBox::SetStringSelection).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxListBox::SetStringSelection).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -632,7 +632,7 @@ wxNode_wxListBox::wxNode_wxListBox(wxNode_wxWindow* parent, int id, wxNode_wxPoi
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxListBox::GetSelections).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxListBox::GetSelections).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -672,7 +672,7 @@ wxNode_wxListBox::wxNode_wxListBox(wxNode_wxWindow* parent, int id, wxNode_wxPoi
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxListBox::SetFirstItem).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxListBox::SetFirstItem).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -700,7 +700,7 @@ wxNode_wxListBox::wxNode_wxListBox(wxNode_wxWindow* parent, int id, wxNode_wxPoi
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxListBox::EnsureVisible).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxListBox::EnsureVisible).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -728,7 +728,7 @@ wxNode_wxListBox::wxNode_wxListBox(wxNode_wxWindow* parent, int id, wxNode_wxPoi
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxListBox::AppendAndEnsureVisible).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxListBox::AppendAndEnsureVisible).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -755,7 +755,7 @@ wxNode_wxListBox::wxNode_wxListBox(wxNode_wxWindow* parent, int id, wxNode_wxPoi
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxListBox::HasMultipleSelection).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxListBox::HasMultipleSelection).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -782,7 +782,7 @@ wxNode_wxListBox::wxNode_wxListBox(wxNode_wxWindow* parent, int id, wxNode_wxPoi
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxListBox::IsSorted).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxListBox::IsSorted).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -810,7 +810,7 @@ wxNode_wxListBox::wxNode_wxListBox(wxNode_wxWindow* parent, int id, wxNode_wxPoi
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxListBox::Command).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxListBox::Command).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -851,7 +851,7 @@ wxNode_wxListBox::wxNode_wxListBox(wxNode_wxWindow* parent, int id, wxNode_wxPoi
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxListBox::HitTest).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxListBox::HitTest).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);

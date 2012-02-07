@@ -29,9 +29,9 @@ var TabOrder_Max = 202;
 
 // status panes: first one is for temporary messages, the second one shows
 // current focus
-var StatusPane_Default = 1;
-var StatusPane_Focus = 2;
-var StatusPane_Max = 3;
+var StatusPane_Default = 0;
+var StatusPane_Focus = 1;
+var StatusPane_Max = 2;
 
 // ----------------------------------------------------------------------------
 // declarations of the classes used in this sample

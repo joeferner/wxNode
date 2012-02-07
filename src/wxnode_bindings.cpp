@@ -36,6 +36,30 @@ extern "C" {
     wxNode_wxButton::Init(target);
     wxNode_wxStaticText::Init(target);
     NodeWxMessageBox::Init(target);
+
+    {
+      v8::Function* newWxSize = v8::Function::Cast(*target->Get(v8::String::New("wxSize")));
+      v8::Local<v8::Value> argv[0];
+      v8::Handle<v8::Object> s = newWxSize->CallAsConstructor(0, argv)->ToObject();
+      v8::Function *initFn = v8::Function::Cast(*s->Get(v8::String::New("init")));
+      v8::Local<v8::Value> initArgv[2];
+      initArgv[0] = v8::Number::New(wxDefaultSize.GetWidth());
+      initArgv[1] = v8::Number::New(wxDefaultSize.GetHeight());
+      initFn->Call(s, 2, initArgv);
+      target->Set(v8::String::NewSymbol("wxDefaultSize"), s);
+    }
+
+    {
+      v8::Function* newWxPosition = v8::Function::Cast(*target->Get(v8::String::New("wxPoint")));
+      v8::Local<v8::Value> argv[0];
+      v8::Handle<v8::Object> s = newWxPosition->CallAsConstructor(0, argv)->ToObject();
+      v8::Function *initFn = v8::Function::Cast(*s->Get(v8::String::New("init")));
+      v8::Local<v8::Value> initArgv[2];
+      initArgv[0] = v8::Number::New(wxDefaultSize.x);
+      initArgv[1] = v8::Number::New(wxDefaultSize.y);
+      initFn->Call(s, 2, initArgv);
+      target->Set(v8::String::NewSymbol("wxDefaultPosition"), s);
+    }
   }
 
   NODE_MODULE(wxnode_bindings, init);

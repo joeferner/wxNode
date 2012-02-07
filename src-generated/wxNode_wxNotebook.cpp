@@ -193,7 +193,7 @@ wxNode_wxNotebook::wxNode_wxNotebook(wxNode_wxWindow* parent, int id)
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching constructor for arguments (class name: wxNotebook).\n";                           \
+  errStr << "Could not find matching constructor for arguments (class name: wxNotebook).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -221,7 +221,7 @@ wxNode_wxNotebook::wxNode_wxNotebook(wxNode_wxWindow* parent, int id)
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxNotebook::GetRowCount).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxNotebook::GetRowCount).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -249,7 +249,7 @@ wxNode_wxNotebook::wxNode_wxNotebook(wxNode_wxWindow* parent, int id)
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxNotebook::SetPadding).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxNotebook::SetPadding).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -277,7 +277,7 @@ wxNode_wxNotebook::wxNode_wxNotebook(wxNode_wxWindow* parent, int id)
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxNotebook::SetTabSize).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxNotebook::SetTabSize).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -312,11 +312,12 @@ wxNode_wxNotebook::wxNode_wxNotebook(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(0, returnVal);
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
+
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxNotebook::CalcSizeFromPage).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxNotebook::CalcSizeFromPage).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -350,11 +351,12 @@ wxNode_wxNotebook::wxNode_wxNotebook(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(0, returnVal);
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
+
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxNotebook::GetThemeBackgroundColour).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxNotebook::GetThemeBackgroundColour).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -382,7 +384,7 @@ wxNode_wxNotebook::wxNode_wxNotebook(wxNode_wxWindow* parent, int id)
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxNotebook::SendPageChangingEvent).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxNotebook::SendPageChangingEvent).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -423,7 +425,7 @@ wxNode_wxNotebook::wxNode_wxNotebook(wxNode_wxWindow* parent, int id)
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxNotebook::SendPageChangedEvent).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxNotebook::SendPageChangedEvent).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -450,7 +452,7 @@ wxNode_wxNotebook::wxNode_wxNotebook(wxNode_wxWindow* parent, int id)
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxNotebook::AcceptsFocus).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxNotebook::AcceptsFocus).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);

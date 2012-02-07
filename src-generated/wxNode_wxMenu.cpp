@@ -181,7 +181,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching constructor for arguments (class name: wxMenu).\n";                           \
+  errStr << "Could not find matching constructor for arguments (class name: wxMenu).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -207,16 +207,21 @@ wxNode_wxMenu::wxNode_wxMenu()
     wxMenu* returnVal = self->New(*title, style);
 
     
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxMenu"));
-    wxNode_wxMenu::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
+    if(returnVal) {
+      v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+      returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+      returnObjFt->SetClassName(v8::String::NewSymbol("wxMenu"));
+      wxNode_wxMenu::AddMethods(returnObjFt);
+      v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+      v8::Handle<v8::Value> returnObjArgs[0];
+      v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+      returnObj->SetPointerInInternalField(0, returnVal);
+      returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+      return scope.Close(returnObj);
+    } else {
+      return scope.Close(v8::Null());
+    }
+
   }
   
   /*
@@ -229,16 +234,21 @@ wxNode_wxMenu::wxNode_wxMenu()
     wxMenu* returnVal = self->New(*title);
 
     
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxMenu"));
-    wxNode_wxMenu::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
+    if(returnVal) {
+      v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+      returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+      returnObjFt->SetClassName(v8::String::NewSymbol("wxMenu"));
+      wxNode_wxMenu::AddMethods(returnObjFt);
+      v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+      v8::Handle<v8::Value> returnObjArgs[0];
+      v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+      returnObj->SetPointerInInternalField(0, returnVal);
+      returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+      return scope.Close(returnObj);
+    } else {
+      return scope.Close(v8::Null());
+    }
+
   }
   
   /*
@@ -250,21 +260,26 @@ wxNode_wxMenu::wxNode_wxMenu()
     wxMenu* returnVal = self->New();
 
     
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxMenu"));
-    wxNode_wxMenu::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
+    if(returnVal) {
+      v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+      returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+      returnObjFt->SetClassName(v8::String::NewSymbol("wxMenu"));
+      wxNode_wxMenu::AddMethods(returnObjFt);
+      v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+      v8::Handle<v8::Value> returnObjArgs[0];
+      v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+      returnObj->SetPointerInInternalField(0, returnVal);
+      returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+      return scope.Close(returnObj);
+    } else {
+      return scope.Close(v8::Null());
+    }
+
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxMenu::New).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::New).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -291,16 +306,21 @@ wxNode_wxMenu::wxNode_wxMenu()
     wxMenuItem* returnVal = self->Append(itemid, *text, *help, kind);
 
     
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
-    wxNode_wxMenuItem::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
+    if(returnVal) {
+      v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+      returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+      returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
+      wxNode_wxMenuItem::AddMethods(returnObjFt);
+      v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+      v8::Handle<v8::Value> returnObjArgs[0];
+      v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+      returnObj->SetPointerInInternalField(0, returnVal);
+      returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+      return scope.Close(returnObj);
+    } else {
+      return scope.Close(v8::Null());
+    }
+
   }
   
   /*
@@ -315,16 +335,21 @@ wxNode_wxMenu::wxNode_wxMenu()
     wxMenuItem* returnVal = self->Append(itemid, *text, *help);
 
     
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
-    wxNode_wxMenuItem::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
+    if(returnVal) {
+      v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+      returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+      returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
+      wxNode_wxMenuItem::AddMethods(returnObjFt);
+      v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+      v8::Handle<v8::Value> returnObjArgs[0];
+      v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+      returnObj->SetPointerInInternalField(0, returnVal);
+      returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+      return scope.Close(returnObj);
+    } else {
+      return scope.Close(v8::Null());
+    }
+
   }
   
   /*
@@ -338,16 +363,21 @@ wxNode_wxMenu::wxNode_wxMenu()
     wxMenuItem* returnVal = self->Append(itemid, *text);
 
     
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
-    wxNode_wxMenuItem::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
+    if(returnVal) {
+      v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+      returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+      returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
+      wxNode_wxMenuItem::AddMethods(returnObjFt);
+      v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+      v8::Handle<v8::Value> returnObjArgs[0];
+      v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+      returnObj->SetPointerInInternalField(0, returnVal);
+      returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+      return scope.Close(returnObj);
+    } else {
+      return scope.Close(v8::Null());
+    }
+
   }
   
   /*
@@ -360,16 +390,21 @@ wxNode_wxMenu::wxNode_wxMenu()
     wxMenuItem* returnVal = self->Append(itemid);
 
     
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
-    wxNode_wxMenuItem::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
+    if(returnVal) {
+      v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+      returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+      returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
+      wxNode_wxMenuItem::AddMethods(returnObjFt);
+      v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+      v8::Handle<v8::Value> returnObjArgs[0];
+      v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+      returnObj->SetPointerInInternalField(0, returnVal);
+      returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+      return scope.Close(returnObj);
+    } else {
+      return scope.Close(v8::Null());
+    }
+
   }
   
   /*
@@ -382,16 +417,21 @@ wxNode_wxMenu::wxNode_wxMenu()
     wxMenuItem* returnVal = self->Append(item);
 
     
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
-    wxNode_wxMenuItem::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
+    if(returnVal) {
+      v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+      returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+      returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
+      wxNode_wxMenuItem::AddMethods(returnObjFt);
+      v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+      v8::Handle<v8::Value> returnObjArgs[0];
+      v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+      returnObj->SetPointerInInternalField(0, returnVal);
+      returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+      return scope.Close(returnObj);
+    } else {
+      return scope.Close(v8::Null());
+    }
+
   }
   
   /*
@@ -422,16 +462,21 @@ wxNode_wxMenu::wxNode_wxMenu()
     wxMenuItem* returnVal = self->Append(itemid, *text, submenu, *help);
 
     
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
-    wxNode_wxMenuItem::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
+    if(returnVal) {
+      v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+      returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+      returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
+      wxNode_wxMenuItem::AddMethods(returnObjFt);
+      v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+      v8::Handle<v8::Value> returnObjArgs[0];
+      v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+      returnObj->SetPointerInInternalField(0, returnVal);
+      returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+      return scope.Close(returnObj);
+    } else {
+      return scope.Close(v8::Null());
+    }
+
   }
   
   /*
@@ -446,21 +491,26 @@ wxNode_wxMenu::wxNode_wxMenu()
     wxMenuItem* returnVal = self->Append(itemid, *text, submenu);
 
     
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
-    wxNode_wxMenuItem::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
+    if(returnVal) {
+      v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+      returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+      returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
+      wxNode_wxMenuItem::AddMethods(returnObjFt);
+      v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+      v8::Handle<v8::Value> returnObjArgs[0];
+      v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+      returnObj->SetPointerInInternalField(0, returnVal);
+      returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+      return scope.Close(returnObj);
+    } else {
+      return scope.Close(v8::Null());
+    }
+
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxMenu::Append).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::Append).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -483,21 +533,26 @@ wxNode_wxMenu::wxNode_wxMenu()
     wxMenuItem* returnVal = self->AppendSeparator();
 
     
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
-    wxNode_wxMenuItem::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
+    if(returnVal) {
+      v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+      returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+      returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
+      wxNode_wxMenuItem::AddMethods(returnObjFt);
+      v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+      v8::Handle<v8::Value> returnObjArgs[0];
+      v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+      returnObj->SetPointerInInternalField(0, returnVal);
+      returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+      return scope.Close(returnObj);
+    } else {
+      return scope.Close(v8::Null());
+    }
+
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxMenu::AppendSeparator).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::AppendSeparator).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -523,16 +578,21 @@ wxNode_wxMenu::wxNode_wxMenu()
     wxMenuItem* returnVal = self->AppendCheckItem(itemid, *text, *help);
 
     
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
-    wxNode_wxMenuItem::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
+    if(returnVal) {
+      v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+      returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+      returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
+      wxNode_wxMenuItem::AddMethods(returnObjFt);
+      v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+      v8::Handle<v8::Value> returnObjArgs[0];
+      v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+      returnObj->SetPointerInInternalField(0, returnVal);
+      returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+      return scope.Close(returnObj);
+    } else {
+      return scope.Close(v8::Null());
+    }
+
   }
   
   /*
@@ -546,21 +606,26 @@ wxNode_wxMenu::wxNode_wxMenu()
     wxMenuItem* returnVal = self->AppendCheckItem(itemid, *text);
 
     
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
-    wxNode_wxMenuItem::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
+    if(returnVal) {
+      v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+      returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+      returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
+      wxNode_wxMenuItem::AddMethods(returnObjFt);
+      v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+      v8::Handle<v8::Value> returnObjArgs[0];
+      v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+      returnObj->SetPointerInInternalField(0, returnVal);
+      returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+      return scope.Close(returnObj);
+    } else {
+      return scope.Close(v8::Null());
+    }
+
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxMenu::AppendCheckItem).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::AppendCheckItem).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -586,16 +651,21 @@ wxNode_wxMenu::wxNode_wxMenu()
     wxMenuItem* returnVal = self->AppendRadioItem(itemid, *text, *help);
 
     
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
-    wxNode_wxMenuItem::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
+    if(returnVal) {
+      v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+      returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+      returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
+      wxNode_wxMenuItem::AddMethods(returnObjFt);
+      v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+      v8::Handle<v8::Value> returnObjArgs[0];
+      v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+      returnObj->SetPointerInInternalField(0, returnVal);
+      returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+      return scope.Close(returnObj);
+    } else {
+      return scope.Close(v8::Null());
+    }
+
   }
   
   /*
@@ -609,21 +679,26 @@ wxNode_wxMenu::wxNode_wxMenu()
     wxMenuItem* returnVal = self->AppendRadioItem(itemid, *text);
 
     
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
-    wxNode_wxMenuItem::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
+    if(returnVal) {
+      v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+      returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+      returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
+      wxNode_wxMenuItem::AddMethods(returnObjFt);
+      v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+      v8::Handle<v8::Value> returnObjArgs[0];
+      v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+      returnObj->SetPointerInInternalField(0, returnVal);
+      returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+      return scope.Close(returnObj);
+    } else {
+      return scope.Close(v8::Null());
+    }
+
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxMenu::AppendRadioItem).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::AppendRadioItem).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -649,16 +724,21 @@ wxNode_wxMenu::wxNode_wxMenu()
     wxMenuItem* returnVal = self->AppendSubMenu(submenu, *text, *help);
 
     
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
-    wxNode_wxMenuItem::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
+    if(returnVal) {
+      v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+      returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+      returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
+      wxNode_wxMenuItem::AddMethods(returnObjFt);
+      v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+      v8::Handle<v8::Value> returnObjArgs[0];
+      v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+      returnObj->SetPointerInInternalField(0, returnVal);
+      returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+      return scope.Close(returnObj);
+    } else {
+      return scope.Close(v8::Null());
+    }
+
   }
   
   /*
@@ -672,21 +752,26 @@ wxNode_wxMenu::wxNode_wxMenu()
     wxMenuItem* returnVal = self->AppendSubMenu(submenu, *text);
 
     
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
-    wxNode_wxMenuItem::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
+    if(returnVal) {
+      v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+      returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+      returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
+      wxNode_wxMenuItem::AddMethods(returnObjFt);
+      v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+      v8::Handle<v8::Value> returnObjArgs[0];
+      v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+      returnObj->SetPointerInInternalField(0, returnVal);
+      returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+      return scope.Close(returnObj);
+    } else {
+      return scope.Close(v8::Null());
+    }
+
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxMenu::AppendSubMenu).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::AppendSubMenu).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -713,7 +798,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxMenu::Break).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::Break).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -738,16 +823,21 @@ wxNode_wxMenu::wxNode_wxMenu()
     wxMenuItem* returnVal = self->Insert(pos, item);
 
     
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
-    wxNode_wxMenuItem::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
+    if(returnVal) {
+      v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+      returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+      returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
+      wxNode_wxMenuItem::AddMethods(returnObjFt);
+      v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+      v8::Handle<v8::Value> returnObjArgs[0];
+      v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+      returnObj->SetPointerInInternalField(0, returnVal);
+      returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+      return scope.Close(returnObj);
+    } else {
+      return scope.Close(v8::Null());
+    }
+
   }
   
   /*
@@ -764,16 +854,21 @@ wxNode_wxMenu::wxNode_wxMenu()
     wxMenuItem* returnVal = self->Insert(pos, itemid, *text, *help, kind);
 
     
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
-    wxNode_wxMenuItem::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
+    if(returnVal) {
+      v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+      returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+      returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
+      wxNode_wxMenuItem::AddMethods(returnObjFt);
+      v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+      v8::Handle<v8::Value> returnObjArgs[0];
+      v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+      returnObj->SetPointerInInternalField(0, returnVal);
+      returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+      return scope.Close(returnObj);
+    } else {
+      return scope.Close(v8::Null());
+    }
+
   }
   
   /*
@@ -789,16 +884,21 @@ wxNode_wxMenu::wxNode_wxMenu()
     wxMenuItem* returnVal = self->Insert(pos, itemid, *text, *help);
 
     
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
-    wxNode_wxMenuItem::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
+    if(returnVal) {
+      v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+      returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+      returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
+      wxNode_wxMenuItem::AddMethods(returnObjFt);
+      v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+      v8::Handle<v8::Value> returnObjArgs[0];
+      v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+      returnObj->SetPointerInInternalField(0, returnVal);
+      returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+      return scope.Close(returnObj);
+    } else {
+      return scope.Close(v8::Null());
+    }
+
   }
   
   /*
@@ -813,16 +913,21 @@ wxNode_wxMenu::wxNode_wxMenu()
     wxMenuItem* returnVal = self->Insert(pos, itemid, *text);
 
     
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
-    wxNode_wxMenuItem::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
+    if(returnVal) {
+      v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+      returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+      returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
+      wxNode_wxMenuItem::AddMethods(returnObjFt);
+      v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+      v8::Handle<v8::Value> returnObjArgs[0];
+      v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+      returnObj->SetPointerInInternalField(0, returnVal);
+      returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+      return scope.Close(returnObj);
+    } else {
+      return scope.Close(v8::Null());
+    }
+
   }
   
   /*
@@ -836,16 +941,21 @@ wxNode_wxMenu::wxNode_wxMenu()
     wxMenuItem* returnVal = self->Insert(pos, itemid);
 
     
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
-    wxNode_wxMenuItem::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
+    if(returnVal) {
+      v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+      returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+      returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
+      wxNode_wxMenuItem::AddMethods(returnObjFt);
+      v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+      v8::Handle<v8::Value> returnObjArgs[0];
+      v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+      returnObj->SetPointerInInternalField(0, returnVal);
+      returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+      return scope.Close(returnObj);
+    } else {
+      return scope.Close(v8::Null());
+    }
+
   }
   
   /*
@@ -862,16 +972,21 @@ wxNode_wxMenu::wxNode_wxMenu()
     wxMenuItem* returnVal = self->Insert(pos, itemid, *text, submenu, *help);
 
     
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
-    wxNode_wxMenuItem::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
+    if(returnVal) {
+      v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+      returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+      returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
+      wxNode_wxMenuItem::AddMethods(returnObjFt);
+      v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+      v8::Handle<v8::Value> returnObjArgs[0];
+      v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+      returnObj->SetPointerInInternalField(0, returnVal);
+      returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+      return scope.Close(returnObj);
+    } else {
+      return scope.Close(v8::Null());
+    }
+
   }
   
   /*
@@ -887,16 +1002,21 @@ wxNode_wxMenu::wxNode_wxMenu()
     wxMenuItem* returnVal = self->Insert(pos, itemid, *text, submenu);
 
     
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
-    wxNode_wxMenuItem::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
+    if(returnVal) {
+      v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+      returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+      returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
+      wxNode_wxMenuItem::AddMethods(returnObjFt);
+      v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+      v8::Handle<v8::Value> returnObjArgs[0];
+      v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+      returnObj->SetPointerInInternalField(0, returnVal);
+      returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+      return scope.Close(returnObj);
+    } else {
+      return scope.Close(v8::Null());
+    }
+
   }
   
   /*
@@ -917,7 +1037,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxMenu::Insert).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::Insert).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -941,21 +1061,26 @@ wxNode_wxMenu::wxNode_wxMenu()
     wxMenuItem* returnVal = self->InsertSeparator(pos);
 
     
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
-    wxNode_wxMenuItem::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
+    if(returnVal) {
+      v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+      returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+      returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
+      wxNode_wxMenuItem::AddMethods(returnObjFt);
+      v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+      v8::Handle<v8::Value> returnObjArgs[0];
+      v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+      returnObj->SetPointerInInternalField(0, returnVal);
+      returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+      return scope.Close(returnObj);
+    } else {
+      return scope.Close(v8::Null());
+    }
+
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxMenu::InsertSeparator).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::InsertSeparator).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -982,16 +1107,21 @@ wxNode_wxMenu::wxNode_wxMenu()
     wxMenuItem* returnVal = self->InsertCheckItem(pos, itemid, *text, *help);
 
     
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
-    wxNode_wxMenuItem::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
+    if(returnVal) {
+      v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+      returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+      returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
+      wxNode_wxMenuItem::AddMethods(returnObjFt);
+      v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+      v8::Handle<v8::Value> returnObjArgs[0];
+      v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+      returnObj->SetPointerInInternalField(0, returnVal);
+      returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+      return scope.Close(returnObj);
+    } else {
+      return scope.Close(v8::Null());
+    }
+
   }
   
   /*
@@ -1006,21 +1136,26 @@ wxNode_wxMenu::wxNode_wxMenu()
     wxMenuItem* returnVal = self->InsertCheckItem(pos, itemid, *text);
 
     
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
-    wxNode_wxMenuItem::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
+    if(returnVal) {
+      v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+      returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+      returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
+      wxNode_wxMenuItem::AddMethods(returnObjFt);
+      v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+      v8::Handle<v8::Value> returnObjArgs[0];
+      v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+      returnObj->SetPointerInInternalField(0, returnVal);
+      returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+      return scope.Close(returnObj);
+    } else {
+      return scope.Close(v8::Null());
+    }
+
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxMenu::InsertCheckItem).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::InsertCheckItem).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -1047,16 +1182,21 @@ wxNode_wxMenu::wxNode_wxMenu()
     wxMenuItem* returnVal = self->InsertRadioItem(pos, itemid, *text, *help);
 
     
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
-    wxNode_wxMenuItem::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
+    if(returnVal) {
+      v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+      returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+      returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
+      wxNode_wxMenuItem::AddMethods(returnObjFt);
+      v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+      v8::Handle<v8::Value> returnObjArgs[0];
+      v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+      returnObj->SetPointerInInternalField(0, returnVal);
+      returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+      return scope.Close(returnObj);
+    } else {
+      return scope.Close(v8::Null());
+    }
+
   }
   
   /*
@@ -1071,21 +1211,26 @@ wxNode_wxMenu::wxNode_wxMenu()
     wxMenuItem* returnVal = self->InsertRadioItem(pos, itemid, *text);
 
     
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
-    wxNode_wxMenuItem::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
+    if(returnVal) {
+      v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+      returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+      returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
+      wxNode_wxMenuItem::AddMethods(returnObjFt);
+      v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+      v8::Handle<v8::Value> returnObjArgs[0];
+      v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+      returnObj->SetPointerInInternalField(0, returnVal);
+      returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+      return scope.Close(returnObj);
+    } else {
+      return scope.Close(v8::Null());
+    }
+
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxMenu::InsertRadioItem).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::InsertRadioItem).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -1109,16 +1254,21 @@ wxNode_wxMenu::wxNode_wxMenu()
     wxMenuItem* returnVal = self->Prepend(item);
 
     
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
-    wxNode_wxMenuItem::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
+    if(returnVal) {
+      v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+      returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+      returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
+      wxNode_wxMenuItem::AddMethods(returnObjFt);
+      v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+      v8::Handle<v8::Value> returnObjArgs[0];
+      v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+      returnObj->SetPointerInInternalField(0, returnVal);
+      returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+      return scope.Close(returnObj);
+    } else {
+      return scope.Close(v8::Null());
+    }
+
   }
   
   /*
@@ -1134,16 +1284,21 @@ wxNode_wxMenu::wxNode_wxMenu()
     wxMenuItem* returnVal = self->Prepend(itemid, *text, *help, kind);
 
     
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
-    wxNode_wxMenuItem::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
+    if(returnVal) {
+      v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+      returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+      returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
+      wxNode_wxMenuItem::AddMethods(returnObjFt);
+      v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+      v8::Handle<v8::Value> returnObjArgs[0];
+      v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+      returnObj->SetPointerInInternalField(0, returnVal);
+      returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+      return scope.Close(returnObj);
+    } else {
+      return scope.Close(v8::Null());
+    }
+
   }
   
   /*
@@ -1158,16 +1313,21 @@ wxNode_wxMenu::wxNode_wxMenu()
     wxMenuItem* returnVal = self->Prepend(itemid, *text, *help);
 
     
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
-    wxNode_wxMenuItem::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
+    if(returnVal) {
+      v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+      returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+      returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
+      wxNode_wxMenuItem::AddMethods(returnObjFt);
+      v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+      v8::Handle<v8::Value> returnObjArgs[0];
+      v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+      returnObj->SetPointerInInternalField(0, returnVal);
+      returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+      return scope.Close(returnObj);
+    } else {
+      return scope.Close(v8::Null());
+    }
+
   }
   
   /*
@@ -1181,16 +1341,21 @@ wxNode_wxMenu::wxNode_wxMenu()
     wxMenuItem* returnVal = self->Prepend(itemid, *text);
 
     
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
-    wxNode_wxMenuItem::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
+    if(returnVal) {
+      v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+      returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+      returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
+      wxNode_wxMenuItem::AddMethods(returnObjFt);
+      v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+      v8::Handle<v8::Value> returnObjArgs[0];
+      v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+      returnObj->SetPointerInInternalField(0, returnVal);
+      returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+      return scope.Close(returnObj);
+    } else {
+      return scope.Close(v8::Null());
+    }
+
   }
   
   /*
@@ -1203,16 +1368,21 @@ wxNode_wxMenu::wxNode_wxMenu()
     wxMenuItem* returnVal = self->Prepend(itemid);
 
     
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
-    wxNode_wxMenuItem::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
+    if(returnVal) {
+      v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+      returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+      returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
+      wxNode_wxMenuItem::AddMethods(returnObjFt);
+      v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+      v8::Handle<v8::Value> returnObjArgs[0];
+      v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+      returnObj->SetPointerInInternalField(0, returnVal);
+      returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+      return scope.Close(returnObj);
+    } else {
+      return scope.Close(v8::Null());
+    }
+
   }
   
   /*
@@ -1228,16 +1398,21 @@ wxNode_wxMenu::wxNode_wxMenu()
     wxMenuItem* returnVal = self->Prepend(itemid, *text, submenu, *help);
 
     
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
-    wxNode_wxMenuItem::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
+    if(returnVal) {
+      v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+      returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+      returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
+      wxNode_wxMenuItem::AddMethods(returnObjFt);
+      v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+      v8::Handle<v8::Value> returnObjArgs[0];
+      v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+      returnObj->SetPointerInInternalField(0, returnVal);
+      returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+      return scope.Close(returnObj);
+    } else {
+      return scope.Close(v8::Null());
+    }
+
   }
   
   /*
@@ -1252,16 +1427,21 @@ wxNode_wxMenu::wxNode_wxMenu()
     wxMenuItem* returnVal = self->Prepend(itemid, *text, submenu);
 
     
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
-    wxNode_wxMenuItem::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
+    if(returnVal) {
+      v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+      returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+      returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
+      wxNode_wxMenuItem::AddMethods(returnObjFt);
+      v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+      v8::Handle<v8::Value> returnObjArgs[0];
+      v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+      returnObj->SetPointerInInternalField(0, returnVal);
+      returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+      return scope.Close(returnObj);
+    } else {
+      return scope.Close(v8::Null());
+    }
+
   }
   
   /*
@@ -1281,7 +1461,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxMenu::Prepend).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::Prepend).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -1304,21 +1484,26 @@ wxNode_wxMenu::wxNode_wxMenu()
     wxMenuItem* returnVal = self->PrependSeparator();
 
     
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
-    wxNode_wxMenuItem::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
+    if(returnVal) {
+      v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+      returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+      returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
+      wxNode_wxMenuItem::AddMethods(returnObjFt);
+      v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+      v8::Handle<v8::Value> returnObjArgs[0];
+      v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+      returnObj->SetPointerInInternalField(0, returnVal);
+      returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+      return scope.Close(returnObj);
+    } else {
+      return scope.Close(v8::Null());
+    }
+
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxMenu::PrependSeparator).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::PrependSeparator).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -1344,16 +1529,21 @@ wxNode_wxMenu::wxNode_wxMenu()
     wxMenuItem* returnVal = self->PrependCheckItem(itemid, *text, *help);
 
     
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
-    wxNode_wxMenuItem::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
+    if(returnVal) {
+      v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+      returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+      returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
+      wxNode_wxMenuItem::AddMethods(returnObjFt);
+      v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+      v8::Handle<v8::Value> returnObjArgs[0];
+      v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+      returnObj->SetPointerInInternalField(0, returnVal);
+      returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+      return scope.Close(returnObj);
+    } else {
+      return scope.Close(v8::Null());
+    }
+
   }
   
   /*
@@ -1367,21 +1557,26 @@ wxNode_wxMenu::wxNode_wxMenu()
     wxMenuItem* returnVal = self->PrependCheckItem(itemid, *text);
 
     
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
-    wxNode_wxMenuItem::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
+    if(returnVal) {
+      v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+      returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+      returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
+      wxNode_wxMenuItem::AddMethods(returnObjFt);
+      v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+      v8::Handle<v8::Value> returnObjArgs[0];
+      v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+      returnObj->SetPointerInInternalField(0, returnVal);
+      returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+      return scope.Close(returnObj);
+    } else {
+      return scope.Close(v8::Null());
+    }
+
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxMenu::PrependCheckItem).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::PrependCheckItem).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -1407,16 +1602,21 @@ wxNode_wxMenu::wxNode_wxMenu()
     wxMenuItem* returnVal = self->PrependRadioItem(itemid, *text, *help);
 
     
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
-    wxNode_wxMenuItem::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
+    if(returnVal) {
+      v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+      returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+      returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
+      wxNode_wxMenuItem::AddMethods(returnObjFt);
+      v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+      v8::Handle<v8::Value> returnObjArgs[0];
+      v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+      returnObj->SetPointerInInternalField(0, returnVal);
+      returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+      return scope.Close(returnObj);
+    } else {
+      return scope.Close(v8::Null());
+    }
+
   }
   
   /*
@@ -1430,21 +1630,26 @@ wxNode_wxMenu::wxNode_wxMenu()
     wxMenuItem* returnVal = self->PrependRadioItem(itemid, *text);
 
     
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
-    wxNode_wxMenuItem::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
+    if(returnVal) {
+      v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+      returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+      returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
+      wxNode_wxMenuItem::AddMethods(returnObjFt);
+      v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+      v8::Handle<v8::Value> returnObjArgs[0];
+      v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+      returnObj->SetPointerInInternalField(0, returnVal);
+      returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+      return scope.Close(returnObj);
+    } else {
+      return scope.Close(v8::Null());
+    }
+
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxMenu::PrependRadioItem).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::PrependRadioItem).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -1468,16 +1673,21 @@ wxNode_wxMenu::wxNode_wxMenu()
     wxMenuItem* returnVal = self->Remove(itemid);
 
     
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
-    wxNode_wxMenuItem::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
+    if(returnVal) {
+      v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+      returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+      returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
+      wxNode_wxMenuItem::AddMethods(returnObjFt);
+      v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+      v8::Handle<v8::Value> returnObjArgs[0];
+      v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+      returnObj->SetPointerInInternalField(0, returnVal);
+      returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+      return scope.Close(returnObj);
+    } else {
+      return scope.Close(v8::Null());
+    }
+
   }
   
   /*
@@ -1490,21 +1700,26 @@ wxNode_wxMenu::wxNode_wxMenu()
     wxMenuItem* returnVal = self->Remove(item);
 
     
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
-    wxNode_wxMenuItem::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
+    if(returnVal) {
+      v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+      returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+      returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
+      wxNode_wxMenuItem::AddMethods(returnObjFt);
+      v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+      v8::Handle<v8::Value> returnObjArgs[0];
+      v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+      returnObj->SetPointerInInternalField(0, returnVal);
+      returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+      return scope.Close(returnObj);
+    } else {
+      return scope.Close(v8::Null());
+    }
+
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxMenu::Remove).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::Remove).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -1544,7 +1759,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxMenu::Delete).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::Delete).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -1584,7 +1799,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxMenu::Destroy).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::Destroy).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -1611,7 +1826,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxMenu::GetMenuItemCount).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::GetMenuItemCount).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -1645,6 +1860,7 @@ wxNode_wxMenu::wxNode_wxMenu()
     returnObj->SetPointerInInternalField(0, returnVal);
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
+
   }
   
   /*
@@ -1667,11 +1883,12 @@ wxNode_wxMenu::wxNode_wxMenu()
     returnObj->SetPointerInInternalField(0, returnVal);
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
+
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxMenu::GetMenuItems).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::GetMenuItems).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -1708,16 +1925,21 @@ wxNode_wxMenu::wxNode_wxMenu()
     wxMenuItem* returnVal = self->FindItem(itemid, &menu);
 
     
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
-    wxNode_wxMenuItem::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
+    if(returnVal) {
+      v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+      returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+      returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
+      wxNode_wxMenuItem::AddMethods(returnObjFt);
+      v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+      v8::Handle<v8::Value> returnObjArgs[0];
+      v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+      returnObj->SetPointerInInternalField(0, returnVal);
+      returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+      return scope.Close(returnObj);
+    } else {
+      return scope.Close(v8::Null());
+    }
+
   }
   
   /*
@@ -1730,21 +1952,26 @@ wxNode_wxMenu::wxNode_wxMenu()
     wxMenuItem* returnVal = self->FindItem(itemid);
 
     
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
-    wxNode_wxMenuItem::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
+    if(returnVal) {
+      v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+      returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+      returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
+      wxNode_wxMenuItem::AddMethods(returnObjFt);
+      v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+      v8::Handle<v8::Value> returnObjArgs[0];
+      v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+      returnObj->SetPointerInInternalField(0, returnVal);
+      returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+      return scope.Close(returnObj);
+    } else {
+      return scope.Close(v8::Null());
+    }
+
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxMenu::FindItem).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::FindItem).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -1768,21 +1995,26 @@ wxNode_wxMenu::wxNode_wxMenu()
     wxMenuItem* returnVal = self->FindItemByPosition(position);
 
     
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
-    wxNode_wxMenuItem::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
+    if(returnVal) {
+      v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+      returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+      returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
+      wxNode_wxMenuItem::AddMethods(returnObjFt);
+      v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+      v8::Handle<v8::Value> returnObjArgs[0];
+      v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+      returnObj->SetPointerInInternalField(0, returnVal);
+      returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+      return scope.Close(returnObj);
+    } else {
+      return scope.Close(v8::Null());
+    }
+
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxMenu::FindItemByPosition).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::FindItemByPosition).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -1811,7 +2043,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxMenu::Enable).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::Enable).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -1839,7 +2071,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxMenu::IsEnabled).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::IsEnabled).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -1868,7 +2100,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxMenu::Check).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::Check).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -1896,7 +2128,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxMenu::IsChecked).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::IsChecked).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -1925,7 +2157,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxMenu::SetLabel).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::SetLabel).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -1948,12 +2180,12 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     wxString returnVal = self->GetLabel(itemid);
 
-    return scope.Close(v8::String::New(returnVal));
+    return scope.Close(v8::String::New(returnVal.mb_str()));
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxMenu::GetLabel).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::GetLabel).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -1976,12 +2208,12 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     wxString returnVal = self->GetLabelText(itemid);
 
-    return scope.Close(v8::String::New(returnVal));
+    return scope.Close(v8::String::New(returnVal.mb_str()));
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxMenu::GetLabelText).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::GetLabelText).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -2010,7 +2242,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxMenu::SetHelpString).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::SetHelpString).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -2033,12 +2265,12 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     wxString returnVal = self->GetHelpString(itemid);
 
-    return scope.Close(v8::String::New(returnVal));
+    return scope.Close(v8::String::New(returnVal.mb_str()));
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxMenu::GetHelpString).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::GetHelpString).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -2066,7 +2298,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxMenu::SetTitle).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::SetTitle).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -2088,12 +2320,12 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     wxString returnVal = self->GetTitle();
 
-    return scope.Close(v8::String::New(returnVal));
+    return scope.Close(v8::String::New(returnVal.mb_str()));
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxMenu::GetTitle).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::GetTitle).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -2121,7 +2353,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxMenu::SetEventHandler).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::SetEventHandler).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -2144,21 +2376,26 @@ wxNode_wxMenu::wxNode_wxMenu()
     wxEvtHandler* returnVal = self->GetEventHandler();
 
     
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxEvtHandler"));
-    wxNode_wxEvtHandler::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
+    if(returnVal) {
+      v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+      returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+      returnObjFt->SetClassName(v8::String::NewSymbol("wxEvtHandler"));
+      wxNode_wxEvtHandler::AddMethods(returnObjFt);
+      v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+      v8::Handle<v8::Value> returnObjArgs[0];
+      v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+      returnObj->SetPointerInInternalField(0, returnVal);
+      returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+      return scope.Close(returnObj);
+    } else {
+      return scope.Close(v8::Null());
+    }
+
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxMenu::GetEventHandler).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::GetEventHandler).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -2186,7 +2423,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxMenu::SetInvokingWindow).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::SetInvokingWindow).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -2209,21 +2446,26 @@ wxNode_wxMenu::wxNode_wxMenu()
     wxWindow* returnVal = self->GetInvokingWindow();
 
     
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxWindow"));
-    wxNode_wxWindow::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
+    if(returnVal) {
+      v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+      returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+      returnObjFt->SetClassName(v8::String::NewSymbol("wxWindow"));
+      wxNode_wxWindow::AddMethods(returnObjFt);
+      v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+      v8::Handle<v8::Value> returnObjArgs[0];
+      v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+      returnObj->SetPointerInInternalField(0, returnVal);
+      returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+      return scope.Close(returnObj);
+    } else {
+      return scope.Close(v8::Null());
+    }
+
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxMenu::GetInvokingWindow).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::GetInvokingWindow).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -2246,21 +2488,26 @@ wxNode_wxMenu::wxNode_wxMenu()
     wxWindow* returnVal = self->GetWindow();
 
     
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxWindow"));
-    wxNode_wxWindow::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
+    if(returnVal) {
+      v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+      returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+      returnObjFt->SetClassName(v8::String::NewSymbol("wxWindow"));
+      wxNode_wxWindow::AddMethods(returnObjFt);
+      v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+      v8::Handle<v8::Value> returnObjArgs[0];
+      v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+      returnObj->SetPointerInInternalField(0, returnVal);
+      returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+      return scope.Close(returnObj);
+    } else {
+      return scope.Close(v8::Null());
+    }
+
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxMenu::GetWindow).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::GetWindow).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -2287,7 +2534,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxMenu::GetStyle).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::GetStyle).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -2326,7 +2573,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxMenu::UpdateUI).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::UpdateUI).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -2349,21 +2596,26 @@ wxNode_wxMenu::wxNode_wxMenu()
     wxMenuBar* returnVal = self->GetMenuBar();
 
     
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuBar"));
-    wxNode_wxMenuBar::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
+    if(returnVal) {
+      v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+      returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+      returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuBar"));
+      wxNode_wxMenuBar::AddMethods(returnObjFt);
+      v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+      v8::Handle<v8::Value> returnObjArgs[0];
+      v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+      returnObj->SetPointerInInternalField(0, returnVal);
+      returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+      return scope.Close(returnObj);
+    } else {
+      return scope.Close(v8::Null());
+    }
+
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxMenu::GetMenuBar).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::GetMenuBar).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -2391,7 +2643,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxMenu::Attach).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::Attach).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -2418,7 +2670,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxMenu::Detach).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::Detach).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -2445,7 +2697,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxMenu::IsAttached).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::IsAttached).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -2473,7 +2725,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxMenu::SetParent).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::SetParent).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -2496,21 +2748,26 @@ wxNode_wxMenu::wxNode_wxMenu()
     wxMenu* returnVal = self->GetParent();
 
     
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxMenu"));
-    wxNode_wxMenu::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
+    if(returnVal) {
+      v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+      returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+      returnObjFt->SetClassName(v8::String::NewSymbol("wxMenu"));
+      wxNode_wxMenu::AddMethods(returnObjFt);
+      v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+      v8::Handle<v8::Value> returnObjArgs[0];
+      v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+      returnObj->SetPointerInInternalField(0, returnVal);
+      returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+      return scope.Close(returnObj);
+    } else {
+      return scope.Close(v8::Null());
+    }
+
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxMenu::GetParent).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::GetParent).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -2535,16 +2792,21 @@ wxNode_wxMenu::wxNode_wxMenu()
     wxMenuItem* returnVal = self->FindChildItem(itemid, &pos);
 
     
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
-    wxNode_wxMenuItem::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
+    if(returnVal) {
+      v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+      returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+      returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
+      wxNode_wxMenuItem::AddMethods(returnObjFt);
+      v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+      v8::Handle<v8::Value> returnObjArgs[0];
+      v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+      returnObj->SetPointerInInternalField(0, returnVal);
+      returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+      return scope.Close(returnObj);
+    } else {
+      return scope.Close(v8::Null());
+    }
+
   }
   
   /*
@@ -2557,21 +2819,26 @@ wxNode_wxMenu::wxNode_wxMenu()
     wxMenuItem* returnVal = self->FindChildItem(itemid);
 
     
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
-    wxNode_wxMenuItem::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
+    if(returnVal) {
+      v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+      returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+      returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItem"));
+      wxNode_wxMenuItem::AddMethods(returnObjFt);
+      v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+      v8::Handle<v8::Value> returnObjArgs[0];
+      v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+      returnObj->SetPointerInInternalField(0, returnVal);
+      returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+      return scope.Close(returnObj);
+    } else {
+      return scope.Close(v8::Null());
+    }
+
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxMenu::FindChildItem).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::FindChildItem).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -2612,7 +2879,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxMenu::SendEvent).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::SendEvent).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -2640,7 +2907,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxMenu::LockAccels).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxMenu::LockAccels).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);

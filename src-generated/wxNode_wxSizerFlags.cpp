@@ -126,7 +126,7 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching constructor for arguments (class name: wxSizerFlags).\n";                           \
+  errStr << "Could not find matching constructor for arguments (class name: wxSizerFlags).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -162,11 +162,12 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
     returnObj->SetPointerInInternalField(0, returnVal);
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
+
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxSizerFlags::Proportion).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxSizerFlags::Proportion).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -200,11 +201,12 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
     returnObj->SetPointerInInternalField(0, returnVal);
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
+
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxSizerFlags::Expand).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxSizerFlags::Expand).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -239,11 +241,12 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
     returnObj->SetPointerInInternalField(0, returnVal);
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
+
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxSizerFlags::Align).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxSizerFlags::Align).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -277,11 +280,12 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
     returnObj->SetPointerInInternalField(0, returnVal);
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
+
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxSizerFlags::Centre).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxSizerFlags::Centre).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -315,11 +319,12 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
     returnObj->SetPointerInInternalField(0, returnVal);
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
+
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxSizerFlags::Center).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxSizerFlags::Center).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -353,11 +358,12 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
     returnObj->SetPointerInInternalField(0, returnVal);
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
+
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxSizerFlags::Top).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxSizerFlags::Top).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -391,11 +397,12 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
     returnObj->SetPointerInInternalField(0, returnVal);
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
+
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxSizerFlags::Left).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxSizerFlags::Left).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -429,11 +436,12 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
     returnObj->SetPointerInInternalField(0, returnVal);
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
+
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxSizerFlags::Right).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxSizerFlags::Right).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -467,11 +475,12 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
     returnObj->SetPointerInInternalField(0, returnVal);
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
+
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxSizerFlags::Bottom).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxSizerFlags::Bottom).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -498,7 +507,7 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxSizerFlags::GetDefaultBorder).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxSizerFlags::GetDefaultBorder).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -534,6 +543,7 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
     returnObj->SetPointerInInternalField(0, returnVal);
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
+
   }
   
   /*
@@ -557,6 +567,7 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
     returnObj->SetPointerInInternalField(0, returnVal);
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
+
   }
   
   /*
@@ -579,11 +590,12 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
     returnObj->SetPointerInInternalField(0, returnVal);
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
+
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxSizerFlags::Border).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxSizerFlags::Border).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -618,6 +630,7 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
     returnObj->SetPointerInInternalField(0, returnVal);
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
+
   }
   
   /*
@@ -640,11 +653,12 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
     returnObj->SetPointerInInternalField(0, returnVal);
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
+
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxSizerFlags::DoubleBorder).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxSizerFlags::DoubleBorder).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -679,6 +693,7 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
     returnObj->SetPointerInInternalField(0, returnVal);
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
+
   }
   
   /*
@@ -701,11 +716,12 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
     returnObj->SetPointerInInternalField(0, returnVal);
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
+
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxSizerFlags::TripleBorder).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxSizerFlags::TripleBorder).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -739,11 +755,12 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
     returnObj->SetPointerInInternalField(0, returnVal);
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
+
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxSizerFlags::HorzBorder).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxSizerFlags::HorzBorder).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -777,11 +794,12 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
     returnObj->SetPointerInInternalField(0, returnVal);
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
+
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxSizerFlags::DoubleHorzBorder).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxSizerFlags::DoubleHorzBorder).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -815,11 +833,12 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
     returnObj->SetPointerInInternalField(0, returnVal);
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
+
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxSizerFlags::Shaped).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxSizerFlags::Shaped).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -853,11 +872,12 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
     returnObj->SetPointerInInternalField(0, returnVal);
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
+
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxSizerFlags::FixedMinSize).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxSizerFlags::FixedMinSize).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -891,11 +911,12 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
     returnObj->SetPointerInInternalField(0, returnVal);
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
+
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxSizerFlags::ReserveSpaceEvenIfHidden).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxSizerFlags::ReserveSpaceEvenIfHidden).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -922,7 +943,7 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxSizerFlags::GetProportion).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxSizerFlags::GetProportion).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -949,7 +970,7 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxSizerFlags::GetFlags).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxSizerFlags::GetFlags).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -976,7 +997,7 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxSizerFlags::GetBorderInPixels).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxSizerFlags::GetBorderInPixels).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);

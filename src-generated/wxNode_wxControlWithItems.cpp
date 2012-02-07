@@ -67,7 +67,7 @@
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching constructor for arguments (class name: wxControlWithItems).\n";                           \
+  errStr << "Could not find matching constructor for arguments (class name: wxControlWithItems).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -95,7 +95,7 @@
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxControlWithItems::ShouldInheritColours).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxControlWithItems::ShouldInheritColours).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);

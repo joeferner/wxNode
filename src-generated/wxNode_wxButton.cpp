@@ -261,7 +261,7 @@ wxNode_wxButton::wxNode_wxButton(wxNode_wxWindow* parent, int id)
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching constructor for arguments (class name: wxButton).\n";                           \
+  errStr << "Could not find matching constructor for arguments (class name: wxButton).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -301,7 +301,7 @@ wxNode_wxButton::wxNode_wxButton(wxNode_wxWindow* parent, int id)
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxButton::SetAuthNeeded).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxButton::SetAuthNeeded).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -328,7 +328,7 @@ wxNode_wxButton::wxNode_wxButton(wxNode_wxWindow* parent, int id)
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxButton::GetAuthNeeded).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxButton::GetAuthNeeded).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -351,21 +351,26 @@ wxNode_wxButton::wxNode_wxButton(wxNode_wxWindow* parent, int id)
     wxWindow* returnVal = self->SetDefault();
 
     
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxWindow"));
-    wxNode_wxWindow::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
+    if(returnVal) {
+      v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+      returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+      returnObjFt->SetClassName(v8::String::NewSymbol("wxWindow"));
+      wxNode_wxWindow::AddMethods(returnObjFt);
+      v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+      v8::Handle<v8::Value> returnObjArgs[0];
+      v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+      returnObj->SetPointerInInternalField(0, returnVal);
+      returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+      return scope.Close(returnObj);
+    } else {
+      return scope.Close(v8::Null());
+    }
+
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxButton::SetDefault).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxButton::SetDefault).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -399,11 +404,12 @@ wxNode_wxButton::wxNode_wxButton(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(0, returnVal);
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
+
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxButton::GetDefaultSize).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxButton::GetDefaultSize).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);

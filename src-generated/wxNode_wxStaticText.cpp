@@ -193,7 +193,7 @@ wxNode_wxStaticText::wxNode_wxStaticText(wxNode_wxWindow* parent, int id, const 
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching constructor for arguments (class name: wxStaticText).\n";                           \
+  errStr << "Could not find matching constructor for arguments (class name: wxStaticText).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -222,7 +222,7 @@ wxNode_wxStaticText::wxNode_wxStaticText(wxNode_wxWindow* parent, int id, const 
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxStaticText::Wrap).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxStaticText::Wrap).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -249,7 +249,7 @@ wxNode_wxStaticText::wxNode_wxStaticText(wxNode_wxWindow* parent, int id, const 
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxStaticText::AcceptsFocus).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxStaticText::AcceptsFocus).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -276,7 +276,7 @@ wxNode_wxStaticText::wxNode_wxStaticText(wxNode_wxWindow* parent, int id, const 
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxStaticText::HasTransparentBackground).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxStaticText::HasTransparentBackground).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -303,7 +303,7 @@ wxNode_wxStaticText::wxNode_wxStaticText(wxNode_wxWindow* parent, int id, const 
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxStaticText::IsEllipsized).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxStaticText::IsEllipsized).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);

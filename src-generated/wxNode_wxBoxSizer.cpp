@@ -103,7 +103,7 @@ wxNode_wxBoxSizer::wxNode_wxBoxSizer(int orient)
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching constructor for arguments (class name: wxBoxSizer).\n";                           \
+  errStr << "Could not find matching constructor for arguments (class name: wxBoxSizer).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -128,21 +128,26 @@ wxNode_wxBoxSizer::wxNode_wxBoxSizer(int orient)
     wxSizerItem* returnVal = self->AddSpacer(size);
 
     
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxSizerItem"));
-    wxNode_wxSizerItem::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
+    if(returnVal) {
+      v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+      returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+      returnObjFt->SetClassName(v8::String::NewSymbol("wxSizerItem"));
+      wxNode_wxSizerItem::AddMethods(returnObjFt);
+      v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+      v8::Handle<v8::Value> returnObjArgs[0];
+      v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+      returnObj->SetPointerInInternalField(0, returnVal);
+      returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+      return scope.Close(returnObj);
+    } else {
+      return scope.Close(v8::Null());
+    }
+
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxBoxSizer::AddSpacer).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxBoxSizer::AddSpacer).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -169,7 +174,7 @@ wxNode_wxBoxSizer::wxNode_wxBoxSizer(int orient)
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxBoxSizer::GetOrientation).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxBoxSizer::GetOrientation).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -196,7 +201,7 @@ wxNode_wxBoxSizer::wxNode_wxBoxSizer(int orient)
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxBoxSizer::IsVertical).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxBoxSizer::IsVertical).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -224,7 +229,7 @@ wxNode_wxBoxSizer::wxNode_wxBoxSizer(int orient)
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxBoxSizer::SetOrientation).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxBoxSizer::SetOrientation).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -258,11 +263,12 @@ wxNode_wxBoxSizer::wxNode_wxBoxSizer(int orient)
     returnObj->SetPointerInInternalField(0, returnVal);
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
+
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxBoxSizer::CalcMin).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxBoxSizer::CalcMin).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -289,7 +295,7 @@ wxNode_wxBoxSizer::wxNode_wxBoxSizer(int orient)
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxBoxSizer::RecalcSizes).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxBoxSizer::RecalcSizes).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -312,21 +318,26 @@ wxNode_wxBoxSizer::wxNode_wxBoxSizer(int orient)
     wxClassInfo* returnVal = self->GetClassInfo();
 
     
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxClassInfo"));
-    wxNode_wxClassInfo::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
+    if(returnVal) {
+      v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+      returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+      returnObjFt->SetClassName(v8::String::NewSymbol("wxClassInfo"));
+      wxNode_wxClassInfo::AddMethods(returnObjFt);
+      v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+      v8::Handle<v8::Value> returnObjArgs[0];
+      v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+      returnObj->SetPointerInInternalField(0, returnVal);
+      returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+      return scope.Close(returnObj);
+    } else {
+      return scope.Close(v8::Null());
+    }
+
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxBoxSizer::GetClassInfo).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxBoxSizer::GetClassInfo).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);

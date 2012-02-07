@@ -69,7 +69,7 @@ wxNode_{{parent.parent.name}}::wxNode_{{parent.parent.name}}({{{argDeclCode}}})
   {{/constructors}}
 
   std::ostringstream errStr;
-  errStr << "Could not find matching constructor for arguments (class name: {{name}}).\n";                           \
+  errStr << "Could not find matching constructor for arguments (class name: {{name}}).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -98,7 +98,7 @@ wxNode_{{parent.parent.name}}::wxNode_{{parent.parent.name}}({{{argDeclCode}}})
   {{/overloads}}
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: {{parent.name}}::{{name}}).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: {{parent.name}}::{{name}}).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);

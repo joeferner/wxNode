@@ -127,7 +127,7 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching constructor for arguments (class name: wxAnyButton).\n";                           \
+  errStr << "Could not find matching constructor for arguments (class name: wxAnyButton).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -169,7 +169,7 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxAnyButton::SetBitmap).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxAnyButton::SetBitmap).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -203,11 +203,12 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
     returnObj->SetPointerInInternalField(0, returnVal);
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
+
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxAnyButton::GetBitmap).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxAnyButton::GetBitmap).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -235,7 +236,7 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxAnyButton::SetBitmapLabel).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxAnyButton::SetBitmapLabel).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -263,7 +264,7 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxAnyButton::SetBitmapPressed).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxAnyButton::SetBitmapPressed).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -291,7 +292,7 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxAnyButton::SetBitmapDisabled).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxAnyButton::SetBitmapDisabled).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -319,7 +320,7 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxAnyButton::SetBitmapCurrent).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxAnyButton::SetBitmapCurrent).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -347,7 +348,7 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxAnyButton::SetBitmapFocus).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxAnyButton::SetBitmapFocus).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -381,11 +382,12 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
     returnObj->SetPointerInInternalField(0, returnVal);
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
+
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxAnyButton::GetBitmapLabel).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxAnyButton::GetBitmapLabel).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -419,11 +421,12 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
     returnObj->SetPointerInInternalField(0, returnVal);
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
+
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxAnyButton::GetBitmapPressed).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxAnyButton::GetBitmapPressed).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -457,11 +460,12 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
     returnObj->SetPointerInInternalField(0, returnVal);
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
+
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxAnyButton::GetBitmapDisabled).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxAnyButton::GetBitmapDisabled).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -495,11 +499,12 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
     returnObj->SetPointerInInternalField(0, returnVal);
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
+
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxAnyButton::GetBitmapCurrent).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxAnyButton::GetBitmapCurrent).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -533,11 +538,12 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
     returnObj->SetPointerInInternalField(0, returnVal);
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
+
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxAnyButton::GetBitmapFocus).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxAnyButton::GetBitmapFocus).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -578,7 +584,7 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxAnyButton::SetBitmapMargins).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxAnyButton::SetBitmapMargins).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -612,11 +618,12 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
     returnObj->SetPointerInInternalField(0, returnVal);
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
+
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxAnyButton::GetBitmapMargins).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxAnyButton::GetBitmapMargins).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -644,7 +651,7 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxAnyButton::SetBitmapPosition).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxAnyButton::SetBitmapPosition).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -671,7 +678,7 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxAnyButton::ShouldInheritColours).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxAnyButton::ShouldInheritColours).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -699,7 +706,7 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxAnyButton::SetImageLabel).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxAnyButton::SetImageLabel).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -728,7 +735,7 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxAnyButton::SetImageMargins).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxAnyButton::SetImageMargins).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -762,11 +769,12 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
     returnObj->SetPointerInInternalField(0, returnVal);
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
+
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxAnyButton::GetBitmapSelected).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxAnyButton::GetBitmapSelected).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -800,11 +808,12 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
     returnObj->SetPointerInInternalField(0, returnVal);
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
+
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxAnyButton::GetBitmapHover).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxAnyButton::GetBitmapHover).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -832,7 +841,7 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxAnyButton::SetBitmapSelected).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxAnyButton::SetBitmapSelected).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -860,7 +869,7 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxAnyButton::SetBitmapHover).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxAnyButton::SetBitmapHover).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -887,7 +896,7 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxAnyButton::DontShowLabel).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxAnyButton::DontShowLabel).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -914,7 +923,7 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxAnyButton::ShowsLabel).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxAnyButton::ShowsLabel).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);

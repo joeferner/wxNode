@@ -98,7 +98,7 @@
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching constructor for arguments (class name: wxBookCtrlBase).\n";                           \
+  errStr << "Could not find matching constructor for arguments (class name: wxBookCtrlBase).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -190,7 +190,7 @@
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxBookCtrlBase::Create).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxBookCtrlBase::Create).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -217,7 +217,7 @@
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxBookCtrlBase::GetPageCount).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxBookCtrlBase::GetPageCount).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -241,21 +241,26 @@
     wxWindow* returnVal = self->GetPage(n);
 
     
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxWindow"));
-    wxNode_wxWindow::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
+    if(returnVal) {
+      v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+      returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+      returnObjFt->SetClassName(v8::String::NewSymbol("wxWindow"));
+      wxNode_wxWindow::AddMethods(returnObjFt);
+      v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+      v8::Handle<v8::Value> returnObjArgs[0];
+      v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+      returnObj->SetPointerInInternalField(0, returnVal);
+      returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+      return scope.Close(returnObj);
+    } else {
+      return scope.Close(v8::Null());
+    }
+
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxBookCtrlBase::GetPage).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxBookCtrlBase::GetPage).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -278,21 +283,26 @@
     wxWindow* returnVal = self->GetCurrentPage();
 
     
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxWindow"));
-    wxNode_wxWindow::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
+    if(returnVal) {
+      v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+      returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+      returnObjFt->SetClassName(v8::String::NewSymbol("wxWindow"));
+      wxNode_wxWindow::AddMethods(returnObjFt);
+      v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+      v8::Handle<v8::Value> returnObjArgs[0];
+      v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+      returnObj->SetPointerInInternalField(0, returnVal);
+      returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+      return scope.Close(returnObj);
+    } else {
+      return scope.Close(v8::Null());
+    }
+
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxBookCtrlBase::GetCurrentPage).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxBookCtrlBase::GetCurrentPage).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -319,7 +329,7 @@
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxBookCtrlBase::GetSelection).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxBookCtrlBase::GetSelection).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -348,7 +358,7 @@
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxBookCtrlBase::SetPageText).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxBookCtrlBase::SetPageText).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -371,12 +381,12 @@
 
     wxString returnVal = self->GetPageText(n);
 
-    return scope.Close(v8::String::New(returnVal));
+    return scope.Close(v8::String::New(returnVal.mb_str()));
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxBookCtrlBase::GetPageText).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxBookCtrlBase::GetPageText).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -404,7 +414,7 @@
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxBookCtrlBase::GetPageImage).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxBookCtrlBase::GetPageImage).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -433,7 +443,7 @@
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxBookCtrlBase::SetPageImage).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxBookCtrlBase::SetPageImage).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -461,7 +471,7 @@
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxBookCtrlBase::SetPageSize).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxBookCtrlBase::SetPageSize).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -495,11 +505,12 @@
     returnObj->SetPointerInInternalField(0, returnVal);
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
+
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxBookCtrlBase::GetControllerSize).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxBookCtrlBase::GetControllerSize).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -534,11 +545,12 @@
     returnObj->SetPointerInInternalField(0, returnVal);
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
+
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxBookCtrlBase::CalcSizeFromPage).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxBookCtrlBase::CalcSizeFromPage).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -565,7 +577,7 @@
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxBookCtrlBase::GetInternalBorder).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxBookCtrlBase::GetInternalBorder).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -593,7 +605,7 @@
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxBookCtrlBase::SetInternalBorder).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxBookCtrlBase::SetInternalBorder).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -621,7 +633,7 @@
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxBookCtrlBase::SetControlMargin).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxBookCtrlBase::SetControlMargin).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -648,7 +660,7 @@
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxBookCtrlBase::GetControlMargin).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxBookCtrlBase::GetControlMargin).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -675,7 +687,7 @@
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxBookCtrlBase::IsVertical).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxBookCtrlBase::IsVertical).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -703,7 +715,7 @@
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxBookCtrlBase::SetFitToCurrentPage).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxBookCtrlBase::SetFitToCurrentPage).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -730,7 +742,7 @@
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxBookCtrlBase::GetFitToCurrentPage).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxBookCtrlBase::GetFitToCurrentPage).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -753,21 +765,26 @@
     wxSizer* returnVal = self->GetControlSizer();
 
     
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxSizer"));
-    wxNode_wxSizer::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
+    if(returnVal) {
+      v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+      returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+      returnObjFt->SetClassName(v8::String::NewSymbol("wxSizer"));
+      wxNode_wxSizer::AddMethods(returnObjFt);
+      v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+      v8::Handle<v8::Value> returnObjArgs[0];
+      v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+      returnObj->SetPointerInInternalField(0, returnVal);
+      returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+      return scope.Close(returnObj);
+    } else {
+      return scope.Close(v8::Null());
+    }
+
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxBookCtrlBase::GetControlSizer).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxBookCtrlBase::GetControlSizer).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -795,7 +812,7 @@
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxBookCtrlBase::DeletePage).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxBookCtrlBase::DeletePage).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -823,7 +840,7 @@
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxBookCtrlBase::RemovePage).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxBookCtrlBase::RemovePage).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -850,7 +867,7 @@
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxBookCtrlBase::DeleteAllPages).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxBookCtrlBase::DeleteAllPages).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -908,7 +925,7 @@
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxBookCtrlBase::AddPage).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxBookCtrlBase::AddPage).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -969,7 +986,7 @@
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxBookCtrlBase::InsertPage).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxBookCtrlBase::InsertPage).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -997,7 +1014,7 @@
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxBookCtrlBase::SetSelection).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxBookCtrlBase::SetSelection).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -1025,7 +1042,7 @@
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxBookCtrlBase::ChangeSelection).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxBookCtrlBase::ChangeSelection).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -1064,7 +1081,7 @@
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxBookCtrlBase::AdvanceSelection).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxBookCtrlBase::AdvanceSelection).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -1105,7 +1122,7 @@
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxBookCtrlBase::HitTest).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxBookCtrlBase::HitTest).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -1132,7 +1149,7 @@
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxBookCtrlBase::HasMultiplePages).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxBookCtrlBase::HasMultiplePages).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -1159,7 +1176,7 @@
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxBookCtrlBase::AcceptsFocus).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxBookCtrlBase::AcceptsFocus).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -1186,7 +1203,7 @@
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxBookCtrlBase::CanApplyThemeBorder).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxBookCtrlBase::CanApplyThemeBorder).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -1209,21 +1226,26 @@
     wxClassInfo* returnVal = self->GetClassInfo();
 
     
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxClassInfo"));
-    wxNode_wxClassInfo::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
+    if(returnVal) {
+      v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+      returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+      returnObjFt->SetClassName(v8::String::NewSymbol("wxClassInfo"));
+      wxNode_wxClassInfo::AddMethods(returnObjFt);
+      v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+      v8::Handle<v8::Value> returnObjArgs[0];
+      v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+      returnObj->SetPointerInInternalField(0, returnVal);
+      returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+      return scope.Close(returnObj);
+    } else {
+      return scope.Close(v8::Null());
+    }
+
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxBookCtrlBase::GetClassInfo).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxBookCtrlBase::GetClassInfo).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);

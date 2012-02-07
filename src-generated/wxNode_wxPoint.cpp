@@ -128,7 +128,7 @@ wxNode_wxPoint::wxNode_wxPoint(wxNode_wxRealPoint& pt)
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching constructor for arguments (class name: wxPoint).\n";                           \
+  errStr << "Could not find matching constructor for arguments (class name: wxPoint).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -156,7 +156,7 @@ wxNode_wxPoint::wxNode_wxPoint(wxNode_wxRealPoint& pt)
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxPoint::IsFullySpecified).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxPoint::IsFullySpecified).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -184,7 +184,7 @@ wxNode_wxPoint::wxNode_wxPoint(wxNode_wxRealPoint& pt)
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxPoint::SetDefaults).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxPoint::SetDefaults).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);

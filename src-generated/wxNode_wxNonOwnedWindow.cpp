@@ -175,7 +175,7 @@ wxNode_wxNonOwnedWindow::wxNode_wxNonOwnedWindow()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching constructor for arguments (class name: wxNonOwnedWindow).\n";                           \
+  errStr << "Could not find matching constructor for arguments (class name: wxNonOwnedWindow).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -216,7 +216,7 @@ wxNode_wxNonOwnedWindow::wxNode_wxNonOwnedWindow()
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxNonOwnedWindow::SetShape).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxNonOwnedWindow::SetShape).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);

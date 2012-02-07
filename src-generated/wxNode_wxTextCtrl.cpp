@@ -255,7 +255,7 @@ wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxNode_wxWindow* parent, int id)
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching constructor for arguments (class name: wxTextCtrl).\n";                           \
+  errStr << "Could not find matching constructor for arguments (class name: wxTextCtrl).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -283,7 +283,7 @@ wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxNode_wxWindow* parent, int id)
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxTextCtrl::IsSingleLine).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxTextCtrl::IsSingleLine).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -310,7 +310,7 @@ wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxNode_wxWindow* parent, int id)
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxTextCtrl::IsMultiLine).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxTextCtrl::IsMultiLine).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -338,7 +338,7 @@ wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxNode_wxWindow* parent, int id)
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxTextCtrl::EmulateKeyPress).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxTextCtrl::EmulateKeyPress).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -366,7 +366,7 @@ wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxNode_wxWindow* parent, int id)
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxTextCtrl::DoUpdateWindowUI).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxTextCtrl::DoUpdateWindowUI).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -393,7 +393,7 @@ wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxNode_wxWindow* parent, int id)
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxTextCtrl::ShouldInheritColours).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxTextCtrl::ShouldInheritColours).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -436,7 +436,7 @@ wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxNode_wxWindow* parent, int id)
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxTextCtrl::HitTest).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxTextCtrl::HitTest).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -466,7 +466,7 @@ wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxNode_wxWindow* parent, int id)
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxTextCtrl::SetStyle).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxTextCtrl::SetStyle).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -495,7 +495,7 @@ wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxNode_wxWindow* parent, int id)
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxTextCtrl::GetStyle).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxTextCtrl::GetStyle).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -523,7 +523,7 @@ wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxNode_wxWindow* parent, int id)
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxTextCtrl::SetDefaultStyle).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxTextCtrl::SetDefaultStyle).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -545,12 +545,12 @@ wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxNode_wxWindow* parent, int id)
 
     wxString returnVal = self->GetValue();
 
-    return scope.Close(v8::String::New(returnVal));
+    return scope.Close(v8::String::New(returnVal.mb_str()));
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxTextCtrl::GetValue).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxTextCtrl::GetValue).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -578,7 +578,7 @@ wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxNode_wxWindow* parent, int id)
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxTextCtrl::SetValue).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxTextCtrl::SetValue).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -612,11 +612,12 @@ wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(0, returnVal);
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
+
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxTextCtrl::GetDefaultAttributes).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxTextCtrl::GetDefaultAttributes).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -651,6 +652,7 @@ wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(0, returnVal);
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
+
   }
   
   /*
@@ -673,11 +675,12 @@ wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(0, returnVal);
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
+
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxTextCtrl::GetClassDefaultAttributes).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxTextCtrl::GetClassDefaultAttributes).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -700,21 +703,26 @@ wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxNode_wxWindow* parent, int id)
     wxClassInfo* returnVal = self->GetClassInfo();
 
     
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxClassInfo"));
-    wxNode_wxClassInfo::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
+    if(returnVal) {
+      v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+      returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+      returnObjFt->SetClassName(v8::String::NewSymbol("wxClassInfo"));
+      wxNode_wxClassInfo::AddMethods(returnObjFt);
+      v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+      v8::Handle<v8::Value> returnObjArgs[0];
+      v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+      returnObj->SetPointerInInternalField(0, returnVal);
+      returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+      return scope.Close(returnObj);
+    } else {
+      return scope.Close(v8::Null());
+    }
+
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxTextCtrl::GetClassInfo).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxTextCtrl::GetClassInfo).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);

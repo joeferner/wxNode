@@ -438,7 +438,7 @@ wxNode_wxControl::wxNode_wxControl(wxNode_wxWindow* parent, int id)
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching constructor for arguments (class name: wxControl).\n";                           \
+  errStr << "Could not find matching constructor for arguments (class name: wxControl).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -548,7 +548,7 @@ wxNode_wxControl::wxNode_wxControl(wxNode_wxWindow* parent, int id)
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxControl::Create).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxControl::Create).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -575,7 +575,7 @@ wxNode_wxControl::wxNode_wxControl(wxNode_wxWindow* parent, int id)
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxControl::GetAlignment).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxControl::GetAlignment).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -603,7 +603,7 @@ wxNode_wxControl::wxNode_wxControl(wxNode_wxWindow* parent, int id)
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxControl::SetLabel).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxControl::SetLabel).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -625,12 +625,12 @@ wxNode_wxControl::wxNode_wxControl(wxNode_wxWindow* parent, int id)
 
     wxString returnVal = self->GetLabel();
 
-    return scope.Close(v8::String::New(returnVal));
+    return scope.Close(v8::String::New(returnVal.mb_str()));
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxControl::GetLabel).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxControl::GetLabel).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -658,7 +658,7 @@ wxNode_wxControl::wxNode_wxControl(wxNode_wxWindow* parent, int id)
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxControl::SetLabelText).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxControl::SetLabelText).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -680,7 +680,7 @@ wxNode_wxControl::wxNode_wxControl(wxNode_wxWindow* parent, int id)
 
     wxString returnVal = self->GetLabelText();
 
-    return scope.Close(v8::String::New(returnVal));
+    return scope.Close(v8::String::New(returnVal.mb_str()));
   }
   
   /*
@@ -692,12 +692,12 @@ wxNode_wxControl::wxNode_wxControl(wxNode_wxWindow* parent, int id)
 
     wxString returnVal = self->GetLabelText(*label);
 
-    return scope.Close(v8::String::New(returnVal));
+    return scope.Close(v8::String::New(returnVal.mb_str()));
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxControl::GetLabelText).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxControl::GetLabelText).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -725,7 +725,7 @@ wxNode_wxControl::wxNode_wxControl(wxNode_wxWindow* parent, int id)
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxControl::SetLabelMarkup).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxControl::SetLabelMarkup).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -752,7 +752,7 @@ wxNode_wxControl::wxNode_wxControl(wxNode_wxWindow* parent, int id)
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxControl::ShouldInheritColours).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxControl::ShouldInheritColours).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -780,7 +780,7 @@ wxNode_wxControl::wxNode_wxControl(wxNode_wxWindow* parent, int id)
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxControl::Command).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxControl::Command).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -808,7 +808,7 @@ wxNode_wxControl::wxNode_wxControl(wxNode_wxWindow* parent, int id)
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxControl::SetFont).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxControl::SetFont).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -836,7 +836,7 @@ wxNode_wxControl::wxNode_wxControl(wxNode_wxWindow* parent, int id)
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxControl::DoUpdateWindowUI).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxControl::DoUpdateWindowUI).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -859,12 +859,12 @@ wxNode_wxControl::wxNode_wxControl(wxNode_wxWindow* parent, int id)
 
     wxString returnVal = self->RemoveMnemonics(*str);
 
-    return scope.Close(v8::String::New(returnVal));
+    return scope.Close(v8::String::New(returnVal.mb_str()));
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxControl::RemoveMnemonics).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxControl::RemoveMnemonics).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -887,12 +887,12 @@ wxNode_wxControl::wxNode_wxControl(wxNode_wxWindow* parent, int id)
 
     wxString returnVal = self->EscapeMnemonics(*str);
 
-    return scope.Close(v8::String::New(returnVal));
+    return scope.Close(v8::String::New(returnVal.mb_str()));
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxControl::EscapeMnemonics).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxControl::EscapeMnemonics).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -919,7 +919,7 @@ wxNode_wxControl::wxNode_wxControl(wxNode_wxWindow* parent, int id)
 
     wxString returnVal = self->Ellipsize(*label, *dc, mode, maxWidth, flags);
 
-    return scope.Close(v8::String::New(returnVal));
+    return scope.Close(v8::String::New(returnVal.mb_str()));
   }
   
   /*
@@ -934,12 +934,12 @@ wxNode_wxControl::wxNode_wxControl(wxNode_wxWindow* parent, int id)
 
     wxString returnVal = self->Ellipsize(*label, *dc, mode, maxWidth);
 
-    return scope.Close(v8::String::New(returnVal));
+    return scope.Close(v8::String::New(returnVal.mb_str()));
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxControl::Ellipsize).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxControl::Ellipsize).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -980,7 +980,7 @@ wxNode_wxControl::wxNode_wxControl(wxNode_wxWindow* parent, int id)
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxControl::FindAccelIndex).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxControl::FindAccelIndex).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -1015,11 +1015,12 @@ wxNode_wxControl::wxNode_wxControl(wxNode_wxWindow* parent, int id)
     returnObj->SetPointerInInternalField(0, returnVal);
     returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
     return scope.Close(returnObj);
+
   }
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxControl::GetCompositeControlsDefaultAttributes).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxControl::GetCompositeControlsDefaultAttributes).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);

@@ -246,7 +246,7 @@ wxNode_wxPanel::wxNode_wxPanel(wxNode_wxWindow* parent)
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching constructor for arguments (class name: wxPanel).\n";                           \
+  errStr << "Could not find matching constructor for arguments (class name: wxPanel).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -350,7 +350,7 @@ wxNode_wxPanel::wxNode_wxPanel(wxNode_wxWindow* parent)
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxPanel::Create).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxPanel::Create).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
@@ -377,7 +377,7 @@ wxNode_wxPanel::wxNode_wxPanel(wxNode_wxWindow* parent)
   
 
   std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxPanel::InitDialog).\n";                           \
+  errStr << "Could not find matching method for arguments (method name: wxPanel::InitDialog).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
