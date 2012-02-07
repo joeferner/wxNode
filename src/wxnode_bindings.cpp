@@ -16,6 +16,7 @@
 #include "wxNode_wxBoxSizer.h"
 #include "wxNode_wxButton.h"
 #include "wxNode_wxStaticText.h"
+#include "wxLogStatus.h"
 #include "messageBox.h"
 
 extern "C" {
@@ -36,6 +37,7 @@ extern "C" {
     wxNode_wxButton::Init(target);
     wxNode_wxStaticText::Init(target);
     NodeWxMessageBox::Init(target);
+    NodeWxLogStatus::Init(target);
 
     {
       v8::Function* newWxSize = v8::Function::Cast(*target->Get(v8::String::New("wxSize")));

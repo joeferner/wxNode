@@ -13,6 +13,7 @@ class wxNode_wxValidator;
 class wxNode_wxArrayString;
 class wxNode_wxArrayInt;
 class wxNode_wxCommandEvent;
+class wxNode_wxClientData;
 
 
 class wxNode_wxListBox : public wxListBox, public wxNodeObject, public NodeExEvtHandlerImpl {
@@ -70,6 +71,21 @@ private:
   static v8::Handle<v8::Value> _IsSorted(const v8::Arguments& args);
   static v8::Handle<v8::Value> _Command(const v8::Arguments& args);
   static v8::Handle<v8::Value> _HitTest(const v8::Arguments& args);
+  static v8::Handle<v8::Value> _Append(const v8::Arguments& args);
+  static v8::Handle<v8::Value> _AppendString(const v8::Arguments& args);
+  static v8::Handle<v8::Value> _Insert(const v8::Arguments& args);
+  static v8::Handle<v8::Value> _Set(const v8::Arguments& args);
+  static v8::Handle<v8::Value> _Clear(const v8::Arguments& args);
+  static v8::Handle<v8::Value> _Delete(const v8::Arguments& args);
+  static v8::Handle<v8::Value> _SetClientData(const v8::Arguments& args);
+  static v8::Handle<v8::Value> _GetClientData(const v8::Arguments& args);
+  static v8::Handle<v8::Value> _SetClientObject(const v8::Arguments& args);
+  static v8::Handle<v8::Value> _GetClientObject(const v8::Arguments& args);
+  static v8::Handle<v8::Value> _DetachClientObject(const v8::Arguments& args);
+  static v8::Handle<v8::Value> _GetClientDataType(const v8::Arguments& args);
+  static v8::Handle<v8::Value> _HasClientData(const v8::Arguments& args);
+  static v8::Handle<v8::Value> _HasClientObjectData(const v8::Arguments& args);
+  static v8::Handle<v8::Value> _HasClientUntypedData(const v8::Arguments& args);
   
 
   static v8::Persistent<v8::FunctionTemplate> s_ct;

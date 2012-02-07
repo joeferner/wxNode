@@ -137,11 +137,11 @@ var MyFrame = wxNode.wxFrame.extend({
   },
 
   onTabForward: function(event) {
-    this.doNavigate(wxNode.wxNavigationKeyEvent.IsForward | wxNode.wxNavigationKeyEvent.FromTab);
+    this.doNavigate(wxNode.wxNavigationKeyEvent.isForward | wxNode.wxNavigationKeyEvent.fromTab);
   },
 
   onTabBackward: function(event) {
-    this.doNavigate(wxNode.wxNavigationKeyEvent.IsBackward | wxNode.wxNavigationKeyEvent.FromTab);
+    this.doNavigate(wxNode.wxNavigationKeyEvent.isBackward | wxNode.wxNavigationKeyEvent.fromTab);
   },
 
   s_windowFocus: null,

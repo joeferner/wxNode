@@ -15,7 +15,7 @@ var files = [
   { className: 'wxNonOwnedWindow', baseClassName: 'wxNonOwnedWindowBase', allowNew: true },
   { className: 'wxTextCtrl', baseClassName: 'wxTextCtrlBase', allowNew: true },
   { className: 'wxButton', baseClassName: 'wxButtonBase', allowNew: true },
-  { className: 'wxListBox', baseClassName: 'wxListBoxBase', allowNew: true },
+  { className: 'wxListBox', baseClassName: 'wxListBoxBase', allowNew: true, addMethodsFrom: 'wxItemContainer' },
   { className: 'wxAnyButton', baseClassName: 'wxAnyButtonBase', allowNew: true },
   { className: 'wxStaticText', baseClassName: 'wxStaticTextBase', allowNew: true },
   { className: 'wxControl', baseClassName: 'wxControlBase', allowNew: true },
@@ -569,6 +569,14 @@ function rawJsonToCtx(rawJson, file) {
 
   if(clazz['members']) {
     var memberIds = clazz['members'].split(' ');
+    if(file.addMethodsFrom) {
+      var additionalMethodClass = getClassByName(rawJson, file.addMethodsFrom);
+      if(!additionalMethodClass) {
+        throw new Error("Could not find class " + file.addMethodsFrom);
+      }
+      var additionalMethodClassMembers = additionalMethodClass['members'].split(' ');
+      memberIds = memberIds.concat(additionalMethodClassMembers);
+    }
     for(var i=0; i<memberIds.length; i++) {
       var memberId = memberIds[i];
       if(memberId.length == 0) {
