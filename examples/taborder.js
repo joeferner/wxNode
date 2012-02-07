@@ -148,14 +148,14 @@ var MyFrame = wxNode.wxFrame.extend({
   onIdle: function(event) {
     // track the window which has the focus in the status bar
     var focus = wxNode.wxWindow.findFocus();
-    if ( focus != s_windowFocus )
+    if ( focus != this.s_windowFocus )
     {
-      s_windowFocus = focus;
+      this.s_windowFocus = focus;
 
       var msg;
       if ( focus )
       {
-          msg = util.format("Focus is at %s", s_windowFocus.getName());
+          msg = util.format("Focus is at %s", this.s_windowFocus.getName());
       }
       else
       {
@@ -188,9 +188,10 @@ var MyPanel = wxNode.wxPanel.extend({
     this._super(parent, wxNode.wxID_ANY);
 
     var notebook = new wxNode.wxNotebook(this, wxNode.wxID_ANY);
+/* TODO
     notebook.addPage(this.createButtonPage(notebook), "Button");
     notebook.addPage(this.createTextPage(notebook), "Text");
-
+*/
     var sizerV = new wxNode.wxBoxSizer(wxNode.wxVERTICAL);
     var sizerFlags = new wxNode.wxSizerFlags(1).expand();
     sizerV.add(notebook, sizerFlags);

@@ -53,7 +53,7 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
   NODE_SET_PROTOTYPE_METHOD(target, "left", _Left);
   NODE_SET_PROTOTYPE_METHOD(target, "right", _Right);
   NODE_SET_PROTOTYPE_METHOD(target, "bottom", _Bottom);
-  NODE_SET_PROTOTYPE_METHOD(target, "getDefaultBorder", _GetDefaultBorder);
+  NODE_SET_METHOD(target, "getDefaultBorder", _GetDefaultBorder);
   NODE_SET_PROTOTYPE_METHOD(target, "border", _Border);
   NODE_SET_PROTOTYPE_METHOD(target, "doubleBorder", _DoubleBorder);
   NODE_SET_PROTOTYPE_METHOD(target, "tripleBorder", _TripleBorder);

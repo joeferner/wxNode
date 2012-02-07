@@ -103,8 +103,8 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   NODE_SET_PROTOTYPE_METHOD(target, "adjustForLayoutDirection", _AdjustForLayoutDirection);
   NODE_SET_PROTOTYPE_METHOD(target, "setId", _SetId);
   NODE_SET_PROTOTYPE_METHOD(target, "getId", _GetId);
-  NODE_SET_PROTOTYPE_METHOD(target, "newControlId", _NewControlId);
-  NODE_SET_PROTOTYPE_METHOD(target, "unreserveControlId", _UnreserveControlId);
+  NODE_SET_METHOD(target, "newControlId", _NewControlId);
+  NODE_SET_METHOD(target, "unreserveControlId", _UnreserveControlId);
   NODE_SET_PROTOTYPE_METHOD(target, "setSize", _SetSize);
   NODE_SET_PROTOTYPE_METHOD(target, "move", _Move);
   NODE_SET_PROTOTYPE_METHOD(target, "setPosition", _SetPosition);
@@ -183,8 +183,8 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   NODE_SET_PROTOTYPE_METHOD(target, "getThemeEnabled", _GetThemeEnabled);
   NODE_SET_PROTOTYPE_METHOD(target, "setFocus", _SetFocus);
   NODE_SET_PROTOTYPE_METHOD(target, "setFocusFromKbd", _SetFocusFromKbd);
-  NODE_SET_PROTOTYPE_METHOD(target, "findFocus", _FindFocus);
-  NODE_SET_PROTOTYPE_METHOD(target, "doFindFocus", _DoFindFocus);
+  NODE_SET_METHOD(target, "findFocus", _FindFocus);
+  NODE_SET_METHOD(target, "doFindFocus", _DoFindFocus);
   NODE_SET_PROTOTYPE_METHOD(target, "hasFocus", _HasFocus);
   NODE_SET_PROTOTYPE_METHOD(target, "acceptsFocus", _AcceptsFocus);
   NODE_SET_PROTOTYPE_METHOD(target, "acceptsFocusRecursively", _AcceptsFocusRecursively);
@@ -212,9 +212,9 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   NODE_SET_PROTOTYPE_METHOD(target, "removeChild", _RemoveChild);
   NODE_SET_PROTOTYPE_METHOD(target, "isClientAreaChild", _IsClientAreaChild);
   NODE_SET_PROTOTYPE_METHOD(target, "findWindow", _FindWindow);
-  NODE_SET_PROTOTYPE_METHOD(target, "findWindowById", _FindWindowById);
-  NODE_SET_PROTOTYPE_METHOD(target, "findWindowByName", _FindWindowByName);
-  NODE_SET_PROTOTYPE_METHOD(target, "findWindowByLabel", _FindWindowByLabel);
+  NODE_SET_METHOD(target, "findWindowById", _FindWindowById);
+  NODE_SET_METHOD(target, "findWindowByName", _FindWindowByName);
+  NODE_SET_METHOD(target, "findWindowByLabel", _FindWindowByLabel);
   NODE_SET_PROTOTYPE_METHOD(target, "getEventHandler", _GetEventHandler);
   NODE_SET_PROTOTYPE_METHOD(target, "setEventHandler", _SetEventHandler);
   NODE_SET_PROTOTYPE_METHOD(target, "pushEventHandler", _PushEventHandler);
@@ -238,7 +238,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   NODE_SET_PROTOTYPE_METHOD(target, "warpPointer", _WarpPointer);
   NODE_SET_PROTOTYPE_METHOD(target, "captureMouse", _CaptureMouse);
   NODE_SET_PROTOTYPE_METHOD(target, "releaseMouse", _ReleaseMouse);
-  NODE_SET_PROTOTYPE_METHOD(target, "getCapture", _GetCapture);
+  NODE_SET_METHOD(target, "getCapture", _GetCapture);
   NODE_SET_PROTOTYPE_METHOD(target, "hasCapture", _HasCapture);
   NODE_SET_PROTOTYPE_METHOD(target, "refresh", _Refresh);
   NODE_SET_PROTOTYPE_METHOD(target, "refreshRect", _RefreshRect);
@@ -254,7 +254,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
   NODE_SET_PROTOTYPE_METHOD(target, "doIsExposed", _DoIsExposed);
   NODE_SET_PROTOTYPE_METHOD(target, "isExposed", _IsExposed);
   NODE_SET_PROTOTYPE_METHOD(target, "getDefaultAttributes", _GetDefaultAttributes);
-  NODE_SET_PROTOTYPE_METHOD(target, "getClassDefaultAttributes", _GetClassDefaultAttributes);
+  NODE_SET_METHOD(target, "getClassDefaultAttributes", _GetClassDefaultAttributes);
   NODE_SET_PROTOTYPE_METHOD(target, "setBackgroundColour", _SetBackgroundColour);
   NODE_SET_PROTOTYPE_METHOD(target, "setOwnBackgroundColour", _SetOwnBackgroundColour);
   NODE_SET_PROTOTYPE_METHOD(target, "getBackgroundColour", _GetBackgroundColour);

@@ -83,7 +83,7 @@ wxNode_wxButton::wxNode_wxButton(wxNode_wxWindow* parent, int id)
   NODE_SET_PROTOTYPE_METHOD(target, "setAuthNeeded", _SetAuthNeeded);
   NODE_SET_PROTOTYPE_METHOD(target, "getAuthNeeded", _GetAuthNeeded);
   NODE_SET_PROTOTYPE_METHOD(target, "setDefault", _SetDefault);
-  NODE_SET_PROTOTYPE_METHOD(target, "getDefaultSize", _GetDefaultSize);
+  NODE_SET_METHOD(target, "getDefaultSize", _GetDefaultSize);
   
 }
 

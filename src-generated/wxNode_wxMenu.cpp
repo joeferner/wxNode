@@ -55,7 +55,7 @@ wxNode_wxMenu::wxNode_wxMenu()
 
 /*static*/ void wxNode_wxMenu::AddMethods(v8::Handle<v8::FunctionTemplate> target) {
   wxNode_wxEvtHandler::AddMethods(target);
-  NODE_SET_PROTOTYPE_METHOD(target, "new", _New);
+  NODE_SET_METHOD(target, "new", _New);
   NODE_SET_PROTOTYPE_METHOD(target, "append", _Append);
   NODE_SET_PROTOTYPE_METHOD(target, "appendSeparator", _AppendSeparator);
   NODE_SET_PROTOTYPE_METHOD(target, "appendCheckItem", _AppendCheckItem);
@@ -103,7 +103,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   NODE_SET_PROTOTYPE_METHOD(target, "getParent", _GetParent);
   NODE_SET_PROTOTYPE_METHOD(target, "findChildItem", _FindChildItem);
   NODE_SET_PROTOTYPE_METHOD(target, "sendEvent", _SendEvent);
-  NODE_SET_PROTOTYPE_METHOD(target, "lockAccels", _LockAccels);
+  NODE_SET_METHOD(target, "lockAccels", _LockAccels);
   
 }
 

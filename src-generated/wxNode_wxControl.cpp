@@ -89,11 +89,11 @@ wxNode_wxControl::wxNode_wxControl(wxNode_wxWindow* parent, int id)
   NODE_SET_PROTOTYPE_METHOD(target, "command", _Command);
   NODE_SET_PROTOTYPE_METHOD(target, "setFont", _SetFont);
   NODE_SET_PROTOTYPE_METHOD(target, "doUpdateWindowUI", _DoUpdateWindowUI);
-  NODE_SET_PROTOTYPE_METHOD(target, "removeMnemonics", _RemoveMnemonics);
-  NODE_SET_PROTOTYPE_METHOD(target, "escapeMnemonics", _EscapeMnemonics);
-  NODE_SET_PROTOTYPE_METHOD(target, "ellipsize", _Ellipsize);
-  NODE_SET_PROTOTYPE_METHOD(target, "findAccelIndex", _FindAccelIndex);
-  NODE_SET_PROTOTYPE_METHOD(target, "getCompositeControlsDefaultAttributes", _GetCompositeControlsDefaultAttributes);
+  NODE_SET_METHOD(target, "removeMnemonics", _RemoveMnemonics);
+  NODE_SET_METHOD(target, "escapeMnemonics", _EscapeMnemonics);
+  NODE_SET_METHOD(target, "ellipsize", _Ellipsize);
+  NODE_SET_METHOD(target, "findAccelIndex", _FindAccelIndex);
+  NODE_SET_METHOD(target, "getCompositeControlsDefaultAttributes", _GetCompositeControlsDefaultAttributes);
   
 }
 

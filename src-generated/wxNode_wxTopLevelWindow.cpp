@@ -91,7 +91,7 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
   NODE_SET_PROTOTYPE_METHOD(target, "shouldPreventAppExit", _ShouldPreventAppExit);
   NODE_SET_PROTOTYPE_METHOD(target, "centreOnScreen", _CentreOnScreen);
   NODE_SET_PROTOTYPE_METHOD(target, "centerOnScreen", _CenterOnScreen);
-  NODE_SET_PROTOTYPE_METHOD(target, "getDefaultSize", _GetDefaultSize);
+  NODE_SET_METHOD(target, "getDefaultSize", _GetDefaultSize);
   NODE_SET_PROTOTYPE_METHOD(target, "getDefaultItem", _GetDefaultItem);
   NODE_SET_PROTOTYPE_METHOD(target, "setDefaultItem", _SetDefaultItem);
   NODE_SET_PROTOTYPE_METHOD(target, "getTmpDefaultItem", _GetTmpDefaultItem);

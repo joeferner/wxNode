@@ -92,5 +92,17 @@ v8::Handle<v8::Value> wxNodeObject::call(const char *fnName, int argc, v8::Handl
   v8::Local<v8::FunctionTemplate> extend = v8::FunctionTemplate::New(wxNodeObject::extend);
   ctor->Set(v8::String::New("extend"), extend->GetFunction());
 
+  // copy static method
+  v8::Local<v8::Array> baseClassPropNames = baseClass->GetPropertyNames();
+  for(uint32_t i=0; i<baseClassPropNames->Length(); i++) {
+    v8::Local<v8::String> propName = baseClassPropNames->Get(i)->ToString();
+    v8::String::AsciiValue propNameStr(propName);
+    if(!strcmp(*propNameStr, "extend")) {
+      continue;
+    }
+    v8::Local<v8::Value> propVal = baseClass->Get(propName);
+    ctor->Set(propName, propVal);
+  }
+
   return scope.Close(ctor);
 }

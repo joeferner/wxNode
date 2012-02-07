@@ -97,7 +97,7 @@ wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxNode_wxWindow* parent, int id)
   NODE_SET_PROTOTYPE_METHOD(target, "getValue", _GetValue);
   NODE_SET_PROTOTYPE_METHOD(target, "setValue", _SetValue);
   NODE_SET_PROTOTYPE_METHOD(target, "getDefaultAttributes", _GetDefaultAttributes);
-  NODE_SET_PROTOTYPE_METHOD(target, "getClassDefaultAttributes", _GetClassDefaultAttributes);
+  NODE_SET_METHOD(target, "getClassDefaultAttributes", _GetClassDefaultAttributes);
   NODE_SET_PROTOTYPE_METHOD(target, "getClassInfo", _GetClassInfo);
   
 }

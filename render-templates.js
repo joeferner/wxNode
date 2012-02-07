@@ -417,6 +417,11 @@ function addMethod(rawJson, ctx, member, dest) {
       parent: ctx
     };
     methodGroup.jsName = toJsName(methodGroup.name);
+    if(member['static'] == 1) {
+      methodGroup.addMethodStmt = 'NODE_SET_METHOD(target, "' + methodGroup.jsName + '", _' + methodGroup.name + ');'
+    } else {
+      methodGroup.addMethodStmt = 'NODE_SET_PROTOTYPE_METHOD(target, "' + methodGroup.jsName + '", _' + methodGroup.name + ');'
+    }
     dest.push(methodGroup);
   } else {
     methodGroup = methodGroup[0];

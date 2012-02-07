@@ -32,7 +32,7 @@ wxNode_{{parent.parent.name}}::wxNode_{{parent.parent.name}}({{{argDeclCode}}})
 
 /*static*/ void wxNode_{{name}}::AddMethods(v8::Handle<v8::FunctionTemplate> target) {
   {{{baseClassAddMethodsCallCode}}}
-  {{#methods}}NODE_SET_PROTOTYPE_METHOD(target, "{{jsName}}", _{{name}});
+  {{#methods}}{{{addMethodStmt}}}
   {{/methods}}
 }
 
