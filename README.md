@@ -2,6 +2,12 @@
 
 node.js wrapper for wxWidgets.
 
+## Installation Linux
+
+```bash
+$ npm install wxnode
+```
+
 ## Quick Examples
 
 ```javascript
