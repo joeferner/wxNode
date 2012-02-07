@@ -15,13 +15,17 @@ var files = [
   { className: 'wxNonOwnedWindow', baseClassName: 'wxNonOwnedWindowBase', allowNew: true },
   { className: 'wxTextCtrl', baseClassName: 'wxTextCtrlBase', allowNew: true },
   { className: 'wxButton', baseClassName: 'wxButtonBase', allowNew: true },
+  { className: 'wxListBox', baseClassName: 'wxListBoxBase', allowNew: true },
   { className: 'wxAnyButton', baseClassName: 'wxAnyButtonBase', allowNew: true },
   { className: 'wxStaticText', baseClassName: 'wxStaticTextBase', allowNew: true },
   { className: 'wxControl', baseClassName: 'wxControlBase', allowNew: true },
   { className: 'wxPanel', baseClassName: 'wxPanelBase', allowNew: true },
   { className: 'wxNotebook', baseClassName: 'wxNotebookBase', allowNew: true },
   { className: 'wxBookCtrlBase', baseClassName: 'wxBookCtrlBase', allowNew: false },
+  { className: 'wxControlWithItems', baseClassName: 'wxControlWithItemsBase', allowNew: false, addMethodsClass: 'wxNode_wxWindowWithItems_wxControl_wxItemContainer' },
   { className: 'wxWindow', baseClassName: 'wxWindowBase', excludeIds: ['_43125', '_43080'], allowNew: true },
+  { className: 'wxItemContainer', allowNew: false },
+  { className: 'wxItemContainerImmutable', allowNew: false },
   { className: 'wxSizer', allowNew: false },
   { className: 'wxBoxSizer', allowNew: true },
   { className: 'wxSizerFlags', allowNew: true },
@@ -155,7 +159,7 @@ function concatUnique(orig, newItems) {
 function argJsonToCtx(ctx, rawJson, arg, i) {
   var typeId = arg['type'];
   var type = lookupClassById(rawJson, typeId);
-  var argCode = "unhandled argCode type '" + type['name'] + "'";
+  var argCode = "#error(\"unhandled argCode type '" + type['name'] + "'\")";
   var argCallCode = "";
   var argDeclCode = "";
   var typeName = type['name'];
@@ -227,6 +231,8 @@ function argJsonToCtx(ctx, rawJson, arg, i) {
     argCallCode = argName;
     argDeclCode = util.format("%s%s %s", typeName, type.refs + type.pointers, argName);
     argTestCode = util.format("args[%d]->IsNumber()", i);
+  } else if(typeName == "void") {
+    return null;
   } else if(typeName && (typeName.match(/^wx.*/) || typeName == "Origin")) {
     if(type.pointers == '**') {
       argCode = util.format("%s* %s;", typeName, argName);
@@ -353,7 +359,7 @@ function methodJsonToCtx(parent, rawJson, methodJson) {
       ctx.returnStmt += "    wxNode_" + ctx.returnTypeName + "::AddMethods(returnObjFt);\n";
       ctx.returnStmt += "    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();\n";
       ctx.returnStmt += "    v8::Handle<v8::Value> returnObjArgs[0];\n";
-      ctx.returnStmt += "    v8::Local<v8::Object> returnObj = returnObjFn->Call(args.This(), 0, returnObjArgs)->ToObject();\n";
+      ctx.returnStmt += "    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();\n";
       ctx.returnStmt += "    returnObj->SetPointerInInternalField(0, returnVal);\n";
       ctx.returnStmt += "    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));\n";
       ctx.returnStmt += "    return scope.Close(returnObj);";
@@ -368,6 +374,9 @@ function methodJsonToCtx(parent, rawJson, methodJson) {
   if(args) {
     for(var i=0; i<args.length; i++) {
       var arg = argJsonToCtx(ctx, rawJson, args[i], i);
+      if(!arg) {
+        return null;
+      }
       ctx.args.push(arg);
     }
   }
@@ -413,6 +422,9 @@ function addMethod(rawJson, ctx, member, dest) {
     methodGroup = methodGroup[0];
   }
   var methodJson = methodJsonToCtx(methodGroup, rawJson, member);
+  if(!methodJson) {
+    return;
+  }
   if(methodJson.name.match(/^On/)) {
     return;
   }
@@ -474,7 +486,11 @@ function rawJsonToCtx(rawJson, file) {
     var baseClazz = lookupClassById(rawJson, baseId);
     ctx.baseClassName = removeTemplateFromClassName(baseClazz['name']);
     ctx.baseClassId = baseClazz['id'];
-    ctx.baseClassAddMethodsCallCode = "wxNode_" + ctx.baseClassName + "::AddMethods(target);";
+    if(file.addMethodsClass) {
+      ctx.baseClassAddMethodsCallCode = file.addMethodsClass + "::AddMethods(target);";
+    } else {
+      ctx.baseClassAddMethodsCallCode = "wxNode_" + ctx.baseClassName + "::AddMethods(target);";
+    }
     ctx.includes = concatUnique(ctx.includes, ["wxNode_wxEvtHandler.h", "wxNode_" + ctx.baseClassName + ".h"]);
     ctx.classes = concatUnique(ctx.classes, ["wxNode_wxEvtHandler", "wxNode_" + ctx.baseClassName]);
   } else {

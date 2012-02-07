@@ -10,6 +10,7 @@
 #include <wx/caret.h>
 #include <wx/notebook.h>
 #include "wxNodeObject.h"
+#include "wxNode_wxWindowWithItems_wxControl_wxItemContainer.h"
 
 
 #endif

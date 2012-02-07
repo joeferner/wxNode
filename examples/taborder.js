@@ -203,7 +203,6 @@ var MyPanel = wxNode.wxPanel.extend({
     sizerV.add(lbox, sizerFlags);
 
     this.setSizerAndFit(sizerV);
-    console.log(6);
   },
 
   createButtonPage: function(parent) {

@@ -9,6 +9,7 @@
 #include "wxNode_wxSize.h"
 #include "wxNode_wxTextCtrl.h"
 #include "wxNode_wxPanel.h"
+#include "wxNode_wxListBox.h"
 #include "wxNode_wxWindow.h"
 #include "wxNode_wxNotebook.h"
 #include "wxNode_wxSizerFlags.h"
@@ -27,6 +28,7 @@ extern "C" {
     wxNode_wxSize::Init(target);
     wxNode_wxTextCtrl::Init(target);
     wxNode_wxPanel::Init(target);
+    wxNode_wxListBox::Init(target);
     wxNode_wxSizerFlags::Init(target);
     wxNode_wxWindow::Init(target);
     wxNode_wxNotebook::Init(target);

@@ -49,6 +49,7 @@ NodeExEvtHandlerImpl::NodeExEvtHandlerImpl() {
 }
 
 NodeExEvtHandlerImpl::~NodeExEvtHandlerImpl() {
+  printf("delete NodeExEvtHandlerImpl\n");
   delete m_listeners;
 }
 
