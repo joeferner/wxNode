@@ -14,7 +14,7 @@ ListenerData::ListenerData(int eventType, v8::Local<v8::Object> fn) {
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxEvtHandler::_EVT_MENU(const v8::Arguments& args) {
-  wxNode_wxEvtHandler* evtHandler = unwrap<wxNode_wxEvtHandler>(args.This());
+  wxEvtHandler* evtHandler = unwrap<wxEvtHandler>(args.This());
   NodeExEvtHandlerImpl* self = unwrapEvtHandler(args.This());
 
   v8::Local<v8::Int32> idObj = args[0]->ToInt32();
@@ -75,7 +75,7 @@ void EventProxy::forwardEvent(wxEvent& event) {
   }
 }
 
-void NodeExEvtHandlerImpl::connect(wxNode_wxEvtHandler* evtHandler, int id, int lastId, int eventType, v8::Local<v8::Object> fn) {
+void NodeExEvtHandlerImpl::connect(wxEvtHandler* evtHandler, int id, int lastId, int eventType, v8::Local<v8::Object> fn) {
   // TODO: memory cleanup
   m_listeners->push_back(new ListenerData(eventType, fn));
   int iListener = m_listeners->size() - 1;
@@ -87,14 +87,14 @@ void NodeExEvtHandlerImpl::connect(wxNode_wxEvtHandler* evtHandler, int id, int 
   evtHandler->Connect(id, lastId, eventType, (wxObjectEventFunction)&EventProxy::forwardEvent, data);
 }
 
-void NodeExEvtHandlerImpl::addEventListener(wxNode_wxEvtHandler* evtHandler, int eventType, v8::Local<v8::Object> fn) {
+void NodeExEvtHandlerImpl::addEventListener(wxEvtHandler* evtHandler, int eventType, v8::Local<v8::Object> fn) {
   addCommandRangeListener(evtHandler, -1, -1, eventType, fn);
 }
 
-void NodeExEvtHandlerImpl::addCommandRangeListener(wxNode_wxEvtHandler* evtHandler, int id, int lastId, int eventType, v8::Local<v8::Object> fn) {
+void NodeExEvtHandlerImpl::addCommandRangeListener(wxEvtHandler* evtHandler, int id, int lastId, int eventType, v8::Local<v8::Object> fn) {
   connect(evtHandler, id, lastId, eventType, fn);
 }
 
-void NodeExEvtHandlerImpl::addCommandListener(wxNode_wxEvtHandler* evtHandler, int id, int eventType, v8::Local<v8::Object> fn) {
+void NodeExEvtHandlerImpl::addCommandListener(wxEvtHandler* evtHandler, int id, int eventType, v8::Local<v8::Object> fn) {
   addCommandRangeListener(evtHandler, id, -1, eventType, fn);
 }

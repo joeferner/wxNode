@@ -201,7 +201,6 @@ wxNode_wxNotebook::wxNode_wxNotebook(wxNode_wxWindow* parent, int id)
 
     self->GetRowCount();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -230,7 +229,6 @@ wxNode_wxNotebook::wxNode_wxNotebook(wxNode_wxWindow* parent, int id)
 
     self->SetPadding(*padding);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -259,7 +257,6 @@ wxNode_wxNotebook::wxNode_wxNotebook(wxNode_wxWindow* parent, int id)
 
     self->SetTabSize(*sz);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -288,7 +285,6 @@ wxNode_wxNotebook::wxNode_wxNotebook(wxNode_wxWindow* parent, int id)
 
     self->CalcSizeFromPage(*sizePage);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -316,7 +312,6 @@ wxNode_wxNotebook::wxNode_wxNotebook(wxNode_wxWindow* parent, int id)
 
     self->GetThemeBackgroundColour();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -345,7 +340,6 @@ wxNode_wxNotebook::wxNode_wxNotebook(wxNode_wxWindow* parent, int id)
 
     self->SendPageChangingEvent(nPage);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -375,7 +369,6 @@ wxNode_wxNotebook::wxNode_wxNotebook(wxNode_wxWindow* parent, int id)
 
     self->SendPageChangedEvent(nPageOld, nPageNew);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -388,7 +381,6 @@ wxNode_wxNotebook::wxNode_wxNotebook(wxNode_wxWindow* parent, int id)
 
     self->SendPageChangedEvent(nPageOld);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -416,7 +408,6 @@ wxNode_wxNotebook::wxNode_wxNotebook(wxNode_wxWindow* parent, int id)
 
     self->AcceptsFocus();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   

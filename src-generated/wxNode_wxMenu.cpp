@@ -191,7 +191,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->New(*title, style);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -204,7 +203,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->New(*title);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -216,7 +214,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->New();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -248,7 +245,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->Append(itemid, *text, *help, kind);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -263,7 +259,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->Append(itemid, *text, *help);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -277,7 +272,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->Append(itemid, *text);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -290,7 +284,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->Append(itemid);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -303,7 +296,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->Append(item);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -319,7 +311,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->Append(itemid, *text, *help, isCheckable);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -335,7 +326,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->Append(itemid, *text, submenu, *help);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -350,7 +340,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->Append(itemid, *text, submenu);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -378,7 +367,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->AppendSeparator();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -409,7 +397,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->AppendCheckItem(itemid, *text, *help);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -423,7 +410,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->AppendCheckItem(itemid, *text);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -454,7 +440,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->AppendRadioItem(itemid, *text, *help);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -468,7 +453,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->AppendRadioItem(itemid, *text);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -499,7 +483,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->AppendSubMenu(submenu, *text, *help);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -513,7 +496,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->AppendSubMenu(submenu, *text);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -541,7 +523,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->Break();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -571,7 +552,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->Insert(pos, item);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -588,7 +568,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->Insert(pos, itemid, *text, *help, kind);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -604,7 +583,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->Insert(pos, itemid, *text, *help);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -619,7 +597,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->Insert(pos, itemid, *text);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -633,7 +610,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->Insert(pos, itemid);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -650,7 +626,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->Insert(pos, itemid, *text, submenu, *help);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -666,7 +641,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->Insert(pos, itemid, *text, submenu);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -683,7 +657,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->Insert(pos, itemid, *text, *help, isCheckable);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -712,7 +685,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->InsertSeparator(pos);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -744,7 +716,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->InsertCheckItem(pos, itemid, *text, *help);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -759,7 +730,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->InsertCheckItem(pos, itemid, *text);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -791,7 +761,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->InsertRadioItem(pos, itemid, *text, *help);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -806,7 +775,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->InsertRadioItem(pos, itemid, *text);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -835,7 +803,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->Prepend(item);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -851,7 +818,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->Prepend(itemid, *text, *help, kind);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -866,7 +832,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->Prepend(itemid, *text, *help);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -880,7 +845,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->Prepend(itemid, *text);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -893,7 +857,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->Prepend(itemid);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -909,7 +872,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->Prepend(itemid, *text, submenu, *help);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -924,7 +886,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->Prepend(itemid, *text, submenu);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -940,7 +901,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->Prepend(itemid, *text, *help, isCheckable);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -968,7 +928,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->PrependSeparator();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -999,7 +958,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->PrependCheckItem(itemid, *text, *help);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1013,7 +971,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->PrependCheckItem(itemid, *text);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1044,7 +1001,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->PrependRadioItem(itemid, *text, *help);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1058,7 +1014,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->PrependRadioItem(itemid, *text);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1087,7 +1042,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->Remove(itemid);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1100,7 +1054,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->Remove(item);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1129,7 +1082,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->Delete(itemid);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1142,7 +1094,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->Delete(item);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1171,7 +1122,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->Destroy(itemid);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1184,7 +1134,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->Destroy(item);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1212,7 +1161,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->GetMenuItemCount();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1240,7 +1188,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->GetMenuItems();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1252,7 +1199,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->GetMenuItems();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1281,7 +1227,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->FindItem(*item);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1295,7 +1240,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->FindItem(itemid, &menu);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1308,7 +1252,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->FindItem(itemid);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1337,7 +1280,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->FindItemByPosition(position);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1367,7 +1309,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->Enable(itemid, enable);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1396,7 +1337,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->IsEnabled(itemid);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1426,7 +1366,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->Check(itemid, check);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1455,7 +1394,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->IsChecked(itemid);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1485,7 +1423,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->SetLabel(itemid, *label);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1514,7 +1451,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->GetLabel(itemid);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1543,7 +1479,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->GetLabelText(itemid);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1573,7 +1508,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->SetHelpString(itemid, *helpString);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1602,7 +1536,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->GetHelpString(itemid);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1631,7 +1564,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->SetTitle(*title);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1659,7 +1591,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->GetTitle();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1688,7 +1619,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->SetEventHandler(handler);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1716,7 +1646,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->GetEventHandler();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1745,7 +1674,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->SetInvokingWindow(win);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1773,7 +1701,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->GetInvokingWindow();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1801,7 +1728,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->GetWindow();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1829,7 +1755,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->GetStyle();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1858,7 +1783,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->UpdateUI(source);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1870,7 +1794,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->UpdateUI();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1898,7 +1821,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->GetMenuBar();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1927,7 +1849,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->Attach(menubar);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1955,7 +1876,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->Detach();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1983,7 +1903,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->IsAttached();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -2012,7 +1931,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->SetParent(parent);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -2040,7 +1958,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->GetParent();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -2070,7 +1987,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->FindChildItem(itemid, &pos);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -2083,7 +1999,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->FindChildItem(itemid);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -2113,7 +2028,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->SendEvent(itemid, checked);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -2126,7 +2040,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->SendEvent(itemid);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -2155,7 +2068,6 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     self->LockAccels(locked);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   

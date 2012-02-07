@@ -262,7 +262,6 @@ wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxNode_wxWindow* parent, int id)
 
     self->IsSingleLine();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -290,7 +289,6 @@ wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxNode_wxWindow* parent, int id)
 
     self->IsMultiLine();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -319,7 +317,6 @@ wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxNode_wxWindow* parent, int id)
 
     self->EmulateKeyPress(*event);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -348,7 +345,6 @@ wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxNode_wxWindow* parent, int id)
 
     self->DoUpdateWindowUI(*event);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -376,7 +372,6 @@ wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxNode_wxWindow* parent, int id)
 
     self->ShouldInheritColours();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -406,7 +401,6 @@ wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxNode_wxWindow* parent, int id)
 
     self->HitTest(*pt, &pos);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -421,7 +415,6 @@ wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxNode_wxWindow* parent, int id)
 
     self->HitTest(*pt, &col, &row);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -452,7 +445,6 @@ wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxNode_wxWindow* parent, int id)
 
     self->SetStyle(start, end, *style);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -482,7 +474,6 @@ wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxNode_wxWindow* parent, int id)
 
     self->GetStyle(position, *style);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -511,7 +502,6 @@ wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxNode_wxWindow* parent, int id)
 
     self->SetDefaultStyle(*style);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -539,7 +529,6 @@ wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxNode_wxWindow* parent, int id)
 
     self->GetValue();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -568,7 +557,6 @@ wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxNode_wxWindow* parent, int id)
 
     self->SetValue(*value);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -596,7 +584,6 @@ wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxNode_wxWindow* parent, int id)
 
     self->GetDefaultAttributes();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -625,7 +612,6 @@ wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxNode_wxWindow* parent, int id)
 
     self->GetClassDefaultAttributes(variant);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -637,7 +623,6 @@ wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxNode_wxWindow* parent, int id)
 
     self->GetClassDefaultAttributes();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -665,7 +650,6 @@ wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxNode_wxWindow* parent, int id)
 
     self->GetClassInfo();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   

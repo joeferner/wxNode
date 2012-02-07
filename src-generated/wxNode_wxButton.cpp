@@ -250,7 +250,6 @@ wxNode_wxButton::wxNode_wxButton(wxNode_wxWindow* parent, int id)
 
     self->SetAuthNeeded(show);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -262,7 +261,6 @@ wxNode_wxButton::wxNode_wxButton(wxNode_wxWindow* parent, int id)
 
     self->SetAuthNeeded();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -290,7 +288,6 @@ wxNode_wxButton::wxNode_wxButton(wxNode_wxWindow* parent, int id)
 
     self->GetAuthNeeded();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -318,7 +315,6 @@ wxNode_wxButton::wxNode_wxButton(wxNode_wxWindow* parent, int id)
 
     self->SetDefault();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -346,7 +342,6 @@ wxNode_wxButton::wxNode_wxButton(wxNode_wxWindow* parent, int id)
 
     self->GetDefaultSize();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   

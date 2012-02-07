@@ -203,7 +203,6 @@ wxNode_wxStaticText::wxNode_wxStaticText(wxNode_wxWindow* parent, int id, const 
 
     self->Wrap(width);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -231,7 +230,6 @@ wxNode_wxStaticText::wxNode_wxStaticText(wxNode_wxWindow* parent, int id, const 
 
     self->AcceptsFocus();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -259,7 +257,6 @@ wxNode_wxStaticText::wxNode_wxStaticText(wxNode_wxWindow* parent, int id, const 
 
     self->HasTransparentBackground();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -287,7 +284,6 @@ wxNode_wxStaticText::wxNode_wxStaticText(wxNode_wxWindow* parent, int id, const 
 
     self->IsEllipsized();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   

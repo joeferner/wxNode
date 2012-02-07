@@ -84,7 +84,6 @@ wxNode_wxNonOwnedWindow::wxNode_wxNonOwnedWindow()
 
     self->SetShape(*region);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -97,7 +96,6 @@ wxNode_wxNonOwnedWindow::wxNode_wxNonOwnedWindow()
 
     self->SetShape(*path);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   

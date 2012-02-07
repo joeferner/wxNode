@@ -100,7 +100,6 @@
 
     self->Create(parent, winid, *pos, *size, style, *name);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -117,7 +116,6 @@
 
     self->Create(parent, winid, *pos, *size, style);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -133,7 +131,6 @@
 
     self->Create(parent, winid, *pos, *size);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -148,7 +145,6 @@
 
     self->Create(parent, winid, *pos);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -162,7 +158,6 @@
 
     self->Create(parent, winid);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -190,7 +185,6 @@
 
     self->GetPageCount();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -219,7 +213,6 @@
 
     self->GetPage(n);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -247,7 +240,6 @@
 
     self->GetCurrentPage();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -275,7 +267,6 @@
 
     self->GetSelection();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -305,7 +296,6 @@
 
     self->SetPageText(n, *strText);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -334,7 +324,6 @@
 
     self->GetPageText(n);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -363,7 +352,6 @@
 
     self->GetPageImage(n);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -393,7 +381,6 @@
 
     self->SetPageImage(n, imageId);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -422,7 +409,6 @@
 
     self->SetPageSize(*size);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -450,7 +436,6 @@
 
     self->GetControllerSize();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -479,7 +464,6 @@
 
     self->CalcSizeFromPage(*sizePage);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -507,7 +491,6 @@
 
     self->GetInternalBorder();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -536,7 +519,6 @@
 
     self->SetInternalBorder(border);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -565,7 +547,6 @@
 
     self->SetControlMargin(margin);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -593,7 +574,6 @@
 
     self->GetControlMargin();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -621,7 +601,6 @@
 
     self->IsVertical();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -650,7 +629,6 @@
 
     self->SetFitToCurrentPage(fit);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -678,7 +656,6 @@
 
     self->GetFitToCurrentPage();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -706,7 +683,6 @@
 
     self->GetControlSizer();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -735,7 +711,6 @@
 
     self->DeletePage(n);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -764,7 +739,6 @@
 
     self->RemovePage(n);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -792,7 +766,6 @@
 
     self->DeleteAllPages();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -824,7 +797,6 @@
 
     self->AddPage(page, *text, bSelect, imageId);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -839,7 +811,6 @@
 
     self->AddPage(page, *text, bSelect);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -853,7 +824,6 @@
 
     self->AddPage(page, *text);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -886,7 +856,6 @@
 
     self->InsertPage(n, page, *text, bSelect, imageId);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -902,7 +871,6 @@
 
     self->InsertPage(n, page, *text, bSelect);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -917,7 +885,6 @@
 
     self->InsertPage(n, page, *text);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -946,7 +913,6 @@
 
     self->SetSelection(n);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -975,7 +941,6 @@
 
     self->ChangeSelection(n);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1004,7 +969,6 @@
 
     self->AdvanceSelection(forward);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1016,7 +980,6 @@
 
     self->AdvanceSelection();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1046,7 +1009,6 @@
 
     self->HitTest(*arg0, &arg1);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1059,7 +1021,6 @@
 
     self->HitTest(*arg0);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1087,7 +1048,6 @@
 
     self->HasMultiplePages();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1115,7 +1075,6 @@
 
     self->AcceptsFocus();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1143,7 +1102,6 @@
 
     self->CanApplyThemeBorder();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1171,7 +1129,6 @@
 
     self->GetClassInfo();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   

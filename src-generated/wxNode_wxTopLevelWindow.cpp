@@ -242,7 +242,6 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
 
     self->Maximize(maximize);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -254,7 +253,6 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
 
     self->Maximize();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -282,7 +280,6 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
 
     self->Restore();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -311,7 +308,6 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
 
     self->Iconize(iconize);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -323,7 +319,6 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
 
     self->Iconize();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -351,7 +346,6 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
 
     self->IsMaximized();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -379,7 +373,6 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
 
     self->IsAlwaysMaximized();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -407,7 +400,6 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
 
     self->IsIconized();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -435,7 +427,6 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
 
     self->GetIcon();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -463,7 +454,6 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
 
     self->GetIcons();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -492,7 +482,6 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
 
     self->SetIcon(*icon);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -521,7 +510,6 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
 
     self->SetIcons(*icons);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -551,7 +539,6 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
 
     self->ShowFullScreen(show, style);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -564,7 +551,6 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
 
     self->ShowFullScreen(show);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -592,7 +578,6 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
 
     self->ShowWithoutActivating();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -620,7 +605,6 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
 
     self->IsFullScreen();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -649,7 +633,6 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
 
     self->SetTitle(*title);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -677,7 +660,6 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
 
     self->GetTitle();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -706,7 +688,6 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
 
     self->EnableCloseButton(arg0);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -735,7 +716,6 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
 
     self->RequestUserAttention(flags);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -747,7 +727,6 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
 
     self->RequestUserAttention();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -775,7 +754,6 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
 
     self->IsActive();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -803,7 +781,6 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
 
     self->ShouldPreventAppExit();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -832,7 +809,6 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
 
     self->CentreOnScreen(dir);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -844,7 +820,6 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
 
     self->CentreOnScreen();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -873,7 +848,6 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
 
     self->CenterOnScreen(dir);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -885,7 +859,6 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
 
     self->CenterOnScreen();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -913,7 +886,6 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
 
     self->GetDefaultSize();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -941,7 +913,6 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
 
     self->GetDefaultItem();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -970,7 +941,6 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
 
     self->SetDefaultItem(win);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -998,7 +968,6 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
 
     self->GetTmpDefaultItem();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1027,7 +996,6 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
 
     self->SetTmpDefaultItem(win);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1055,7 +1023,6 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
 
     self->Destroy();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1083,7 +1050,6 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
 
     self->IsTopLevel();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1111,7 +1077,6 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
 
     self->IsTopNavigationDomain();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1139,7 +1104,6 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
 
     self->IsVisible();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1203,7 +1167,6 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
 
     self->GetRectForTopLevelChildren(&x, &y, &w, &h);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1248,7 +1211,6 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
 
     self->DoUpdateWindowUI(*event);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1277,7 +1239,6 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
 
     self->SetMinSize(*minSize);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1306,7 +1267,6 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
 
     self->SetMaxSize(*maxSize);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1335,7 +1295,6 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
 
     self->OSXSetModified(modified);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1363,7 +1322,6 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
 
     self->OSXIsModified();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1392,7 +1350,6 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
 
     self->SetRepresentedFilename(*arg0);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   

@@ -6,8 +6,8 @@
 #include "wxNode_wxEvtHandler.h"
 class wxNode_wxEvtHandler;
 class wxNode_wxObject;
-class wxNode_wxSizer;
 class wxNode_wxWindow;
+class wxNode_wxSizer;
 class wxNode_wxSizerFlags;
 class wxNode_wxSizerItem;
 class wxNode_wxSize;
@@ -21,12 +21,6 @@ public:
   virtual v8::Handle<v8::Object> self() { return m_self; }
 
 protected:
-  
-  
-  wxNode_wxSizer(wxNode_wxSizer& arg0);
-  
-  wxNode_wxSizer();
-  
   
 
 private:

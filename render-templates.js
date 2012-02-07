@@ -320,6 +320,33 @@ function methodJsonToCtx(parent, rawJson, methodJson) {
     var returnType = lookupClassById(rawJson, methodJson['returns']);
     ctx.returnTypeName = returnType['name'];
     ctx.returnTypeId = returnType['id'];
+    ctx.returnEq = "";
+    ctx.returnStmt = "return v8::Undefined();";
+    if(ctx.returnTypeName == "int") {
+      ctx.returnEq = "int returnVal = ";
+      ctx.returnStmt = "return scope.Close(v8::Number::New(returnVal));";
+    } else if(ctx.returnTypeName && ctx.returnTypeName.match(/^wx.*/)) {
+      ctx.returnStmt = "\n";
+      if(returnType.refs == '&') {
+        ctx.returnEq = ctx.returnTypeName + " returnValTemp = ";
+        ctx.returnStmt = ctx.returnTypeName + "* returnVal = new " + ctx.returnTypeName + "();\n";
+        // TODO
+        //ctx.returnStmt += "    memcpy(returnVal, &returnValTemp, sizeof(" + ctx.returnTypeName + "));\n";
+      } else {
+        ctx.returnEq = ctx.returnTypeName + " returnVal = ";
+      }
+      ctx.returnStmt += "    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);\n";
+      ctx.returnStmt += "    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);\n";
+      ctx.returnStmt += "    wxNode_" + ctx.returnTypeName + "::AddMethods(returnObjFt);\n";
+      ctx.returnStmt += "    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();\n";
+      ctx.returnStmt += "    v8::Handle<v8::Value> returnObjArgs[0];\n";
+      ctx.returnStmt += "    v8::Local<v8::Object> returnObj = returnObjFn->Call(args.This(), 0, returnObjArgs)->ToObject();\n";
+      ctx.returnStmt += "    returnObj->SetPointerInInternalField(0, returnVal);\n";
+      ctx.returnStmt += "    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));\n";
+      ctx.returnStmt += "    return scope.Close(returnObj);";
+    } else {
+      console.error("Unhandled return type", returnType);
+    }
   }
 
   var args = methodJson['Argument'];

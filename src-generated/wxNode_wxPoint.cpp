@@ -139,7 +139,6 @@ wxNode_wxPoint::wxNode_wxPoint(wxNode_wxRealPoint& pt)
 
     self->IsFullySpecified();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -168,7 +167,6 @@ wxNode_wxPoint::wxNode_wxPoint(wxNode_wxRealPoint& pt)
 
     self->SetDefaults(*pt);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   

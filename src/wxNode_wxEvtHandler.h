@@ -25,14 +25,23 @@ public:
 
 protected:
   virtual void fireEvent(uint32_t iListener, wxEvent& event);
-  virtual void addEventListener(wxNode_wxEvtHandler* evtHandler, int eventType, v8::Local<v8::Object> fn);
-  virtual void addCommandRangeListener(wxNode_wxEvtHandler* evtHandler, int id, int lastId, int eventType, v8::Local<v8::Object> fn);
-  virtual void addCommandListener(wxNode_wxEvtHandler* evtHandler, int id, int eventType, v8::Local<v8::Object> fn);
-  virtual void connect(wxNode_wxEvtHandler* evtHandler, int id, int lastId, int eventType, v8::Local<v8::Object> fn);
+  virtual void addEventListener(wxEvtHandler* evtHandler, int eventType, v8::Local<v8::Object> fn);
+  virtual void addCommandRangeListener(wxEvtHandler* evtHandler, int id, int lastId, int eventType, v8::Local<v8::Object> fn);
+  virtual void addCommandListener(wxEvtHandler* evtHandler, int id, int eventType, v8::Local<v8::Object> fn);
+  virtual void connect(wxEvtHandler* evtHandler, int id, int lastId, int eventType, v8::Local<v8::Object> fn);
 
   virtual v8::Handle<v8::Object> self() = 0;
 
   std::vector<ListenerData*>* m_listeners;
+};
+
+class NodeExEvtHandlerImplWrap : public wxNodeObject {
+public:
+  NodeExEvtHandlerImplWrap(v8::Handle<v8::Object>& obj) {
+    m_self = v8::Persistent<v8::Object>::New(obj);
+  }
+
+  virtual v8::Handle<v8::Object> self() { return m_self; }
 };
 
 struct EventProxyData : public wxObject {

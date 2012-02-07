@@ -480,7 +480,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->Close(force);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -492,7 +491,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->Close();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -520,7 +518,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->Destroy();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -548,7 +545,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->DestroyChildren();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -576,7 +572,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->IsBeingDeleted();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -605,7 +600,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SetLabel(*label);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -633,7 +627,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetLabel();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -662,7 +655,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SetName(*name);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -690,7 +682,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetName();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -719,7 +710,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SetWindowVariant(variant);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -747,7 +737,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetWindowVariant();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -775,7 +764,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetLayoutDirection();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -804,7 +792,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SetLayoutDirection(arg0);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -835,7 +822,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->AdjustForLayoutDirection(x, width, widthTotal);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -864,7 +850,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SetId(winid);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -892,7 +877,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetId();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -921,7 +905,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->NewControlId(count);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -933,7 +916,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->NewControlId();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -963,7 +945,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->UnreserveControlId(id, count);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -976,7 +957,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->UnreserveControlId(id);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1009,7 +989,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SetSize(x, y, width, height, sizeFlags);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1025,7 +1004,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SetSize(x, y, width, height);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1039,7 +1017,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SetSize(width, height);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1052,7 +1029,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SetSize(*size);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1066,7 +1042,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SetSize(*rect, sizeFlags);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1079,7 +1054,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SetSize(*rect);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1110,7 +1084,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->Move(x, y, flags);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1124,7 +1097,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->Move(x, y);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1138,7 +1110,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->Move(*pt, flags);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1151,7 +1122,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->Move(*pt);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1180,7 +1150,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SetPosition(*pt);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1208,7 +1177,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->Raise();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1236,7 +1204,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->Lower();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1266,7 +1233,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SetClientSize(width, height);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1279,7 +1245,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SetClientSize(*size);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1292,7 +1257,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SetClientSize(*rect);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1322,7 +1286,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetPosition(&x, &y);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1334,7 +1297,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetPosition();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1364,7 +1326,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetScreenPosition(&x, &y);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1376,7 +1337,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetScreenPosition();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1406,7 +1366,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetSize(&w, &h);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1418,7 +1377,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetSize();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1448,7 +1406,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetClientSize(&w, &h);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1460,7 +1417,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetClientSize();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1488,7 +1444,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetRect();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1516,7 +1471,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetScreenRect();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1544,7 +1498,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetClientAreaOrigin();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1572,7 +1525,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetClientRect();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1601,7 +1553,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->ClientToWindowSize(*size);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1630,7 +1581,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->WindowToClientSize(*size);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1658,7 +1608,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetBestSize();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1672,7 +1621,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetBestSize(&w, &h);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1701,7 +1649,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SetScrollHelper(sh);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1729,7 +1676,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetScrollHelper();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1757,7 +1703,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->InvalidateBestSize();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1786,7 +1731,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->CacheBestSize(*size);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1814,7 +1758,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetEffectiveMinSize();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1843,7 +1786,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SetInitialSize(*size);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1855,7 +1797,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SetInitialSize();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1884,7 +1825,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->Centre(dir);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1896,7 +1836,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->Centre();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1925,7 +1864,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->Center(dir);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1937,7 +1875,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->Center();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1966,7 +1903,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->CentreOnParent(dir);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1978,7 +1914,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->CentreOnParent();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -2007,7 +1942,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->CenterOnParent(dir);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -2019,7 +1953,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->CenterOnParent();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -2047,7 +1980,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->Fit();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -2075,7 +2007,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->FitInside();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -2109,7 +2040,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SetSizeHints(minW, minH, maxW, maxH, incW, incH);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -2126,7 +2056,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SetSizeHints(minW, minH, maxW, maxH, incW);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -2142,7 +2071,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SetSizeHints(minW, minH, maxW, maxH);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -2157,7 +2085,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SetSizeHints(minW, minH, maxW);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -2171,7 +2098,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SetSizeHints(minW, minH);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -2186,7 +2112,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SetSizeHints(*minSize, *maxSize, *incSize);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -2200,7 +2125,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SetSizeHints(*minSize, *maxSize);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -2213,7 +2137,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SetSizeHints(*minSize);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -2242,7 +2165,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SetMinSize(*minSize);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -2271,7 +2193,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SetMaxSize(*maxSize);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -2300,7 +2221,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SetMinClientSize(*size);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -2329,7 +2249,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SetMaxClientSize(*size);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -2357,7 +2276,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetMinSize();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -2385,7 +2303,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetMaxSize();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -2413,7 +2330,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetMinClientSize();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -2441,7 +2357,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetMaxClientSize();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -2469,7 +2384,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetMinWidth();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -2497,7 +2411,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetMinHeight();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -2525,7 +2438,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetMaxWidth();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -2553,7 +2465,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetMaxHeight();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -2582,7 +2493,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SetVirtualSize(*size);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -2596,7 +2506,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SetVirtualSize(x, y);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -2624,7 +2533,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetVirtualSize();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -2638,7 +2546,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetVirtualSize(&x, &y);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -2668,7 +2575,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->DoSetVirtualSize(x, y);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -2696,7 +2602,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->DoGetVirtualSize();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -2724,7 +2629,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetBestVirtualSize();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -2752,7 +2656,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetWindowBorderSize();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -2783,7 +2686,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->InformFirstDirection(direction, size, availableOtherDir);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -2812,7 +2714,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SendSizeEvent(flags);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -2824,7 +2725,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SendSizeEvent();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -2853,7 +2753,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SendSizeEventToParent(flags);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -2865,7 +2764,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SendSizeEventToParent();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -2893,7 +2791,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->PostSizeEvent();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -2921,7 +2818,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->PostSizeEventToParent();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -2950,7 +2846,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->Show(show);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -2962,7 +2857,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->Show();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -2990,7 +2884,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->Hide();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -3020,7 +2913,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->ShowWithEffect(arg0, arg1);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -3033,7 +2925,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->ShowWithEffect(arg0);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -3063,7 +2954,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->HideWithEffect(arg0, arg1);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -3076,7 +2966,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->HideWithEffect(arg0);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -3105,7 +2994,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->Enable(enable);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -3117,7 +3005,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->Enable();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -3145,7 +3032,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->Disable();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -3173,7 +3059,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->IsShown();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -3201,7 +3086,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->IsEnabled();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -3229,7 +3113,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->IsThisEnabled();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -3257,7 +3140,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->IsShownOnScreen();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -3286,7 +3168,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SetWindowStyleFlag(style);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -3314,7 +3195,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetWindowStyleFlag();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -3343,7 +3223,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SetWindowStyle(style);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -3371,7 +3250,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetWindowStyle();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -3400,7 +3278,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->HasFlag(flag);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -3428,7 +3305,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->IsRetained();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -3457,7 +3333,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->ToggleWindowStyle(flag);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -3486,7 +3361,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SetExtraStyle(exStyle);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -3514,7 +3388,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetExtraStyle();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -3543,7 +3416,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->HasExtraStyle(exFlag);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -3572,7 +3444,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->MakeModal(modal);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -3584,7 +3455,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->MakeModal();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -3613,7 +3483,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SetThemeEnabled(enableTheme);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -3641,7 +3510,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetThemeEnabled();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -3669,7 +3537,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SetFocus();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -3697,7 +3564,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SetFocusFromKbd();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -3725,7 +3591,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->FindFocus();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -3753,7 +3618,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->DoFindFocus();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -3781,7 +3645,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->HasFocus();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -3809,7 +3672,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->AcceptsFocus();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -3837,7 +3699,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->AcceptsFocusRecursively();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -3865,7 +3726,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->AcceptsFocusFromKeyboard();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -3893,7 +3753,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->CanBeFocused();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -3921,7 +3780,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->IsFocusable();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -3949,7 +3807,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->CanAcceptFocus();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -3977,7 +3834,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->CanAcceptFocusFromKeyboard();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -4006,7 +3862,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SetCanFocus(arg0);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -4035,7 +3890,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->NavigateIn(flags);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -4047,7 +3901,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->NavigateIn();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -4076,7 +3929,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->Navigate(flags);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -4088,7 +3940,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->Navigate();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -4117,7 +3968,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->HandleAsNavigationKey(*event);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -4146,7 +3996,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->MoveBeforeInTabOrder(win);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -4175,7 +4024,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->MoveAfterInTabOrder(win);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -4203,7 +4051,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetChildren();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -4215,7 +4062,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetChildren();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -4243,7 +4089,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetWindowChildren();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -4271,7 +4116,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetPrevSibling();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -4299,7 +4143,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetNextSibling();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -4327,7 +4170,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetParent();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -4355,7 +4197,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetGrandParent();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -4383,7 +4224,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->IsTopLevel();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -4412,7 +4252,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SetParent(parent);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -4441,7 +4280,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->Reparent(newParent);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -4470,7 +4308,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->AddChild(child);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -4499,7 +4336,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->RemoveChild(child);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -4528,7 +4364,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->IsClientAreaChild(arg0);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -4557,7 +4392,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->FindWindow(winid);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -4570,7 +4404,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->FindWindow(*name);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -4600,7 +4433,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->FindWindowById(winid, parent);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -4613,7 +4445,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->FindWindowById(winid);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -4643,7 +4474,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->FindWindowByName(*name, parent);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -4656,7 +4486,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->FindWindowByName(*name);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -4686,7 +4515,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->FindWindowByLabel(*label, parent);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -4699,7 +4527,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->FindWindowByLabel(*label);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -4727,7 +4554,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetEventHandler();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -4756,7 +4582,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SetEventHandler(handler);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -4785,7 +4610,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->PushEventHandler(handler);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -4814,7 +4638,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->PopEventHandler(deleteHandler);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -4826,7 +4649,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->PopEventHandler();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -4855,7 +4677,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->RemoveEventHandler(handler);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -4884,7 +4705,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->ProcessWindowEvent(*event);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -4913,7 +4733,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->ProcessWindowEventLocally(*event);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -4942,7 +4761,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->HandleWindowEvent(*event);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -4971,7 +4789,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SetNextHandler(handler);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -5000,7 +4817,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SetPreviousHandler(handler);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -5029,7 +4845,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SetValidator(*validator);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -5057,7 +4872,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetValidator();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -5085,7 +4899,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->Validate();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -5113,7 +4926,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->TransferDataToWindow();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -5141,7 +4953,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->TransferDataFromWindow();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -5169,7 +4980,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->InitDialog();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -5198,7 +5008,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SetAcceleratorTable(*accel);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -5226,7 +5035,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetAcceleratorTable();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -5255,7 +5063,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->ConvertPixelsToDialog(*pt);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -5268,7 +5075,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->ConvertPixelsToDialog(*sz);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -5297,7 +5103,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->ConvertDialogToPixels(*pt);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -5310,7 +5115,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->ConvertDialogToPixels(*sz);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -5340,7 +5144,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->WarpPointer(x, y);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -5368,7 +5171,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->CaptureMouse();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -5396,7 +5198,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->ReleaseMouse();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -5424,7 +5225,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetCapture();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -5452,7 +5252,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->HasCapture();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -5482,7 +5281,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->Refresh(eraseBackground, rect);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -5495,7 +5293,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->Refresh(eraseBackground);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -5507,7 +5304,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->Refresh();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -5537,7 +5333,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->RefreshRect(*rect, eraseBackground);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -5550,7 +5345,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->RefreshRect(*rect);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -5578,7 +5372,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->Update();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -5606,7 +5399,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->ClearBackground();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -5634,7 +5426,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->Freeze();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -5662,7 +5453,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->Thaw();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -5690,7 +5480,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->IsFrozen();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -5719,7 +5508,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->PrepareDC(*arg0);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -5747,7 +5535,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->IsDoubleBuffered();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -5775,7 +5562,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetUpdateRegion();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -5787,7 +5573,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetUpdateRegion();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -5815,7 +5600,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetUpdateClientRect();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -5845,7 +5629,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->DoIsExposed(x, y);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -5861,7 +5644,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->DoIsExposed(x, y, w, h);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -5891,7 +5673,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->IsExposed(x, y);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -5907,7 +5688,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->IsExposed(x, y, w, h);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -5920,7 +5700,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->IsExposed(*pt);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -5933,7 +5712,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->IsExposed(*rect);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -5961,7 +5739,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetDefaultAttributes();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -5990,7 +5767,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetClassDefaultAttributes(variant);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -6002,7 +5778,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetClassDefaultAttributes();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -6031,7 +5806,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SetBackgroundColour(*colour);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -6060,7 +5834,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SetOwnBackgroundColour(*colour);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -6088,7 +5861,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetBackgroundColour();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -6116,7 +5888,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->InheritsBackgroundColour();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -6144,7 +5915,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->UseBgCol();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -6173,7 +5943,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SetForegroundColour(*colour);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -6202,7 +5971,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SetOwnForegroundColour(*colour);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -6230,7 +5998,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetForegroundColour();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -6259,7 +6026,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SetBackgroundStyle(style);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -6287,7 +6053,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetBackgroundStyle();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -6315,7 +6080,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->HasTransparentBackground();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -6344,7 +6108,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SetFont(*font);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -6373,7 +6136,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SetOwnFont(*font);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -6401,7 +6163,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetFont();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -6430,7 +6191,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SetCursor(*cursor);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -6458,7 +6218,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetCursor();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -6487,7 +6246,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SetCaret(caret);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -6515,7 +6273,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetCaret();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -6543,7 +6300,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetCharHeight();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -6571,7 +6327,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetCharWidth();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -6605,7 +6360,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetTextExtent(*string, &x, &y, &descent, &externalLeading, font);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -6622,7 +6376,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetTextExtent(*string, &x, &y, &descent, &externalLeading);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -6638,7 +6391,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetTextExtent(*string, &x, &y, &descent);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -6653,7 +6405,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetTextExtent(*string, &x, &y);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -6666,7 +6417,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetTextExtent(*string);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -6696,7 +6446,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->ClientToScreen(&x, &y);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -6709,7 +6458,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->ClientToScreen(*pt);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -6739,7 +6487,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->ScreenToClient(&x, &y);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -6752,7 +6499,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->ScreenToClient(*pt);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -6782,7 +6528,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->HitTest(x, y);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -6795,7 +6540,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->HitTest(*pt);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -6824,7 +6568,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetBorder(flags);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -6836,7 +6579,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetBorder();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -6865,7 +6607,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->UpdateWindowUI(flags);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -6877,7 +6618,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->UpdateWindowUI();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -6906,7 +6646,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->DoUpdateWindowUI(*event);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -6936,7 +6675,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->PopupMenu(menu, *pos);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -6949,7 +6687,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->PopupMenu(menu);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -6964,7 +6701,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->PopupMenu(menu, x, y);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -6994,7 +6730,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetPopupMenuSelectionFromUser(*menu, *pos);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -7007,7 +6742,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetPopupMenuSelectionFromUser(*menu);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -7022,7 +6756,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetPopupMenuSelectionFromUser(*menu, x, y);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -7050,7 +6783,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->HasMultiplePages();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -7079,7 +6811,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->CanScroll(orient);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -7108,7 +6839,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->HasScrollbar(orient);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -7141,7 +6871,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SetScrollbar(orient, pos, thumbvisible, range, refresh);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -7157,7 +6886,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SetScrollbar(orient, pos, thumbvisible, range);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -7188,7 +6916,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SetScrollPos(orient, pos, refresh);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -7202,7 +6929,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SetScrollPos(orient, pos);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -7231,7 +6957,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetScrollPos(orient);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -7260,7 +6985,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetScrollThumb(orient);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -7289,7 +7013,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetScrollRange(orient);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -7320,7 +7043,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->ScrollWindow(dx, dy, rect);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -7334,7 +7056,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->ScrollWindow(dx, dy);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -7363,7 +7084,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->ScrollLines(arg0);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -7392,7 +7112,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->ScrollPages(arg0);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -7420,7 +7139,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->LineUp();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -7448,7 +7166,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->LineDown();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -7476,7 +7193,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->PageUp();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -7504,7 +7220,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->PageDown();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -7534,7 +7249,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->AlwaysShowScrollbars(arg0, arg1);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -7547,7 +7261,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->AlwaysShowScrollbars(arg0);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -7559,7 +7272,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->AlwaysShowScrollbars();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -7588,7 +7300,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->IsScrollbarAlwaysShown(arg0);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -7617,7 +7328,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SetHelpText(*text);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -7645,7 +7355,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetHelpText();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -7674,7 +7383,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SetToolTip(*tip);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -7687,7 +7395,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SetToolTip(tip);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -7715,7 +7422,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->UnsetToolTip();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -7743,7 +7449,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetToolTip();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -7771,7 +7476,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetToolTipText();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -7800,7 +7504,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->CopyToolTip(tip);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -7829,7 +7532,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SetDropTarget(dropTarget);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -7857,7 +7559,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetDropTarget();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -7886,7 +7587,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->DragAcceptFiles(accept);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -7915,7 +7615,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SetConstraints(constraints);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -7943,7 +7642,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetConstraints();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -7972,7 +7670,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->UnsetConstraints(c);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -8000,7 +7697,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetConstraintsInvolvedIn();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -8029,7 +7725,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->AddConstraintReference(otherWin);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -8058,7 +7753,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->RemoveConstraintReference(otherWin);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -8086,7 +7780,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->DeleteRelatedConstraints();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -8114,7 +7807,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->ResetConstraints();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -8143,7 +7835,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SetConstraintSizes(recurse);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -8155,7 +7846,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SetConstraintSizes();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -8184,7 +7874,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->LayoutPhase1(&noChanges);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -8213,7 +7902,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->LayoutPhase2(&noChanges);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -8242,7 +7930,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->DoPhase(phase);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -8274,7 +7961,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SetSizeConstraint(x, y, w, h);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -8304,7 +7990,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->MoveConstraint(x, y);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -8334,7 +8019,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetSizeConstraint(&w, &h);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -8364,7 +8048,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetClientSizeConstraint(&w, &h);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -8394,7 +8077,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetPositionConstraint(&x, &y);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -8423,7 +8105,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SetAutoLayout(autoLayout);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -8451,7 +8132,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetAutoLayout();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -8479,7 +8159,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->Layout();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -8509,7 +8188,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SetSizer(sizer, deleteOld);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -8522,7 +8200,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SetSizer(sizer);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -8552,7 +8229,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SetSizerAndFit(sizer, deleteOld);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -8565,7 +8241,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SetSizerAndFit(sizer);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -8593,7 +8268,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetSizer();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -8622,7 +8296,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SetContainingSizer(sizer);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -8650,7 +8323,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetContainingSizer();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -8679,7 +8351,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SetTransparent(arg0);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -8707,7 +8378,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->CanSetTransparent();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -8816,7 +8486,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SendIdleEvents(*event);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -8844,7 +8513,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetHandle();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -8872,7 +8540,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->DissociateHandle();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -8900,7 +8567,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetPalette();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -8929,7 +8595,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->SetPalette(*pal);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -8957,7 +8622,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->HasCustomPalette();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -8985,7 +8649,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetAncestorWithCustomPalette();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -9013,7 +8676,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->InheritAttributes();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -9041,7 +8703,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->ShouldInheritColours();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -9069,7 +8730,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->CanBeOutsideClientArea();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -9097,7 +8757,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->CanApplyThemeBorder();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -9125,7 +8784,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetMainWindowOfCompositeControl();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -9153,7 +8811,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->IsTopNavigationDomain();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -9181,7 +8838,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     self->GetClassInfo();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   

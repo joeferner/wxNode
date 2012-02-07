@@ -175,7 +175,6 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
 
     self->Append(menu, *title);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -206,7 +205,6 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
 
     self->Insert(pos, menu, *title);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -234,7 +232,6 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
 
     self->GetMenuCount();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -263,7 +260,6 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
 
     self->GetMenu(pos);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -294,7 +290,6 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
 
     self->Replace(pos, menu, *title);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -323,7 +318,6 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
 
     self->Remove(pos);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -353,7 +347,6 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
 
     self->EnableTop(pos, enable);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -382,7 +375,6 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
 
     self->IsEnabledTop(arg0);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -412,7 +404,6 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
 
     self->SetMenuLabel(pos, *label);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -441,7 +432,6 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
 
     self->GetMenuLabel(pos);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -470,7 +460,6 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
 
     self->GetMenuLabelText(pos);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -500,7 +489,6 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
 
     self->FindMenuItem(*menu, *item);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -530,7 +518,6 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
 
     self->FindItem(itemid, &menu);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -543,7 +530,6 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
 
     self->FindItem(itemid);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -572,7 +558,6 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
 
     self->FindMenu(*title);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -602,7 +587,6 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
 
     self->Enable(itemid, enable);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -615,7 +599,6 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
 
     self->Enable(enable);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -627,7 +610,6 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
 
     self->Enable();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -657,7 +639,6 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
 
     self->Check(itemid, check);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -686,7 +667,6 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
 
     self->IsChecked(itemid);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -715,7 +695,6 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
 
     self->IsEnabled(itemid);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -727,7 +706,6 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
 
     self->IsEnabled();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -757,7 +735,6 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
 
     self->SetLabel(itemid, *label);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -770,7 +747,6 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
 
     self->SetLabel(*s);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -799,7 +775,6 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
 
     self->GetLabel(itemid);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -811,7 +786,6 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
 
     self->GetLabel();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -841,7 +815,6 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
 
     self->SetHelpString(itemid, *helpString);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -870,7 +843,6 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
 
     self->GetHelpString(itemid);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -898,7 +870,6 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
 
     self->GetFrame();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -926,7 +897,6 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
 
     self->IsAttached();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -955,7 +925,6 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
 
     self->Attach(frame);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -983,7 +952,6 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
 
     self->Detach();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1011,7 +979,6 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
 
     self->AcceptsFocusFromKeyboard();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1039,7 +1006,6 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
 
     self->UpdateMenus();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1067,7 +1033,6 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
 
     self->CanBeOutsideClientArea();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   

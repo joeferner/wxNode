@@ -245,7 +245,6 @@ wxNode_wxControl::wxNode_wxControl(wxNode_wxWindow* parent, int id)
 
     self->Create(parent, id, *pos, *size, style, *validator, *name);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -263,7 +262,6 @@ wxNode_wxControl::wxNode_wxControl(wxNode_wxWindow* parent, int id)
 
     self->Create(parent, id, *pos, *size, style, *validator);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -280,7 +278,6 @@ wxNode_wxControl::wxNode_wxControl(wxNode_wxWindow* parent, int id)
 
     self->Create(parent, id, *pos, *size, style);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -296,7 +293,6 @@ wxNode_wxControl::wxNode_wxControl(wxNode_wxWindow* parent, int id)
 
     self->Create(parent, id, *pos, *size);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -311,7 +307,6 @@ wxNode_wxControl::wxNode_wxControl(wxNode_wxWindow* parent, int id)
 
     self->Create(parent, id, *pos);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -325,7 +320,6 @@ wxNode_wxControl::wxNode_wxControl(wxNode_wxWindow* parent, int id)
 
     self->Create(parent, id);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -353,7 +347,6 @@ wxNode_wxControl::wxNode_wxControl(wxNode_wxWindow* parent, int id)
 
     self->GetAlignment();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -382,7 +375,6 @@ wxNode_wxControl::wxNode_wxControl(wxNode_wxWindow* parent, int id)
 
     self->SetLabel(*label);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -410,7 +402,6 @@ wxNode_wxControl::wxNode_wxControl(wxNode_wxWindow* parent, int id)
 
     self->GetLabel();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -439,7 +430,6 @@ wxNode_wxControl::wxNode_wxControl(wxNode_wxWindow* parent, int id)
 
     self->SetLabelText(*text);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -467,7 +457,6 @@ wxNode_wxControl::wxNode_wxControl(wxNode_wxWindow* parent, int id)
 
     self->GetLabelText();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -480,7 +469,6 @@ wxNode_wxControl::wxNode_wxControl(wxNode_wxWindow* parent, int id)
 
     self->GetLabelText(*label);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -509,7 +497,6 @@ wxNode_wxControl::wxNode_wxControl(wxNode_wxWindow* parent, int id)
 
     self->SetLabelMarkup(*markup);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -537,7 +524,6 @@ wxNode_wxControl::wxNode_wxControl(wxNode_wxWindow* parent, int id)
 
     self->ShouldInheritColours();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -566,7 +552,6 @@ wxNode_wxControl::wxNode_wxControl(wxNode_wxWindow* parent, int id)
 
     self->Command(*event);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -595,7 +580,6 @@ wxNode_wxControl::wxNode_wxControl(wxNode_wxWindow* parent, int id)
 
     self->SetFont(*font);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -624,7 +608,6 @@ wxNode_wxControl::wxNode_wxControl(wxNode_wxWindow* parent, int id)
 
     self->DoUpdateWindowUI(*event);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -653,7 +636,6 @@ wxNode_wxControl::wxNode_wxControl(wxNode_wxWindow* parent, int id)
 
     self->RemoveMnemonics(*str);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -682,7 +664,6 @@ wxNode_wxControl::wxNode_wxControl(wxNode_wxWindow* parent, int id)
 
     self->EscapeMnemonics(*str);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -715,7 +696,6 @@ wxNode_wxControl::wxNode_wxControl(wxNode_wxWindow* parent, int id)
 
     self->Ellipsize(*label, *dc, mode, maxWidth, flags);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -731,7 +711,6 @@ wxNode_wxControl::wxNode_wxControl(wxNode_wxWindow* parent, int id)
 
     self->Ellipsize(*label, *dc, mode, maxWidth);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -761,7 +740,6 @@ wxNode_wxControl::wxNode_wxControl(wxNode_wxWindow* parent, int id)
 
     self->FindAccelIndex(*label, labelOnly);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -774,7 +752,6 @@ wxNode_wxControl::wxNode_wxControl(wxNode_wxWindow* parent, int id)
 
     self->FindAccelIndex(*label);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -803,7 +780,6 @@ wxNode_wxControl::wxNode_wxControl(wxNode_wxWindow* parent, int id)
 
     self->GetCompositeControlsDefaultAttributes(variant);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   

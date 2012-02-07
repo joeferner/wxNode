@@ -12,6 +12,9 @@
 
 /* static */ v8::Persistent<v8::FunctionTemplate> wxNode_wxSizer::s_ct;
 
+
+
+
 /*static*/ void wxNode_wxSizer::Init(v8::Handle<v8::Object> target) {
   v8::HandleScope scope;
 
@@ -76,6 +79,7 @@
   v8::HandleScope scope;
 
 
+
   std::ostringstream errStr;
   errStr << "Could not find matching constructor for arguments (class name: wxSizer).\n";                           \
   errStr << "  arg count: " << args.Length() << "\n";
@@ -89,9 +93,10 @@
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxSizer::_Add(const v8::Arguments& args) {
   v8::HandleScope scope;
+  printf("1\n");
   wxNode_wxSizer* self = unwrap<wxNode_wxSizer>(args.This());
 
-
+  printf("2 %d\n", args.Length());
   /*
    * id: _27823
    */
@@ -105,7 +110,6 @@
 
     self->Add(window, proportion, flag, border, userData);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -121,7 +125,6 @@
 
     self->Add(window, proportion, flag, border);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -136,7 +139,6 @@
 
     self->Add(window, proportion, flag);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -144,13 +146,13 @@
    * id: _27823
    */
   if(args.Length() == 2 && (args[0]->IsNull() || args[0]->IsObject()) && args[1]->IsNumber()) {
+    printf("3\n");
     wxNode_wxWindow* window = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _993 * */
     int proportion = (int)args[1]->ToInt32()->Value(); /* type: _162  */
 
 
     self->Add(window, proportion);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -163,7 +165,6 @@
 
     self->Add(window);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -180,7 +181,6 @@
 
     self->Add(sizer, proportion, flag, border, userData);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -196,7 +196,6 @@
 
     self->Add(sizer, proportion, flag, border);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -211,7 +210,6 @@
 
     self->Add(sizer, proportion, flag);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -219,13 +217,13 @@
    * id: _27824
    */
   if(args.Length() == 2 && (args[0]->IsNull() || args[0]->IsObject()) && args[1]->IsNumber()) {
+    printf("4\n");
     wxNode_wxSizer* sizer = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSizer>(args[0]->ToObject()); /* type: _58725 * */
     int proportion = (int)args[1]->ToInt32()->Value(); /* type: _162  */
 
 
     self->Add(sizer, proportion);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -238,7 +236,6 @@
 
     self->Add(sizer);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -256,7 +253,6 @@
 
     self->Add(width, height, proportion, flag, border, userData);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -273,7 +269,6 @@
 
     self->Add(width, height, proportion, flag, border);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -289,7 +284,6 @@
 
     self->Add(width, height, proportion, flag);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -304,7 +298,6 @@
 
     self->Add(width, height, proportion);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -312,13 +305,30 @@
    * id: _27825
    */
   if(args.Length() == 2 && args[0]->IsNumber() && args[1]->IsNumber()) {
+    printf("5\n");
     int width = (int)args[0]->ToInt32()->Value(); /* type: _162  */
     int height = (int)args[1]->ToInt32()->Value(); /* type: _162  */
 
 
     self->Add(width, height);
 
-    // TODO: handle return type
+    return v8::Undefined();
+  }
+
+    /*
+   * id: _27827
+   */
+  if(args.Length() == 2 && (args[0]->IsNull() || args[0]->IsObject()) && (args[1]->IsNull() || args[1]->IsObject())) {
+    printf("7a\n");
+    wxNode_wxSizer* sizer = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSizer>(args[0]->ToObject()); /* type: _58725 * */
+    printf("7b\n");
+    wxNode_wxSizerFlags* flags = args[1]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSizerFlags>(args[1]->ToObject()); /* type: _58724  */
+    printf("7c %x %x %d %d %d\n", (int)sizer, (int)flags, flags->GetProportion(), flags->GetFlags(), flags->GetBorderInPixels());
+
+
+    self->Add(sizer, *flags);
+    printf("7d\n");
+
     return v8::Undefined();
   }
 
@@ -326,27 +336,16 @@
    * id: _27826
    */
   if(args.Length() == 2 && (args[0]->IsNull() || args[0]->IsObject()) && (args[1]->IsNull() || args[1]->IsObject())) {
+    printf("6a\n");
     wxNode_wxWindow* window = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _993 * */
+    printf("6b\n");
     wxNode_wxSizerFlags* flags = args[1]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSizerFlags>(args[1]->ToObject()); /* type: _58724  */
+    printf("6c %x %x\n", (int)window, (int)flags);
 
 
     self->Add(window, *flags);
+    printf("6d\n");
 
-    // TODO: handle return type
-    return v8::Undefined();
-  }
-
-  /*
-   * id: _27827
-   */
-  if(args.Length() == 2 && (args[0]->IsNull() || args[0]->IsObject()) && (args[1]->IsNull() || args[1]->IsObject())) {
-    wxNode_wxSizer* sizer = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSizer>(args[0]->ToObject()); /* type: _58725 * */
-    wxNode_wxSizerFlags* flags = args[1]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSizerFlags>(args[1]->ToObject()); /* type: _58724  */
-
-
-    self->Add(sizer, *flags);
-
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -361,7 +360,6 @@
 
     self->Add(width, height, *flags);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -374,7 +372,6 @@
 
     self->Add(item);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -403,7 +400,6 @@
 
     self->AddSpacer(size);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -432,7 +428,6 @@
 
     self->AddStretchSpacer(prop);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -444,7 +439,6 @@
 
     self->AddStretchSpacer();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -478,7 +472,6 @@
 
     self->Insert(index, window, proportion, flag, border, userData);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -495,7 +488,6 @@
 
     self->Insert(index, window, proportion, flag, border);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -511,7 +503,6 @@
 
     self->Insert(index, window, proportion, flag);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -526,7 +517,6 @@
 
     self->Insert(index, window, proportion);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -540,7 +530,6 @@
 
     self->Insert(index, window);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -558,7 +547,6 @@
 
     self->Insert(index, sizer, proportion, flag, border, userData);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -575,7 +563,6 @@
 
     self->Insert(index, sizer, proportion, flag, border);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -591,7 +578,6 @@
 
     self->Insert(index, sizer, proportion, flag);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -606,7 +592,6 @@
 
     self->Insert(index, sizer, proportion);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -620,7 +605,6 @@
 
     self->Insert(index, sizer);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -639,7 +623,6 @@
 
     self->Insert(index, width, height, proportion, flag, border, userData);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -657,7 +640,6 @@
 
     self->Insert(index, width, height, proportion, flag, border);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -674,7 +656,6 @@
 
     self->Insert(index, width, height, proportion, flag);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -690,7 +671,6 @@
 
     self->Insert(index, width, height, proportion);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -705,7 +685,6 @@
 
     self->Insert(index, width, height);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -720,7 +699,6 @@
 
     self->Insert(index, window, *flags);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -735,7 +713,6 @@
 
     self->Insert(index, sizer, *flags);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -751,7 +728,6 @@
 
     self->Insert(index, width, height, *flags);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -765,7 +741,6 @@
 
     self->Insert(index, item);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -795,7 +770,6 @@
 
     self->InsertSpacer(index, size);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -825,7 +799,6 @@
 
     self->InsertStretchSpacer(index, prop);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -838,7 +811,6 @@
 
     self->InsertStretchSpacer(index);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -871,7 +843,6 @@
 
     self->Prepend(window, proportion, flag, border, userData);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -887,7 +858,6 @@
 
     self->Prepend(window, proportion, flag, border);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -902,7 +872,6 @@
 
     self->Prepend(window, proportion, flag);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -916,7 +885,6 @@
 
     self->Prepend(window, proportion);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -929,7 +897,6 @@
 
     self->Prepend(window);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -946,7 +913,6 @@
 
     self->Prepend(sizer, proportion, flag, border, userData);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -962,7 +928,6 @@
 
     self->Prepend(sizer, proportion, flag, border);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -977,7 +942,6 @@
 
     self->Prepend(sizer, proportion, flag);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -991,7 +955,6 @@
 
     self->Prepend(sizer, proportion);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -1004,7 +967,6 @@
 
     self->Prepend(sizer);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -1022,7 +984,6 @@
 
     self->Prepend(width, height, proportion, flag, border, userData);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -1039,7 +1000,6 @@
 
     self->Prepend(width, height, proportion, flag, border);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -1055,7 +1015,6 @@
 
     self->Prepend(width, height, proportion, flag);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -1070,7 +1029,6 @@
 
     self->Prepend(width, height, proportion);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -1084,7 +1042,6 @@
 
     self->Prepend(width, height);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -1098,7 +1055,6 @@
 
     self->Prepend(window, *flags);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -1112,7 +1068,6 @@
 
     self->Prepend(sizer, *flags);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -1127,7 +1082,6 @@
 
     self->Prepend(width, height, *flags);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -1140,7 +1094,6 @@
 
     self->Prepend(item);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -1169,7 +1122,6 @@
 
     self->PrependSpacer(size);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -1198,7 +1150,6 @@
 
     self->PrependStretchSpacer(prop);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -1210,7 +1161,6 @@
 
     self->PrependStretchSpacer();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -1239,7 +1189,6 @@
 
     self->SetContainingWindow(window);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -1267,7 +1216,6 @@
 
     self->GetContainingWindow();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -1296,7 +1244,6 @@
 
     self->Remove(sizer);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -1309,7 +1256,6 @@
 
     self->Remove(index);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -1338,7 +1284,6 @@
 
     self->Detach(window);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -1351,7 +1296,6 @@
 
     self->Detach(sizer);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -1364,7 +1308,6 @@
 
     self->Detach(index);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -1395,7 +1338,6 @@
 
     self->Replace(oldwin, newwin, recursive);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -1409,7 +1351,6 @@
 
     self->Replace(oldwin, newwin);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -1424,7 +1365,6 @@
 
     self->Replace(oldsz, newsz, recursive);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -1438,7 +1378,6 @@
 
     self->Replace(oldsz, newsz);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -1452,7 +1391,6 @@
 
     self->Replace(index, newitem);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -1481,7 +1419,6 @@
 
     self->Clear(delete_windows);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -1493,7 +1430,6 @@
 
     self->Clear();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -1521,7 +1457,6 @@
 
     self->DeleteWindows();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -1552,7 +1487,6 @@
 
     self->InformFirstDirection(arg0, arg1, arg2);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -1582,7 +1516,6 @@
 
     self->SetMinSize(width, height);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -1595,7 +1528,6 @@
 
     self->SetMinSize(*size);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -1626,7 +1558,6 @@
 
     self->SetItemMinSize(window, width, height);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -1640,7 +1571,6 @@
 
     self->SetItemMinSize(window, *size);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -1655,7 +1585,6 @@
 
     self->SetItemMinSize(sizer, width, height);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -1669,7 +1598,6 @@
 
     self->SetItemMinSize(sizer, *size);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -1684,7 +1612,6 @@
 
     self->SetItemMinSize(index, width, height);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -1698,7 +1625,6 @@
 
     self->SetItemMinSize(index, *size);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -1726,7 +1652,6 @@
 
     self->GetSize();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -1754,7 +1679,6 @@
 
     self->GetPosition();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -1782,7 +1706,6 @@
 
     self->GetMinSize();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -1810,7 +1733,6 @@
 
     self->CalcMin();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -1838,7 +1760,6 @@
 
     self->RecalcSizes();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -1866,7 +1787,6 @@
 
     self->Layout();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -1895,7 +1815,6 @@
 
     self->ComputeFittingClientSize(window);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -1924,7 +1843,6 @@
 
     self->ComputeFittingWindowSize(window);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -1953,7 +1871,6 @@
 
     self->Fit(window);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -1982,7 +1899,6 @@
 
     self->FitInside(window);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -2011,7 +1927,6 @@
 
     self->SetSizeHints(window);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -2039,7 +1954,6 @@
 
     self->GetChildren();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -2051,7 +1965,6 @@
 
     self->GetChildren();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -2081,7 +1994,6 @@
 
     self->SetDimension(*pos, *size);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -2097,7 +2009,6 @@
 
     self->SetDimension(x, y, width, height);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -2125,7 +2036,6 @@
 
     self->GetItemCount();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -2153,7 +2063,6 @@
 
     self->IsEmpty();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -2183,7 +2092,6 @@
 
     self->GetItem(window, recursive);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -2196,7 +2104,6 @@
 
     self->GetItem(window);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -2210,7 +2117,6 @@
 
     self->GetItem(sizer, recursive);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -2223,7 +2129,6 @@
 
     self->GetItem(sizer);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -2236,7 +2141,6 @@
 
     self->GetItem(index);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -2266,7 +2170,6 @@
 
     self->GetItemById(id, recursive);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -2279,7 +2182,6 @@
 
     self->GetItemById(id);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -2310,7 +2212,6 @@
 
     self->Show(window, show, recursive);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -2324,7 +2225,6 @@
 
     self->Show(window, show);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -2337,7 +2237,6 @@
 
     self->Show(window);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -2352,7 +2251,6 @@
 
     self->Show(sizer, show, recursive);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -2366,7 +2264,6 @@
 
     self->Show(sizer, show);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -2379,7 +2276,6 @@
 
     self->Show(sizer);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -2393,7 +2289,6 @@
 
     self->Show(index, show);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -2406,7 +2301,6 @@
 
     self->Show(index);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -2419,7 +2313,6 @@
 
     self->Show(show);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -2449,7 +2342,6 @@
 
     self->Hide(sizer, recursive);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -2462,7 +2354,6 @@
 
     self->Hide(sizer);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -2476,7 +2367,6 @@
 
     self->Hide(window, recursive);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -2489,7 +2379,6 @@
 
     self->Hide(window);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -2502,7 +2391,6 @@
 
     self->Hide(index);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -2531,7 +2419,6 @@
 
     self->IsShown(window);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -2544,7 +2431,6 @@
 
     self->IsShown(sizer);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -2557,7 +2443,6 @@
 
     self->IsShown(index);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -2586,7 +2471,6 @@
 
     self->ShowItems(show);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 
@@ -2614,7 +2498,6 @@
 
     self->GetClassInfo();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
 

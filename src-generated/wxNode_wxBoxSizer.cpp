@@ -108,7 +108,6 @@ wxNode_wxBoxSizer::wxNode_wxBoxSizer(int orient)
 
     self->AddSpacer(size);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -136,7 +135,6 @@ wxNode_wxBoxSizer::wxNode_wxBoxSizer(int orient)
 
     self->GetOrientation();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -164,7 +162,6 @@ wxNode_wxBoxSizer::wxNode_wxBoxSizer(int orient)
 
     self->IsVertical();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -193,7 +190,6 @@ wxNode_wxBoxSizer::wxNode_wxBoxSizer(int orient)
 
     self->SetOrientation(orient);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -221,7 +217,6 @@ wxNode_wxBoxSizer::wxNode_wxBoxSizer(int orient)
 
     self->CalcMin();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -249,7 +244,6 @@ wxNode_wxBoxSizer::wxNode_wxBoxSizer(int orient)
 
     self->RecalcSizes();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -277,7 +271,6 @@ wxNode_wxBoxSizer::wxNode_wxBoxSizer(int orient)
 
     self->GetClassInfo();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   

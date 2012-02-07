@@ -108,7 +108,6 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
 
     self->SetBitmap(*bitmap, dir);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -121,7 +120,6 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
 
     self->SetBitmap(*bitmap);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -149,7 +147,6 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
 
     self->GetBitmap();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -178,7 +175,6 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
 
     self->SetBitmapLabel(*bitmap);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -207,7 +203,6 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
 
     self->SetBitmapPressed(*bitmap);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -236,7 +231,6 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
 
     self->SetBitmapDisabled(*bitmap);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -265,7 +259,6 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
 
     self->SetBitmapCurrent(*bitmap);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -294,7 +287,6 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
 
     self->SetBitmapFocus(*bitmap);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -322,7 +314,6 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
 
     self->GetBitmapLabel();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -350,7 +341,6 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
 
     self->GetBitmapPressed();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -378,7 +368,6 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
 
     self->GetBitmapDisabled();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -406,7 +395,6 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
 
     self->GetBitmapCurrent();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -434,7 +422,6 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
 
     self->GetBitmapFocus();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -464,7 +451,6 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
 
     self->SetBitmapMargins(x, y);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -477,7 +463,6 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
 
     self->SetBitmapMargins(*sz);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -505,7 +490,6 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
 
     self->GetBitmapMargins();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -534,7 +518,6 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
 
     self->SetBitmapPosition(dir);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -562,7 +545,6 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
 
     self->ShouldInheritColours();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -591,7 +573,6 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
 
     self->SetImageLabel(*bitmap);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -621,7 +602,6 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
 
     self->SetImageMargins(x, y);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -649,7 +629,6 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
 
     self->GetBitmapSelected();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -677,7 +656,6 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
 
     self->GetBitmapHover();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -706,7 +684,6 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
 
     self->SetBitmapSelected(*bitmap);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -735,7 +712,6 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
 
     self->SetBitmapHover(*bitmap);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -763,7 +739,6 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
 
     self->DontShowLabel();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -791,7 +766,6 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
 
     self->ShowsLabel();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   

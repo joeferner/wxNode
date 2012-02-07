@@ -133,7 +133,6 @@ wxNode_wxSize::wxNode_wxSize(int xx, int yy)
 
     self->IncTo(*sz);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -162,7 +161,6 @@ wxNode_wxSize::wxNode_wxSize(int xx, int yy)
 
     self->DecTo(*sz);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -192,7 +190,6 @@ wxNode_wxSize::wxNode_wxSize(int xx, int yy)
 
     self->IncBy(dx, dy);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -205,7 +202,6 @@ wxNode_wxSize::wxNode_wxSize(int xx, int yy)
 
     self->IncBy(*pt);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -218,7 +214,6 @@ wxNode_wxSize::wxNode_wxSize(int xx, int yy)
 
     self->IncBy(*sz);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -231,7 +226,6 @@ wxNode_wxSize::wxNode_wxSize(int xx, int yy)
 
     self->IncBy(d);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -261,7 +255,6 @@ wxNode_wxSize::wxNode_wxSize(int xx, int yy)
 
     self->DecBy(dx, dy);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -274,7 +267,6 @@ wxNode_wxSize::wxNode_wxSize(int xx, int yy)
 
     self->DecBy(*pt);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -287,7 +279,6 @@ wxNode_wxSize::wxNode_wxSize(int xx, int yy)
 
     self->DecBy(*sz);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -300,7 +291,6 @@ wxNode_wxSize::wxNode_wxSize(int xx, int yy)
 
     self->DecBy(d);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -330,7 +320,6 @@ wxNode_wxSize::wxNode_wxSize(int xx, int yy)
 
     self->Scale(xscale, yscale);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -360,7 +349,6 @@ wxNode_wxSize::wxNode_wxSize(int xx, int yy)
 
     self->Set(xx, yy);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -389,7 +377,6 @@ wxNode_wxSize::wxNode_wxSize(int xx, int yy)
 
     self->SetWidth(w);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -418,7 +405,6 @@ wxNode_wxSize::wxNode_wxSize(int xx, int yy)
 
     self->SetHeight(h);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -446,7 +432,6 @@ wxNode_wxSize::wxNode_wxSize(int xx, int yy)
 
     self->GetWidth();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -474,7 +459,6 @@ wxNode_wxSize::wxNode_wxSize(int xx, int yy)
 
     self->GetHeight();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -502,7 +486,6 @@ wxNode_wxSize::wxNode_wxSize(int xx, int yy)
 
     self->IsFullySpecified();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -531,7 +514,6 @@ wxNode_wxSize::wxNode_wxSize(int xx, int yy)
 
     self->SetDefaults(*size);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -559,7 +541,6 @@ wxNode_wxSize::wxNode_wxSize(int xx, int yy)
 
     self->GetX();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -587,7 +568,6 @@ wxNode_wxSize::wxNode_wxSize(int xx, int yy)
 
     self->GetY();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   

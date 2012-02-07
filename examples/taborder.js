@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 var wxNode = require("../");
+var util = require("util");
 
 /////////////////////////////////////////////////////////////////////////////
 // Name:        taborder.cpp
@@ -191,16 +192,14 @@ var MyPanel = wxNode.wxPanel.extend({
     notebook.addPage(this.createTextPage(notebook), "Text");
 
     var sizerV = new wxNode.wxBoxSizer(wxNode.wxVERTICAL);
-    var sizerFlags = new wxNode.wxSizerFlags(1);
-    sizerFlags.expand();
+    var sizerFlags = new wxNode.wxSizerFlags(1).expand();
     sizerV.add(notebook, sizerFlags);
 
     var lbox = new wxNode.wxListBox(this, wxNode.wxID_ANY);
     lbox.appendString("Just a");
     lbox.appendString("simple");
     lbox.appendString("listbox");
-    var sizerFlags = new wxNode.wxSizerFlags(1);
-    sizerFlags.expand();
+    var sizerFlags = new wxNode.wxSizerFlags(1).expand();
     sizerV.add(lbox, sizerFlags);
 
     this.setSizerAndFit(sizerV);
@@ -208,9 +207,7 @@ var MyPanel = wxNode.wxPanel.extend({
   },
 
   createButtonPage: function(parent) {
-    var flagsBorder = new wxNode.wxSizerFlags();
-    flagsBorder.border();
-    flagsBorder.centre();
+    var flagsBorder = new wxNode.wxSizerFlags().border().centre();
 
     var page = new wxNode.wxPanel(parent);
     var sizerPage = new wxNode.wxBoxSizer(wxNode.wxHORIZONTAL);
@@ -225,8 +222,7 @@ var MyPanel = wxNode.wxPanel.extend({
   },
 
   createTextPage: function(parent) {
-    var flagsBorder = new wxNode.wxSizerFlags();
-    flagsBorder.border();
+    var flagsBorder = new wxNode.wxSizerFlags().border();
 
     var sizerPage = new wxNode.wxBoxSizer(wxNode.wxVERTICAL);
     var page = new wxNode.wxPanel(parent);
@@ -234,8 +230,7 @@ var MyPanel = wxNode.wxPanel.extend({
     var sizerH = new wxNode.wxBoxSizer(wxNode.wxHORIZONTAL);
     sizerH.add(new wxNode.wxStaticText(page, wxNode.wxID_ANY, "&Label:"), flagsBorder);
     sizerH.add(new MyTabTextCtrl(page, "TAB ignored here"), flagsBorder);
-    var sizerFlags = new wxNode.wxSizerFlags(1);
-    sizerFlags.expand();
+    var sizerFlags = new wxNode.wxSizerFlags(1).expand();
     sizerPage.add(sizerH, sizerFlags);
 
     sizerH = new wxNode.wxBoxSizer(wxNode.wxHORIZONTAL);
@@ -243,8 +238,7 @@ var MyPanel = wxNode.wxPanel.extend({
                 flagsBorder);
     sizerH.add(new MyTabTextCtrl(page, "press Tab here", wxNode.wxTE_PROCESS_TAB),
                 flagsBorder);
-    var sizerFlags = new wxNode.wxSizerFlags(1);
-    sizerFlags.expand();
+    var sizerFlags = new wxNode.wxSizerFlags(1).expand();
     sizerPage.add(sizerH, sizerFlags);
 
     page.setSizer(sizerPage);

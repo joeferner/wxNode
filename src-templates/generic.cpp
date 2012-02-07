@@ -79,10 +79,9 @@ wxNode_{{parent.parent.name}}::wxNode_{{parent.parent.name}}({{{argDeclCode}}})
     {{#args}}{{{argCode}}}
     {{/args}}
 
-    self->{{name}}({{{argCallCode}}});
+    {{{returnEq}}}self->{{name}}({{{argCallCode}}});
 
-    // TODO: handle return type
-    return v8::Undefined();
+    {{{returnStmt}}}
   }
   {{/overloads}}
 

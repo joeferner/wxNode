@@ -220,7 +220,6 @@ wxNode_wxPanel::wxNode_wxPanel(wxNode_wxWindow* parent)
 
     self->Create(parent, winid, *pos, *size, style, *name);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -237,7 +236,6 @@ wxNode_wxPanel::wxNode_wxPanel(wxNode_wxWindow* parent)
 
     self->Create(parent, winid, *pos, *size, style);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -253,7 +251,6 @@ wxNode_wxPanel::wxNode_wxPanel(wxNode_wxWindow* parent)
 
     self->Create(parent, winid, *pos, *size);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -268,7 +265,6 @@ wxNode_wxPanel::wxNode_wxPanel(wxNode_wxWindow* parent)
 
     self->Create(parent, winid, *pos);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -282,7 +278,6 @@ wxNode_wxPanel::wxNode_wxPanel(wxNode_wxWindow* parent)
 
     self->Create(parent, winid);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -295,7 +290,6 @@ wxNode_wxPanel::wxNode_wxPanel(wxNode_wxWindow* parent)
 
     self->Create(parent);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -323,7 +317,6 @@ wxNode_wxPanel::wxNode_wxPanel(wxNode_wxWindow* parent)
 
     self->InitDialog();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   

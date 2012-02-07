@@ -238,7 +238,6 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
 
     self->New(parent, winid, *title, *pos, *size, style, *name);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -256,7 +255,6 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
 
     self->New(parent, winid, *title, *pos, *size, style);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -273,7 +271,6 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
 
     self->New(parent, winid, *title, *pos, *size);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -289,7 +286,6 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
 
     self->New(parent, winid, *title, *pos);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -304,7 +300,6 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
 
     self->New(parent, winid, *title);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -332,7 +327,6 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
 
     self->GetClientAreaOrigin();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -361,7 +355,6 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
 
     self->SetMenuBar(menubar);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -389,7 +382,6 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
 
     self->GetMenuBar();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -418,7 +410,6 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
 
     self->FindItemInMenuBar(menuId);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -447,7 +438,6 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
 
     self->ProcessCommand(item);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -460,7 +450,6 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
 
     self->ProcessCommand(winid);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -492,7 +481,6 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
 
     self->CreateStatusBar(number, style, winid, *name);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -507,7 +495,6 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
 
     self->CreateStatusBar(number, style, winid);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -521,7 +508,6 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
 
     self->CreateStatusBar(number, style);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -534,7 +520,6 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
 
     self->CreateStatusBar(number);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -546,7 +531,6 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
 
     self->CreateStatusBar();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -590,7 +574,6 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
 
     self->GetStatusBar();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -619,7 +602,6 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
 
     self->SetStatusBar(statBar);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -649,7 +631,6 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
 
     self->SetStatusText(*text, number);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -662,7 +643,6 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
 
     self->SetStatusText(*text);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -692,7 +672,6 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
 
     self->SetStatusWidths(n, &widths_field);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -722,7 +701,6 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
 
     self->PushStatusText(*text, number);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -735,7 +713,6 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
 
     self->PushStatusText(*text);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -764,7 +741,6 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
 
     self->PopStatusText(number);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -776,7 +752,6 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
 
     self->PopStatusText();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -805,7 +780,6 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
 
     self->SetStatusBarPane(n);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -833,7 +807,6 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
 
     self->GetStatusBarPane();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -864,7 +837,6 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
 
     self->CreateToolBar(style, winid, *name);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -878,7 +850,6 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
 
     self->CreateToolBar(style, winid);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -891,7 +862,6 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
 
     self->CreateToolBar(style);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -903,7 +873,6 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
 
     self->CreateToolBar();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -947,7 +916,6 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
 
     self->GetToolBar();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -976,7 +944,6 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
 
     self->SetToolBar(toolbar);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1053,7 +1020,6 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
 
     self->DoMenuUpdates(menu);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1065,7 +1031,6 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
 
     self->DoMenuUpdates();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1094,7 +1059,6 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
 
     self->UpdateWindowUI(flags);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1106,7 +1070,6 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
 
     self->UpdateWindowUI();
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1152,7 +1115,6 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
 
     self->DoGiveHelp(*text, show);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
@@ -1181,7 +1143,6 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
 
     self->IsClientAreaChild(child);
 
-    // TODO: handle return type
     return v8::Undefined();
   }
   
