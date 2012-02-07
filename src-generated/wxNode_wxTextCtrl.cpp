@@ -600,7 +600,8 @@ wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxNode_wxWindow* parent, int id)
 
     wxVisualAttributes returnValTemp = self->GetDefaultAttributes();
 
-    wxVisualAttributes* returnVal = new wxVisualAttributes();
+    wxNode_wxVisualAttributes* returnVal = new wxNode_wxVisualAttributes();
+    memcpy(dynamic_cast<wxVisualAttributes*>(returnVal), &returnValTemp, sizeof(wxVisualAttributes));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxVisualAttributes"));
@@ -638,7 +639,8 @@ wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxNode_wxWindow* parent, int id)
 
     wxVisualAttributes returnValTemp = self->GetClassDefaultAttributes(variant);
 
-    wxVisualAttributes* returnVal = new wxVisualAttributes();
+    wxNode_wxVisualAttributes* returnVal = new wxNode_wxVisualAttributes();
+    memcpy(dynamic_cast<wxVisualAttributes*>(returnVal), &returnValTemp, sizeof(wxVisualAttributes));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxVisualAttributes"));
@@ -659,7 +661,8 @@ wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxNode_wxWindow* parent, int id)
 
     wxVisualAttributes returnValTemp = self->GetClassDefaultAttributes();
 
-    wxVisualAttributes* returnVal = new wxVisualAttributes();
+    wxNode_wxVisualAttributes* returnVal = new wxNode_wxVisualAttributes();
+    memcpy(dynamic_cast<wxVisualAttributes*>(returnVal), &returnValTemp, sizeof(wxVisualAttributes));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxVisualAttributes"));

@@ -387,7 +387,8 @@ wxNode_wxButton::wxNode_wxButton(wxNode_wxWindow* parent, int id)
 
     wxSize returnValTemp = self->GetDefaultSize();
 
-    wxSize* returnVal = new wxSize();
+    wxNode_wxSize* returnVal = new wxNode_wxSize();
+    memcpy(dynamic_cast<wxSize*>(returnVal), &returnValTemp, sizeof(wxSize));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxSize"));

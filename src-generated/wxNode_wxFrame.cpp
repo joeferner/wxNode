@@ -421,7 +421,8 @@ wxNode_wxFrame::wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& 
 
     wxPoint returnValTemp = self->GetClientAreaOrigin();
 
-    wxPoint* returnVal = new wxPoint();
+    wxNode_wxPoint* returnVal = new wxNode_wxPoint();
+    memcpy(dynamic_cast<wxPoint*>(returnVal), &returnValTemp, sizeof(wxPoint));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxPoint"));

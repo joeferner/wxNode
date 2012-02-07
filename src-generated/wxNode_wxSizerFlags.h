@@ -15,7 +15,6 @@ public:
   static bool AssignableFrom(const v8::Handle<v8::String>& className);
   static bool AssignableFrom(const char* className);
 
-protected:
   
   
   wxNode_wxSizerFlags(wxNode_wxSizerFlags& arg0);

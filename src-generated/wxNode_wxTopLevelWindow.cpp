@@ -529,7 +529,8 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
 
     wxIcon returnValTemp = self->GetIcon();
 
-    wxIcon* returnVal = new wxIcon();
+    wxNode_wxIcon* returnVal = new wxNode_wxIcon();
+    memcpy(dynamic_cast<wxIcon*>(returnVal), &returnValTemp, sizeof(wxIcon));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxIcon"));
@@ -566,7 +567,8 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
 
     wxIconBundle returnValTemp = self->GetIcons();
 
-    wxIconBundle* returnVal = new wxIconBundle();
+    wxNode_wxIconBundle* returnVal = new wxNode_wxIconBundle();
+    memcpy(dynamic_cast<wxIconBundle*>(returnVal), &returnValTemp, sizeof(wxIconBundle));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxIconBundle"));
@@ -1008,7 +1010,8 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int wi
 
     wxSize returnValTemp = self->GetDefaultSize();
 
-    wxSize* returnVal = new wxSize();
+    wxNode_wxSize* returnVal = new wxNode_wxSize();
+    memcpy(dynamic_cast<wxSize*>(returnVal), &returnValTemp, sizeof(wxSize));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxSize"));

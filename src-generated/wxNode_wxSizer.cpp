@@ -2335,7 +2335,8 @@
 
     wxSize returnValTemp = self->GetSize();
 
-    wxSize* returnVal = new wxSize();
+    wxNode_wxSize* returnVal = new wxNode_wxSize();
+    memcpy(dynamic_cast<wxSize*>(returnVal), &returnValTemp, sizeof(wxSize));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxSize"));
@@ -2372,7 +2373,8 @@
 
     wxPoint returnValTemp = self->GetPosition();
 
-    wxPoint* returnVal = new wxPoint();
+    wxNode_wxPoint* returnVal = new wxNode_wxPoint();
+    memcpy(dynamic_cast<wxPoint*>(returnVal), &returnValTemp, sizeof(wxPoint));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxPoint"));
@@ -2409,7 +2411,8 @@
 
     wxSize returnValTemp = self->GetMinSize();
 
-    wxSize* returnVal = new wxSize();
+    wxNode_wxSize* returnVal = new wxNode_wxSize();
+    memcpy(dynamic_cast<wxSize*>(returnVal), &returnValTemp, sizeof(wxSize));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxSize"));
@@ -2446,7 +2449,8 @@
 
     wxSize returnValTemp = self->CalcMin();
 
-    wxSize* returnVal = new wxSize();
+    wxNode_wxSize* returnVal = new wxNode_wxSize();
+    memcpy(dynamic_cast<wxSize*>(returnVal), &returnValTemp, sizeof(wxSize));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxSize"));
@@ -2538,7 +2542,8 @@
 
     wxSize returnValTemp = self->ComputeFittingClientSize(window);
 
-    wxSize* returnVal = new wxSize();
+    wxNode_wxSize* returnVal = new wxNode_wxSize();
+    memcpy(dynamic_cast<wxSize*>(returnVal), &returnValTemp, sizeof(wxSize));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxSize"));
@@ -2576,7 +2581,8 @@
 
     wxSize returnValTemp = self->ComputeFittingWindowSize(window);
 
-    wxSize* returnVal = new wxSize();
+    wxNode_wxSize* returnVal = new wxNode_wxSize();
+    memcpy(dynamic_cast<wxSize*>(returnVal), &returnValTemp, sizeof(wxSize));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxSize"));
@@ -2614,7 +2620,8 @@
 
     wxSize returnValTemp = self->Fit(window);
 
-    wxSize* returnVal = new wxSize();
+    wxNode_wxSize* returnVal = new wxNode_wxSize();
+    memcpy(dynamic_cast<wxSize*>(returnVal), &returnValTemp, sizeof(wxSize));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxSize"));
@@ -2707,7 +2714,8 @@
 
     wxSizerItemList returnValTemp = self->GetChildren();
 
-    wxSizerItemList* returnVal = new wxSizerItemList();
+    wxNode_wxSizerItemList* returnVal = new wxNode_wxSizerItemList();
+    memcpy(dynamic_cast<wxSizerItemList*>(returnVal), &returnValTemp, sizeof(wxSizerItemList));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxSizerItemList"));
@@ -2728,7 +2736,8 @@
 
     wxSizerItemList returnValTemp = self->GetChildren();
 
-    wxSizerItemList* returnVal = new wxSizerItemList();
+    wxNode_wxSizerItemList* returnVal = new wxNode_wxSizerItemList();
+    memcpy(dynamic_cast<wxSizerItemList*>(returnVal), &returnValTemp, sizeof(wxSizerItemList));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxSizerItemList"));

@@ -191,7 +191,8 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
 
     wxBitmap returnValTemp = self->GetBitmap();
 
-    wxBitmap* returnVal = new wxBitmap();
+    wxNode_wxBitmap* returnVal = new wxNode_wxBitmap();
+    memcpy(dynamic_cast<wxBitmap*>(returnVal), &returnValTemp, sizeof(wxBitmap));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxBitmap"));
@@ -368,7 +369,8 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
 
     wxBitmap returnValTemp = self->GetBitmapLabel();
 
-    wxBitmap* returnVal = new wxBitmap();
+    wxNode_wxBitmap* returnVal = new wxNode_wxBitmap();
+    memcpy(dynamic_cast<wxBitmap*>(returnVal), &returnValTemp, sizeof(wxBitmap));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxBitmap"));
@@ -405,7 +407,8 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
 
     wxBitmap returnValTemp = self->GetBitmapPressed();
 
-    wxBitmap* returnVal = new wxBitmap();
+    wxNode_wxBitmap* returnVal = new wxNode_wxBitmap();
+    memcpy(dynamic_cast<wxBitmap*>(returnVal), &returnValTemp, sizeof(wxBitmap));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxBitmap"));
@@ -442,7 +445,8 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
 
     wxBitmap returnValTemp = self->GetBitmapDisabled();
 
-    wxBitmap* returnVal = new wxBitmap();
+    wxNode_wxBitmap* returnVal = new wxNode_wxBitmap();
+    memcpy(dynamic_cast<wxBitmap*>(returnVal), &returnValTemp, sizeof(wxBitmap));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxBitmap"));
@@ -479,7 +483,8 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
 
     wxBitmap returnValTemp = self->GetBitmapCurrent();
 
-    wxBitmap* returnVal = new wxBitmap();
+    wxNode_wxBitmap* returnVal = new wxNode_wxBitmap();
+    memcpy(dynamic_cast<wxBitmap*>(returnVal), &returnValTemp, sizeof(wxBitmap));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxBitmap"));
@@ -516,7 +521,8 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
 
     wxBitmap returnValTemp = self->GetBitmapFocus();
 
-    wxBitmap* returnVal = new wxBitmap();
+    wxNode_wxBitmap* returnVal = new wxNode_wxBitmap();
+    memcpy(dynamic_cast<wxBitmap*>(returnVal), &returnValTemp, sizeof(wxBitmap));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxBitmap"));
@@ -594,7 +600,8 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
 
     wxSize returnValTemp = self->GetBitmapMargins();
 
-    wxSize* returnVal = new wxSize();
+    wxNode_wxSize* returnVal = new wxNode_wxSize();
+    memcpy(dynamic_cast<wxSize*>(returnVal), &returnValTemp, sizeof(wxSize));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxSize"));
@@ -743,7 +750,8 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
 
     wxBitmap returnValTemp = self->GetBitmapSelected();
 
-    wxBitmap* returnVal = new wxBitmap();
+    wxNode_wxBitmap* returnVal = new wxNode_wxBitmap();
+    memcpy(dynamic_cast<wxBitmap*>(returnVal), &returnValTemp, sizeof(wxBitmap));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxBitmap"));
@@ -780,7 +788,8 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
 
     wxBitmap returnValTemp = self->GetBitmapHover();
 
-    wxBitmap* returnVal = new wxBitmap();
+    wxNode_wxBitmap* returnVal = new wxNode_wxBitmap();
+    memcpy(dynamic_cast<wxBitmap*>(returnVal), &returnValTemp, sizeof(wxBitmap));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxBitmap"));

@@ -197,7 +197,8 @@
 
     wxArrayString returnValTemp = self->GetStrings();
 
-    wxArrayString* returnVal = new wxArrayString();
+    wxNode_wxArrayString* returnVal = new wxNode_wxArrayString();
+    memcpy(dynamic_cast<wxArrayString*>(returnVal), &returnValTemp, sizeof(wxArrayString));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxArrayString"));

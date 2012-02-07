@@ -1633,7 +1633,8 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     wxMenuItemList returnValTemp = self->GetMenuItems();
 
-    wxMenuItemList* returnVal = new wxMenuItemList();
+    wxNode_wxMenuItemList* returnVal = new wxNode_wxMenuItemList();
+    memcpy(dynamic_cast<wxMenuItemList*>(returnVal), &returnValTemp, sizeof(wxMenuItemList));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItemList"));
@@ -1654,7 +1655,8 @@ wxNode_wxMenu::wxNode_wxMenu()
 
     wxMenuItemList returnValTemp = self->GetMenuItems();
 
-    wxMenuItemList* returnVal = new wxMenuItemList();
+    wxNode_wxMenuItemList* returnVal = new wxNode_wxMenuItemList();
+    memcpy(dynamic_cast<wxMenuItemList*>(returnVal), &returnValTemp, sizeof(wxMenuItemList));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuItemList"));

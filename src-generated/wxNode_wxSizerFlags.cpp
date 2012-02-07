@@ -150,7 +150,8 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
 
     wxSizerFlags returnValTemp = self->Proportion(proportion);
 
-    wxSizerFlags* returnVal = new wxSizerFlags();
+    wxNode_wxSizerFlags* returnVal = new wxNode_wxSizerFlags();
+    memcpy(dynamic_cast<wxSizerFlags*>(returnVal), &returnValTemp, sizeof(wxSizerFlags));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxSizerFlags"));
@@ -187,7 +188,8 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
 
     wxSizerFlags returnValTemp = self->Expand();
 
-    wxSizerFlags* returnVal = new wxSizerFlags();
+    wxNode_wxSizerFlags* returnVal = new wxNode_wxSizerFlags();
+    memcpy(dynamic_cast<wxSizerFlags*>(returnVal), &returnValTemp, sizeof(wxSizerFlags));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxSizerFlags"));
@@ -225,7 +227,8 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
 
     wxSizerFlags returnValTemp = self->Align(alignment);
 
-    wxSizerFlags* returnVal = new wxSizerFlags();
+    wxNode_wxSizerFlags* returnVal = new wxNode_wxSizerFlags();
+    memcpy(dynamic_cast<wxSizerFlags*>(returnVal), &returnValTemp, sizeof(wxSizerFlags));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxSizerFlags"));
@@ -262,7 +265,8 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
 
     wxSizerFlags returnValTemp = self->Centre();
 
-    wxSizerFlags* returnVal = new wxSizerFlags();
+    wxNode_wxSizerFlags* returnVal = new wxNode_wxSizerFlags();
+    memcpy(dynamic_cast<wxSizerFlags*>(returnVal), &returnValTemp, sizeof(wxSizerFlags));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxSizerFlags"));
@@ -299,7 +303,8 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
 
     wxSizerFlags returnValTemp = self->Center();
 
-    wxSizerFlags* returnVal = new wxSizerFlags();
+    wxNode_wxSizerFlags* returnVal = new wxNode_wxSizerFlags();
+    memcpy(dynamic_cast<wxSizerFlags*>(returnVal), &returnValTemp, sizeof(wxSizerFlags));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxSizerFlags"));
@@ -336,7 +341,8 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
 
     wxSizerFlags returnValTemp = self->Top();
 
-    wxSizerFlags* returnVal = new wxSizerFlags();
+    wxNode_wxSizerFlags* returnVal = new wxNode_wxSizerFlags();
+    memcpy(dynamic_cast<wxSizerFlags*>(returnVal), &returnValTemp, sizeof(wxSizerFlags));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxSizerFlags"));
@@ -373,7 +379,8 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
 
     wxSizerFlags returnValTemp = self->Left();
 
-    wxSizerFlags* returnVal = new wxSizerFlags();
+    wxNode_wxSizerFlags* returnVal = new wxNode_wxSizerFlags();
+    memcpy(dynamic_cast<wxSizerFlags*>(returnVal), &returnValTemp, sizeof(wxSizerFlags));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxSizerFlags"));
@@ -410,7 +417,8 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
 
     wxSizerFlags returnValTemp = self->Right();
 
-    wxSizerFlags* returnVal = new wxSizerFlags();
+    wxNode_wxSizerFlags* returnVal = new wxNode_wxSizerFlags();
+    memcpy(dynamic_cast<wxSizerFlags*>(returnVal), &returnValTemp, sizeof(wxSizerFlags));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxSizerFlags"));
@@ -447,7 +455,8 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
 
     wxSizerFlags returnValTemp = self->Bottom();
 
-    wxSizerFlags* returnVal = new wxSizerFlags();
+    wxNode_wxSizerFlags* returnVal = new wxNode_wxSizerFlags();
+    memcpy(dynamic_cast<wxSizerFlags*>(returnVal), &returnValTemp, sizeof(wxSizerFlags));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxSizerFlags"));
@@ -513,7 +522,8 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
 
     wxSizerFlags returnValTemp = self->Border(direction, borderInPixels);
 
-    wxSizerFlags* returnVal = new wxSizerFlags();
+    wxNode_wxSizerFlags* returnVal = new wxNode_wxSizerFlags();
+    memcpy(dynamic_cast<wxSizerFlags*>(returnVal), &returnValTemp, sizeof(wxSizerFlags));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxSizerFlags"));
@@ -535,7 +545,8 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
 
     wxSizerFlags returnValTemp = self->Border(direction);
 
-    wxSizerFlags* returnVal = new wxSizerFlags();
+    wxNode_wxSizerFlags* returnVal = new wxNode_wxSizerFlags();
+    memcpy(dynamic_cast<wxSizerFlags*>(returnVal), &returnValTemp, sizeof(wxSizerFlags));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxSizerFlags"));
@@ -556,7 +567,8 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
 
     wxSizerFlags returnValTemp = self->Border();
 
-    wxSizerFlags* returnVal = new wxSizerFlags();
+    wxNode_wxSizerFlags* returnVal = new wxNode_wxSizerFlags();
+    memcpy(dynamic_cast<wxSizerFlags*>(returnVal), &returnValTemp, sizeof(wxSizerFlags));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxSizerFlags"));
@@ -594,7 +606,8 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
 
     wxSizerFlags returnValTemp = self->DoubleBorder(direction);
 
-    wxSizerFlags* returnVal = new wxSizerFlags();
+    wxNode_wxSizerFlags* returnVal = new wxNode_wxSizerFlags();
+    memcpy(dynamic_cast<wxSizerFlags*>(returnVal), &returnValTemp, sizeof(wxSizerFlags));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxSizerFlags"));
@@ -615,7 +628,8 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
 
     wxSizerFlags returnValTemp = self->DoubleBorder();
 
-    wxSizerFlags* returnVal = new wxSizerFlags();
+    wxNode_wxSizerFlags* returnVal = new wxNode_wxSizerFlags();
+    memcpy(dynamic_cast<wxSizerFlags*>(returnVal), &returnValTemp, sizeof(wxSizerFlags));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxSizerFlags"));
@@ -653,7 +667,8 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
 
     wxSizerFlags returnValTemp = self->TripleBorder(direction);
 
-    wxSizerFlags* returnVal = new wxSizerFlags();
+    wxNode_wxSizerFlags* returnVal = new wxNode_wxSizerFlags();
+    memcpy(dynamic_cast<wxSizerFlags*>(returnVal), &returnValTemp, sizeof(wxSizerFlags));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxSizerFlags"));
@@ -674,7 +689,8 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
 
     wxSizerFlags returnValTemp = self->TripleBorder();
 
-    wxSizerFlags* returnVal = new wxSizerFlags();
+    wxNode_wxSizerFlags* returnVal = new wxNode_wxSizerFlags();
+    memcpy(dynamic_cast<wxSizerFlags*>(returnVal), &returnValTemp, sizeof(wxSizerFlags));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxSizerFlags"));
@@ -711,7 +727,8 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
 
     wxSizerFlags returnValTemp = self->HorzBorder();
 
-    wxSizerFlags* returnVal = new wxSizerFlags();
+    wxNode_wxSizerFlags* returnVal = new wxNode_wxSizerFlags();
+    memcpy(dynamic_cast<wxSizerFlags*>(returnVal), &returnValTemp, sizeof(wxSizerFlags));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxSizerFlags"));
@@ -748,7 +765,8 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
 
     wxSizerFlags returnValTemp = self->DoubleHorzBorder();
 
-    wxSizerFlags* returnVal = new wxSizerFlags();
+    wxNode_wxSizerFlags* returnVal = new wxNode_wxSizerFlags();
+    memcpy(dynamic_cast<wxSizerFlags*>(returnVal), &returnValTemp, sizeof(wxSizerFlags));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxSizerFlags"));
@@ -785,7 +803,8 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
 
     wxSizerFlags returnValTemp = self->Shaped();
 
-    wxSizerFlags* returnVal = new wxSizerFlags();
+    wxNode_wxSizerFlags* returnVal = new wxNode_wxSizerFlags();
+    memcpy(dynamic_cast<wxSizerFlags*>(returnVal), &returnValTemp, sizeof(wxSizerFlags));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxSizerFlags"));
@@ -822,7 +841,8 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
 
     wxSizerFlags returnValTemp = self->FixedMinSize();
 
-    wxSizerFlags* returnVal = new wxSizerFlags();
+    wxNode_wxSizerFlags* returnVal = new wxNode_wxSizerFlags();
+    memcpy(dynamic_cast<wxSizerFlags*>(returnVal), &returnValTemp, sizeof(wxSizerFlags));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxSizerFlags"));
@@ -859,7 +879,8 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
 
     wxSizerFlags returnValTemp = self->ReserveSpaceEvenIfHidden();
 
-    wxSizerFlags* returnVal = new wxSizerFlags();
+    wxNode_wxSizerFlags* returnVal = new wxNode_wxSizerFlags();
+    memcpy(dynamic_cast<wxSizerFlags*>(returnVal), &returnValTemp, sizeof(wxSizerFlags));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxSizerFlags"));

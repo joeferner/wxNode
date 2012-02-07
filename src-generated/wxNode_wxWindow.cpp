@@ -1694,7 +1694,8 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     wxPoint returnValTemp = self->GetPosition();
 
-    wxPoint* returnVal = new wxPoint();
+    wxNode_wxPoint* returnVal = new wxNode_wxPoint();
+    memcpy(dynamic_cast<wxPoint*>(returnVal), &returnValTemp, sizeof(wxPoint));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxPoint"));
@@ -1744,7 +1745,8 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     wxPoint returnValTemp = self->GetScreenPosition();
 
-    wxPoint* returnVal = new wxPoint();
+    wxNode_wxPoint* returnVal = new wxNode_wxPoint();
+    memcpy(dynamic_cast<wxPoint*>(returnVal), &returnValTemp, sizeof(wxPoint));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxPoint"));
@@ -1794,7 +1796,8 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     wxSize returnValTemp = self->GetSize();
 
-    wxSize* returnVal = new wxSize();
+    wxNode_wxSize* returnVal = new wxNode_wxSize();
+    memcpy(dynamic_cast<wxSize*>(returnVal), &returnValTemp, sizeof(wxSize));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxSize"));
@@ -1844,7 +1847,8 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     wxSize returnValTemp = self->GetClientSize();
 
-    wxSize* returnVal = new wxSize();
+    wxNode_wxSize* returnVal = new wxNode_wxSize();
+    memcpy(dynamic_cast<wxSize*>(returnVal), &returnValTemp, sizeof(wxSize));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxSize"));
@@ -1881,7 +1885,8 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     wxRect returnValTemp = self->GetRect();
 
-    wxRect* returnVal = new wxRect();
+    wxNode_wxRect* returnVal = new wxNode_wxRect();
+    memcpy(dynamic_cast<wxRect*>(returnVal), &returnValTemp, sizeof(wxRect));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxRect"));
@@ -1918,7 +1923,8 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     wxRect returnValTemp = self->GetScreenRect();
 
-    wxRect* returnVal = new wxRect();
+    wxNode_wxRect* returnVal = new wxNode_wxRect();
+    memcpy(dynamic_cast<wxRect*>(returnVal), &returnValTemp, sizeof(wxRect));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxRect"));
@@ -1955,7 +1961,8 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     wxPoint returnValTemp = self->GetClientAreaOrigin();
 
-    wxPoint* returnVal = new wxPoint();
+    wxNode_wxPoint* returnVal = new wxNode_wxPoint();
+    memcpy(dynamic_cast<wxPoint*>(returnVal), &returnValTemp, sizeof(wxPoint));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxPoint"));
@@ -1992,7 +1999,8 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     wxRect returnValTemp = self->GetClientRect();
 
-    wxRect* returnVal = new wxRect();
+    wxNode_wxRect* returnVal = new wxNode_wxRect();
+    memcpy(dynamic_cast<wxRect*>(returnVal), &returnValTemp, sizeof(wxRect));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxRect"));
@@ -2030,7 +2038,8 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     wxSize returnValTemp = self->ClientToWindowSize(*size);
 
-    wxSize* returnVal = new wxSize();
+    wxNode_wxSize* returnVal = new wxNode_wxSize();
+    memcpy(dynamic_cast<wxSize*>(returnVal), &returnValTemp, sizeof(wxSize));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxSize"));
@@ -2068,7 +2077,8 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     wxSize returnValTemp = self->WindowToClientSize(*size);
 
-    wxSize* returnVal = new wxSize();
+    wxNode_wxSize* returnVal = new wxNode_wxSize();
+    memcpy(dynamic_cast<wxSize*>(returnVal), &returnValTemp, sizeof(wxSize));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxSize"));
@@ -2105,7 +2115,8 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     wxSize returnValTemp = self->GetBestSize();
 
-    wxSize* returnVal = new wxSize();
+    wxNode_wxSize* returnVal = new wxNode_wxSize();
+    memcpy(dynamic_cast<wxSize*>(returnVal), &returnValTemp, sizeof(wxSize));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxSize"));
@@ -2275,7 +2286,8 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     wxSize returnValTemp = self->GetEffectiveMinSize();
 
-    wxSize* returnVal = new wxSize();
+    wxNode_wxSize* returnVal = new wxNode_wxSize();
+    memcpy(dynamic_cast<wxSize*>(returnVal), &returnValTemp, sizeof(wxSize));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxSize"));
@@ -2803,7 +2815,8 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     wxSize returnValTemp = self->GetMinSize();
 
-    wxSize* returnVal = new wxSize();
+    wxNode_wxSize* returnVal = new wxNode_wxSize();
+    memcpy(dynamic_cast<wxSize*>(returnVal), &returnValTemp, sizeof(wxSize));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxSize"));
@@ -2840,7 +2853,8 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     wxSize returnValTemp = self->GetMaxSize();
 
-    wxSize* returnVal = new wxSize();
+    wxNode_wxSize* returnVal = new wxNode_wxSize();
+    memcpy(dynamic_cast<wxSize*>(returnVal), &returnValTemp, sizeof(wxSize));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxSize"));
@@ -2877,7 +2891,8 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     wxSize returnValTemp = self->GetMinClientSize();
 
-    wxSize* returnVal = new wxSize();
+    wxNode_wxSize* returnVal = new wxNode_wxSize();
+    memcpy(dynamic_cast<wxSize*>(returnVal), &returnValTemp, sizeof(wxSize));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxSize"));
@@ -2914,7 +2929,8 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     wxSize returnValTemp = self->GetMaxClientSize();
 
-    wxSize* returnVal = new wxSize();
+    wxNode_wxSize* returnVal = new wxNode_wxSize();
+    memcpy(dynamic_cast<wxSize*>(returnVal), &returnValTemp, sizeof(wxSize));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxSize"));
@@ -3100,7 +3116,8 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     wxSize returnValTemp = self->GetVirtualSize();
 
-    wxSize* returnVal = new wxSize();
+    wxNode_wxSize* returnVal = new wxNode_wxSize();
+    memcpy(dynamic_cast<wxSize*>(returnVal), &returnValTemp, sizeof(wxSize));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxSize"));
@@ -3179,7 +3196,8 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     wxSize returnValTemp = self->DoGetVirtualSize();
 
-    wxSize* returnVal = new wxSize();
+    wxNode_wxSize* returnVal = new wxNode_wxSize();
+    memcpy(dynamic_cast<wxSize*>(returnVal), &returnValTemp, sizeof(wxSize));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxSize"));
@@ -3216,7 +3234,8 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     wxSize returnValTemp = self->GetBestVirtualSize();
 
-    wxSize* returnVal = new wxSize();
+    wxNode_wxSize* returnVal = new wxNode_wxSize();
+    memcpy(dynamic_cast<wxSize*>(returnVal), &returnValTemp, sizeof(wxSize));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxSize"));
@@ -3253,7 +3272,8 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     wxSize returnValTemp = self->GetWindowBorderSize();
 
-    wxSize* returnVal = new wxSize();
+    wxNode_wxSize* returnVal = new wxNode_wxSize();
+    memcpy(dynamic_cast<wxSize*>(returnVal), &returnValTemp, sizeof(wxSize));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxSize"));
@@ -4678,7 +4698,8 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     wxWindowList returnValTemp = self->GetChildren();
 
-    wxWindowList* returnVal = new wxWindowList();
+    wxNode_wxWindowList* returnVal = new wxNode_wxWindowList();
+    memcpy(dynamic_cast<wxWindowList*>(returnVal), &returnValTemp, sizeof(wxWindowList));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxWindowList"));
@@ -4699,7 +4720,8 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     wxWindowList returnValTemp = self->GetChildren();
 
-    wxWindowList* returnVal = new wxWindowList();
+    wxNode_wxWindowList* returnVal = new wxNode_wxWindowList();
+    memcpy(dynamic_cast<wxWindowList*>(returnVal), &returnValTemp, sizeof(wxWindowList));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxWindowList"));
@@ -4736,7 +4758,8 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     wxWindowList returnValTemp = self->GetWindowChildren();
 
-    wxWindowList* returnVal = new wxWindowList();
+    wxNode_wxWindowList* returnVal = new wxNode_wxWindowList();
+    memcpy(dynamic_cast<wxWindowList*>(returnVal), &returnValTemp, sizeof(wxWindowList));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxWindowList"));
@@ -5890,7 +5913,8 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     wxPoint returnValTemp = self->ConvertPixelsToDialog(*pt);
 
-    wxPoint* returnVal = new wxPoint();
+    wxNode_wxPoint* returnVal = new wxNode_wxPoint();
+    memcpy(dynamic_cast<wxPoint*>(returnVal), &returnValTemp, sizeof(wxPoint));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxPoint"));
@@ -5912,7 +5936,8 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     wxSize returnValTemp = self->ConvertPixelsToDialog(*sz);
 
-    wxSize* returnVal = new wxSize();
+    wxNode_wxSize* returnVal = new wxNode_wxSize();
+    memcpy(dynamic_cast<wxSize*>(returnVal), &returnValTemp, sizeof(wxSize));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxSize"));
@@ -5950,7 +5975,8 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     wxPoint returnValTemp = self->ConvertDialogToPixels(*pt);
 
-    wxPoint* returnVal = new wxPoint();
+    wxNode_wxPoint* returnVal = new wxNode_wxPoint();
+    memcpy(dynamic_cast<wxPoint*>(returnVal), &returnValTemp, sizeof(wxPoint));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxPoint"));
@@ -5972,7 +5998,8 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     wxSize returnValTemp = self->ConvertDialogToPixels(*sz);
 
-    wxSize* returnVal = new wxSize();
+    wxNode_wxSize* returnVal = new wxNode_wxSize();
+    memcpy(dynamic_cast<wxSize*>(returnVal), &returnValTemp, sizeof(wxSize));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxSize"));
@@ -6439,7 +6466,8 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     wxRegion returnValTemp = self->GetUpdateRegion();
 
-    wxRegion* returnVal = new wxRegion();
+    wxNode_wxRegion* returnVal = new wxNode_wxRegion();
+    memcpy(dynamic_cast<wxRegion*>(returnVal), &returnValTemp, sizeof(wxRegion));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxRegion"));
@@ -6460,7 +6488,8 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     wxRegion returnValTemp = self->GetUpdateRegion();
 
-    wxRegion* returnVal = new wxRegion();
+    wxNode_wxRegion* returnVal = new wxNode_wxRegion();
+    memcpy(dynamic_cast<wxRegion*>(returnVal), &returnValTemp, sizeof(wxRegion));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxRegion"));
@@ -6497,7 +6526,8 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     wxRect returnValTemp = self->GetUpdateClientRect();
 
-    wxRect* returnVal = new wxRect();
+    wxNode_wxRect* returnVal = new wxNode_wxRect();
+    memcpy(dynamic_cast<wxRect*>(returnVal), &returnValTemp, sizeof(wxRect));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxRect"));
@@ -6646,7 +6676,8 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     wxVisualAttributes returnValTemp = self->GetDefaultAttributes();
 
-    wxVisualAttributes* returnVal = new wxVisualAttributes();
+    wxNode_wxVisualAttributes* returnVal = new wxNode_wxVisualAttributes();
+    memcpy(dynamic_cast<wxVisualAttributes*>(returnVal), &returnValTemp, sizeof(wxVisualAttributes));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxVisualAttributes"));
@@ -6684,7 +6715,8 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     wxVisualAttributes returnValTemp = self->GetClassDefaultAttributes(variant);
 
-    wxVisualAttributes* returnVal = new wxVisualAttributes();
+    wxNode_wxVisualAttributes* returnVal = new wxNode_wxVisualAttributes();
+    memcpy(dynamic_cast<wxVisualAttributes*>(returnVal), &returnValTemp, sizeof(wxVisualAttributes));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxVisualAttributes"));
@@ -6705,7 +6737,8 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     wxVisualAttributes returnValTemp = self->GetClassDefaultAttributes();
 
-    wxVisualAttributes* returnVal = new wxVisualAttributes();
+    wxNode_wxVisualAttributes* returnVal = new wxNode_wxVisualAttributes();
+    memcpy(dynamic_cast<wxVisualAttributes*>(returnVal), &returnValTemp, sizeof(wxVisualAttributes));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxVisualAttributes"));
@@ -6798,7 +6831,8 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     wxColour returnValTemp = self->GetBackgroundColour();
 
-    wxColour* returnVal = new wxColour();
+    wxNode_wxColour* returnVal = new wxNode_wxColour();
+    memcpy(dynamic_cast<wxColour*>(returnVal), &returnValTemp, sizeof(wxColour));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxColour"));
@@ -6945,7 +6979,8 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     wxColour returnValTemp = self->GetForegroundColour();
 
-    wxColour* returnVal = new wxColour();
+    wxNode_wxColour* returnVal = new wxNode_wxColour();
+    memcpy(dynamic_cast<wxColour*>(returnVal), &returnValTemp, sizeof(wxColour));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxColour"));
@@ -7120,7 +7155,8 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     wxFont returnValTemp = self->GetFont();
 
-    wxFont* returnVal = new wxFont();
+    wxNode_wxFont* returnVal = new wxNode_wxFont();
+    memcpy(dynamic_cast<wxFont*>(returnVal), &returnValTemp, sizeof(wxFont));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxFont"));
@@ -7185,7 +7221,8 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     wxCursor returnValTemp = self->GetCursor();
 
-    wxCursor* returnVal = new wxCursor();
+    wxNode_wxCursor* returnVal = new wxNode_wxCursor();
+    memcpy(dynamic_cast<wxCursor*>(returnVal), &returnValTemp, sizeof(wxCursor));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxCursor"));
@@ -7404,7 +7441,8 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     wxSize returnValTemp = self->GetTextExtent(*string);
 
-    wxSize* returnVal = new wxSize();
+    wxNode_wxSize* returnVal = new wxNode_wxSize();
+    memcpy(dynamic_cast<wxSize*>(returnVal), &returnValTemp, sizeof(wxSize));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxSize"));
@@ -7455,7 +7493,8 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     wxPoint returnValTemp = self->ClientToScreen(*pt);
 
-    wxPoint* returnVal = new wxPoint();
+    wxNode_wxPoint* returnVal = new wxNode_wxPoint();
+    memcpy(dynamic_cast<wxPoint*>(returnVal), &returnValTemp, sizeof(wxPoint));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxPoint"));
@@ -7506,7 +7545,8 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     wxPoint returnValTemp = self->ScreenToClient(*pt);
 
-    wxPoint* returnVal = new wxPoint();
+    wxNode_wxPoint* returnVal = new wxNode_wxPoint();
+    memcpy(dynamic_cast<wxPoint*>(returnVal), &returnValTemp, sizeof(wxPoint));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxPoint"));
@@ -9644,7 +9684,8 @@ wxNode_wxWindow::wxNode_wxWindow(wxNode_wxWindow* parent, int id)
 
     wxPalette returnValTemp = self->GetPalette();
 
-    wxPalette* returnVal = new wxPalette();
+    wxNode_wxPalette* returnVal = new wxNode_wxPalette();
+    memcpy(dynamic_cast<wxPalette*>(returnVal), &returnValTemp, sizeof(wxPalette));
     v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
     returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
     returnObjFt->SetClassName(v8::String::NewSymbol("wxPalette"));

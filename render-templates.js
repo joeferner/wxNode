@@ -360,9 +360,8 @@ function methodJsonToCtx(parent, rawJson, methodJson) {
       ctx.returnStmt = "\n";
       if(returnType.refs == '&' || (returnType.refs == '' && returnType.pointers == '')) {
         ctx.returnEq = ctx.returnTypeName + " returnValTemp = ";
-        ctx.returnStmt = ctx.returnTypeName + "* returnVal = new " + ctx.returnTypeName + "();\n";
-        // TODO
-        //ctx.returnStmt += "    memcpy(returnVal, &returnValTemp, sizeof(" + ctx.returnTypeName + "));\n";
+        ctx.returnStmt = "wxNode_" + ctx.returnTypeName + "* returnVal = new wxNode_" + ctx.returnTypeName + "();\n";
+        ctx.returnStmt += "    memcpy(dynamic_cast<" + ctx.returnTypeName + "*>(returnVal), &returnValTemp, sizeof(" + ctx.returnTypeName + "));\n";
       } else if(returnType.pointers == '*') {
         ctx.returnEq = ctx.returnTypeName + "* returnVal = ";
       } else {
