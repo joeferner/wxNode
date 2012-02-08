@@ -7,12 +7,15 @@
 
 class wxNode_wxEvtHandler;
 
+typedef v8::Handle<v8::Value>(fnNewEvent)(wxEvent& event);
+
 class ListenerData {
 public:
-  ListenerData(int eventType, v8::Local<v8::Object> fn);
+  ListenerData(int eventType, v8::Local<v8::Object> fn, fnNewEvent* NewEvent);
 
   v8::Persistent<v8::Object> m_fn;
   int m_eventType;
+	fnNewEvent* NewEvent;
 };
 
 class NodeExEvtHandlerImpl {
@@ -25,11 +28,11 @@ public:
 
 protected:
   virtual void fireEvent(uint32_t iListener, wxEvent& event);
-  virtual void addEventListener(wxEvtHandler* evtHandler, int eventType, v8::Local<v8::Object> fn);
-  virtual void addCommandRangeListener(wxEvtHandler* evtHandler, int id, int lastId, int eventType, v8::Local<v8::Object> fn);
-  virtual void addCommandListener(wxEvtHandler* evtHandler, int id, int eventType, v8::Local<v8::Object> fn);
-  virtual void connect(wxEvtHandler* evtHandler, int id, int lastId, int eventType, v8::Local<v8::Object> fn);
-  virtual void connect(wxEvtHandler* evtHandler, int eventType, v8::Local<v8::Object> fn);
+  virtual void addEventListener(wxEvtHandler* evtHandler, int eventType, v8::Local<v8::Object> fn, fnNewEvent* NewEvent);
+  virtual void addCommandRangeListener(wxEvtHandler* evtHandler, int id, int lastId, int eventType, v8::Local<v8::Object> fn, fnNewEvent* NewEvent);
+  virtual void addCommandListener(wxEvtHandler* evtHandler, int id, int eventType, v8::Local<v8::Object> fn, fnNewEvent* NewEvent);
+  virtual void connect(wxEvtHandler* evtHandler, int id, int lastId, int eventType, v8::Local<v8::Object> fn, fnNewEvent* NewEvent);
+  virtual void connect(wxEvtHandler* evtHandler, int eventType, v8::Local<v8::Object> fn, fnNewEvent* NewEvent);
 
   virtual v8::Handle<v8::Object> self() = 0;
 
@@ -68,6 +71,7 @@ protected:
   static v8::Handle<v8::Value> _EVT_MENU(const v8::Arguments& args);
   static v8::Handle<v8::Value> _EVT_IDLE(const v8::Arguments& args);
   static v8::Handle<v8::Value> _EVT_CLOSE(const v8::Arguments& args);
+	static v8::Handle<v8::Value> _EVT_KEY_DOWN(const v8::Arguments& args);
   static v8::Handle<v8::Value> _connect(const v8::Arguments& args);
 };
 

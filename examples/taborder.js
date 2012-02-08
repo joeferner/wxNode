@@ -45,7 +45,7 @@ var MyTabTextCtrl = wxNode.wxTextCtrl.extend({
     this._super(parent, wxNode.wxID_ANY, value,
                      wxNode.wxDefaultPosition, wxNode.wxDefaultSize,
                      flags);
-    this.connect(wxNode.wxEVT_KEY_DOWN, this.onKeyDown);
+    this.EVT_KEY_DOWN(this.onKeyDown);
   },
 
   onKeyDown: function(event) {

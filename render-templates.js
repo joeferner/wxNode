@@ -32,6 +32,8 @@ var files = [
   { className: 'wxSizerFlags', allowNew: true },
   { className: 'wxPoint', allowNew: true },
   { className: 'wxSize', allowNew: true },
+  { className: 'wxEvent', allowNew: false },
+  { className: 'wxKeyEvent', allowNew: true },
   /*
   { className: 'wxBitmap', baseClassName: 'wxBitmapBase' },
   { className: 'wxInputStream', baseClassName: 'wxStreamBase' },
@@ -357,6 +359,12 @@ function methodJsonToCtx(parent, rawJson, methodJson) {
     } else if(ctx.returnTypeName == "wxString") {
       ctx.returnEq = "wxString returnVal = ";
       ctx.returnStmt = "return scope.Close(v8::String::New(returnVal.mb_str()));";
+    } else if(ctx.returnTypeName == "wchar_t") {
+      ctx.returnEq = "wchar_t returnVal = ";
+      ctx.returnStmt =
+        'char returnValTemp[5];\n'
+        + 'sprintf(returnValTemp, "%lc", returnVal);\n'
+        + "return scope.Close(v8::String::New(returnValTemp));";
     } else if(ctx.returnTypeName && ctx.returnTypeName.match(/^wx.*/)) {
       if(returnType.refs == '&' || (returnType.refs == '' && returnType.pointers == '')) {
         ctx.returnEq = ctx.returnTypeName + " returnVal = ";
