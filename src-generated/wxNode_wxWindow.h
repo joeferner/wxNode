@@ -273,6 +273,7 @@ private:
   static v8::Handle<v8::Value> _AlwaysShowScrollbars(const v8::Arguments& args);
   static v8::Handle<v8::Value> _IsScrollbarAlwaysShown(const v8::Arguments& args);
   static v8::Handle<v8::Value> _SetHelpText(const v8::Arguments& args);
+  static v8::Handle<v8::Value> _GetHelpTextAtPoint(const v8::Arguments& args);
   static v8::Handle<v8::Value> _GetHelpText(const v8::Arguments& args);
   static v8::Handle<v8::Value> _SetToolTip(const v8::Arguments& args);
   static v8::Handle<v8::Value> _UnsetToolTip(const v8::Arguments& args);
@@ -316,6 +317,7 @@ private:
   static v8::Handle<v8::Value> _OnInternalIdle(const v8::Arguments& args);
   static v8::Handle<v8::Value> _SendIdleEvents(const v8::Arguments& args);
   static v8::Handle<v8::Value> _GetHandle(const v8::Arguments& args);
+  static v8::Handle<v8::Value> _AssociateHandle(const v8::Arguments& args);
   static v8::Handle<v8::Value> _DissociateHandle(const v8::Arguments& args);
   static v8::Handle<v8::Value> _GetPalette(const v8::Arguments& args);
   static v8::Handle<v8::Value> _SetPalette(const v8::Arguments& args);

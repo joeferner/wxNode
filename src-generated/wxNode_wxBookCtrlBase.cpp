@@ -122,7 +122,7 @@
 /*static*/ bool wxNode_wxBookCtrlBase::AssignableFrom(const char* className) {
   if(!strcmp("wxBookCtrlBase", className)) { return true; }
   
-  if(!strcmp("wxToolbook", className)) { return true; }
+  if(!strcmp("wxTreebook", className)) { return true; }
   if(!strcmp("wxNavigationEnabled<wxBookCtrlBase>", className)) { return true; }
 
   if(!strcmp("wxAuiNotebook", className)) { return true; }
@@ -132,7 +132,7 @@
   if(!strcmp("wxNotebookBase", className)) { return true; }
 
   if(!strcmp("wxNotebook", className)) { return true; }
-  if(!strcmp("wxTreebook", className)) { return true; }
+  if(!strcmp("wxToolbook", className)) { return true; }
   if(!strcmp("wxListbook", className)) { return true; }
 
 
@@ -161,15 +161,15 @@
 
   
   /*
-   * id: _28588
+   * id: _33841
    */
   if(args.Length() == 6 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxWindow::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsNumber() && (args[2]->IsNull() || (args[2]->IsObject() && wxNode_wxPoint::AssignableFrom(args[2]->ToObject()->GetConstructorName()))) && (args[3]->IsNull() || (args[3]->IsObject() && wxNode_wxSize::AssignableFrom(args[3]->ToObject()->GetConstructorName()))) && args[4]->IsNumber() && args[5]->IsString()) {
-    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _993 * */
-    int winid = (int)args[1]->ToInt32()->Value(); /* type: _8633  */
-    wxNode_wxPoint* pos = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[2]->ToObject()); /* type: _20412  */
-    wxNode_wxSize* size = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[3]->ToObject()); /* type: _20522  */
-    long int style = (long int)args[4]->ToInt32()->Value(); /* type: _586  */
-    v8::String::AsciiValue name(args[5]->ToString()); /* type: _14808  */
+    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _1326 * */
+    int winid = (int)args[1]->ToInt32()->Value(); /* type: _11168  */
+    wxNode_wxPoint* pos = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[2]->ToObject()); /* type: _25270  */
+    wxNode_wxSize* size = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[3]->ToObject()); /* type: _25379  */
+    long int style = (long int)args[4]->ToInt32()->Value(); /* type: _766  */
+    v8::String::AsciiValue name(args[5]->ToString()); /* type: _18997  */
     
 
     bool returnVal = self->Create(parent, winid, *pos, *size, style, *name);
@@ -178,14 +178,14 @@
   }
   
   /*
-   * id: _28588
+   * id: _33841
    */
   if(args.Length() == 5 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxWindow::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsNumber() && (args[2]->IsNull() || (args[2]->IsObject() && wxNode_wxPoint::AssignableFrom(args[2]->ToObject()->GetConstructorName()))) && (args[3]->IsNull() || (args[3]->IsObject() && wxNode_wxSize::AssignableFrom(args[3]->ToObject()->GetConstructorName()))) && args[4]->IsNumber()) {
-    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _993 * */
-    int winid = (int)args[1]->ToInt32()->Value(); /* type: _8633  */
-    wxNode_wxPoint* pos = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[2]->ToObject()); /* type: _20412  */
-    wxNode_wxSize* size = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[3]->ToObject()); /* type: _20522  */
-    long int style = (long int)args[4]->ToInt32()->Value(); /* type: _586  */
+    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _1326 * */
+    int winid = (int)args[1]->ToInt32()->Value(); /* type: _11168  */
+    wxNode_wxPoint* pos = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[2]->ToObject()); /* type: _25270  */
+    wxNode_wxSize* size = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[3]->ToObject()); /* type: _25379  */
+    long int style = (long int)args[4]->ToInt32()->Value(); /* type: _766  */
     
 
     bool returnVal = self->Create(parent, winid, *pos, *size, style);
@@ -194,13 +194,13 @@
   }
   
   /*
-   * id: _28588
+   * id: _33841
    */
   if(args.Length() == 4 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxWindow::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsNumber() && (args[2]->IsNull() || (args[2]->IsObject() && wxNode_wxPoint::AssignableFrom(args[2]->ToObject()->GetConstructorName()))) && (args[3]->IsNull() || (args[3]->IsObject() && wxNode_wxSize::AssignableFrom(args[3]->ToObject()->GetConstructorName())))) {
-    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _993 * */
-    int winid = (int)args[1]->ToInt32()->Value(); /* type: _8633  */
-    wxNode_wxPoint* pos = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[2]->ToObject()); /* type: _20412  */
-    wxNode_wxSize* size = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[3]->ToObject()); /* type: _20522  */
+    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _1326 * */
+    int winid = (int)args[1]->ToInt32()->Value(); /* type: _11168  */
+    wxNode_wxPoint* pos = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[2]->ToObject()); /* type: _25270  */
+    wxNode_wxSize* size = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[3]->ToObject()); /* type: _25379  */
     
 
     bool returnVal = self->Create(parent, winid, *pos, *size);
@@ -209,12 +209,12 @@
   }
   
   /*
-   * id: _28588
+   * id: _33841
    */
   if(args.Length() == 3 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxWindow::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsNumber() && (args[2]->IsNull() || (args[2]->IsObject() && wxNode_wxPoint::AssignableFrom(args[2]->ToObject()->GetConstructorName())))) {
-    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _993 * */
-    int winid = (int)args[1]->ToInt32()->Value(); /* type: _8633  */
-    wxNode_wxPoint* pos = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[2]->ToObject()); /* type: _20412  */
+    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _1326 * */
+    int winid = (int)args[1]->ToInt32()->Value(); /* type: _11168  */
+    wxNode_wxPoint* pos = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[2]->ToObject()); /* type: _25270  */
     
 
     bool returnVal = self->Create(parent, winid, *pos);
@@ -223,11 +223,11 @@
   }
   
   /*
-   * id: _28588
+   * id: _33841
    */
   if(args.Length() == 2 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxWindow::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsNumber()) {
-    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _993 * */
-    int winid = (int)args[1]->ToInt32()->Value(); /* type: _8633  */
+    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _1326 * */
+    int winid = (int)args[1]->ToInt32()->Value(); /* type: _11168  */
     
 
     bool returnVal = self->Create(parent, winid);
@@ -252,7 +252,7 @@
 
   
   /*
-   * id: _28589
+   * id: _33842
    */
   if(args.Length() == 0) {
     
@@ -279,10 +279,10 @@
 
   
   /*
-   * id: _28590
+   * id: _33843
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8620  */
+    unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _11150  */
     
 
     wxWindow* returnVal = self->GetPage(n);
@@ -307,7 +307,7 @@
 
   
   /*
-   * id: _28591
+   * id: _33844
    */
   if(args.Length() == 0) {
     
@@ -334,7 +334,7 @@
 
   
   /*
-   * id: _28592
+   * id: _33845
    */
   if(args.Length() == 0) {
     
@@ -361,11 +361,11 @@
 
   
   /*
-   * id: _28593
+   * id: _33846
    */
   if(args.Length() == 2 && args[0]->IsNumber() && args[1]->IsString()) {
-    unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8620  */
-    v8::String::AsciiValue strText(args[1]->ToString()); /* type: _14808  */
+    unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _11150  */
+    v8::String::AsciiValue strText(args[1]->ToString()); /* type: _18997  */
     
 
     bool returnVal = self->SetPageText(n, *strText);
@@ -390,10 +390,10 @@
 
   
   /*
-   * id: _28594
+   * id: _33847
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8620  */
+    unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _11150  */
     
 
     wxString returnVal = self->GetPageText(n);
@@ -418,10 +418,10 @@
 
   
   /*
-   * id: _28595
+   * id: _33848
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8620  */
+    unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _11150  */
     
 
     int returnVal = self->GetPageImage(n);
@@ -446,11 +446,11 @@
 
   
   /*
-   * id: _28596
+   * id: _33849
    */
   if(args.Length() == 2 && args[0]->IsNumber() && args[1]->IsNumber()) {
-    unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8620  */
-    int imageId = (int)args[1]->ToInt32()->Value(); /* type: _162  */
+    unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _11150  */
+    int imageId = (int)args[1]->ToInt32()->Value(); /* type: _233  */
     
 
     bool returnVal = self->SetPageImage(n, imageId);
@@ -475,10 +475,10 @@
 
   
   /*
-   * id: _28597
+   * id: _33850
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxSize::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxSize* size = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[0]->ToObject()); /* type: _20522  */
+    wxNode_wxSize* size = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[0]->ToObject()); /* type: _25379  */
     
 
     self->SetPageSize(*size);
@@ -503,7 +503,7 @@
 
   
   /*
-   * id: _28598
+   * id: _33851
    */
   if(args.Length() == 0) {
     
@@ -530,10 +530,10 @@
 
   
   /*
-   * id: _28599
+   * id: _33852
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxSize::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxSize* sizePage = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[0]->ToObject()); /* type: _20522  */
+    wxNode_wxSize* sizePage = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[0]->ToObject()); /* type: _25379  */
     
 
     wxSize returnVal = self->CalcSizeFromPage(*sizePage);
@@ -558,7 +558,7 @@
 
   
   /*
-   * id: _28600
+   * id: _33853
    */
   if(args.Length() == 0) {
     
@@ -585,10 +585,10 @@
 
   
   /*
-   * id: _28601
+   * id: _33854
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    unsigned int border = (unsigned int)args[0]->ToInt32()->Value(); /* type: _43  */
+    unsigned int border = (unsigned int)args[0]->ToInt32()->Value(); /* type: _62  */
     
 
     self->SetInternalBorder(border);
@@ -613,10 +613,10 @@
 
   
   /*
-   * id: _28602
+   * id: _33855
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    int margin = (int)args[0]->ToInt32()->Value(); /* type: _162  */
+    int margin = (int)args[0]->ToInt32()->Value(); /* type: _233  */
     
 
     self->SetControlMargin(margin);
@@ -641,7 +641,7 @@
 
   
   /*
-   * id: _28603
+   * id: _33856
    */
   if(args.Length() == 0) {
     
@@ -668,7 +668,7 @@
 
   
   /*
-   * id: _28604
+   * id: _33857
    */
   if(args.Length() == 0) {
     
@@ -695,10 +695,10 @@
 
   
   /*
-   * id: _28605
+   * id: _33858
    */
   if(args.Length() == 1 && args[0]->IsBoolean()) {
-    bool fit = args[0]->ToBoolean()->Value(); /* type: _14666  */
+    bool fit = args[0]->ToBoolean()->Value(); /* type: _18804  */
     
 
     self->SetFitToCurrentPage(fit);
@@ -723,7 +723,7 @@
 
   
   /*
-   * id: _28606
+   * id: _33859
    */
   if(args.Length() == 0) {
     
@@ -750,7 +750,7 @@
 
   
   /*
-   * id: _28607
+   * id: _33860
    */
   if(args.Length() == 0) {
     
@@ -777,10 +777,10 @@
 
   
   /*
-   * id: _28608
+   * id: _33861
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8620  */
+    unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _11150  */
     
 
     bool returnVal = self->DeletePage(n);
@@ -805,10 +805,10 @@
 
   
   /*
-   * id: _28609
+   * id: _33862
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8620  */
+    unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _11150  */
     
 
     bool returnVal = self->RemovePage(n);
@@ -833,7 +833,7 @@
 
   
   /*
-   * id: _28610
+   * id: _33863
    */
   if(args.Length() == 0) {
     
@@ -860,13 +860,13 @@
 
   
   /*
-   * id: _28611
+   * id: _33864
    */
   if(args.Length() == 4 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxWindow::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsString() && args[2]->IsBoolean() && args[3]->IsNumber()) {
-    wxNode_wxWindow* page = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _993 * */
-    v8::String::AsciiValue text(args[1]->ToString()); /* type: _14808  */
-    bool bSelect = args[2]->ToBoolean()->Value(); /* type: _14666  */
-    int imageId = (int)args[3]->ToInt32()->Value(); /* type: _162  */
+    wxNode_wxWindow* page = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _1326 * */
+    v8::String::AsciiValue text(args[1]->ToString()); /* type: _18997  */
+    bool bSelect = args[2]->ToBoolean()->Value(); /* type: _18804  */
+    int imageId = (int)args[3]->ToInt32()->Value(); /* type: _233  */
     
 
     bool returnVal = self->AddPage(page, *text, bSelect, imageId);
@@ -875,12 +875,12 @@
   }
   
   /*
-   * id: _28611
+   * id: _33864
    */
   if(args.Length() == 3 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxWindow::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsString() && args[2]->IsBoolean()) {
-    wxNode_wxWindow* page = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _993 * */
-    v8::String::AsciiValue text(args[1]->ToString()); /* type: _14808  */
-    bool bSelect = args[2]->ToBoolean()->Value(); /* type: _14666  */
+    wxNode_wxWindow* page = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _1326 * */
+    v8::String::AsciiValue text(args[1]->ToString()); /* type: _18997  */
+    bool bSelect = args[2]->ToBoolean()->Value(); /* type: _18804  */
     
 
     bool returnVal = self->AddPage(page, *text, bSelect);
@@ -889,11 +889,11 @@
   }
   
   /*
-   * id: _28611
+   * id: _33864
    */
   if(args.Length() == 2 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxWindow::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsString()) {
-    wxNode_wxWindow* page = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _993 * */
-    v8::String::AsciiValue text(args[1]->ToString()); /* type: _14808  */
+    wxNode_wxWindow* page = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _1326 * */
+    v8::String::AsciiValue text(args[1]->ToString()); /* type: _18997  */
     
 
     bool returnVal = self->AddPage(page, *text);
@@ -918,14 +918,14 @@
 
   
   /*
-   * id: _28612
+   * id: _33865
    */
   if(args.Length() == 5 && args[0]->IsNumber() && (args[1]->IsNull() || (args[1]->IsObject() && wxNode_wxWindow::AssignableFrom(args[1]->ToObject()->GetConstructorName()))) && args[2]->IsString() && args[3]->IsBoolean() && args[4]->IsNumber()) {
-    unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8620  */
-    wxNode_wxWindow* page = args[1]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[1]->ToObject()); /* type: _993 * */
-    v8::String::AsciiValue text(args[2]->ToString()); /* type: _14808  */
-    bool bSelect = args[3]->ToBoolean()->Value(); /* type: _14666  */
-    int imageId = (int)args[4]->ToInt32()->Value(); /* type: _162  */
+    unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _11150  */
+    wxNode_wxWindow* page = args[1]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[1]->ToObject()); /* type: _1326 * */
+    v8::String::AsciiValue text(args[2]->ToString()); /* type: _18997  */
+    bool bSelect = args[3]->ToBoolean()->Value(); /* type: _18804  */
+    int imageId = (int)args[4]->ToInt32()->Value(); /* type: _233  */
     
 
     bool returnVal = self->InsertPage(n, page, *text, bSelect, imageId);
@@ -934,13 +934,13 @@
   }
   
   /*
-   * id: _28612
+   * id: _33865
    */
   if(args.Length() == 4 && args[0]->IsNumber() && (args[1]->IsNull() || (args[1]->IsObject() && wxNode_wxWindow::AssignableFrom(args[1]->ToObject()->GetConstructorName()))) && args[2]->IsString() && args[3]->IsBoolean()) {
-    unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8620  */
-    wxNode_wxWindow* page = args[1]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[1]->ToObject()); /* type: _993 * */
-    v8::String::AsciiValue text(args[2]->ToString()); /* type: _14808  */
-    bool bSelect = args[3]->ToBoolean()->Value(); /* type: _14666  */
+    unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _11150  */
+    wxNode_wxWindow* page = args[1]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[1]->ToObject()); /* type: _1326 * */
+    v8::String::AsciiValue text(args[2]->ToString()); /* type: _18997  */
+    bool bSelect = args[3]->ToBoolean()->Value(); /* type: _18804  */
     
 
     bool returnVal = self->InsertPage(n, page, *text, bSelect);
@@ -949,12 +949,12 @@
   }
   
   /*
-   * id: _28612
+   * id: _33865
    */
   if(args.Length() == 3 && args[0]->IsNumber() && (args[1]->IsNull() || (args[1]->IsObject() && wxNode_wxWindow::AssignableFrom(args[1]->ToObject()->GetConstructorName()))) && args[2]->IsString()) {
-    unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8620  */
-    wxNode_wxWindow* page = args[1]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[1]->ToObject()); /* type: _993 * */
-    v8::String::AsciiValue text(args[2]->ToString()); /* type: _14808  */
+    unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _11150  */
+    wxNode_wxWindow* page = args[1]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[1]->ToObject()); /* type: _1326 * */
+    v8::String::AsciiValue text(args[2]->ToString()); /* type: _18997  */
     
 
     bool returnVal = self->InsertPage(n, page, *text);
@@ -979,10 +979,10 @@
 
   
   /*
-   * id: _28613
+   * id: _33866
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8620  */
+    unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _11150  */
     
 
     int returnVal = self->SetSelection(n);
@@ -1007,10 +1007,10 @@
 
   
   /*
-   * id: _28614
+   * id: _33867
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8620  */
+    unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _11150  */
     
 
     int returnVal = self->ChangeSelection(n);
@@ -1035,10 +1035,10 @@
 
   
   /*
-   * id: _28615
+   * id: _33868
    */
   if(args.Length() == 1 && args[0]->IsBoolean()) {
-    bool forward = args[0]->ToBoolean()->Value(); /* type: _14666  */
+    bool forward = args[0]->ToBoolean()->Value(); /* type: _18804  */
     
 
     self->AdvanceSelection(forward);
@@ -1047,7 +1047,7 @@
   }
   
   /*
-   * id: _28615
+   * id: _33868
    */
   if(args.Length() == 0) {
     
@@ -1074,11 +1074,11 @@
 
   
   /*
-   * id: _28616
+   * id: _33869
    */
   if(args.Length() == 2 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxPoint::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && false) {
-    wxNode_wxPoint* arg0 = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[0]->ToObject()); /* type: _20412  */
-    long int arg1; /* type: _20380 * */
+    wxNode_wxPoint* arg0 = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[0]->ToObject()); /* type: _25270  */
+    long int arg1; /* type: _24456 * */
     
 
     int returnVal = self->HitTest(*arg0, &arg1);
@@ -1087,10 +1087,10 @@
   }
   
   /*
-   * id: _28616
+   * id: _33869
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxPoint::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxPoint* arg0 = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[0]->ToObject()); /* type: _20412  */
+    wxNode_wxPoint* arg0 = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[0]->ToObject()); /* type: _25270  */
     
 
     int returnVal = self->HitTest(*arg0);
@@ -1115,7 +1115,7 @@
 
   
   /*
-   * id: _28617
+   * id: _33870
    */
   if(args.Length() == 0) {
     
@@ -1142,7 +1142,7 @@
 
   
   /*
-   * id: _28618
+   * id: _33871
    */
   if(args.Length() == 0) {
     
@@ -1169,7 +1169,7 @@
 
   
   /*
-   * id: _28619
+   * id: _33872
    */
   if(args.Length() == 0) {
     
@@ -1196,7 +1196,7 @@
 
   
   /*
-   * id: _28636
+   * id: _33889
    */
   if(args.Length() == 0) {
     

@@ -127,19 +127,18 @@
   if(!strcmp("wxTreeEvent", className)) { return true; }
   if(!strcmp("wxGridEvent", className)) { return true; }
   if(!strcmp("wxSpinEvent", className)) { return true; }
-  if(!strcmp("wxTreeListEvent", className)) { return true; }
+  if(!strcmp("wxListEvent", className)) { return true; }
   if(!strcmp("wxRichTextEvent", className)) { return true; }
+  if(!strcmp("wxSpinDoubleEvent", className)) { return true; }
   if(!strcmp("wxDataViewEvent", className)) { return true; }
   if(!strcmp("wxGridSizeEvent", className)) { return true; }
   if(!strcmp("wxAuiToolBarEvent", className)) { return true; }
-  if(!strcmp("wxListEvent", className)) { return true; }
+  if(!strcmp("wxTreeListEvent", className)) { return true; }
   if(!strcmp("wxGridRangeSelectEvent", className)) { return true; }
-  if(!strcmp("wxSpinDoubleEvent", className)) { return true; }
   if(!strcmp("wxGridEditorCreatedEvent", className)) { return true; }
   if(!strcmp("wxFileCtrlEvent", className)) { return true; }
   if(!strcmp("wxHtmlLinkEvent", className)) { return true; }
   if(!strcmp("wxFileDirPickerEvent", className)) { return true; }
-  if(!strcmp("wxFindDialogEvent", className)) { return true; }
   if(!strcmp("wxColourPickerEvent", className)) { return true; }
   if(!strcmp("wxChildFocusEvent", className)) { return true; }
   if(!strcmp("wxDateEvent", className)) { return true; }
@@ -151,18 +150,18 @@
   if(!strcmp("wxSashEvent", className)) { return true; }
   if(!strcmp("wxHelpEvent", className)) { return true; }
   if(!strcmp("wxCollapsiblePaneEvent", className)) { return true; }
+  if(!strcmp("wxUpdateUIEvent", className)) { return true; }
+  if(!strcmp("wxFindDialogEvent", className)) { return true; }
   if(!strcmp("wxWindowDestroyEvent", className)) { return true; }
   if(!strcmp("wxFontPickerEvent", className)) { return true; }
-  if(!strcmp("wxUpdateUIEvent", className)) { return true; }
+  if(!strcmp("wxShowEvent", className)) { return true; }
   if(!strcmp("wxClipboardEvent", className)) { return true; }
   if(!strcmp("wxMouseCaptureChangedEvent", className)) { return true; }
   if(!strcmp("wxDialUpEvent", className)) { return true; }
   if(!strcmp("wxCloseEvent", className)) { return true; }
-  if(!strcmp("wxPaintEvent", className)) { return true; }
   if(!strcmp("wxMaximizeEvent", className)) { return true; }
   if(!strcmp("wxFocusEvent", className)) { return true; }
   if(!strcmp("wxSocketEvent", className)) { return true; }
-  if(!strcmp("wxMouseCaptureLostEvent", className)) { return true; }
   if(!strcmp("wxIdleEvent", className)) { return true; }
   if(!strcmp("wxScrollWinEvent", className)) { return true; }
   if(!strcmp("wxTaskBarIconEvent", className)) { return true; }
@@ -171,23 +170,24 @@
   if(!strcmp("wxCalculateLayoutEvent", className)) { return true; }
   if(!strcmp("wxDisplayChangedEvent", className)) { return true; }
   if(!strcmp("wxQueryNewPaletteEvent", className)) { return true; }
+  if(!strcmp("wxFileSystemWatcherEvent", className)) { return true; }
   if(!strcmp("wxSizeEvent", className)) { return true; }
   if(!strcmp("wxInitDialogEvent", className)) { return true; }
   if(!strcmp("wxSetCursorEvent", className)) { return true; }
-  if(!strcmp("wxFileSystemWatcherEvent", className)) { return true; }
-  if(!strcmp("wxSysColourChangedEvent", className)) { return true; }
   if(!strcmp("wxProcessEvent", className)) { return true; }
   if(!strcmp("wxTimerEvent", className)) { return true; }
   if(!strcmp("wxQueryLayoutInfoEvent", className)) { return true; }
   if(!strcmp("wxKeyEvent", className)) { return true; }
   if(!strcmp("wxJoystickEvent", className)) { return true; }
   if(!strcmp("wxMenuEvent", className)) { return true; }
-  if(!strcmp("wxShowEvent", className)) { return true; }
+  if(!strcmp("wxMouseCaptureLostEvent", className)) { return true; }
   if(!strcmp("wxMoveEvent", className)) { return true; }
   if(!strcmp("wxNcPaintEvent", className)) { return true; }
   if(!strcmp("wxNavigationKeyEvent", className)) { return true; }
   if(!strcmp("wxActivateEvent", className)) { return true; }
   if(!strcmp("wxThreadEvent", className)) { return true; }
+  if(!strcmp("wxSysColourChangedEvent", className)) { return true; }
+  if(!strcmp("wxPaintEvent", className)) { return true; }
   if(!strcmp("wxAuiManagerEvent", className)) { return true; }
 
 
@@ -216,10 +216,10 @@
 
   
   /*
-   * id: _16158
+   * id: _20447
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    int typ = (int)args[0]->ToInt32()->Value(); /* type: _980  */
+    int typ = (int)args[0]->ToInt32()->Value(); /* type: _1304  */
     
 
     self->SetEventType(typ);
@@ -244,7 +244,7 @@
 
   
   /*
-   * id: _16159
+   * id: _20448
    */
   if(args.Length() == 0) {
     
@@ -271,7 +271,7 @@
 
   
   /*
-   * id: _16160
+   * id: _20449
    */
   if(args.Length() == 0) {
     
@@ -298,10 +298,10 @@
 
   
   /*
-   * id: _16161
+   * id: _20450
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxObject::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxObject* obj = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxObject>(args[0]->ToObject()); /* type: _15609 * */
+    wxNode_wxObject* obj = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxObject>(args[0]->ToObject()); /* type: _19755 * */
     
 
     self->SetEventObject(obj);
@@ -326,7 +326,7 @@
 
   
   /*
-   * id: _16162
+   * id: _20451
    */
   if(args.Length() == 0) {
     
@@ -353,10 +353,10 @@
 
   
   /*
-   * id: _16163
+   * id: _20452
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    long int ts = (long int)args[0]->ToInt32()->Value(); /* type: _586  */
+    long int ts = (long int)args[0]->ToInt32()->Value(); /* type: _766  */
     
 
     self->SetTimestamp(ts);
@@ -365,7 +365,7 @@
   }
   
   /*
-   * id: _16163
+   * id: _20452
    */
   if(args.Length() == 0) {
     
@@ -392,7 +392,7 @@
 
   
   /*
-   * id: _16164
+   * id: _20453
    */
   if(args.Length() == 0) {
     
@@ -419,10 +419,10 @@
 
   
   /*
-   * id: _16165
+   * id: _20454
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    int Id = (int)args[0]->ToInt32()->Value(); /* type: _162  */
+    int Id = (int)args[0]->ToInt32()->Value(); /* type: _233  */
     
 
     self->SetId(Id);
@@ -447,10 +447,10 @@
 
   
   /*
-   * id: _16166
+   * id: _20455
    */
   if(args.Length() == 1 && args[0]->IsBoolean()) {
-    bool skip = args[0]->ToBoolean()->Value(); /* type: _14666  */
+    bool skip = args[0]->ToBoolean()->Value(); /* type: _18804  */
     
 
     self->Skip(skip);
@@ -459,7 +459,7 @@
   }
   
   /*
-   * id: _16166
+   * id: _20455
    */
   if(args.Length() == 0) {
     
@@ -486,7 +486,7 @@
 
   
   /*
-   * id: _16167
+   * id: _20456
    */
   if(args.Length() == 0) {
     
@@ -513,7 +513,7 @@
 
   
   /*
-   * id: _16168
+   * id: _20457
    */
   if(args.Length() == 0) {
     
@@ -540,7 +540,7 @@
 
   
   /*
-   * id: _16169
+   * id: _20458
    */
   if(args.Length() == 0) {
     
@@ -567,7 +567,7 @@
 
   
   /*
-   * id: _16170
+   * id: _20459
    */
   if(args.Length() == 0) {
     
@@ -594,7 +594,7 @@
 
   
   /*
-   * id: _16171
+   * id: _20460
    */
   if(args.Length() == 0) {
     
@@ -621,7 +621,7 @@
 
   
   /*
-   * id: _16172
+   * id: _20461
    */
   if(args.Length() == 0) {
     
@@ -648,10 +648,10 @@
 
   
   /*
-   * id: _16173
+   * id: _20462
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    int propagationLevel = (int)args[0]->ToInt32()->Value(); /* type: _162  */
+    int propagationLevel = (int)args[0]->ToInt32()->Value(); /* type: _233  */
     
 
     self->ResumePropagation(propagationLevel);
@@ -676,7 +676,7 @@
 
   
   /*
-   * id: _16174
+   * id: _20463
    */
   if(args.Length() == 0) {
     
@@ -703,10 +703,10 @@
 
   
   /*
-   * id: _16175
+   * id: _20464
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxEvtHandler::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxEvtHandler* h = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxEvtHandler>(args[0]->ToObject()); /* type: _1665 * */
+    wxNode_wxEvtHandler* h = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxEvtHandler>(args[0]->ToObject()); /* type: _2228 * */
     
 
     bool returnVal = self->ShouldProcessOnlyIn(h);
@@ -731,7 +731,7 @@
 
   
   /*
-   * id: _16176
+   * id: _20465
    */
   if(args.Length() == 0) {
     
@@ -758,7 +758,7 @@
 
   
   /*
-   * id: _16179
+   * id: _20468
    */
   if(args.Length() == 0) {
     

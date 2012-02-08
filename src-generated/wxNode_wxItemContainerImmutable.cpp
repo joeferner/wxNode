@@ -155,7 +155,7 @@
 
   
   /*
-   * id: _52247
+   * id: _57906
    */
   if(args.Length() == 0) {
     
@@ -182,7 +182,7 @@
 
   
   /*
-   * id: _52248
+   * id: _57907
    */
   if(args.Length() == 0) {
     
@@ -209,10 +209,10 @@
 
   
   /*
-   * id: _52249
+   * id: _57908
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _43  */
+    unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _62  */
     
 
     wxString returnVal = self->GetString(n);
@@ -237,7 +237,7 @@
 
   
   /*
-   * id: _52250
+   * id: _57909
    */
   if(args.Length() == 0) {
     
@@ -264,11 +264,11 @@
 
   
   /*
-   * id: _52251
+   * id: _57910
    */
   if(args.Length() == 2 && args[0]->IsNumber() && args[1]->IsString()) {
-    unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _43  */
-    v8::String::AsciiValue s(args[1]->ToString()); /* type: _14808  */
+    unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _62  */
+    v8::String::AsciiValue s(args[1]->ToString()); /* type: _18997  */
     
 
     self->SetString(n, *s);
@@ -293,11 +293,11 @@
 
   
   /*
-   * id: _52252
+   * id: _57911
    */
   if(args.Length() == 2 && args[0]->IsString() && args[1]->IsBoolean()) {
-    v8::String::AsciiValue s(args[0]->ToString()); /* type: _14808  */
-    bool bCase = args[1]->ToBoolean()->Value(); /* type: _14666  */
+    v8::String::AsciiValue s(args[0]->ToString()); /* type: _18997  */
+    bool bCase = args[1]->ToBoolean()->Value(); /* type: _18804  */
     
 
     int returnVal = self->FindString(*s, bCase);
@@ -306,10 +306,10 @@
   }
   
   /*
-   * id: _52252
+   * id: _57911
    */
   if(args.Length() == 1 && args[0]->IsString()) {
-    v8::String::AsciiValue s(args[0]->ToString()); /* type: _14808  */
+    v8::String::AsciiValue s(args[0]->ToString()); /* type: _18997  */
     
 
     int returnVal = self->FindString(*s);
@@ -334,10 +334,10 @@
 
   
   /*
-   * id: _52253
+   * id: _57912
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    int n = (int)args[0]->ToInt32()->Value(); /* type: _162  */
+    int n = (int)args[0]->ToInt32()->Value(); /* type: _233  */
     
 
     self->SetSelection(n);
@@ -362,7 +362,7 @@
 
   
   /*
-   * id: _52254
+   * id: _57913
    */
   if(args.Length() == 0) {
     
@@ -389,10 +389,10 @@
 
   
   /*
-   * id: _52255
+   * id: _57914
    */
   if(args.Length() == 1 && args[0]->IsString()) {
-    v8::String::AsciiValue s(args[0]->ToString()); /* type: _14808  */
+    v8::String::AsciiValue s(args[0]->ToString()); /* type: _18997  */
     
 
     bool returnVal = self->SetStringSelection(*s);
@@ -417,7 +417,7 @@
 
   
   /*
-   * id: _52256
+   * id: _57915
    */
   if(args.Length() == 0) {
     
@@ -444,10 +444,10 @@
 
   
   /*
-   * id: _52257
+   * id: _57916
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    int n = (int)args[0]->ToInt32()->Value(); /* type: _162  */
+    int n = (int)args[0]->ToInt32()->Value(); /* type: _233  */
     
 
     self->Select(n);

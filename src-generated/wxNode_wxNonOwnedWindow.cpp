@@ -109,7 +109,6 @@ wxNode_wxNonOwnedWindow::wxNode_wxNonOwnedWindow()
 
   if(!strcmp("wxTopLevelWindow", className)) { return true; }
 
-  if(!strcmp("wxNativeContainerWindow", className)) { return true; }
   if(!strcmp("wxFrameBase", className)) { return true; }
 
   if(!strcmp("wxFrame", className)) { return true; }
@@ -119,7 +118,6 @@ wxNode_wxNonOwnedWindow::wxNode_wxNonOwnedWindow()
   if(!strcmp("wxDocChildFrameAny<wxFrame,wxFrame>", className)) { return true; }
 
   if(!strcmp("wxDocChildFrame", className)) { return true; }
-  if(!strcmp("wxSplashScreen", className)) { return true; }
   if(!strcmp("wxMDIChildFrameBase", className)) { return true; }
 
   if(!strcmp("wxTDIChildFrame", className)) { return true; }
@@ -135,7 +133,7 @@ wxNode_wxNonOwnedWindow::wxNode_wxNonOwnedWindow()
   if(!strcmp("wxMiniFrame", className)) { return true; }
 
   if(!strcmp("wxAuiFloatingFrame", className)) { return true; }
-  if(!strcmp("wxHtmlHelpFrame", className)) { return true; }
+  if(!strcmp("wxSplashScreen", className)) { return true; }
   if(!strcmp("wxMDIParentFrameBase", className)) { return true; }
 
   if(!strcmp("wxMDIParentFrame", className)) { return true; }
@@ -143,6 +141,8 @@ wxNode_wxNonOwnedWindow::wxNode_wxNonOwnedWindow()
   if(!strcmp("wxDocParentFrameAny<wxMDIParentFrame>", className)) { return true; }
 
   if(!strcmp("wxDocMDIParentFrame", className)) { return true; }
+  if(!strcmp("wxHtmlHelpFrame", className)) { return true; }
+  if(!strcmp("wxNativeContainerWindow", className)) { return true; }
   if(!strcmp("wxDialogBase", className)) { return true; }
 
   if(!strcmp("wxDialog", className)) { return true; }
@@ -154,9 +154,12 @@ wxNode_wxNonOwnedWindow::wxNode_wxNonOwnedWindow()
   if(!strcmp("wxDirDialogBase", className)) { return true; }
 
   if(!strcmp("wxDirDialog", className)) { return true; }
-  if(!strcmp("wxWizardBase", className)) { return true; }
+  if(!strcmp("wxGenericProgressDialog", className)) { return true; }
 
-  if(!strcmp("wxWizard", className)) { return true; }
+  if(!strcmp("wxProgressDialog", className)) { return true; }
+  if(!strcmp("wxPropertySheetDialog", className)) { return true; }
+
+  if(!strcmp("wxRichTextFormattingDialog", className)) { return true; }
   if(!strcmp("wxMessageDialogBase", className)) { return true; }
 
   if(!strcmp("wxMessageDialog", className)) { return true; }
@@ -172,28 +175,25 @@ wxNode_wxNonOwnedWindow::wxNode_wxNonOwnedWindow()
   if(!strcmp("wxFindReplaceDialogBase", className)) { return true; }
 
   if(!strcmp("wxFindReplaceDialog", className)) { return true; }
+  if(!strcmp("wxWizardBase", className)) { return true; }
+
+  if(!strcmp("wxWizard", className)) { return true; }
   if(!strcmp("wxPrintAbortDialog", className)) { return true; }
   if(!strcmp("wxAnyChoiceDialog", className)) { return true; }
 
   if(!strcmp("wxSingleChoiceDialog", className)) { return true; }
   if(!strcmp("wxMultiChoiceDialog", className)) { return true; }
+  if(!strcmp("wxRichTextStyleOrganiserDialog", className)) { return true; }
   if(!strcmp("wxTextEntryDialog", className)) { return true; }
 
   if(!strcmp("wxPasswordEntryDialog", className)) { return true; }
-  if(!strcmp("wxRichTextStyleOrganiserDialog", className)) { return true; }
   if(!strcmp("wxPrintDialogBase", className)) { return true; }
   if(!strcmp("wxPageSetupDialogBase", className)) { return true; }
   if(!strcmp("wxSymbolPickerDialog", className)) { return true; }
+  if(!strcmp("wxNumberEntryDialog", className)) { return true; }
   if(!strcmp("wxFileDialogBase", className)) { return true; }
 
   if(!strcmp("wxFileDialog", className)) { return true; }
-  if(!strcmp("wxNumberEntryDialog", className)) { return true; }
-  if(!strcmp("wxPropertySheetDialog", className)) { return true; }
-
-  if(!strcmp("wxRichTextFormattingDialog", className)) { return true; }
-  if(!strcmp("wxGenericProgressDialog", className)) { return true; }
-
-  if(!strcmp("wxProgressDialog", className)) { return true; }
   if(!strcmp("wxPopupWindowBase", className)) { return true; }
 
   if(!strcmp("wxPopupWindow", className)) { return true; }
@@ -212,7 +212,7 @@ wxNode_wxNonOwnedWindow::wxNode_wxNonOwnedWindow()
   
   
   /*
-   * id: _15953
+   * id: _20144
    */
   if(args.Length() == 0) {
     
@@ -242,10 +242,10 @@ wxNode_wxNonOwnedWindow::wxNode_wxNonOwnedWindow()
 
   
   /*
-   * id: _30423
+   * id: _35586
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxRegion::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxRegion* region = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxRegion>(args[0]->ToObject()); /* type: _58929  */
+    wxNode_wxRegion* region = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxRegion>(args[0]->ToObject()); /* type: _65107  */
     
 
     bool returnVal = self->SetShape(*region);
@@ -254,10 +254,10 @@ wxNode_wxNonOwnedWindow::wxNode_wxNonOwnedWindow()
   }
   
   /*
-   * id: _30424
+   * id: _35587
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxGraphicsPath::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxGraphicsPath* path = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxGraphicsPath>(args[0]->ToObject()); /* type: _58930  */
+    wxNode_wxGraphicsPath* path = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxGraphicsPath>(args[0]->ToObject()); /* type: _65108  */
     
 
     bool returnVal = self->SetShape(*path);

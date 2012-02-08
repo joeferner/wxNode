@@ -1,0 +1,19 @@
+*** utils/ifacecheck/rungccxml.sh.old	2012-02-08 09:33:21.559874075 -0500
+--- utils/ifacecheck/rungccxml.sh	2012-02-08 09:40:05.891874030 -0500
+***************
+*** 38,44 ****
+  cd ../../include              # go to wx include folder
+  
+  # now filter it
+! headerlist=`$listcmd | grep -v wxshl | grep -v wx_cw | grep -v setup | grep -v xti | grep -v dde.h | grep -v fmappriv`
+  
+  cd $current                          # return to the original path
+  
+--- 38,44 ----
+  cd ../../include              # go to wx include folder
+  
+  # now filter it
+! headerlist=`$listcmd | grep -v wxshl | grep -v wx_cw | grep -v setup | grep -v xti | grep -v dde.h | grep -v fmappriv | grep -v cppunit | grep -v variantbase | grep -v richtextborderspage | grep -v richtextbackgroundpage`
+  
+  cd $current                          # return to the original path
+  

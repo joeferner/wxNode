@@ -146,12 +146,12 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
   if(!strcmp("wxGenericDirButton", className)) { return true; }
 
   if(!strcmp("wxDirButton", className)) { return true; }
+  if(!strcmp("wxFontButton", className)) { return true; }
   if(!strcmp("wxCommandLinkButtonBase", className)) { return true; }
 
   if(!strcmp("wxGenericCommandLinkButton", className)) { return true; }
 
   if(!strcmp("wxCommandLinkButton", className)) { return true; }
-  if(!strcmp("wxFontButton", className)) { return true; }
   if(!strcmp("wxColourButton", className)) { return true; }
 
 
@@ -164,7 +164,7 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
   
   
   /*
-   * id: _32396
+   * id: _37364
    */
   if(args.Length() == 0) {
     
@@ -194,11 +194,11 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
 
   
   /*
-   * id: _37217
+   * id: _41848
    */
   if(args.Length() == 2 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxBitmap::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsNumber()) {
-    wxNode_wxBitmap* bitmap = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[0]->ToObject()); /* type: _15508  */
-    wxDirection dir = (wxDirection)args[1]->ToNumber()->Value(); /* type: _10177  */
+    wxNode_wxBitmap* bitmap = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[0]->ToObject()); /* type: _19639  */
+    wxDirection dir = (wxDirection)args[1]->ToNumber()->Value(); /* type: _13167  */
     
 
     self->SetBitmap(*bitmap, dir);
@@ -207,10 +207,10 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
   }
   
   /*
-   * id: _37217
+   * id: _41848
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxBitmap::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxBitmap* bitmap = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[0]->ToObject()); /* type: _15508  */
+    wxNode_wxBitmap* bitmap = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[0]->ToObject()); /* type: _19639  */
     
 
     self->SetBitmap(*bitmap);
@@ -235,7 +235,7 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
 
   
   /*
-   * id: _37218
+   * id: _41849
    */
   if(args.Length() == 0) {
     
@@ -262,10 +262,10 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
 
   
   /*
-   * id: _37219
+   * id: _41850
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxBitmap::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxBitmap* bitmap = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[0]->ToObject()); /* type: _15508  */
+    wxNode_wxBitmap* bitmap = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[0]->ToObject()); /* type: _19639  */
     
 
     self->SetBitmapLabel(*bitmap);
@@ -290,10 +290,10 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
 
   
   /*
-   * id: _37220
+   * id: _41851
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxBitmap::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxBitmap* bitmap = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[0]->ToObject()); /* type: _15508  */
+    wxNode_wxBitmap* bitmap = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[0]->ToObject()); /* type: _19639  */
     
 
     self->SetBitmapPressed(*bitmap);
@@ -318,10 +318,10 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
 
   
   /*
-   * id: _37221
+   * id: _41852
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxBitmap::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxBitmap* bitmap = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[0]->ToObject()); /* type: _15508  */
+    wxNode_wxBitmap* bitmap = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[0]->ToObject()); /* type: _19639  */
     
 
     self->SetBitmapDisabled(*bitmap);
@@ -346,10 +346,10 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
 
   
   /*
-   * id: _37222
+   * id: _41853
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxBitmap::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxBitmap* bitmap = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[0]->ToObject()); /* type: _15508  */
+    wxNode_wxBitmap* bitmap = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[0]->ToObject()); /* type: _19639  */
     
 
     self->SetBitmapCurrent(*bitmap);
@@ -374,10 +374,10 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
 
   
   /*
-   * id: _37223
+   * id: _41854
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxBitmap::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxBitmap* bitmap = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[0]->ToObject()); /* type: _15508  */
+    wxNode_wxBitmap* bitmap = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[0]->ToObject()); /* type: _19639  */
     
 
     self->SetBitmapFocus(*bitmap);
@@ -402,7 +402,7 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
 
   
   /*
-   * id: _37224
+   * id: _41855
    */
   if(args.Length() == 0) {
     
@@ -429,7 +429,7 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
 
   
   /*
-   * id: _37225
+   * id: _41856
    */
   if(args.Length() == 0) {
     
@@ -456,7 +456,7 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
 
   
   /*
-   * id: _37226
+   * id: _41857
    */
   if(args.Length() == 0) {
     
@@ -483,7 +483,7 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
 
   
   /*
-   * id: _37227
+   * id: _41858
    */
   if(args.Length() == 0) {
     
@@ -510,7 +510,7 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
 
   
   /*
-   * id: _37228
+   * id: _41859
    */
   if(args.Length() == 0) {
     
@@ -537,11 +537,11 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
 
   
   /*
-   * id: _37229
+   * id: _41860
    */
   if(args.Length() == 2 && args[0]->IsNumber() && args[1]->IsNumber()) {
-    int x = (int)args[0]->ToInt32()->Value(); /* type: _12095  */
-    int y = (int)args[1]->ToInt32()->Value(); /* type: _12095  */
+    int x = (int)args[0]->ToInt32()->Value(); /* type: _15626  */
+    int y = (int)args[1]->ToInt32()->Value(); /* type: _15626  */
     
 
     self->SetBitmapMargins(x, y);
@@ -550,10 +550,10 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
   }
   
   /*
-   * id: _37230
+   * id: _41861
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxSize::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxSize* sz = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[0]->ToObject()); /* type: _20522  */
+    wxNode_wxSize* sz = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[0]->ToObject()); /* type: _25379  */
     
 
     self->SetBitmapMargins(*sz);
@@ -578,7 +578,7 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
 
   
   /*
-   * id: _37231
+   * id: _41862
    */
   if(args.Length() == 0) {
     
@@ -605,10 +605,10 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
 
   
   /*
-   * id: _37232
+   * id: _41863
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    wxDirection dir = (wxDirection)args[0]->ToNumber()->Value(); /* type: _10177  */
+    wxDirection dir = (wxDirection)args[0]->ToNumber()->Value(); /* type: _13167  */
     
 
     self->SetBitmapPosition(dir);
@@ -633,7 +633,7 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
 
   
   /*
-   * id: _37233
+   * id: _41864
    */
   if(args.Length() == 0) {
     
@@ -660,10 +660,10 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
 
   
   /*
-   * id: _37234
+   * id: _41865
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxBitmap::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxBitmap* bitmap = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[0]->ToObject()); /* type: _15508  */
+    wxNode_wxBitmap* bitmap = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[0]->ToObject()); /* type: _19639  */
     
 
     self->SetImageLabel(*bitmap);
@@ -688,11 +688,11 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
 
   
   /*
-   * id: _37235
+   * id: _41866
    */
   if(args.Length() == 2 && args[0]->IsNumber() && args[1]->IsNumber()) {
-    int x = (int)args[0]->ToInt32()->Value(); /* type: _12095  */
-    int y = (int)args[1]->ToInt32()->Value(); /* type: _12095  */
+    int x = (int)args[0]->ToInt32()->Value(); /* type: _15626  */
+    int y = (int)args[1]->ToInt32()->Value(); /* type: _15626  */
     
 
     self->SetImageMargins(x, y);
@@ -717,7 +717,7 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
 
   
   /*
-   * id: _37236
+   * id: _41867
    */
   if(args.Length() == 0) {
     
@@ -744,7 +744,7 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
 
   
   /*
-   * id: _37237
+   * id: _41868
    */
   if(args.Length() == 0) {
     
@@ -771,10 +771,10 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
 
   
   /*
-   * id: _37238
+   * id: _41869
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxBitmap::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxBitmap* bitmap = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[0]->ToObject()); /* type: _15508  */
+    wxNode_wxBitmap* bitmap = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[0]->ToObject()); /* type: _19639  */
     
 
     self->SetBitmapSelected(*bitmap);
@@ -799,10 +799,10 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
 
   
   /*
-   * id: _37239
+   * id: _41870
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxBitmap::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxBitmap* bitmap = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[0]->ToObject()); /* type: _15508  */
+    wxNode_wxBitmap* bitmap = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[0]->ToObject()); /* type: _19639  */
     
 
     self->SetBitmapHover(*bitmap);
@@ -827,7 +827,7 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
 
   
   /*
-   * id: _37240
+   * id: _41871
    */
   if(args.Length() == 0) {
     
@@ -854,7 +854,7 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
 
   
   /*
-   * id: _37241
+   * id: _41872
    */
   if(args.Length() == 0) {
     
