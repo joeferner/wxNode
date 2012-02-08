@@ -19,31 +19,31 @@ wxNode_wxNotebook::wxNode_wxNotebook()
 
 }
 
-wxNode_wxNotebook::wxNode_wxNotebook(wxNode_wxWindow* parent, int id, wxNode_wxPoint& pos, wxNode_wxSize& size, long int style, const wxString& name)
+wxNode_wxNotebook::wxNode_wxNotebook(wxWindow* parent, int id, wxPoint& pos, wxSize& size, long int style, const wxString& name)
   : wxNotebook(parent, id, pos, size, style, name)
 {
 
 }
 
-wxNode_wxNotebook::wxNode_wxNotebook(wxNode_wxWindow* parent, int id, wxNode_wxPoint& pos, wxNode_wxSize& size, long int style)
+wxNode_wxNotebook::wxNode_wxNotebook(wxWindow* parent, int id, wxPoint& pos, wxSize& size, long int style)
   : wxNotebook(parent, id, pos, size, style)
 {
 
 }
 
-wxNode_wxNotebook::wxNode_wxNotebook(wxNode_wxWindow* parent, int id, wxNode_wxPoint& pos, wxNode_wxSize& size)
+wxNode_wxNotebook::wxNode_wxNotebook(wxWindow* parent, int id, wxPoint& pos, wxSize& size)
   : wxNotebook(parent, id, pos, size)
 {
 
 }
 
-wxNode_wxNotebook::wxNode_wxNotebook(wxNode_wxWindow* parent, int id, wxNode_wxPoint& pos)
+wxNode_wxNotebook::wxNode_wxNotebook(wxWindow* parent, int id, wxPoint& pos)
   : wxNotebook(parent, id, pos)
 {
 
 }
 
-wxNode_wxNotebook::wxNode_wxNotebook(wxNode_wxWindow* parent, int id)
+wxNode_wxNotebook::wxNode_wxNotebook(wxWindow* parent, int id)
   : wxNotebook(parent, id)
 {
 
@@ -77,6 +77,57 @@ wxNode_wxNotebook::wxNode_wxNotebook(wxNode_wxWindow* parent, int id)
   NODE_SET_PROTOTYPE_METHOD(target, "sendPageChangedEvent", _SendPageChangedEvent);
   NODE_SET_PROTOTYPE_METHOD(target, "acceptsFocus", _AcceptsFocus);
   
+}
+
+/*static*/ v8::Handle<v8::Value> wxNode_wxNotebook::New(wxNode_wxNotebook* obj) {
+  v8::HandleScope scope;
+
+  if(obj == NULL) {
+    return scope.Close(v8::Null());
+  }
+  
+  v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+  returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+  returnObjFt->SetClassName(v8::String::NewSymbol("wxNotebook"));
+  wxNode_wxNotebook::AddMethods(returnObjFt);
+
+  v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+  v8::Handle<v8::Value> returnObjArgs[0];
+  v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+  returnObj->SetPointerInInternalField(0, obj);
+  NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>(obj);
+  returnObj->SetPointerInInternalField(1, evtHandler);
+
+  return scope.Close(returnObj);
+}
+
+/*static*/ v8::Handle<v8::Value> wxNode_wxNotebook::New(wxNotebook* obj) {
+  v8::HandleScope scope;
+
+  if(obj == NULL) {
+    return scope.Close(v8::Null());
+  }
+  
+  v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+  returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+  returnObjFt->SetClassName(v8::String::NewSymbol("wxNotebook"));
+  wxNode_wxNotebook::AddMethods(returnObjFt);
+
+  v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+  v8::Handle<v8::Value> returnObjArgs[0];
+  v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+  returnObj->SetPointerInInternalField(0, obj);
+  returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+
+  return scope.Close(returnObj);
+}
+
+/*static*/ v8::Handle<v8::Value> wxNode_wxNotebook::NewCopy(wxNotebook& obj) {
+  v8::HandleScope scope;
+  wxNode_wxNotebook* returnVal = new wxNode_wxNotebook();
+  memcpy(dynamic_cast<wxNotebook*>(returnVal), &obj, sizeof(wxNotebook));
+  return scope.Close(New(returnVal));
+
 }
 
 /*static*/ bool wxNode_wxNotebook::AssignableFrom(const v8::Handle<v8::String>& className) {
@@ -298,21 +349,9 @@ wxNode_wxNotebook::wxNode_wxNotebook(wxNode_wxWindow* parent, int id)
     wxNode_wxSize* sizePage = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[0]->ToObject()); /* type: _20522  */
     
 
-    wxSize returnValTemp = self->CalcSizeFromPage(*sizePage);
+    wxSize returnVal = self->CalcSizeFromPage(*sizePage);
 
-    wxNode_wxSize* returnVal = new wxNode_wxSize();
-    memcpy(dynamic_cast<wxSize*>(returnVal), &returnValTemp, sizeof(wxSize));
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxSize"));
-    wxNode_wxSize::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
-
+    return scope.Close(wxNode_wxSize::NewCopy(returnVal));
   }
   
 
@@ -337,21 +376,9 @@ wxNode_wxNotebook::wxNode_wxNotebook(wxNode_wxWindow* parent, int id)
   if(args.Length() == 0) {
     
 
-    wxColour returnValTemp = self->GetThemeBackgroundColour();
+    wxColour returnVal = self->GetThemeBackgroundColour();
 
-    wxNode_wxColour* returnVal = new wxNode_wxColour();
-    memcpy(dynamic_cast<wxColour*>(returnVal), &returnValTemp, sizeof(wxColour));
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxColour"));
-    wxNode_wxColour::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
-
+    return scope.Close(wxNode_wxColour::NewCopy(returnVal));
   }
   
 

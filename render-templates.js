@@ -28,7 +28,7 @@ var files = [
   { className: 'wxItemContainer', allowNew: false },
   { className: 'wxItemContainerImmutable', allowNew: false },
   { className: 'wxSizer', allowNew: false },
-  { className: 'wxBoxSizer', allowNew: true },
+  { className: 'wxBoxSizer', allowNew: true, hasCopyConstructor: true },
   { className: 'wxSizerFlags', allowNew: true },
   { className: 'wxPoint', allowNew: true },
   { className: 'wxSize', allowNew: true },
@@ -257,10 +257,10 @@ function argJsonToCtx(ctx, rawJson, arg, i) {
       argCode = util.format("wxNode_%s* %s = args[%d]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_%s>(args[%d]->ToObject());", typeName, argName, i, typeName, i);
       if(type.refs == '&') {
         argCallCode = '*' + argName;
-        argDeclCode = util.format("wxNode_%s& %s", typeName, argName);
+        argDeclCode = util.format("%s& %s", typeName, argName);
       } else {
         argCallCode = argName;
-        argDeclCode = util.format("wxNode_%s* %s", typeName, argName);
+        argDeclCode = util.format("%s* %s", typeName, argName);
       }
       argTestCode = util.format("(args[%d]->IsNull() || (args[%d]->IsObject() && wxNode_%s::AssignableFrom(args[%d]->ToObject()->GetConstructorName())))", i, i, typeName, i);
     }
@@ -358,33 +358,14 @@ function methodJsonToCtx(parent, rawJson, methodJson) {
       ctx.returnEq = "wxString returnVal = ";
       ctx.returnStmt = "return scope.Close(v8::String::New(returnVal.mb_str()));";
     } else if(ctx.returnTypeName && ctx.returnTypeName.match(/^wx.*/)) {
-      var indent = "    ";
-      ctx.returnStmt = "\n";
       if(returnType.refs == '&' || (returnType.refs == '' && returnType.pointers == '')) {
-        ctx.returnEq = ctx.returnTypeName + " returnValTemp = ";
-        ctx.returnStmt = "wxNode_" + ctx.returnTypeName + "* returnVal = new wxNode_" + ctx.returnTypeName + "();\n";
-        ctx.returnStmt += "    memcpy(dynamic_cast<" + ctx.returnTypeName + "*>(returnVal), &returnValTemp, sizeof(" + ctx.returnTypeName + "));\n";
+        ctx.returnEq = ctx.returnTypeName + " returnVal = ";
+        ctx.returnStmt = "return scope.Close(wxNode_" + ctx.returnTypeName + "::NewCopy(returnVal));";
       } else if(returnType.pointers == '*') {
         ctx.returnEq = ctx.returnTypeName + "* returnVal = ";
-        ctx.returnStmt += "    if(returnVal) {\n";
-        indent += "  ";
+        ctx.returnStmt = "return scope.Close(wxNode_" + ctx.returnTypeName + "::New(returnVal));";
       } else {
         console.error("Unhandled return pointers", returnType);
-      }
-      ctx.returnStmt += indent + "v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);\n";
-      ctx.returnStmt += indent + "returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);\n";
-      ctx.returnStmt += indent + "returnObjFt->SetClassName(v8::String::NewSymbol(\"" + ctx.returnTypeName + "\"));\n";
-      ctx.returnStmt += indent + "wxNode_" + ctx.returnTypeName + "::AddMethods(returnObjFt);\n";
-      ctx.returnStmt += indent + "v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();\n";
-      ctx.returnStmt += indent + "v8::Handle<v8::Value> returnObjArgs[0];\n";
-      ctx.returnStmt += indent + "v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();\n";
-      ctx.returnStmt += indent + "returnObj->SetPointerInInternalField(0, returnVal);\n";
-      ctx.returnStmt += indent + "returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));\n";
-      ctx.returnStmt += indent + "return scope.Close(returnObj);\n";
-      if(returnType.pointers == '*') {
-        ctx.returnStmt += "    } else {\n";
-        ctx.returnStmt += indent + "return scope.Close(v8::Null());\n";
-        ctx.returnStmt += "    }\n";
       }
 
       ctx.includes = concatUnique(ctx.includes, ["wxNode_" + ctx.returnTypeName + ".h"]);
@@ -517,7 +498,8 @@ function rawJsonToCtx(rawJson, file) {
     includes: [],
     classes: [],
     baseClassAddMethodsCallCode: "",
-    assignableFromCode: ""
+    assignableFromCode: "",
+    newCopyCode: "return v8::Undefined();" // todo: throw error?
   };
   ctx.headerFilename = ctx.outputFilename.replace(/\.cpp$/, '.h');
   ctx.includes.push(ctx.headerFilename);
@@ -549,6 +531,17 @@ function rawJsonToCtx(rawJson, file) {
 
   // process members
   if(file.allowNew) {
+    if(file.hasCopyConstructor) {
+      ctx.newCopyCode = "v8::HandleScope scope;\n";
+      ctx.newCopyCode += "  wxNode_" + ctx.name + "* returnVal = new wxNode_" + ctx.name + "(obj);\n";
+      ctx.newCopyCode += "  return scope.Close(New(returnVal));\n";
+    } else {
+      ctx.newCopyCode = "v8::HandleScope scope;\n";
+      ctx.newCopyCode += "  wxNode_" + ctx.name + "* returnVal = new wxNode_" + ctx.name + "();\n";
+      ctx.newCopyCode += "  memcpy(dynamic_cast<" + ctx.name + "*>(returnVal), &obj, sizeof(" + ctx.name + "));\n";
+      ctx.newCopyCode += "  return scope.Close(New(returnVal));\n";
+    }
+    
     var subClazz = getClassByName(rawJson, file.className);
     if(subClazz['members']) {
       var memberIds = subClazz['members'].split(' ');
@@ -589,6 +582,9 @@ function rawJsonToCtx(rawJson, file) {
 
       var member = rawJson[memberId];
       if(member.elementName == "Method") {
+        if(member.name == "New") {
+          continue;
+        }
         addMethod(rawJson, ctx, member, ctx.methods);
         continue;
       }

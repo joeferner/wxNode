@@ -63,6 +63,57 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
   
 }
 
+/*static*/ v8::Handle<v8::Value> wxNode_wxAnyButton::New(wxNode_wxAnyButton* obj) {
+  v8::HandleScope scope;
+
+  if(obj == NULL) {
+    return scope.Close(v8::Null());
+  }
+  
+  v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+  returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+  returnObjFt->SetClassName(v8::String::NewSymbol("wxAnyButton"));
+  wxNode_wxAnyButton::AddMethods(returnObjFt);
+
+  v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+  v8::Handle<v8::Value> returnObjArgs[0];
+  v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+  returnObj->SetPointerInInternalField(0, obj);
+  NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>(obj);
+  returnObj->SetPointerInInternalField(1, evtHandler);
+
+  return scope.Close(returnObj);
+}
+
+/*static*/ v8::Handle<v8::Value> wxNode_wxAnyButton::New(wxAnyButton* obj) {
+  v8::HandleScope scope;
+
+  if(obj == NULL) {
+    return scope.Close(v8::Null());
+  }
+  
+  v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+  returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+  returnObjFt->SetClassName(v8::String::NewSymbol("wxAnyButton"));
+  wxNode_wxAnyButton::AddMethods(returnObjFt);
+
+  v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+  v8::Handle<v8::Value> returnObjArgs[0];
+  v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+  returnObj->SetPointerInInternalField(0, obj);
+  returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+
+  return scope.Close(returnObj);
+}
+
+/*static*/ v8::Handle<v8::Value> wxNode_wxAnyButton::NewCopy(wxAnyButton& obj) {
+  v8::HandleScope scope;
+  wxNode_wxAnyButton* returnVal = new wxNode_wxAnyButton();
+  memcpy(dynamic_cast<wxAnyButton*>(returnVal), &obj, sizeof(wxAnyButton));
+  return scope.Close(New(returnVal));
+
+}
+
 /*static*/ bool wxNode_wxAnyButton::AssignableFrom(const v8::Handle<v8::String>& className) {
   v8::String::AsciiValue classNameStr(className);
   return AssignableFrom(*classNameStr);
@@ -189,21 +240,9 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
   if(args.Length() == 0) {
     
 
-    wxBitmap returnValTemp = self->GetBitmap();
+    wxBitmap returnVal = self->GetBitmap();
 
-    wxNode_wxBitmap* returnVal = new wxNode_wxBitmap();
-    memcpy(dynamic_cast<wxBitmap*>(returnVal), &returnValTemp, sizeof(wxBitmap));
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxBitmap"));
-    wxNode_wxBitmap::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
-
+    return scope.Close(wxNode_wxBitmap::NewCopy(returnVal));
   }
   
 
@@ -368,21 +407,9 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
   if(args.Length() == 0) {
     
 
-    wxBitmap returnValTemp = self->GetBitmapLabel();
+    wxBitmap returnVal = self->GetBitmapLabel();
 
-    wxNode_wxBitmap* returnVal = new wxNode_wxBitmap();
-    memcpy(dynamic_cast<wxBitmap*>(returnVal), &returnValTemp, sizeof(wxBitmap));
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxBitmap"));
-    wxNode_wxBitmap::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
-
+    return scope.Close(wxNode_wxBitmap::NewCopy(returnVal));
   }
   
 
@@ -407,21 +434,9 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
   if(args.Length() == 0) {
     
 
-    wxBitmap returnValTemp = self->GetBitmapPressed();
+    wxBitmap returnVal = self->GetBitmapPressed();
 
-    wxNode_wxBitmap* returnVal = new wxNode_wxBitmap();
-    memcpy(dynamic_cast<wxBitmap*>(returnVal), &returnValTemp, sizeof(wxBitmap));
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxBitmap"));
-    wxNode_wxBitmap::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
-
+    return scope.Close(wxNode_wxBitmap::NewCopy(returnVal));
   }
   
 
@@ -446,21 +461,9 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
   if(args.Length() == 0) {
     
 
-    wxBitmap returnValTemp = self->GetBitmapDisabled();
+    wxBitmap returnVal = self->GetBitmapDisabled();
 
-    wxNode_wxBitmap* returnVal = new wxNode_wxBitmap();
-    memcpy(dynamic_cast<wxBitmap*>(returnVal), &returnValTemp, sizeof(wxBitmap));
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxBitmap"));
-    wxNode_wxBitmap::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
-
+    return scope.Close(wxNode_wxBitmap::NewCopy(returnVal));
   }
   
 
@@ -485,21 +488,9 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
   if(args.Length() == 0) {
     
 
-    wxBitmap returnValTemp = self->GetBitmapCurrent();
+    wxBitmap returnVal = self->GetBitmapCurrent();
 
-    wxNode_wxBitmap* returnVal = new wxNode_wxBitmap();
-    memcpy(dynamic_cast<wxBitmap*>(returnVal), &returnValTemp, sizeof(wxBitmap));
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxBitmap"));
-    wxNode_wxBitmap::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
-
+    return scope.Close(wxNode_wxBitmap::NewCopy(returnVal));
   }
   
 
@@ -524,21 +515,9 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
   if(args.Length() == 0) {
     
 
-    wxBitmap returnValTemp = self->GetBitmapFocus();
+    wxBitmap returnVal = self->GetBitmapFocus();
 
-    wxNode_wxBitmap* returnVal = new wxNode_wxBitmap();
-    memcpy(dynamic_cast<wxBitmap*>(returnVal), &returnValTemp, sizeof(wxBitmap));
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxBitmap"));
-    wxNode_wxBitmap::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
-
+    return scope.Close(wxNode_wxBitmap::NewCopy(returnVal));
   }
   
 
@@ -604,21 +583,9 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
   if(args.Length() == 0) {
     
 
-    wxSize returnValTemp = self->GetBitmapMargins();
+    wxSize returnVal = self->GetBitmapMargins();
 
-    wxNode_wxSize* returnVal = new wxNode_wxSize();
-    memcpy(dynamic_cast<wxSize*>(returnVal), &returnValTemp, sizeof(wxSize));
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxSize"));
-    wxNode_wxSize::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
-
+    return scope.Close(wxNode_wxSize::NewCopy(returnVal));
   }
   
 
@@ -755,21 +722,9 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
   if(args.Length() == 0) {
     
 
-    wxBitmap returnValTemp = self->GetBitmapSelected();
+    wxBitmap returnVal = self->GetBitmapSelected();
 
-    wxNode_wxBitmap* returnVal = new wxNode_wxBitmap();
-    memcpy(dynamic_cast<wxBitmap*>(returnVal), &returnValTemp, sizeof(wxBitmap));
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxBitmap"));
-    wxNode_wxBitmap::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
-
+    return scope.Close(wxNode_wxBitmap::NewCopy(returnVal));
   }
   
 
@@ -794,21 +749,9 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
   if(args.Length() == 0) {
     
 
-    wxBitmap returnValTemp = self->GetBitmapHover();
+    wxBitmap returnVal = self->GetBitmapHover();
 
-    wxNode_wxBitmap* returnVal = new wxNode_wxBitmap();
-    memcpy(dynamic_cast<wxBitmap*>(returnVal), &returnValTemp, sizeof(wxBitmap));
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxBitmap"));
-    wxNode_wxBitmap::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
-
+    return scope.Close(wxNode_wxBitmap::NewCopy(returnVal));
   }
   
 

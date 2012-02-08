@@ -39,6 +39,53 @@
   
 }
 
+/*static*/ v8::Handle<v8::Value> wxNode_wxItemContainerImmutable::New(wxNode_wxItemContainerImmutable* obj) {
+  v8::HandleScope scope;
+
+  if(obj == NULL) {
+    return scope.Close(v8::Null());
+  }
+  
+  v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+  returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+  returnObjFt->SetClassName(v8::String::NewSymbol("wxItemContainerImmutable"));
+  wxNode_wxItemContainerImmutable::AddMethods(returnObjFt);
+
+  v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+  v8::Handle<v8::Value> returnObjArgs[0];
+  v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+  returnObj->SetPointerInInternalField(0, obj);
+  NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>(obj);
+  returnObj->SetPointerInInternalField(1, evtHandler);
+
+  return scope.Close(returnObj);
+}
+
+/*static*/ v8::Handle<v8::Value> wxNode_wxItemContainerImmutable::New(wxItemContainerImmutable* obj) {
+  v8::HandleScope scope;
+
+  if(obj == NULL) {
+    return scope.Close(v8::Null());
+  }
+  
+  v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+  returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+  returnObjFt->SetClassName(v8::String::NewSymbol("wxItemContainerImmutable"));
+  wxNode_wxItemContainerImmutable::AddMethods(returnObjFt);
+
+  v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+  v8::Handle<v8::Value> returnObjArgs[0];
+  v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+  returnObj->SetPointerInInternalField(0, obj);
+  returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+
+  return scope.Close(returnObj);
+}
+
+/*static*/ v8::Handle<v8::Value> wxNode_wxItemContainerImmutable::NewCopy(wxItemContainerImmutable& obj) {
+  return v8::Undefined();
+}
+
 /*static*/ bool wxNode_wxItemContainerImmutable::AssignableFrom(const v8::Handle<v8::String>& className) {
   v8::String::AsciiValue classNameStr(className);
   return AssignableFrom(*classNameStr);
@@ -195,21 +242,9 @@
   if(args.Length() == 0) {
     
 
-    wxArrayString returnValTemp = self->GetStrings();
+    wxArrayString returnVal = self->GetStrings();
 
-    wxNode_wxArrayString* returnVal = new wxNode_wxArrayString();
-    memcpy(dynamic_cast<wxArrayString*>(returnVal), &returnValTemp, sizeof(wxArrayString));
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxArrayString"));
-    wxNode_wxArrayString::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
-
+    return scope.Close(wxNode_wxArrayString::NewCopy(returnVal));
   }
   
 

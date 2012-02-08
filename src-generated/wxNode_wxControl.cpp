@@ -23,37 +23,37 @@ wxNode_wxControl::wxNode_wxControl()
 
 }
 
-wxNode_wxControl::wxNode_wxControl(wxNode_wxWindow* parent, int id, wxNode_wxPoint& pos, wxNode_wxSize& size, long int style, wxNode_wxValidator& validator, const wxString& name)
+wxNode_wxControl::wxNode_wxControl(wxWindow* parent, int id, wxPoint& pos, wxSize& size, long int style, wxValidator& validator, const wxString& name)
   : wxControl(parent, id, pos, size, style, validator, name)
 {
 
 }
 
-wxNode_wxControl::wxNode_wxControl(wxNode_wxWindow* parent, int id, wxNode_wxPoint& pos, wxNode_wxSize& size, long int style, wxNode_wxValidator& validator)
+wxNode_wxControl::wxNode_wxControl(wxWindow* parent, int id, wxPoint& pos, wxSize& size, long int style, wxValidator& validator)
   : wxControl(parent, id, pos, size, style, validator)
 {
 
 }
 
-wxNode_wxControl::wxNode_wxControl(wxNode_wxWindow* parent, int id, wxNode_wxPoint& pos, wxNode_wxSize& size, long int style)
+wxNode_wxControl::wxNode_wxControl(wxWindow* parent, int id, wxPoint& pos, wxSize& size, long int style)
   : wxControl(parent, id, pos, size, style)
 {
 
 }
 
-wxNode_wxControl::wxNode_wxControl(wxNode_wxWindow* parent, int id, wxNode_wxPoint& pos, wxNode_wxSize& size)
+wxNode_wxControl::wxNode_wxControl(wxWindow* parent, int id, wxPoint& pos, wxSize& size)
   : wxControl(parent, id, pos, size)
 {
 
 }
 
-wxNode_wxControl::wxNode_wxControl(wxNode_wxWindow* parent, int id, wxNode_wxPoint& pos)
+wxNode_wxControl::wxNode_wxControl(wxWindow* parent, int id, wxPoint& pos)
   : wxControl(parent, id, pos)
 {
 
 }
 
-wxNode_wxControl::wxNode_wxControl(wxNode_wxWindow* parent, int id)
+wxNode_wxControl::wxNode_wxControl(wxWindow* parent, int id)
   : wxControl(parent, id)
 {
 
@@ -95,6 +95,57 @@ wxNode_wxControl::wxNode_wxControl(wxNode_wxWindow* parent, int id)
   NODE_SET_METHOD(target, "findAccelIndex", _FindAccelIndex);
   NODE_SET_METHOD(target, "getCompositeControlsDefaultAttributes", _GetCompositeControlsDefaultAttributes);
   
+}
+
+/*static*/ v8::Handle<v8::Value> wxNode_wxControl::New(wxNode_wxControl* obj) {
+  v8::HandleScope scope;
+
+  if(obj == NULL) {
+    return scope.Close(v8::Null());
+  }
+  
+  v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+  returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+  returnObjFt->SetClassName(v8::String::NewSymbol("wxControl"));
+  wxNode_wxControl::AddMethods(returnObjFt);
+
+  v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+  v8::Handle<v8::Value> returnObjArgs[0];
+  v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+  returnObj->SetPointerInInternalField(0, obj);
+  NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>(obj);
+  returnObj->SetPointerInInternalField(1, evtHandler);
+
+  return scope.Close(returnObj);
+}
+
+/*static*/ v8::Handle<v8::Value> wxNode_wxControl::New(wxControl* obj) {
+  v8::HandleScope scope;
+
+  if(obj == NULL) {
+    return scope.Close(v8::Null());
+  }
+  
+  v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+  returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+  returnObjFt->SetClassName(v8::String::NewSymbol("wxControl"));
+  wxNode_wxControl::AddMethods(returnObjFt);
+
+  v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+  v8::Handle<v8::Value> returnObjArgs[0];
+  v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+  returnObj->SetPointerInInternalField(0, obj);
+  returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+
+  return scope.Close(returnObj);
+}
+
+/*static*/ v8::Handle<v8::Value> wxNode_wxControl::NewCopy(wxControl& obj) {
+  v8::HandleScope scope;
+  wxNode_wxControl* returnVal = new wxNode_wxControl();
+  memcpy(dynamic_cast<wxControl*>(returnVal), &obj, sizeof(wxControl));
+  return scope.Close(New(returnVal));
+
 }
 
 /*static*/ bool wxNode_wxControl::AssignableFrom(const v8::Handle<v8::String>& className) {
@@ -1001,21 +1052,9 @@ wxNode_wxControl::wxNode_wxControl(wxNode_wxWindow* parent, int id)
     wxWindowVariant variant; /* type: _10472  */
     
 
-    wxVisualAttributes returnValTemp = self->GetCompositeControlsDefaultAttributes(variant);
+    wxVisualAttributes returnVal = self->GetCompositeControlsDefaultAttributes(variant);
 
-    wxNode_wxVisualAttributes* returnVal = new wxNode_wxVisualAttributes();
-    memcpy(dynamic_cast<wxVisualAttributes*>(returnVal), &returnValTemp, sizeof(wxVisualAttributes));
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxVisualAttributes"));
-    wxNode_wxVisualAttributes::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
-
+    return scope.Close(wxNode_wxVisualAttributes::NewCopy(returnVal));
   }
   
 

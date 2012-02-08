@@ -18,37 +18,37 @@ wxNode_wxPanel::wxNode_wxPanel()
 
 }
 
-wxNode_wxPanel::wxNode_wxPanel(wxNode_wxWindow* parent, int winid, wxNode_wxPoint& pos, wxNode_wxSize& size, long int style, const wxString& name)
+wxNode_wxPanel::wxNode_wxPanel(wxWindow* parent, int winid, wxPoint& pos, wxSize& size, long int style, const wxString& name)
   : wxPanel(parent, winid, pos, size, style, name)
 {
 
 }
 
-wxNode_wxPanel::wxNode_wxPanel(wxNode_wxWindow* parent, int winid, wxNode_wxPoint& pos, wxNode_wxSize& size, long int style)
+wxNode_wxPanel::wxNode_wxPanel(wxWindow* parent, int winid, wxPoint& pos, wxSize& size, long int style)
   : wxPanel(parent, winid, pos, size, style)
 {
 
 }
 
-wxNode_wxPanel::wxNode_wxPanel(wxNode_wxWindow* parent, int winid, wxNode_wxPoint& pos, wxNode_wxSize& size)
+wxNode_wxPanel::wxNode_wxPanel(wxWindow* parent, int winid, wxPoint& pos, wxSize& size)
   : wxPanel(parent, winid, pos, size)
 {
 
 }
 
-wxNode_wxPanel::wxNode_wxPanel(wxNode_wxWindow* parent, int winid, wxNode_wxPoint& pos)
+wxNode_wxPanel::wxNode_wxPanel(wxWindow* parent, int winid, wxPoint& pos)
   : wxPanel(parent, winid, pos)
 {
 
 }
 
-wxNode_wxPanel::wxNode_wxPanel(wxNode_wxWindow* parent, int winid)
+wxNode_wxPanel::wxNode_wxPanel(wxWindow* parent, int winid)
   : wxPanel(parent, winid)
 {
 
 }
 
-wxNode_wxPanel::wxNode_wxPanel(wxNode_wxWindow* parent)
+wxNode_wxPanel::wxNode_wxPanel(wxWindow* parent)
   : wxPanel(parent)
 {
 
@@ -76,6 +76,57 @@ wxNode_wxPanel::wxNode_wxPanel(wxNode_wxWindow* parent)
   NODE_SET_PROTOTYPE_METHOD(target, "create", _Create);
   NODE_SET_PROTOTYPE_METHOD(target, "initDialog", _InitDialog);
   
+}
+
+/*static*/ v8::Handle<v8::Value> wxNode_wxPanel::New(wxNode_wxPanel* obj) {
+  v8::HandleScope scope;
+
+  if(obj == NULL) {
+    return scope.Close(v8::Null());
+  }
+  
+  v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+  returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+  returnObjFt->SetClassName(v8::String::NewSymbol("wxPanel"));
+  wxNode_wxPanel::AddMethods(returnObjFt);
+
+  v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+  v8::Handle<v8::Value> returnObjArgs[0];
+  v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+  returnObj->SetPointerInInternalField(0, obj);
+  NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>(obj);
+  returnObj->SetPointerInInternalField(1, evtHandler);
+
+  return scope.Close(returnObj);
+}
+
+/*static*/ v8::Handle<v8::Value> wxNode_wxPanel::New(wxPanel* obj) {
+  v8::HandleScope scope;
+
+  if(obj == NULL) {
+    return scope.Close(v8::Null());
+  }
+  
+  v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+  returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+  returnObjFt->SetClassName(v8::String::NewSymbol("wxPanel"));
+  wxNode_wxPanel::AddMethods(returnObjFt);
+
+  v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+  v8::Handle<v8::Value> returnObjArgs[0];
+  v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+  returnObj->SetPointerInInternalField(0, obj);
+  returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+
+  return scope.Close(returnObj);
+}
+
+/*static*/ v8::Handle<v8::Value> wxNode_wxPanel::NewCopy(wxPanel& obj) {
+  v8::HandleScope scope;
+  wxNode_wxPanel* returnVal = new wxNode_wxPanel();
+  memcpy(dynamic_cast<wxPanel*>(returnVal), &obj, sizeof(wxPanel));
+  return scope.Close(New(returnVal));
+
 }
 
 /*static*/ bool wxNode_wxPanel::AssignableFrom(const v8::Handle<v8::String>& className) {

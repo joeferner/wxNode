@@ -8,7 +8,7 @@
 
 
 
-wxNode_wxSize::wxNode_wxSize(wxNode_wxSize& arg0)
+wxNode_wxSize::wxNode_wxSize(wxSize& arg0)
   : wxSize(arg0)
 {
 
@@ -60,6 +60,57 @@ wxNode_wxSize::wxNode_wxSize(int xx, int yy)
   NODE_SET_PROTOTYPE_METHOD(target, "getX", _GetX);
   NODE_SET_PROTOTYPE_METHOD(target, "getY", _GetY);
   
+}
+
+/*static*/ v8::Handle<v8::Value> wxNode_wxSize::New(wxNode_wxSize* obj) {
+  v8::HandleScope scope;
+
+  if(obj == NULL) {
+    return scope.Close(v8::Null());
+  }
+  
+  v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+  returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+  returnObjFt->SetClassName(v8::String::NewSymbol("wxSize"));
+  wxNode_wxSize::AddMethods(returnObjFt);
+
+  v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+  v8::Handle<v8::Value> returnObjArgs[0];
+  v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+  returnObj->SetPointerInInternalField(0, obj);
+  NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>(obj);
+  returnObj->SetPointerInInternalField(1, evtHandler);
+
+  return scope.Close(returnObj);
+}
+
+/*static*/ v8::Handle<v8::Value> wxNode_wxSize::New(wxSize* obj) {
+  v8::HandleScope scope;
+
+  if(obj == NULL) {
+    return scope.Close(v8::Null());
+  }
+  
+  v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+  returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+  returnObjFt->SetClassName(v8::String::NewSymbol("wxSize"));
+  wxNode_wxSize::AddMethods(returnObjFt);
+
+  v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+  v8::Handle<v8::Value> returnObjArgs[0];
+  v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+  returnObj->SetPointerInInternalField(0, obj);
+  returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+
+  return scope.Close(returnObj);
+}
+
+/*static*/ v8::Handle<v8::Value> wxNode_wxSize::NewCopy(wxSize& obj) {
+  v8::HandleScope scope;
+  wxNode_wxSize* returnVal = new wxNode_wxSize();
+  memcpy(dynamic_cast<wxSize*>(returnVal), &obj, sizeof(wxSize));
+  return scope.Close(New(returnVal));
+
 }
 
 /*static*/ bool wxNode_wxSize::AssignableFrom(const v8::Handle<v8::String>& className) {
@@ -330,21 +381,9 @@ wxNode_wxSize::wxNode_wxSize(int xx, int yy)
     float yscale = (float)args[1]->ToNumber()->Value(); /* type: _13252  */
     
 
-    wxSize returnValTemp = self->Scale(xscale, yscale);
+    wxSize returnVal = self->Scale(xscale, yscale);
 
-    wxNode_wxSize* returnVal = new wxNode_wxSize();
-    memcpy(dynamic_cast<wxSize*>(returnVal), &returnValTemp, sizeof(wxSize));
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxSize"));
-    wxNode_wxSize::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
-
+    return scope.Close(wxNode_wxSize::NewCopy(returnVal));
   }
   
 

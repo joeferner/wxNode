@@ -23,34 +23,37 @@ public:
   virtual v8::Handle<v8::Object> self() { return m_self; }
   static bool AssignableFrom(const v8::Handle<v8::String>& className);
   static bool AssignableFrom(const char* className);
+  static v8::Handle<v8::Value> New(wxListBox* obj);
+  static v8::Handle<v8::Value> New(wxNode_wxListBox* obj);
+  static v8::Handle<v8::Value> NewCopy(wxListBox& obj);
 
   
   
   wxNode_wxListBox();
   
-  wxNode_wxListBox(wxNode_wxWindow* parent, int id, wxNode_wxPoint& pos, wxNode_wxSize& size, int n, const wxString* choices, long int style, wxNode_wxValidator& validator, const wxString& name);
+  wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSize& size, int n, const wxString* choices, long int style, wxValidator& validator, const wxString& name);
   
-  wxNode_wxListBox(wxNode_wxWindow* parent, int id, wxNode_wxPoint& pos, wxNode_wxSize& size, int n, const wxString* choices, long int style, wxNode_wxValidator& validator);
+  wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSize& size, int n, const wxString* choices, long int style, wxValidator& validator);
   
-  wxNode_wxListBox(wxNode_wxWindow* parent, int id, wxNode_wxPoint& pos, wxNode_wxSize& size, int n, const wxString* choices, long int style);
+  wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSize& size, int n, const wxString* choices, long int style);
   
-  wxNode_wxListBox(wxNode_wxWindow* parent, int id, wxNode_wxPoint& pos, wxNode_wxSize& size, int n, const wxString* choices);
+  wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSize& size, int n, const wxString* choices);
   
-  wxNode_wxListBox(wxNode_wxWindow* parent, int id, wxNode_wxPoint& pos, wxNode_wxSize& size, int n);
+  wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSize& size, int n);
   
-  wxNode_wxListBox(wxNode_wxWindow* parent, int id, wxNode_wxPoint& pos, wxNode_wxSize& size);
+  wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSize& size);
   
-  wxNode_wxListBox(wxNode_wxWindow* parent, int id, wxNode_wxPoint& pos);
+  wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos);
   
-  wxNode_wxListBox(wxNode_wxWindow* parent, int id);
+  wxNode_wxListBox(wxWindow* parent, int id);
   
-  wxNode_wxListBox(wxNode_wxWindow* parent, int id, wxNode_wxPoint& pos, wxNode_wxSize& size, wxNode_wxArrayString& choices, long int style, wxNode_wxValidator& validator, const wxString& name);
+  wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSize& size, wxArrayString& choices, long int style, wxValidator& validator, const wxString& name);
   
-  wxNode_wxListBox(wxNode_wxWindow* parent, int id, wxNode_wxPoint& pos, wxNode_wxSize& size, wxNode_wxArrayString& choices, long int style, wxNode_wxValidator& validator);
+  wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSize& size, wxArrayString& choices, long int style, wxValidator& validator);
   
-  wxNode_wxListBox(wxNode_wxWindow* parent, int id, wxNode_wxPoint& pos, wxNode_wxSize& size, wxNode_wxArrayString& choices, long int style);
+  wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSize& size, wxArrayString& choices, long int style);
   
-  wxNode_wxListBox(wxNode_wxWindow* parent, int id, wxNode_wxPoint& pos, wxNode_wxSize& size, wxNode_wxArrayString& choices);
+  wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSize& size, wxArrayString& choices);
   
   
 

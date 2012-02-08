@@ -22,22 +22,25 @@ public:
   virtual v8::Handle<v8::Object> self() { return m_self; }
   static bool AssignableFrom(const v8::Handle<v8::String>& className);
   static bool AssignableFrom(const char* className);
+  static v8::Handle<v8::Value> New(wxControl* obj);
+  static v8::Handle<v8::Value> New(wxNode_wxControl* obj);
+  static v8::Handle<v8::Value> NewCopy(wxControl& obj);
 
   
   
   wxNode_wxControl();
   
-  wxNode_wxControl(wxNode_wxWindow* parent, int id, wxNode_wxPoint& pos, wxNode_wxSize& size, long int style, wxNode_wxValidator& validator, const wxString& name);
+  wxNode_wxControl(wxWindow* parent, int id, wxPoint& pos, wxSize& size, long int style, wxValidator& validator, const wxString& name);
   
-  wxNode_wxControl(wxNode_wxWindow* parent, int id, wxNode_wxPoint& pos, wxNode_wxSize& size, long int style, wxNode_wxValidator& validator);
+  wxNode_wxControl(wxWindow* parent, int id, wxPoint& pos, wxSize& size, long int style, wxValidator& validator);
   
-  wxNode_wxControl(wxNode_wxWindow* parent, int id, wxNode_wxPoint& pos, wxNode_wxSize& size, long int style);
+  wxNode_wxControl(wxWindow* parent, int id, wxPoint& pos, wxSize& size, long int style);
   
-  wxNode_wxControl(wxNode_wxWindow* parent, int id, wxNode_wxPoint& pos, wxNode_wxSize& size);
+  wxNode_wxControl(wxWindow* parent, int id, wxPoint& pos, wxSize& size);
   
-  wxNode_wxControl(wxNode_wxWindow* parent, int id, wxNode_wxPoint& pos);
+  wxNode_wxControl(wxWindow* parent, int id, wxPoint& pos);
   
-  wxNode_wxControl(wxNode_wxWindow* parent, int id);
+  wxNode_wxControl(wxWindow* parent, int id);
   
   
 

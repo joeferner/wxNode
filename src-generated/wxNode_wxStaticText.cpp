@@ -18,31 +18,31 @@ wxNode_wxStaticText::wxNode_wxStaticText()
 
 }
 
-wxNode_wxStaticText::wxNode_wxStaticText(wxNode_wxWindow* parent, int id, const wxString& label, wxNode_wxPoint& pos, wxNode_wxSize& size, long int style, const wxString& name)
+wxNode_wxStaticText::wxNode_wxStaticText(wxWindow* parent, int id, const wxString& label, wxPoint& pos, wxSize& size, long int style, const wxString& name)
   : wxStaticText(parent, id, label, pos, size, style, name)
 {
 
 }
 
-wxNode_wxStaticText::wxNode_wxStaticText(wxNode_wxWindow* parent, int id, const wxString& label, wxNode_wxPoint& pos, wxNode_wxSize& size, long int style)
+wxNode_wxStaticText::wxNode_wxStaticText(wxWindow* parent, int id, const wxString& label, wxPoint& pos, wxSize& size, long int style)
   : wxStaticText(parent, id, label, pos, size, style)
 {
 
 }
 
-wxNode_wxStaticText::wxNode_wxStaticText(wxNode_wxWindow* parent, int id, const wxString& label, wxNode_wxPoint& pos, wxNode_wxSize& size)
+wxNode_wxStaticText::wxNode_wxStaticText(wxWindow* parent, int id, const wxString& label, wxPoint& pos, wxSize& size)
   : wxStaticText(parent, id, label, pos, size)
 {
 
 }
 
-wxNode_wxStaticText::wxNode_wxStaticText(wxNode_wxWindow* parent, int id, const wxString& label, wxNode_wxPoint& pos)
+wxNode_wxStaticText::wxNode_wxStaticText(wxWindow* parent, int id, const wxString& label, wxPoint& pos)
   : wxStaticText(parent, id, label, pos)
 {
 
 }
 
-wxNode_wxStaticText::wxNode_wxStaticText(wxNode_wxWindow* parent, int id, const wxString& label)
+wxNode_wxStaticText::wxNode_wxStaticText(wxWindow* parent, int id, const wxString& label)
   : wxStaticText(parent, id, label)
 {
 
@@ -72,6 +72,57 @@ wxNode_wxStaticText::wxNode_wxStaticText(wxNode_wxWindow* parent, int id, const 
   NODE_SET_PROTOTYPE_METHOD(target, "hasTransparentBackground", _HasTransparentBackground);
   NODE_SET_PROTOTYPE_METHOD(target, "isEllipsized", _IsEllipsized);
   
+}
+
+/*static*/ v8::Handle<v8::Value> wxNode_wxStaticText::New(wxNode_wxStaticText* obj) {
+  v8::HandleScope scope;
+
+  if(obj == NULL) {
+    return scope.Close(v8::Null());
+  }
+  
+  v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+  returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+  returnObjFt->SetClassName(v8::String::NewSymbol("wxStaticText"));
+  wxNode_wxStaticText::AddMethods(returnObjFt);
+
+  v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+  v8::Handle<v8::Value> returnObjArgs[0];
+  v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+  returnObj->SetPointerInInternalField(0, obj);
+  NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>(obj);
+  returnObj->SetPointerInInternalField(1, evtHandler);
+
+  return scope.Close(returnObj);
+}
+
+/*static*/ v8::Handle<v8::Value> wxNode_wxStaticText::New(wxStaticText* obj) {
+  v8::HandleScope scope;
+
+  if(obj == NULL) {
+    return scope.Close(v8::Null());
+  }
+  
+  v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+  returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+  returnObjFt->SetClassName(v8::String::NewSymbol("wxStaticText"));
+  wxNode_wxStaticText::AddMethods(returnObjFt);
+
+  v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+  v8::Handle<v8::Value> returnObjArgs[0];
+  v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+  returnObj->SetPointerInInternalField(0, obj);
+  returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+
+  return scope.Close(returnObj);
+}
+
+/*static*/ v8::Handle<v8::Value> wxNode_wxStaticText::NewCopy(wxStaticText& obj) {
+  v8::HandleScope scope;
+  wxNode_wxStaticText* returnVal = new wxNode_wxStaticText();
+  memcpy(dynamic_cast<wxStaticText*>(returnVal), &obj, sizeof(wxStaticText));
+  return scope.Close(New(returnVal));
+
 }
 
 /*static*/ bool wxNode_wxStaticText::AssignableFrom(const v8::Handle<v8::String>& className) {

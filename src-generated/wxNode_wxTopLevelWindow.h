@@ -21,20 +21,23 @@ public:
   virtual v8::Handle<v8::Object> self() { return m_self; }
   static bool AssignableFrom(const v8::Handle<v8::String>& className);
   static bool AssignableFrom(const char* className);
+  static v8::Handle<v8::Value> New(wxTopLevelWindow* obj);
+  static v8::Handle<v8::Value> New(wxNode_wxTopLevelWindow* obj);
+  static v8::Handle<v8::Value> NewCopy(wxTopLevelWindow& obj);
 
   
   
   wxNode_wxTopLevelWindow();
   
-  wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int winid, const wxString& title, wxNode_wxPoint& pos, wxNode_wxSize& size, long int style, const wxString& name);
+  wxNode_wxTopLevelWindow(wxWindow* parent, int winid, const wxString& title, wxPoint& pos, wxSize& size, long int style, const wxString& name);
   
-  wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int winid, const wxString& title, wxNode_wxPoint& pos, wxNode_wxSize& size, long int style);
+  wxNode_wxTopLevelWindow(wxWindow* parent, int winid, const wxString& title, wxPoint& pos, wxSize& size, long int style);
   
-  wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int winid, const wxString& title, wxNode_wxPoint& pos, wxNode_wxSize& size);
+  wxNode_wxTopLevelWindow(wxWindow* parent, int winid, const wxString& title, wxPoint& pos, wxSize& size);
   
-  wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int winid, const wxString& title, wxNode_wxPoint& pos);
+  wxNode_wxTopLevelWindow(wxWindow* parent, int winid, const wxString& title, wxPoint& pos);
   
-  wxNode_wxTopLevelWindow(wxNode_wxWindow* parent, int winid, const wxString& title);
+  wxNode_wxTopLevelWindow(wxWindow* parent, int winid, const wxString& title);
   
   
 

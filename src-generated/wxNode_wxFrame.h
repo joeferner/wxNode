@@ -23,27 +23,29 @@ public:
   virtual v8::Handle<v8::Object> self() { return m_self; }
   static bool AssignableFrom(const v8::Handle<v8::String>& className);
   static bool AssignableFrom(const char* className);
+  static v8::Handle<v8::Value> New(wxFrame* obj);
+  static v8::Handle<v8::Value> New(wxNode_wxFrame* obj);
+  static v8::Handle<v8::Value> NewCopy(wxFrame& obj);
 
   
   
   wxNode_wxFrame();
   
-  wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& title, wxNode_wxPoint& pos, wxNode_wxSize& size, long int style, const wxString& name);
+  wxNode_wxFrame(wxWindow* parent, int id, const wxString& title, wxPoint& pos, wxSize& size, long int style, const wxString& name);
   
-  wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& title, wxNode_wxPoint& pos, wxNode_wxSize& size, long int style);
+  wxNode_wxFrame(wxWindow* parent, int id, const wxString& title, wxPoint& pos, wxSize& size, long int style);
   
-  wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& title, wxNode_wxPoint& pos, wxNode_wxSize& size);
+  wxNode_wxFrame(wxWindow* parent, int id, const wxString& title, wxPoint& pos, wxSize& size);
   
-  wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& title, wxNode_wxPoint& pos);
+  wxNode_wxFrame(wxWindow* parent, int id, const wxString& title, wxPoint& pos);
   
-  wxNode_wxFrame(wxNode_wxWindow* parent, int id, const wxString& title);
+  wxNode_wxFrame(wxWindow* parent, int id, const wxString& title);
   
   
 
 private:
   static v8::Handle<v8::Value> _init(const v8::Arguments& args);
 
-  static v8::Handle<v8::Value> _New(const v8::Arguments& args);
   static v8::Handle<v8::Value> _GetClientAreaOrigin(const v8::Arguments& args);
   static v8::Handle<v8::Value> _SetMenuBar(const v8::Arguments& args);
   static v8::Handle<v8::Value> _GetMenuBar(const v8::Arguments& args);

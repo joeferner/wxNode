@@ -18,22 +18,25 @@ public:
   virtual v8::Handle<v8::Object> self() { return m_self; }
   static bool AssignableFrom(const v8::Handle<v8::String>& className);
   static bool AssignableFrom(const char* className);
+  static v8::Handle<v8::Value> New(wxPanel* obj);
+  static v8::Handle<v8::Value> New(wxNode_wxPanel* obj);
+  static v8::Handle<v8::Value> NewCopy(wxPanel& obj);
 
   
   
   wxNode_wxPanel();
   
-  wxNode_wxPanel(wxNode_wxWindow* parent, int winid, wxNode_wxPoint& pos, wxNode_wxSize& size, long int style, const wxString& name);
+  wxNode_wxPanel(wxWindow* parent, int winid, wxPoint& pos, wxSize& size, long int style, const wxString& name);
   
-  wxNode_wxPanel(wxNode_wxWindow* parent, int winid, wxNode_wxPoint& pos, wxNode_wxSize& size, long int style);
+  wxNode_wxPanel(wxWindow* parent, int winid, wxPoint& pos, wxSize& size, long int style);
   
-  wxNode_wxPanel(wxNode_wxWindow* parent, int winid, wxNode_wxPoint& pos, wxNode_wxSize& size);
+  wxNode_wxPanel(wxWindow* parent, int winid, wxPoint& pos, wxSize& size);
   
-  wxNode_wxPanel(wxNode_wxWindow* parent, int winid, wxNode_wxPoint& pos);
+  wxNode_wxPanel(wxWindow* parent, int winid, wxPoint& pos);
   
-  wxNode_wxPanel(wxNode_wxWindow* parent, int winid);
+  wxNode_wxPanel(wxWindow* parent, int winid);
   
-  wxNode_wxPanel(wxNode_wxWindow* parent);
+  wxNode_wxPanel(wxWindow* parent);
   
   
 

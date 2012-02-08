@@ -24,43 +24,43 @@ wxNode_wxTextCtrl::wxNode_wxTextCtrl()
 
 }
 
-wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxNode_wxWindow* parent, int id, const wxString& value, wxNode_wxPoint& pos, wxNode_wxSize& size, long int style, wxNode_wxValidator& validator, const wxString& name)
+wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxWindow* parent, int id, const wxString& value, wxPoint& pos, wxSize& size, long int style, wxValidator& validator, const wxString& name)
   : wxTextCtrl(parent, id, value, pos, size, style, validator, name)
 {
 
 }
 
-wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxNode_wxWindow* parent, int id, const wxString& value, wxNode_wxPoint& pos, wxNode_wxSize& size, long int style, wxNode_wxValidator& validator)
+wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxWindow* parent, int id, const wxString& value, wxPoint& pos, wxSize& size, long int style, wxValidator& validator)
   : wxTextCtrl(parent, id, value, pos, size, style, validator)
 {
 
 }
 
-wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxNode_wxWindow* parent, int id, const wxString& value, wxNode_wxPoint& pos, wxNode_wxSize& size, long int style)
+wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxWindow* parent, int id, const wxString& value, wxPoint& pos, wxSize& size, long int style)
   : wxTextCtrl(parent, id, value, pos, size, style)
 {
 
 }
 
-wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxNode_wxWindow* parent, int id, const wxString& value, wxNode_wxPoint& pos, wxNode_wxSize& size)
+wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxWindow* parent, int id, const wxString& value, wxPoint& pos, wxSize& size)
   : wxTextCtrl(parent, id, value, pos, size)
 {
 
 }
 
-wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxNode_wxWindow* parent, int id, const wxString& value, wxNode_wxPoint& pos)
+wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxWindow* parent, int id, const wxString& value, wxPoint& pos)
   : wxTextCtrl(parent, id, value, pos)
 {
 
 }
 
-wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxNode_wxWindow* parent, int id, const wxString& value)
+wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxWindow* parent, int id, const wxString& value)
   : wxTextCtrl(parent, id, value)
 {
 
 }
 
-wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxNode_wxWindow* parent, int id)
+wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxWindow* parent, int id)
   : wxTextCtrl(parent, id)
 {
 
@@ -100,6 +100,57 @@ wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxNode_wxWindow* parent, int id)
   NODE_SET_METHOD(target, "getClassDefaultAttributes", _GetClassDefaultAttributes);
   NODE_SET_PROTOTYPE_METHOD(target, "getClassInfo", _GetClassInfo);
   
+}
+
+/*static*/ v8::Handle<v8::Value> wxNode_wxTextCtrl::New(wxNode_wxTextCtrl* obj) {
+  v8::HandleScope scope;
+
+  if(obj == NULL) {
+    return scope.Close(v8::Null());
+  }
+  
+  v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+  returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+  returnObjFt->SetClassName(v8::String::NewSymbol("wxTextCtrl"));
+  wxNode_wxTextCtrl::AddMethods(returnObjFt);
+
+  v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+  v8::Handle<v8::Value> returnObjArgs[0];
+  v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+  returnObj->SetPointerInInternalField(0, obj);
+  NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>(obj);
+  returnObj->SetPointerInInternalField(1, evtHandler);
+
+  return scope.Close(returnObj);
+}
+
+/*static*/ v8::Handle<v8::Value> wxNode_wxTextCtrl::New(wxTextCtrl* obj) {
+  v8::HandleScope scope;
+
+  if(obj == NULL) {
+    return scope.Close(v8::Null());
+  }
+  
+  v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
+  returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
+  returnObjFt->SetClassName(v8::String::NewSymbol("wxTextCtrl"));
+  wxNode_wxTextCtrl::AddMethods(returnObjFt);
+
+  v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
+  v8::Handle<v8::Value> returnObjArgs[0];
+  v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+  returnObj->SetPointerInInternalField(0, obj);
+  returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+
+  return scope.Close(returnObj);
+}
+
+/*static*/ v8::Handle<v8::Value> wxNode_wxTextCtrl::NewCopy(wxTextCtrl& obj) {
+  v8::HandleScope scope;
+  wxNode_wxTextCtrl* returnVal = new wxNode_wxTextCtrl();
+  memcpy(dynamic_cast<wxTextCtrl*>(returnVal), &obj, sizeof(wxTextCtrl));
+  return scope.Close(New(returnVal));
+
 }
 
 /*static*/ bool wxNode_wxTextCtrl::AssignableFrom(const v8::Handle<v8::String>& className) {
@@ -598,21 +649,9 @@ wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxNode_wxWindow* parent, int id)
   if(args.Length() == 0) {
     
 
-    wxVisualAttributes returnValTemp = self->GetDefaultAttributes();
+    wxVisualAttributes returnVal = self->GetDefaultAttributes();
 
-    wxNode_wxVisualAttributes* returnVal = new wxNode_wxVisualAttributes();
-    memcpy(dynamic_cast<wxVisualAttributes*>(returnVal), &returnValTemp, sizeof(wxVisualAttributes));
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxVisualAttributes"));
-    wxNode_wxVisualAttributes::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
-
+    return scope.Close(wxNode_wxVisualAttributes::NewCopy(returnVal));
   }
   
 
@@ -638,21 +677,9 @@ wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxNode_wxWindow* parent, int id)
     wxWindowVariant variant; /* type: _10472  */
     
 
-    wxVisualAttributes returnValTemp = self->GetClassDefaultAttributes(variant);
+    wxVisualAttributes returnVal = self->GetClassDefaultAttributes(variant);
 
-    wxNode_wxVisualAttributes* returnVal = new wxNode_wxVisualAttributes();
-    memcpy(dynamic_cast<wxVisualAttributes*>(returnVal), &returnValTemp, sizeof(wxVisualAttributes));
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxVisualAttributes"));
-    wxNode_wxVisualAttributes::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
-
+    return scope.Close(wxNode_wxVisualAttributes::NewCopy(returnVal));
   }
   
   /*
@@ -661,21 +688,9 @@ wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxNode_wxWindow* parent, int id)
   if(args.Length() == 0) {
     
 
-    wxVisualAttributes returnValTemp = self->GetClassDefaultAttributes();
+    wxVisualAttributes returnVal = self->GetClassDefaultAttributes();
 
-    wxNode_wxVisualAttributes* returnVal = new wxNode_wxVisualAttributes();
-    memcpy(dynamic_cast<wxVisualAttributes*>(returnVal), &returnValTemp, sizeof(wxVisualAttributes));
-    v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-    returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-    returnObjFt->SetClassName(v8::String::NewSymbol("wxVisualAttributes"));
-    wxNode_wxVisualAttributes::AddMethods(returnObjFt);
-    v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-    v8::Handle<v8::Value> returnObjArgs[0];
-    v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-    returnObj->SetPointerInInternalField(0, returnVal);
-    returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-    return scope.Close(returnObj);
-
+    return scope.Close(wxNode_wxVisualAttributes::NewCopy(returnVal));
   }
   
 
@@ -702,22 +717,7 @@ wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxNode_wxWindow* parent, int id)
 
     wxClassInfo* returnVal = self->GetClassInfo();
 
-    
-    if(returnVal) {
-      v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
-      returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-      returnObjFt->SetClassName(v8::String::NewSymbol("wxClassInfo"));
-      wxNode_wxClassInfo::AddMethods(returnObjFt);
-      v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-      v8::Handle<v8::Value> returnObjArgs[0];
-      v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-      returnObj->SetPointerInInternalField(0, returnVal);
-      returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
-      return scope.Close(returnObj);
-    } else {
-      return scope.Close(v8::Null());
-    }
-
+    return scope.Close(wxNode_wxClassInfo::New(returnVal));
   }
   
 

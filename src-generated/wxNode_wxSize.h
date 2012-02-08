@@ -15,10 +15,13 @@ public:
   virtual v8::Handle<v8::Object> self() { return m_self; }
   static bool AssignableFrom(const v8::Handle<v8::String>& className);
   static bool AssignableFrom(const char* className);
+  static v8::Handle<v8::Value> New(wxSize* obj);
+  static v8::Handle<v8::Value> New(wxNode_wxSize* obj);
+  static v8::Handle<v8::Value> NewCopy(wxSize& obj);
 
   
   
-  wxNode_wxSize(wxNode_wxSize& arg0);
+  wxNode_wxSize(wxSize& arg0);
   
   wxNode_wxSize();
   

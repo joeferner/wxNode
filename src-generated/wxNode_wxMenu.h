@@ -18,6 +18,9 @@ public:
   virtual v8::Handle<v8::Object> self() { return m_self; }
   static bool AssignableFrom(const v8::Handle<v8::String>& className);
   static bool AssignableFrom(const char* className);
+  static v8::Handle<v8::Value> New(wxMenu* obj);
+  static v8::Handle<v8::Value> New(wxNode_wxMenu* obj);
+  static v8::Handle<v8::Value> NewCopy(wxMenu& obj);
 
   
   
@@ -34,7 +37,6 @@ public:
 private:
   static v8::Handle<v8::Value> _init(const v8::Arguments& args);
 
-  static v8::Handle<v8::Value> _New(const v8::Arguments& args);
   static v8::Handle<v8::Value> _Append(const v8::Arguments& args);
   static v8::Handle<v8::Value> _AppendSeparator(const v8::Arguments& args);
   static v8::Handle<v8::Value> _AppendCheckItem(const v8::Arguments& args);
