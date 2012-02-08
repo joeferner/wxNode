@@ -674,7 +674,7 @@ wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxWindow* parent, int id)
    * id: _30759
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    wxWindowVariant variant; /* type: _10472  */
+    wxWindowVariant variant = (wxWindowVariant)args[0]->ToNumber()->Value(); /* type: _10472  */
     
 
     wxVisualAttributes returnVal = self->GetClassDefaultAttributes(variant);

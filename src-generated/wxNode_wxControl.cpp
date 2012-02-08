@@ -963,7 +963,7 @@ wxNode_wxControl::wxNode_wxControl(wxWindow* parent, int id)
   if(args.Length() == 5 && args[0]->IsString() && (args[1]->IsNull() || (args[1]->IsObject() && wxNode_wxDC::AssignableFrom(args[1]->ToObject()->GetConstructorName()))) && args[2]->IsNumber() && args[3]->IsNumber() && args[4]->IsNumber()) {
     v8::String::AsciiValue label(args[0]->ToString()); /* type: _14808  */
     wxNode_wxDC* dc = args[1]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxDC>(args[1]->ToObject()); /* type: _58921  */
-    wxEllipsizeMode mode; /* type: _178  */
+    wxEllipsizeMode mode = (wxEllipsizeMode)args[2]->ToNumber()->Value(); /* type: _178  */
     int maxWidth = (int)args[3]->ToInt32()->Value(); /* type: _162  */
     int flags = (int)args[4]->ToInt32()->Value(); /* type: _162  */
     
@@ -979,7 +979,7 @@ wxNode_wxControl::wxNode_wxControl(wxWindow* parent, int id)
   if(args.Length() == 4 && args[0]->IsString() && (args[1]->IsNull() || (args[1]->IsObject() && wxNode_wxDC::AssignableFrom(args[1]->ToObject()->GetConstructorName()))) && args[2]->IsNumber() && args[3]->IsNumber()) {
     v8::String::AsciiValue label(args[0]->ToString()); /* type: _14808  */
     wxNode_wxDC* dc = args[1]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxDC>(args[1]->ToObject()); /* type: _58921  */
-    wxEllipsizeMode mode; /* type: _178  */
+    wxEllipsizeMode mode = (wxEllipsizeMode)args[2]->ToNumber()->Value(); /* type: _178  */
     int maxWidth = (int)args[3]->ToInt32()->Value(); /* type: _162  */
     
 
@@ -1049,7 +1049,7 @@ wxNode_wxControl::wxNode_wxControl(wxWindow* parent, int id)
    * id: _54401
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    wxWindowVariant variant; /* type: _10472  */
+    wxWindowVariant variant = (wxWindowVariant)args[0]->ToNumber()->Value(); /* type: _10472  */
     
 
     wxVisualAttributes returnVal = self->GetCompositeControlsDefaultAttributes(variant);

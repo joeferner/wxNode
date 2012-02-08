@@ -253,7 +253,7 @@ wxNode_wxMenu::wxNode_wxMenu()
     int itemid = (int)args[0]->ToInt32()->Value(); /* type: _162  */
     v8::String::AsciiValue text(args[1]->ToString()); /* type: _14808  */
     v8::String::AsciiValue help(args[2]->ToString()); /* type: _14808  */
-    wxItemKind kind; /* type: _4625  */
+    wxItemKind kind = (wxItemKind)args[3]->ToNumber()->Value(); /* type: _4625  */
     
 
     wxMenuItem* returnVal = self->Append(itemid, *text, *help, kind);
@@ -576,7 +576,7 @@ wxNode_wxMenu::wxNode_wxMenu()
     int itemid = (int)args[1]->ToInt32()->Value(); /* type: _162  */
     v8::String::AsciiValue text(args[2]->ToString()); /* type: _14808  */
     v8::String::AsciiValue help(args[3]->ToString()); /* type: _14808  */
-    wxItemKind kind; /* type: _4625  */
+    wxItemKind kind = (wxItemKind)args[4]->ToNumber()->Value(); /* type: _4625  */
     
 
     wxMenuItem* returnVal = self->Insert(pos, itemid, *text, *help, kind);
@@ -826,7 +826,7 @@ wxNode_wxMenu::wxNode_wxMenu()
     int itemid = (int)args[0]->ToInt32()->Value(); /* type: _162  */
     v8::String::AsciiValue text(args[1]->ToString()); /* type: _14808  */
     v8::String::AsciiValue help(args[2]->ToString()); /* type: _14808  */
-    wxItemKind kind; /* type: _4625  */
+    wxItemKind kind = (wxItemKind)args[3]->ToNumber()->Value(); /* type: _4625  */
     
 
     wxMenuItem* returnVal = self->Prepend(itemid, *text, *help, kind);

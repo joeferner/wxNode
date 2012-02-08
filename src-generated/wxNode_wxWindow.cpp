@@ -1153,7 +1153,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxWindow* parent, int id)
    * id: _42838
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    wxWindowVariant variant; /* type: _10472  */
+    wxWindowVariant variant = (wxWindowVariant)args[0]->ToNumber()->Value(); /* type: _10472  */
     
 
     self->SetWindowVariant(variant);
@@ -1235,7 +1235,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxWindow* parent, int id)
    * id: _42841
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    wxLayoutDirection arg0; /* type: _6334  */
+    wxLayoutDirection arg0 = (wxLayoutDirection)args[0]->ToNumber()->Value(); /* type: _6334  */
     
 
     self->SetLayoutDirection(arg0);
@@ -3355,7 +3355,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxWindow* parent, int id)
    * id: _42921
    */
   if(args.Length() == 2 && args[0]->IsNumber() && args[1]->IsNumber()) {
-    wxShowEffect arg0; /* type: _4482  */
+    wxShowEffect arg0 = (wxShowEffect)args[0]->ToNumber()->Value(); /* type: _4482  */
     unsigned int arg1 = (unsigned int)args[1]->ToInt32()->Value(); /* type: _43  */
     
 
@@ -3368,7 +3368,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxWindow* parent, int id)
    * id: _42921
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    wxShowEffect arg0; /* type: _4482  */
+    wxShowEffect arg0 = (wxShowEffect)args[0]->ToNumber()->Value(); /* type: _4482  */
     
 
     bool returnVal = self->ShowWithEffect(arg0);
@@ -3396,7 +3396,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxWindow* parent, int id)
    * id: _42922
    */
   if(args.Length() == 2 && args[0]->IsNumber() && args[1]->IsNumber()) {
-    wxShowEffect arg0; /* type: _4482  */
+    wxShowEffect arg0 = (wxShowEffect)args[0]->ToNumber()->Value(); /* type: _4482  */
     unsigned int arg1 = (unsigned int)args[1]->ToInt32()->Value(); /* type: _43  */
     
 
@@ -3409,7 +3409,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxWindow* parent, int id)
    * id: _42922
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    wxShowEffect arg0; /* type: _4482  */
+    wxShowEffect arg0 = (wxShowEffect)args[0]->ToNumber()->Value(); /* type: _4482  */
     
 
     bool returnVal = self->HideWithEffect(arg0);
@@ -6210,7 +6210,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxWindow* parent, int id)
    * id: _43024
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    wxWindowVariant variant; /* type: _10472  */
+    wxWindowVariant variant = (wxWindowVariant)args[0]->ToNumber()->Value(); /* type: _10472  */
     
 
     wxVisualAttributes returnVal = self->GetClassDefaultAttributes(variant);
@@ -6469,7 +6469,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxWindow* parent, int id)
    * id: _43033
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    wxBackgroundStyle style; /* type: _7585  */
+    wxBackgroundStyle style = (wxBackgroundStyle)args[0]->ToNumber()->Value(); /* type: _7585  */
     
 
     bool returnVal = self->SetBackgroundStyle(style);

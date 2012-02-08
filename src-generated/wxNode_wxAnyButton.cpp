@@ -198,7 +198,7 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
    */
   if(args.Length() == 2 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxBitmap::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsNumber()) {
     wxNode_wxBitmap* bitmap = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[0]->ToObject()); /* type: _15508  */
-    wxDirection dir; /* type: _10177  */
+    wxDirection dir = (wxDirection)args[1]->ToNumber()->Value(); /* type: _10177  */
     
 
     self->SetBitmap(*bitmap, dir);
@@ -608,7 +608,7 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
    * id: _37232
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    wxDirection dir; /* type: _10177  */
+    wxDirection dir = (wxDirection)args[0]->ToNumber()->Value(); /* type: _10177  */
     
 
     self->SetBitmapPosition(dir);

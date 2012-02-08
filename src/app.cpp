@@ -25,6 +25,7 @@
   if(!wxInitialize()) {
     printf("failed to wxInitialize\n"); // TODO: change to exception
   }
+  wxInitAllImageHandlers();
   wxEventLoop* loop = new wxEventLoop();
   wxEventLoop::SetActive(loop);
 }

@@ -95,7 +95,7 @@ var MyFrame = wxNode.wxFrame.extend({
     this._super(null, wxNode.wxID_ANY, "TabOrder wxWidgets Sample",
                  wxNode.wxDefaultPosition, new wxNode.wxSize(700, 450));
 
-    // TODO: this.setIcon(wxICON(sample));
+    this.setIcon(new wxNode.wxIcon("./examples/sample.ico", wxNode.wxBITMAP_TYPE_ICO));
 
     var menuFile = new wxNode.wxMenu();
     menuFile.append(TabOrder_About);

@@ -34,6 +34,7 @@ var files = [
   { className: 'wxSize', allowNew: true },
   { className: 'wxEvent', allowNew: false },
   { className: 'wxKeyEvent', allowNew: true },
+  { className: 'wxIcon', allowNew: true },
   /*
   { className: 'wxBitmap', baseClassName: 'wxBitmapBase' },
   { className: 'wxInputStream', baseClassName: 'wxStreamBase' },
@@ -231,20 +232,20 @@ function argJsonToCtx(ctx, rawJson, arg, i) {
       argDeclCode = util.format("const wxString%s %s", type.refs + type.pointers, argName);
       argTestCode = util.format("args[%d]->IsString()", i);
     }
-  } else if(typeName == "wchar_t") {
+  } else if(typeName == "wchar_t" || typeName == "char") {
     if(type.pointers == '*') {
-      argCode = util.format("wchar_t* %s;", argName);
+      argCode = util.format("%s* %s;", typeName, argName);
       argCallCode = argName;
-      argDeclCode = util.format("const wchar_t%s %s", type.refs + type.pointers, argName);
+      argDeclCode = util.format("const %s%s %s", typeName, type.refs + type.pointers, argName);
       argTestCode = util.format("args[%d]->IsString()", i);
     } else {
       argCode = util.format("v8::String::AsciiValue %s(args[%d]->ToString());", argName, i);
       argCallCode = "*" + argName;
-      argDeclCode = util.format("const wchar_t%s %s", type.refs + type.pointers, argName);
+      argDeclCode = util.format("const %s%s %s", typeName, type.refs + type.pointers, argName);
       argTestCode = util.format("args[%d]->IsString()", i);
     }
   } else if(type.elementName == "Enumeration") {
-    argCode = util.format("%s %s;", typeName, argName);
+    argCode = util.format("%s %s = (%s)args[%d]->ToNumber()->Value();", typeName, argName, typeName, i);
     argCallCode = argName;
     argDeclCode = util.format("%s%s %s", typeName, type.refs + type.pointers, argName);
     argTestCode = util.format("args[%d]->IsNumber()", i);
