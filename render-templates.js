@@ -6,6 +6,7 @@ var util = require('util');
 var Mustache = require("mustache");
 var xml2js = require('xml2js');
 var jsonpath = require('JSONPath');
+var crc32 = require('crc32');
 
 var files = [
   { className: 'wxMenu', baseClassName: 'wxMenuBase', allowNew: true },
@@ -661,8 +662,19 @@ function renderFile(file, rawJson) {
     var output = Mustache.compile(data, {
       space: true
     })(ctx, null);
-    console.log("writing " + ctx.outputFilename);
-    fs.writeFile(path.join("./src-generated", ctx.outputFilename), output);
+    var outputFilename = path.join("./src-generated", ctx.outputFilename);
+    var oldContentsCrc = 0;
+    if(path.existsSync(outputFilename)) {
+      var oldContents = fs.readFileSync(outputFilename, 'utf8');
+      oldContentsCrc = crc32(oldContents);
+    }
+    var newContentsCrc = crc32(output);
+    if(oldContentsCrc != newContentsCrc) {
+      console.log("writing " + ctx.outputFilename);
+      fs.writeFile(outputFilename, output);
+    } else {
+      console.log("skipping " + ctx.outputFilename + " crc match");
+    }
   });
 }
 
