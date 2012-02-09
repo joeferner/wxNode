@@ -19,9 +19,9 @@ public:
   virtual v8::Handle<v8::Object> self() { return m_self; }
   static bool AssignableFrom(const v8::Handle<v8::String>& className);
   static bool AssignableFrom(const char* className);
-  static v8::Handle<v8::Value> New(wxButton* obj);
-  static v8::Handle<v8::Value> New(wxNode_wxButton* obj);
-  static v8::Handle<v8::Value> NewCopy(wxButton& obj);
+  static v8::Handle<v8::Value> New(const wxButton* obj);
+  static v8::Handle<v8::Value> New(const wxNode_wxButton* obj);
+  static v8::Handle<v8::Value> NewCopy(const wxButton& obj);
 
   
   

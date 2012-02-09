@@ -56,7 +56,7 @@ wxNode_wxPoint::wxNode_wxPoint(wxRealPoint& pt)
   
 }
 
-/*static*/ v8::Handle<v8::Value> wxNode_wxPoint::New(wxNode_wxPoint* obj) {
+/*static*/ v8::Handle<v8::Value> wxNode_wxPoint::New(const wxNode_wxPoint* obj) {
   v8::HandleScope scope;
 
   if(obj == NULL) {
@@ -71,14 +71,14 @@ wxNode_wxPoint::wxNode_wxPoint(wxRealPoint& pt)
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
   v8::Handle<v8::Value> returnObjArgs[0];
   v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-  returnObj->SetPointerInInternalField(0, obj);
-  NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>(obj);
+  returnObj->SetPointerInInternalField(0, (void*)obj);
+  NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>((wxNode_wxPoint*)obj);
   returnObj->SetPointerInInternalField(1, evtHandler);
 
   return scope.Close(returnObj);
 }
 
-/*static*/ v8::Handle<v8::Value> wxNode_wxPoint::New(wxPoint* obj) {
+/*static*/ v8::Handle<v8::Value> wxNode_wxPoint::New(const wxPoint* obj) {
   v8::HandleScope scope;
 
   if(obj == NULL) {
@@ -93,13 +93,13 @@ wxNode_wxPoint::wxNode_wxPoint(wxRealPoint& pt)
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
   v8::Handle<v8::Value> returnObjArgs[0];
   v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-  returnObj->SetPointerInInternalField(0, obj);
+  returnObj->SetPointerInInternalField(0, (void*)obj);
   returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
 
   return scope.Close(returnObj);
 }
 
-/*static*/ v8::Handle<v8::Value> wxNode_wxPoint::NewCopy(wxPoint& obj) {
+/*static*/ v8::Handle<v8::Value> wxNode_wxPoint::NewCopy(const wxPoint& obj) {
   v8::HandleScope scope;
   wxNode_wxPoint* returnVal = new wxNode_wxPoint();
   memcpy(dynamic_cast<wxPoint*>(returnVal), &obj, sizeof(wxPoint));

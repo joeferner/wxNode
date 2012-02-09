@@ -87,7 +87,7 @@ wxNode_wxButton::wxNode_wxButton(wxWindow* parent, int id)
   
 }
 
-/*static*/ v8::Handle<v8::Value> wxNode_wxButton::New(wxNode_wxButton* obj) {
+/*static*/ v8::Handle<v8::Value> wxNode_wxButton::New(const wxNode_wxButton* obj) {
   v8::HandleScope scope;
 
   if(obj == NULL) {
@@ -102,14 +102,14 @@ wxNode_wxButton::wxNode_wxButton(wxWindow* parent, int id)
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
   v8::Handle<v8::Value> returnObjArgs[0];
   v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-  returnObj->SetPointerInInternalField(0, obj);
-  NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>(obj);
+  returnObj->SetPointerInInternalField(0, (void*)obj);
+  NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>((wxNode_wxButton*)obj);
   returnObj->SetPointerInInternalField(1, evtHandler);
 
   return scope.Close(returnObj);
 }
 
-/*static*/ v8::Handle<v8::Value> wxNode_wxButton::New(wxButton* obj) {
+/*static*/ v8::Handle<v8::Value> wxNode_wxButton::New(const wxButton* obj) {
   v8::HandleScope scope;
 
   if(obj == NULL) {
@@ -124,13 +124,13 @@ wxNode_wxButton::wxNode_wxButton(wxWindow* parent, int id)
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
   v8::Handle<v8::Value> returnObjArgs[0];
   v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-  returnObj->SetPointerInInternalField(0, obj);
+  returnObj->SetPointerInInternalField(0, (void*)obj);
   returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
 
   return scope.Close(returnObj);
 }
 
-/*static*/ v8::Handle<v8::Value> wxNode_wxButton::NewCopy(wxButton& obj) {
+/*static*/ v8::Handle<v8::Value> wxNode_wxButton::NewCopy(const wxButton& obj) {
   v8::HandleScope scope;
   wxNode_wxButton* returnVal = new wxNode_wxButton();
   memcpy(dynamic_cast<wxButton*>(returnVal), &obj, sizeof(wxButton));
@@ -399,7 +399,7 @@ wxNode_wxButton::wxNode_wxButton(wxWindow* parent, int id)
   if(args.Length() == 0) {
     
 
-    wxWindow* returnVal = self->SetDefault();
+    const wxWindow* returnVal = self->SetDefault();
 
     return scope.Close(wxNode_wxWindow::New(returnVal));
   }

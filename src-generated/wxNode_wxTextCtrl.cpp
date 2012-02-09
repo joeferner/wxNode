@@ -102,7 +102,7 @@ wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxWindow* parent, int id)
   
 }
 
-/*static*/ v8::Handle<v8::Value> wxNode_wxTextCtrl::New(wxNode_wxTextCtrl* obj) {
+/*static*/ v8::Handle<v8::Value> wxNode_wxTextCtrl::New(const wxNode_wxTextCtrl* obj) {
   v8::HandleScope scope;
 
   if(obj == NULL) {
@@ -117,14 +117,14 @@ wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxWindow* parent, int id)
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
   v8::Handle<v8::Value> returnObjArgs[0];
   v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-  returnObj->SetPointerInInternalField(0, obj);
-  NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>(obj);
+  returnObj->SetPointerInInternalField(0, (void*)obj);
+  NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>((wxNode_wxTextCtrl*)obj);
   returnObj->SetPointerInInternalField(1, evtHandler);
 
   return scope.Close(returnObj);
 }
 
-/*static*/ v8::Handle<v8::Value> wxNode_wxTextCtrl::New(wxTextCtrl* obj) {
+/*static*/ v8::Handle<v8::Value> wxNode_wxTextCtrl::New(const wxTextCtrl* obj) {
   v8::HandleScope scope;
 
   if(obj == NULL) {
@@ -139,13 +139,13 @@ wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxWindow* parent, int id)
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
   v8::Handle<v8::Value> returnObjArgs[0];
   v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-  returnObj->SetPointerInInternalField(0, obj);
+  returnObj->SetPointerInInternalField(0, (void*)obj);
   returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
 
   return scope.Close(returnObj);
 }
 
-/*static*/ v8::Handle<v8::Value> wxNode_wxTextCtrl::NewCopy(wxTextCtrl& obj) {
+/*static*/ v8::Handle<v8::Value> wxNode_wxTextCtrl::NewCopy(const wxTextCtrl& obj) {
   v8::HandleScope scope;
   wxNode_wxTextCtrl* returnVal = new wxNode_wxTextCtrl();
   memcpy(dynamic_cast<wxTextCtrl*>(returnVal), &obj, sizeof(wxTextCtrl));

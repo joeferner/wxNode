@@ -47,7 +47,7 @@
   
 }
 
-/*static*/ v8::Handle<v8::Value> wxNode_wxItemContainer::New(wxNode_wxItemContainer* obj) {
+/*static*/ v8::Handle<v8::Value> wxNode_wxItemContainer::New(const wxNode_wxItemContainer* obj) {
   v8::HandleScope scope;
 
   if(obj == NULL) {
@@ -62,14 +62,14 @@
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
   v8::Handle<v8::Value> returnObjArgs[0];
   v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-  returnObj->SetPointerInInternalField(0, obj);
-  NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>(obj);
+  returnObj->SetPointerInInternalField(0, (void*)obj);
+  NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>((wxNode_wxItemContainer*)obj);
   returnObj->SetPointerInInternalField(1, evtHandler);
 
   return scope.Close(returnObj);
 }
 
-/*static*/ v8::Handle<v8::Value> wxNode_wxItemContainer::New(wxItemContainer* obj) {
+/*static*/ v8::Handle<v8::Value> wxNode_wxItemContainer::New(const wxItemContainer* obj) {
   v8::HandleScope scope;
 
   if(obj == NULL) {
@@ -84,13 +84,13 @@
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
   v8::Handle<v8::Value> returnObjArgs[0];
   v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-  returnObj->SetPointerInInternalField(0, obj);
+  returnObj->SetPointerInInternalField(0, (void*)obj);
   returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
 
   return scope.Close(returnObj);
 }
 
-/*static*/ v8::Handle<v8::Value> wxNode_wxItemContainer::NewCopy(wxItemContainer& obj) {
+/*static*/ v8::Handle<v8::Value> wxNode_wxItemContainer::NewCopy(const wxItemContainer& obj) {
   return v8::Undefined();
 }
 

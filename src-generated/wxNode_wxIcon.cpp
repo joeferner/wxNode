@@ -86,7 +86,7 @@ wxNode_wxIcon::wxNode_wxIcon(wxIconLocation& loc)
   
 }
 
-/*static*/ v8::Handle<v8::Value> wxNode_wxIcon::New(wxNode_wxIcon* obj) {
+/*static*/ v8::Handle<v8::Value> wxNode_wxIcon::New(const wxNode_wxIcon* obj) {
   v8::HandleScope scope;
 
   if(obj == NULL) {
@@ -101,14 +101,14 @@ wxNode_wxIcon::wxNode_wxIcon(wxIconLocation& loc)
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
   v8::Handle<v8::Value> returnObjArgs[0];
   v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-  returnObj->SetPointerInInternalField(0, obj);
-  NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>(obj);
+  returnObj->SetPointerInInternalField(0, (void*)obj);
+  NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>((wxNode_wxIcon*)obj);
   returnObj->SetPointerInInternalField(1, evtHandler);
 
   return scope.Close(returnObj);
 }
 
-/*static*/ v8::Handle<v8::Value> wxNode_wxIcon::New(wxIcon* obj) {
+/*static*/ v8::Handle<v8::Value> wxNode_wxIcon::New(const wxIcon* obj) {
   v8::HandleScope scope;
 
   if(obj == NULL) {
@@ -123,13 +123,13 @@ wxNode_wxIcon::wxNode_wxIcon(wxIconLocation& loc)
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
   v8::Handle<v8::Value> returnObjArgs[0];
   v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-  returnObj->SetPointerInInternalField(0, obj);
+  returnObj->SetPointerInInternalField(0, (void*)obj);
   returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
 
   return scope.Close(returnObj);
 }
 
-/*static*/ v8::Handle<v8::Value> wxNode_wxIcon::NewCopy(wxIcon& obj) {
+/*static*/ v8::Handle<v8::Value> wxNode_wxIcon::NewCopy(const wxIcon& obj) {
   v8::HandleScope scope;
   wxNode_wxIcon* returnVal = new wxNode_wxIcon();
   memcpy(dynamic_cast<wxIcon*>(returnVal), &obj, sizeof(wxIcon));

@@ -72,7 +72,7 @@ wxNode_wxKeyEvent::wxNode_wxKeyEvent(int eventType, wxKeyEvent& evt)
   
 }
 
-/*static*/ v8::Handle<v8::Value> wxNode_wxKeyEvent::New(wxNode_wxKeyEvent* obj) {
+/*static*/ v8::Handle<v8::Value> wxNode_wxKeyEvent::New(const wxNode_wxKeyEvent* obj) {
   v8::HandleScope scope;
 
   if(obj == NULL) {
@@ -87,14 +87,14 @@ wxNode_wxKeyEvent::wxNode_wxKeyEvent(int eventType, wxKeyEvent& evt)
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
   v8::Handle<v8::Value> returnObjArgs[0];
   v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-  returnObj->SetPointerInInternalField(0, obj);
-  NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>(obj);
+  returnObj->SetPointerInInternalField(0, (void*)obj);
+  NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>((wxNode_wxKeyEvent*)obj);
   returnObj->SetPointerInInternalField(1, evtHandler);
 
   return scope.Close(returnObj);
 }
 
-/*static*/ v8::Handle<v8::Value> wxNode_wxKeyEvent::New(wxKeyEvent* obj) {
+/*static*/ v8::Handle<v8::Value> wxNode_wxKeyEvent::New(const wxKeyEvent* obj) {
   v8::HandleScope scope;
 
   if(obj == NULL) {
@@ -109,13 +109,13 @@ wxNode_wxKeyEvent::wxNode_wxKeyEvent(int eventType, wxKeyEvent& evt)
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
   v8::Handle<v8::Value> returnObjArgs[0];
   v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-  returnObj->SetPointerInInternalField(0, obj);
+  returnObj->SetPointerInInternalField(0, (void*)obj);
   returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
 
   return scope.Close(returnObj);
 }
 
-/*static*/ v8::Handle<v8::Value> wxNode_wxKeyEvent::NewCopy(wxKeyEvent& obj) {
+/*static*/ v8::Handle<v8::Value> wxNode_wxKeyEvent::NewCopy(const wxKeyEvent& obj) {
   v8::HandleScope scope;
   wxNode_wxKeyEvent* returnVal = new wxNode_wxKeyEvent();
   memcpy(dynamic_cast<wxKeyEvent*>(returnVal), &obj, sizeof(wxKeyEvent));

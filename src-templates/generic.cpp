@@ -36,7 +36,7 @@ wxNode_{{parent.parent.name}}::wxNode_{{parent.parent.name}}({{{argDeclCode}}})
   {{/methods}}
 }
 
-/*static*/ v8::Handle<v8::Value> wxNode_{{name}}::New(wxNode_{{name}}* obj) {
+/*static*/ v8::Handle<v8::Value> wxNode_{{name}}::New(const wxNode_{{name}}* obj) {
   v8::HandleScope scope;
 
   if(obj == NULL) {
@@ -51,14 +51,14 @@ wxNode_{{parent.parent.name}}::wxNode_{{parent.parent.name}}({{{argDeclCode}}})
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
   v8::Handle<v8::Value> returnObjArgs[0];
   v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-  returnObj->SetPointerInInternalField(0, obj);
-  NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>(obj);
+  returnObj->SetPointerInInternalField(0, (void*)obj);
+  NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>((wxNode_{{name}}*)obj);
   returnObj->SetPointerInInternalField(1, evtHandler);
 
   return scope.Close(returnObj);
 }
 
-/*static*/ v8::Handle<v8::Value> wxNode_{{name}}::New({{name}}* obj) {
+/*static*/ v8::Handle<v8::Value> wxNode_{{name}}::New(const {{name}}* obj) {
   v8::HandleScope scope;
 
   if(obj == NULL) {
@@ -73,13 +73,13 @@ wxNode_{{parent.parent.name}}::wxNode_{{parent.parent.name}}({{{argDeclCode}}})
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
   v8::Handle<v8::Value> returnObjArgs[0];
   v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-  returnObj->SetPointerInInternalField(0, obj);
+  returnObj->SetPointerInInternalField(0, (void*)obj);
   returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
 
   return scope.Close(returnObj);
 }
 
-/*static*/ v8::Handle<v8::Value> wxNode_{{name}}::NewCopy({{name}}& obj) {
+/*static*/ v8::Handle<v8::Value> wxNode_{{name}}::NewCopy(const {{name}}& obj) {
   {{{newCopyCode}}}
 }
 

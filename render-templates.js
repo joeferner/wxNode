@@ -23,6 +23,8 @@ var files = [
   { className: 'wxPanel', baseClassName: 'wxPanelBase', allowNew: true },
   { className: 'wxNotebook', baseClassName: 'wxNotebookBase', allowNew: true },
   { className: 'wxBookCtrlBase', baseClassName: 'wxBookCtrlBase', allowNew: false },
+  { className: 'wxDialog', baseClassName: 'wxDialogBase', allowNew: true },
+  { className: 'wxToolBar', baseClassName: 'wxToolBarBase', allowNew: true },
   { className: 'wxControlWithItems', baseClassName: 'wxControlWithItemsBase', allowNew: false, addMethodsClass: 'wxNode_wxWindowWithItems_wxControl_wxItemContainer' },
   { className: 'wxWindow', baseClassName: 'wxWindowBase', excludeIds: ['_43125', '_43080'], allowNew: true },
   { className: 'wxItemContainer', allowNew: false },
@@ -137,7 +139,11 @@ function lookupClassById(rawJson, typeId) {
   }
 
   if(clazz.elementName == "CvQualifiedType") {
-    return lookupClassById(rawJson, clazz['type']);
+    var result = lookupClassById(rawJson, clazz['type']);
+    if(clazz['const'] == '1') {
+      result['const'] = true;
+    }
+    return result;
   }
 
   if(clazz.elementName == "FundamentalType") {
@@ -371,7 +377,8 @@ function methodJsonToCtx(parent, rawJson, methodJson) {
         ctx.returnEq = ctx.returnTypeName + " returnVal = ";
         ctx.returnStmt = "return scope.Close(wxNode_" + ctx.returnTypeName + "::NewCopy(returnVal));";
       } else if(returnType.pointers == '*') {
-        ctx.returnEq = ctx.returnTypeName + "* returnVal = ";
+        ctx.returnEq = returnType['const'] ? 'const ' : '';
+        ctx.returnEq += ctx.returnTypeName + "* returnVal = ";
         ctx.returnStmt = "return scope.Close(wxNode_" + ctx.returnTypeName + "::New(returnVal));";
       } else {
         console.error("Unhandled return pointers", returnType);
@@ -542,7 +549,7 @@ function rawJsonToCtx(rawJson, file) {
   if(file.allowNew) {
     if(file.hasCopyConstructor) {
       ctx.newCopyCode = "v8::HandleScope scope;\n";
-      ctx.newCopyCode += "  wxNode_" + ctx.name + "* returnVal = new wxNode_" + ctx.name + "(obj);\n";
+      ctx.newCopyCode += "  wxNode_" + ctx.name + "* returnVal = new wxNode_" + ctx.name + "(*((" + ctx.name + "*)&obj));\n";
       ctx.newCopyCode += "  return scope.Close(New(returnVal));\n";
     } else {
       ctx.newCopyCode = "v8::HandleScope scope;\n";

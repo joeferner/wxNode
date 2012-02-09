@@ -40,7 +40,7 @@ wxNode_wxNonOwnedWindow::wxNode_wxNonOwnedWindow()
   
 }
 
-/*static*/ v8::Handle<v8::Value> wxNode_wxNonOwnedWindow::New(wxNode_wxNonOwnedWindow* obj) {
+/*static*/ v8::Handle<v8::Value> wxNode_wxNonOwnedWindow::New(const wxNode_wxNonOwnedWindow* obj) {
   v8::HandleScope scope;
 
   if(obj == NULL) {
@@ -55,14 +55,14 @@ wxNode_wxNonOwnedWindow::wxNode_wxNonOwnedWindow()
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
   v8::Handle<v8::Value> returnObjArgs[0];
   v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-  returnObj->SetPointerInInternalField(0, obj);
-  NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>(obj);
+  returnObj->SetPointerInInternalField(0, (void*)obj);
+  NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>((wxNode_wxNonOwnedWindow*)obj);
   returnObj->SetPointerInInternalField(1, evtHandler);
 
   return scope.Close(returnObj);
 }
 
-/*static*/ v8::Handle<v8::Value> wxNode_wxNonOwnedWindow::New(wxNonOwnedWindow* obj) {
+/*static*/ v8::Handle<v8::Value> wxNode_wxNonOwnedWindow::New(const wxNonOwnedWindow* obj) {
   v8::HandleScope scope;
 
   if(obj == NULL) {
@@ -77,13 +77,13 @@ wxNode_wxNonOwnedWindow::wxNode_wxNonOwnedWindow()
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
   v8::Handle<v8::Value> returnObjArgs[0];
   v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-  returnObj->SetPointerInInternalField(0, obj);
+  returnObj->SetPointerInInternalField(0, (void*)obj);
   returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
 
   return scope.Close(returnObj);
 }
 
-/*static*/ v8::Handle<v8::Value> wxNode_wxNonOwnedWindow::NewCopy(wxNonOwnedWindow& obj) {
+/*static*/ v8::Handle<v8::Value> wxNode_wxNonOwnedWindow::NewCopy(const wxNonOwnedWindow& obj) {
   v8::HandleScope scope;
   wxNode_wxNonOwnedWindow* returnVal = new wxNode_wxNonOwnedWindow();
   memcpy(dynamic_cast<wxNonOwnedWindow*>(returnVal), &obj, sizeof(wxNonOwnedWindow));

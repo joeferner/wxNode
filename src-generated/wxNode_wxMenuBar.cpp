@@ -87,7 +87,7 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
   
 }
 
-/*static*/ v8::Handle<v8::Value> wxNode_wxMenuBar::New(wxNode_wxMenuBar* obj) {
+/*static*/ v8::Handle<v8::Value> wxNode_wxMenuBar::New(const wxNode_wxMenuBar* obj) {
   v8::HandleScope scope;
 
   if(obj == NULL) {
@@ -102,14 +102,14 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
   v8::Handle<v8::Value> returnObjArgs[0];
   v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-  returnObj->SetPointerInInternalField(0, obj);
-  NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>(obj);
+  returnObj->SetPointerInInternalField(0, (void*)obj);
+  NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>((wxNode_wxMenuBar*)obj);
   returnObj->SetPointerInInternalField(1, evtHandler);
 
   return scope.Close(returnObj);
 }
 
-/*static*/ v8::Handle<v8::Value> wxNode_wxMenuBar::New(wxMenuBar* obj) {
+/*static*/ v8::Handle<v8::Value> wxNode_wxMenuBar::New(const wxMenuBar* obj) {
   v8::HandleScope scope;
 
   if(obj == NULL) {
@@ -124,13 +124,13 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
   v8::Handle<v8::Value> returnObjArgs[0];
   v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-  returnObj->SetPointerInInternalField(0, obj);
+  returnObj->SetPointerInInternalField(0, (void*)obj);
   returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
 
   return scope.Close(returnObj);
 }
 
-/*static*/ v8::Handle<v8::Value> wxNode_wxMenuBar::NewCopy(wxMenuBar& obj) {
+/*static*/ v8::Handle<v8::Value> wxNode_wxMenuBar::NewCopy(const wxMenuBar& obj) {
   v8::HandleScope scope;
   wxNode_wxMenuBar* returnVal = new wxNode_wxMenuBar();
   memcpy(dynamic_cast<wxMenuBar*>(returnVal), &obj, sizeof(wxMenuBar));

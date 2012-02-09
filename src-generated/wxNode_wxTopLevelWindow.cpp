@@ -113,7 +113,7 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxWindow* parent, int winid, co
   
 }
 
-/*static*/ v8::Handle<v8::Value> wxNode_wxTopLevelWindow::New(wxNode_wxTopLevelWindow* obj) {
+/*static*/ v8::Handle<v8::Value> wxNode_wxTopLevelWindow::New(const wxNode_wxTopLevelWindow* obj) {
   v8::HandleScope scope;
 
   if(obj == NULL) {
@@ -128,14 +128,14 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxWindow* parent, int winid, co
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
   v8::Handle<v8::Value> returnObjArgs[0];
   v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-  returnObj->SetPointerInInternalField(0, obj);
-  NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>(obj);
+  returnObj->SetPointerInInternalField(0, (void*)obj);
+  NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>((wxNode_wxTopLevelWindow*)obj);
   returnObj->SetPointerInInternalField(1, evtHandler);
 
   return scope.Close(returnObj);
 }
 
-/*static*/ v8::Handle<v8::Value> wxNode_wxTopLevelWindow::New(wxTopLevelWindow* obj) {
+/*static*/ v8::Handle<v8::Value> wxNode_wxTopLevelWindow::New(const wxTopLevelWindow* obj) {
   v8::HandleScope scope;
 
   if(obj == NULL) {
@@ -150,13 +150,13 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxWindow* parent, int winid, co
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
   v8::Handle<v8::Value> returnObjArgs[0];
   v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-  returnObj->SetPointerInInternalField(0, obj);
+  returnObj->SetPointerInInternalField(0, (void*)obj);
   returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
 
   return scope.Close(returnObj);
 }
 
-/*static*/ v8::Handle<v8::Value> wxNode_wxTopLevelWindow::NewCopy(wxTopLevelWindow& obj) {
+/*static*/ v8::Handle<v8::Value> wxNode_wxTopLevelWindow::NewCopy(const wxTopLevelWindow& obj) {
   v8::HandleScope scope;
   wxNode_wxTopLevelWindow* returnVal = new wxNode_wxTopLevelWindow();
   memcpy(dynamic_cast<wxTopLevelWindow*>(returnVal), &obj, sizeof(wxTopLevelWindow));
@@ -1064,7 +1064,7 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxWindow* parent, int winid, co
   if(args.Length() == 0) {
     
 
-    wxWindow* returnVal = self->GetDefaultItem();
+    const wxWindow* returnVal = self->GetDefaultItem();
 
     return scope.Close(wxNode_wxWindow::New(returnVal));
   }
@@ -1092,7 +1092,7 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxWindow* parent, int winid, co
     wxNode_wxWindow* win = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _993 * */
     
 
-    wxWindow* returnVal = self->SetDefaultItem(win);
+    const wxWindow* returnVal = self->SetDefaultItem(win);
 
     return scope.Close(wxNode_wxWindow::New(returnVal));
   }
@@ -1119,7 +1119,7 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxWindow* parent, int winid, co
   if(args.Length() == 0) {
     
 
-    wxWindow* returnVal = self->GetTmpDefaultItem();
+    const wxWindow* returnVal = self->GetTmpDefaultItem();
 
     return scope.Close(wxNode_wxWindow::New(returnVal));
   }
@@ -1147,7 +1147,7 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxWindow* parent, int winid, co
     wxNode_wxWindow* win = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _993 * */
     
 
-    wxWindow* returnVal = self->SetTmpDefaultItem(win);
+    const wxWindow* returnVal = self->SetTmpDefaultItem(win);
 
     return scope.Close(wxNode_wxWindow::New(returnVal));
   }

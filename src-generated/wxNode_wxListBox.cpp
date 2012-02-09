@@ -146,7 +146,7 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
   
 }
 
-/*static*/ v8::Handle<v8::Value> wxNode_wxListBox::New(wxNode_wxListBox* obj) {
+/*static*/ v8::Handle<v8::Value> wxNode_wxListBox::New(const wxNode_wxListBox* obj) {
   v8::HandleScope scope;
 
   if(obj == NULL) {
@@ -161,14 +161,14 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
   v8::Handle<v8::Value> returnObjArgs[0];
   v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-  returnObj->SetPointerInInternalField(0, obj);
-  NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>(obj);
+  returnObj->SetPointerInInternalField(0, (void*)obj);
+  NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>((wxNode_wxListBox*)obj);
   returnObj->SetPointerInInternalField(1, evtHandler);
 
   return scope.Close(returnObj);
 }
 
-/*static*/ v8::Handle<v8::Value> wxNode_wxListBox::New(wxListBox* obj) {
+/*static*/ v8::Handle<v8::Value> wxNode_wxListBox::New(const wxListBox* obj) {
   v8::HandleScope scope;
 
   if(obj == NULL) {
@@ -183,13 +183,13 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
   v8::Handle<v8::Value> returnObjArgs[0];
   v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-  returnObj->SetPointerInInternalField(0, obj);
+  returnObj->SetPointerInInternalField(0, (void*)obj);
   returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
 
   return scope.Close(returnObj);
 }
 
-/*static*/ v8::Handle<v8::Value> wxNode_wxListBox::NewCopy(wxListBox& obj) {
+/*static*/ v8::Handle<v8::Value> wxNode_wxListBox::NewCopy(const wxListBox& obj) {
   v8::HandleScope scope;
   wxNode_wxListBox* returnVal = new wxNode_wxListBox();
   memcpy(dynamic_cast<wxListBox*>(returnVal), &obj, sizeof(wxListBox));

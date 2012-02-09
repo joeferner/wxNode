@@ -53,7 +53,7 @@ wxNode_wxBoxSizer::wxNode_wxBoxSizer(int orient)
   
 }
 
-/*static*/ v8::Handle<v8::Value> wxNode_wxBoxSizer::New(wxNode_wxBoxSizer* obj) {
+/*static*/ v8::Handle<v8::Value> wxNode_wxBoxSizer::New(const wxNode_wxBoxSizer* obj) {
   v8::HandleScope scope;
 
   if(obj == NULL) {
@@ -68,14 +68,14 @@ wxNode_wxBoxSizer::wxNode_wxBoxSizer(int orient)
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
   v8::Handle<v8::Value> returnObjArgs[0];
   v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-  returnObj->SetPointerInInternalField(0, obj);
-  NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>(obj);
+  returnObj->SetPointerInInternalField(0, (void*)obj);
+  NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>((wxNode_wxBoxSizer*)obj);
   returnObj->SetPointerInInternalField(1, evtHandler);
 
   return scope.Close(returnObj);
 }
 
-/*static*/ v8::Handle<v8::Value> wxNode_wxBoxSizer::New(wxBoxSizer* obj) {
+/*static*/ v8::Handle<v8::Value> wxNode_wxBoxSizer::New(const wxBoxSizer* obj) {
   v8::HandleScope scope;
 
   if(obj == NULL) {
@@ -90,15 +90,15 @@ wxNode_wxBoxSizer::wxNode_wxBoxSizer(int orient)
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
   v8::Handle<v8::Value> returnObjArgs[0];
   v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
-  returnObj->SetPointerInInternalField(0, obj);
+  returnObj->SetPointerInInternalField(0, (void*)obj);
   returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
 
   return scope.Close(returnObj);
 }
 
-/*static*/ v8::Handle<v8::Value> wxNode_wxBoxSizer::NewCopy(wxBoxSizer& obj) {
+/*static*/ v8::Handle<v8::Value> wxNode_wxBoxSizer::NewCopy(const wxBoxSizer& obj) {
   v8::HandleScope scope;
-  wxNode_wxBoxSizer* returnVal = new wxNode_wxBoxSizer(obj);
+  wxNode_wxBoxSizer* returnVal = new wxNode_wxBoxSizer(*((wxBoxSizer*)&obj));
   return scope.Close(New(returnVal));
 
 }
