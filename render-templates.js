@@ -7,6 +7,7 @@ var Mustache = require("mustache");
 var xml2js = require('xml2js');
 var jsonpath = require('JSONPath');
 var crc32 = require('crc32');
+var async = require('async');
 
 var files = [
   { className: 'wxMenu', baseClassName: 'wxMenuBase', allowNew: true },
@@ -26,7 +27,7 @@ var files = [
   { className: 'wxDialog', baseClassName: 'wxDialogBase', allowNew: true },
   { className: 'wxToolBar', baseClassName: 'wxToolBarBase', allowNew: true },
   { className: 'wxControlWithItems', baseClassName: 'wxControlWithItemsBase', allowNew: false, addMethodsClass: 'wxNode_wxWindowWithItems_wxControl_wxItemContainer' },
-  { className: 'wxWindow', baseClassName: 'wxWindowBase', excludeIds: ['_43125', '_43080'], allowNew: true },
+  { className: 'wxWindow', baseClassName: 'wxWindowBase', allowNew: true },
   { className: 'wxItemContainer', allowNew: false },
   { className: 'wxItemContainerImmutable', allowNew: false },
   { className: 'wxSizer', allowNew: false },
@@ -106,7 +107,7 @@ fs.readFile('./wxapi.json', 'utf8', function(err, data) {
         fs.writeFile('./wxapi.json', JSON.stringify(apiJson, null, '\t'), function(err) {
           if(err) { throw err; }
 
-          renderFiles(files, apiJson);
+          renderFiles(files, apiJson, function() { console.log("done"); });
         });
       });
     });
@@ -114,7 +115,7 @@ fs.readFile('./wxapi.json', 'utf8', function(err, data) {
     console.error("wxapi.json read");
     var json = JSON.parse(data);
     console.error("json parsed");
-    renderFiles(files, json);
+    renderFiles(files, json, function() { console.log("done"); });
   }
 });
 
@@ -251,13 +252,17 @@ function argJsonToCtx(ctx, rawJson, arg, i) {
       argTestCode = util.format("args[%d]->IsString()", i);
     }
   } else if(type.elementName == "Enumeration") {
+    if(typeName == 'Origin') {
+      typeName = 'wxHelpEvent::Origin';
+    }
+
     argCode = util.format("%s %s = (%s)args[%d]->ToNumber()->Value();", typeName, argName, typeName, i);
     argCallCode = argName;
     argDeclCode = util.format("%s%s %s", typeName, type.refs + type.pointers, argName);
     argTestCode = util.format("args[%d]->IsNumber()", i);
   } else if(typeName == "void") {
     return null;
-  } else if(typeName && (typeName.match(/^wx.*/) || typeName == "Origin")) {
+  } else if(typeName && (typeName.match(/^wx.*/))) {
     if(type.pointers == '**') {
       argCode = util.format("%s* %s;", typeName, argName);
       argDeclCode = util.format("%s** %s", typeName, argName);
@@ -276,7 +281,7 @@ function argJsonToCtx(ctx, rawJson, arg, i) {
     ctx.includes = concatUnique(ctx.includes, ["wxNode_" + typeName + ".h"]);
     ctx.classes = concatUnique(ctx.classes, ["wxNode_" + typeName]);
   } else {
-    console.error(argCode);
+    throw new Error(argCode);
   }
 
   argCode += " /* type: " + typeId + ' ' + type.pointers + " */";
@@ -352,7 +357,7 @@ function methodJsonToCtx(parent, rawJson, methodJson) {
     ctx.returnTypeId = returnType['id'];
     ctx.returnEq = "";
     ctx.returnStmt = "return v8::Undefined();";
-    if(ctx.returnTypeName == "void" || ctx.returnTypeName == "_GtkWidget") {
+    if(ctx.returnTypeName == "void") {
       // do nothing
     } else if(ctx.returnTypeName == "int" || ctx.returnTypeName == "unsigned int" || ctx.returnTypeName == "long int") {
       ctx.returnEq = "int returnVal = ";
@@ -381,19 +386,25 @@ function methodJsonToCtx(parent, rawJson, methodJson) {
         ctx.returnEq += ctx.returnTypeName + "* returnVal = ";
         ctx.returnStmt = "return scope.Close(wxNode_" + ctx.returnTypeName + "::New(returnVal));";
       } else {
-        console.error("Unhandled return pointers", returnType);
+        console.error(red("Unhandled return pointers"), returnType);
       }
 
       ctx.includes = concatUnique(ctx.includes, ["wxNode_" + ctx.returnTypeName + ".h"]);
     } else {
-      console.error("Unhandled return type", returnType);
+      console.error(red("Unhandled return type"), returnType);
     }
   }
 
   var args = methodJson['Argument'];
   if(args) {
     for(var i=0; i<args.length; i++) {
-      var arg = argJsonToCtx(ctx, rawJson, args[i], i);
+      var arg;
+      try {
+        arg = argJsonToCtx(ctx, rawJson, args[i], i);
+      } catch(e) {
+        console.error(red(e));
+        return null;
+      }
       if(!arg) {
         return null;
       }
@@ -557,7 +568,7 @@ function rawJsonToCtx(rawJson, file) {
       ctx.newCopyCode += "  memcpy(dynamic_cast<" + ctx.name + "*>(returnVal), &obj, sizeof(" + ctx.name + "));\n";
       ctx.newCopyCode += "  return scope.Close(New(returnVal));\n";
     }
-    
+
     var subClazz = getClassByName(rawJson, file.className);
     if(subClazz['members']) {
       var memberIds = subClazz['members'].split(' ');
@@ -590,9 +601,6 @@ function rawJsonToCtx(rawJson, file) {
     for(var i=0; i<memberIds.length; i++) {
       var memberId = memberIds[i];
       if(memberId.length == 0) {
-        continue;
-      }
-      if(file.excludeIds && file.excludeIds.indexOf(memberId) >= 0) {
         continue;
       }
 
@@ -646,27 +654,32 @@ function rawJsonToCtx(rawJson, file) {
   return ctx;
 }
 
-function renderFiles(files, rawJson) {
-  for(var fileIdx = 0; fileIdx < files.length; fileIdx++) {
-    if(files[fileIdx].outputFileType) {
-      renderFile(files[fileIdx], rawJson);
+function renderFiles(files, rawJson, renderFilesCallback) {
+  async.forEachSeries(files, function(file, callback) {
+    if(file.outputFileType) {
+      renderFile(file, rawJson, callback);
     } else {
-      var file_h = deepCopy(files[fileIdx]);
-      file_h.templateFileName = file_h.templateFileName || "generic.h";
-      file_h.outputFileType = "h";
-      renderFile(file_h, rawJson);
-
-      var file_cpp = deepCopy(files[fileIdx]);
-      file_cpp.templateFileName = file_cpp.templateFileName || "generic.cpp";
-      file_cpp.outputFileType = "cpp";
-      renderFile(file_cpp, rawJson);
+      async.series([
+        function(seriesCallback) {
+          var file_h = deepCopy(file);
+          file_h.templateFileName = file_h.templateFileName || "generic.h";
+          file_h.outputFileType = "h";
+          renderFile(file_h, rawJson, seriesCallback);
+        },
+        function(seriesCallback) {
+          var file_cpp = deepCopy(file);
+          file_cpp.templateFileName = file_cpp.templateFileName || "generic.cpp";
+          file_cpp.outputFileType = "cpp";
+          renderFile(file_cpp, rawJson, seriesCallback);
+        }
+      ], callback);
     }
-  }
+  }, renderFilesCallback);
 }
 
-function renderFile(file, rawJson) {
+function renderFile(file, rawJson, callback) {
   var ctx = rawJsonToCtx(rawJson, file);
-  console.log("begin render " + file.templateFileName + " -> " + ctx.outputFilename);
+  console.log(green("RENDER: " + file.templateFileName + " -> " + ctx.outputFilename));
 
   fs.readFile(path.join("./src-templates", file.templateFileName), 'utf8', function(err, data) {
     if(err) { throw err; }
@@ -682,10 +695,10 @@ function renderFile(file, rawJson) {
     }
     var newContentsCrc = crc32(output);
     if(oldContentsCrc != newContentsCrc) {
-      console.log("writing " + ctx.outputFilename);
-      fs.writeFile(outputFilename, output);
+      fs.writeFile(outputFilename, output, callback);
     } else {
-      console.log("skipping " + ctx.outputFilename + " crc match");
+      console.log(yellow("skipping " + ctx.outputFilename + " crc match"));
+      callback();
     }
   });
 }
@@ -706,4 +719,16 @@ function deepCopy(obj) {
     return out;
   }
   return obj;
+}
+
+function green(msg) {
+  return '\u001b[32m' + msg + '\u001b[0m';
+}
+
+function yellow(msg) {
+  return '\u001b[33m' + msg + '\u001b[0m';
+}
+
+function red(msg) {
+  return '\u001b[31m' + msg + '\u001b[0m';
 }

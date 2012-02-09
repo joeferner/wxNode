@@ -38,6 +38,12 @@ public:
   
   wxNode_wxPanel(wxWindow* parent);
   
+  wxNode_wxPanel(wxWindow* parent, int x, int y, int width, int height, long int style, const wxString& name);
+  
+  wxNode_wxPanel(wxWindow* parent, int x, int y, int width, int height, long int style);
+  
+  wxNode_wxPanel(wxWindow* parent, int x, int y, int width, int height);
+  
   
 
 private:

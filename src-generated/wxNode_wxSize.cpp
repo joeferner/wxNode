@@ -131,10 +131,10 @@ wxNode_wxSize::wxNode_wxSize(int xx, int yy)
   
   
   /*
-   * id: _37138
+   * id: _59071
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxSize::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxSize* arg0 = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[0]->ToObject()); /* type: _20522  */
+    wxNode_wxSize* arg0 = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[0]->ToObject()); /* type: _25379  */
     
 
     wxNode_wxSize *self = new wxNode_wxSize(*arg0);
@@ -144,7 +144,7 @@ wxNode_wxSize::wxNode_wxSize(int xx, int yy)
   }
   
   /*
-   * id: _37139
+   * id: _59072
    */
   if(args.Length() == 0) {
     
@@ -156,11 +156,11 @@ wxNode_wxSize::wxNode_wxSize(int xx, int yy)
   }
   
   /*
-   * id: _37140
+   * id: _59073
    */
   if(args.Length() == 2 && args[0]->IsNumber() && args[1]->IsNumber()) {
-    int xx = (int)args[0]->ToInt32()->Value(); /* type: _162  */
-    int yy = (int)args[1]->ToInt32()->Value(); /* type: _162  */
+    int xx = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    int yy = (int)args[1]->ToInt32()->Value(); /* type: _233  */
     
 
     wxNode_wxSize *self = new wxNode_wxSize(xx, yy);
@@ -188,10 +188,10 @@ wxNode_wxSize::wxNode_wxSize(int xx, int yy)
 
   
   /*
-   * id: _37153
+   * id: _59086
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxSize::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxSize* sz = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[0]->ToObject()); /* type: _20522  */
+    wxNode_wxSize* sz = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[0]->ToObject()); /* type: _25379  */
     
 
     self->IncTo(*sz);
@@ -216,10 +216,10 @@ wxNode_wxSize::wxNode_wxSize(int xx, int yy)
 
   
   /*
-   * id: _37154
+   * id: _59087
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxSize::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxSize* sz = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[0]->ToObject()); /* type: _20522  */
+    wxNode_wxSize* sz = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[0]->ToObject()); /* type: _25379  */
     
 
     self->DecTo(*sz);
@@ -244,11 +244,11 @@ wxNode_wxSize::wxNode_wxSize(int xx, int yy)
 
   
   /*
-   * id: _37155
+   * id: _59088
    */
   if(args.Length() == 2 && args[0]->IsNumber() && args[1]->IsNumber()) {
-    int dx = (int)args[0]->ToInt32()->Value(); /* type: _162  */
-    int dy = (int)args[1]->ToInt32()->Value(); /* type: _162  */
+    int dx = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    int dy = (int)args[1]->ToInt32()->Value(); /* type: _233  */
     
 
     self->IncBy(dx, dy);
@@ -257,10 +257,10 @@ wxNode_wxSize::wxNode_wxSize(int xx, int yy)
   }
   
   /*
-   * id: _37156
+   * id: _59089
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxPoint::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxPoint* pt = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[0]->ToObject()); /* type: _20412  */
+    wxNode_wxPoint* pt = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[0]->ToObject()); /* type: _25270  */
     
 
     self->IncBy(*pt);
@@ -269,10 +269,10 @@ wxNode_wxSize::wxNode_wxSize(int xx, int yy)
   }
   
   /*
-   * id: _37157
+   * id: _59090
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxSize::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxSize* sz = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[0]->ToObject()); /* type: _20522  */
+    wxNode_wxSize* sz = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[0]->ToObject()); /* type: _25379  */
     
 
     self->IncBy(*sz);
@@ -281,10 +281,10 @@ wxNode_wxSize::wxNode_wxSize(int xx, int yy)
   }
   
   /*
-   * id: _37158
+   * id: _59091
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    int d = (int)args[0]->ToInt32()->Value(); /* type: _162  */
+    int d = (int)args[0]->ToInt32()->Value(); /* type: _233  */
     
 
     self->IncBy(d);
@@ -309,11 +309,11 @@ wxNode_wxSize::wxNode_wxSize(int xx, int yy)
 
   
   /*
-   * id: _37159
+   * id: _59092
    */
   if(args.Length() == 2 && args[0]->IsNumber() && args[1]->IsNumber()) {
-    int dx = (int)args[0]->ToInt32()->Value(); /* type: _162  */
-    int dy = (int)args[1]->ToInt32()->Value(); /* type: _162  */
+    int dx = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    int dy = (int)args[1]->ToInt32()->Value(); /* type: _233  */
     
 
     self->DecBy(dx, dy);
@@ -322,10 +322,10 @@ wxNode_wxSize::wxNode_wxSize(int xx, int yy)
   }
   
   /*
-   * id: _37160
+   * id: _59093
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxPoint::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxPoint* pt = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[0]->ToObject()); /* type: _20412  */
+    wxNode_wxPoint* pt = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[0]->ToObject()); /* type: _25270  */
     
 
     self->DecBy(*pt);
@@ -334,10 +334,10 @@ wxNode_wxSize::wxNode_wxSize(int xx, int yy)
   }
   
   /*
-   * id: _37161
+   * id: _59094
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxSize::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxSize* sz = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[0]->ToObject()); /* type: _20522  */
+    wxNode_wxSize* sz = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[0]->ToObject()); /* type: _25379  */
     
 
     self->DecBy(*sz);
@@ -346,10 +346,10 @@ wxNode_wxSize::wxNode_wxSize(int xx, int yy)
   }
   
   /*
-   * id: _37162
+   * id: _59095
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    int d = (int)args[0]->ToInt32()->Value(); /* type: _162  */
+    int d = (int)args[0]->ToInt32()->Value(); /* type: _233  */
     
 
     self->DecBy(d);
@@ -374,11 +374,11 @@ wxNode_wxSize::wxNode_wxSize(int xx, int yy)
 
   
   /*
-   * id: _37163
+   * id: _59096
    */
   if(args.Length() == 2 && args[0]->IsNumber() && args[1]->IsNumber()) {
-    float xscale = (float)args[0]->ToNumber()->Value(); /* type: _13252  */
-    float yscale = (float)args[1]->ToNumber()->Value(); /* type: _13252  */
+    float xscale = (float)args[0]->ToNumber()->Value(); /* type: _1794  */
+    float yscale = (float)args[1]->ToNumber()->Value(); /* type: _1794  */
     
 
     wxSize returnVal = self->Scale(xscale, yscale);
@@ -403,11 +403,11 @@ wxNode_wxSize::wxNode_wxSize(int xx, int yy)
 
   
   /*
-   * id: _37164
+   * id: _59097
    */
   if(args.Length() == 2 && args[0]->IsNumber() && args[1]->IsNumber()) {
-    int xx = (int)args[0]->ToInt32()->Value(); /* type: _162  */
-    int yy = (int)args[1]->ToInt32()->Value(); /* type: _162  */
+    int xx = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    int yy = (int)args[1]->ToInt32()->Value(); /* type: _233  */
     
 
     self->Set(xx, yy);
@@ -432,10 +432,10 @@ wxNode_wxSize::wxNode_wxSize(int xx, int yy)
 
   
   /*
-   * id: _37165
+   * id: _59098
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    int w = (int)args[0]->ToInt32()->Value(); /* type: _162  */
+    int w = (int)args[0]->ToInt32()->Value(); /* type: _233  */
     
 
     self->SetWidth(w);
@@ -460,10 +460,10 @@ wxNode_wxSize::wxNode_wxSize(int xx, int yy)
 
   
   /*
-   * id: _37166
+   * id: _59099
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    int h = (int)args[0]->ToInt32()->Value(); /* type: _162  */
+    int h = (int)args[0]->ToInt32()->Value(); /* type: _233  */
     
 
     self->SetHeight(h);
@@ -488,7 +488,7 @@ wxNode_wxSize::wxNode_wxSize(int xx, int yy)
 
   
   /*
-   * id: _37167
+   * id: _59100
    */
   if(args.Length() == 0) {
     
@@ -515,7 +515,7 @@ wxNode_wxSize::wxNode_wxSize(int xx, int yy)
 
   
   /*
-   * id: _37168
+   * id: _59101
    */
   if(args.Length() == 0) {
     
@@ -542,7 +542,7 @@ wxNode_wxSize::wxNode_wxSize(int xx, int yy)
 
   
   /*
-   * id: _37169
+   * id: _59102
    */
   if(args.Length() == 0) {
     
@@ -569,10 +569,10 @@ wxNode_wxSize::wxNode_wxSize(int xx, int yy)
 
   
   /*
-   * id: _37170
+   * id: _59103
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxSize::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxSize* size = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[0]->ToObject()); /* type: _20522  */
+    wxNode_wxSize* size = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[0]->ToObject()); /* type: _25379  */
     
 
     self->SetDefaults(*size);
@@ -597,7 +597,7 @@ wxNode_wxSize::wxNode_wxSize(int xx, int yy)
 
   
   /*
-   * id: _37171
+   * id: _59104
    */
   if(args.Length() == 0) {
     
@@ -624,7 +624,7 @@ wxNode_wxSize::wxNode_wxSize(int xx, int yy)
 
   
   /*
-   * id: _37172
+   * id: _59105
    */
   if(args.Length() == 0) {
     

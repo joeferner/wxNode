@@ -4,6 +4,8 @@ node.js wrapper for wxWidgets.
 
 ## Installation Linux
 
+* Download and install wxWidgets 2.9.3.
+
 ```bash
 $ npm install wxnode
 ```
@@ -38,4 +40,23 @@ var MyFrame = wxNode.wxFrame.extend({
 
 var app = new MyApp();
 app.run();
+```
+
+<a name="create-wxapi"/>
+## Creating wxapi.xml from wxWidgets
+
+```bash
+$ cd wxWidgets-2.9.3/docs/doxygen
+$ ./regen.sh xml
+$ cd ../..
+$ ./configure
+$ patch -p1 -i ~/wxNode/rungccxml.sh.patch
+$ patch -p1 -i ~/wxNode/strvararg.h.patch
+$ cd utils/ifacecheck/
+$ ./rungccxml.sh
+$ cp wxapi.xml ~/wxNode/wxapi.xml
+$ cd ~/wxNode
+$ rm wxapi.json
+$ rm -rf build
+$ ./render-templates.js && ./mnm.js build
 ```

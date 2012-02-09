@@ -111,8 +111,8 @@ wxNode_wxBoxSizer::wxNode_wxBoxSizer(int orient)
 /*static*/ bool wxNode_wxBoxSizer::AssignableFrom(const char* className) {
   if(!strcmp("wxBoxSizer", className)) { return true; }
   
-  if(!strcmp("wxStaticBoxSizer", className)) { return true; }
   if(!strcmp("wxWrapSizer", className)) { return true; }
+  if(!strcmp("wxStaticBoxSizer", className)) { return true; }
   if(!strcmp("wxStdDialogButtonSizer", className)) { return true; }
 
 
@@ -125,10 +125,10 @@ wxNode_wxBoxSizer::wxNode_wxBoxSizer(int orient)
   
   
   /*
-   * id: _28123
+   * id: _33529
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxBoxSizer::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxBoxSizer* arg0 = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBoxSizer>(args[0]->ToObject()); /* type: _62616  */
+    wxNode_wxBoxSizer* arg0 = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBoxSizer>(args[0]->ToObject()); /* type: _68983  */
     
 
     wxNode_wxBoxSizer *self = new wxNode_wxBoxSizer(*arg0);
@@ -138,10 +138,10 @@ wxNode_wxBoxSizer::wxNode_wxBoxSizer(int orient)
   }
   
   /*
-   * id: _28124
+   * id: _33530
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    int orient = (int)args[0]->ToInt32()->Value(); /* type: _162  */
+    int orient = (int)args[0]->ToInt32()->Value(); /* type: _233  */
     
 
     wxNode_wxBoxSizer *self = new wxNode_wxBoxSizer(orient);
@@ -169,10 +169,10 @@ wxNode_wxBoxSizer::wxNode_wxBoxSizer(int orient)
 
   
   /*
-   * id: _28125
+   * id: _33531
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    int size = (int)args[0]->ToInt32()->Value(); /* type: _162  */
+    int size = (int)args[0]->ToInt32()->Value(); /* type: _233  */
     
 
     wxSizerItem* returnVal = self->AddSpacer(size);
@@ -197,7 +197,7 @@ wxNode_wxBoxSizer::wxNode_wxBoxSizer(int orient)
 
   
   /*
-   * id: _28126
+   * id: _33532
    */
   if(args.Length() == 0) {
     
@@ -224,7 +224,7 @@ wxNode_wxBoxSizer::wxNode_wxBoxSizer(int orient)
 
   
   /*
-   * id: _28127
+   * id: _33533
    */
   if(args.Length() == 0) {
     
@@ -251,10 +251,10 @@ wxNode_wxBoxSizer::wxNode_wxBoxSizer(int orient)
 
   
   /*
-   * id: _28128
+   * id: _33534
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    int orient = (int)args[0]->ToInt32()->Value(); /* type: _162  */
+    int orient = (int)args[0]->ToInt32()->Value(); /* type: _233  */
     
 
     self->SetOrientation(orient);
@@ -279,7 +279,7 @@ wxNode_wxBoxSizer::wxNode_wxBoxSizer(int orient)
 
   
   /*
-   * id: _28129
+   * id: _33535
    */
   if(args.Length() == 0) {
     
@@ -306,7 +306,7 @@ wxNode_wxBoxSizer::wxNode_wxBoxSizer(int orient)
 
   
   /*
-   * id: _28130
+   * id: _33536
    */
   if(args.Length() == 0) {
     
@@ -333,7 +333,7 @@ wxNode_wxBoxSizer::wxNode_wxBoxSizer(int orient)
 
   
   /*
-   * id: _28138
+   * id: _33544
    */
   if(args.Length() == 0) {
     

@@ -4,7 +4,7 @@
   "author": "Joe Ferner <joe.ferner@nearinfinity.com>",
   "keywords": ["wxwidgets", "bridge", "native"],
   "homepage": "https://github.com/joeferner/wxNode",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "engines": { "node" : ">=0.6.0" },
   "maintainers": [
     { "name": "Joe Ferner", "email": "joe.ferner@nearinfinity.com" }
@@ -20,7 +20,8 @@
     "mustache": "git://github.com/janl/mustache.js.git",
     "JSONPath": "~0.8.5",
     "xml2js": "~0.1.13",
-    "crc32": "~0.2.2"
+    "crc32": "~0.2.2",
+    "async": "~0.1.15"
   },
   "scripts": {
     "test": "nodeunit test",

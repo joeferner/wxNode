@@ -125,10 +125,10 @@ wxNode_wxPoint::wxNode_wxPoint(wxRealPoint& pt)
   
   
   /*
-   * id: _26544
+   * id: _32038
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxPoint::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxPoint* arg0 = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[0]->ToObject()); /* type: _20412  */
+    wxNode_wxPoint* arg0 = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[0]->ToObject()); /* type: _25270  */
     
 
     wxNode_wxPoint *self = new wxNode_wxPoint(*arg0);
@@ -138,7 +138,7 @@ wxNode_wxPoint::wxNode_wxPoint(wxRealPoint& pt)
   }
   
   /*
-   * id: _26545
+   * id: _32039
    */
   if(args.Length() == 0) {
     
@@ -150,11 +150,11 @@ wxNode_wxPoint::wxNode_wxPoint(wxRealPoint& pt)
   }
   
   /*
-   * id: _26546
+   * id: _32040
    */
   if(args.Length() == 2 && args[0]->IsNumber() && args[1]->IsNumber()) {
-    int xx = (int)args[0]->ToInt32()->Value(); /* type: _162  */
-    int yy = (int)args[1]->ToInt32()->Value(); /* type: _162  */
+    int xx = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    int yy = (int)args[1]->ToInt32()->Value(); /* type: _233  */
     
 
     wxNode_wxPoint *self = new wxNode_wxPoint(xx, yy);
@@ -164,10 +164,10 @@ wxNode_wxPoint::wxNode_wxPoint(wxRealPoint& pt)
   }
   
   /*
-   * id: _26547
+   * id: _32041
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxRealPoint::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxRealPoint* pt = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxRealPoint>(args[0]->ToObject()); /* type: _20523  */
+    wxNode_wxRealPoint* pt = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxRealPoint>(args[0]->ToObject()); /* type: _25380  */
     
 
     wxNode_wxPoint *self = new wxNode_wxPoint(*pt);
@@ -195,7 +195,7 @@ wxNode_wxPoint::wxNode_wxPoint(wxRealPoint& pt)
 
   
   /*
-   * id: _26552
+   * id: _32046
    */
   if(args.Length() == 0) {
     
@@ -222,10 +222,10 @@ wxNode_wxPoint::wxNode_wxPoint(wxRealPoint& pt)
 
   
   /*
-   * id: _26553
+   * id: _32047
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxPoint::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxPoint* pt = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[0]->ToObject()); /* type: _20412  */
+    wxNode_wxPoint* pt = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[0]->ToObject()); /* type: _25270  */
     
 
     self->SetDefaults(*pt);
