@@ -280,6 +280,8 @@ function argJsonToCtx(ctx, rawJson, arg, i) {
     }
     ctx.includes = concatUnique(ctx.includes, ["wxNode_" + typeName + ".h"]);
     ctx.classes = concatUnique(ctx.classes, ["wxNode_" + typeName]);
+  } else if(typeName == '_GtkWidget') {
+    return null;
   } else {
     throw new Error(argCode);
   }
@@ -390,6 +392,8 @@ function methodJsonToCtx(parent, rawJson, methodJson) {
       }
 
       ctx.includes = concatUnique(ctx.includes, ["wxNode_" + ctx.returnTypeName + ".h"]);
+    } else if(ctx.returnTypeName == "_GtkWidget") {
+      return null;
     } else {
       console.error(red("Unhandled return type"), returnType);
     }

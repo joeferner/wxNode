@@ -201,7 +201,7 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
   
   
   /*
-   * id: _53264
+   * id: _59109
    */
   if(args.Length() == 0) {
     
@@ -213,15 +213,15 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
   }
   
   /*
-   * id: _53265
+   * id: _59110
    */
   if(args.Length() == 6 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxWindow::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsNumber() && (args[2]->IsNull() || (args[2]->IsObject() && wxNode_wxPoint::AssignableFrom(args[2]->ToObject()->GetConstructorName()))) && (args[3]->IsNull() || (args[3]->IsObject() && wxNode_wxSize::AssignableFrom(args[3]->ToObject()->GetConstructorName()))) && args[4]->IsNumber() && args[5]->IsString()) {
-    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _993 * */
-    int id = (int)args[1]->ToInt32()->Value(); /* type: _8633  */
-    wxNode_wxPoint* pos = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[2]->ToObject()); /* type: _20412  */
-    wxNode_wxSize* size = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[3]->ToObject()); /* type: _20522  */
-    long int style = (long int)args[4]->ToInt32()->Value(); /* type: _586  */
-    v8::String::AsciiValue name(args[5]->ToString()); /* type: _14808  */
+    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _1326 * */
+    int id = (int)args[1]->ToInt32()->Value(); /* type: _11168  */
+    wxNode_wxPoint* pos = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[2]->ToObject()); /* type: _25270  */
+    wxNode_wxSize* size = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[3]->ToObject()); /* type: _25379  */
+    long int style = (long int)args[4]->ToInt32()->Value(); /* type: _766  */
+    v8::String::AsciiValue name(args[5]->ToString()); /* type: _18997  */
     
 
     wxNode_wxToolBar *self = new wxNode_wxToolBar(parent, id, *pos, *size, style, *name);
@@ -231,14 +231,14 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
   }
   
   /*
-   * id: _53265
+   * id: _59110
    */
   if(args.Length() == 5 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxWindow::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsNumber() && (args[2]->IsNull() || (args[2]->IsObject() && wxNode_wxPoint::AssignableFrom(args[2]->ToObject()->GetConstructorName()))) && (args[3]->IsNull() || (args[3]->IsObject() && wxNode_wxSize::AssignableFrom(args[3]->ToObject()->GetConstructorName()))) && args[4]->IsNumber()) {
-    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _993 * */
-    int id = (int)args[1]->ToInt32()->Value(); /* type: _8633  */
-    wxNode_wxPoint* pos = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[2]->ToObject()); /* type: _20412  */
-    wxNode_wxSize* size = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[3]->ToObject()); /* type: _20522  */
-    long int style = (long int)args[4]->ToInt32()->Value(); /* type: _586  */
+    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _1326 * */
+    int id = (int)args[1]->ToInt32()->Value(); /* type: _11168  */
+    wxNode_wxPoint* pos = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[2]->ToObject()); /* type: _25270  */
+    wxNode_wxSize* size = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[3]->ToObject()); /* type: _25379  */
+    long int style = (long int)args[4]->ToInt32()->Value(); /* type: _766  */
     
 
     wxNode_wxToolBar *self = new wxNode_wxToolBar(parent, id, *pos, *size, style);
@@ -248,13 +248,13 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
   }
   
   /*
-   * id: _53265
+   * id: _59110
    */
   if(args.Length() == 4 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxWindow::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsNumber() && (args[2]->IsNull() || (args[2]->IsObject() && wxNode_wxPoint::AssignableFrom(args[2]->ToObject()->GetConstructorName()))) && (args[3]->IsNull() || (args[3]->IsObject() && wxNode_wxSize::AssignableFrom(args[3]->ToObject()->GetConstructorName())))) {
-    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _993 * */
-    int id = (int)args[1]->ToInt32()->Value(); /* type: _8633  */
-    wxNode_wxPoint* pos = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[2]->ToObject()); /* type: _20412  */
-    wxNode_wxSize* size = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[3]->ToObject()); /* type: _20522  */
+    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _1326 * */
+    int id = (int)args[1]->ToInt32()->Value(); /* type: _11168  */
+    wxNode_wxPoint* pos = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[2]->ToObject()); /* type: _25270  */
+    wxNode_wxSize* size = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[3]->ToObject()); /* type: _25379  */
     
 
     wxNode_wxToolBar *self = new wxNode_wxToolBar(parent, id, *pos, *size);
@@ -264,12 +264,12 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
   }
   
   /*
-   * id: _53265
+   * id: _59110
    */
   if(args.Length() == 3 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxWindow::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsNumber() && (args[2]->IsNull() || (args[2]->IsObject() && wxNode_wxPoint::AssignableFrom(args[2]->ToObject()->GetConstructorName())))) {
-    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _993 * */
-    int id = (int)args[1]->ToInt32()->Value(); /* type: _8633  */
-    wxNode_wxPoint* pos = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[2]->ToObject()); /* type: _20412  */
+    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _1326 * */
+    int id = (int)args[1]->ToInt32()->Value(); /* type: _11168  */
+    wxNode_wxPoint* pos = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[2]->ToObject()); /* type: _25270  */
     
 
     wxNode_wxToolBar *self = new wxNode_wxToolBar(parent, id, *pos);
@@ -279,11 +279,11 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
   }
   
   /*
-   * id: _53265
+   * id: _59110
    */
   if(args.Length() == 2 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxWindow::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsNumber()) {
-    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _993 * */
-    int id = (int)args[1]->ToInt32()->Value(); /* type: _8633  */
+    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _1326 * */
+    int id = (int)args[1]->ToInt32()->Value(); /* type: _11168  */
     
 
     wxNode_wxToolBar *self = new wxNode_wxToolBar(parent, id);
@@ -311,17 +311,17 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
 
   
   /*
-   * id: _39833
+   * id: _44529
    */
   if(args.Length() == 8 && args[0]->IsNumber() && args[1]->IsString() && (args[2]->IsNull() || (args[2]->IsObject() && wxNode_wxBitmap::AssignableFrom(args[2]->ToObject()->GetConstructorName()))) && (args[3]->IsNull() || (args[3]->IsObject() && wxNode_wxBitmap::AssignableFrom(args[3]->ToObject()->GetConstructorName()))) && args[4]->IsNumber() && args[5]->IsString() && args[6]->IsString() && (args[7]->IsNull() || (args[7]->IsObject() && wxNode_wxObject::AssignableFrom(args[7]->ToObject()->GetConstructorName())))) {
-    int toolid = (int)args[0]->ToInt32()->Value(); /* type: _162  */
-    v8::String::AsciiValue label(args[1]->ToString()); /* type: _14808  */
-    wxNode_wxBitmap* bitmap = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[2]->ToObject()); /* type: _15508  */
-    wxNode_wxBitmap* bmpDisabled = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[3]->ToObject()); /* type: _15508  */
-    wxItemKind kind = (wxItemKind)args[4]->ToNumber()->Value(); /* type: _4625  */
-    v8::String::AsciiValue shortHelp(args[5]->ToString()); /* type: _14808  */
-    v8::String::AsciiValue longHelp(args[6]->ToString()); /* type: _14808  */
-    wxNode_wxObject* data = args[7]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxObject>(args[7]->ToObject()); /* type: _15609 * */
+    int toolid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    v8::String::AsciiValue label(args[1]->ToString()); /* type: _18997  */
+    wxNode_wxBitmap* bitmap = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[2]->ToObject()); /* type: _19639  */
+    wxNode_wxBitmap* bmpDisabled = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[3]->ToObject()); /* type: _19639  */
+    wxItemKind kind = (wxItemKind)args[4]->ToNumber()->Value(); /* type: _6215  */
+    v8::String::AsciiValue shortHelp(args[5]->ToString()); /* type: _18997  */
+    v8::String::AsciiValue longHelp(args[6]->ToString()); /* type: _18997  */
+    wxNode_wxObject* data = args[7]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxObject>(args[7]->ToObject()); /* type: _19755 * */
     
 
     const wxToolBarToolBase* returnVal = self->AddTool(toolid, *label, *bitmap, *bmpDisabled, kind, *shortHelp, *longHelp, data);
@@ -330,16 +330,16 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
   }
   
   /*
-   * id: _39833
+   * id: _44529
    */
   if(args.Length() == 7 && args[0]->IsNumber() && args[1]->IsString() && (args[2]->IsNull() || (args[2]->IsObject() && wxNode_wxBitmap::AssignableFrom(args[2]->ToObject()->GetConstructorName()))) && (args[3]->IsNull() || (args[3]->IsObject() && wxNode_wxBitmap::AssignableFrom(args[3]->ToObject()->GetConstructorName()))) && args[4]->IsNumber() && args[5]->IsString() && args[6]->IsString()) {
-    int toolid = (int)args[0]->ToInt32()->Value(); /* type: _162  */
-    v8::String::AsciiValue label(args[1]->ToString()); /* type: _14808  */
-    wxNode_wxBitmap* bitmap = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[2]->ToObject()); /* type: _15508  */
-    wxNode_wxBitmap* bmpDisabled = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[3]->ToObject()); /* type: _15508  */
-    wxItemKind kind = (wxItemKind)args[4]->ToNumber()->Value(); /* type: _4625  */
-    v8::String::AsciiValue shortHelp(args[5]->ToString()); /* type: _14808  */
-    v8::String::AsciiValue longHelp(args[6]->ToString()); /* type: _14808  */
+    int toolid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    v8::String::AsciiValue label(args[1]->ToString()); /* type: _18997  */
+    wxNode_wxBitmap* bitmap = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[2]->ToObject()); /* type: _19639  */
+    wxNode_wxBitmap* bmpDisabled = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[3]->ToObject()); /* type: _19639  */
+    wxItemKind kind = (wxItemKind)args[4]->ToNumber()->Value(); /* type: _6215  */
+    v8::String::AsciiValue shortHelp(args[5]->ToString()); /* type: _18997  */
+    v8::String::AsciiValue longHelp(args[6]->ToString()); /* type: _18997  */
     
 
     const wxToolBarToolBase* returnVal = self->AddTool(toolid, *label, *bitmap, *bmpDisabled, kind, *shortHelp, *longHelp);
@@ -348,15 +348,15 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
   }
   
   /*
-   * id: _39833
+   * id: _44529
    */
   if(args.Length() == 6 && args[0]->IsNumber() && args[1]->IsString() && (args[2]->IsNull() || (args[2]->IsObject() && wxNode_wxBitmap::AssignableFrom(args[2]->ToObject()->GetConstructorName()))) && (args[3]->IsNull() || (args[3]->IsObject() && wxNode_wxBitmap::AssignableFrom(args[3]->ToObject()->GetConstructorName()))) && args[4]->IsNumber() && args[5]->IsString()) {
-    int toolid = (int)args[0]->ToInt32()->Value(); /* type: _162  */
-    v8::String::AsciiValue label(args[1]->ToString()); /* type: _14808  */
-    wxNode_wxBitmap* bitmap = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[2]->ToObject()); /* type: _15508  */
-    wxNode_wxBitmap* bmpDisabled = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[3]->ToObject()); /* type: _15508  */
-    wxItemKind kind = (wxItemKind)args[4]->ToNumber()->Value(); /* type: _4625  */
-    v8::String::AsciiValue shortHelp(args[5]->ToString()); /* type: _14808  */
+    int toolid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    v8::String::AsciiValue label(args[1]->ToString()); /* type: _18997  */
+    wxNode_wxBitmap* bitmap = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[2]->ToObject()); /* type: _19639  */
+    wxNode_wxBitmap* bmpDisabled = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[3]->ToObject()); /* type: _19639  */
+    wxItemKind kind = (wxItemKind)args[4]->ToNumber()->Value(); /* type: _6215  */
+    v8::String::AsciiValue shortHelp(args[5]->ToString()); /* type: _18997  */
     
 
     const wxToolBarToolBase* returnVal = self->AddTool(toolid, *label, *bitmap, *bmpDisabled, kind, *shortHelp);
@@ -365,14 +365,14 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
   }
   
   /*
-   * id: _39833
+   * id: _44529
    */
   if(args.Length() == 5 && args[0]->IsNumber() && args[1]->IsString() && (args[2]->IsNull() || (args[2]->IsObject() && wxNode_wxBitmap::AssignableFrom(args[2]->ToObject()->GetConstructorName()))) && (args[3]->IsNull() || (args[3]->IsObject() && wxNode_wxBitmap::AssignableFrom(args[3]->ToObject()->GetConstructorName()))) && args[4]->IsNumber()) {
-    int toolid = (int)args[0]->ToInt32()->Value(); /* type: _162  */
-    v8::String::AsciiValue label(args[1]->ToString()); /* type: _14808  */
-    wxNode_wxBitmap* bitmap = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[2]->ToObject()); /* type: _15508  */
-    wxNode_wxBitmap* bmpDisabled = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[3]->ToObject()); /* type: _15508  */
-    wxItemKind kind = (wxItemKind)args[4]->ToNumber()->Value(); /* type: _4625  */
+    int toolid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    v8::String::AsciiValue label(args[1]->ToString()); /* type: _18997  */
+    wxNode_wxBitmap* bitmap = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[2]->ToObject()); /* type: _19639  */
+    wxNode_wxBitmap* bmpDisabled = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[3]->ToObject()); /* type: _19639  */
+    wxItemKind kind = (wxItemKind)args[4]->ToNumber()->Value(); /* type: _6215  */
     
 
     const wxToolBarToolBase* returnVal = self->AddTool(toolid, *label, *bitmap, *bmpDisabled, kind);
@@ -381,13 +381,13 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
   }
   
   /*
-   * id: _39833
+   * id: _44529
    */
   if(args.Length() == 4 && args[0]->IsNumber() && args[1]->IsString() && (args[2]->IsNull() || (args[2]->IsObject() && wxNode_wxBitmap::AssignableFrom(args[2]->ToObject()->GetConstructorName()))) && (args[3]->IsNull() || (args[3]->IsObject() && wxNode_wxBitmap::AssignableFrom(args[3]->ToObject()->GetConstructorName())))) {
-    int toolid = (int)args[0]->ToInt32()->Value(); /* type: _162  */
-    v8::String::AsciiValue label(args[1]->ToString()); /* type: _14808  */
-    wxNode_wxBitmap* bitmap = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[2]->ToObject()); /* type: _15508  */
-    wxNode_wxBitmap* bmpDisabled = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[3]->ToObject()); /* type: _15508  */
+    int toolid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    v8::String::AsciiValue label(args[1]->ToString()); /* type: _18997  */
+    wxNode_wxBitmap* bitmap = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[2]->ToObject()); /* type: _19639  */
+    wxNode_wxBitmap* bmpDisabled = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[3]->ToObject()); /* type: _19639  */
     
 
     const wxToolBarToolBase* returnVal = self->AddTool(toolid, *label, *bitmap, *bmpDisabled);
@@ -396,14 +396,14 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
   }
   
   /*
-   * id: _39834
+   * id: _44530
    */
   if(args.Length() == 5 && args[0]->IsNumber() && args[1]->IsString() && (args[2]->IsNull() || (args[2]->IsObject() && wxNode_wxBitmap::AssignableFrom(args[2]->ToObject()->GetConstructorName()))) && args[3]->IsString() && args[4]->IsNumber()) {
-    int toolid = (int)args[0]->ToInt32()->Value(); /* type: _162  */
-    v8::String::AsciiValue label(args[1]->ToString()); /* type: _14808  */
-    wxNode_wxBitmap* bitmap = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[2]->ToObject()); /* type: _15508  */
-    v8::String::AsciiValue shortHelp(args[3]->ToString()); /* type: _14808  */
-    wxItemKind kind = (wxItemKind)args[4]->ToNumber()->Value(); /* type: _4625  */
+    int toolid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    v8::String::AsciiValue label(args[1]->ToString()); /* type: _18997  */
+    wxNode_wxBitmap* bitmap = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[2]->ToObject()); /* type: _19639  */
+    v8::String::AsciiValue shortHelp(args[3]->ToString()); /* type: _18997  */
+    wxItemKind kind = (wxItemKind)args[4]->ToNumber()->Value(); /* type: _6215  */
     
 
     const wxToolBarToolBase* returnVal = self->AddTool(toolid, *label, *bitmap, *shortHelp, kind);
@@ -412,13 +412,13 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
   }
   
   /*
-   * id: _39834
+   * id: _44530
    */
   if(args.Length() == 4 && args[0]->IsNumber() && args[1]->IsString() && (args[2]->IsNull() || (args[2]->IsObject() && wxNode_wxBitmap::AssignableFrom(args[2]->ToObject()->GetConstructorName()))) && args[3]->IsString()) {
-    int toolid = (int)args[0]->ToInt32()->Value(); /* type: _162  */
-    v8::String::AsciiValue label(args[1]->ToString()); /* type: _14808  */
-    wxNode_wxBitmap* bitmap = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[2]->ToObject()); /* type: _15508  */
-    v8::String::AsciiValue shortHelp(args[3]->ToString()); /* type: _14808  */
+    int toolid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    v8::String::AsciiValue label(args[1]->ToString()); /* type: _18997  */
+    wxNode_wxBitmap* bitmap = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[2]->ToObject()); /* type: _19639  */
+    v8::String::AsciiValue shortHelp(args[3]->ToString()); /* type: _18997  */
     
 
     const wxToolBarToolBase* returnVal = self->AddTool(toolid, *label, *bitmap, *shortHelp);
@@ -427,12 +427,12 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
   }
   
   /*
-   * id: _39834
+   * id: _44530
    */
   if(args.Length() == 3 && args[0]->IsNumber() && args[1]->IsString() && (args[2]->IsNull() || (args[2]->IsObject() && wxNode_wxBitmap::AssignableFrom(args[2]->ToObject()->GetConstructorName())))) {
-    int toolid = (int)args[0]->ToInt32()->Value(); /* type: _162  */
-    v8::String::AsciiValue label(args[1]->ToString()); /* type: _14808  */
-    wxNode_wxBitmap* bitmap = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[2]->ToObject()); /* type: _15508  */
+    int toolid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    v8::String::AsciiValue label(args[1]->ToString()); /* type: _18997  */
+    wxNode_wxBitmap* bitmap = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[2]->ToObject()); /* type: _19639  */
     
 
     const wxToolBarToolBase* returnVal = self->AddTool(toolid, *label, *bitmap);
@@ -441,10 +441,10 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
   }
   
   /*
-   * id: _39838
+   * id: _44534
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxToolBarTool::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxToolBarTool* tool = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxToolBarTool>(args[0]->ToObject()); /* type: _23953 * */
+    wxNode_wxToolBarTool* tool = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxToolBarTool>(args[0]->ToObject()); /* type: _31946 * */
     
 
     const wxToolBarToolBase* returnVal = self->AddTool(tool);
@@ -469,16 +469,16 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
 
   
   /*
-   * id: _39835
+   * id: _44531
    */
   if(args.Length() == 7 && args[0]->IsNumber() && args[1]->IsString() && (args[2]->IsNull() || (args[2]->IsObject() && wxNode_wxBitmap::AssignableFrom(args[2]->ToObject()->GetConstructorName()))) && (args[3]->IsNull() || (args[3]->IsObject() && wxNode_wxBitmap::AssignableFrom(args[3]->ToObject()->GetConstructorName()))) && args[4]->IsString() && args[5]->IsString() && (args[6]->IsNull() || (args[6]->IsObject() && wxNode_wxObject::AssignableFrom(args[6]->ToObject()->GetConstructorName())))) {
-    int toolid = (int)args[0]->ToInt32()->Value(); /* type: _162  */
-    v8::String::AsciiValue label(args[1]->ToString()); /* type: _14808  */
-    wxNode_wxBitmap* bitmap = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[2]->ToObject()); /* type: _15508  */
-    wxNode_wxBitmap* bmpDisabled = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[3]->ToObject()); /* type: _15508  */
-    v8::String::AsciiValue shortHelp(args[4]->ToString()); /* type: _14808  */
-    v8::String::AsciiValue longHelp(args[5]->ToString()); /* type: _14808  */
-    wxNode_wxObject* data = args[6]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxObject>(args[6]->ToObject()); /* type: _15609 * */
+    int toolid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    v8::String::AsciiValue label(args[1]->ToString()); /* type: _18997  */
+    wxNode_wxBitmap* bitmap = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[2]->ToObject()); /* type: _19639  */
+    wxNode_wxBitmap* bmpDisabled = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[3]->ToObject()); /* type: _19639  */
+    v8::String::AsciiValue shortHelp(args[4]->ToString()); /* type: _18997  */
+    v8::String::AsciiValue longHelp(args[5]->ToString()); /* type: _18997  */
+    wxNode_wxObject* data = args[6]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxObject>(args[6]->ToObject()); /* type: _19755 * */
     
 
     const wxToolBarToolBase* returnVal = self->AddCheckTool(toolid, *label, *bitmap, *bmpDisabled, *shortHelp, *longHelp, data);
@@ -487,15 +487,15 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
   }
   
   /*
-   * id: _39835
+   * id: _44531
    */
   if(args.Length() == 6 && args[0]->IsNumber() && args[1]->IsString() && (args[2]->IsNull() || (args[2]->IsObject() && wxNode_wxBitmap::AssignableFrom(args[2]->ToObject()->GetConstructorName()))) && (args[3]->IsNull() || (args[3]->IsObject() && wxNode_wxBitmap::AssignableFrom(args[3]->ToObject()->GetConstructorName()))) && args[4]->IsString() && args[5]->IsString()) {
-    int toolid = (int)args[0]->ToInt32()->Value(); /* type: _162  */
-    v8::String::AsciiValue label(args[1]->ToString()); /* type: _14808  */
-    wxNode_wxBitmap* bitmap = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[2]->ToObject()); /* type: _15508  */
-    wxNode_wxBitmap* bmpDisabled = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[3]->ToObject()); /* type: _15508  */
-    v8::String::AsciiValue shortHelp(args[4]->ToString()); /* type: _14808  */
-    v8::String::AsciiValue longHelp(args[5]->ToString()); /* type: _14808  */
+    int toolid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    v8::String::AsciiValue label(args[1]->ToString()); /* type: _18997  */
+    wxNode_wxBitmap* bitmap = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[2]->ToObject()); /* type: _19639  */
+    wxNode_wxBitmap* bmpDisabled = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[3]->ToObject()); /* type: _19639  */
+    v8::String::AsciiValue shortHelp(args[4]->ToString()); /* type: _18997  */
+    v8::String::AsciiValue longHelp(args[5]->ToString()); /* type: _18997  */
     
 
     const wxToolBarToolBase* returnVal = self->AddCheckTool(toolid, *label, *bitmap, *bmpDisabled, *shortHelp, *longHelp);
@@ -504,14 +504,14 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
   }
   
   /*
-   * id: _39835
+   * id: _44531
    */
   if(args.Length() == 5 && args[0]->IsNumber() && args[1]->IsString() && (args[2]->IsNull() || (args[2]->IsObject() && wxNode_wxBitmap::AssignableFrom(args[2]->ToObject()->GetConstructorName()))) && (args[3]->IsNull() || (args[3]->IsObject() && wxNode_wxBitmap::AssignableFrom(args[3]->ToObject()->GetConstructorName()))) && args[4]->IsString()) {
-    int toolid = (int)args[0]->ToInt32()->Value(); /* type: _162  */
-    v8::String::AsciiValue label(args[1]->ToString()); /* type: _14808  */
-    wxNode_wxBitmap* bitmap = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[2]->ToObject()); /* type: _15508  */
-    wxNode_wxBitmap* bmpDisabled = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[3]->ToObject()); /* type: _15508  */
-    v8::String::AsciiValue shortHelp(args[4]->ToString()); /* type: _14808  */
+    int toolid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    v8::String::AsciiValue label(args[1]->ToString()); /* type: _18997  */
+    wxNode_wxBitmap* bitmap = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[2]->ToObject()); /* type: _19639  */
+    wxNode_wxBitmap* bmpDisabled = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[3]->ToObject()); /* type: _19639  */
+    v8::String::AsciiValue shortHelp(args[4]->ToString()); /* type: _18997  */
     
 
     const wxToolBarToolBase* returnVal = self->AddCheckTool(toolid, *label, *bitmap, *bmpDisabled, *shortHelp);
@@ -520,13 +520,13 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
   }
   
   /*
-   * id: _39835
+   * id: _44531
    */
   if(args.Length() == 4 && args[0]->IsNumber() && args[1]->IsString() && (args[2]->IsNull() || (args[2]->IsObject() && wxNode_wxBitmap::AssignableFrom(args[2]->ToObject()->GetConstructorName()))) && (args[3]->IsNull() || (args[3]->IsObject() && wxNode_wxBitmap::AssignableFrom(args[3]->ToObject()->GetConstructorName())))) {
-    int toolid = (int)args[0]->ToInt32()->Value(); /* type: _162  */
-    v8::String::AsciiValue label(args[1]->ToString()); /* type: _14808  */
-    wxNode_wxBitmap* bitmap = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[2]->ToObject()); /* type: _15508  */
-    wxNode_wxBitmap* bmpDisabled = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[3]->ToObject()); /* type: _15508  */
+    int toolid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    v8::String::AsciiValue label(args[1]->ToString()); /* type: _18997  */
+    wxNode_wxBitmap* bitmap = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[2]->ToObject()); /* type: _19639  */
+    wxNode_wxBitmap* bmpDisabled = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[3]->ToObject()); /* type: _19639  */
     
 
     const wxToolBarToolBase* returnVal = self->AddCheckTool(toolid, *label, *bitmap, *bmpDisabled);
@@ -535,12 +535,12 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
   }
   
   /*
-   * id: _39835
+   * id: _44531
    */
   if(args.Length() == 3 && args[0]->IsNumber() && args[1]->IsString() && (args[2]->IsNull() || (args[2]->IsObject() && wxNode_wxBitmap::AssignableFrom(args[2]->ToObject()->GetConstructorName())))) {
-    int toolid = (int)args[0]->ToInt32()->Value(); /* type: _162  */
-    v8::String::AsciiValue label(args[1]->ToString()); /* type: _14808  */
-    wxNode_wxBitmap* bitmap = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[2]->ToObject()); /* type: _15508  */
+    int toolid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    v8::String::AsciiValue label(args[1]->ToString()); /* type: _18997  */
+    wxNode_wxBitmap* bitmap = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[2]->ToObject()); /* type: _19639  */
     
 
     const wxToolBarToolBase* returnVal = self->AddCheckTool(toolid, *label, *bitmap);
@@ -565,16 +565,16 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
 
   
   /*
-   * id: _39836
+   * id: _44532
    */
   if(args.Length() == 7 && args[0]->IsNumber() && args[1]->IsString() && (args[2]->IsNull() || (args[2]->IsObject() && wxNode_wxBitmap::AssignableFrom(args[2]->ToObject()->GetConstructorName()))) && (args[3]->IsNull() || (args[3]->IsObject() && wxNode_wxBitmap::AssignableFrom(args[3]->ToObject()->GetConstructorName()))) && args[4]->IsString() && args[5]->IsString() && (args[6]->IsNull() || (args[6]->IsObject() && wxNode_wxObject::AssignableFrom(args[6]->ToObject()->GetConstructorName())))) {
-    int toolid = (int)args[0]->ToInt32()->Value(); /* type: _162  */
-    v8::String::AsciiValue label(args[1]->ToString()); /* type: _14808  */
-    wxNode_wxBitmap* bitmap = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[2]->ToObject()); /* type: _15508  */
-    wxNode_wxBitmap* bmpDisabled = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[3]->ToObject()); /* type: _15508  */
-    v8::String::AsciiValue shortHelp(args[4]->ToString()); /* type: _14808  */
-    v8::String::AsciiValue longHelp(args[5]->ToString()); /* type: _14808  */
-    wxNode_wxObject* data = args[6]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxObject>(args[6]->ToObject()); /* type: _15609 * */
+    int toolid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    v8::String::AsciiValue label(args[1]->ToString()); /* type: _18997  */
+    wxNode_wxBitmap* bitmap = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[2]->ToObject()); /* type: _19639  */
+    wxNode_wxBitmap* bmpDisabled = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[3]->ToObject()); /* type: _19639  */
+    v8::String::AsciiValue shortHelp(args[4]->ToString()); /* type: _18997  */
+    v8::String::AsciiValue longHelp(args[5]->ToString()); /* type: _18997  */
+    wxNode_wxObject* data = args[6]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxObject>(args[6]->ToObject()); /* type: _19755 * */
     
 
     const wxToolBarToolBase* returnVal = self->AddRadioTool(toolid, *label, *bitmap, *bmpDisabled, *shortHelp, *longHelp, data);
@@ -583,15 +583,15 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
   }
   
   /*
-   * id: _39836
+   * id: _44532
    */
   if(args.Length() == 6 && args[0]->IsNumber() && args[1]->IsString() && (args[2]->IsNull() || (args[2]->IsObject() && wxNode_wxBitmap::AssignableFrom(args[2]->ToObject()->GetConstructorName()))) && (args[3]->IsNull() || (args[3]->IsObject() && wxNode_wxBitmap::AssignableFrom(args[3]->ToObject()->GetConstructorName()))) && args[4]->IsString() && args[5]->IsString()) {
-    int toolid = (int)args[0]->ToInt32()->Value(); /* type: _162  */
-    v8::String::AsciiValue label(args[1]->ToString()); /* type: _14808  */
-    wxNode_wxBitmap* bitmap = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[2]->ToObject()); /* type: _15508  */
-    wxNode_wxBitmap* bmpDisabled = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[3]->ToObject()); /* type: _15508  */
-    v8::String::AsciiValue shortHelp(args[4]->ToString()); /* type: _14808  */
-    v8::String::AsciiValue longHelp(args[5]->ToString()); /* type: _14808  */
+    int toolid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    v8::String::AsciiValue label(args[1]->ToString()); /* type: _18997  */
+    wxNode_wxBitmap* bitmap = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[2]->ToObject()); /* type: _19639  */
+    wxNode_wxBitmap* bmpDisabled = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[3]->ToObject()); /* type: _19639  */
+    v8::String::AsciiValue shortHelp(args[4]->ToString()); /* type: _18997  */
+    v8::String::AsciiValue longHelp(args[5]->ToString()); /* type: _18997  */
     
 
     const wxToolBarToolBase* returnVal = self->AddRadioTool(toolid, *label, *bitmap, *bmpDisabled, *shortHelp, *longHelp);
@@ -600,14 +600,14 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
   }
   
   /*
-   * id: _39836
+   * id: _44532
    */
   if(args.Length() == 5 && args[0]->IsNumber() && args[1]->IsString() && (args[2]->IsNull() || (args[2]->IsObject() && wxNode_wxBitmap::AssignableFrom(args[2]->ToObject()->GetConstructorName()))) && (args[3]->IsNull() || (args[3]->IsObject() && wxNode_wxBitmap::AssignableFrom(args[3]->ToObject()->GetConstructorName()))) && args[4]->IsString()) {
-    int toolid = (int)args[0]->ToInt32()->Value(); /* type: _162  */
-    v8::String::AsciiValue label(args[1]->ToString()); /* type: _14808  */
-    wxNode_wxBitmap* bitmap = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[2]->ToObject()); /* type: _15508  */
-    wxNode_wxBitmap* bmpDisabled = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[3]->ToObject()); /* type: _15508  */
-    v8::String::AsciiValue shortHelp(args[4]->ToString()); /* type: _14808  */
+    int toolid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    v8::String::AsciiValue label(args[1]->ToString()); /* type: _18997  */
+    wxNode_wxBitmap* bitmap = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[2]->ToObject()); /* type: _19639  */
+    wxNode_wxBitmap* bmpDisabled = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[3]->ToObject()); /* type: _19639  */
+    v8::String::AsciiValue shortHelp(args[4]->ToString()); /* type: _18997  */
     
 
     const wxToolBarToolBase* returnVal = self->AddRadioTool(toolid, *label, *bitmap, *bmpDisabled, *shortHelp);
@@ -616,13 +616,13 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
   }
   
   /*
-   * id: _39836
+   * id: _44532
    */
   if(args.Length() == 4 && args[0]->IsNumber() && args[1]->IsString() && (args[2]->IsNull() || (args[2]->IsObject() && wxNode_wxBitmap::AssignableFrom(args[2]->ToObject()->GetConstructorName()))) && (args[3]->IsNull() || (args[3]->IsObject() && wxNode_wxBitmap::AssignableFrom(args[3]->ToObject()->GetConstructorName())))) {
-    int toolid = (int)args[0]->ToInt32()->Value(); /* type: _162  */
-    v8::String::AsciiValue label(args[1]->ToString()); /* type: _14808  */
-    wxNode_wxBitmap* bitmap = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[2]->ToObject()); /* type: _15508  */
-    wxNode_wxBitmap* bmpDisabled = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[3]->ToObject()); /* type: _15508  */
+    int toolid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    v8::String::AsciiValue label(args[1]->ToString()); /* type: _18997  */
+    wxNode_wxBitmap* bitmap = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[2]->ToObject()); /* type: _19639  */
+    wxNode_wxBitmap* bmpDisabled = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[3]->ToObject()); /* type: _19639  */
     
 
     const wxToolBarToolBase* returnVal = self->AddRadioTool(toolid, *label, *bitmap, *bmpDisabled);
@@ -631,12 +631,12 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
   }
   
   /*
-   * id: _39836
+   * id: _44532
    */
   if(args.Length() == 3 && args[0]->IsNumber() && args[1]->IsString() && (args[2]->IsNull() || (args[2]->IsObject() && wxNode_wxBitmap::AssignableFrom(args[2]->ToObject()->GetConstructorName())))) {
-    int toolid = (int)args[0]->ToInt32()->Value(); /* type: _162  */
-    v8::String::AsciiValue label(args[1]->ToString()); /* type: _14808  */
-    wxNode_wxBitmap* bitmap = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[2]->ToObject()); /* type: _15508  */
+    int toolid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    v8::String::AsciiValue label(args[1]->ToString()); /* type: _18997  */
+    wxNode_wxBitmap* bitmap = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[2]->ToObject()); /* type: _19639  */
     
 
     const wxToolBarToolBase* returnVal = self->AddRadioTool(toolid, *label, *bitmap);
@@ -661,18 +661,18 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
 
   
   /*
-   * id: _39837
+   * id: _44533
    */
   if(args.Length() == 9 && args[0]->IsNumber() && args[1]->IsNumber() && args[2]->IsString() && (args[3]->IsNull() || (args[3]->IsObject() && wxNode_wxBitmap::AssignableFrom(args[3]->ToObject()->GetConstructorName()))) && (args[4]->IsNull() || (args[4]->IsObject() && wxNode_wxBitmap::AssignableFrom(args[4]->ToObject()->GetConstructorName()))) && args[5]->IsNumber() && args[6]->IsString() && args[7]->IsString() && (args[8]->IsNull() || (args[8]->IsObject() && wxNode_wxObject::AssignableFrom(args[8]->ToObject()->GetConstructorName())))) {
-    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8620  */
-    int toolid = (int)args[1]->ToInt32()->Value(); /* type: _162  */
-    v8::String::AsciiValue label(args[2]->ToString()); /* type: _14808  */
-    wxNode_wxBitmap* bitmap = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[3]->ToObject()); /* type: _15508  */
-    wxNode_wxBitmap* bmpDisabled = args[4]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[4]->ToObject()); /* type: _15508  */
-    wxItemKind kind = (wxItemKind)args[5]->ToNumber()->Value(); /* type: _4625  */
-    v8::String::AsciiValue shortHelp(args[6]->ToString()); /* type: _14808  */
-    v8::String::AsciiValue longHelp(args[7]->ToString()); /* type: _14808  */
-    wxNode_wxObject* clientData = args[8]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxObject>(args[8]->ToObject()); /* type: _15609 * */
+    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _11150  */
+    int toolid = (int)args[1]->ToInt32()->Value(); /* type: _233  */
+    v8::String::AsciiValue label(args[2]->ToString()); /* type: _18997  */
+    wxNode_wxBitmap* bitmap = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[3]->ToObject()); /* type: _19639  */
+    wxNode_wxBitmap* bmpDisabled = args[4]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[4]->ToObject()); /* type: _19639  */
+    wxItemKind kind = (wxItemKind)args[5]->ToNumber()->Value(); /* type: _6215  */
+    v8::String::AsciiValue shortHelp(args[6]->ToString()); /* type: _18997  */
+    v8::String::AsciiValue longHelp(args[7]->ToString()); /* type: _18997  */
+    wxNode_wxObject* clientData = args[8]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxObject>(args[8]->ToObject()); /* type: _19755 * */
     
 
     const wxToolBarToolBase* returnVal = self->InsertTool(pos, toolid, *label, *bitmap, *bmpDisabled, kind, *shortHelp, *longHelp, clientData);
@@ -681,17 +681,17 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
   }
   
   /*
-   * id: _39837
+   * id: _44533
    */
   if(args.Length() == 8 && args[0]->IsNumber() && args[1]->IsNumber() && args[2]->IsString() && (args[3]->IsNull() || (args[3]->IsObject() && wxNode_wxBitmap::AssignableFrom(args[3]->ToObject()->GetConstructorName()))) && (args[4]->IsNull() || (args[4]->IsObject() && wxNode_wxBitmap::AssignableFrom(args[4]->ToObject()->GetConstructorName()))) && args[5]->IsNumber() && args[6]->IsString() && args[7]->IsString()) {
-    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8620  */
-    int toolid = (int)args[1]->ToInt32()->Value(); /* type: _162  */
-    v8::String::AsciiValue label(args[2]->ToString()); /* type: _14808  */
-    wxNode_wxBitmap* bitmap = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[3]->ToObject()); /* type: _15508  */
-    wxNode_wxBitmap* bmpDisabled = args[4]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[4]->ToObject()); /* type: _15508  */
-    wxItemKind kind = (wxItemKind)args[5]->ToNumber()->Value(); /* type: _4625  */
-    v8::String::AsciiValue shortHelp(args[6]->ToString()); /* type: _14808  */
-    v8::String::AsciiValue longHelp(args[7]->ToString()); /* type: _14808  */
+    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _11150  */
+    int toolid = (int)args[1]->ToInt32()->Value(); /* type: _233  */
+    v8::String::AsciiValue label(args[2]->ToString()); /* type: _18997  */
+    wxNode_wxBitmap* bitmap = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[3]->ToObject()); /* type: _19639  */
+    wxNode_wxBitmap* bmpDisabled = args[4]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[4]->ToObject()); /* type: _19639  */
+    wxItemKind kind = (wxItemKind)args[5]->ToNumber()->Value(); /* type: _6215  */
+    v8::String::AsciiValue shortHelp(args[6]->ToString()); /* type: _18997  */
+    v8::String::AsciiValue longHelp(args[7]->ToString()); /* type: _18997  */
     
 
     const wxToolBarToolBase* returnVal = self->InsertTool(pos, toolid, *label, *bitmap, *bmpDisabled, kind, *shortHelp, *longHelp);
@@ -700,16 +700,16 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
   }
   
   /*
-   * id: _39837
+   * id: _44533
    */
   if(args.Length() == 7 && args[0]->IsNumber() && args[1]->IsNumber() && args[2]->IsString() && (args[3]->IsNull() || (args[3]->IsObject() && wxNode_wxBitmap::AssignableFrom(args[3]->ToObject()->GetConstructorName()))) && (args[4]->IsNull() || (args[4]->IsObject() && wxNode_wxBitmap::AssignableFrom(args[4]->ToObject()->GetConstructorName()))) && args[5]->IsNumber() && args[6]->IsString()) {
-    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8620  */
-    int toolid = (int)args[1]->ToInt32()->Value(); /* type: _162  */
-    v8::String::AsciiValue label(args[2]->ToString()); /* type: _14808  */
-    wxNode_wxBitmap* bitmap = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[3]->ToObject()); /* type: _15508  */
-    wxNode_wxBitmap* bmpDisabled = args[4]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[4]->ToObject()); /* type: _15508  */
-    wxItemKind kind = (wxItemKind)args[5]->ToNumber()->Value(); /* type: _4625  */
-    v8::String::AsciiValue shortHelp(args[6]->ToString()); /* type: _14808  */
+    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _11150  */
+    int toolid = (int)args[1]->ToInt32()->Value(); /* type: _233  */
+    v8::String::AsciiValue label(args[2]->ToString()); /* type: _18997  */
+    wxNode_wxBitmap* bitmap = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[3]->ToObject()); /* type: _19639  */
+    wxNode_wxBitmap* bmpDisabled = args[4]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[4]->ToObject()); /* type: _19639  */
+    wxItemKind kind = (wxItemKind)args[5]->ToNumber()->Value(); /* type: _6215  */
+    v8::String::AsciiValue shortHelp(args[6]->ToString()); /* type: _18997  */
     
 
     const wxToolBarToolBase* returnVal = self->InsertTool(pos, toolid, *label, *bitmap, *bmpDisabled, kind, *shortHelp);
@@ -718,15 +718,15 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
   }
   
   /*
-   * id: _39837
+   * id: _44533
    */
   if(args.Length() == 6 && args[0]->IsNumber() && args[1]->IsNumber() && args[2]->IsString() && (args[3]->IsNull() || (args[3]->IsObject() && wxNode_wxBitmap::AssignableFrom(args[3]->ToObject()->GetConstructorName()))) && (args[4]->IsNull() || (args[4]->IsObject() && wxNode_wxBitmap::AssignableFrom(args[4]->ToObject()->GetConstructorName()))) && args[5]->IsNumber()) {
-    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8620  */
-    int toolid = (int)args[1]->ToInt32()->Value(); /* type: _162  */
-    v8::String::AsciiValue label(args[2]->ToString()); /* type: _14808  */
-    wxNode_wxBitmap* bitmap = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[3]->ToObject()); /* type: _15508  */
-    wxNode_wxBitmap* bmpDisabled = args[4]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[4]->ToObject()); /* type: _15508  */
-    wxItemKind kind = (wxItemKind)args[5]->ToNumber()->Value(); /* type: _4625  */
+    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _11150  */
+    int toolid = (int)args[1]->ToInt32()->Value(); /* type: _233  */
+    v8::String::AsciiValue label(args[2]->ToString()); /* type: _18997  */
+    wxNode_wxBitmap* bitmap = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[3]->ToObject()); /* type: _19639  */
+    wxNode_wxBitmap* bmpDisabled = args[4]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[4]->ToObject()); /* type: _19639  */
+    wxItemKind kind = (wxItemKind)args[5]->ToNumber()->Value(); /* type: _6215  */
     
 
     const wxToolBarToolBase* returnVal = self->InsertTool(pos, toolid, *label, *bitmap, *bmpDisabled, kind);
@@ -735,14 +735,14 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
   }
   
   /*
-   * id: _39837
+   * id: _44533
    */
   if(args.Length() == 5 && args[0]->IsNumber() && args[1]->IsNumber() && args[2]->IsString() && (args[3]->IsNull() || (args[3]->IsObject() && wxNode_wxBitmap::AssignableFrom(args[3]->ToObject()->GetConstructorName()))) && (args[4]->IsNull() || (args[4]->IsObject() && wxNode_wxBitmap::AssignableFrom(args[4]->ToObject()->GetConstructorName())))) {
-    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8620  */
-    int toolid = (int)args[1]->ToInt32()->Value(); /* type: _162  */
-    v8::String::AsciiValue label(args[2]->ToString()); /* type: _14808  */
-    wxNode_wxBitmap* bitmap = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[3]->ToObject()); /* type: _15508  */
-    wxNode_wxBitmap* bmpDisabled = args[4]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[4]->ToObject()); /* type: _15508  */
+    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _11150  */
+    int toolid = (int)args[1]->ToInt32()->Value(); /* type: _233  */
+    v8::String::AsciiValue label(args[2]->ToString()); /* type: _18997  */
+    wxNode_wxBitmap* bitmap = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[3]->ToObject()); /* type: _19639  */
+    wxNode_wxBitmap* bmpDisabled = args[4]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[4]->ToObject()); /* type: _19639  */
     
 
     const wxToolBarToolBase* returnVal = self->InsertTool(pos, toolid, *label, *bitmap, *bmpDisabled);
@@ -751,13 +751,13 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
   }
   
   /*
-   * id: _39837
+   * id: _44533
    */
   if(args.Length() == 4 && args[0]->IsNumber() && args[1]->IsNumber() && args[2]->IsString() && (args[3]->IsNull() || (args[3]->IsObject() && wxNode_wxBitmap::AssignableFrom(args[3]->ToObject()->GetConstructorName())))) {
-    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8620  */
-    int toolid = (int)args[1]->ToInt32()->Value(); /* type: _162  */
-    v8::String::AsciiValue label(args[2]->ToString()); /* type: _14808  */
-    wxNode_wxBitmap* bitmap = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[3]->ToObject()); /* type: _15508  */
+    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _11150  */
+    int toolid = (int)args[1]->ToInt32()->Value(); /* type: _233  */
+    v8::String::AsciiValue label(args[2]->ToString()); /* type: _18997  */
+    wxNode_wxBitmap* bitmap = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[3]->ToObject()); /* type: _19639  */
     
 
     const wxToolBarToolBase* returnVal = self->InsertTool(pos, toolid, *label, *bitmap);
@@ -766,11 +766,11 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
   }
   
   /*
-   * id: _39839
+   * id: _44535
    */
   if(args.Length() == 2 && args[0]->IsNumber() && (args[1]->IsNull() || (args[1]->IsObject() && wxNode_wxToolBarTool::AssignableFrom(args[1]->ToObject()->GetConstructorName())))) {
-    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8620  */
-    wxNode_wxToolBarTool* tool = args[1]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxToolBarTool>(args[1]->ToObject()); /* type: _23953 * */
+    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _11150  */
+    wxNode_wxToolBarTool* tool = args[1]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxToolBarTool>(args[1]->ToObject()); /* type: _31946 * */
     
 
     const wxToolBarToolBase* returnVal = self->InsertTool(pos, tool);
@@ -795,11 +795,11 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
 
   
   /*
-   * id: _39840
+   * id: _44536
    */
   if(args.Length() == 2 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxControl::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsString()) {
-    wxNode_wxControl* control = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxControl>(args[0]->ToObject()); /* type: _59507 * */
-    v8::String::AsciiValue label(args[1]->ToString()); /* type: _14808  */
+    wxNode_wxControl* control = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxControl>(args[0]->ToObject()); /* type: _65751 * */
+    v8::String::AsciiValue label(args[1]->ToString()); /* type: _18997  */
     
 
     const wxToolBarToolBase* returnVal = self->AddControl(control, *label);
@@ -808,10 +808,10 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
   }
   
   /*
-   * id: _39840
+   * id: _44536
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxControl::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxControl* control = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxControl>(args[0]->ToObject()); /* type: _59507 * */
+    wxNode_wxControl* control = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxControl>(args[0]->ToObject()); /* type: _65751 * */
     
 
     const wxToolBarToolBase* returnVal = self->AddControl(control);
@@ -836,12 +836,12 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
 
   
   /*
-   * id: _39841
+   * id: _44537
    */
   if(args.Length() == 3 && args[0]->IsNumber() && (args[1]->IsNull() || (args[1]->IsObject() && wxNode_wxControl::AssignableFrom(args[1]->ToObject()->GetConstructorName()))) && args[2]->IsString()) {
-    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8620  */
-    wxNode_wxControl* control = args[1]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxControl>(args[1]->ToObject()); /* type: _59507 * */
-    v8::String::AsciiValue label(args[2]->ToString()); /* type: _14808  */
+    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _11150  */
+    wxNode_wxControl* control = args[1]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxControl>(args[1]->ToObject()); /* type: _65751 * */
+    v8::String::AsciiValue label(args[2]->ToString()); /* type: _18997  */
     
 
     const wxToolBarToolBase* returnVal = self->InsertControl(pos, control, *label);
@@ -850,11 +850,11 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
   }
   
   /*
-   * id: _39841
+   * id: _44537
    */
   if(args.Length() == 2 && args[0]->IsNumber() && (args[1]->IsNull() || (args[1]->IsObject() && wxNode_wxControl::AssignableFrom(args[1]->ToObject()->GetConstructorName())))) {
-    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8620  */
-    wxNode_wxControl* control = args[1]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxControl>(args[1]->ToObject()); /* type: _59507 * */
+    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _11150  */
+    wxNode_wxControl* control = args[1]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxControl>(args[1]->ToObject()); /* type: _65751 * */
     
 
     const wxToolBarToolBase* returnVal = self->InsertControl(pos, control);
@@ -879,10 +879,10 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
 
   
   /*
-   * id: _39842
+   * id: _44538
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    int toolid = (int)args[0]->ToInt32()->Value(); /* type: _162  */
+    int toolid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
     
 
     wxControl* returnVal = self->FindControl(toolid);
@@ -907,7 +907,7 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
 
   
   /*
-   * id: _39843
+   * id: _44539
    */
   if(args.Length() == 0) {
     
@@ -934,10 +934,10 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
 
   
   /*
-   * id: _39844
+   * id: _44540
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8620  */
+    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _11150  */
     
 
     const wxToolBarToolBase* returnVal = self->InsertSeparator(pos);
@@ -962,7 +962,7 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
 
   
   /*
-   * id: _39845
+   * id: _44541
    */
   if(args.Length() == 0) {
     
@@ -989,10 +989,10 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
 
   
   /*
-   * id: _39846
+   * id: _44542
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8620  */
+    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _11150  */
     
 
     const wxToolBarToolBase* returnVal = self->InsertStretchableSpace(pos);
@@ -1017,10 +1017,10 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
 
   
   /*
-   * id: _39847
+   * id: _44543
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    int toolid = (int)args[0]->ToInt32()->Value(); /* type: _162  */
+    int toolid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
     
 
     const wxToolBarToolBase* returnVal = self->RemoveTool(toolid);
@@ -1045,10 +1045,10 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
 
   
   /*
-   * id: _39848
+   * id: _44544
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8620  */
+    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _11150  */
     
 
     bool returnVal = self->DeleteToolByPos(pos);
@@ -1073,10 +1073,10 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
 
   
   /*
-   * id: _39849
+   * id: _44545
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    int toolid = (int)args[0]->ToInt32()->Value(); /* type: _162  */
+    int toolid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
     
 
     bool returnVal = self->DeleteTool(toolid);
@@ -1101,7 +1101,7 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
 
   
   /*
-   * id: _39850
+   * id: _44546
    */
   if(args.Length() == 0) {
     
@@ -1128,7 +1128,7 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
 
   
   /*
-   * id: _39851
+   * id: _44547
    */
   if(args.Length() == 0) {
     
@@ -1155,11 +1155,11 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
 
   
   /*
-   * id: _39852
+   * id: _44548
    */
   if(args.Length() == 2 && args[0]->IsNumber() && args[1]->IsBoolean()) {
-    int toolid = (int)args[0]->ToInt32()->Value(); /* type: _162  */
-    bool enable = args[1]->ToBoolean()->Value(); /* type: _14666  */
+    int toolid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    bool enable = args[1]->ToBoolean()->Value(); /* type: _18804  */
     
 
     self->EnableTool(toolid, enable);
@@ -1184,11 +1184,11 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
 
   
   /*
-   * id: _39853
+   * id: _44549
    */
   if(args.Length() == 2 && args[0]->IsNumber() && args[1]->IsBoolean()) {
-    int toolid = (int)args[0]->ToInt32()->Value(); /* type: _162  */
-    bool toggle = args[1]->ToBoolean()->Value(); /* type: _14666  */
+    int toolid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    bool toggle = args[1]->ToBoolean()->Value(); /* type: _18804  */
     
 
     self->ToggleTool(toolid, toggle);
@@ -1213,11 +1213,11 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
 
   
   /*
-   * id: _39854
+   * id: _44550
    */
   if(args.Length() == 2 && args[0]->IsNumber() && args[1]->IsBoolean()) {
-    int toolid = (int)args[0]->ToInt32()->Value(); /* type: _162  */
-    bool toggle = args[1]->ToBoolean()->Value(); /* type: _14666  */
+    int toolid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    bool toggle = args[1]->ToBoolean()->Value(); /* type: _18804  */
     
 
     self->SetToggle(toolid, toggle);
@@ -1242,10 +1242,10 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
 
   
   /*
-   * id: _39855
+   * id: _44551
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    int toolid = (int)args[0]->ToInt32()->Value(); /* type: _162  */
+    int toolid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
     
 
     wxObject* returnVal = self->GetToolClientData(toolid);
@@ -1270,11 +1270,11 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
 
   
   /*
-   * id: _39856
+   * id: _44552
    */
   if(args.Length() == 2 && args[0]->IsNumber() && (args[1]->IsNull() || (args[1]->IsObject() && wxNode_wxObject::AssignableFrom(args[1]->ToObject()->GetConstructorName())))) {
-    int toolid = (int)args[0]->ToInt32()->Value(); /* type: _162  */
-    wxNode_wxObject* clientData = args[1]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxObject>(args[1]->ToObject()); /* type: _15609 * */
+    int toolid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    wxNode_wxObject* clientData = args[1]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxObject>(args[1]->ToObject()); /* type: _19755 * */
     
 
     self->SetToolClientData(toolid, clientData);
@@ -1299,10 +1299,10 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
 
   
   /*
-   * id: _39857
+   * id: _44553
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    int id = (int)args[0]->ToInt32()->Value(); /* type: _162  */
+    int id = (int)args[0]->ToInt32()->Value(); /* type: _233  */
     
 
     int returnVal = self->GetToolPos(id);
@@ -1327,10 +1327,10 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
 
   
   /*
-   * id: _39858
+   * id: _44554
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    int toolid = (int)args[0]->ToInt32()->Value(); /* type: _162  */
+    int toolid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
     
 
     bool returnVal = self->GetToolState(toolid);
@@ -1355,10 +1355,10 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
 
   
   /*
-   * id: _39859
+   * id: _44555
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    int toolid = (int)args[0]->ToInt32()->Value(); /* type: _162  */
+    int toolid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
     
 
     bool returnVal = self->GetToolEnabled(toolid);
@@ -1383,11 +1383,11 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
 
   
   /*
-   * id: _39860
+   * id: _44556
    */
   if(args.Length() == 2 && args[0]->IsNumber() && args[1]->IsString()) {
-    int toolid = (int)args[0]->ToInt32()->Value(); /* type: _162  */
-    v8::String::AsciiValue helpString(args[1]->ToString()); /* type: _14808  */
+    int toolid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    v8::String::AsciiValue helpString(args[1]->ToString()); /* type: _18997  */
     
 
     self->SetToolShortHelp(toolid, *helpString);
@@ -1412,10 +1412,10 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
 
   
   /*
-   * id: _39861
+   * id: _44557
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    int toolid = (int)args[0]->ToInt32()->Value(); /* type: _162  */
+    int toolid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
     
 
     wxString returnVal = self->GetToolShortHelp(toolid);
@@ -1440,11 +1440,11 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
 
   
   /*
-   * id: _39862
+   * id: _44558
    */
   if(args.Length() == 2 && args[0]->IsNumber() && args[1]->IsString()) {
-    int toolid = (int)args[0]->ToInt32()->Value(); /* type: _162  */
-    v8::String::AsciiValue helpString(args[1]->ToString()); /* type: _14808  */
+    int toolid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    v8::String::AsciiValue helpString(args[1]->ToString()); /* type: _18997  */
     
 
     self->SetToolLongHelp(toolid, *helpString);
@@ -1469,10 +1469,10 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
 
   
   /*
-   * id: _39863
+   * id: _44559
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    int toolid = (int)args[0]->ToInt32()->Value(); /* type: _162  */
+    int toolid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
     
 
     wxString returnVal = self->GetToolLongHelp(toolid);
@@ -1497,11 +1497,11 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
 
   
   /*
-   * id: _39864
+   * id: _44560
    */
   if(args.Length() == 2 && args[0]->IsNumber() && (args[1]->IsNull() || (args[1]->IsObject() && wxNode_wxBitmap::AssignableFrom(args[1]->ToObject()->GetConstructorName())))) {
-    int arg0 = (int)args[0]->ToInt32()->Value(); /* type: _162  */
-    wxNode_wxBitmap* arg1 = args[1]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[1]->ToObject()); /* type: _15508  */
+    int arg0 = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    wxNode_wxBitmap* arg1 = args[1]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[1]->ToObject()); /* type: _19639  */
     
 
     self->SetToolNormalBitmap(arg0, *arg1);
@@ -1526,11 +1526,11 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
 
   
   /*
-   * id: _39865
+   * id: _44561
    */
   if(args.Length() == 2 && args[0]->IsNumber() && (args[1]->IsNull() || (args[1]->IsObject() && wxNode_wxBitmap::AssignableFrom(args[1]->ToObject()->GetConstructorName())))) {
-    int arg0 = (int)args[0]->ToInt32()->Value(); /* type: _162  */
-    wxNode_wxBitmap* arg1 = args[1]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[1]->ToObject()); /* type: _15508  */
+    int arg0 = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    wxNode_wxBitmap* arg1 = args[1]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[1]->ToObject()); /* type: _19639  */
     
 
     self->SetToolDisabledBitmap(arg0, *arg1);
@@ -1555,11 +1555,11 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
 
   
   /*
-   * id: _39866
+   * id: _44562
    */
   if(args.Length() == 2 && args[0]->IsNumber() && args[1]->IsNumber()) {
-    int x = (int)args[0]->ToInt32()->Value(); /* type: _162  */
-    int y = (int)args[1]->ToInt32()->Value(); /* type: _162  */
+    int x = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    int y = (int)args[1]->ToInt32()->Value(); /* type: _233  */
     
 
     self->SetMargins(x, y);
@@ -1568,10 +1568,10 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
   }
   
   /*
-   * id: _39867
+   * id: _44563
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxSize::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxSize* size = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[0]->ToObject()); /* type: _20522  */
+    wxNode_wxSize* size = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[0]->ToObject()); /* type: _25379  */
     
 
     self->SetMargins(*size);
@@ -1596,10 +1596,10 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
 
   
   /*
-   * id: _39868
+   * id: _44564
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    int packing = (int)args[0]->ToInt32()->Value(); /* type: _162  */
+    int packing = (int)args[0]->ToInt32()->Value(); /* type: _233  */
     
 
     self->SetToolPacking(packing);
@@ -1624,10 +1624,10 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
 
   
   /*
-   * id: _39869
+   * id: _44565
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    int separation = (int)args[0]->ToInt32()->Value(); /* type: _162  */
+    int separation = (int)args[0]->ToInt32()->Value(); /* type: _233  */
     
 
     self->SetToolSeparation(separation);
@@ -1652,7 +1652,7 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
 
   
   /*
-   * id: _39870
+   * id: _44566
    */
   if(args.Length() == 0) {
     
@@ -1679,7 +1679,7 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
 
   
   /*
-   * id: _39871
+   * id: _44567
    */
   if(args.Length() == 0) {
     
@@ -1706,7 +1706,7 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
 
   
   /*
-   * id: _39872
+   * id: _44568
    */
   if(args.Length() == 0) {
     
@@ -1733,10 +1733,10 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
 
   
   /*
-   * id: _39873
+   * id: _44569
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    int nRows = (int)args[0]->ToInt32()->Value(); /* type: _162  */
+    int nRows = (int)args[0]->ToInt32()->Value(); /* type: _233  */
     
 
     self->SetRows(nRows);
@@ -1761,11 +1761,11 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
 
   
   /*
-   * id: _39874
+   * id: _44570
    */
   if(args.Length() == 2 && args[0]->IsNumber() && args[1]->IsNumber()) {
-    int rows = (int)args[0]->ToInt32()->Value(); /* type: _162  */
-    int cols = (int)args[1]->ToInt32()->Value(); /* type: _162  */
+    int rows = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    int cols = (int)args[1]->ToInt32()->Value(); /* type: _233  */
     
 
     self->SetMaxRowsCols(rows, cols);
@@ -1790,7 +1790,7 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
 
   
   /*
-   * id: _39875
+   * id: _44571
    */
   if(args.Length() == 0) {
     
@@ -1817,7 +1817,7 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
 
   
   /*
-   * id: _39876
+   * id: _44572
    */
   if(args.Length() == 0) {
     
@@ -1844,10 +1844,10 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
 
   
   /*
-   * id: _39877
+   * id: _44573
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxSize::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxSize* size = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[0]->ToObject()); /* type: _20522  */
+    wxNode_wxSize* size = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[0]->ToObject()); /* type: _25379  */
     
 
     self->SetToolBitmapSize(*size);
@@ -1872,7 +1872,7 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
 
   
   /*
-   * id: _39878
+   * id: _44574
    */
   if(args.Length() == 0) {
     
@@ -1899,7 +1899,7 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
 
   
   /*
-   * id: _39879
+   * id: _44575
    */
   if(args.Length() == 0) {
     
@@ -1926,11 +1926,11 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
 
   
   /*
-   * id: _39880
+   * id: _44576
    */
   if(args.Length() == 2 && args[0]->IsNumber() && args[1]->IsNumber()) {
-    int x = (int)args[0]->ToInt32()->Value(); /* type: _12095  */
-    int y = (int)args[1]->ToInt32()->Value(); /* type: _12095  */
+    int x = (int)args[0]->ToInt32()->Value(); /* type: _15626  */
+    int y = (int)args[1]->ToInt32()->Value(); /* type: _15626  */
     
 
     const wxToolBarToolBase* returnVal = self->FindToolForPosition(x, y);
@@ -1955,10 +1955,10 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
 
   
   /*
-   * id: _39881
+   * id: _44577
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    int toolid = (int)args[0]->ToInt32()->Value(); /* type: _162  */
+    int toolid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
     
 
     const wxToolBarToolBase* returnVal = self->FindById(toolid);
@@ -1983,7 +1983,7 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
 
   
   /*
-   * id: _39882
+   * id: _44578
    */
   if(args.Length() == 0) {
     
@@ -2010,7 +2010,7 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
 
   
   /*
-   * id: _39883
+   * id: _44579
    */
   if(args.Length() == 0) {
     
@@ -2037,10 +2037,10 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
 
   
   /*
-   * id: _39884
+   * id: _44580
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    int pos = (int)args[0]->ToInt32()->Value(); /* type: _162  */
+    int pos = (int)args[0]->ToInt32()->Value(); /* type: _233  */
     
 
     const wxToolBarToolBase* returnVal = self->GetToolByPos(pos);
@@ -2113,7 +2113,7 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
 
   
   /*
-   * id: _39892
+   * id: _44588
    */
   if(args.Length() == 0) {
     
@@ -2140,10 +2140,10 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
 
   
   /*
-   * id: _39893
+   * id: _44589
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    long int flags = (long int)args[0]->ToInt32()->Value(); /* type: _586  */
+    long int flags = (long int)args[0]->ToInt32()->Value(); /* type: _766  */
     
 
     self->UpdateWindowUI(flags);
@@ -2152,7 +2152,7 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
   }
   
   /*
-   * id: _39893
+   * id: _44589
    */
   if(args.Length() == 0) {
     
@@ -2179,7 +2179,7 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
 
   
   /*
-   * id: _39894
+   * id: _44590
    */
   if(args.Length() == 0) {
     
@@ -2206,11 +2206,11 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
 
   
   /*
-   * id: _39895
+   * id: _44591
    */
   if(args.Length() == 2 && args[0]->IsNumber() && (args[1]->IsNull() || (args[1]->IsObject() && wxNode_wxMenu::AssignableFrom(args[1]->ToObject()->GetConstructorName())))) {
-    int toolid = (int)args[0]->ToInt32()->Value(); /* type: _162  */
-    wxNode_wxMenu* menu = args[1]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenu>(args[1]->ToObject()); /* type: _52838 * */
+    int toolid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    wxNode_wxMenu* menu = args[1]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenu>(args[1]->ToObject()); /* type: _58498 * */
     
 
     bool returnVal = self->SetDropdownMenu(toolid, menu);

@@ -8987,17 +8987,6 @@ wxNode_wxWindow::wxNode_wxWindow(wxWindow* parent, int id)
   wxNode_wxWindow* self = unwrap<wxNode_wxWindow>(args.This());
 
   
-  /*
-   * id: _48106
-   */
-  if(args.Length() == 0) {
-    
-
-    self->GetHandle();
-
-    return v8::Undefined();
-  }
-  
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWindow::GetHandle).\n";
