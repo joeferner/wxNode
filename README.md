@@ -42,6 +42,7 @@ var app = new MyApp();
 app.run();
 ```
 
+<a name="create-wxapi"/>
 ## Creating wxapi.xml from wxWidgets
 
 ```bash
