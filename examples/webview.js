@@ -47,31 +47,31 @@ var WebFrame = wx.Frame.extend({
 
     var back = wx.ArtProvider.getBitmap(wx.ART_GO_BACK, wx.ART_TOOLBAR);
     var forward = wx.ArtProvider.getBitmap(wx.ART_GO_FORWARD, wx.ART_TOOLBAR);
-    var stop = new wx.Bitmap(stop_xpm);
-    var refresh = new wx.Bitmap(refresh_xpm);
+    var stop = new wx.Bitmap("./examples/stop.xpm");
+    var refresh = new wx.Bitmap("./examples/refresh.xpm");
 
-    this.m_toolbar_back = this.m_toolbar.addTool(wx.ID_ANY, "Back", this.back);
-    this.m_toolbar_forward = this.m_toolbar.addTool(wx.ID_ANY, "Forward", this.forward);
-    this.m_toolbar_stop = this.m_toolbar.addTool(wx.ID_ANY, "Stop", this.stop);
-    this.m_toolbar_reload = this.m_toolbar.addTool(wx.ID_ANY, "Reload", this.refresh);
+    this.m_toolbar_back = this.m_toolbar.addTool(wx.ID_ANY, "Back", back);
+    this.m_toolbar_forward = this.m_toolbar.addTool(wx.ID_ANY, "Forward", forward);
+    this.m_toolbar_stop = this.m_toolbar.addTool(wx.ID_ANY, "Stop", stop);
+    this.m_toolbar_reload = this.m_toolbar.addTool(wx.ID_ANY, "Reload", refresh);
     this.m_url = new wx.TextCtrl(this.m_toolbar, wx.ID_ANY, "", wx.DefaultPosition, new wx.Size(400, -1), wx.TE_PROCESS_ENTER );
     this.m_toolbar.addControl(this.m_url, "URL");
-    this.m_toolbar_tools = this.m_toolbar.addTool(wx.ID_ANY, "Menu", new wx.Bitmap(wxlogo_xpm));
+    this.m_toolbar_tools = this.m_toolbar.addTool(wx.ID_ANY, "Menu", new wx.Bitmap("./examples/wxlogo.xpm"));
 
     this.m_toolbar.realize();
 
     // Create the info panel
     this.m_info = new wx.InfoBar(this);
-    this.topsizer.add(this.m_info, new wx.SizerFlags().expand());
+    topsizer.add(this.m_info, new wx.SizerFlags().expand());
 
     // Create the webview
     this.m_browser = wx.WebView.New(this, wx.ID_ANY, "http://www.wxwidgets.org");
-    this.topsizer.add(this.m_browser, new wx.SizerFlags().expand().proportion(1));
+    topsizer.add(this.m_browser, new wx.SizerFlags().expand().proportion(1));
 
     //We register the wxfs:// protocol for testing purposes
-    this.m_browser.registerHandler(new wxWebViewArchiveHandler("wxfs"));
+    this.m_browser.registerHandler(new wx.WebViewArchiveHandler("wxfs"));
 
-    this.setSizer(this.topsizer);
+    this.setSizer(topsizer);
 
     //Set a more sensible size for web browsing
     this.setSize(new wx.Size(800, 600));

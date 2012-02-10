@@ -18,6 +18,9 @@
 #include "wxNode_wxStaticText.h"
 #include "wxNode_wxIcon.h"
 #include "wxNode_wxDialog.h"
+#include "wxNode_wxArtProvider.h"
+#include "wxNode_wxBitmap.h"
+#include "wxNode_wxInfoBar.h"
 #include "wxLogStatus.h"
 #include "messageBox.h"
 
@@ -39,7 +42,10 @@ extern "C" {
     wxNode_wxButton::Init(target);
     wxNode_wxStaticText::Init(target);
     wxNode_wxIcon::Init(target);
+    wxNode_wxInfoBar::Init(target);
     wxNode_wxDialog::Init(target);
+    wxNode_wxArtProvider::Init(target);
+    wxNode_wxBitmap::Init(target);
     NodeWxMessageBox::Init(target);
     NodeWxLogStatus::Init(target);
 

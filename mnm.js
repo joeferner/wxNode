@@ -5,7 +5,7 @@ var childProcess = require('child_process');
 var Builder = require('mnm');
 var builder = new Builder();
 
-builder.appendUnique('CXXFLAGS', ['-Isrc/']);
+builder.appendUnique('CXXFLAGS', ['-Isrc/', '-Isrc-dummy/']);
 
 function build(wxCxxFlags, wxLibs) {
   builder.appendUnique('CXXFLAGS', wxCxxFlags);
