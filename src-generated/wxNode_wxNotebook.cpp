@@ -58,12 +58,12 @@ wxNode_wxNotebook::wxNode_wxNotebook(wxWindow* parent, int id)
   v8::Local<v8::FunctionTemplate> t = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
   s_ct = v8::Persistent<v8::FunctionTemplate>::New(t);
   s_ct->InstanceTemplate()->SetInternalFieldCount(2);
-  s_ct->SetClassName(v8::String::NewSymbol("wxNotebook"));
+  s_ct->SetClassName(v8::String::NewSymbol("Notebook"));
 
   NODE_SET_PROTOTYPE_METHOD(s_ct, "init", _init);
   AddMethods(s_ct);
 
-  target->Set(v8::String::NewSymbol("wxNotebook"), s_ct->GetFunction());
+  target->Set(v8::String::NewSymbol("Notebook"), s_ct->GetFunction());
 }
 
 /*static*/ void wxNode_wxNotebook::AddMethods(v8::Handle<v8::FunctionTemplate> target) {
@@ -88,7 +88,7 @@ wxNode_wxNotebook::wxNode_wxNotebook(wxWindow* parent, int id)
   
   v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
   returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-  returnObjFt->SetClassName(v8::String::NewSymbol("wxNotebook"));
+  returnObjFt->SetClassName(v8::String::NewSymbol("Notebook"));
   wxNode_wxNotebook::AddMethods(returnObjFt);
 
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
@@ -110,7 +110,7 @@ wxNode_wxNotebook::wxNode_wxNotebook(wxWindow* parent, int id)
   
   v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
   returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-  returnObjFt->SetClassName(v8::String::NewSymbol("wxNotebook"));
+  returnObjFt->SetClassName(v8::String::NewSymbol("Notebook"));
   wxNode_wxNotebook::AddMethods(returnObjFt);
 
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
@@ -136,9 +136,9 @@ wxNode_wxNotebook::wxNode_wxNotebook(wxWindow* parent, int id)
 }
 
 /*static*/ bool wxNode_wxNotebook::AssignableFrom(const char* className) {
-  if(!strcmp("wxNotebook", className)) { return true; }
+  if(!strcmp("Notebook", className)) { return true; }
   
-  if(!strcmp("wxNotebook", className)) { return true; }
+  if(!strcmp("Notebook", className)) { return true; }
 
 
   return false;

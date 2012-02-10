@@ -45,12 +45,12 @@ wxNode_wxKeyEvent::wxNode_wxKeyEvent(int eventType, wxKeyEvent& evt)
   v8::Local<v8::FunctionTemplate> t = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
   s_ct = v8::Persistent<v8::FunctionTemplate>::New(t);
   s_ct->InstanceTemplate()->SetInternalFieldCount(2);
-  s_ct->SetClassName(v8::String::NewSymbol("wxKeyEvent"));
+  s_ct->SetClassName(v8::String::NewSymbol("KeyEvent"));
 
   NODE_SET_PROTOTYPE_METHOD(s_ct, "init", _init);
   AddMethods(s_ct);
 
-  target->Set(v8::String::NewSymbol("wxKeyEvent"), s_ct->GetFunction());
+  target->Set(v8::String::NewSymbol("KeyEvent"), s_ct->GetFunction());
 }
 
 /*static*/ void wxNode_wxKeyEvent::AddMethods(v8::Handle<v8::FunctionTemplate> target) {
@@ -81,7 +81,7 @@ wxNode_wxKeyEvent::wxNode_wxKeyEvent(int eventType, wxKeyEvent& evt)
   
   v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
   returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-  returnObjFt->SetClassName(v8::String::NewSymbol("wxKeyEvent"));
+  returnObjFt->SetClassName(v8::String::NewSymbol("KeyEvent"));
   wxNode_wxKeyEvent::AddMethods(returnObjFt);
 
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
@@ -103,7 +103,7 @@ wxNode_wxKeyEvent::wxNode_wxKeyEvent(int eventType, wxKeyEvent& evt)
   
   v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
   returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-  returnObjFt->SetClassName(v8::String::NewSymbol("wxKeyEvent"));
+  returnObjFt->SetClassName(v8::String::NewSymbol("KeyEvent"));
   wxNode_wxKeyEvent::AddMethods(returnObjFt);
 
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
@@ -129,7 +129,7 @@ wxNode_wxKeyEvent::wxNode_wxKeyEvent(int eventType, wxKeyEvent& evt)
 }
 
 /*static*/ bool wxNode_wxKeyEvent::AssignableFrom(const char* className) {
-  if(!strcmp("wxKeyEvent", className)) { return true; }
+  if(!strcmp("KeyEvent", className)) { return true; }
   
 
   return false;

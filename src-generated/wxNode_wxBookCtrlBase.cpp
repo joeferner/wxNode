@@ -21,12 +21,12 @@
   v8::Local<v8::FunctionTemplate> t = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
   s_ct = v8::Persistent<v8::FunctionTemplate>::New(t);
   s_ct->InstanceTemplate()->SetInternalFieldCount(2);
-  s_ct->SetClassName(v8::String::NewSymbol("wxBookCtrlBase"));
+  s_ct->SetClassName(v8::String::NewSymbol("BookCtrlBase"));
 
   NODE_SET_PROTOTYPE_METHOD(s_ct, "init", _init);
   AddMethods(s_ct);
 
-  target->Set(v8::String::NewSymbol("wxBookCtrlBase"), s_ct->GetFunction());
+  target->Set(v8::String::NewSymbol("BookCtrlBase"), s_ct->GetFunction());
 }
 
 /*static*/ void wxNode_wxBookCtrlBase::AddMethods(v8::Handle<v8::FunctionTemplate> target) {
@@ -76,7 +76,7 @@
   
   v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
   returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-  returnObjFt->SetClassName(v8::String::NewSymbol("wxBookCtrlBase"));
+  returnObjFt->SetClassName(v8::String::NewSymbol("BookCtrlBase"));
   wxNode_wxBookCtrlBase::AddMethods(returnObjFt);
 
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
@@ -98,7 +98,7 @@
   
   v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
   returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-  returnObjFt->SetClassName(v8::String::NewSymbol("wxBookCtrlBase"));
+  returnObjFt->SetClassName(v8::String::NewSymbol("BookCtrlBase"));
   wxNode_wxBookCtrlBase::AddMethods(returnObjFt);
 
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
@@ -120,20 +120,20 @@
 }
 
 /*static*/ bool wxNode_wxBookCtrlBase::AssignableFrom(const char* className) {
-  if(!strcmp("wxBookCtrlBase", className)) { return true; }
+  if(!strcmp("BookCtrlBase", className)) { return true; }
   
-  if(!strcmp("wxTreebook", className)) { return true; }
-  if(!strcmp("wxNavigationEnabled<wxBookCtrlBase>", className)) { return true; }
+  if(!strcmp("Treebook", className)) { return true; }
+  if(!strcmp("NavigationEnabled<wxBookCtrlBase>", className)) { return true; }
 
-  if(!strcmp("wxAuiNotebook", className)) { return true; }
+  if(!strcmp("AuiNotebook", className)) { return true; }
 
-  if(!strcmp("wxAuiMDIClientWindow", className)) { return true; }
-  if(!strcmp("wxChoicebook", className)) { return true; }
-  if(!strcmp("wxNotebookBase", className)) { return true; }
+  if(!strcmp("AuiMDIClientWindow", className)) { return true; }
+  if(!strcmp("Choicebook", className)) { return true; }
+  if(!strcmp("NotebookBase", className)) { return true; }
 
-  if(!strcmp("wxNotebook", className)) { return true; }
-  if(!strcmp("wxToolbook", className)) { return true; }
-  if(!strcmp("wxListbook", className)) { return true; }
+  if(!strcmp("Notebook", className)) { return true; }
+  if(!strcmp("Toolbook", className)) { return true; }
+  if(!strcmp("Listbook", className)) { return true; }
 
 
   return false;

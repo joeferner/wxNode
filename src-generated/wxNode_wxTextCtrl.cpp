@@ -75,12 +75,12 @@ wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxWindow* parent, int id)
   v8::Local<v8::FunctionTemplate> t = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
   s_ct = v8::Persistent<v8::FunctionTemplate>::New(t);
   s_ct->InstanceTemplate()->SetInternalFieldCount(2);
-  s_ct->SetClassName(v8::String::NewSymbol("wxTextCtrl"));
+  s_ct->SetClassName(v8::String::NewSymbol("TextCtrl"));
 
   NODE_SET_PROTOTYPE_METHOD(s_ct, "init", _init);
   AddMethods(s_ct);
 
-  target->Set(v8::String::NewSymbol("wxTextCtrl"), s_ct->GetFunction());
+  target->Set(v8::String::NewSymbol("TextCtrl"), s_ct->GetFunction());
 }
 
 /*static*/ void wxNode_wxTextCtrl::AddMethods(v8::Handle<v8::FunctionTemplate> target) {
@@ -111,7 +111,7 @@ wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxWindow* parent, int id)
   
   v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
   returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-  returnObjFt->SetClassName(v8::String::NewSymbol("wxTextCtrl"));
+  returnObjFt->SetClassName(v8::String::NewSymbol("TextCtrl"));
   wxNode_wxTextCtrl::AddMethods(returnObjFt);
 
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
@@ -133,7 +133,7 @@ wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxWindow* parent, int id)
   
   v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
   returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-  returnObjFt->SetClassName(v8::String::NewSymbol("wxTextCtrl"));
+  returnObjFt->SetClassName(v8::String::NewSymbol("TextCtrl"));
   wxNode_wxTextCtrl::AddMethods(returnObjFt);
 
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
@@ -159,9 +159,9 @@ wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxWindow* parent, int id)
 }
 
 /*static*/ bool wxNode_wxTextCtrl::AssignableFrom(const char* className) {
-  if(!strcmp("wxTextCtrl", className)) { return true; }
+  if(!strcmp("TextCtrl", className)) { return true; }
   
-  if(!strcmp("wxTextCtrl", className)) { return true; }
+  if(!strcmp("TextCtrl", className)) { return true; }
 
 
   return false;

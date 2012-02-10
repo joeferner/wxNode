@@ -45,12 +45,12 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
   v8::Local<v8::FunctionTemplate> t = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
   s_ct = v8::Persistent<v8::FunctionTemplate>::New(t);
   s_ct->InstanceTemplate()->SetInternalFieldCount(2);
-  s_ct->SetClassName(v8::String::NewSymbol("wxMenuBar"));
+  s_ct->SetClassName(v8::String::NewSymbol("MenuBar"));
 
   NODE_SET_PROTOTYPE_METHOD(s_ct, "init", _init);
   AddMethods(s_ct);
 
-  target->Set(v8::String::NewSymbol("wxMenuBar"), s_ct->GetFunction());
+  target->Set(v8::String::NewSymbol("MenuBar"), s_ct->GetFunction());
 }
 
 /*static*/ void wxNode_wxMenuBar::AddMethods(v8::Handle<v8::FunctionTemplate> target) {
@@ -96,7 +96,7 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
   
   v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
   returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-  returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuBar"));
+  returnObjFt->SetClassName(v8::String::NewSymbol("MenuBar"));
   wxNode_wxMenuBar::AddMethods(returnObjFt);
 
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
@@ -118,7 +118,7 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
   
   v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
   returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-  returnObjFt->SetClassName(v8::String::NewSymbol("wxMenuBar"));
+  returnObjFt->SetClassName(v8::String::NewSymbol("MenuBar"));
   wxNode_wxMenuBar::AddMethods(returnObjFt);
 
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
@@ -144,9 +144,9 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
 }
 
 /*static*/ bool wxNode_wxMenuBar::AssignableFrom(const char* className) {
-  if(!strcmp("wxMenuBar", className)) { return true; }
+  if(!strcmp("MenuBar", className)) { return true; }
   
-  if(!strcmp("wxMenuBar", className)) { return true; }
+  if(!strcmp("MenuBar", className)) { return true; }
 
 
   return false;

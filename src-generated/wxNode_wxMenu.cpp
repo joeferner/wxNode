@@ -45,12 +45,12 @@ wxNode_wxMenu::wxNode_wxMenu()
   v8::Local<v8::FunctionTemplate> t = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
   s_ct = v8::Persistent<v8::FunctionTemplate>::New(t);
   s_ct->InstanceTemplate()->SetInternalFieldCount(2);
-  s_ct->SetClassName(v8::String::NewSymbol("wxMenu"));
+  s_ct->SetClassName(v8::String::NewSymbol("Menu"));
 
   NODE_SET_PROTOTYPE_METHOD(s_ct, "init", _init);
   AddMethods(s_ct);
 
-  target->Set(v8::String::NewSymbol("wxMenu"), s_ct->GetFunction());
+  target->Set(v8::String::NewSymbol("Menu"), s_ct->GetFunction());
 }
 
 /*static*/ void wxNode_wxMenu::AddMethods(v8::Handle<v8::FunctionTemplate> target) {
@@ -115,7 +115,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
   v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
   returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-  returnObjFt->SetClassName(v8::String::NewSymbol("wxMenu"));
+  returnObjFt->SetClassName(v8::String::NewSymbol("Menu"));
   wxNode_wxMenu::AddMethods(returnObjFt);
 
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
@@ -137,7 +137,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   
   v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
   returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-  returnObjFt->SetClassName(v8::String::NewSymbol("wxMenu"));
+  returnObjFt->SetClassName(v8::String::NewSymbol("Menu"));
   wxNode_wxMenu::AddMethods(returnObjFt);
 
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
@@ -163,9 +163,9 @@ wxNode_wxMenu::wxNode_wxMenu()
 }
 
 /*static*/ bool wxNode_wxMenu::AssignableFrom(const char* className) {
-  if(!strcmp("wxMenu", className)) { return true; }
+  if(!strcmp("Menu", className)) { return true; }
   
-  if(!strcmp("wxMenu", className)) { return true; }
+  if(!strcmp("Menu", className)) { return true; }
 
 
   return false;

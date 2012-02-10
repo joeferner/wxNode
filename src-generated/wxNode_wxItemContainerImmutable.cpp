@@ -15,12 +15,12 @@
   v8::Local<v8::FunctionTemplate> t = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
   s_ct = v8::Persistent<v8::FunctionTemplate>::New(t);
   s_ct->InstanceTemplate()->SetInternalFieldCount(2);
-  s_ct->SetClassName(v8::String::NewSymbol("wxItemContainerImmutable"));
+  s_ct->SetClassName(v8::String::NewSymbol("ItemContainerImmutable"));
 
   NODE_SET_PROTOTYPE_METHOD(s_ct, "init", _init);
   AddMethods(s_ct);
 
-  target->Set(v8::String::NewSymbol("wxItemContainerImmutable"), s_ct->GetFunction());
+  target->Set(v8::String::NewSymbol("ItemContainerImmutable"), s_ct->GetFunction());
 }
 
 /*static*/ void wxNode_wxItemContainerImmutable::AddMethods(v8::Handle<v8::FunctionTemplate> target) {
@@ -48,7 +48,7 @@
   
   v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
   returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-  returnObjFt->SetClassName(v8::String::NewSymbol("wxItemContainerImmutable"));
+  returnObjFt->SetClassName(v8::String::NewSymbol("ItemContainerImmutable"));
   wxNode_wxItemContainerImmutable::AddMethods(returnObjFt);
 
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
@@ -70,7 +70,7 @@
   
   v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
   returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-  returnObjFt->SetClassName(v8::String::NewSymbol("wxItemContainerImmutable"));
+  returnObjFt->SetClassName(v8::String::NewSymbol("ItemContainerImmutable"));
   wxNode_wxItemContainerImmutable::AddMethods(returnObjFt);
 
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
@@ -92,42 +92,42 @@
 }
 
 /*static*/ bool wxNode_wxItemContainerImmutable::AssignableFrom(const char* className) {
-  if(!strcmp("wxItemContainerImmutable", className)) { return true; }
+  if(!strcmp("ItemContainerImmutable", className)) { return true; }
   
-  if(!strcmp("wxRadioBoxBase", className)) { return true; }
+  if(!strcmp("RadioBoxBase", className)) { return true; }
 
-  if(!strcmp("wxRadioBox", className)) { return true; }
-  if(!strcmp("wxItemContainer", className)) { return true; }
+  if(!strcmp("RadioBox", className)) { return true; }
+  if(!strcmp("ItemContainer", className)) { return true; }
 
-  if(!strcmp("wxWindowWithItems<wxComboCtrl,wxItemContainer>", className)) { return true; }
+  if(!strcmp("WindowWithItems<wxComboCtrl,wxItemContainer>", className)) { return true; }
 
-  if(!strcmp("wxOwnerDrawnComboBox", className)) { return true; }
-  if(!strcmp("wxWindowWithItems<wxHtmlListBox,wxItemContainer>", className)) { return true; }
+  if(!strcmp("OwnerDrawnComboBox", className)) { return true; }
+  if(!strcmp("WindowWithItems<wxHtmlListBox,wxItemContainer>", className)) { return true; }
 
-  if(!strcmp("wxSimpleHtmlListBox", className)) { return true; }
-  if(!strcmp("wxWindowWithItems<wxControl,wxItemContainer>", className)) { return true; }
+  if(!strcmp("SimpleHtmlListBox", className)) { return true; }
+  if(!strcmp("WindowWithItems<wxControl,wxItemContainer>", className)) { return true; }
 
-  if(!strcmp("wxControlWithItemsBase", className)) { return true; }
+  if(!strcmp("ControlWithItemsBase", className)) { return true; }
 
-  if(!strcmp("wxControlWithItems", className)) { return true; }
+  if(!strcmp("ControlWithItems", className)) { return true; }
 
-  if(!strcmp("wxChoiceBase", className)) { return true; }
+  if(!strcmp("ChoiceBase", className)) { return true; }
 
-  if(!strcmp("wxChoice", className)) { return true; }
+  if(!strcmp("Choice", className)) { return true; }
 
-  if(!strcmp("wxComboBox", className)) { return true; }
+  if(!strcmp("ComboBox", className)) { return true; }
 
-  if(!strcmp("wxBitmapComboBox", className)) { return true; }
-  if(!strcmp("wxDirFilterListCtrl", className)) { return true; }
-  if(!strcmp("wxListBoxBase", className)) { return true; }
+  if(!strcmp("BitmapComboBox", className)) { return true; }
+  if(!strcmp("DirFilterListCtrl", className)) { return true; }
+  if(!strcmp("ListBoxBase", className)) { return true; }
 
-  if(!strcmp("wxListBox", className)) { return true; }
+  if(!strcmp("ListBox", className)) { return true; }
 
-  if(!strcmp("wxCheckListBoxBase", className)) { return true; }
-  if(!strcmp("wxCheckListBox", className)) { return true; }
+  if(!strcmp("CheckListBoxBase", className)) { return true; }
+  if(!strcmp("CheckListBox", className)) { return true; }
 
-  if(!strcmp("wxRearrangeList", className)) { return true; }
-  if(!strcmp("wxComboBoxBase", className)) { return true; }
+  if(!strcmp("RearrangeList", className)) { return true; }
+  if(!strcmp("ComboBoxBase", className)) { return true; }
 
 
   return false;

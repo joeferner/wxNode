@@ -62,12 +62,12 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
   v8::Local<v8::FunctionTemplate> t = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
   s_ct = v8::Persistent<v8::FunctionTemplate>::New(t);
   s_ct->InstanceTemplate()->SetInternalFieldCount(2);
-  s_ct->SetClassName(v8::String::NewSymbol("wxToolBar"));
+  s_ct->SetClassName(v8::String::NewSymbol("ToolBar"));
 
   NODE_SET_PROTOTYPE_METHOD(s_ct, "init", _init);
   AddMethods(s_ct);
 
-  target->Set(v8::String::NewSymbol("wxToolBar"), s_ct->GetFunction());
+  target->Set(v8::String::NewSymbol("ToolBar"), s_ct->GetFunction());
 }
 
 /*static*/ void wxNode_wxToolBar::AddMethods(v8::Handle<v8::FunctionTemplate> target) {
@@ -139,7 +139,7 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
   
   v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
   returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-  returnObjFt->SetClassName(v8::String::NewSymbol("wxToolBar"));
+  returnObjFt->SetClassName(v8::String::NewSymbol("ToolBar"));
   wxNode_wxToolBar::AddMethods(returnObjFt);
 
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
@@ -161,7 +161,7 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
   
   v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
   returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-  returnObjFt->SetClassName(v8::String::NewSymbol("wxToolBar"));
+  returnObjFt->SetClassName(v8::String::NewSymbol("ToolBar"));
   wxNode_wxToolBar::AddMethods(returnObjFt);
 
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
@@ -187,9 +187,9 @@ wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
 }
 
 /*static*/ bool wxNode_wxToolBar::AssignableFrom(const char* className) {
-  if(!strcmp("wxToolBar", className)) { return true; }
+  if(!strcmp("ToolBar", className)) { return true; }
   
-  if(!strcmp("wxToolBar", className)) { return true; }
+  if(!strcmp("ToolBar", className)) { return true; }
 
 
   return false;

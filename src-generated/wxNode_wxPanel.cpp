@@ -81,12 +81,12 @@ wxNode_wxPanel::wxNode_wxPanel(wxWindow* parent, int x, int y, int width, int he
   v8::Local<v8::FunctionTemplate> t = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
   s_ct = v8::Persistent<v8::FunctionTemplate>::New(t);
   s_ct->InstanceTemplate()->SetInternalFieldCount(2);
-  s_ct->SetClassName(v8::String::NewSymbol("wxPanel"));
+  s_ct->SetClassName(v8::String::NewSymbol("Panel"));
 
   NODE_SET_PROTOTYPE_METHOD(s_ct, "init", _init);
   AddMethods(s_ct);
 
-  target->Set(v8::String::NewSymbol("wxPanel"), s_ct->GetFunction());
+  target->Set(v8::String::NewSymbol("Panel"), s_ct->GetFunction());
 }
 
 /*static*/ void wxNode_wxPanel::AddMethods(v8::Handle<v8::FunctionTemplate> target) {
@@ -105,7 +105,7 @@ wxNode_wxPanel::wxNode_wxPanel(wxWindow* parent, int x, int y, int width, int he
   
   v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
   returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-  returnObjFt->SetClassName(v8::String::NewSymbol("wxPanel"));
+  returnObjFt->SetClassName(v8::String::NewSymbol("Panel"));
   wxNode_wxPanel::AddMethods(returnObjFt);
 
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
@@ -127,7 +127,7 @@ wxNode_wxPanel::wxNode_wxPanel(wxWindow* parent, int x, int y, int width, int he
   
   v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
   returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-  returnObjFt->SetClassName(v8::String::NewSymbol("wxPanel"));
+  returnObjFt->SetClassName(v8::String::NewSymbol("Panel"));
   wxNode_wxPanel::AddMethods(returnObjFt);
 
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
@@ -153,50 +153,50 @@ wxNode_wxPanel::wxNode_wxPanel(wxWindow* parent, int x, int y, int width, int he
 }
 
 /*static*/ bool wxNode_wxPanel::AssignableFrom(const char* className) {
-  if(!strcmp("wxPanel", className)) { return true; }
+  if(!strcmp("Panel", className)) { return true; }
   
-  if(!strcmp("wxPanel", className)) { return true; }
+  if(!strcmp("Panel", className)) { return true; }
 
-  if(!strcmp("wxScrolled<wxPanel>", className)) { return true; }
+  if(!strcmp("Scrolled<wxPanel>", className)) { return true; }
 
-  if(!strcmp("wxScrolledWindow", className)) { return true; }
+  if(!strcmp("ScrolledWindow", className)) { return true; }
 
-  if(!strcmp("wxPreviewCanvas", className)) { return true; }
-  if(!strcmp("wxHtmlWindow", className)) { return true; }
-  if(!strcmp("wxGrid", className)) { return true; }
-  if(!strcmp("wxWizardPage", className)) { return true; }
+  if(!strcmp("PreviewCanvas", className)) { return true; }
+  if(!strcmp("HtmlWindow", className)) { return true; }
+  if(!strcmp("Grid", className)) { return true; }
+  if(!strcmp("WizardPage", className)) { return true; }
 
-  if(!strcmp("wxWizardPageSimple", className)) { return true; }
-  if(!strcmp("wxRichTextDialogPage", className)) { return true; }
+  if(!strcmp("WizardPageSimple", className)) { return true; }
+  if(!strcmp("RichTextDialogPage", className)) { return true; }
 
-  if(!strcmp("wxRichTextFontPage", className)) { return true; }
-  if(!strcmp("wxRichTextMarginsPage", className)) { return true; }
-  if(!strcmp("wxRichTextStylePage", className)) { return true; }
-  if(!strcmp("wxRichTextSizePage", className)) { return true; }
-  if(!strcmp("wxRichTextListStylePage", className)) { return true; }
-  if(!strcmp("wxRichTextTabsPage", className)) { return true; }
-  if(!strcmp("wxRichTextBulletsPage", className)) { return true; }
-  if(!strcmp("wxHVScrolledWindow", className)) { return true; }
-  if(!strcmp("wxVScrolledWindow", className)) { return true; }
+  if(!strcmp("RichTextFontPage", className)) { return true; }
+  if(!strcmp("RichTextMarginsPage", className)) { return true; }
+  if(!strcmp("RichTextStylePage", className)) { return true; }
+  if(!strcmp("RichTextSizePage", className)) { return true; }
+  if(!strcmp("RichTextListStylePage", className)) { return true; }
+  if(!strcmp("RichTextTabsPage", className)) { return true; }
+  if(!strcmp("RichTextBulletsPage", className)) { return true; }
+  if(!strcmp("HVScrolledWindow", className)) { return true; }
+  if(!strcmp("VScrolledWindow", className)) { return true; }
 
-  if(!strcmp("wxSymbolListCtrl", className)) { return true; }
-  if(!strcmp("wxVListBox", className)) { return true; }
+  if(!strcmp("SymbolListCtrl", className)) { return true; }
+  if(!strcmp("VListBox", className)) { return true; }
 
-  if(!strcmp("wxHtmlListBox", className)) { return true; }
+  if(!strcmp("HtmlListBox", className)) { return true; }
 
-  if(!strcmp("wxRichTextStyleListBox", className)) { return true; }
+  if(!strcmp("RichTextStyleListBox", className)) { return true; }
 
-  if(!strcmp("wxRichTextStyleComboPopup", className)) { return true; }
-  if(!strcmp("wxWindowWithItems<wxHtmlListBox,wxItemContainer>", className)) { return true; }
+  if(!strcmp("RichTextStyleComboPopup", className)) { return true; }
+  if(!strcmp("WindowWithItems<wxHtmlListBox,wxItemContainer>", className)) { return true; }
 
-  if(!strcmp("wxSimpleHtmlListBox", className)) { return true; }
-  if(!strcmp("wxRichTextFontListBox", className)) { return true; }
-  if(!strcmp("wxVListBoxComboPopup", className)) { return true; }
-  if(!strcmp("wxRearrangeCtrl", className)) { return true; }
-  if(!strcmp("wxPreviewControlBar", className)) { return true; }
-  if(!strcmp("wxEditableListBox", className)) { return true; }
-  if(!strcmp("wxAuiMDIChildFrame", className)) { return true; }
-  if(!strcmp("wxHScrolledWindow", className)) { return true; }
+  if(!strcmp("SimpleHtmlListBox", className)) { return true; }
+  if(!strcmp("RichTextFontListBox", className)) { return true; }
+  if(!strcmp("VListBoxComboPopup", className)) { return true; }
+  if(!strcmp("RearrangeCtrl", className)) { return true; }
+  if(!strcmp("PreviewControlBar", className)) { return true; }
+  if(!strcmp("EditableListBox", className)) { return true; }
+  if(!strcmp("AuiMDIChildFrame", className)) { return true; }
+  if(!strcmp("HScrolledWindow", className)) { return true; }
 
 
   return false;

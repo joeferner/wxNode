@@ -70,12 +70,12 @@ wxNode_wxButton::wxNode_wxButton(wxWindow* parent, int id)
   v8::Local<v8::FunctionTemplate> t = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
   s_ct = v8::Persistent<v8::FunctionTemplate>::New(t);
   s_ct->InstanceTemplate()->SetInternalFieldCount(2);
-  s_ct->SetClassName(v8::String::NewSymbol("wxButton"));
+  s_ct->SetClassName(v8::String::NewSymbol("Button"));
 
   NODE_SET_PROTOTYPE_METHOD(s_ct, "init", _init);
   AddMethods(s_ct);
 
-  target->Set(v8::String::NewSymbol("wxButton"), s_ct->GetFunction());
+  target->Set(v8::String::NewSymbol("Button"), s_ct->GetFunction());
 }
 
 /*static*/ void wxNode_wxButton::AddMethods(v8::Handle<v8::FunctionTemplate> target) {
@@ -96,7 +96,7 @@ wxNode_wxButton::wxNode_wxButton(wxWindow* parent, int id)
   
   v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
   returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-  returnObjFt->SetClassName(v8::String::NewSymbol("wxButton"));
+  returnObjFt->SetClassName(v8::String::NewSymbol("Button"));
   wxNode_wxButton::AddMethods(returnObjFt);
 
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
@@ -118,7 +118,7 @@ wxNode_wxButton::wxNode_wxButton(wxWindow* parent, int id)
   
   v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
   returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-  returnObjFt->SetClassName(v8::String::NewSymbol("wxButton"));
+  returnObjFt->SetClassName(v8::String::NewSymbol("Button"));
   wxNode_wxButton::AddMethods(returnObjFt);
 
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
@@ -144,30 +144,30 @@ wxNode_wxButton::wxNode_wxButton(wxWindow* parent, int id)
 }
 
 /*static*/ bool wxNode_wxButton::AssignableFrom(const char* className) {
-  if(!strcmp("wxButton", className)) { return true; }
+  if(!strcmp("Button", className)) { return true; }
   
-  if(!strcmp("wxButton", className)) { return true; }
+  if(!strcmp("Button", className)) { return true; }
 
-  if(!strcmp("wxBitmapButtonBase", className)) { return true; }
+  if(!strcmp("BitmapButtonBase", className)) { return true; }
 
-  if(!strcmp("wxBitmapButton", className)) { return true; }
+  if(!strcmp("BitmapButton", className)) { return true; }
 
-  if(!strcmp("wxContextHelpButton", className)) { return true; }
-  if(!strcmp("wxGenericFileDirButton", className)) { return true; }
+  if(!strcmp("ContextHelpButton", className)) { return true; }
+  if(!strcmp("GenericFileDirButton", className)) { return true; }
 
-  if(!strcmp("wxGenericFileButton", className)) { return true; }
+  if(!strcmp("GenericFileButton", className)) { return true; }
 
-  if(!strcmp("wxFileButton", className)) { return true; }
-  if(!strcmp("wxGenericDirButton", className)) { return true; }
+  if(!strcmp("FileButton", className)) { return true; }
+  if(!strcmp("GenericDirButton", className)) { return true; }
 
-  if(!strcmp("wxDirButton", className)) { return true; }
-  if(!strcmp("wxFontButton", className)) { return true; }
-  if(!strcmp("wxCommandLinkButtonBase", className)) { return true; }
+  if(!strcmp("DirButton", className)) { return true; }
+  if(!strcmp("FontButton", className)) { return true; }
+  if(!strcmp("CommandLinkButtonBase", className)) { return true; }
 
-  if(!strcmp("wxGenericCommandLinkButton", className)) { return true; }
+  if(!strcmp("GenericCommandLinkButton", className)) { return true; }
 
-  if(!strcmp("wxCommandLinkButton", className)) { return true; }
-  if(!strcmp("wxColourButton", className)) { return true; }
+  if(!strcmp("CommandLinkButton", className)) { return true; }
+  if(!strcmp("ColourButton", className)) { return true; }
 
 
   return false;

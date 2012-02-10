@@ -35,12 +35,12 @@ wxNode_wxSize::wxNode_wxSize(int xx, int yy)
   v8::Local<v8::FunctionTemplate> t = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
   s_ct = v8::Persistent<v8::FunctionTemplate>::New(t);
   s_ct->InstanceTemplate()->SetInternalFieldCount(2);
-  s_ct->SetClassName(v8::String::NewSymbol("wxSize"));
+  s_ct->SetClassName(v8::String::NewSymbol("Size"));
 
   NODE_SET_PROTOTYPE_METHOD(s_ct, "init", _init);
   AddMethods(s_ct);
 
-  target->Set(v8::String::NewSymbol("wxSize"), s_ct->GetFunction());
+  target->Set(v8::String::NewSymbol("Size"), s_ct->GetFunction());
 }
 
 /*static*/ void wxNode_wxSize::AddMethods(v8::Handle<v8::FunctionTemplate> target) {
@@ -71,7 +71,7 @@ wxNode_wxSize::wxNode_wxSize(int xx, int yy)
   
   v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
   returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-  returnObjFt->SetClassName(v8::String::NewSymbol("wxSize"));
+  returnObjFt->SetClassName(v8::String::NewSymbol("Size"));
   wxNode_wxSize::AddMethods(returnObjFt);
 
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
@@ -93,7 +93,7 @@ wxNode_wxSize::wxNode_wxSize(int xx, int yy)
   
   v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
   returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-  returnObjFt->SetClassName(v8::String::NewSymbol("wxSize"));
+  returnObjFt->SetClassName(v8::String::NewSymbol("Size"));
   wxNode_wxSize::AddMethods(returnObjFt);
 
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
@@ -119,7 +119,7 @@ wxNode_wxSize::wxNode_wxSize(int xx, int yy)
 }
 
 /*static*/ bool wxNode_wxSize::AssignableFrom(const char* className) {
-  if(!strcmp("wxSize", className)) { return true; }
+  if(!strcmp("Size", className)) { return true; }
   
 
   return false;

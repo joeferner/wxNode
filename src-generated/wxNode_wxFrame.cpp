@@ -62,12 +62,12 @@ wxNode_wxFrame::wxNode_wxFrame(wxWindow* parent, int id, const wxString& title)
   v8::Local<v8::FunctionTemplate> t = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
   s_ct = v8::Persistent<v8::FunctionTemplate>::New(t);
   s_ct->InstanceTemplate()->SetInternalFieldCount(2);
-  s_ct->SetClassName(v8::String::NewSymbol("wxFrame"));
+  s_ct->SetClassName(v8::String::NewSymbol("Frame"));
 
   NODE_SET_PROTOTYPE_METHOD(s_ct, "init", _init);
   AddMethods(s_ct);
 
-  target->Set(v8::String::NewSymbol("wxFrame"), s_ct->GetFunction());
+  target->Set(v8::String::NewSymbol("Frame"), s_ct->GetFunction());
 }
 
 /*static*/ void wxNode_wxFrame::AddMethods(v8::Handle<v8::FunctionTemplate> target) {
@@ -111,7 +111,7 @@ wxNode_wxFrame::wxNode_wxFrame(wxWindow* parent, int id, const wxString& title)
   
   v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
   returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-  returnObjFt->SetClassName(v8::String::NewSymbol("wxFrame"));
+  returnObjFt->SetClassName(v8::String::NewSymbol("Frame"));
   wxNode_wxFrame::AddMethods(returnObjFt);
 
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
@@ -133,7 +133,7 @@ wxNode_wxFrame::wxNode_wxFrame(wxWindow* parent, int id, const wxString& title)
   
   v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
   returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-  returnObjFt->SetClassName(v8::String::NewSymbol("wxFrame"));
+  returnObjFt->SetClassName(v8::String::NewSymbol("Frame"));
   wxNode_wxFrame::AddMethods(returnObjFt);
 
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
@@ -159,39 +159,39 @@ wxNode_wxFrame::wxNode_wxFrame(wxWindow* parent, int id, const wxString& title)
 }
 
 /*static*/ bool wxNode_wxFrame::AssignableFrom(const char* className) {
-  if(!strcmp("wxFrame", className)) { return true; }
+  if(!strcmp("Frame", className)) { return true; }
   
-  if(!strcmp("wxFrame", className)) { return true; }
+  if(!strcmp("Frame", className)) { return true; }
 
-  if(!strcmp("wxPreviewFrame", className)) { return true; }
-  if(!strcmp("wxAuiMDIParentFrame", className)) { return true; }
-  if(!strcmp("wxDocChildFrameAny<wxFrame,wxFrame>", className)) { return true; }
+  if(!strcmp("PreviewFrame", className)) { return true; }
+  if(!strcmp("AuiMDIParentFrame", className)) { return true; }
+  if(!strcmp("DocChildFrameAny<wxFrame,wxFrame>", className)) { return true; }
 
-  if(!strcmp("wxDocChildFrame", className)) { return true; }
-  if(!strcmp("wxMDIChildFrameBase", className)) { return true; }
+  if(!strcmp("DocChildFrame", className)) { return true; }
+  if(!strcmp("MDIChildFrameBase", className)) { return true; }
 
-  if(!strcmp("wxTDIChildFrame", className)) { return true; }
+  if(!strcmp("TDIChildFrame", className)) { return true; }
 
-  if(!strcmp("wxMDIChildFrame", className)) { return true; }
+  if(!strcmp("MDIChildFrame", className)) { return true; }
 
-  if(!strcmp("wxDocChildFrameAny<wxMDIChildFrame,wxMDIParentFrame>", className)) { return true; }
+  if(!strcmp("DocChildFrameAny<wxMDIChildFrame,wxMDIParentFrame>", className)) { return true; }
 
-  if(!strcmp("wxDocMDIChildFrame", className)) { return true; }
-  if(!strcmp("wxDocParentFrameAny<wxFrame>", className)) { return true; }
+  if(!strcmp("DocMDIChildFrame", className)) { return true; }
+  if(!strcmp("DocParentFrameAny<wxFrame>", className)) { return true; }
 
-  if(!strcmp("wxDocParentFrame", className)) { return true; }
-  if(!strcmp("wxMiniFrame", className)) { return true; }
+  if(!strcmp("DocParentFrame", className)) { return true; }
+  if(!strcmp("MiniFrame", className)) { return true; }
 
-  if(!strcmp("wxAuiFloatingFrame", className)) { return true; }
-  if(!strcmp("wxSplashScreen", className)) { return true; }
-  if(!strcmp("wxMDIParentFrameBase", className)) { return true; }
+  if(!strcmp("AuiFloatingFrame", className)) { return true; }
+  if(!strcmp("SplashScreen", className)) { return true; }
+  if(!strcmp("MDIParentFrameBase", className)) { return true; }
 
-  if(!strcmp("wxMDIParentFrame", className)) { return true; }
+  if(!strcmp("MDIParentFrame", className)) { return true; }
 
-  if(!strcmp("wxDocParentFrameAny<wxMDIParentFrame>", className)) { return true; }
+  if(!strcmp("DocParentFrameAny<wxMDIParentFrame>", className)) { return true; }
 
-  if(!strcmp("wxDocMDIParentFrame", className)) { return true; }
-  if(!strcmp("wxHtmlHelpFrame", className)) { return true; }
+  if(!strcmp("DocMDIParentFrame", className)) { return true; }
+  if(!strcmp("HtmlHelpFrame", className)) { return true; }
 
 
   return false;

@@ -510,7 +510,8 @@ function getAssignableFromCode(rawJson, classId) {
   var result = "\n";
   for(var i=0; i<subClasses.length; i++) {
     var subClass = lookupClassById(rawJson, subClasses[i]);
-    result += '  if(!strcmp("' + subClass.name + '", className)) { return true; }\n';
+    var subClassName = subClass.name.replace(/^wx/, '');
+    result += '  if(!strcmp("' + subClassName + '", className)) { return true; }\n';
     var t = getAssignableFromCode(rawJson, subClasses[i]);
     if(t) {
       result += t;
@@ -532,6 +533,7 @@ function rawJsonToCtx(rawJson, file) {
     assignableFromCode: "",
     newCopyCode: "return v8::Undefined();" // todo: throw error?
   };
+  ctx.exportName = ctx.name.replace(/^wx/, '');
   ctx.headerFilename = ctx.outputFilename.replace(/\.cpp$/, '.h');
   ctx.includes.push(ctx.headerFilename);
 

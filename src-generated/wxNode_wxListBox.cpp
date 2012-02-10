@@ -104,12 +104,12 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
   v8::Local<v8::FunctionTemplate> t = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
   s_ct = v8::Persistent<v8::FunctionTemplate>::New(t);
   s_ct->InstanceTemplate()->SetInternalFieldCount(2);
-  s_ct->SetClassName(v8::String::NewSymbol("wxListBox"));
+  s_ct->SetClassName(v8::String::NewSymbol("ListBox"));
 
   NODE_SET_PROTOTYPE_METHOD(s_ct, "init", _init);
   AddMethods(s_ct);
 
-  target->Set(v8::String::NewSymbol("wxListBox"), s_ct->GetFunction());
+  target->Set(v8::String::NewSymbol("ListBox"), s_ct->GetFunction());
 }
 
 /*static*/ void wxNode_wxListBox::AddMethods(v8::Handle<v8::FunctionTemplate> target) {
@@ -155,7 +155,7 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
   
   v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
   returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-  returnObjFt->SetClassName(v8::String::NewSymbol("wxListBox"));
+  returnObjFt->SetClassName(v8::String::NewSymbol("ListBox"));
   wxNode_wxListBox::AddMethods(returnObjFt);
 
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
@@ -177,7 +177,7 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
   
   v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
   returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-  returnObjFt->SetClassName(v8::String::NewSymbol("wxListBox"));
+  returnObjFt->SetClassName(v8::String::NewSymbol("ListBox"));
   wxNode_wxListBox::AddMethods(returnObjFt);
 
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
@@ -203,14 +203,14 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
 }
 
 /*static*/ bool wxNode_wxListBox::AssignableFrom(const char* className) {
-  if(!strcmp("wxListBox", className)) { return true; }
+  if(!strcmp("ListBox", className)) { return true; }
   
-  if(!strcmp("wxListBox", className)) { return true; }
+  if(!strcmp("ListBox", className)) { return true; }
 
-  if(!strcmp("wxCheckListBoxBase", className)) { return true; }
-  if(!strcmp("wxCheckListBox", className)) { return true; }
+  if(!strcmp("CheckListBoxBase", className)) { return true; }
+  if(!strcmp("CheckListBox", className)) { return true; }
 
-  if(!strcmp("wxRearrangeList", className)) { return true; }
+  if(!strcmp("RearrangeList", className)) { return true; }
 
 
   return false;

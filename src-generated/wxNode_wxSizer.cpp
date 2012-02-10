@@ -23,12 +23,12 @@
   v8::Local<v8::FunctionTemplate> t = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
   s_ct = v8::Persistent<v8::FunctionTemplate>::New(t);
   s_ct->InstanceTemplate()->SetInternalFieldCount(2);
-  s_ct->SetClassName(v8::String::NewSymbol("wxSizer"));
+  s_ct->SetClassName(v8::String::NewSymbol("Sizer"));
 
   NODE_SET_PROTOTYPE_METHOD(s_ct, "init", _init);
   AddMethods(s_ct);
 
-  target->Set(v8::String::NewSymbol("wxSizer"), s_ct->GetFunction());
+  target->Set(v8::String::NewSymbol("Sizer"), s_ct->GetFunction());
 }
 
 /*static*/ void wxNode_wxSizer::AddMethods(v8::Handle<v8::FunctionTemplate> target) {
@@ -86,7 +86,7 @@
   
   v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
   returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-  returnObjFt->SetClassName(v8::String::NewSymbol("wxSizer"));
+  returnObjFt->SetClassName(v8::String::NewSymbol("Sizer"));
   wxNode_wxSizer::AddMethods(returnObjFt);
 
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
@@ -108,7 +108,7 @@
   
   v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
   returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-  returnObjFt->SetClassName(v8::String::NewSymbol("wxSizer"));
+  returnObjFt->SetClassName(v8::String::NewSymbol("Sizer"));
   wxNode_wxSizer::AddMethods(returnObjFt);
 
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
@@ -130,18 +130,18 @@
 }
 
 /*static*/ bool wxNode_wxSizer::AssignableFrom(const char* className) {
-  if(!strcmp("wxSizer", className)) { return true; }
+  if(!strcmp("Sizer", className)) { return true; }
   
-  if(!strcmp("wxBoxSizer", className)) { return true; }
+  if(!strcmp("BoxSizer", className)) { return true; }
 
-  if(!strcmp("wxWrapSizer", className)) { return true; }
-  if(!strcmp("wxStaticBoxSizer", className)) { return true; }
-  if(!strcmp("wxStdDialogButtonSizer", className)) { return true; }
-  if(!strcmp("wxGridSizer", className)) { return true; }
+  if(!strcmp("WrapSizer", className)) { return true; }
+  if(!strcmp("StaticBoxSizer", className)) { return true; }
+  if(!strcmp("StdDialogButtonSizer", className)) { return true; }
+  if(!strcmp("GridSizer", className)) { return true; }
 
-  if(!strcmp("wxFlexGridSizer", className)) { return true; }
+  if(!strcmp("FlexGridSizer", className)) { return true; }
 
-  if(!strcmp("wxGridBagSizer", className)) { return true; }
+  if(!strcmp("GridBagSizer", className)) { return true; }
 
 
   return false;

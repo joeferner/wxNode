@@ -34,12 +34,12 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
   v8::Local<v8::FunctionTemplate> t = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
   s_ct = v8::Persistent<v8::FunctionTemplate>::New(t);
   s_ct->InstanceTemplate()->SetInternalFieldCount(2);
-  s_ct->SetClassName(v8::String::NewSymbol("wxSizerFlags"));
+  s_ct->SetClassName(v8::String::NewSymbol("SizerFlags"));
 
   NODE_SET_PROTOTYPE_METHOD(s_ct, "init", _init);
   AddMethods(s_ct);
 
-  target->Set(v8::String::NewSymbol("wxSizerFlags"), s_ct->GetFunction());
+  target->Set(v8::String::NewSymbol("SizerFlags"), s_ct->GetFunction());
 }
 
 /*static*/ void wxNode_wxSizerFlags::AddMethods(v8::Handle<v8::FunctionTemplate> target) {
@@ -77,7 +77,7 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
   
   v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
   returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-  returnObjFt->SetClassName(v8::String::NewSymbol("wxSizerFlags"));
+  returnObjFt->SetClassName(v8::String::NewSymbol("SizerFlags"));
   wxNode_wxSizerFlags::AddMethods(returnObjFt);
 
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
@@ -99,7 +99,7 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
   
   v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
   returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-  returnObjFt->SetClassName(v8::String::NewSymbol("wxSizerFlags"));
+  returnObjFt->SetClassName(v8::String::NewSymbol("SizerFlags"));
   wxNode_wxSizerFlags::AddMethods(returnObjFt);
 
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
@@ -125,7 +125,7 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
 }
 
 /*static*/ bool wxNode_wxSizerFlags::AssignableFrom(const char* className) {
-  if(!strcmp("wxSizerFlags", className)) { return true; }
+  if(!strcmp("SizerFlags", className)) { return true; }
   
 
   return false;

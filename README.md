@@ -13,12 +13,12 @@ $ npm install wxnode
 ## Quick Examples
 
 ```javascript
-var wxNode = require("wxnode");
+var wx = require("wxnode");
 
-var MyApp = wxNode.wxApp.extend({
+var MyApp = wx.App.extend({
   onInit: function() {
-    var location = new wxNode.wxPoint(50, 50);
-    var size = new wxNode.wxSize(450, 340);
+    var location = new wx.Point(50, 50);
+    var size = new wx.Size(450, 340);
     var frame = new MyFrame("Hello World", location, size);
     frame.show(true);
     this.setTopWindow(frame);
@@ -26,7 +26,7 @@ var MyApp = wxNode.wxApp.extend({
   }
 });
 
-var MyFrame = wxNode.wxFrame.extend({
+var MyFrame = wx.Frame.extend({
   init: function(title, pos, size) {
     this._super(null, -1, title, pos, size);
 

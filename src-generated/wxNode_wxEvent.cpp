@@ -17,12 +17,12 @@
   v8::Local<v8::FunctionTemplate> t = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
   s_ct = v8::Persistent<v8::FunctionTemplate>::New(t);
   s_ct->InstanceTemplate()->SetInternalFieldCount(2);
-  s_ct->SetClassName(v8::String::NewSymbol("wxEvent"));
+  s_ct->SetClassName(v8::String::NewSymbol("Event"));
 
   NODE_SET_PROTOTYPE_METHOD(s_ct, "init", _init);
   AddMethods(s_ct);
 
-  target->Set(v8::String::NewSymbol("wxEvent"), s_ct->GetFunction());
+  target->Set(v8::String::NewSymbol("Event"), s_ct->GetFunction());
 }
 
 /*static*/ void wxNode_wxEvent::AddMethods(v8::Handle<v8::FunctionTemplate> target) {
@@ -59,7 +59,7 @@
   
   v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
   returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-  returnObjFt->SetClassName(v8::String::NewSymbol("wxEvent"));
+  returnObjFt->SetClassName(v8::String::NewSymbol("Event"));
   wxNode_wxEvent::AddMethods(returnObjFt);
 
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
@@ -81,7 +81,7 @@
   
   v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
   returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-  returnObjFt->SetClassName(v8::String::NewSymbol("wxEvent"));
+  returnObjFt->SetClassName(v8::String::NewSymbol("Event"));
   wxNode_wxEvent::AddMethods(returnObjFt);
 
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
@@ -103,92 +103,92 @@
 }
 
 /*static*/ bool wxNode_wxEvent::AssignableFrom(const char* className) {
-  if(!strcmp("wxEvent", className)) { return true; }
+  if(!strcmp("Event", className)) { return true; }
   
-  if(!strcmp("wxPaletteChangedEvent", className)) { return true; }
-  if(!strcmp("wxEraseEvent", className)) { return true; }
-  if(!strcmp("wxMouseEvent", className)) { return true; }
-  if(!strcmp("wxCommandEvent", className)) { return true; }
+  if(!strcmp("PaletteChangedEvent", className)) { return true; }
+  if(!strcmp("EraseEvent", className)) { return true; }
+  if(!strcmp("MouseEvent", className)) { return true; }
+  if(!strcmp("CommandEvent", className)) { return true; }
 
-  if(!strcmp("wxContextMenuEvent", className)) { return true; }
-  if(!strcmp("wxWindowModalDialogEvent", className)) { return true; }
-  if(!strcmp("wxTextUrlEvent", className)) { return true; }
-  if(!strcmp("wxClipboardTextEvent", className)) { return true; }
-  if(!strcmp("wxWindowCreateEvent", className)) { return true; }
-  if(!strcmp("wxHyperlinkEvent", className)) { return true; }
-  if(!strcmp("wxNotifyEvent", className)) { return true; }
+  if(!strcmp("ContextMenuEvent", className)) { return true; }
+  if(!strcmp("WindowModalDialogEvent", className)) { return true; }
+  if(!strcmp("TextUrlEvent", className)) { return true; }
+  if(!strcmp("ClipboardTextEvent", className)) { return true; }
+  if(!strcmp("WindowCreateEvent", className)) { return true; }
+  if(!strcmp("HyperlinkEvent", className)) { return true; }
+  if(!strcmp("NotifyEvent", className)) { return true; }
 
-  if(!strcmp("wxBookCtrlEvent", className)) { return true; }
+  if(!strcmp("BookCtrlEvent", className)) { return true; }
 
-  if(!strcmp("wxAuiNotebookEvent", className)) { return true; }
-  if(!strcmp("wxSplitterEvent", className)) { return true; }
-  if(!strcmp("wxWizardEvent", className)) { return true; }
-  if(!strcmp("wxHeaderCtrlEvent", className)) { return true; }
-  if(!strcmp("wxTreeEvent", className)) { return true; }
-  if(!strcmp("wxGridEvent", className)) { return true; }
-  if(!strcmp("wxSpinEvent", className)) { return true; }
-  if(!strcmp("wxListEvent", className)) { return true; }
-  if(!strcmp("wxRichTextEvent", className)) { return true; }
-  if(!strcmp("wxSpinDoubleEvent", className)) { return true; }
-  if(!strcmp("wxDataViewEvent", className)) { return true; }
-  if(!strcmp("wxGridSizeEvent", className)) { return true; }
-  if(!strcmp("wxAuiToolBarEvent", className)) { return true; }
-  if(!strcmp("wxTreeListEvent", className)) { return true; }
-  if(!strcmp("wxGridRangeSelectEvent", className)) { return true; }
-  if(!strcmp("wxGridEditorCreatedEvent", className)) { return true; }
-  if(!strcmp("wxFileCtrlEvent", className)) { return true; }
-  if(!strcmp("wxHtmlLinkEvent", className)) { return true; }
-  if(!strcmp("wxFileDirPickerEvent", className)) { return true; }
-  if(!strcmp("wxColourPickerEvent", className)) { return true; }
-  if(!strcmp("wxChildFocusEvent", className)) { return true; }
-  if(!strcmp("wxDateEvent", className)) { return true; }
+  if(!strcmp("AuiNotebookEvent", className)) { return true; }
+  if(!strcmp("SplitterEvent", className)) { return true; }
+  if(!strcmp("WizardEvent", className)) { return true; }
+  if(!strcmp("HeaderCtrlEvent", className)) { return true; }
+  if(!strcmp("TreeEvent", className)) { return true; }
+  if(!strcmp("GridEvent", className)) { return true; }
+  if(!strcmp("SpinEvent", className)) { return true; }
+  if(!strcmp("ListEvent", className)) { return true; }
+  if(!strcmp("RichTextEvent", className)) { return true; }
+  if(!strcmp("SpinDoubleEvent", className)) { return true; }
+  if(!strcmp("DataViewEvent", className)) { return true; }
+  if(!strcmp("GridSizeEvent", className)) { return true; }
+  if(!strcmp("AuiToolBarEvent", className)) { return true; }
+  if(!strcmp("TreeListEvent", className)) { return true; }
+  if(!strcmp("GridRangeSelectEvent", className)) { return true; }
+  if(!strcmp("GridEditorCreatedEvent", className)) { return true; }
+  if(!strcmp("FileCtrlEvent", className)) { return true; }
+  if(!strcmp("HtmlLinkEvent", className)) { return true; }
+  if(!strcmp("FileDirPickerEvent", className)) { return true; }
+  if(!strcmp("ColourPickerEvent", className)) { return true; }
+  if(!strcmp("ChildFocusEvent", className)) { return true; }
+  if(!strcmp("DateEvent", className)) { return true; }
 
-  if(!strcmp("wxCalendarEvent", className)) { return true; }
-  if(!strcmp("wxScrollEvent", className)) { return true; }
-  if(!strcmp("wxHtmlCellEvent", className)) { return true; }
-  if(!strcmp("wxStyledTextEvent", className)) { return true; }
-  if(!strcmp("wxSashEvent", className)) { return true; }
-  if(!strcmp("wxHelpEvent", className)) { return true; }
-  if(!strcmp("wxCollapsiblePaneEvent", className)) { return true; }
-  if(!strcmp("wxUpdateUIEvent", className)) { return true; }
-  if(!strcmp("wxFindDialogEvent", className)) { return true; }
-  if(!strcmp("wxWindowDestroyEvent", className)) { return true; }
-  if(!strcmp("wxFontPickerEvent", className)) { return true; }
-  if(!strcmp("wxShowEvent", className)) { return true; }
-  if(!strcmp("wxClipboardEvent", className)) { return true; }
-  if(!strcmp("wxMouseCaptureChangedEvent", className)) { return true; }
-  if(!strcmp("wxDialUpEvent", className)) { return true; }
-  if(!strcmp("wxCloseEvent", className)) { return true; }
-  if(!strcmp("wxMaximizeEvent", className)) { return true; }
-  if(!strcmp("wxFocusEvent", className)) { return true; }
-  if(!strcmp("wxSocketEvent", className)) { return true; }
-  if(!strcmp("wxIdleEvent", className)) { return true; }
-  if(!strcmp("wxScrollWinEvent", className)) { return true; }
-  if(!strcmp("wxTaskBarIconEvent", className)) { return true; }
-  if(!strcmp("wxDropFilesEvent", className)) { return true; }
-  if(!strcmp("wxIconizeEvent", className)) { return true; }
-  if(!strcmp("wxCalculateLayoutEvent", className)) { return true; }
-  if(!strcmp("wxDisplayChangedEvent", className)) { return true; }
-  if(!strcmp("wxQueryNewPaletteEvent", className)) { return true; }
-  if(!strcmp("wxFileSystemWatcherEvent", className)) { return true; }
-  if(!strcmp("wxSizeEvent", className)) { return true; }
-  if(!strcmp("wxInitDialogEvent", className)) { return true; }
-  if(!strcmp("wxSetCursorEvent", className)) { return true; }
-  if(!strcmp("wxProcessEvent", className)) { return true; }
-  if(!strcmp("wxTimerEvent", className)) { return true; }
-  if(!strcmp("wxQueryLayoutInfoEvent", className)) { return true; }
-  if(!strcmp("wxKeyEvent", className)) { return true; }
-  if(!strcmp("wxJoystickEvent", className)) { return true; }
-  if(!strcmp("wxMenuEvent", className)) { return true; }
-  if(!strcmp("wxMouseCaptureLostEvent", className)) { return true; }
-  if(!strcmp("wxMoveEvent", className)) { return true; }
-  if(!strcmp("wxNcPaintEvent", className)) { return true; }
-  if(!strcmp("wxNavigationKeyEvent", className)) { return true; }
-  if(!strcmp("wxActivateEvent", className)) { return true; }
-  if(!strcmp("wxThreadEvent", className)) { return true; }
-  if(!strcmp("wxSysColourChangedEvent", className)) { return true; }
-  if(!strcmp("wxPaintEvent", className)) { return true; }
-  if(!strcmp("wxAuiManagerEvent", className)) { return true; }
+  if(!strcmp("CalendarEvent", className)) { return true; }
+  if(!strcmp("ScrollEvent", className)) { return true; }
+  if(!strcmp("HtmlCellEvent", className)) { return true; }
+  if(!strcmp("StyledTextEvent", className)) { return true; }
+  if(!strcmp("SashEvent", className)) { return true; }
+  if(!strcmp("HelpEvent", className)) { return true; }
+  if(!strcmp("CollapsiblePaneEvent", className)) { return true; }
+  if(!strcmp("UpdateUIEvent", className)) { return true; }
+  if(!strcmp("FindDialogEvent", className)) { return true; }
+  if(!strcmp("WindowDestroyEvent", className)) { return true; }
+  if(!strcmp("FontPickerEvent", className)) { return true; }
+  if(!strcmp("ShowEvent", className)) { return true; }
+  if(!strcmp("ClipboardEvent", className)) { return true; }
+  if(!strcmp("MouseCaptureChangedEvent", className)) { return true; }
+  if(!strcmp("DialUpEvent", className)) { return true; }
+  if(!strcmp("CloseEvent", className)) { return true; }
+  if(!strcmp("MaximizeEvent", className)) { return true; }
+  if(!strcmp("FocusEvent", className)) { return true; }
+  if(!strcmp("SocketEvent", className)) { return true; }
+  if(!strcmp("IdleEvent", className)) { return true; }
+  if(!strcmp("ScrollWinEvent", className)) { return true; }
+  if(!strcmp("TaskBarIconEvent", className)) { return true; }
+  if(!strcmp("DropFilesEvent", className)) { return true; }
+  if(!strcmp("IconizeEvent", className)) { return true; }
+  if(!strcmp("CalculateLayoutEvent", className)) { return true; }
+  if(!strcmp("DisplayChangedEvent", className)) { return true; }
+  if(!strcmp("QueryNewPaletteEvent", className)) { return true; }
+  if(!strcmp("FileSystemWatcherEvent", className)) { return true; }
+  if(!strcmp("SizeEvent", className)) { return true; }
+  if(!strcmp("InitDialogEvent", className)) { return true; }
+  if(!strcmp("SetCursorEvent", className)) { return true; }
+  if(!strcmp("ProcessEvent", className)) { return true; }
+  if(!strcmp("TimerEvent", className)) { return true; }
+  if(!strcmp("QueryLayoutInfoEvent", className)) { return true; }
+  if(!strcmp("KeyEvent", className)) { return true; }
+  if(!strcmp("JoystickEvent", className)) { return true; }
+  if(!strcmp("MenuEvent", className)) { return true; }
+  if(!strcmp("MouseCaptureLostEvent", className)) { return true; }
+  if(!strcmp("MoveEvent", className)) { return true; }
+  if(!strcmp("NcPaintEvent", className)) { return true; }
+  if(!strcmp("NavigationKeyEvent", className)) { return true; }
+  if(!strcmp("ActivateEvent", className)) { return true; }
+  if(!strcmp("ThreadEvent", className)) { return true; }
+  if(!strcmp("SysColourChangedEvent", className)) { return true; }
+  if(!strcmp("PaintEvent", className)) { return true; }
+  if(!strcmp("AuiManagerEvent", className)) { return true; }
 
 
   return false;

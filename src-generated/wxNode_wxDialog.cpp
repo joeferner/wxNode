@@ -62,12 +62,12 @@ wxNode_wxDialog::wxNode_wxDialog(wxWindow* parent, int id, const wxString& title
   v8::Local<v8::FunctionTemplate> t = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
   s_ct = v8::Persistent<v8::FunctionTemplate>::New(t);
   s_ct->InstanceTemplate()->SetInternalFieldCount(2);
-  s_ct->SetClassName(v8::String::NewSymbol("wxDialog"));
+  s_ct->SetClassName(v8::String::NewSymbol("Dialog"));
 
   NODE_SET_PROTOTYPE_METHOD(s_ct, "init", _init);
   AddMethods(s_ct);
 
-  target->Set(v8::String::NewSymbol("wxDialog"), s_ct->GetFunction());
+  target->Set(v8::String::NewSymbol("Dialog"), s_ct->GetFunction());
 }
 
 /*static*/ void wxNode_wxDialog::AddMethods(v8::Handle<v8::FunctionTemplate> target) {
@@ -118,7 +118,7 @@ wxNode_wxDialog::wxNode_wxDialog(wxWindow* parent, int id, const wxString& title
   
   v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
   returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-  returnObjFt->SetClassName(v8::String::NewSymbol("wxDialog"));
+  returnObjFt->SetClassName(v8::String::NewSymbol("Dialog"));
   wxNode_wxDialog::AddMethods(returnObjFt);
 
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
@@ -140,7 +140,7 @@ wxNode_wxDialog::wxNode_wxDialog(wxWindow* parent, int id, const wxString& title
   
   v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
   returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-  returnObjFt->SetClassName(v8::String::NewSymbol("wxDialog"));
+  returnObjFt->SetClassName(v8::String::NewSymbol("Dialog"));
   wxNode_wxDialog::AddMethods(returnObjFt);
 
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
@@ -166,57 +166,57 @@ wxNode_wxDialog::wxNode_wxDialog(wxWindow* parent, int id, const wxString& title
 }
 
 /*static*/ bool wxNode_wxDialog::AssignableFrom(const char* className) {
-  if(!strcmp("wxDialog", className)) { return true; }
+  if(!strcmp("Dialog", className)) { return true; }
   
-  if(!strcmp("wxDialog", className)) { return true; }
+  if(!strcmp("Dialog", className)) { return true; }
 
-  if(!strcmp("wxFontDialogBase", className)) { return true; }
+  if(!strcmp("FontDialogBase", className)) { return true; }
 
-  if(!strcmp("wxFontDialog", className)) { return true; }
-  if(!strcmp("wxRearrangeDialog", className)) { return true; }
-  if(!strcmp("wxDirDialogBase", className)) { return true; }
+  if(!strcmp("FontDialog", className)) { return true; }
+  if(!strcmp("RearrangeDialog", className)) { return true; }
+  if(!strcmp("DirDialogBase", className)) { return true; }
 
-  if(!strcmp("wxDirDialog", className)) { return true; }
-  if(!strcmp("wxGenericProgressDialog", className)) { return true; }
+  if(!strcmp("DirDialog", className)) { return true; }
+  if(!strcmp("GenericProgressDialog", className)) { return true; }
 
-  if(!strcmp("wxProgressDialog", className)) { return true; }
-  if(!strcmp("wxPropertySheetDialog", className)) { return true; }
+  if(!strcmp("ProgressDialog", className)) { return true; }
+  if(!strcmp("PropertySheetDialog", className)) { return true; }
 
-  if(!strcmp("wxRichTextFormattingDialog", className)) { return true; }
-  if(!strcmp("wxMessageDialogBase", className)) { return true; }
+  if(!strcmp("RichTextFormattingDialog", className)) { return true; }
+  if(!strcmp("MessageDialogBase", className)) { return true; }
 
-  if(!strcmp("wxMessageDialog", className)) { return true; }
-  if(!strcmp("wxGenericMessageDialog", className)) { return true; }
+  if(!strcmp("MessageDialog", className)) { return true; }
+  if(!strcmp("GenericMessageDialog", className)) { return true; }
 
-  if(!strcmp("wxRichMessageDialogBase", className)) { return true; }
+  if(!strcmp("RichMessageDialogBase", className)) { return true; }
 
-  if(!strcmp("wxGenericRichMessageDialog", className)) { return true; }
+  if(!strcmp("GenericRichMessageDialog", className)) { return true; }
 
-  if(!strcmp("wxRichMessageDialog", className)) { return true; }
-  if(!strcmp("wxColourDialog", className)) { return true; }
-  if(!strcmp("wxHtmlHelpDialog", className)) { return true; }
-  if(!strcmp("wxFindReplaceDialogBase", className)) { return true; }
+  if(!strcmp("RichMessageDialog", className)) { return true; }
+  if(!strcmp("ColourDialog", className)) { return true; }
+  if(!strcmp("HtmlHelpDialog", className)) { return true; }
+  if(!strcmp("FindReplaceDialogBase", className)) { return true; }
 
-  if(!strcmp("wxFindReplaceDialog", className)) { return true; }
-  if(!strcmp("wxWizardBase", className)) { return true; }
+  if(!strcmp("FindReplaceDialog", className)) { return true; }
+  if(!strcmp("WizardBase", className)) { return true; }
 
-  if(!strcmp("wxWizard", className)) { return true; }
-  if(!strcmp("wxPrintAbortDialog", className)) { return true; }
-  if(!strcmp("wxAnyChoiceDialog", className)) { return true; }
+  if(!strcmp("Wizard", className)) { return true; }
+  if(!strcmp("PrintAbortDialog", className)) { return true; }
+  if(!strcmp("AnyChoiceDialog", className)) { return true; }
 
-  if(!strcmp("wxSingleChoiceDialog", className)) { return true; }
-  if(!strcmp("wxMultiChoiceDialog", className)) { return true; }
-  if(!strcmp("wxRichTextStyleOrganiserDialog", className)) { return true; }
-  if(!strcmp("wxTextEntryDialog", className)) { return true; }
+  if(!strcmp("SingleChoiceDialog", className)) { return true; }
+  if(!strcmp("MultiChoiceDialog", className)) { return true; }
+  if(!strcmp("RichTextStyleOrganiserDialog", className)) { return true; }
+  if(!strcmp("TextEntryDialog", className)) { return true; }
 
-  if(!strcmp("wxPasswordEntryDialog", className)) { return true; }
-  if(!strcmp("wxPrintDialogBase", className)) { return true; }
-  if(!strcmp("wxPageSetupDialogBase", className)) { return true; }
-  if(!strcmp("wxSymbolPickerDialog", className)) { return true; }
-  if(!strcmp("wxNumberEntryDialog", className)) { return true; }
-  if(!strcmp("wxFileDialogBase", className)) { return true; }
+  if(!strcmp("PasswordEntryDialog", className)) { return true; }
+  if(!strcmp("PrintDialogBase", className)) { return true; }
+  if(!strcmp("PageSetupDialogBase", className)) { return true; }
+  if(!strcmp("SymbolPickerDialog", className)) { return true; }
+  if(!strcmp("NumberEntryDialog", className)) { return true; }
+  if(!strcmp("FileDialogBase", className)) { return true; }
 
-  if(!strcmp("wxFileDialog", className)) { return true; }
+  if(!strcmp("FileDialog", className)) { return true; }
 
 
   return false;

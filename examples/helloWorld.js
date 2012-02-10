@@ -1,14 +1,14 @@
 #!/usr/bin/env node
 
-var wxNode = require("../");
+var wx = require("../");
 
 var ID_Quit = 1;
 var ID_About = 2;
 
-var MyApp = wxNode.wxApp.extend({
+var MyApp = wx.App.extend({
   onInit: function() {
-    var location = new wxNode.wxPoint(50, 50);
-    var size = new wxNode.wxSize(450, 340);
+    var location = new wx.Point(50, 50);
+    var size = new wx.Size(450, 340);
     var frame = new MyFrame("Hello World", location, size);
     frame.show(true);
     this.setTopWindow(frame);
@@ -16,16 +16,16 @@ var MyApp = wxNode.wxApp.extend({
   }
 });
 
-var MyFrame = wxNode.wxFrame.extend({
+var MyFrame = wx.Frame.extend({
   init: function(title, pos, size) {
     this._super(null, -1, title, pos, size);
 
-    var menuFile = new wxNode.wxMenu();
+    var menuFile = new wx.Menu();
     menuFile.append(ID_About, "&About");
     menuFile.appendSeparator();
     menuFile.append(ID_Quit, "E&xit");
 
-    var menuBar = new wxNode.wxMenuBar();
+    var menuBar = new wx.MenuBar();
     menuBar.append(menuFile, "&File");
 
     this.setMenuBar(menuBar);
@@ -48,7 +48,7 @@ var MyFrame = wxNode.wxFrame.extend({
   },
 
   onAbout: function(event) {
-    wxNode.wxMessageBox("This is a wxNode Hello world sample", "About Hello World", wxNode.wxOK | wxNode.wxICON_INFORMATION, this);
+    wx.MessageBox("This is a wxNode Hello world sample", "About Hello World", wx.OK | wx.ICON_INFORMATION, this);
   }
 });
 

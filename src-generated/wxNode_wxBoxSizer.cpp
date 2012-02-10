@@ -33,12 +33,12 @@ wxNode_wxBoxSizer::wxNode_wxBoxSizer(int orient)
   v8::Local<v8::FunctionTemplate> t = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
   s_ct = v8::Persistent<v8::FunctionTemplate>::New(t);
   s_ct->InstanceTemplate()->SetInternalFieldCount(2);
-  s_ct->SetClassName(v8::String::NewSymbol("wxBoxSizer"));
+  s_ct->SetClassName(v8::String::NewSymbol("BoxSizer"));
 
   NODE_SET_PROTOTYPE_METHOD(s_ct, "init", _init);
   AddMethods(s_ct);
 
-  target->Set(v8::String::NewSymbol("wxBoxSizer"), s_ct->GetFunction());
+  target->Set(v8::String::NewSymbol("BoxSizer"), s_ct->GetFunction());
 }
 
 /*static*/ void wxNode_wxBoxSizer::AddMethods(v8::Handle<v8::FunctionTemplate> target) {
@@ -62,7 +62,7 @@ wxNode_wxBoxSizer::wxNode_wxBoxSizer(int orient)
   
   v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
   returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-  returnObjFt->SetClassName(v8::String::NewSymbol("wxBoxSizer"));
+  returnObjFt->SetClassName(v8::String::NewSymbol("BoxSizer"));
   wxNode_wxBoxSizer::AddMethods(returnObjFt);
 
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
@@ -84,7 +84,7 @@ wxNode_wxBoxSizer::wxNode_wxBoxSizer(int orient)
   
   v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
   returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-  returnObjFt->SetClassName(v8::String::NewSymbol("wxBoxSizer"));
+  returnObjFt->SetClassName(v8::String::NewSymbol("BoxSizer"));
   wxNode_wxBoxSizer::AddMethods(returnObjFt);
 
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
@@ -109,11 +109,11 @@ wxNode_wxBoxSizer::wxNode_wxBoxSizer(int orient)
 }
 
 /*static*/ bool wxNode_wxBoxSizer::AssignableFrom(const char* className) {
-  if(!strcmp("wxBoxSizer", className)) { return true; }
+  if(!strcmp("BoxSizer", className)) { return true; }
   
-  if(!strcmp("wxWrapSizer", className)) { return true; }
-  if(!strcmp("wxStaticBoxSizer", className)) { return true; }
-  if(!strcmp("wxStdDialogButtonSizer", className)) { return true; }
+  if(!strcmp("WrapSizer", className)) { return true; }
+  if(!strcmp("StaticBoxSizer", className)) { return true; }
+  if(!strcmp("StdDialogButtonSizer", className)) { return true; }
 
 
   return false;

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-var wxNode = require("../");
+var wx = require("../");
 var util = require("util");
 
 /////////////////////////////////////////////////////////////////////////////
@@ -18,8 +18,8 @@ var util = require("util");
 // menu commands and controls ids
 
 // file menu
-var TabOrder_Quit = wxNode.wxID_EXIT;
-var TabOrder_About = wxNode.wxID_ABOUT;
+var TabOrder_Quit = wx.ID_EXIT;
+var TabOrder_About = wx.ID_ABOUT;
 
 // navigation menu
 var TabOrder_TabForward = 200;
@@ -39,24 +39,24 @@ var StatusPane_Max = 2;
 
 // a text control which checks if processing Tab presses in controls with
 // wxTE_PROCESS_TAB style really works
-var MyTabTextCtrl = wxNode.wxTextCtrl.extend({
+var MyTabTextCtrl = wx.TextCtrl.extend({
   init: function(parent, value, flags) {
     flags = flags || 0;
-    this._super(parent, wxNode.wxID_ANY, value,
-                     wxNode.wxDefaultPosition, wxNode.wxDefaultSize,
+    this._super(parent, wx.ID_ANY, value,
+                     wx.DefaultPosition, wx.DefaultSize,
                      flags);
     this.EVT_KEY_DOWN(this.onKeyDown);
   },
 
   onKeyDown: function(event) {
-    if ( event.getKeyCode() == wxNode.WXK_TAB &&
-            wxNode.wxMessageBox
+    if ( event.getKeyCode() == wx.WXK_TAB &&
+            wx.MessageBox
             (
                 "Let the Tab be used for navigation?",
                 "wxWidgets TabOrder sample: Tab key pressed",
-                wxNode.wxICON_QUESTION | wxNode.wxYES_NO,
+                wx.ICON_QUESTION | wx.YES_NO,
                 this
-            ) != wxNode.wxYES )
+            ) != wx.YES )
     {
       // skip Skip() below: we consume the Tab press ourselves and so the
       // focus shouldn't change
@@ -75,7 +75,7 @@ var MyTabTextCtrl = wxNode.wxTextCtrl.extend({
 // MyApp
 // ----------------------------------------------------------------------------
 
-var MyApp = wxNode.wxApp.extend({
+var MyApp = wx.App.extend({
   onInit: function() {
     this._super();
 
@@ -90,25 +90,25 @@ var MyApp = wxNode.wxApp.extend({
 // MyFrame
 // ----------------------------------------------------------------------------
 
-var MyFrame = wxNode.wxFrame.extend({
+var MyFrame = wx.Frame.extend({
   init: function() {
-    this._super(null, wxNode.wxID_ANY, "TabOrder wxWidgets Sample",
-                 wxNode.wxDefaultPosition, new wxNode.wxSize(700, 450));
+    this._super(null, wx.ID_ANY, "TabOrder wxWidgets Sample",
+                 wx.DefaultPosition, new wx.Size(700, 450));
 
-    this.setIcon(new wxNode.wxIcon("./examples/sample.ico", wxNode.wxBITMAP_TYPE_ICO));
+    this.setIcon(new wx.Icon("./examples/sample.ico", wx.BITMAP_TYPE_ICO));
 
-    var menuFile = new wxNode.wxMenu();
+    var menuFile = new wx.Menu();
     menuFile.append(TabOrder_About);
     menuFile.appendSeparator();
     menuFile.append(TabOrder_Quit);
 
-    var menuNav = new wxNode.wxMenu();
+    var menuNav = new wx.Menu();
     menuNav.append(TabOrder_TabForward, "Tab &forward\tCtrl-F",
                     "Emulate a <Tab> press");
     menuNav.append(TabOrder_TabBackward, "Tab &backward\tCtrl-B",
                     "Emulate a <Shift-Tab> press");
 
-    var mbar = new wxNode.wxMenuBar();
+    var mbar = new wx.MenuBar();
     mbar.append(menuFile, "&File");
     mbar.append(menuNav, "&Navigate");
 
@@ -138,22 +138,22 @@ var MyFrame = wxNode.wxFrame.extend({
   },
 
   onAbout: function(event) {
-    wxNode.wxMessageBox("Tab navigation sample\n(c) 2007 Vadim Zeitlin",
-                 "About TabOrder wxWidgets Sample", wxNode.wxOK, this);
+    wx.MessageBox("Tab navigation sample\n(c) 2007 Vadim Zeitlin",
+                 "About TabOrder wxWidgets Sample", wx.OK, this);
   },
 
   onTabForward: function(event) {
-    this.doNavigate(wxNode.wxNavigationKeyEvent.isForward | wxNode.wxNavigationKeyEvent.fromTab);
+    this.doNavigate(wx.NavigationKeyEvent.isForward | wx.NavigationKeyEvent.fromTab);
   },
 
   onTabBackward: function(event) {
-    this.doNavigate(wxNode.wxNavigationKeyEvent.isBackward | wxNode.wxNavigationKeyEvent.fromTab);
+    this.doNavigate(wx.NavigationKeyEvent.isBackward | wx.NavigationKeyEvent.fromTab);
   },
 
   s_windowFocus: null,
   onIdle: function(event) {
     // track the window which has the focus in the status bar
-    var focus = wxNode.wxWindow.findFocus();
+    var focus = wx.Window.findFocus();
     if ( focus != this.s_windowFocus )
     {
       this.s_windowFocus = focus;
@@ -175,11 +175,11 @@ var MyFrame = wxNode.wxFrame.extend({
   doNavigate: function(flags) {
     if ( this.m_panel.navigateIn(flags) )
     {
-      wxNode.wxLogStatus(this, "Navigation event processed");
+      wx.LogStatus(this, "Navigation event processed");
     }
     else
     {
-      wxNode.wxLogStatus(this, "Navigation event ignored");
+      wx.LogStatus(this, "Navigation event ignored");
     }
   }
 
@@ -189,36 +189,36 @@ var MyFrame = wxNode.wxFrame.extend({
 // MyPanel
 // ----------------------------------------------------------------------------
 
-var MyPanel = wxNode.wxPanel.extend({
+var MyPanel = wx.Panel.extend({
   init: function(parent) {
-    this._super(parent, wxNode.wxID_ANY);
+    this._super(parent, wx.ID_ANY);
 
-    var notebook = new wxNode.wxNotebook(this, wxNode.wxID_ANY);
+    var notebook = new wx.Notebook(this, wx.ID_ANY);
     notebook.addPage(this.createButtonPage(notebook), "Button");
     notebook.addPage(this.createTextPage(notebook), "Text");
-    var sizerV = new wxNode.wxBoxSizer(wxNode.wxVERTICAL);
-    var sizerFlags = new wxNode.wxSizerFlags(1).expand();
+    var sizerV = new wx.BoxSizer(wx.VERTICAL);
+    var sizerFlags = new wx.SizerFlags(1).expand();
     sizerV.add(notebook, sizerFlags);
 
-    var lbox = new wxNode.wxListBox(this, wxNode.wxID_ANY);
+    var lbox = new wx.ListBox(this, wx.ID_ANY);
     lbox.appendString("Just a");
     lbox.appendString("simple");
     lbox.appendString("listbox");
-    var sizerFlags = new wxNode.wxSizerFlags(1).expand();
+    var sizerFlags = new wx.SizerFlags(1).expand();
     sizerV.add(lbox, sizerFlags);
 
     this.setSizerAndFit(sizerV);
   },
 
   createButtonPage: function(parent) {
-    var flagsBorder = new wxNode.wxSizerFlags().border().centre();
+    var flagsBorder = new wx.SizerFlags().border().centre();
 
-    var page = new wxNode.wxPanel(parent);
-    var sizerPage = new wxNode.wxBoxSizer(wxNode.wxHORIZONTAL);
-    sizerPage.add(new wxNode.wxButton(page, wxNode.wxID_ANY, "&First"), flagsBorder);
-    sizerPage.add(new wxNode.wxStaticText(page, wxNode.wxID_ANY, "[st&atic]"),
+    var page = new wx.Panel(parent);
+    var sizerPage = new wx.BoxSizer(wx.HORIZONTAL);
+    sizerPage.add(new wx.Button(page, wx.ID_ANY, "&First"), flagsBorder);
+    sizerPage.add(new wx.StaticText(page, wx.ID_ANY, "[st&atic]"),
                    flagsBorder);
-    sizerPage.add(new wxNode.wxButton(page, wxNode.wxID_ANY, "&Second"), flagsBorder);
+    sizerPage.add(new wx.Button(page, wx.ID_ANY, "&Second"), flagsBorder);
 
     page.setSizer(sizerPage);
 
@@ -226,22 +226,22 @@ var MyPanel = wxNode.wxPanel.extend({
   },
 
   createTextPage: function(parent) {
-    var flagsBorder = new wxNode.wxSizerFlags().border();
+    var flagsBorder = new wx.SizerFlags().border();
 
-    var sizerPage = new wxNode.wxBoxSizer(wxNode.wxVERTICAL);
-    var page = new wxNode.wxPanel(parent);
-    var sizerH = new wxNode.wxBoxSizer(wxNode.wxHORIZONTAL);
-    sizerH.add(new wxNode.wxStaticText(page, wxNode.wxID_ANY, "&Label:"), flagsBorder);
+    var sizerPage = new wx.BoxSizer(wx.VERTICAL);
+    var page = new wx.Panel(parent);
+    var sizerH = new wx.BoxSizer(wx.HORIZONTAL);
+    sizerH.add(new wx.StaticText(page, wx.ID_ANY, "&Label:"), flagsBorder);
     sizerH.add(new MyTabTextCtrl(page, "TAB ignored here"), flagsBorder);
-    var sizerFlags = new wxNode.wxSizerFlags(1).expand();
+    var sizerFlags = new wx.SizerFlags(1).expand();
     sizerPage.add(sizerH, sizerFlags);
 
-    sizerH = new wxNode.wxBoxSizer(wxNode.wxHORIZONTAL);
-    sizerH.add(new wxNode.wxStaticText(page, wxNode.wxID_ANY, "&Another one:"),
+    sizerH = new wx.BoxSizer(wx.HORIZONTAL);
+    sizerH.add(new wx.StaticText(page, wx.ID_ANY, "&Another one:"),
                 flagsBorder);
-    sizerH.add(new MyTabTextCtrl(page, "press Tab here", wxNode.wxTE_PROCESS_TAB),
+    sizerH.add(new MyTabTextCtrl(page, "press Tab here", wx.TE_PROCESS_TAB),
                 flagsBorder);
-    var sizerFlags = new wxNode.wxSizerFlags(1).expand();
+    var sizerFlags = new wx.SizerFlags(1).expand();
     sizerPage.add(sizerH, sizerFlags);
 
     page.setSizer(sizerPage);

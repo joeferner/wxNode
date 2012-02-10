@@ -41,12 +41,12 @@ wxNode_wxPoint::wxNode_wxPoint(wxRealPoint& pt)
   v8::Local<v8::FunctionTemplate> t = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
   s_ct = v8::Persistent<v8::FunctionTemplate>::New(t);
   s_ct->InstanceTemplate()->SetInternalFieldCount(2);
-  s_ct->SetClassName(v8::String::NewSymbol("wxPoint"));
+  s_ct->SetClassName(v8::String::NewSymbol("Point"));
 
   NODE_SET_PROTOTYPE_METHOD(s_ct, "init", _init);
   AddMethods(s_ct);
 
-  target->Set(v8::String::NewSymbol("wxPoint"), s_ct->GetFunction());
+  target->Set(v8::String::NewSymbol("Point"), s_ct->GetFunction());
 }
 
 /*static*/ void wxNode_wxPoint::AddMethods(v8::Handle<v8::FunctionTemplate> target) {
@@ -65,7 +65,7 @@ wxNode_wxPoint::wxNode_wxPoint(wxRealPoint& pt)
   
   v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
   returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-  returnObjFt->SetClassName(v8::String::NewSymbol("wxPoint"));
+  returnObjFt->SetClassName(v8::String::NewSymbol("Point"));
   wxNode_wxPoint::AddMethods(returnObjFt);
 
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
@@ -87,7 +87,7 @@ wxNode_wxPoint::wxNode_wxPoint(wxRealPoint& pt)
   
   v8::Local<v8::FunctionTemplate> returnObjFt = v8::FunctionTemplate::New(wxNodeObject::NewFunc);
   returnObjFt->InstanceTemplate()->SetInternalFieldCount(2);
-  returnObjFt->SetClassName(v8::String::NewSymbol("wxPoint"));
+  returnObjFt->SetClassName(v8::String::NewSymbol("Point"));
   wxNode_wxPoint::AddMethods(returnObjFt);
 
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
@@ -113,7 +113,7 @@ wxNode_wxPoint::wxNode_wxPoint(wxRealPoint& pt)
 }
 
 /*static*/ bool wxNode_wxPoint::AssignableFrom(const char* className) {
-  if(!strcmp("wxPoint", className)) { return true; }
+  if(!strcmp("Point", className)) { return true; }
   
 
   return false;
