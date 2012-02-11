@@ -12,7 +12,10 @@
 #include <wx/event.h>
 #include <wx/artprov.h>
 #include <wx/infobar.h>
+#include <wx/webview.h>
+#include <wx/webviewarchivehandler.h>
 #include "wxNodeObject.h"
+#include "wxNode_wxVector.h"
 #include "wxNode_wxWindowWithItems_wxControl_wxItemContainer.h"
 
 #endif

@@ -218,10 +218,10 @@ wxNode_wxBitmap::wxNode_wxBitmap(wxImage& image)
   
   
   /*
-   * id: _43146
+   * id: _38676
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxBitmap::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxBitmap* arg0 = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[0]->ToObject()); /* type: _19639  */
+    wxNode_wxBitmap* arg0 = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[0]->ToObject()); /* type: _15645  */
     
 
     wxNode_wxBitmap *self = new wxNode_wxBitmap(*arg0);
@@ -231,7 +231,7 @@ wxNode_wxBitmap::wxNode_wxBitmap(wxImage& image)
   }
   
   /*
-   * id: _43147
+   * id: _38677
    */
   if(args.Length() == 0) {
     
@@ -243,12 +243,12 @@ wxNode_wxBitmap::wxNode_wxBitmap(wxImage& image)
   }
   
   /*
-   * id: _43148
+   * id: _38678
    */
   if(args.Length() == 3 && args[0]->IsNumber() && args[1]->IsNumber() && args[2]->IsNumber()) {
-    int width = (int)args[0]->ToInt32()->Value(); /* type: _233  */
-    int height = (int)args[1]->ToInt32()->Value(); /* type: _233  */
-    int depth = (int)args[2]->ToInt32()->Value(); /* type: _233  */
+    int width = (int)args[0]->ToInt32()->Value(); /* type: _165  */
+    int height = (int)args[1]->ToInt32()->Value(); /* type: _165  */
+    int depth = (int)args[2]->ToInt32()->Value(); /* type: _165  */
     
 
     wxNode_wxBitmap *self = new wxNode_wxBitmap(width, height, depth);
@@ -258,11 +258,11 @@ wxNode_wxBitmap::wxNode_wxBitmap(wxImage& image)
   }
   
   /*
-   * id: _43148
+   * id: _38678
    */
   if(args.Length() == 2 && args[0]->IsNumber() && args[1]->IsNumber()) {
-    int width = (int)args[0]->ToInt32()->Value(); /* type: _233  */
-    int height = (int)args[1]->ToInt32()->Value(); /* type: _233  */
+    int width = (int)args[0]->ToInt32()->Value(); /* type: _165  */
+    int height = (int)args[1]->ToInt32()->Value(); /* type: _165  */
     
 
     wxNode_wxBitmap *self = new wxNode_wxBitmap(width, height);
@@ -272,11 +272,11 @@ wxNode_wxBitmap::wxNode_wxBitmap(wxImage& image)
   }
   
   /*
-   * id: _43149
+   * id: _38679
    */
   if(args.Length() == 2 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxSize::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsNumber()) {
-    wxNode_wxSize* sz = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[0]->ToObject()); /* type: _25379  */
-    int depth = (int)args[1]->ToInt32()->Value(); /* type: _233  */
+    wxNode_wxSize* sz = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[0]->ToObject()); /* type: _20628  */
+    int depth = (int)args[1]->ToInt32()->Value(); /* type: _165  */
     
 
     wxNode_wxBitmap *self = new wxNode_wxBitmap(*sz, depth);
@@ -286,10 +286,10 @@ wxNode_wxBitmap::wxNode_wxBitmap(wxImage& image)
   }
   
   /*
-   * id: _43149
+   * id: _38679
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxSize::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxSize* sz = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[0]->ToObject()); /* type: _25379  */
+    wxNode_wxSize* sz = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[0]->ToObject()); /* type: _20628  */
     
 
     wxNode_wxBitmap *self = new wxNode_wxBitmap(*sz);
@@ -299,13 +299,13 @@ wxNode_wxBitmap::wxNode_wxBitmap(wxImage& image)
   }
   
   /*
-   * id: _43150
+   * id: _38680
    */
   if(args.Length() == 4 && args[0]->IsString() && args[1]->IsNumber() && args[2]->IsNumber() && args[3]->IsNumber()) {
-    char* bits; /* type: _18576 * */
-    int width = (int)args[1]->ToInt32()->Value(); /* type: _233  */
-    int height = (int)args[2]->ToInt32()->Value(); /* type: _233  */
-    int depth = (int)args[3]->ToInt32()->Value(); /* type: _233  */
+    char* bits; /* type: _14642 * */
+    int width = (int)args[1]->ToInt32()->Value(); /* type: _165  */
+    int height = (int)args[2]->ToInt32()->Value(); /* type: _165  */
+    int depth = (int)args[3]->ToInt32()->Value(); /* type: _165  */
     
 
     wxNode_wxBitmap *self = new wxNode_wxBitmap(bits, width, height, depth);
@@ -315,12 +315,12 @@ wxNode_wxBitmap::wxNode_wxBitmap(wxImage& image)
   }
   
   /*
-   * id: _43150
+   * id: _38680
    */
   if(args.Length() == 3 && args[0]->IsString() && args[1]->IsNumber() && args[2]->IsNumber()) {
-    char* bits; /* type: _18576 * */
-    int width = (int)args[1]->ToInt32()->Value(); /* type: _233  */
-    int height = (int)args[2]->ToInt32()->Value(); /* type: _233  */
+    char* bits; /* type: _14642 * */
+    int width = (int)args[1]->ToInt32()->Value(); /* type: _165  */
+    int height = (int)args[2]->ToInt32()->Value(); /* type: _165  */
     
 
     wxNode_wxBitmap *self = new wxNode_wxBitmap(bits, width, height);
@@ -330,10 +330,10 @@ wxNode_wxBitmap::wxNode_wxBitmap(wxImage& image)
   }
   
   /*
-   * id: _43151
+   * id: _38681
    */
   if(args.Length() == 1 && args[0]->IsString()) {
-    v8::String::AsciiValue bits(args[0]->ToString()); /* type: _65497 ** */
+    v8::String::AsciiValue bits(args[0]->ToString()); /* type: _59399 ** */
     
 
     wxNode_wxBitmap *self = new wxNode_wxBitmap(*bits);
@@ -343,11 +343,11 @@ wxNode_wxBitmap::wxNode_wxBitmap(wxImage& image)
   }
   
   /*
-   * id: _43152
+   * id: _38682
    */
   if(args.Length() == 2 && args[0]->IsString() && args[1]->IsNumber()) {
-    v8::String::AsciiValue filename(args[0]->ToString()); /* type: _18997  */
-    wxBitmapType type = (wxBitmapType)args[1]->ToNumber()->Value(); /* type: _3508  */
+    v8::String::AsciiValue filename(args[0]->ToString()); /* type: _14975  */
+    wxBitmapType type = (wxBitmapType)args[1]->ToNumber()->Value(); /* type: _2567  */
     
 
     wxNode_wxBitmap *self = new wxNode_wxBitmap(*filename, type);
@@ -357,10 +357,10 @@ wxNode_wxBitmap::wxNode_wxBitmap(wxImage& image)
   }
   
   /*
-   * id: _43152
+   * id: _38682
    */
   if(args.Length() == 1 && args[0]->IsString()) {
-    v8::String::AsciiValue filename(args[0]->ToString()); /* type: _18997  */
+    v8::String::AsciiValue filename(args[0]->ToString()); /* type: _14975  */
     
 
     wxNode_wxBitmap *self = new wxNode_wxBitmap(*filename);
@@ -370,11 +370,11 @@ wxNode_wxBitmap::wxNode_wxBitmap(wxImage& image)
   }
   
   /*
-   * id: _43153
+   * id: _38683
    */
   if(args.Length() == 2 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxImage::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsNumber()) {
-    wxNode_wxImage* image = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxImage>(args[0]->ToObject()); /* type: _19641  */
-    int depth = (int)args[1]->ToInt32()->Value(); /* type: _233  */
+    wxNode_wxImage* image = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxImage>(args[0]->ToObject()); /* type: _15647  */
+    int depth = (int)args[1]->ToInt32()->Value(); /* type: _165  */
     
 
     wxNode_wxBitmap *self = new wxNode_wxBitmap(*image, depth);
@@ -384,10 +384,10 @@ wxNode_wxBitmap::wxNode_wxBitmap(wxImage& image)
   }
   
   /*
-   * id: _43153
+   * id: _38683
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxImage::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxImage* image = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxImage>(args[0]->ToObject()); /* type: _19641  */
+    wxNode_wxImage* image = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxImage>(args[0]->ToObject()); /* type: _15647  */
     
 
     wxNode_wxBitmap *self = new wxNode_wxBitmap(*image);
@@ -415,12 +415,12 @@ wxNode_wxBitmap::wxNode_wxBitmap(wxImage& image)
 
   
   /*
-   * id: _21149
+   * id: _16926
    */
   if(args.Length() == 3 && args[0]->IsNumber() && args[1]->IsNumber() && args[2]->IsNumber()) {
-    int width = (int)args[0]->ToInt32()->Value(); /* type: _233  */
-    int height = (int)args[1]->ToInt32()->Value(); /* type: _233  */
-    int depth = (int)args[2]->ToInt32()->Value(); /* type: _233  */
+    int width = (int)args[0]->ToInt32()->Value(); /* type: _165  */
+    int height = (int)args[1]->ToInt32()->Value(); /* type: _165  */
+    int depth = (int)args[2]->ToInt32()->Value(); /* type: _165  */
     
 
     bool returnVal = self->Create(width, height, depth);
@@ -429,11 +429,11 @@ wxNode_wxBitmap::wxNode_wxBitmap(wxImage& image)
   }
   
   /*
-   * id: _21149
+   * id: _16926
    */
   if(args.Length() == 2 && args[0]->IsNumber() && args[1]->IsNumber()) {
-    int width = (int)args[0]->ToInt32()->Value(); /* type: _233  */
-    int height = (int)args[1]->ToInt32()->Value(); /* type: _233  */
+    int width = (int)args[0]->ToInt32()->Value(); /* type: _165  */
+    int height = (int)args[1]->ToInt32()->Value(); /* type: _165  */
     
 
     bool returnVal = self->Create(width, height);
@@ -442,11 +442,11 @@ wxNode_wxBitmap::wxNode_wxBitmap(wxImage& image)
   }
   
   /*
-   * id: _21150
+   * id: _16927
    */
   if(args.Length() == 2 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxSize::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsNumber()) {
-    wxNode_wxSize* sz = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[0]->ToObject()); /* type: _25379  */
-    int depth = (int)args[1]->ToInt32()->Value(); /* type: _233  */
+    wxNode_wxSize* sz = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[0]->ToObject()); /* type: _20628  */
+    int depth = (int)args[1]->ToInt32()->Value(); /* type: _165  */
     
 
     bool returnVal = self->Create(*sz, depth);
@@ -455,10 +455,10 @@ wxNode_wxBitmap::wxNode_wxBitmap(wxImage& image)
   }
   
   /*
-   * id: _21150
+   * id: _16927
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxSize::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxSize* sz = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[0]->ToObject()); /* type: _25379  */
+    wxNode_wxSize* sz = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[0]->ToObject()); /* type: _20628  */
     
 
     bool returnVal = self->Create(*sz);
@@ -483,7 +483,7 @@ wxNode_wxBitmap::wxNode_wxBitmap(wxImage& image)
 
   
   /*
-   * id: _21151
+   * id: _16928
    */
   if(args.Length() == 0) {
     
@@ -510,7 +510,7 @@ wxNode_wxBitmap::wxNode_wxBitmap(wxImage& image)
 
   
   /*
-   * id: _21152
+   * id: _16929
    */
   if(args.Length() == 0) {
     
@@ -537,7 +537,7 @@ wxNode_wxBitmap::wxNode_wxBitmap(wxImage& image)
 
   
   /*
-   * id: _21153
+   * id: _16930
    */
   if(args.Length() == 0) {
     
@@ -564,7 +564,7 @@ wxNode_wxBitmap::wxNode_wxBitmap(wxImage& image)
 
   
   /*
-   * id: _21154
+   * id: _16931
    */
   if(args.Length() == 0) {
     
@@ -591,7 +591,7 @@ wxNode_wxBitmap::wxNode_wxBitmap(wxImage& image)
 
   
   /*
-   * id: _21155
+   * id: _16932
    */
   if(args.Length() == 0) {
     
@@ -618,10 +618,10 @@ wxNode_wxBitmap::wxNode_wxBitmap(wxImage& image)
 
   
   /*
-   * id: _21156
+   * id: _16933
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    unsigned char brightness = args[0]->ToInt32()->Value(); /* type: _1539  */
+    unsigned char brightness = args[0]->ToInt32()->Value(); /* type: _1167  */
     
 
     wxBitmap returnVal = self->ConvertToDisabled(brightness);
@@ -630,7 +630,7 @@ wxNode_wxBitmap::wxNode_wxBitmap(wxImage& image)
   }
   
   /*
-   * id: _21156
+   * id: _16933
    */
   if(args.Length() == 0) {
     
@@ -657,7 +657,7 @@ wxNode_wxBitmap::wxNode_wxBitmap(wxImage& image)
 
   
   /*
-   * id: _21157
+   * id: _16934
    */
   if(args.Length() == 0) {
     
@@ -684,10 +684,10 @@ wxNode_wxBitmap::wxNode_wxBitmap(wxImage& image)
 
   
   /*
-   * id: _21158
+   * id: _16935
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxMask::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxMask* mask = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMask>(args[0]->ToObject()); /* type: _65559 * */
+    wxNode_wxMask* mask = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMask>(args[0]->ToObject()); /* type: _59455 * */
     
 
     self->SetMask(mask);
@@ -712,10 +712,10 @@ wxNode_wxBitmap::wxNode_wxBitmap(wxImage& image)
 
   
   /*
-   * id: _21159
+   * id: _16936
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxRect::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxRect* rect = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxRect>(args[0]->ToObject()); /* type: _25378  */
+    wxNode_wxRect* rect = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxRect>(args[0]->ToObject()); /* type: _24885  */
     
 
     wxBitmap returnVal = self->GetSubBitmap(*rect);
@@ -740,12 +740,12 @@ wxNode_wxBitmap::wxNode_wxBitmap(wxImage& image)
 
   
   /*
-   * id: _21160
+   * id: _16937
    */
   if(args.Length() == 3 && args[0]->IsString() && args[1]->IsNumber() && (args[2]->IsNull() || (args[2]->IsObject() && wxNode_wxPalette::AssignableFrom(args[2]->ToObject()->GetConstructorName())))) {
-    v8::String::AsciiValue name(args[0]->ToString()); /* type: _18997  */
-    wxBitmapType type = (wxBitmapType)args[1]->ToNumber()->Value(); /* type: _3508  */
-    wxNode_wxPalette* palette = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPalette>(args[2]->ToObject()); /* type: _65560 * */
+    v8::String::AsciiValue name(args[0]->ToString()); /* type: _14975  */
+    wxBitmapType type = (wxBitmapType)args[1]->ToNumber()->Value(); /* type: _2567  */
+    wxNode_wxPalette* palette = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPalette>(args[2]->ToObject()); /* type: _59456 * */
     
 
     bool returnVal = self->SaveFile(*name, type, palette);
@@ -754,11 +754,11 @@ wxNode_wxBitmap::wxNode_wxBitmap(wxImage& image)
   }
   
   /*
-   * id: _21160
+   * id: _16937
    */
   if(args.Length() == 2 && args[0]->IsString() && args[1]->IsNumber()) {
-    v8::String::AsciiValue name(args[0]->ToString()); /* type: _18997  */
-    wxBitmapType type = (wxBitmapType)args[1]->ToNumber()->Value(); /* type: _3508  */
+    v8::String::AsciiValue name(args[0]->ToString()); /* type: _14975  */
+    wxBitmapType type = (wxBitmapType)args[1]->ToNumber()->Value(); /* type: _2567  */
     
 
     bool returnVal = self->SaveFile(*name, type);
@@ -783,11 +783,11 @@ wxNode_wxBitmap::wxNode_wxBitmap(wxImage& image)
 
   
   /*
-   * id: _21161
+   * id: _16938
    */
   if(args.Length() == 2 && args[0]->IsString() && args[1]->IsNumber()) {
-    v8::String::AsciiValue name(args[0]->ToString()); /* type: _18997  */
-    wxBitmapType type = (wxBitmapType)args[1]->ToNumber()->Value(); /* type: _3508  */
+    v8::String::AsciiValue name(args[0]->ToString()); /* type: _14975  */
+    wxBitmapType type = (wxBitmapType)args[1]->ToNumber()->Value(); /* type: _2567  */
     
 
     bool returnVal = self->LoadFile(*name, type);
@@ -812,7 +812,7 @@ wxNode_wxBitmap::wxNode_wxBitmap(wxImage& image)
 
   
   /*
-   * id: _21162
+   * id: _16939
    */
   if(args.Length() == 0) {
     
@@ -839,10 +839,10 @@ wxNode_wxBitmap::wxNode_wxBitmap(wxImage& image)
 
   
   /*
-   * id: _21163
+   * id: _16940
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxPalette::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxPalette* palette = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPalette>(args[0]->ToObject()); /* type: _65562  */
+    wxNode_wxPalette* palette = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPalette>(args[0]->ToObject()); /* type: _59458  */
     
 
     self->SetPalette(*palette);
@@ -867,10 +867,10 @@ wxNode_wxBitmap::wxNode_wxBitmap(wxImage& image)
 
   
   /*
-   * id: _21164
+   * id: _16941
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxIcon::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxIcon* icon = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxIcon>(args[0]->ToObject()); /* type: _19637  */
+    wxNode_wxIcon* icon = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxIcon>(args[0]->ToObject()); /* type: _15643  */
     
 
     bool returnVal = self->CopyFromIcon(*icon);
@@ -895,10 +895,10 @@ wxNode_wxBitmap::wxNode_wxBitmap(wxImage& image)
 
   
   /*
-   * id: _21165
+   * id: _16942
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    int height = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    int height = (int)args[0]->ToInt32()->Value(); /* type: _165  */
     
 
     self->SetHeight(height);
@@ -923,10 +923,10 @@ wxNode_wxBitmap::wxNode_wxBitmap(wxImage& image)
 
   
   /*
-   * id: _21166
+   * id: _16943
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    int width = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    int width = (int)args[0]->ToInt32()->Value(); /* type: _165  */
     
 
     self->SetWidth(width);
@@ -951,10 +951,10 @@ wxNode_wxBitmap::wxNode_wxBitmap(wxImage& image)
 
   
   /*
-   * id: _21167
+   * id: _16944
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    int depth = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    int depth = (int)args[0]->ToInt32()->Value(); /* type: _165  */
     
 
     self->SetDepth(depth);
@@ -979,7 +979,7 @@ wxNode_wxBitmap::wxNode_wxBitmap(wxImage& image)
 
   
   /*
-   * id: _21168
+   * id: _16945
    */
   if(args.Length() == 0) {
     
@@ -1006,10 +1006,10 @@ wxNode_wxBitmap::wxNode_wxBitmap(wxImage& image)
 
   
   /*
-   * id: _21169
+   * id: _16946
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxBitmapHandler::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxBitmapHandler* handler = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmapHandler>(args[0]->ToObject()); /* type: _65564 * */
+    wxNode_wxBitmapHandler* handler = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmapHandler>(args[0]->ToObject()); /* type: _59460 * */
     
 
     self->AddHandler(handler);
@@ -1034,10 +1034,10 @@ wxNode_wxBitmap::wxNode_wxBitmap(wxImage& image)
 
   
   /*
-   * id: _21170
+   * id: _16947
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxBitmapHandler::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxBitmapHandler* handler = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmapHandler>(args[0]->ToObject()); /* type: _65564 * */
+    wxNode_wxBitmapHandler* handler = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmapHandler>(args[0]->ToObject()); /* type: _59460 * */
     
 
     self->InsertHandler(handler);
@@ -1062,10 +1062,10 @@ wxNode_wxBitmap::wxNode_wxBitmap(wxImage& image)
 
   
   /*
-   * id: _21171
+   * id: _16948
    */
   if(args.Length() == 1 && args[0]->IsString()) {
-    v8::String::AsciiValue name(args[0]->ToString()); /* type: _18997  */
+    v8::String::AsciiValue name(args[0]->ToString()); /* type: _14975  */
     
 
     bool returnVal = self->RemoveHandler(*name);
@@ -1090,10 +1090,10 @@ wxNode_wxBitmap::wxNode_wxBitmap(wxImage& image)
 
   
   /*
-   * id: _21172
+   * id: _16949
    */
   if(args.Length() == 1 && args[0]->IsString()) {
-    v8::String::AsciiValue name(args[0]->ToString()); /* type: _18997  */
+    v8::String::AsciiValue name(args[0]->ToString()); /* type: _14975  */
     
 
     wxBitmapHandler* returnVal = self->FindHandler(*name);
@@ -1102,11 +1102,11 @@ wxNode_wxBitmap::wxNode_wxBitmap(wxImage& image)
   }
   
   /*
-   * id: _21173
+   * id: _16950
    */
   if(args.Length() == 2 && args[0]->IsString() && args[1]->IsNumber()) {
-    v8::String::AsciiValue extension(args[0]->ToString()); /* type: _18997  */
-    wxBitmapType bitmapType = (wxBitmapType)args[1]->ToNumber()->Value(); /* type: _3508  */
+    v8::String::AsciiValue extension(args[0]->ToString()); /* type: _14975  */
+    wxBitmapType bitmapType = (wxBitmapType)args[1]->ToNumber()->Value(); /* type: _2567  */
     
 
     wxBitmapHandler* returnVal = self->FindHandler(*extension, bitmapType);
@@ -1115,10 +1115,10 @@ wxNode_wxBitmap::wxNode_wxBitmap(wxImage& image)
   }
   
   /*
-   * id: _21174
+   * id: _16951
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    wxBitmapType bitmapType = (wxBitmapType)args[0]->ToNumber()->Value(); /* type: _3508  */
+    wxBitmapType bitmapType = (wxBitmapType)args[0]->ToNumber()->Value(); /* type: _2567  */
     
 
     wxBitmapHandler* returnVal = self->FindHandler(bitmapType);
@@ -1143,7 +1143,7 @@ wxNode_wxBitmap::wxNode_wxBitmap(wxImage& image)
 
   
   /*
-   * id: _21175
+   * id: _16952
    */
   if(args.Length() == 0) {
     
@@ -1170,10 +1170,10 @@ wxNode_wxBitmap::wxNode_wxBitmap(wxImage& image)
 
   
   /*
-   * id: _21176
+   * id: _16953
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxColour::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxColour* colour = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxColour>(args[0]->ToObject()); /* type: _19643  */
+    wxNode_wxColour* colour = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxColour>(args[0]->ToObject()); /* type: _15649  */
     
 
     wxColour returnVal = self->QuantizeColour(*colour);
@@ -1198,7 +1198,7 @@ wxNode_wxBitmap::wxNode_wxBitmap(wxImage& image)
 
   
   /*
-   * id: _21177
+   * id: _16954
    */
   if(args.Length() == 0) {
     

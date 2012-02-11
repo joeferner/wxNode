@@ -137,10 +137,10 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
   
   
   /*
-   * id: _46056
+   * id: _40880
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxSizerFlags::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxSizerFlags* arg0 = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSizerFlags>(args[0]->ToObject()); /* type: _64920  */
+    wxNode_wxSizerFlags* arg0 = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSizerFlags>(args[0]->ToObject()); /* type: _58914  */
     
 
     wxNode_wxSizerFlags *self = new wxNode_wxSizerFlags(*arg0);
@@ -150,10 +150,10 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
   }
   
   /*
-   * id: _46057
+   * id: _40881
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    int proportion = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    int proportion = (int)args[0]->ToInt32()->Value(); /* type: _165  */
     
 
     wxNode_wxSizerFlags *self = new wxNode_wxSizerFlags(proportion);
@@ -163,7 +163,7 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
   }
   
   /*
-   * id: _46057
+   * id: _40881
    */
   if(args.Length() == 0) {
     
@@ -193,10 +193,10 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
 
   
   /*
-   * id: _46058
+   * id: _40882
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    int proportion = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    int proportion = (int)args[0]->ToInt32()->Value(); /* type: _165  */
     
 
     wxSizerFlags returnVal = self->Proportion(proportion);
@@ -221,7 +221,7 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
 
   
   /*
-   * id: _46059
+   * id: _40883
    */
   if(args.Length() == 0) {
     
@@ -248,10 +248,10 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
 
   
   /*
-   * id: _46060
+   * id: _40884
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    int alignment = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    int alignment = (int)args[0]->ToInt32()->Value(); /* type: _165  */
     
 
     wxSizerFlags returnVal = self->Align(alignment);
@@ -276,7 +276,7 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
 
   
   /*
-   * id: _46061
+   * id: _40885
    */
   if(args.Length() == 0) {
     
@@ -303,7 +303,7 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
 
   
   /*
-   * id: _46062
+   * id: _40886
    */
   if(args.Length() == 0) {
     
@@ -330,7 +330,7 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
 
   
   /*
-   * id: _46063
+   * id: _40887
    */
   if(args.Length() == 0) {
     
@@ -357,7 +357,7 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
 
   
   /*
-   * id: _46064
+   * id: _40888
    */
   if(args.Length() == 0) {
     
@@ -384,7 +384,7 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
 
   
   /*
-   * id: _46065
+   * id: _40889
    */
   if(args.Length() == 0) {
     
@@ -411,7 +411,7 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
 
   
   /*
-   * id: _46066
+   * id: _40890
    */
   if(args.Length() == 0) {
     
@@ -438,7 +438,7 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
 
   
   /*
-   * id: _46067
+   * id: _40891
    */
   if(args.Length() == 0) {
     
@@ -465,11 +465,11 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
 
   
   /*
-   * id: _46068
+   * id: _40892
    */
   if(args.Length() == 2 && args[0]->IsNumber() && args[1]->IsNumber()) {
-    int direction = (int)args[0]->ToInt32()->Value(); /* type: _233  */
-    int borderInPixels = (int)args[1]->ToInt32()->Value(); /* type: _233  */
+    int direction = (int)args[0]->ToInt32()->Value(); /* type: _165  */
+    int borderInPixels = (int)args[1]->ToInt32()->Value(); /* type: _165  */
     
 
     wxSizerFlags returnVal = self->Border(direction, borderInPixels);
@@ -478,10 +478,10 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
   }
   
   /*
-   * id: _46069
+   * id: _40893
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    int direction = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    int direction = (int)args[0]->ToInt32()->Value(); /* type: _165  */
     
 
     wxSizerFlags returnVal = self->Border(direction);
@@ -490,7 +490,7 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
   }
   
   /*
-   * id: _46069
+   * id: _40893
    */
   if(args.Length() == 0) {
     
@@ -517,10 +517,10 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
 
   
   /*
-   * id: _46070
+   * id: _40894
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    int direction = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    int direction = (int)args[0]->ToInt32()->Value(); /* type: _165  */
     
 
     wxSizerFlags returnVal = self->DoubleBorder(direction);
@@ -529,7 +529,7 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
   }
   
   /*
-   * id: _46070
+   * id: _40894
    */
   if(args.Length() == 0) {
     
@@ -556,10 +556,10 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
 
   
   /*
-   * id: _46071
+   * id: _40895
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    int direction = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    int direction = (int)args[0]->ToInt32()->Value(); /* type: _165  */
     
 
     wxSizerFlags returnVal = self->TripleBorder(direction);
@@ -568,7 +568,7 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
   }
   
   /*
-   * id: _46071
+   * id: _40895
    */
   if(args.Length() == 0) {
     
@@ -595,7 +595,7 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
 
   
   /*
-   * id: _46072
+   * id: _40896
    */
   if(args.Length() == 0) {
     
@@ -622,7 +622,7 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
 
   
   /*
-   * id: _46073
+   * id: _40897
    */
   if(args.Length() == 0) {
     
@@ -649,7 +649,7 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
 
   
   /*
-   * id: _46074
+   * id: _40898
    */
   if(args.Length() == 0) {
     
@@ -676,7 +676,7 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
 
   
   /*
-   * id: _46075
+   * id: _40899
    */
   if(args.Length() == 0) {
     
@@ -703,7 +703,7 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
 
   
   /*
-   * id: _46076
+   * id: _40900
    */
   if(args.Length() == 0) {
     
@@ -730,7 +730,7 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
 
   
   /*
-   * id: _46077
+   * id: _40901
    */
   if(args.Length() == 0) {
     
@@ -757,7 +757,7 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
 
   
   /*
-   * id: _46078
+   * id: _40902
    */
   if(args.Length() == 0) {
     
@@ -784,7 +784,7 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
 
   
   /*
-   * id: _46079
+   * id: _40903
    */
   if(args.Length() == 0) {
     

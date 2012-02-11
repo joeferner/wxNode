@@ -177,12 +177,9 @@ wxNode_wxDialog::wxNode_wxDialog(wxWindow* parent, int id, const wxString& title
   if(!strcmp("DirDialogBase", className)) { return true; }
 
   if(!strcmp("DirDialog", className)) { return true; }
-  if(!strcmp("GenericProgressDialog", className)) { return true; }
+  if(!strcmp("WizardBase", className)) { return true; }
 
-  if(!strcmp("ProgressDialog", className)) { return true; }
-  if(!strcmp("PropertySheetDialog", className)) { return true; }
-
-  if(!strcmp("RichTextFormattingDialog", className)) { return true; }
+  if(!strcmp("Wizard", className)) { return true; }
   if(!strcmp("MessageDialogBase", className)) { return true; }
 
   if(!strcmp("MessageDialog", className)) { return true; }
@@ -198,25 +195,28 @@ wxNode_wxDialog::wxNode_wxDialog(wxWindow* parent, int id, const wxString& title
   if(!strcmp("FindReplaceDialogBase", className)) { return true; }
 
   if(!strcmp("FindReplaceDialog", className)) { return true; }
-  if(!strcmp("WizardBase", className)) { return true; }
-
-  if(!strcmp("Wizard", className)) { return true; }
   if(!strcmp("PrintAbortDialog", className)) { return true; }
   if(!strcmp("AnyChoiceDialog", className)) { return true; }
 
   if(!strcmp("SingleChoiceDialog", className)) { return true; }
   if(!strcmp("MultiChoiceDialog", className)) { return true; }
-  if(!strcmp("RichTextStyleOrganiserDialog", className)) { return true; }
   if(!strcmp("TextEntryDialog", className)) { return true; }
 
   if(!strcmp("PasswordEntryDialog", className)) { return true; }
+  if(!strcmp("RichTextStyleOrganiserDialog", className)) { return true; }
   if(!strcmp("PrintDialogBase", className)) { return true; }
   if(!strcmp("PageSetupDialogBase", className)) { return true; }
   if(!strcmp("SymbolPickerDialog", className)) { return true; }
-  if(!strcmp("NumberEntryDialog", className)) { return true; }
   if(!strcmp("FileDialogBase", className)) { return true; }
 
   if(!strcmp("FileDialog", className)) { return true; }
+  if(!strcmp("NumberEntryDialog", className)) { return true; }
+  if(!strcmp("PropertySheetDialog", className)) { return true; }
+
+  if(!strcmp("RichTextFormattingDialog", className)) { return true; }
+  if(!strcmp("GenericProgressDialog", className)) { return true; }
+
+  if(!strcmp("ProgressDialog", className)) { return true; }
 
 
   return false;
@@ -228,7 +228,7 @@ wxNode_wxDialog::wxNode_wxDialog(wxWindow* parent, int id, const wxString& title
   
   
   /*
-   * id: _38064
+   * id: _38403
    */
   if(args.Length() == 0) {
     
@@ -240,16 +240,16 @@ wxNode_wxDialog::wxNode_wxDialog(wxWindow* parent, int id, const wxString& title
   }
   
   /*
-   * id: _38065
+   * id: _38404
    */
   if(args.Length() == 7 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxWindow::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsNumber() && args[2]->IsString() && (args[3]->IsNull() || (args[3]->IsObject() && wxNode_wxPoint::AssignableFrom(args[3]->ToObject()->GetConstructorName()))) && (args[4]->IsNull() || (args[4]->IsObject() && wxNode_wxSize::AssignableFrom(args[4]->ToObject()->GetConstructorName()))) && args[5]->IsNumber() && args[6]->IsString()) {
-    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _1326 * */
-    int id = (int)args[1]->ToInt32()->Value(); /* type: _11168  */
-    v8::String::AsciiValue title(args[2]->ToString()); /* type: _18997  */
-    wxNode_wxPoint* pos = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[3]->ToObject()); /* type: _25270  */
-    wxNode_wxSize* size = args[4]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[4]->ToObject()); /* type: _25379  */
-    long int style = (long int)args[5]->ToInt32()->Value(); /* type: _766  */
-    v8::String::AsciiValue name(args[6]->ToString()); /* type: _18997  */
+    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _1000 * */
+    int id = (int)args[1]->ToInt32()->Value(); /* type: _8725  */
+    v8::String::AsciiValue title(args[2]->ToString()); /* type: _14975  */
+    wxNode_wxPoint* pos = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[3]->ToObject()); /* type: _20518  */
+    wxNode_wxSize* size = args[4]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[4]->ToObject()); /* type: _20628  */
+    long int style = (long int)args[5]->ToInt32()->Value(); /* type: _592  */
+    v8::String::AsciiValue name(args[6]->ToString()); /* type: _14975  */
     
 
     wxNode_wxDialog *self = new wxNode_wxDialog(parent, id, *title, *pos, *size, style, *name);
@@ -259,15 +259,15 @@ wxNode_wxDialog::wxNode_wxDialog(wxWindow* parent, int id, const wxString& title
   }
   
   /*
-   * id: _38065
+   * id: _38404
    */
   if(args.Length() == 6 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxWindow::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsNumber() && args[2]->IsString() && (args[3]->IsNull() || (args[3]->IsObject() && wxNode_wxPoint::AssignableFrom(args[3]->ToObject()->GetConstructorName()))) && (args[4]->IsNull() || (args[4]->IsObject() && wxNode_wxSize::AssignableFrom(args[4]->ToObject()->GetConstructorName()))) && args[5]->IsNumber()) {
-    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _1326 * */
-    int id = (int)args[1]->ToInt32()->Value(); /* type: _11168  */
-    v8::String::AsciiValue title(args[2]->ToString()); /* type: _18997  */
-    wxNode_wxPoint* pos = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[3]->ToObject()); /* type: _25270  */
-    wxNode_wxSize* size = args[4]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[4]->ToObject()); /* type: _25379  */
-    long int style = (long int)args[5]->ToInt32()->Value(); /* type: _766  */
+    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _1000 * */
+    int id = (int)args[1]->ToInt32()->Value(); /* type: _8725  */
+    v8::String::AsciiValue title(args[2]->ToString()); /* type: _14975  */
+    wxNode_wxPoint* pos = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[3]->ToObject()); /* type: _20518  */
+    wxNode_wxSize* size = args[4]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[4]->ToObject()); /* type: _20628  */
+    long int style = (long int)args[5]->ToInt32()->Value(); /* type: _592  */
     
 
     wxNode_wxDialog *self = new wxNode_wxDialog(parent, id, *title, *pos, *size, style);
@@ -277,14 +277,14 @@ wxNode_wxDialog::wxNode_wxDialog(wxWindow* parent, int id, const wxString& title
   }
   
   /*
-   * id: _38065
+   * id: _38404
    */
   if(args.Length() == 5 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxWindow::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsNumber() && args[2]->IsString() && (args[3]->IsNull() || (args[3]->IsObject() && wxNode_wxPoint::AssignableFrom(args[3]->ToObject()->GetConstructorName()))) && (args[4]->IsNull() || (args[4]->IsObject() && wxNode_wxSize::AssignableFrom(args[4]->ToObject()->GetConstructorName())))) {
-    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _1326 * */
-    int id = (int)args[1]->ToInt32()->Value(); /* type: _11168  */
-    v8::String::AsciiValue title(args[2]->ToString()); /* type: _18997  */
-    wxNode_wxPoint* pos = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[3]->ToObject()); /* type: _25270  */
-    wxNode_wxSize* size = args[4]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[4]->ToObject()); /* type: _25379  */
+    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _1000 * */
+    int id = (int)args[1]->ToInt32()->Value(); /* type: _8725  */
+    v8::String::AsciiValue title(args[2]->ToString()); /* type: _14975  */
+    wxNode_wxPoint* pos = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[3]->ToObject()); /* type: _20518  */
+    wxNode_wxSize* size = args[4]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[4]->ToObject()); /* type: _20628  */
     
 
     wxNode_wxDialog *self = new wxNode_wxDialog(parent, id, *title, *pos, *size);
@@ -294,13 +294,13 @@ wxNode_wxDialog::wxNode_wxDialog(wxWindow* parent, int id, const wxString& title
   }
   
   /*
-   * id: _38065
+   * id: _38404
    */
   if(args.Length() == 4 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxWindow::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsNumber() && args[2]->IsString() && (args[3]->IsNull() || (args[3]->IsObject() && wxNode_wxPoint::AssignableFrom(args[3]->ToObject()->GetConstructorName())))) {
-    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _1326 * */
-    int id = (int)args[1]->ToInt32()->Value(); /* type: _11168  */
-    v8::String::AsciiValue title(args[2]->ToString()); /* type: _18997  */
-    wxNode_wxPoint* pos = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[3]->ToObject()); /* type: _25270  */
+    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _1000 * */
+    int id = (int)args[1]->ToInt32()->Value(); /* type: _8725  */
+    v8::String::AsciiValue title(args[2]->ToString()); /* type: _14975  */
+    wxNode_wxPoint* pos = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[3]->ToObject()); /* type: _20518  */
     
 
     wxNode_wxDialog *self = new wxNode_wxDialog(parent, id, *title, *pos);
@@ -310,12 +310,12 @@ wxNode_wxDialog::wxNode_wxDialog(wxWindow* parent, int id, const wxString& title
   }
   
   /*
-   * id: _38065
+   * id: _38404
    */
   if(args.Length() == 3 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxWindow::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsNumber() && args[2]->IsString()) {
-    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _1326 * */
-    int id = (int)args[1]->ToInt32()->Value(); /* type: _11168  */
-    v8::String::AsciiValue title(args[2]->ToString()); /* type: _18997  */
+    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _1000 * */
+    int id = (int)args[1]->ToInt32()->Value(); /* type: _8725  */
+    v8::String::AsciiValue title(args[2]->ToString()); /* type: _14975  */
     
 
     wxNode_wxDialog *self = new wxNode_wxDialog(parent, id, *title);
@@ -343,7 +343,7 @@ wxNode_wxDialog::wxNode_wxDialog(wxWindow* parent, int id, const wxString& title
 
   
   /*
-   * id: _53009
+   * id: _48078
    */
   if(args.Length() == 0) {
     
@@ -370,10 +370,10 @@ wxNode_wxDialog::wxNode_wxDialog(wxWindow* parent, int id, const wxString& title
 
   
   /*
-   * id: _53010
+   * id: _48079
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    int retCode = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    int retCode = (int)args[0]->ToInt32()->Value(); /* type: _165  */
     
 
     self->EndModal(retCode);
@@ -398,7 +398,7 @@ wxNode_wxDialog::wxNode_wxDialog(wxWindow* parent, int id, const wxString& title
 
   
   /*
-   * id: _53011
+   * id: _48080
    */
   if(args.Length() == 0) {
     
@@ -425,7 +425,7 @@ wxNode_wxDialog::wxNode_wxDialog(wxWindow* parent, int id, const wxString& title
 
   
   /*
-   * id: _53012
+   * id: _48081
    */
   if(args.Length() == 0) {
     
@@ -452,10 +452,10 @@ wxNode_wxDialog::wxNode_wxDialog(wxWindow* parent, int id, const wxString& title
 
   
   /*
-   * id: _53013
+   * id: _48082
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    int type = (int)args[0]->ToInt32()->Value(); /* type: _1304  */
+    int type = (int)args[0]->ToInt32()->Value(); /* type: _986  */
     
 
     self->SendWindowModalDialogEvent(type);
@@ -480,10 +480,10 @@ wxNode_wxDialog::wxNode_wxDialog(wxWindow* parent, int id, const wxString& title
 
   
   /*
-   * id: _53014
+   * id: _48083
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    int returnCode = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    int returnCode = (int)args[0]->ToInt32()->Value(); /* type: _165  */
     
 
     self->SetReturnCode(returnCode);
@@ -508,7 +508,7 @@ wxNode_wxDialog::wxNode_wxDialog(wxWindow* parent, int id, const wxString& title
 
   
   /*
-   * id: _53015
+   * id: _48084
    */
   if(args.Length() == 0) {
     
@@ -535,10 +535,10 @@ wxNode_wxDialog::wxNode_wxDialog(wxWindow* parent, int id, const wxString& title
 
   
   /*
-   * id: _53016
+   * id: _48085
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    int affirmativeId = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    int affirmativeId = (int)args[0]->ToInt32()->Value(); /* type: _165  */
     
 
     self->SetAffirmativeId(affirmativeId);
@@ -563,7 +563,7 @@ wxNode_wxDialog::wxNode_wxDialog(wxWindow* parent, int id, const wxString& title
 
   
   /*
-   * id: _53017
+   * id: _48086
    */
   if(args.Length() == 0) {
     
@@ -590,10 +590,10 @@ wxNode_wxDialog::wxNode_wxDialog(wxWindow* parent, int id, const wxString& title
 
   
   /*
-   * id: _53018
+   * id: _48087
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    int escapeId = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    int escapeId = (int)args[0]->ToInt32()->Value(); /* type: _165  */
     
 
     self->SetEscapeId(escapeId);
@@ -618,7 +618,7 @@ wxNode_wxDialog::wxNode_wxDialog(wxWindow* parent, int id, const wxString& title
 
   
   /*
-   * id: _53019
+   * id: _48088
    */
   if(args.Length() == 0) {
     
@@ -645,11 +645,11 @@ wxNode_wxDialog::wxNode_wxDialog(wxWindow* parent, int id, const wxString& title
 
   
   /*
-   * id: _53020
+   * id: _48089
    */
   if(args.Length() == 2 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxWindow::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsNumber()) {
-    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _1326 * */
-    long int style = (long int)args[1]->ToInt32()->Value(); /* type: _766  */
+    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _1000 * */
+    long int style = (long int)args[1]->ToInt32()->Value(); /* type: _592  */
     
 
     const wxWindow* returnVal = self->GetParentForModalDialog(parent, style);
@@ -658,7 +658,7 @@ wxNode_wxDialog::wxNode_wxDialog(wxWindow* parent, int id, const wxString& title
   }
   
   /*
-   * id: _53021
+   * id: _48090
    */
   if(args.Length() == 0) {
     
@@ -685,10 +685,10 @@ wxNode_wxDialog::wxNode_wxDialog(wxWindow* parent, int id, const wxString& title
 
   
   /*
-   * id: _53022
+   * id: _48091
    */
   if(args.Length() == 1 && args[0]->IsString()) {
-    v8::String::AsciiValue message(args[0]->ToString()); /* type: _18997  */
+    v8::String::AsciiValue message(args[0]->ToString()); /* type: _14975  */
     
 
     wxSizer* returnVal = self->CreateTextSizer(*message);
@@ -697,11 +697,11 @@ wxNode_wxDialog::wxNode_wxDialog(wxWindow* parent, int id, const wxString& title
   }
   
   /*
-   * id: _53023
+   * id: _48092
    */
   if(args.Length() == 2 && args[0]->IsString() && (args[1]->IsNull() || (args[1]->IsObject() && wxNode_wxTextSizerWrapper::AssignableFrom(args[1]->ToObject()->GetConstructorName())))) {
-    v8::String::AsciiValue message(args[0]->ToString()); /* type: _18997  */
-    wxNode_wxTextSizerWrapper* wrapper = args[1]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxTextSizerWrapper>(args[1]->ToObject()); /* type: _73174  */
+    v8::String::AsciiValue message(args[0]->ToString()); /* type: _14975  */
+    wxNode_wxTextSizerWrapper* wrapper = args[1]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxTextSizerWrapper>(args[1]->ToObject()); /* type: _67064  */
     
 
     wxSizer* returnVal = self->CreateTextSizer(*message, *wrapper);
@@ -726,10 +726,10 @@ wxNode_wxDialog::wxNode_wxDialog(wxWindow* parent, int id, const wxString& title
 
   
   /*
-   * id: _53024
+   * id: _48093
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    long int flags = (long int)args[0]->ToInt32()->Value(); /* type: _766  */
+    long int flags = (long int)args[0]->ToInt32()->Value(); /* type: _592  */
     
 
     wxSizer* returnVal = self->CreateButtonSizer(flags);
@@ -754,10 +754,10 @@ wxNode_wxDialog::wxNode_wxDialog(wxWindow* parent, int id, const wxString& title
 
   
   /*
-   * id: _53025
+   * id: _48094
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxSizer::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxSizer* sizer = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSizer>(args[0]->ToObject()); /* type: _64921 * */
+    wxNode_wxSizer* sizer = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSizer>(args[0]->ToObject()); /* type: _58915 * */
     
 
     wxSizer* returnVal = self->CreateSeparatedSizer(sizer);
@@ -782,10 +782,10 @@ wxNode_wxDialog::wxNode_wxDialog(wxWindow* parent, int id, const wxString& title
 
   
   /*
-   * id: _53026
+   * id: _48095
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    long int flags = (long int)args[0]->ToInt32()->Value(); /* type: _766  */
+    long int flags = (long int)args[0]->ToInt32()->Value(); /* type: _592  */
     
 
     wxSizer* returnVal = self->CreateSeparatedButtonSizer(flags);
@@ -810,10 +810,10 @@ wxNode_wxDialog::wxNode_wxDialog(wxWindow* parent, int id, const wxString& title
 
   
   /*
-   * id: _53027
+   * id: _48096
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    long int flags = (long int)args[0]->ToInt32()->Value(); /* type: _766  */
+    long int flags = (long int)args[0]->ToInt32()->Value(); /* type: _592  */
     
 
     wxStdDialogButtonSizer* returnVal = self->CreateStdDialogButtonSizer(flags);
@@ -838,7 +838,7 @@ wxNode_wxDialog::wxNode_wxDialog(wxWindow* parent, int id, const wxString& title
 
   
   /*
-   * id: _53028
+   * id: _48097
    */
   if(args.Length() == 0) {
     
@@ -865,7 +865,7 @@ wxNode_wxDialog::wxNode_wxDialog(wxWindow* parent, int id, const wxString& title
 
   
   /*
-   * id: _53029
+   * id: _48098
    */
   if(args.Length() == 0) {
     
@@ -892,7 +892,7 @@ wxNode_wxDialog::wxNode_wxDialog(wxWindow* parent, int id, const wxString& title
 
   
   /*
-   * id: _53030
+   * id: _48099
    */
   if(args.Length() == 0) {
     
@@ -919,10 +919,10 @@ wxNode_wxDialog::wxNode_wxDialog(wxWindow* parent, int id, const wxString& title
 
   
   /*
-   * id: _53031
+   * id: _48100
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    int id = (int)args[0]->ToInt32()->Value(); /* type: _11168  */
+    int id = (int)args[0]->ToInt32()->Value(); /* type: _8725  */
     
 
     self->AddMainButtonId(id);
@@ -947,7 +947,7 @@ wxNode_wxDialog::wxNode_wxDialog(wxWindow* parent, int id, const wxString& title
 
   
   /*
-   * id: _53032
+   * id: _48101
    */
   if(args.Length() == 0) {
     
@@ -974,10 +974,10 @@ wxNode_wxDialog::wxNode_wxDialog(wxWindow* parent, int id, const wxString& title
 
   
   /*
-   * id: _53033
+   * id: _48102
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    int id = (int)args[0]->ToInt32()->Value(); /* type: _11168  */
+    int id = (int)args[0]->ToInt32()->Value(); /* type: _8725  */
     
 
     bool returnVal = self->IsMainButtonId(id);
@@ -1002,10 +1002,10 @@ wxNode_wxDialog::wxNode_wxDialog(wxWindow* parent, int id, const wxString& title
 
   
   /*
-   * id: _53034
+   * id: _48103
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    int level = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    int level = (int)args[0]->ToInt32()->Value(); /* type: _165  */
     
 
     self->SetLayoutAdaptationLevel(level);
@@ -1030,7 +1030,7 @@ wxNode_wxDialog::wxNode_wxDialog(wxWindow* parent, int id, const wxString& title
 
   
   /*
-   * id: _53035
+   * id: _48104
    */
   if(args.Length() == 0) {
     
@@ -1057,10 +1057,10 @@ wxNode_wxDialog::wxNode_wxDialog(wxWindow* parent, int id, const wxString& title
 
   
   /*
-   * id: _53036
+   * id: _48105
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    wxDialogLayoutAdaptationMode mode = (wxDialogLayoutAdaptationMode)args[0]->ToNumber()->Value(); /* type: _16053  */
+    wxDialogLayoutAdaptationMode mode = (wxDialogLayoutAdaptationMode)args[0]->ToNumber()->Value(); /* type: _13430  */
     
 
     self->SetLayoutAdaptationMode(mode);
@@ -1085,7 +1085,7 @@ wxNode_wxDialog::wxNode_wxDialog(wxWindow* parent, int id, const wxString& title
 
   
   /*
-   * id: _53037
+   * id: _48106
    */
   if(args.Length() == 0) {
     
@@ -1112,10 +1112,10 @@ wxNode_wxDialog::wxNode_wxDialog(wxWindow* parent, int id, const wxString& title
 
   
   /*
-   * id: _53038
+   * id: _48107
    */
   if(args.Length() == 1 && args[0]->IsBoolean()) {
-    bool adaptationDone = args[0]->ToBoolean()->Value(); /* type: _18804  */
+    bool adaptationDone = args[0]->ToBoolean()->Value(); /* type: _14830  */
     
 
     self->SetLayoutAdaptationDone(adaptationDone);
@@ -1140,7 +1140,7 @@ wxNode_wxDialog::wxNode_wxDialog(wxWindow* parent, int id, const wxString& title
 
   
   /*
-   * id: _53039
+   * id: _48108
    */
   if(args.Length() == 0) {
     
@@ -1167,10 +1167,10 @@ wxNode_wxDialog::wxNode_wxDialog(wxWindow* parent, int id, const wxString& title
 
   
   /*
-   * id: _53040
+   * id: _48109
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxDialogLayoutAdapter::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxDialogLayoutAdapter* adapter = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxDialogLayoutAdapter>(args[0]->ToObject()); /* type: _73173 * */
+    wxNode_wxDialogLayoutAdapter* adapter = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxDialogLayoutAdapter>(args[0]->ToObject()); /* type: _67063 * */
     
 
     wxDialogLayoutAdapter* returnVal = self->SetLayoutAdapter(adapter);
@@ -1195,7 +1195,7 @@ wxNode_wxDialog::wxNode_wxDialog(wxWindow* parent, int id, const wxString& title
 
   
   /*
-   * id: _53041
+   * id: _48110
    */
   if(args.Length() == 0) {
     
@@ -1222,7 +1222,7 @@ wxNode_wxDialog::wxNode_wxDialog(wxWindow* parent, int id, const wxString& title
 
   
   /*
-   * id: _53042
+   * id: _48111
    */
   if(args.Length() == 0) {
     
@@ -1249,10 +1249,10 @@ wxNode_wxDialog::wxNode_wxDialog(wxWindow* parent, int id, const wxString& title
 
   
   /*
-   * id: _53043
+   * id: _48112
    */
   if(args.Length() == 1 && args[0]->IsBoolean()) {
-    bool enable = args[0]->ToBoolean()->Value(); /* type: _18804  */
+    bool enable = args[0]->ToBoolean()->Value(); /* type: _14830  */
     
 
     self->EnableLayoutAdaptation(enable);
@@ -1277,7 +1277,7 @@ wxNode_wxDialog::wxNode_wxDialog(wxWindow* parent, int id, const wxString& title
 
   
   /*
-   * id: _53044
+   * id: _48113
    */
   if(args.Length() == 0) {
     

@@ -222,7 +222,7 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
   
   
   /*
-   * id: _41165
+   * id: _36634
    */
   if(args.Length() == 0) {
     
@@ -234,18 +234,18 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
   }
   
   /*
-   * id: _41166
+   * id: _36635
    */
   if(args.Length() == 9 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxWindow::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsNumber() && (args[2]->IsNull() || (args[2]->IsObject() && wxNode_wxPoint::AssignableFrom(args[2]->ToObject()->GetConstructorName()))) && (args[3]->IsNull() || (args[3]->IsObject() && wxNode_wxSize::AssignableFrom(args[3]->ToObject()->GetConstructorName()))) && args[4]->IsNumber() && args[5]->IsString() && args[6]->IsNumber() && (args[7]->IsNull() || (args[7]->IsObject() && wxNode_wxValidator::AssignableFrom(args[7]->ToObject()->GetConstructorName()))) && args[8]->IsString()) {
-    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _1326 * */
-    int id = (int)args[1]->ToInt32()->Value(); /* type: _11168  */
-    wxNode_wxPoint* pos = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[2]->ToObject()); /* type: _25270  */
-    wxNode_wxSize* size = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[3]->ToObject()); /* type: _25379  */
-    int n = (int)args[4]->ToInt32()->Value(); /* type: _233  */
-    wxString* choices; /* type: _25391 * */
-    long int style = (long int)args[6]->ToInt32()->Value(); /* type: _766  */
-    wxNode_wxValidator* validator = args[7]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxValidator>(args[7]->ToObject()); /* type: _65245  */
-    v8::String::AsciiValue name(args[8]->ToString()); /* type: _18997  */
+    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _1000 * */
+    int id = (int)args[1]->ToInt32()->Value(); /* type: _8725  */
+    wxNode_wxPoint* pos = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[2]->ToObject()); /* type: _20518  */
+    wxNode_wxSize* size = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[3]->ToObject()); /* type: _20628  */
+    int n = (int)args[4]->ToInt32()->Value(); /* type: _165  */
+    wxString* choices; /* type: _20631 * */
+    long int style = (long int)args[6]->ToInt32()->Value(); /* type: _592  */
+    wxNode_wxValidator* validator = args[7]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxValidator>(args[7]->ToObject()); /* type: _59247  */
+    v8::String::AsciiValue name(args[8]->ToString()); /* type: _14975  */
     
 
     wxNode_wxListBox *self = new wxNode_wxListBox(parent, id, *pos, *size, n, choices, style, *validator, *name);
@@ -255,17 +255,17 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
   }
   
   /*
-   * id: _41166
+   * id: _36635
    */
   if(args.Length() == 8 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxWindow::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsNumber() && (args[2]->IsNull() || (args[2]->IsObject() && wxNode_wxPoint::AssignableFrom(args[2]->ToObject()->GetConstructorName()))) && (args[3]->IsNull() || (args[3]->IsObject() && wxNode_wxSize::AssignableFrom(args[3]->ToObject()->GetConstructorName()))) && args[4]->IsNumber() && args[5]->IsString() && args[6]->IsNumber() && (args[7]->IsNull() || (args[7]->IsObject() && wxNode_wxValidator::AssignableFrom(args[7]->ToObject()->GetConstructorName())))) {
-    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _1326 * */
-    int id = (int)args[1]->ToInt32()->Value(); /* type: _11168  */
-    wxNode_wxPoint* pos = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[2]->ToObject()); /* type: _25270  */
-    wxNode_wxSize* size = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[3]->ToObject()); /* type: _25379  */
-    int n = (int)args[4]->ToInt32()->Value(); /* type: _233  */
-    wxString* choices; /* type: _25391 * */
-    long int style = (long int)args[6]->ToInt32()->Value(); /* type: _766  */
-    wxNode_wxValidator* validator = args[7]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxValidator>(args[7]->ToObject()); /* type: _65245  */
+    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _1000 * */
+    int id = (int)args[1]->ToInt32()->Value(); /* type: _8725  */
+    wxNode_wxPoint* pos = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[2]->ToObject()); /* type: _20518  */
+    wxNode_wxSize* size = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[3]->ToObject()); /* type: _20628  */
+    int n = (int)args[4]->ToInt32()->Value(); /* type: _165  */
+    wxString* choices; /* type: _20631 * */
+    long int style = (long int)args[6]->ToInt32()->Value(); /* type: _592  */
+    wxNode_wxValidator* validator = args[7]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxValidator>(args[7]->ToObject()); /* type: _59247  */
     
 
     wxNode_wxListBox *self = new wxNode_wxListBox(parent, id, *pos, *size, n, choices, style, *validator);
@@ -275,16 +275,16 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
   }
   
   /*
-   * id: _41166
+   * id: _36635
    */
   if(args.Length() == 7 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxWindow::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsNumber() && (args[2]->IsNull() || (args[2]->IsObject() && wxNode_wxPoint::AssignableFrom(args[2]->ToObject()->GetConstructorName()))) && (args[3]->IsNull() || (args[3]->IsObject() && wxNode_wxSize::AssignableFrom(args[3]->ToObject()->GetConstructorName()))) && args[4]->IsNumber() && args[5]->IsString() && args[6]->IsNumber()) {
-    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _1326 * */
-    int id = (int)args[1]->ToInt32()->Value(); /* type: _11168  */
-    wxNode_wxPoint* pos = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[2]->ToObject()); /* type: _25270  */
-    wxNode_wxSize* size = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[3]->ToObject()); /* type: _25379  */
-    int n = (int)args[4]->ToInt32()->Value(); /* type: _233  */
-    wxString* choices; /* type: _25391 * */
-    long int style = (long int)args[6]->ToInt32()->Value(); /* type: _766  */
+    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _1000 * */
+    int id = (int)args[1]->ToInt32()->Value(); /* type: _8725  */
+    wxNode_wxPoint* pos = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[2]->ToObject()); /* type: _20518  */
+    wxNode_wxSize* size = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[3]->ToObject()); /* type: _20628  */
+    int n = (int)args[4]->ToInt32()->Value(); /* type: _165  */
+    wxString* choices; /* type: _20631 * */
+    long int style = (long int)args[6]->ToInt32()->Value(); /* type: _592  */
     
 
     wxNode_wxListBox *self = new wxNode_wxListBox(parent, id, *pos, *size, n, choices, style);
@@ -294,15 +294,15 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
   }
   
   /*
-   * id: _41166
+   * id: _36635
    */
   if(args.Length() == 6 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxWindow::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsNumber() && (args[2]->IsNull() || (args[2]->IsObject() && wxNode_wxPoint::AssignableFrom(args[2]->ToObject()->GetConstructorName()))) && (args[3]->IsNull() || (args[3]->IsObject() && wxNode_wxSize::AssignableFrom(args[3]->ToObject()->GetConstructorName()))) && args[4]->IsNumber() && args[5]->IsString()) {
-    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _1326 * */
-    int id = (int)args[1]->ToInt32()->Value(); /* type: _11168  */
-    wxNode_wxPoint* pos = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[2]->ToObject()); /* type: _25270  */
-    wxNode_wxSize* size = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[3]->ToObject()); /* type: _25379  */
-    int n = (int)args[4]->ToInt32()->Value(); /* type: _233  */
-    wxString* choices; /* type: _25391 * */
+    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _1000 * */
+    int id = (int)args[1]->ToInt32()->Value(); /* type: _8725  */
+    wxNode_wxPoint* pos = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[2]->ToObject()); /* type: _20518  */
+    wxNode_wxSize* size = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[3]->ToObject()); /* type: _20628  */
+    int n = (int)args[4]->ToInt32()->Value(); /* type: _165  */
+    wxString* choices; /* type: _20631 * */
     
 
     wxNode_wxListBox *self = new wxNode_wxListBox(parent, id, *pos, *size, n, choices);
@@ -312,14 +312,14 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
   }
   
   /*
-   * id: _41166
+   * id: _36635
    */
   if(args.Length() == 5 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxWindow::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsNumber() && (args[2]->IsNull() || (args[2]->IsObject() && wxNode_wxPoint::AssignableFrom(args[2]->ToObject()->GetConstructorName()))) && (args[3]->IsNull() || (args[3]->IsObject() && wxNode_wxSize::AssignableFrom(args[3]->ToObject()->GetConstructorName()))) && args[4]->IsNumber()) {
-    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _1326 * */
-    int id = (int)args[1]->ToInt32()->Value(); /* type: _11168  */
-    wxNode_wxPoint* pos = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[2]->ToObject()); /* type: _25270  */
-    wxNode_wxSize* size = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[3]->ToObject()); /* type: _25379  */
-    int n = (int)args[4]->ToInt32()->Value(); /* type: _233  */
+    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _1000 * */
+    int id = (int)args[1]->ToInt32()->Value(); /* type: _8725  */
+    wxNode_wxPoint* pos = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[2]->ToObject()); /* type: _20518  */
+    wxNode_wxSize* size = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[3]->ToObject()); /* type: _20628  */
+    int n = (int)args[4]->ToInt32()->Value(); /* type: _165  */
     
 
     wxNode_wxListBox *self = new wxNode_wxListBox(parent, id, *pos, *size, n);
@@ -329,13 +329,13 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
   }
   
   /*
-   * id: _41166
+   * id: _36635
    */
   if(args.Length() == 4 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxWindow::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsNumber() && (args[2]->IsNull() || (args[2]->IsObject() && wxNode_wxPoint::AssignableFrom(args[2]->ToObject()->GetConstructorName()))) && (args[3]->IsNull() || (args[3]->IsObject() && wxNode_wxSize::AssignableFrom(args[3]->ToObject()->GetConstructorName())))) {
-    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _1326 * */
-    int id = (int)args[1]->ToInt32()->Value(); /* type: _11168  */
-    wxNode_wxPoint* pos = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[2]->ToObject()); /* type: _25270  */
-    wxNode_wxSize* size = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[3]->ToObject()); /* type: _25379  */
+    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _1000 * */
+    int id = (int)args[1]->ToInt32()->Value(); /* type: _8725  */
+    wxNode_wxPoint* pos = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[2]->ToObject()); /* type: _20518  */
+    wxNode_wxSize* size = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[3]->ToObject()); /* type: _20628  */
     
 
     wxNode_wxListBox *self = new wxNode_wxListBox(parent, id, *pos, *size);
@@ -345,12 +345,12 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
   }
   
   /*
-   * id: _41166
+   * id: _36635
    */
   if(args.Length() == 3 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxWindow::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsNumber() && (args[2]->IsNull() || (args[2]->IsObject() && wxNode_wxPoint::AssignableFrom(args[2]->ToObject()->GetConstructorName())))) {
-    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _1326 * */
-    int id = (int)args[1]->ToInt32()->Value(); /* type: _11168  */
-    wxNode_wxPoint* pos = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[2]->ToObject()); /* type: _25270  */
+    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _1000 * */
+    int id = (int)args[1]->ToInt32()->Value(); /* type: _8725  */
+    wxNode_wxPoint* pos = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[2]->ToObject()); /* type: _20518  */
     
 
     wxNode_wxListBox *self = new wxNode_wxListBox(parent, id, *pos);
@@ -360,11 +360,11 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
   }
   
   /*
-   * id: _41166
+   * id: _36635
    */
   if(args.Length() == 2 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxWindow::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsNumber()) {
-    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _1326 * */
-    int id = (int)args[1]->ToInt32()->Value(); /* type: _11168  */
+    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _1000 * */
+    int id = (int)args[1]->ToInt32()->Value(); /* type: _8725  */
     
 
     wxNode_wxListBox *self = new wxNode_wxListBox(parent, id);
@@ -374,17 +374,17 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
   }
   
   /*
-   * id: _41167
+   * id: _36636
    */
   if(args.Length() == 8 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxWindow::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsNumber() && (args[2]->IsNull() || (args[2]->IsObject() && wxNode_wxPoint::AssignableFrom(args[2]->ToObject()->GetConstructorName()))) && (args[3]->IsNull() || (args[3]->IsObject() && wxNode_wxSize::AssignableFrom(args[3]->ToObject()->GetConstructorName()))) && (args[4]->IsNull() || (args[4]->IsObject() && wxNode_wxArrayString::AssignableFrom(args[4]->ToObject()->GetConstructorName()))) && args[5]->IsNumber() && (args[6]->IsNull() || (args[6]->IsObject() && wxNode_wxValidator::AssignableFrom(args[6]->ToObject()->GetConstructorName()))) && args[7]->IsString()) {
-    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _1326 * */
-    int id = (int)args[1]->ToInt32()->Value(); /* type: _11168  */
-    wxNode_wxPoint* pos = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[2]->ToObject()); /* type: _25270  */
-    wxNode_wxSize* size = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[3]->ToObject()); /* type: _25379  */
-    wxNode_wxArrayString* choices = args[4]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxArrayString>(args[4]->ToObject()); /* type: _25392  */
-    long int style = (long int)args[5]->ToInt32()->Value(); /* type: _766  */
-    wxNode_wxValidator* validator = args[6]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxValidator>(args[6]->ToObject()); /* type: _65245  */
-    v8::String::AsciiValue name(args[7]->ToString()); /* type: _18997  */
+    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _1000 * */
+    int id = (int)args[1]->ToInt32()->Value(); /* type: _8725  */
+    wxNode_wxPoint* pos = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[2]->ToObject()); /* type: _20518  */
+    wxNode_wxSize* size = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[3]->ToObject()); /* type: _20628  */
+    wxNode_wxArrayString* choices = args[4]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxArrayString>(args[4]->ToObject()); /* type: _20632  */
+    long int style = (long int)args[5]->ToInt32()->Value(); /* type: _592  */
+    wxNode_wxValidator* validator = args[6]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxValidator>(args[6]->ToObject()); /* type: _59247  */
+    v8::String::AsciiValue name(args[7]->ToString()); /* type: _14975  */
     
 
     wxNode_wxListBox *self = new wxNode_wxListBox(parent, id, *pos, *size, *choices, style, *validator, *name);
@@ -394,16 +394,16 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
   }
   
   /*
-   * id: _41167
+   * id: _36636
    */
   if(args.Length() == 7 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxWindow::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsNumber() && (args[2]->IsNull() || (args[2]->IsObject() && wxNode_wxPoint::AssignableFrom(args[2]->ToObject()->GetConstructorName()))) && (args[3]->IsNull() || (args[3]->IsObject() && wxNode_wxSize::AssignableFrom(args[3]->ToObject()->GetConstructorName()))) && (args[4]->IsNull() || (args[4]->IsObject() && wxNode_wxArrayString::AssignableFrom(args[4]->ToObject()->GetConstructorName()))) && args[5]->IsNumber() && (args[6]->IsNull() || (args[6]->IsObject() && wxNode_wxValidator::AssignableFrom(args[6]->ToObject()->GetConstructorName())))) {
-    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _1326 * */
-    int id = (int)args[1]->ToInt32()->Value(); /* type: _11168  */
-    wxNode_wxPoint* pos = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[2]->ToObject()); /* type: _25270  */
-    wxNode_wxSize* size = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[3]->ToObject()); /* type: _25379  */
-    wxNode_wxArrayString* choices = args[4]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxArrayString>(args[4]->ToObject()); /* type: _25392  */
-    long int style = (long int)args[5]->ToInt32()->Value(); /* type: _766  */
-    wxNode_wxValidator* validator = args[6]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxValidator>(args[6]->ToObject()); /* type: _65245  */
+    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _1000 * */
+    int id = (int)args[1]->ToInt32()->Value(); /* type: _8725  */
+    wxNode_wxPoint* pos = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[2]->ToObject()); /* type: _20518  */
+    wxNode_wxSize* size = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[3]->ToObject()); /* type: _20628  */
+    wxNode_wxArrayString* choices = args[4]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxArrayString>(args[4]->ToObject()); /* type: _20632  */
+    long int style = (long int)args[5]->ToInt32()->Value(); /* type: _592  */
+    wxNode_wxValidator* validator = args[6]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxValidator>(args[6]->ToObject()); /* type: _59247  */
     
 
     wxNode_wxListBox *self = new wxNode_wxListBox(parent, id, *pos, *size, *choices, style, *validator);
@@ -413,15 +413,15 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
   }
   
   /*
-   * id: _41167
+   * id: _36636
    */
   if(args.Length() == 6 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxWindow::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsNumber() && (args[2]->IsNull() || (args[2]->IsObject() && wxNode_wxPoint::AssignableFrom(args[2]->ToObject()->GetConstructorName()))) && (args[3]->IsNull() || (args[3]->IsObject() && wxNode_wxSize::AssignableFrom(args[3]->ToObject()->GetConstructorName()))) && (args[4]->IsNull() || (args[4]->IsObject() && wxNode_wxArrayString::AssignableFrom(args[4]->ToObject()->GetConstructorName()))) && args[5]->IsNumber()) {
-    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _1326 * */
-    int id = (int)args[1]->ToInt32()->Value(); /* type: _11168  */
-    wxNode_wxPoint* pos = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[2]->ToObject()); /* type: _25270  */
-    wxNode_wxSize* size = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[3]->ToObject()); /* type: _25379  */
-    wxNode_wxArrayString* choices = args[4]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxArrayString>(args[4]->ToObject()); /* type: _25392  */
-    long int style = (long int)args[5]->ToInt32()->Value(); /* type: _766  */
+    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _1000 * */
+    int id = (int)args[1]->ToInt32()->Value(); /* type: _8725  */
+    wxNode_wxPoint* pos = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[2]->ToObject()); /* type: _20518  */
+    wxNode_wxSize* size = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[3]->ToObject()); /* type: _20628  */
+    wxNode_wxArrayString* choices = args[4]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxArrayString>(args[4]->ToObject()); /* type: _20632  */
+    long int style = (long int)args[5]->ToInt32()->Value(); /* type: _592  */
     
 
     wxNode_wxListBox *self = new wxNode_wxListBox(parent, id, *pos, *size, *choices, style);
@@ -431,14 +431,14 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
   }
   
   /*
-   * id: _41167
+   * id: _36636
    */
   if(args.Length() == 5 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxWindow::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsNumber() && (args[2]->IsNull() || (args[2]->IsObject() && wxNode_wxPoint::AssignableFrom(args[2]->ToObject()->GetConstructorName()))) && (args[3]->IsNull() || (args[3]->IsObject() && wxNode_wxSize::AssignableFrom(args[3]->ToObject()->GetConstructorName()))) && (args[4]->IsNull() || (args[4]->IsObject() && wxNode_wxArrayString::AssignableFrom(args[4]->ToObject()->GetConstructorName())))) {
-    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _1326 * */
-    int id = (int)args[1]->ToInt32()->Value(); /* type: _11168  */
-    wxNode_wxPoint* pos = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[2]->ToObject()); /* type: _25270  */
-    wxNode_wxSize* size = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[3]->ToObject()); /* type: _25379  */
-    wxNode_wxArrayString* choices = args[4]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxArrayString>(args[4]->ToObject()); /* type: _25392  */
+    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _1000 * */
+    int id = (int)args[1]->ToInt32()->Value(); /* type: _8725  */
+    wxNode_wxPoint* pos = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[2]->ToObject()); /* type: _20518  */
+    wxNode_wxSize* size = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[3]->ToObject()); /* type: _20628  */
+    wxNode_wxArrayString* choices = args[4]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxArrayString>(args[4]->ToObject()); /* type: _20632  */
     
 
     wxNode_wxListBox *self = new wxNode_wxListBox(parent, id, *pos, *size, *choices);
@@ -466,12 +466,12 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
 
   
   /*
-   * id: _52483
+   * id: _47289
    */
   if(args.Length() == 3 && args[0]->IsNumber() && args[1]->IsString() && args[2]->IsNumber()) {
-    unsigned int nItems = (unsigned int)args[0]->ToInt32()->Value(); /* type: _62  */
-    wxString* items; /* type: _25391 * */
-    unsigned int pos = (unsigned int)args[2]->ToInt32()->Value(); /* type: _62  */
+    unsigned int nItems = (unsigned int)args[0]->ToInt32()->Value(); /* type: _44  */
+    wxString* items; /* type: _20631 * */
+    unsigned int pos = (unsigned int)args[2]->ToInt32()->Value(); /* type: _44  */
     
 
     self->InsertItems(nItems, items, pos);
@@ -480,11 +480,11 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
   }
   
   /*
-   * id: _52484
+   * id: _47290
    */
   if(args.Length() == 2 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxArrayString::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsNumber()) {
-    wxNode_wxArrayString* items = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxArrayString>(args[0]->ToObject()); /* type: _25392  */
-    unsigned int pos = (unsigned int)args[1]->ToInt32()->Value(); /* type: _62  */
+    wxNode_wxArrayString* items = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxArrayString>(args[0]->ToObject()); /* type: _20632  */
+    unsigned int pos = (unsigned int)args[1]->ToInt32()->Value(); /* type: _44  */
     
 
     self->InsertItems(*items, pos);
@@ -509,10 +509,10 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
 
   
   /*
-   * id: _52485
+   * id: _47291
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    int n = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    int n = (int)args[0]->ToInt32()->Value(); /* type: _165  */
     
 
     bool returnVal = self->IsSelected(n);
@@ -537,10 +537,10 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
 
   
   /*
-   * id: _52486
+   * id: _47292
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    int n = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    int n = (int)args[0]->ToInt32()->Value(); /* type: _165  */
     
 
     self->SetSelection(n);
@@ -549,11 +549,11 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
   }
   
   /*
-   * id: _52487
+   * id: _47293
    */
   if(args.Length() == 2 && args[0]->IsNumber() && args[1]->IsBoolean()) {
-    int n = (int)args[0]->ToInt32()->Value(); /* type: _233  */
-    bool select = args[1]->ToBoolean()->Value(); /* type: _18804  */
+    int n = (int)args[0]->ToInt32()->Value(); /* type: _165  */
+    bool select = args[1]->ToBoolean()->Value(); /* type: _14830  */
     
 
     self->SetSelection(n, select);
@@ -578,10 +578,10 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
 
   
   /*
-   * id: _52488
+   * id: _47294
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    int n = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    int n = (int)args[0]->ToInt32()->Value(); /* type: _165  */
     
 
     self->Deselect(n);
@@ -606,10 +606,10 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
 
   
   /*
-   * id: _52489
+   * id: _47295
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    int itemToLeaveSelected = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    int itemToLeaveSelected = (int)args[0]->ToInt32()->Value(); /* type: _165  */
     
 
     self->DeselectAll(itemToLeaveSelected);
@@ -618,7 +618,7 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
   }
   
   /*
-   * id: _52489
+   * id: _47295
    */
   if(args.Length() == 0) {
     
@@ -645,11 +645,11 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
 
   
   /*
-   * id: _52490
+   * id: _47296
    */
   if(args.Length() == 2 && args[0]->IsString() && args[1]->IsBoolean()) {
-    v8::String::AsciiValue s(args[0]->ToString()); /* type: _18997  */
-    bool select = args[1]->ToBoolean()->Value(); /* type: _18804  */
+    v8::String::AsciiValue s(args[0]->ToString()); /* type: _14975  */
+    bool select = args[1]->ToBoolean()->Value(); /* type: _14830  */
     
 
     bool returnVal = self->SetStringSelection(*s, select);
@@ -658,10 +658,10 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
   }
   
   /*
-   * id: _52491
+   * id: _47297
    */
   if(args.Length() == 1 && args[0]->IsString()) {
-    v8::String::AsciiValue s(args[0]->ToString()); /* type: _18997  */
+    v8::String::AsciiValue s(args[0]->ToString()); /* type: _14975  */
     
 
     bool returnVal = self->SetStringSelection(*s);
@@ -686,10 +686,10 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
 
   
   /*
-   * id: _52492
+   * id: _47298
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxArrayInt::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxArrayInt* aSelections = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxArrayInt>(args[0]->ToObject()); /* type: _27489  */
+    wxNode_wxArrayInt* aSelections = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxArrayInt>(args[0]->ToObject()); /* type: _22614  */
     
 
     int returnVal = self->GetSelections(*aSelections);
@@ -714,10 +714,10 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
 
   
   /*
-   * id: _52493
+   * id: _47299
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    int n = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    int n = (int)args[0]->ToInt32()->Value(); /* type: _165  */
     
 
     self->SetFirstItem(n);
@@ -726,10 +726,10 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
   }
   
   /*
-   * id: _52494
+   * id: _47300
    */
   if(args.Length() == 1 && args[0]->IsString()) {
-    v8::String::AsciiValue s(args[0]->ToString()); /* type: _18997  */
+    v8::String::AsciiValue s(args[0]->ToString()); /* type: _14975  */
     
 
     self->SetFirstItem(*s);
@@ -754,10 +754,10 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
 
   
   /*
-   * id: _52495
+   * id: _47301
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    int n = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    int n = (int)args[0]->ToInt32()->Value(); /* type: _165  */
     
 
     self->EnsureVisible(n);
@@ -782,10 +782,10 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
 
   
   /*
-   * id: _52496
+   * id: _47302
    */
   if(args.Length() == 1 && args[0]->IsString()) {
-    v8::String::AsciiValue s(args[0]->ToString()); /* type: _18997  */
+    v8::String::AsciiValue s(args[0]->ToString()); /* type: _14975  */
     
 
     self->AppendAndEnsureVisible(*s);
@@ -810,7 +810,7 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
 
   
   /*
-   * id: _52497
+   * id: _47303
    */
   if(args.Length() == 0) {
     
@@ -837,7 +837,7 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
 
   
   /*
-   * id: _52498
+   * id: _47304
    */
   if(args.Length() == 0) {
     
@@ -848,7 +848,7 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
   }
   
   /*
-   * id: _35708
+   * id: _30676
    */
   if(args.Length() == 0) {
     
@@ -875,10 +875,10 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
 
   
   /*
-   * id: _52499
+   * id: _47305
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxCommandEvent::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxCommandEvent* event = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxCommandEvent>(args[0]->ToObject()); /* type: _64886  */
+    wxNode_wxCommandEvent* event = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxCommandEvent>(args[0]->ToObject()); /* type: _58930  */
     
 
     self->Command(*event);
@@ -903,10 +903,10 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
 
   
   /*
-   * id: _52500
+   * id: _47306
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxPoint::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxPoint* point = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[0]->ToObject()); /* type: _25270  */
+    wxNode_wxPoint* point = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[0]->ToObject()); /* type: _20518  */
     
 
     int returnVal = self->HitTest(*point);
@@ -915,11 +915,11 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
   }
   
   /*
-   * id: _52501
+   * id: _47307
    */
   if(args.Length() == 2 && args[0]->IsNumber() && args[1]->IsNumber()) {
-    int x = (int)args[0]->ToInt32()->Value(); /* type: _233  */
-    int y = (int)args[1]->ToInt32()->Value(); /* type: _233  */
+    int x = (int)args[0]->ToInt32()->Value(); /* type: _165  */
+    int y = (int)args[1]->ToInt32()->Value(); /* type: _165  */
     
 
     int returnVal = self->HitTest(x, y);
@@ -944,10 +944,10 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
 
   
   /*
-   * id: _35681
+   * id: _30649
    */
   if(args.Length() == 1 && args[0]->IsString()) {
-    v8::String::AsciiValue item(args[0]->ToString()); /* type: _18997  */
+    v8::String::AsciiValue item(args[0]->ToString()); /* type: _14975  */
     
 
     int returnVal = self->Append(*item);
@@ -956,11 +956,11 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
   }
   
   /*
-   * id: _35683
+   * id: _30651
    */
   if(args.Length() == 2 && args[0]->IsString() && (args[1]->IsNull() || (args[1]->IsObject() && wxNode_wxClientData::AssignableFrom(args[1]->ToObject()->GetConstructorName())))) {
-    v8::String::AsciiValue item(args[0]->ToString()); /* type: _18997  */
-    wxNode_wxClientData* clientData = args[1]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxClientData>(args[1]->ToObject()); /* type: _65309 * */
+    v8::String::AsciiValue item(args[0]->ToString()); /* type: _14975  */
+    wxNode_wxClientData* clientData = args[1]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxClientData>(args[1]->ToObject()); /* type: _59309 * */
     
 
     int returnVal = self->Append(*item, clientData);
@@ -969,10 +969,10 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
   }
   
   /*
-   * id: _35684
+   * id: _30652
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxArrayString::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxArrayString* items = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxArrayString>(args[0]->ToObject()); /* type: _25392  */
+    wxNode_wxArrayString* items = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxArrayString>(args[0]->ToObject()); /* type: _20632  */
     
 
     int returnVal = self->Append(*items);
@@ -981,11 +981,11 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
   }
   
   /*
-   * id: _35686
+   * id: _30654
    */
   if(args.Length() == 2 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxArrayString::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && false) {
-    wxNode_wxArrayString* items = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxArrayString>(args[0]->ToObject()); /* type: _25392  */
-    wxClientData* clientData; /* type: _69469 ** */
+    wxNode_wxArrayString* items = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxArrayString>(args[0]->ToObject()); /* type: _20632  */
+    wxClientData* clientData; /* type: _63378 ** */
     
 
     int returnVal = self->Append(*items, &clientData);
@@ -994,11 +994,11 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
   }
   
   /*
-   * id: _35687
+   * id: _30655
    */
   if(args.Length() == 2 && args[0]->IsNumber() && args[1]->IsString()) {
-    unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _62  */
-    wxString* items; /* type: _25391 * */
+    unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _44  */
+    wxString* items; /* type: _20631 * */
     
 
     int returnVal = self->Append(n, items);
@@ -1007,12 +1007,12 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
   }
   
   /*
-   * id: _35689
+   * id: _30657
    */
   if(args.Length() == 3 && args[0]->IsNumber() && args[1]->IsString() && false) {
-    unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _62  */
-    wxString* items; /* type: _25391 * */
-    wxClientData* clientData; /* type: _69469 ** */
+    unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _44  */
+    wxString* items; /* type: _20631 * */
+    wxClientData* clientData; /* type: _63378 ** */
     
 
     int returnVal = self->Append(n, items, &clientData);
@@ -1037,10 +1037,10 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
 
   
   /*
-   * id: _35690
+   * id: _30658
    */
   if(args.Length() == 1 && args[0]->IsString()) {
-    v8::String::AsciiValue item(args[0]->ToString()); /* type: _18997  */
+    v8::String::AsciiValue item(args[0]->ToString()); /* type: _14975  */
     
 
     self->AppendString(*item);
@@ -1065,11 +1065,11 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
 
   
   /*
-   * id: _35691
+   * id: _30659
    */
   if(args.Length() == 2 && args[0]->IsString() && args[1]->IsNumber()) {
-    v8::String::AsciiValue item(args[0]->ToString()); /* type: _18997  */
-    unsigned int pos = (unsigned int)args[1]->ToInt32()->Value(); /* type: _62  */
+    v8::String::AsciiValue item(args[0]->ToString()); /* type: _14975  */
+    unsigned int pos = (unsigned int)args[1]->ToInt32()->Value(); /* type: _44  */
     
 
     int returnVal = self->Insert(*item, pos);
@@ -1078,12 +1078,12 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
   }
   
   /*
-   * id: _35693
+   * id: _30661
    */
   if(args.Length() == 3 && args[0]->IsString() && args[1]->IsNumber() && (args[2]->IsNull() || (args[2]->IsObject() && wxNode_wxClientData::AssignableFrom(args[2]->ToObject()->GetConstructorName())))) {
-    v8::String::AsciiValue item(args[0]->ToString()); /* type: _18997  */
-    unsigned int pos = (unsigned int)args[1]->ToInt32()->Value(); /* type: _62  */
-    wxNode_wxClientData* clientData = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxClientData>(args[2]->ToObject()); /* type: _65309 * */
+    v8::String::AsciiValue item(args[0]->ToString()); /* type: _14975  */
+    unsigned int pos = (unsigned int)args[1]->ToInt32()->Value(); /* type: _44  */
+    wxNode_wxClientData* clientData = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxClientData>(args[2]->ToObject()); /* type: _59309 * */
     
 
     int returnVal = self->Insert(*item, pos, clientData);
@@ -1092,11 +1092,11 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
   }
   
   /*
-   * id: _35694
+   * id: _30662
    */
   if(args.Length() == 2 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxArrayString::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsNumber()) {
-    wxNode_wxArrayString* items = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxArrayString>(args[0]->ToObject()); /* type: _25392  */
-    unsigned int pos = (unsigned int)args[1]->ToInt32()->Value(); /* type: _62  */
+    wxNode_wxArrayString* items = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxArrayString>(args[0]->ToObject()); /* type: _20632  */
+    unsigned int pos = (unsigned int)args[1]->ToInt32()->Value(); /* type: _44  */
     
 
     int returnVal = self->Insert(*items, pos);
@@ -1105,12 +1105,12 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
   }
   
   /*
-   * id: _35696
+   * id: _30664
    */
   if(args.Length() == 3 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxArrayString::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsNumber() && false) {
-    wxNode_wxArrayString* items = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxArrayString>(args[0]->ToObject()); /* type: _25392  */
-    unsigned int pos = (unsigned int)args[1]->ToInt32()->Value(); /* type: _62  */
-    wxClientData* clientData; /* type: _69469 ** */
+    wxNode_wxArrayString* items = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxArrayString>(args[0]->ToObject()); /* type: _20632  */
+    unsigned int pos = (unsigned int)args[1]->ToInt32()->Value(); /* type: _44  */
+    wxClientData* clientData; /* type: _63378 ** */
     
 
     int returnVal = self->Insert(*items, pos, &clientData);
@@ -1119,12 +1119,12 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
   }
   
   /*
-   * id: _35697
+   * id: _30665
    */
   if(args.Length() == 3 && args[0]->IsNumber() && args[1]->IsString() && args[2]->IsNumber()) {
-    unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _62  */
-    wxString* items; /* type: _25391 * */
-    unsigned int pos = (unsigned int)args[2]->ToInt32()->Value(); /* type: _62  */
+    unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _44  */
+    wxString* items; /* type: _20631 * */
+    unsigned int pos = (unsigned int)args[2]->ToInt32()->Value(); /* type: _44  */
     
 
     int returnVal = self->Insert(n, items, pos);
@@ -1133,13 +1133,13 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
   }
   
   /*
-   * id: _35699
+   * id: _30667
    */
   if(args.Length() == 4 && args[0]->IsNumber() && args[1]->IsString() && args[2]->IsNumber() && false) {
-    unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _62  */
-    wxString* items; /* type: _25391 * */
-    unsigned int pos = (unsigned int)args[2]->ToInt32()->Value(); /* type: _62  */
-    wxClientData* clientData; /* type: _69469 ** */
+    unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _44  */
+    wxString* items; /* type: _20631 * */
+    unsigned int pos = (unsigned int)args[2]->ToInt32()->Value(); /* type: _44  */
+    wxClientData* clientData; /* type: _63378 ** */
     
 
     int returnVal = self->Insert(n, items, pos, &clientData);
@@ -1164,10 +1164,10 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
 
   
   /*
-   * id: _35700
+   * id: _30668
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxArrayString::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxArrayString* items = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxArrayString>(args[0]->ToObject()); /* type: _25392  */
+    wxNode_wxArrayString* items = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxArrayString>(args[0]->ToObject()); /* type: _20632  */
     
 
     self->Set(*items);
@@ -1176,11 +1176,11 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
   }
   
   /*
-   * id: _35702
+   * id: _30670
    */
   if(args.Length() == 2 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxArrayString::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && false) {
-    wxNode_wxArrayString* items = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxArrayString>(args[0]->ToObject()); /* type: _25392  */
-    wxClientData* clientData; /* type: _69469 ** */
+    wxNode_wxArrayString* items = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxArrayString>(args[0]->ToObject()); /* type: _20632  */
+    wxClientData* clientData; /* type: _63378 ** */
     
 
     self->Set(*items, &clientData);
@@ -1189,11 +1189,11 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
   }
   
   /*
-   * id: _35703
+   * id: _30671
    */
   if(args.Length() == 2 && args[0]->IsNumber() && args[1]->IsString()) {
-    unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _62  */
-    wxString* items; /* type: _25391 * */
+    unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _44  */
+    wxString* items; /* type: _20631 * */
     
 
     self->Set(n, items);
@@ -1202,12 +1202,12 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
   }
   
   /*
-   * id: _35705
+   * id: _30673
    */
   if(args.Length() == 3 && args[0]->IsNumber() && args[1]->IsString() && false) {
-    unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _62  */
-    wxString* items; /* type: _25391 * */
-    wxClientData* clientData; /* type: _69469 ** */
+    unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _44  */
+    wxString* items; /* type: _20631 * */
+    wxClientData* clientData; /* type: _63378 ** */
     
 
     self->Set(n, items, &clientData);
@@ -1232,7 +1232,7 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
 
   
   /*
-   * id: _35706
+   * id: _30674
    */
   if(args.Length() == 0) {
     
@@ -1259,10 +1259,10 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
 
   
   /*
-   * id: _35707
+   * id: _30675
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _62  */
+    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _44  */
     
 
     self->Delete(pos);
@@ -1303,10 +1303,10 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
 
   
   /*
-   * id: _35710
+   * id: _30678
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _62  */
+    unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _44  */
     
 
     self->GetClientData(n);
@@ -1331,11 +1331,11 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
 
   
   /*
-   * id: _35711
+   * id: _30679
    */
   if(args.Length() == 2 && args[0]->IsNumber() && (args[1]->IsNull() || (args[1]->IsObject() && wxNode_wxClientData::AssignableFrom(args[1]->ToObject()->GetConstructorName())))) {
-    unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _62  */
-    wxNode_wxClientData* clientData = args[1]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxClientData>(args[1]->ToObject()); /* type: _65309 * */
+    unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _44  */
+    wxNode_wxClientData* clientData = args[1]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxClientData>(args[1]->ToObject()); /* type: _59309 * */
     
 
     self->SetClientObject(n, clientData);
@@ -1360,10 +1360,10 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
 
   
   /*
-   * id: _35712
+   * id: _30680
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _62  */
+    unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _44  */
     
 
     wxClientData* returnVal = self->GetClientObject(n);
@@ -1388,10 +1388,10 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
 
   
   /*
-   * id: _35713
+   * id: _30681
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _62  */
+    unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _44  */
     
 
     wxClientData* returnVal = self->DetachClientObject(n);
@@ -1416,7 +1416,7 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
 
   
   /*
-   * id: _35714
+   * id: _30682
    */
   if(args.Length() == 0) {
     
@@ -1443,7 +1443,7 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
 
   
   /*
-   * id: _35715
+   * id: _30683
    */
   if(args.Length() == 0) {
     
@@ -1470,7 +1470,7 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
 
   
   /*
-   * id: _35716
+   * id: _30684
    */
   if(args.Length() == 0) {
     
@@ -1497,7 +1497,7 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
 
   
   /*
-   * id: _35717
+   * id: _30685
    */
   if(args.Length() == 0) {
     

@@ -134,7 +134,7 @@ var WebFrame = wx.Frame.extend({
     this.m_tools_handle_new_window.check();
     this.m_tools_enable_history.check();
     if(!this.m_browser.canSetZoomType(wx.WEB_VIEW_ZOOM_TYPE_LAYOUT))
-        this.m_tools_layout.enable(false);
+      this.m_tools_layout.enable(false);
 
 
     // Connect the toolbar events

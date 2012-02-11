@@ -1,6 +1,6 @@
 
 #include <sstream>
-{{#includes}}#include "{{.}}"
+{{#includes}}#include "{{{.}}}"
 {{/includes}}
 
 /* static */ v8::Persistent<v8::FunctionTemplate> wxNode_{{name}}::s_ct;

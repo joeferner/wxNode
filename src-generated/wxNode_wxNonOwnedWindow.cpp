@@ -109,6 +109,7 @@ wxNode_wxNonOwnedWindow::wxNode_wxNonOwnedWindow()
 
   if(!strcmp("TopLevelWindow", className)) { return true; }
 
+  if(!strcmp("NativeContainerWindow", className)) { return true; }
   if(!strcmp("FrameBase", className)) { return true; }
 
   if(!strcmp("Frame", className)) { return true; }
@@ -118,6 +119,8 @@ wxNode_wxNonOwnedWindow::wxNode_wxNonOwnedWindow()
   if(!strcmp("DocChildFrameAny<wxFrame,wxFrame>", className)) { return true; }
 
   if(!strcmp("DocChildFrame", className)) { return true; }
+  if(!strcmp("SplashScreen", className)) { return true; }
+  if(!strcmp("HtmlHelpFrame", className)) { return true; }
   if(!strcmp("MDIChildFrameBase", className)) { return true; }
 
   if(!strcmp("TDIChildFrame", className)) { return true; }
@@ -133,7 +136,6 @@ wxNode_wxNonOwnedWindow::wxNode_wxNonOwnedWindow()
   if(!strcmp("MiniFrame", className)) { return true; }
 
   if(!strcmp("AuiFloatingFrame", className)) { return true; }
-  if(!strcmp("SplashScreen", className)) { return true; }
   if(!strcmp("MDIParentFrameBase", className)) { return true; }
 
   if(!strcmp("MDIParentFrame", className)) { return true; }
@@ -141,8 +143,6 @@ wxNode_wxNonOwnedWindow::wxNode_wxNonOwnedWindow()
   if(!strcmp("DocParentFrameAny<wxMDIParentFrame>", className)) { return true; }
 
   if(!strcmp("DocMDIParentFrame", className)) { return true; }
-  if(!strcmp("HtmlHelpFrame", className)) { return true; }
-  if(!strcmp("NativeContainerWindow", className)) { return true; }
   if(!strcmp("DialogBase", className)) { return true; }
 
   if(!strcmp("Dialog", className)) { return true; }
@@ -154,12 +154,9 @@ wxNode_wxNonOwnedWindow::wxNode_wxNonOwnedWindow()
   if(!strcmp("DirDialogBase", className)) { return true; }
 
   if(!strcmp("DirDialog", className)) { return true; }
-  if(!strcmp("GenericProgressDialog", className)) { return true; }
+  if(!strcmp("WizardBase", className)) { return true; }
 
-  if(!strcmp("ProgressDialog", className)) { return true; }
-  if(!strcmp("PropertySheetDialog", className)) { return true; }
-
-  if(!strcmp("RichTextFormattingDialog", className)) { return true; }
+  if(!strcmp("Wizard", className)) { return true; }
   if(!strcmp("MessageDialogBase", className)) { return true; }
 
   if(!strcmp("MessageDialog", className)) { return true; }
@@ -175,25 +172,28 @@ wxNode_wxNonOwnedWindow::wxNode_wxNonOwnedWindow()
   if(!strcmp("FindReplaceDialogBase", className)) { return true; }
 
   if(!strcmp("FindReplaceDialog", className)) { return true; }
-  if(!strcmp("WizardBase", className)) { return true; }
-
-  if(!strcmp("Wizard", className)) { return true; }
   if(!strcmp("PrintAbortDialog", className)) { return true; }
   if(!strcmp("AnyChoiceDialog", className)) { return true; }
 
   if(!strcmp("SingleChoiceDialog", className)) { return true; }
   if(!strcmp("MultiChoiceDialog", className)) { return true; }
-  if(!strcmp("RichTextStyleOrganiserDialog", className)) { return true; }
   if(!strcmp("TextEntryDialog", className)) { return true; }
 
   if(!strcmp("PasswordEntryDialog", className)) { return true; }
+  if(!strcmp("RichTextStyleOrganiserDialog", className)) { return true; }
   if(!strcmp("PrintDialogBase", className)) { return true; }
   if(!strcmp("PageSetupDialogBase", className)) { return true; }
   if(!strcmp("SymbolPickerDialog", className)) { return true; }
-  if(!strcmp("NumberEntryDialog", className)) { return true; }
   if(!strcmp("FileDialogBase", className)) { return true; }
 
   if(!strcmp("FileDialog", className)) { return true; }
+  if(!strcmp("NumberEntryDialog", className)) { return true; }
+  if(!strcmp("PropertySheetDialog", className)) { return true; }
+
+  if(!strcmp("RichTextFormattingDialog", className)) { return true; }
+  if(!strcmp("GenericProgressDialog", className)) { return true; }
+
+  if(!strcmp("ProgressDialog", className)) { return true; }
   if(!strcmp("PopupWindowBase", className)) { return true; }
 
   if(!strcmp("PopupWindow", className)) { return true; }
@@ -212,7 +212,7 @@ wxNode_wxNonOwnedWindow::wxNode_wxNonOwnedWindow()
   
   
   /*
-   * id: _20144
+   * id: _16084
    */
   if(args.Length() == 0) {
     
@@ -242,10 +242,10 @@ wxNode_wxNonOwnedWindow::wxNode_wxNonOwnedWindow()
 
   
   /*
-   * id: _35586
+   * id: _30585
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxRegion::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxRegion* region = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxRegion>(args[0]->ToObject()); /* type: _65107  */
+    wxNode_wxRegion* region = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxRegion>(args[0]->ToObject()); /* type: _59116  */
     
 
     bool returnVal = self->SetShape(*region);
@@ -254,10 +254,10 @@ wxNode_wxNonOwnedWindow::wxNode_wxNonOwnedWindow()
   }
   
   /*
-   * id: _35587
+   * id: _30586
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxGraphicsPath::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxGraphicsPath* path = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxGraphicsPath>(args[0]->ToObject()); /* type: _65108  */
+    wxNode_wxGraphicsPath* path = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxGraphicsPath>(args[0]->ToObject()); /* type: _59117  */
     
 
     bool returnVal = self->SetShape(*path);

@@ -30,7 +30,10 @@ var files = [
   { className: 'wxInfoBar', baseClassName: 'wxInfoBarBase', allowNew: true },
   { className: 'wxControlWithItems', baseClassName: 'wxControlWithItemsBase', allowNew: false, addMethodsClass: 'wxNode_wxWindowWithItems_wxControl_wxItemContainer' },
   { className: 'wxWindow', baseClassName: 'wxWindowBase', allowNew: true },
+  { className: 'wxLogWindow', allowNew: true, allowNew: false },
   { className: 'wxArtProvider', allowNew: true },
+  { className: 'wxWebView', allowNew: false },
+  { className: 'wxWebViewArchiveHandler', allowNew: false },
   { className: 'wxItemContainer', allowNew: false },
   { className: 'wxItemContainerImmutable', allowNew: false },
   { className: 'wxSizer', allowNew: false },
@@ -177,8 +180,20 @@ function lookupClassById(rawJson, typeId) {
 
 function concatUnique(orig, newItems) {
   for(var i=0; i<newItems.length; i++) {
-    if(orig.indexOf(newItems[i]) < 0) {
-      orig.push(newItems[i]);
+    var item = newItems[i];
+    var match;
+    if(match = item.match(/wxNode_wxSharedPtr<(.*?)>/)) {
+      if(item.match(/.h$/)) {
+        item = 'wxNode_' + match[1] + '.h';
+      } else {
+        item = 'wxNode_' + match[1];
+      }
+    }
+    if(item.indexOf('<') > 0) {
+      continue;
+    }
+    if(orig.indexOf(item) < 0) {
+      orig.push(item);
     }
   }
   return orig;
@@ -193,9 +208,16 @@ function argJsonToCtx(ctx, rawJson, arg, i) {
   var typeName = type['name'];
   var argName = arg['name'] || ("arg" + i);
   var argTestCode = "false";
+  var wxSharedPtr = false;
 
   if(typeName) {
     typeName = typeName.replace(/Base$/, '');
+
+    var match;
+    if(match = typeName.match(/wxSharedPtr<(.*?)>/)) {
+      wxSharedPtr = true;
+      typeName = match[1];
+    }
   }
 
   if(typeName == "int" || typeName == "long int" || typeName == "size_t" || typeName == "unsigned int") {
@@ -278,6 +300,9 @@ function argJsonToCtx(ctx, rawJson, arg, i) {
       } else {
         argCallCode = argName;
         argDeclCode = util.format("%s* %s", typeName, argName);
+      }
+      if(wxSharedPtr) {
+        argCallCode = "wxSharedPtr<" + typeName + ">(" + argCallCode + ")";
       }
       argTestCode = util.format("(args[%d]->IsNull() || (args[%d]->IsObject() && wxNode_%s::AssignableFrom(args[%d]->ToObject()->GetConstructorName())))", i, i, typeName, i);
     }

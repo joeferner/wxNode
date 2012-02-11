@@ -21,6 +21,9 @@
 #include "wxNode_wxArtProvider.h"
 #include "wxNode_wxBitmap.h"
 #include "wxNode_wxInfoBar.h"
+#include "wxNode_wxLogWindow.h"
+#include "wxNode_wxWebView.h"
+#include "wxNode_wxWebViewArchiveHandler.h"
 #include "wxLogStatus.h"
 #include "messageBox.h"
 
@@ -46,6 +49,9 @@ extern "C" {
     wxNode_wxDialog::Init(target);
     wxNode_wxArtProvider::Init(target);
     wxNode_wxBitmap::Init(target);
+    wxNode_wxLogWindow::Init(target);
+    wxNode_wxWebView::Init(target);
+    wxNode_wxWebViewArchiveHandler::Init(target);
     NodeWxMessageBox::Init(target);
     NodeWxLogStatus::Init(target);
 

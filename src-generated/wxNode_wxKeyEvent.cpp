@@ -141,10 +141,10 @@ wxNode_wxKeyEvent::wxNode_wxKeyEvent(int eventType, wxKeyEvent& evt)
   
   
   /*
-   * id: _47255
+   * id: _42556
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    int keyType = (int)args[0]->ToInt32()->Value(); /* type: _1304  */
+    int keyType = (int)args[0]->ToInt32()->Value(); /* type: _986  */
     
 
     wxNode_wxKeyEvent *self = new wxNode_wxKeyEvent(keyType);
@@ -154,7 +154,7 @@ wxNode_wxKeyEvent::wxNode_wxKeyEvent(int eventType, wxKeyEvent& evt)
   }
   
   /*
-   * id: _47255
+   * id: _42556
    */
   if(args.Length() == 0) {
     
@@ -166,10 +166,10 @@ wxNode_wxKeyEvent::wxNode_wxKeyEvent(int eventType, wxKeyEvent& evt)
   }
   
   /*
-   * id: _47256
+   * id: _42557
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxKeyEvent::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxKeyEvent* evt = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxKeyEvent>(args[0]->ToObject()); /* type: _68854  */
+    wxNode_wxKeyEvent* evt = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxKeyEvent>(args[0]->ToObject()); /* type: _61743  */
     
 
     wxNode_wxKeyEvent *self = new wxNode_wxKeyEvent(*evt);
@@ -179,11 +179,11 @@ wxNode_wxKeyEvent::wxNode_wxKeyEvent(int eventType, wxKeyEvent& evt)
   }
   
   /*
-   * id: _47257
+   * id: _42558
    */
   if(args.Length() == 2 && args[0]->IsNumber() && (args[1]->IsNull() || (args[1]->IsObject() && wxNode_wxKeyEvent::AssignableFrom(args[1]->ToObject()->GetConstructorName())))) {
-    int eventType = (int)args[0]->ToInt32()->Value(); /* type: _1304  */
-    wxNode_wxKeyEvent* evt = args[1]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxKeyEvent>(args[1]->ToObject()); /* type: _68854  */
+    int eventType = (int)args[0]->ToInt32()->Value(); /* type: _986  */
+    wxNode_wxKeyEvent* evt = args[1]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxKeyEvent>(args[1]->ToObject()); /* type: _61743  */
     
 
     wxNode_wxKeyEvent *self = new wxNode_wxKeyEvent(eventType, *evt);
@@ -211,7 +211,7 @@ wxNode_wxKeyEvent::wxNode_wxKeyEvent(int eventType, wxKeyEvent& evt)
 
   
   /*
-   * id: _47258
+   * id: _42559
    */
   if(args.Length() == 0) {
     
@@ -238,10 +238,10 @@ wxNode_wxKeyEvent::wxNode_wxKeyEvent(int eventType, wxKeyEvent& evt)
 
   
   /*
-   * id: _47259
+   * id: _42560
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    int category = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    int category = (int)args[0]->ToInt32()->Value(); /* type: _165  */
     
 
     bool returnVal = self->IsKeyInCategory(category);
@@ -266,7 +266,7 @@ wxNode_wxKeyEvent::wxNode_wxKeyEvent(int eventType, wxKeyEvent& evt)
 
   
   /*
-   * id: _47260
+   * id: _42561
    */
   if(args.Length() == 0) {
     
@@ -295,7 +295,7 @@ return scope.Close(v8::String::New(returnValTemp));
 
   
   /*
-   * id: _47261
+   * id: _42562
    */
   if(args.Length() == 0) {
     
@@ -322,7 +322,7 @@ return scope.Close(v8::String::New(returnValTemp));
 
   
   /*
-   * id: _47262
+   * id: _42563
    */
   if(args.Length() == 0) {
     
@@ -349,11 +349,11 @@ return scope.Close(v8::String::New(returnValTemp));
 
   
   /*
-   * id: _47263
+   * id: _42564
    */
   if(args.Length() == 2 && false && false) {
-    int xpos; /* type: _67467 * */
-    int ypos; /* type: _67467 * */
+    int xpos; /* type: _61293 * */
+    int ypos; /* type: _61293 * */
     
 
     self->GetPosition(&xpos, &ypos);
@@ -362,11 +362,11 @@ return scope.Close(v8::String::New(returnValTemp));
   }
   
   /*
-   * id: _47264
+   * id: _42565
    */
   if(args.Length() == 2 && false && false) {
-    long int xpos; /* type: _24456 * */
-    long int ypos; /* type: _24456 * */
+    long int xpos; /* type: _20486 * */
+    long int ypos; /* type: _20486 * */
     
 
     self->GetPosition(&xpos, &ypos);
@@ -375,7 +375,7 @@ return scope.Close(v8::String::New(returnValTemp));
   }
   
   /*
-   * id: _47265
+   * id: _42566
    */
   if(args.Length() == 0) {
     
@@ -402,7 +402,7 @@ return scope.Close(v8::String::New(returnValTemp));
 
   
   /*
-   * id: _47266
+   * id: _42567
    */
   if(args.Length() == 0) {
     
@@ -429,7 +429,7 @@ return scope.Close(v8::String::New(returnValTemp));
 
   
   /*
-   * id: _47267
+   * id: _42568
    */
   if(args.Length() == 0) {
     
@@ -456,7 +456,7 @@ return scope.Close(v8::String::New(returnValTemp));
 
   
   /*
-   * id: _47268
+   * id: _42569
    */
   if(args.Length() == 0) {
     
@@ -483,7 +483,7 @@ return scope.Close(v8::String::New(returnValTemp));
 
   
   /*
-   * id: _47269
+   * id: _42570
    */
   if(args.Length() == 0) {
     
@@ -510,7 +510,7 @@ return scope.Close(v8::String::New(returnValTemp));
 
   
   /*
-   * id: _47270
+   * id: _42571
    */
   if(args.Length() == 0) {
     
@@ -537,7 +537,7 @@ return scope.Close(v8::String::New(returnValTemp));
 
   
   /*
-   * id: _47271
+   * id: _42572
    */
   if(args.Length() == 0) {
     
@@ -564,7 +564,7 @@ return scope.Close(v8::String::New(returnValTemp));
 
   
   /*
-   * id: _47275
+   * id: _42576
    */
   if(args.Length() == 0) {
     
@@ -591,7 +591,7 @@ return scope.Close(v8::String::New(returnValTemp));
 
   
   /*
-   * id: _47276
+   * id: _42577
    */
   if(args.Length() == 0) {
     

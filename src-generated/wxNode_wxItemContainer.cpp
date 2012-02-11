@@ -158,10 +158,10 @@
 
   
   /*
-   * id: _35681
+   * id: _30649
    */
   if(args.Length() == 1 && args[0]->IsString()) {
-    v8::String::AsciiValue item(args[0]->ToString()); /* type: _18997  */
+    v8::String::AsciiValue item(args[0]->ToString()); /* type: _14975  */
     
 
     int returnVal = self->Append(*item);
@@ -170,11 +170,11 @@
   }
   
   /*
-   * id: _35683
+   * id: _30651
    */
   if(args.Length() == 2 && args[0]->IsString() && (args[1]->IsNull() || (args[1]->IsObject() && wxNode_wxClientData::AssignableFrom(args[1]->ToObject()->GetConstructorName())))) {
-    v8::String::AsciiValue item(args[0]->ToString()); /* type: _18997  */
-    wxNode_wxClientData* clientData = args[1]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxClientData>(args[1]->ToObject()); /* type: _65309 * */
+    v8::String::AsciiValue item(args[0]->ToString()); /* type: _14975  */
+    wxNode_wxClientData* clientData = args[1]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxClientData>(args[1]->ToObject()); /* type: _59309 * */
     
 
     int returnVal = self->Append(*item, clientData);
@@ -183,10 +183,10 @@
   }
   
   /*
-   * id: _35684
+   * id: _30652
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxArrayString::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxArrayString* items = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxArrayString>(args[0]->ToObject()); /* type: _25392  */
+    wxNode_wxArrayString* items = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxArrayString>(args[0]->ToObject()); /* type: _20632  */
     
 
     int returnVal = self->Append(*items);
@@ -195,11 +195,11 @@
   }
   
   /*
-   * id: _35686
+   * id: _30654
    */
   if(args.Length() == 2 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxArrayString::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && false) {
-    wxNode_wxArrayString* items = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxArrayString>(args[0]->ToObject()); /* type: _25392  */
-    wxClientData* clientData; /* type: _69469 ** */
+    wxNode_wxArrayString* items = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxArrayString>(args[0]->ToObject()); /* type: _20632  */
+    wxClientData* clientData; /* type: _63378 ** */
     
 
     int returnVal = self->Append(*items, &clientData);
@@ -208,11 +208,11 @@
   }
   
   /*
-   * id: _35687
+   * id: _30655
    */
   if(args.Length() == 2 && args[0]->IsNumber() && args[1]->IsString()) {
-    unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _62  */
-    wxString* items; /* type: _25391 * */
+    unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _44  */
+    wxString* items; /* type: _20631 * */
     
 
     int returnVal = self->Append(n, items);
@@ -221,12 +221,12 @@
   }
   
   /*
-   * id: _35689
+   * id: _30657
    */
   if(args.Length() == 3 && args[0]->IsNumber() && args[1]->IsString() && false) {
-    unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _62  */
-    wxString* items; /* type: _25391 * */
-    wxClientData* clientData; /* type: _69469 ** */
+    unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _44  */
+    wxString* items; /* type: _20631 * */
+    wxClientData* clientData; /* type: _63378 ** */
     
 
     int returnVal = self->Append(n, items, &clientData);
@@ -251,10 +251,10 @@
 
   
   /*
-   * id: _35690
+   * id: _30658
    */
   if(args.Length() == 1 && args[0]->IsString()) {
-    v8::String::AsciiValue item(args[0]->ToString()); /* type: _18997  */
+    v8::String::AsciiValue item(args[0]->ToString()); /* type: _14975  */
     
 
     self->AppendString(*item);
@@ -279,11 +279,11 @@
 
   
   /*
-   * id: _35691
+   * id: _30659
    */
   if(args.Length() == 2 && args[0]->IsString() && args[1]->IsNumber()) {
-    v8::String::AsciiValue item(args[0]->ToString()); /* type: _18997  */
-    unsigned int pos = (unsigned int)args[1]->ToInt32()->Value(); /* type: _62  */
+    v8::String::AsciiValue item(args[0]->ToString()); /* type: _14975  */
+    unsigned int pos = (unsigned int)args[1]->ToInt32()->Value(); /* type: _44  */
     
 
     int returnVal = self->Insert(*item, pos);
@@ -292,12 +292,12 @@
   }
   
   /*
-   * id: _35693
+   * id: _30661
    */
   if(args.Length() == 3 && args[0]->IsString() && args[1]->IsNumber() && (args[2]->IsNull() || (args[2]->IsObject() && wxNode_wxClientData::AssignableFrom(args[2]->ToObject()->GetConstructorName())))) {
-    v8::String::AsciiValue item(args[0]->ToString()); /* type: _18997  */
-    unsigned int pos = (unsigned int)args[1]->ToInt32()->Value(); /* type: _62  */
-    wxNode_wxClientData* clientData = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxClientData>(args[2]->ToObject()); /* type: _65309 * */
+    v8::String::AsciiValue item(args[0]->ToString()); /* type: _14975  */
+    unsigned int pos = (unsigned int)args[1]->ToInt32()->Value(); /* type: _44  */
+    wxNode_wxClientData* clientData = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxClientData>(args[2]->ToObject()); /* type: _59309 * */
     
 
     int returnVal = self->Insert(*item, pos, clientData);
@@ -306,11 +306,11 @@
   }
   
   /*
-   * id: _35694
+   * id: _30662
    */
   if(args.Length() == 2 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxArrayString::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsNumber()) {
-    wxNode_wxArrayString* items = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxArrayString>(args[0]->ToObject()); /* type: _25392  */
-    unsigned int pos = (unsigned int)args[1]->ToInt32()->Value(); /* type: _62  */
+    wxNode_wxArrayString* items = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxArrayString>(args[0]->ToObject()); /* type: _20632  */
+    unsigned int pos = (unsigned int)args[1]->ToInt32()->Value(); /* type: _44  */
     
 
     int returnVal = self->Insert(*items, pos);
@@ -319,12 +319,12 @@
   }
   
   /*
-   * id: _35696
+   * id: _30664
    */
   if(args.Length() == 3 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxArrayString::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsNumber() && false) {
-    wxNode_wxArrayString* items = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxArrayString>(args[0]->ToObject()); /* type: _25392  */
-    unsigned int pos = (unsigned int)args[1]->ToInt32()->Value(); /* type: _62  */
-    wxClientData* clientData; /* type: _69469 ** */
+    wxNode_wxArrayString* items = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxArrayString>(args[0]->ToObject()); /* type: _20632  */
+    unsigned int pos = (unsigned int)args[1]->ToInt32()->Value(); /* type: _44  */
+    wxClientData* clientData; /* type: _63378 ** */
     
 
     int returnVal = self->Insert(*items, pos, &clientData);
@@ -333,12 +333,12 @@
   }
   
   /*
-   * id: _35697
+   * id: _30665
    */
   if(args.Length() == 3 && args[0]->IsNumber() && args[1]->IsString() && args[2]->IsNumber()) {
-    unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _62  */
-    wxString* items; /* type: _25391 * */
-    unsigned int pos = (unsigned int)args[2]->ToInt32()->Value(); /* type: _62  */
+    unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _44  */
+    wxString* items; /* type: _20631 * */
+    unsigned int pos = (unsigned int)args[2]->ToInt32()->Value(); /* type: _44  */
     
 
     int returnVal = self->Insert(n, items, pos);
@@ -347,13 +347,13 @@
   }
   
   /*
-   * id: _35699
+   * id: _30667
    */
   if(args.Length() == 4 && args[0]->IsNumber() && args[1]->IsString() && args[2]->IsNumber() && false) {
-    unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _62  */
-    wxString* items; /* type: _25391 * */
-    unsigned int pos = (unsigned int)args[2]->ToInt32()->Value(); /* type: _62  */
-    wxClientData* clientData; /* type: _69469 ** */
+    unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _44  */
+    wxString* items; /* type: _20631 * */
+    unsigned int pos = (unsigned int)args[2]->ToInt32()->Value(); /* type: _44  */
+    wxClientData* clientData; /* type: _63378 ** */
     
 
     int returnVal = self->Insert(n, items, pos, &clientData);
@@ -378,10 +378,10 @@
 
   
   /*
-   * id: _35700
+   * id: _30668
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxArrayString::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxArrayString* items = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxArrayString>(args[0]->ToObject()); /* type: _25392  */
+    wxNode_wxArrayString* items = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxArrayString>(args[0]->ToObject()); /* type: _20632  */
     
 
     self->Set(*items);
@@ -390,11 +390,11 @@
   }
   
   /*
-   * id: _35702
+   * id: _30670
    */
   if(args.Length() == 2 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxArrayString::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && false) {
-    wxNode_wxArrayString* items = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxArrayString>(args[0]->ToObject()); /* type: _25392  */
-    wxClientData* clientData; /* type: _69469 ** */
+    wxNode_wxArrayString* items = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxArrayString>(args[0]->ToObject()); /* type: _20632  */
+    wxClientData* clientData; /* type: _63378 ** */
     
 
     self->Set(*items, &clientData);
@@ -403,11 +403,11 @@
   }
   
   /*
-   * id: _35703
+   * id: _30671
    */
   if(args.Length() == 2 && args[0]->IsNumber() && args[1]->IsString()) {
-    unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _62  */
-    wxString* items; /* type: _25391 * */
+    unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _44  */
+    wxString* items; /* type: _20631 * */
     
 
     self->Set(n, items);
@@ -416,12 +416,12 @@
   }
   
   /*
-   * id: _35705
+   * id: _30673
    */
   if(args.Length() == 3 && args[0]->IsNumber() && args[1]->IsString() && false) {
-    unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _62  */
-    wxString* items; /* type: _25391 * */
-    wxClientData* clientData; /* type: _69469 ** */
+    unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _44  */
+    wxString* items; /* type: _20631 * */
+    wxClientData* clientData; /* type: _63378 ** */
     
 
     self->Set(n, items, &clientData);
@@ -446,7 +446,7 @@
 
   
   /*
-   * id: _35706
+   * id: _30674
    */
   if(args.Length() == 0) {
     
@@ -473,10 +473,10 @@
 
   
   /*
-   * id: _35707
+   * id: _30675
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _62  */
+    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _44  */
     
 
     self->Delete(pos);
@@ -501,7 +501,7 @@
 
   
   /*
-   * id: _35708
+   * id: _30676
    */
   if(args.Length() == 0) {
     
@@ -544,10 +544,10 @@
 
   
   /*
-   * id: _35710
+   * id: _30678
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _62  */
+    unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _44  */
     
 
     self->GetClientData(n);
@@ -572,11 +572,11 @@
 
   
   /*
-   * id: _35711
+   * id: _30679
    */
   if(args.Length() == 2 && args[0]->IsNumber() && (args[1]->IsNull() || (args[1]->IsObject() && wxNode_wxClientData::AssignableFrom(args[1]->ToObject()->GetConstructorName())))) {
-    unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _62  */
-    wxNode_wxClientData* clientData = args[1]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxClientData>(args[1]->ToObject()); /* type: _65309 * */
+    unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _44  */
+    wxNode_wxClientData* clientData = args[1]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxClientData>(args[1]->ToObject()); /* type: _59309 * */
     
 
     self->SetClientObject(n, clientData);
@@ -601,10 +601,10 @@
 
   
   /*
-   * id: _35712
+   * id: _30680
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _62  */
+    unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _44  */
     
 
     wxClientData* returnVal = self->GetClientObject(n);
@@ -629,10 +629,10 @@
 
   
   /*
-   * id: _35713
+   * id: _30681
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _62  */
+    unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _44  */
     
 
     wxClientData* returnVal = self->DetachClientObject(n);
@@ -657,7 +657,7 @@
 
   
   /*
-   * id: _35714
+   * id: _30682
    */
   if(args.Length() == 0) {
     
@@ -684,7 +684,7 @@
 
   
   /*
-   * id: _35715
+   * id: _30683
    */
   if(args.Length() == 0) {
     
@@ -711,7 +711,7 @@
 
   
   /*
-   * id: _35716
+   * id: _30684
    */
   if(args.Length() == 0) {
     
@@ -738,7 +738,7 @@
 
   
   /*
-   * id: _35717
+   * id: _30685
    */
   if(args.Length() == 0) {
     

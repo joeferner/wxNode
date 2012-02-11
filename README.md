@@ -42,16 +42,24 @@ var app = new MyApp();
 app.run();
 ```
 
+## Building wxWidgets
+```bash
+$ sudo apt-get install libwebkitgtk-dev
+$ ./configure --enable-webview --enable-webview-webkit && make
+$ sudo make install
+```
+
 <a name="create-wxapi"/>
 ## Creating wxapi.xml from wxWidgets
 
 ```bash
+$ sudo apt-get install libwebkitgtk-dev
 $ cd wxWidgets-2.9.3/docs/doxygen
 $ ./regen.sh xml
 $ cd ../..
-$ ./configure
-$ patch -p1 -i ~/wxNode/rungccxml.sh.patch
-$ patch -p1 -i ~/wxNode/strvararg.h.patch
+$ ./configure --enable-webview --enable-webview-webkit
+$ patch -p0 -i ~/wxNode/rungccxml.sh.patch
+$ patch -p0 -i ~/wxNode/strvararg.h.patch
 $ cd utils/ifacecheck/
 $ ./rungccxml.sh
 $ cp wxapi.xml ~/wxNode/wxapi.xml

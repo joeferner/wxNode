@@ -127,7 +127,7 @@ wxNode_wxInfoBar::wxNode_wxInfoBar(wxWindow* parent)
   
   
   /*
-   * id: _60183
+   * id: _54296
    */
   if(args.Length() == 0) {
     
@@ -139,11 +139,11 @@ wxNode_wxInfoBar::wxNode_wxInfoBar(wxWindow* parent)
   }
   
   /*
-   * id: _60184
+   * id: _54297
    */
   if(args.Length() == 2 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxWindow::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsNumber()) {
-    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _1326 * */
-    int winid = (int)args[1]->ToInt32()->Value(); /* type: _11168  */
+    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _1000 * */
+    int winid = (int)args[1]->ToInt32()->Value(); /* type: _8725  */
     
 
     wxNode_wxInfoBar *self = new wxNode_wxInfoBar(parent, winid);
@@ -153,10 +153,10 @@ wxNode_wxInfoBar::wxNode_wxInfoBar(wxWindow* parent)
   }
   
   /*
-   * id: _60184
+   * id: _54297
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxWindow::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _1326 * */
+    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _1000 * */
     
 
     wxNode_wxInfoBar *self = new wxNode_wxInfoBar(parent);
@@ -184,11 +184,11 @@ wxNode_wxInfoBar::wxNode_wxInfoBar(wxWindow* parent)
 
   
   /*
-   * id: _33469
+   * id: _28198
    */
   if(args.Length() == 2 && args[0]->IsString() && args[1]->IsNumber()) {
-    v8::String::AsciiValue msg(args[0]->ToString()); /* type: _18997  */
-    int flags = (int)args[1]->ToInt32()->Value(); /* type: _233  */
+    v8::String::AsciiValue msg(args[0]->ToString()); /* type: _14975  */
+    int flags = (int)args[1]->ToInt32()->Value(); /* type: _165  */
     
 
     self->ShowMessage(*msg, flags);
@@ -197,10 +197,10 @@ wxNode_wxInfoBar::wxNode_wxInfoBar(wxWindow* parent)
   }
   
   /*
-   * id: _33469
+   * id: _28198
    */
   if(args.Length() == 1 && args[0]->IsString()) {
-    v8::String::AsciiValue msg(args[0]->ToString()); /* type: _18997  */
+    v8::String::AsciiValue msg(args[0]->ToString()); /* type: _14975  */
     
 
     self->ShowMessage(*msg);
@@ -225,7 +225,7 @@ wxNode_wxInfoBar::wxNode_wxInfoBar(wxWindow* parent)
 
   
   /*
-   * id: _33470
+   * id: _28199
    */
   if(args.Length() == 0) {
     
@@ -252,11 +252,11 @@ wxNode_wxInfoBar::wxNode_wxInfoBar(wxWindow* parent)
 
   
   /*
-   * id: _33471
+   * id: _28200
    */
   if(args.Length() == 2 && args[0]->IsNumber() && args[1]->IsString()) {
-    int btnid = (int)args[0]->ToInt32()->Value(); /* type: _11168  */
-    v8::String::AsciiValue label(args[1]->ToString()); /* type: _18997  */
+    int btnid = (int)args[0]->ToInt32()->Value(); /* type: _8725  */
+    v8::String::AsciiValue label(args[1]->ToString()); /* type: _14975  */
     
 
     self->AddButton(btnid, *label);
@@ -265,10 +265,10 @@ wxNode_wxInfoBar::wxNode_wxInfoBar(wxWindow* parent)
   }
   
   /*
-   * id: _33471
+   * id: _28200
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    int btnid = (int)args[0]->ToInt32()->Value(); /* type: _11168  */
+    int btnid = (int)args[0]->ToInt32()->Value(); /* type: _8725  */
     
 
     self->AddButton(btnid);
@@ -293,10 +293,10 @@ wxNode_wxInfoBar::wxNode_wxInfoBar(wxWindow* parent)
 
   
   /*
-   * id: _33472
+   * id: _28201
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    int btnid = (int)args[0]->ToInt32()->Value(); /* type: _11168  */
+    int btnid = (int)args[0]->ToInt32()->Value(); /* type: _8725  */
     
 
     self->RemoveButton(btnid);

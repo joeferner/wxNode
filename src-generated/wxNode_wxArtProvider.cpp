@@ -131,10 +131,10 @@ wxNode_wxArtProvider::wxNode_wxArtProvider()
   
   
   /*
-   * id: _39958
+   * id: _35328
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxArtProvider::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxArtProvider* arg0 = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxArtProvider>(args[0]->ToObject()); /* type: _70573  */
+    wxNode_wxArtProvider* arg0 = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxArtProvider>(args[0]->ToObject()); /* type: _64567  */
     
 
     wxNode_wxArtProvider *self = new wxNode_wxArtProvider(*arg0);
@@ -144,7 +144,7 @@ wxNode_wxArtProvider::wxNode_wxArtProvider()
   }
   
   /*
-   * id: _39959
+   * id: _35329
    */
   if(args.Length() == 0) {
     
@@ -174,7 +174,7 @@ wxNode_wxArtProvider::wxNode_wxArtProvider()
 
   
   /*
-   * id: _39961
+   * id: _35331
    */
   if(args.Length() == 0) {
     
@@ -201,10 +201,10 @@ wxNode_wxArtProvider::wxNode_wxArtProvider()
 
   
   /*
-   * id: _39962
+   * id: _35332
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxArtProvider::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxArtProvider* provider = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxArtProvider>(args[0]->ToObject()); /* type: _70574 * */
+    wxNode_wxArtProvider* provider = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxArtProvider>(args[0]->ToObject()); /* type: _64568 * */
     
 
     self->Push(provider);
@@ -229,10 +229,10 @@ wxNode_wxArtProvider::wxNode_wxArtProvider()
 
   
   /*
-   * id: _39963
+   * id: _35333
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxArtProvider::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxArtProvider* provider = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxArtProvider>(args[0]->ToObject()); /* type: _70574 * */
+    wxNode_wxArtProvider* provider = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxArtProvider>(args[0]->ToObject()); /* type: _64568 * */
     
 
     self->PushBack(provider);
@@ -257,7 +257,7 @@ wxNode_wxArtProvider::wxNode_wxArtProvider()
 
   
   /*
-   * id: _39965
+   * id: _35335
    */
   if(args.Length() == 0) {
     
@@ -284,10 +284,10 @@ wxNode_wxArtProvider::wxNode_wxArtProvider()
 
   
   /*
-   * id: _39966
+   * id: _35336
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxArtProvider::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxArtProvider* provider = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxArtProvider>(args[0]->ToObject()); /* type: _70574 * */
+    wxNode_wxArtProvider* provider = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxArtProvider>(args[0]->ToObject()); /* type: _64568 * */
     
 
     bool returnVal = self->Remove(provider);
@@ -312,10 +312,10 @@ wxNode_wxArtProvider::wxNode_wxArtProvider()
 
   
   /*
-   * id: _39967
+   * id: _35337
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxArtProvider::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxArtProvider* provider = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxArtProvider>(args[0]->ToObject()); /* type: _70574 * */
+    wxNode_wxArtProvider* provider = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxArtProvider>(args[0]->ToObject()); /* type: _64568 * */
     
 
     bool returnVal = self->Delete(provider);
@@ -340,12 +340,12 @@ wxNode_wxArtProvider::wxNode_wxArtProvider()
 
   
   /*
-   * id: _39968
+   * id: _35338
    */
   if(args.Length() == 3 && args[0]->IsString() && args[1]->IsString() && (args[2]->IsNull() || (args[2]->IsObject() && wxNode_wxSize::AssignableFrom(args[2]->ToObject()->GetConstructorName())))) {
-    v8::String::AsciiValue id(args[0]->ToString()); /* type: _70575  */
-    v8::String::AsciiValue client(args[1]->ToString()); /* type: _70576  */
-    wxNode_wxSize* size = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[2]->ToObject()); /* type: _25379  */
+    v8::String::AsciiValue id(args[0]->ToString()); /* type: _64569  */
+    v8::String::AsciiValue client(args[1]->ToString()); /* type: _64570  */
+    wxNode_wxSize* size = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[2]->ToObject()); /* type: _20628  */
     
 
     wxBitmap returnVal = self->GetBitmap(*id, *client, *size);
@@ -354,11 +354,11 @@ wxNode_wxArtProvider::wxNode_wxArtProvider()
   }
   
   /*
-   * id: _39968
+   * id: _35338
    */
   if(args.Length() == 2 && args[0]->IsString() && args[1]->IsString()) {
-    v8::String::AsciiValue id(args[0]->ToString()); /* type: _70575  */
-    v8::String::AsciiValue client(args[1]->ToString()); /* type: _70576  */
+    v8::String::AsciiValue id(args[0]->ToString()); /* type: _64569  */
+    v8::String::AsciiValue client(args[1]->ToString()); /* type: _64570  */
     
 
     wxBitmap returnVal = self->GetBitmap(*id, *client);
@@ -367,10 +367,10 @@ wxNode_wxArtProvider::wxNode_wxArtProvider()
   }
   
   /*
-   * id: _39968
+   * id: _35338
    */
   if(args.Length() == 1 && args[0]->IsString()) {
-    v8::String::AsciiValue id(args[0]->ToString()); /* type: _70575  */
+    v8::String::AsciiValue id(args[0]->ToString()); /* type: _64569  */
     
 
     wxBitmap returnVal = self->GetBitmap(*id);
@@ -395,12 +395,12 @@ wxNode_wxArtProvider::wxNode_wxArtProvider()
 
   
   /*
-   * id: _39969
+   * id: _35339
    */
   if(args.Length() == 3 && args[0]->IsString() && args[1]->IsString() && (args[2]->IsNull() || (args[2]->IsObject() && wxNode_wxSize::AssignableFrom(args[2]->ToObject()->GetConstructorName())))) {
-    v8::String::AsciiValue id(args[0]->ToString()); /* type: _70575  */
-    v8::String::AsciiValue client(args[1]->ToString()); /* type: _70576  */
-    wxNode_wxSize* size = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[2]->ToObject()); /* type: _25379  */
+    v8::String::AsciiValue id(args[0]->ToString()); /* type: _64569  */
+    v8::String::AsciiValue client(args[1]->ToString()); /* type: _64570  */
+    wxNode_wxSize* size = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[2]->ToObject()); /* type: _20628  */
     
 
     wxIcon returnVal = self->GetIcon(*id, *client, *size);
@@ -409,11 +409,11 @@ wxNode_wxArtProvider::wxNode_wxArtProvider()
   }
   
   /*
-   * id: _39969
+   * id: _35339
    */
   if(args.Length() == 2 && args[0]->IsString() && args[1]->IsString()) {
-    v8::String::AsciiValue id(args[0]->ToString()); /* type: _70575  */
-    v8::String::AsciiValue client(args[1]->ToString()); /* type: _70576  */
+    v8::String::AsciiValue id(args[0]->ToString()); /* type: _64569  */
+    v8::String::AsciiValue client(args[1]->ToString()); /* type: _64570  */
     
 
     wxIcon returnVal = self->GetIcon(*id, *client);
@@ -422,10 +422,10 @@ wxNode_wxArtProvider::wxNode_wxArtProvider()
   }
   
   /*
-   * id: _39969
+   * id: _35339
    */
   if(args.Length() == 1 && args[0]->IsString()) {
-    v8::String::AsciiValue id(args[0]->ToString()); /* type: _70575  */
+    v8::String::AsciiValue id(args[0]->ToString()); /* type: _64569  */
     
 
     wxIcon returnVal = self->GetIcon(*id);
@@ -450,10 +450,10 @@ wxNode_wxArtProvider::wxNode_wxArtProvider()
 
   
   /*
-   * id: _39970
+   * id: _35340
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    int flags = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    int flags = (int)args[0]->ToInt32()->Value(); /* type: _165  */
     
 
     wxString returnVal = self->GetMessageBoxIconId(flags);
@@ -478,10 +478,10 @@ wxNode_wxArtProvider::wxNode_wxArtProvider()
 
   
   /*
-   * id: _39971
+   * id: _35341
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    int flags = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    int flags = (int)args[0]->ToInt32()->Value(); /* type: _165  */
     
 
     wxIcon returnVal = self->GetMessageBoxIcon(flags);
@@ -506,11 +506,11 @@ wxNode_wxArtProvider::wxNode_wxArtProvider()
 
   
   /*
-   * id: _39972
+   * id: _35342
    */
   if(args.Length() == 2 && args[0]->IsString() && args[1]->IsString()) {
-    v8::String::AsciiValue id(args[0]->ToString()); /* type: _70575  */
-    v8::String::AsciiValue client(args[1]->ToString()); /* type: _70576  */
+    v8::String::AsciiValue id(args[0]->ToString()); /* type: _64569  */
+    v8::String::AsciiValue client(args[1]->ToString()); /* type: _64570  */
     
 
     wxIconBundle returnVal = self->GetIconBundle(*id, *client);
@@ -519,10 +519,10 @@ wxNode_wxArtProvider::wxNode_wxArtProvider()
   }
   
   /*
-   * id: _39972
+   * id: _35342
    */
   if(args.Length() == 1 && args[0]->IsString()) {
-    v8::String::AsciiValue id(args[0]->ToString()); /* type: _70575  */
+    v8::String::AsciiValue id(args[0]->ToString()); /* type: _64569  */
     
 
     wxIconBundle returnVal = self->GetIconBundle(*id);
@@ -547,10 +547,10 @@ wxNode_wxArtProvider::wxNode_wxArtProvider()
 
   
   /*
-   * id: _39973
+   * id: _35343
    */
   if(args.Length() == 1 && args[0]->IsString()) {
-    v8::String::AsciiValue client(args[0]->ToString()); /* type: _70576  */
+    v8::String::AsciiValue client(args[0]->ToString()); /* type: _64570  */
     
 
     wxSize returnVal = self->GetNativeSizeHint(*client);
@@ -575,11 +575,11 @@ wxNode_wxArtProvider::wxNode_wxArtProvider()
 
   
   /*
-   * id: _39974
+   * id: _35344
    */
   if(args.Length() == 2 && args[0]->IsString() && args[1]->IsBoolean()) {
-    v8::String::AsciiValue client(args[0]->ToString()); /* type: _70576  */
-    bool platform_dependent = args[1]->ToBoolean()->Value(); /* type: _18804  */
+    v8::String::AsciiValue client(args[0]->ToString()); /* type: _64570  */
+    bool platform_dependent = args[1]->ToBoolean()->Value(); /* type: _14830  */
     
 
     wxSize returnVal = self->GetSizeHint(*client, platform_dependent);
@@ -588,10 +588,10 @@ wxNode_wxArtProvider::wxNode_wxArtProvider()
   }
   
   /*
-   * id: _39974
+   * id: _35344
    */
   if(args.Length() == 1 && args[0]->IsString()) {
-    v8::String::AsciiValue client(args[0]->ToString()); /* type: _70576  */
+    v8::String::AsciiValue client(args[0]->ToString()); /* type: _64570  */
     
 
     wxSize returnVal = self->GetSizeHint(*client);
@@ -616,7 +616,7 @@ wxNode_wxArtProvider::wxNode_wxArtProvider()
 
   
   /*
-   * id: _39983
+   * id: _35353
    */
   if(args.Length() == 0) {
     

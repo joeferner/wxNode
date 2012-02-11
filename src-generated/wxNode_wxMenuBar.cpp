@@ -158,7 +158,7 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
   
   
   /*
-   * id: _48494
+   * id: _43643
    */
   if(args.Length() == 0) {
     
@@ -170,10 +170,10 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
   }
   
   /*
-   * id: _48495
+   * id: _43644
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    long int style = (long int)args[0]->ToInt32()->Value(); /* type: _766  */
+    long int style = (long int)args[0]->ToInt32()->Value(); /* type: _592  */
     
 
     wxNode_wxMenuBar *self = new wxNode_wxMenuBar(style);
@@ -183,13 +183,13 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
   }
   
   /*
-   * id: _48496
+   * id: _43645
    */
   if(args.Length() == 4 && args[0]->IsNumber() && false && args[2]->IsString() && args[3]->IsNumber()) {
-    unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _11150  */
-    wxMenu* menus; /* type: _71440 ** */
-    wxString* titles; /* type: _25391 * */
-    long int style = (long int)args[3]->ToInt32()->Value(); /* type: _766  */
+    unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8711  */
+    wxMenu* menus; /* type: _65427 ** */
+    wxString* titles; /* type: _20631 * */
+    long int style = (long int)args[3]->ToInt32()->Value(); /* type: _592  */
     
 
     wxNode_wxMenuBar *self = new wxNode_wxMenuBar(n, &menus, titles, style);
@@ -199,12 +199,12 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
   }
   
   /*
-   * id: _48496
+   * id: _43645
    */
   if(args.Length() == 3 && args[0]->IsNumber() && false && args[2]->IsString()) {
-    unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _11150  */
-    wxMenu* menus; /* type: _71440 ** */
-    wxString* titles; /* type: _25391 * */
+    unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8711  */
+    wxMenu* menus; /* type: _65427 ** */
+    wxString* titles; /* type: _20631 * */
     
 
     wxNode_wxMenuBar *self = new wxNode_wxMenuBar(n, &menus, titles);
@@ -232,11 +232,11 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
 
   
   /*
-   * id: _44225
+   * id: _39739
    */
   if(args.Length() == 2 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxMenu::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsString()) {
-    wxNode_wxMenu* menu = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenu>(args[0]->ToObject()); /* type: _58498 * */
-    v8::String::AsciiValue title(args[1]->ToString()); /* type: _18997  */
+    wxNode_wxMenu* menu = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenu>(args[0]->ToObject()); /* type: _53132 * */
+    v8::String::AsciiValue title(args[1]->ToString()); /* type: _14975  */
     
 
     bool returnVal = self->Append(menu, *title);
@@ -261,12 +261,12 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
 
   
   /*
-   * id: _44226
+   * id: _39740
    */
   if(args.Length() == 3 && args[0]->IsNumber() && (args[1]->IsNull() || (args[1]->IsObject() && wxNode_wxMenu::AssignableFrom(args[1]->ToObject()->GetConstructorName()))) && args[2]->IsString()) {
-    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _11150  */
-    wxNode_wxMenu* menu = args[1]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenu>(args[1]->ToObject()); /* type: _58498 * */
-    v8::String::AsciiValue title(args[2]->ToString()); /* type: _18997  */
+    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8711  */
+    wxNode_wxMenu* menu = args[1]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenu>(args[1]->ToObject()); /* type: _53132 * */
+    v8::String::AsciiValue title(args[2]->ToString()); /* type: _14975  */
     
 
     bool returnVal = self->Insert(pos, menu, *title);
@@ -291,7 +291,7 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
 
   
   /*
-   * id: _44227
+   * id: _39741
    */
   if(args.Length() == 0) {
     
@@ -318,10 +318,10 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
 
   
   /*
-   * id: _44228
+   * id: _39742
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _11150  */
+    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8711  */
     
 
     wxMenu* returnVal = self->GetMenu(pos);
@@ -346,12 +346,12 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
 
   
   /*
-   * id: _44229
+   * id: _39743
    */
   if(args.Length() == 3 && args[0]->IsNumber() && (args[1]->IsNull() || (args[1]->IsObject() && wxNode_wxMenu::AssignableFrom(args[1]->ToObject()->GetConstructorName()))) && args[2]->IsString()) {
-    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _11150  */
-    wxNode_wxMenu* menu = args[1]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenu>(args[1]->ToObject()); /* type: _58498 * */
-    v8::String::AsciiValue title(args[2]->ToString()); /* type: _18997  */
+    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8711  */
+    wxNode_wxMenu* menu = args[1]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenu>(args[1]->ToObject()); /* type: _53132 * */
+    v8::String::AsciiValue title(args[2]->ToString()); /* type: _14975  */
     
 
     wxMenu* returnVal = self->Replace(pos, menu, *title);
@@ -376,10 +376,10 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
 
   
   /*
-   * id: _44230
+   * id: _39744
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _11150  */
+    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8711  */
     
 
     wxMenu* returnVal = self->Remove(pos);
@@ -404,11 +404,11 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
 
   
   /*
-   * id: _44231
+   * id: _39745
    */
   if(args.Length() == 2 && args[0]->IsNumber() && args[1]->IsBoolean()) {
-    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _11150  */
-    bool enable = args[1]->ToBoolean()->Value(); /* type: _18804  */
+    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8711  */
+    bool enable = args[1]->ToBoolean()->Value(); /* type: _14830  */
     
 
     self->EnableTop(pos, enable);
@@ -433,10 +433,10 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
 
   
   /*
-   * id: _44232
+   * id: _39746
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    unsigned int arg0 = (unsigned int)args[0]->ToInt32()->Value(); /* type: _11150  */
+    unsigned int arg0 = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8711  */
     
 
     bool returnVal = self->IsEnabledTop(arg0);
@@ -461,11 +461,11 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
 
   
   /*
-   * id: _44233
+   * id: _39747
    */
   if(args.Length() == 2 && args[0]->IsNumber() && args[1]->IsString()) {
-    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _11150  */
-    v8::String::AsciiValue label(args[1]->ToString()); /* type: _18997  */
+    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8711  */
+    v8::String::AsciiValue label(args[1]->ToString()); /* type: _14975  */
     
 
     self->SetMenuLabel(pos, *label);
@@ -490,10 +490,10 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
 
   
   /*
-   * id: _44234
+   * id: _39748
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _11150  */
+    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8711  */
     
 
     wxString returnVal = self->GetMenuLabel(pos);
@@ -518,10 +518,10 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
 
   
   /*
-   * id: _44235
+   * id: _39749
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _11150  */
+    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8711  */
     
 
     wxString returnVal = self->GetMenuLabelText(pos);
@@ -546,11 +546,11 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
 
   
   /*
-   * id: _44236
+   * id: _39750
    */
   if(args.Length() == 2 && args[0]->IsString() && args[1]->IsString()) {
-    v8::String::AsciiValue menu(args[0]->ToString()); /* type: _18997  */
-    v8::String::AsciiValue item(args[1]->ToString()); /* type: _18997  */
+    v8::String::AsciiValue menu(args[0]->ToString()); /* type: _14975  */
+    v8::String::AsciiValue item(args[1]->ToString()); /* type: _14975  */
     
 
     int returnVal = self->FindMenuItem(*menu, *item);
@@ -575,11 +575,11 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
 
   
   /*
-   * id: _44237
+   * id: _39751
    */
   if(args.Length() == 2 && args[0]->IsNumber() && false) {
-    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
-    wxMenu* menu; /* type: _71440 ** */
+    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _165  */
+    wxMenu* menu; /* type: _65427 ** */
     
 
     wxMenuItem* returnVal = self->FindItem(itemid, &menu);
@@ -588,10 +588,10 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
   }
   
   /*
-   * id: _44237
+   * id: _39751
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _165  */
     
 
     wxMenuItem* returnVal = self->FindItem(itemid);
@@ -616,10 +616,10 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
 
   
   /*
-   * id: _44238
+   * id: _39752
    */
   if(args.Length() == 1 && args[0]->IsString()) {
-    v8::String::AsciiValue title(args[0]->ToString()); /* type: _18997  */
+    v8::String::AsciiValue title(args[0]->ToString()); /* type: _14975  */
     
 
     int returnVal = self->FindMenu(*title);
@@ -644,11 +644,11 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
 
   
   /*
-   * id: _44239
+   * id: _39753
    */
   if(args.Length() == 2 && args[0]->IsNumber() && args[1]->IsBoolean()) {
-    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
-    bool enable = args[1]->ToBoolean()->Value(); /* type: _18804  */
+    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _165  */
+    bool enable = args[1]->ToBoolean()->Value(); /* type: _14830  */
     
 
     self->Enable(itemid, enable);
@@ -657,10 +657,10 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
   }
   
   /*
-   * id: _44252
+   * id: _39766
    */
   if(args.Length() == 1 && args[0]->IsBoolean()) {
-    bool enable = args[0]->ToBoolean()->Value(); /* type: _18804  */
+    bool enable = args[0]->ToBoolean()->Value(); /* type: _14830  */
     
 
     bool returnVal = self->Enable(enable);
@@ -669,7 +669,7 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
   }
   
   /*
-   * id: _44252
+   * id: _39766
    */
   if(args.Length() == 0) {
     
@@ -696,11 +696,11 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
 
   
   /*
-   * id: _44240
+   * id: _39754
    */
   if(args.Length() == 2 && args[0]->IsNumber() && args[1]->IsBoolean()) {
-    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
-    bool check = args[1]->ToBoolean()->Value(); /* type: _18804  */
+    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _165  */
+    bool check = args[1]->ToBoolean()->Value(); /* type: _14830  */
     
 
     self->Check(itemid, check);
@@ -725,10 +725,10 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
 
   
   /*
-   * id: _44241
+   * id: _39755
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _165  */
     
 
     bool returnVal = self->IsChecked(itemid);
@@ -753,10 +753,10 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
 
   
   /*
-   * id: _44242
+   * id: _39756
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _165  */
     
 
     bool returnVal = self->IsEnabled(itemid);
@@ -765,7 +765,7 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
   }
   
   /*
-   * id: _44243
+   * id: _39757
    */
   if(args.Length() == 0) {
     
@@ -792,11 +792,11 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
 
   
   /*
-   * id: _44244
+   * id: _39758
    */
   if(args.Length() == 2 && args[0]->IsNumber() && args[1]->IsString()) {
-    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
-    v8::String::AsciiValue label(args[1]->ToString()); /* type: _18997  */
+    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _165  */
+    v8::String::AsciiValue label(args[1]->ToString()); /* type: _14975  */
     
 
     self->SetLabel(itemid, *label);
@@ -805,10 +805,10 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
   }
   
   /*
-   * id: _44253
+   * id: _39767
    */
   if(args.Length() == 1 && args[0]->IsString()) {
-    v8::String::AsciiValue s(args[0]->ToString()); /* type: _18997  */
+    v8::String::AsciiValue s(args[0]->ToString()); /* type: _14975  */
     
 
     self->SetLabel(*s);
@@ -833,10 +833,10 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
 
   
   /*
-   * id: _44245
+   * id: _39759
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _165  */
     
 
     wxString returnVal = self->GetLabel(itemid);
@@ -845,7 +845,7 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
   }
   
   /*
-   * id: _44254
+   * id: _39768
    */
   if(args.Length() == 0) {
     
@@ -872,11 +872,11 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
 
   
   /*
-   * id: _44246
+   * id: _39760
    */
   if(args.Length() == 2 && args[0]->IsNumber() && args[1]->IsString()) {
-    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
-    v8::String::AsciiValue helpString(args[1]->ToString()); /* type: _18997  */
+    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _165  */
+    v8::String::AsciiValue helpString(args[1]->ToString()); /* type: _14975  */
     
 
     self->SetHelpString(itemid, *helpString);
@@ -901,10 +901,10 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
 
   
   /*
-   * id: _44247
+   * id: _39761
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _165  */
     
 
     wxString returnVal = self->GetHelpString(itemid);
@@ -929,7 +929,7 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
 
   
   /*
-   * id: _44248
+   * id: _39762
    */
   if(args.Length() == 0) {
     
@@ -956,7 +956,7 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
 
   
   /*
-   * id: _44249
+   * id: _39763
    */
   if(args.Length() == 0) {
     
@@ -983,10 +983,10 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
 
   
   /*
-   * id: _44250
+   * id: _39764
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxFrame::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxFrame* frame = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxFrame>(args[0]->ToObject()); /* type: _37574 * */
+    wxNode_wxFrame* frame = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxFrame>(args[0]->ToObject()); /* type: _32795 * */
     
 
     self->Attach(frame);
@@ -1011,7 +1011,7 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
 
   
   /*
-   * id: _44251
+   * id: _39765
    */
   if(args.Length() == 0) {
     
@@ -1038,7 +1038,7 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
 
   
   /*
-   * id: _44255
+   * id: _39769
    */
   if(args.Length() == 0) {
     
@@ -1065,7 +1065,7 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
 
   
   /*
-   * id: _44256
+   * id: _39770
    */
   if(args.Length() == 0) {
     
@@ -1092,7 +1092,7 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
 
   
   /*
-   * id: _44257
+   * id: _39771
    */
   if(args.Length() == 0) {
     

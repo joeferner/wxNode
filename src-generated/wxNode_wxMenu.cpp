@@ -177,11 +177,11 @@ wxNode_wxMenu::wxNode_wxMenu()
   
   
   /*
-   * id: _22225
+   * id: _17846
    */
   if(args.Length() == 2 && args[0]->IsString() && args[1]->IsNumber()) {
-    v8::String::AsciiValue title(args[0]->ToString()); /* type: _18997  */
-    long int style = (long int)args[1]->ToInt32()->Value(); /* type: _766  */
+    v8::String::AsciiValue title(args[0]->ToString()); /* type: _14975  */
+    long int style = (long int)args[1]->ToInt32()->Value(); /* type: _592  */
     
 
     wxNode_wxMenu *self = new wxNode_wxMenu(*title, style);
@@ -191,10 +191,10 @@ wxNode_wxMenu::wxNode_wxMenu()
   }
   
   /*
-   * id: _22225
+   * id: _17846
    */
   if(args.Length() == 1 && args[0]->IsString()) {
-    v8::String::AsciiValue title(args[0]->ToString()); /* type: _18997  */
+    v8::String::AsciiValue title(args[0]->ToString()); /* type: _14975  */
     
 
     wxNode_wxMenu *self = new wxNode_wxMenu(*title);
@@ -204,10 +204,10 @@ wxNode_wxMenu::wxNode_wxMenu()
   }
   
   /*
-   * id: _22226
+   * id: _17847
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    long int style = (long int)args[0]->ToInt32()->Value(); /* type: _766  */
+    long int style = (long int)args[0]->ToInt32()->Value(); /* type: _592  */
     
 
     wxNode_wxMenu *self = new wxNode_wxMenu(style);
@@ -217,7 +217,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   }
   
   /*
-   * id: _22226
+   * id: _17847
    */
   if(args.Length() == 0) {
     
@@ -247,13 +247,13 @@ wxNode_wxMenu::wxNode_wxMenu()
 
   
   /*
-   * id: _49879
+   * id: _44960
    */
   if(args.Length() == 4 && args[0]->IsNumber() && args[1]->IsString() && args[2]->IsString() && args[3]->IsNumber()) {
-    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
-    v8::String::AsciiValue text(args[1]->ToString()); /* type: _18997  */
-    v8::String::AsciiValue help(args[2]->ToString()); /* type: _18997  */
-    wxItemKind kind = (wxItemKind)args[3]->ToNumber()->Value(); /* type: _6215  */
+    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _165  */
+    v8::String::AsciiValue text(args[1]->ToString()); /* type: _14975  */
+    v8::String::AsciiValue help(args[2]->ToString()); /* type: _14975  */
+    wxItemKind kind = (wxItemKind)args[3]->ToNumber()->Value(); /* type: _4680  */
     
 
     wxMenuItem* returnVal = self->Append(itemid, *text, *help, kind);
@@ -262,12 +262,12 @@ wxNode_wxMenu::wxNode_wxMenu()
   }
   
   /*
-   * id: _49879
+   * id: _44960
    */
   if(args.Length() == 3 && args[0]->IsNumber() && args[1]->IsString() && args[2]->IsString()) {
-    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
-    v8::String::AsciiValue text(args[1]->ToString()); /* type: _18997  */
-    v8::String::AsciiValue help(args[2]->ToString()); /* type: _18997  */
+    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _165  */
+    v8::String::AsciiValue text(args[1]->ToString()); /* type: _14975  */
+    v8::String::AsciiValue help(args[2]->ToString()); /* type: _14975  */
     
 
     wxMenuItem* returnVal = self->Append(itemid, *text, *help);
@@ -276,11 +276,11 @@ wxNode_wxMenu::wxNode_wxMenu()
   }
   
   /*
-   * id: _49879
+   * id: _44960
    */
   if(args.Length() == 2 && args[0]->IsNumber() && args[1]->IsString()) {
-    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
-    v8::String::AsciiValue text(args[1]->ToString()); /* type: _18997  */
+    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _165  */
+    v8::String::AsciiValue text(args[1]->ToString()); /* type: _14975  */
     
 
     wxMenuItem* returnVal = self->Append(itemid, *text);
@@ -289,10 +289,10 @@ wxNode_wxMenu::wxNode_wxMenu()
   }
   
   /*
-   * id: _49879
+   * id: _44960
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _165  */
     
 
     wxMenuItem* returnVal = self->Append(itemid);
@@ -301,10 +301,10 @@ wxNode_wxMenu::wxNode_wxMenu()
   }
   
   /*
-   * id: _49884
+   * id: _44965
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxMenuItem::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxMenuItem* item = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenuItem>(args[0]->ToObject()); /* type: _57216 * */
+    wxNode_wxMenuItem* item = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenuItem>(args[0]->ToObject()); /* type: _51977 * */
     
 
     wxMenuItem* returnVal = self->Append(item);
@@ -313,13 +313,13 @@ wxNode_wxMenu::wxNode_wxMenu()
   }
   
   /*
-   * id: _49936
+   * id: _45017
    */
   if(args.Length() == 4 && args[0]->IsNumber() && args[1]->IsString() && args[2]->IsString() && args[3]->IsBoolean()) {
-    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
-    v8::String::AsciiValue text(args[1]->ToString()); /* type: _18997  */
-    v8::String::AsciiValue help(args[2]->ToString()); /* type: _18997  */
-    bool isCheckable = args[3]->ToBoolean()->Value(); /* type: _18804  */
+    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _165  */
+    v8::String::AsciiValue text(args[1]->ToString()); /* type: _14975  */
+    v8::String::AsciiValue help(args[2]->ToString()); /* type: _14975  */
+    bool isCheckable = args[3]->ToBoolean()->Value(); /* type: _14830  */
     
 
     self->Append(itemid, *text, *help, isCheckable);
@@ -328,13 +328,13 @@ wxNode_wxMenu::wxNode_wxMenu()
   }
   
   /*
-   * id: _49937
+   * id: _45018
    */
   if(args.Length() == 4 && args[0]->IsNumber() && args[1]->IsString() && (args[2]->IsNull() || (args[2]->IsObject() && wxNode_wxMenu::AssignableFrom(args[2]->ToObject()->GetConstructorName()))) && args[3]->IsString()) {
-    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
-    v8::String::AsciiValue text(args[1]->ToString()); /* type: _18997  */
-    wxNode_wxMenu* submenu = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenu>(args[2]->ToObject()); /* type: _58498 * */
-    v8::String::AsciiValue help(args[3]->ToString()); /* type: _18997  */
+    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _165  */
+    v8::String::AsciiValue text(args[1]->ToString()); /* type: _14975  */
+    wxNode_wxMenu* submenu = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenu>(args[2]->ToObject()); /* type: _53132 * */
+    v8::String::AsciiValue help(args[3]->ToString()); /* type: _14975  */
     
 
     wxMenuItem* returnVal = self->Append(itemid, *text, submenu, *help);
@@ -343,12 +343,12 @@ wxNode_wxMenu::wxNode_wxMenu()
   }
   
   /*
-   * id: _49937
+   * id: _45018
    */
   if(args.Length() == 3 && args[0]->IsNumber() && args[1]->IsString() && (args[2]->IsNull() || (args[2]->IsObject() && wxNode_wxMenu::AssignableFrom(args[2]->ToObject()->GetConstructorName())))) {
-    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
-    v8::String::AsciiValue text(args[1]->ToString()); /* type: _18997  */
-    wxNode_wxMenu* submenu = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenu>(args[2]->ToObject()); /* type: _58498 * */
+    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _165  */
+    v8::String::AsciiValue text(args[1]->ToString()); /* type: _14975  */
+    wxNode_wxMenu* submenu = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenu>(args[2]->ToObject()); /* type: _53132 * */
     
 
     wxMenuItem* returnVal = self->Append(itemid, *text, submenu);
@@ -373,7 +373,7 @@ wxNode_wxMenu::wxNode_wxMenu()
 
   
   /*
-   * id: _49880
+   * id: _44961
    */
   if(args.Length() == 0) {
     
@@ -400,12 +400,12 @@ wxNode_wxMenu::wxNode_wxMenu()
 
   
   /*
-   * id: _49881
+   * id: _44962
    */
   if(args.Length() == 3 && args[0]->IsNumber() && args[1]->IsString() && args[2]->IsString()) {
-    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
-    v8::String::AsciiValue text(args[1]->ToString()); /* type: _18997  */
-    v8::String::AsciiValue help(args[2]->ToString()); /* type: _18997  */
+    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _165  */
+    v8::String::AsciiValue text(args[1]->ToString()); /* type: _14975  */
+    v8::String::AsciiValue help(args[2]->ToString()); /* type: _14975  */
     
 
     wxMenuItem* returnVal = self->AppendCheckItem(itemid, *text, *help);
@@ -414,11 +414,11 @@ wxNode_wxMenu::wxNode_wxMenu()
   }
   
   /*
-   * id: _49881
+   * id: _44962
    */
   if(args.Length() == 2 && args[0]->IsNumber() && args[1]->IsString()) {
-    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
-    v8::String::AsciiValue text(args[1]->ToString()); /* type: _18997  */
+    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _165  */
+    v8::String::AsciiValue text(args[1]->ToString()); /* type: _14975  */
     
 
     wxMenuItem* returnVal = self->AppendCheckItem(itemid, *text);
@@ -443,12 +443,12 @@ wxNode_wxMenu::wxNode_wxMenu()
 
   
   /*
-   * id: _49882
+   * id: _44963
    */
   if(args.Length() == 3 && args[0]->IsNumber() && args[1]->IsString() && args[2]->IsString()) {
-    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
-    v8::String::AsciiValue text(args[1]->ToString()); /* type: _18997  */
-    v8::String::AsciiValue help(args[2]->ToString()); /* type: _18997  */
+    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _165  */
+    v8::String::AsciiValue text(args[1]->ToString()); /* type: _14975  */
+    v8::String::AsciiValue help(args[2]->ToString()); /* type: _14975  */
     
 
     wxMenuItem* returnVal = self->AppendRadioItem(itemid, *text, *help);
@@ -457,11 +457,11 @@ wxNode_wxMenu::wxNode_wxMenu()
   }
   
   /*
-   * id: _49882
+   * id: _44963
    */
   if(args.Length() == 2 && args[0]->IsNumber() && args[1]->IsString()) {
-    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
-    v8::String::AsciiValue text(args[1]->ToString()); /* type: _18997  */
+    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _165  */
+    v8::String::AsciiValue text(args[1]->ToString()); /* type: _14975  */
     
 
     wxMenuItem* returnVal = self->AppendRadioItem(itemid, *text);
@@ -486,12 +486,12 @@ wxNode_wxMenu::wxNode_wxMenu()
 
   
   /*
-   * id: _49883
+   * id: _44964
    */
   if(args.Length() == 3 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxMenu::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsString() && args[2]->IsString()) {
-    wxNode_wxMenu* submenu = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenu>(args[0]->ToObject()); /* type: _58498 * */
-    v8::String::AsciiValue text(args[1]->ToString()); /* type: _18997  */
-    v8::String::AsciiValue help(args[2]->ToString()); /* type: _18997  */
+    wxNode_wxMenu* submenu = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenu>(args[0]->ToObject()); /* type: _53132 * */
+    v8::String::AsciiValue text(args[1]->ToString()); /* type: _14975  */
+    v8::String::AsciiValue help(args[2]->ToString()); /* type: _14975  */
     
 
     wxMenuItem* returnVal = self->AppendSubMenu(submenu, *text, *help);
@@ -500,11 +500,11 @@ wxNode_wxMenu::wxNode_wxMenu()
   }
   
   /*
-   * id: _49883
+   * id: _44964
    */
   if(args.Length() == 2 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxMenu::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsString()) {
-    wxNode_wxMenu* submenu = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenu>(args[0]->ToObject()); /* type: _58498 * */
-    v8::String::AsciiValue text(args[1]->ToString()); /* type: _18997  */
+    wxNode_wxMenu* submenu = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenu>(args[0]->ToObject()); /* type: _53132 * */
+    v8::String::AsciiValue text(args[1]->ToString()); /* type: _14975  */
     
 
     wxMenuItem* returnVal = self->AppendSubMenu(submenu, *text);
@@ -529,7 +529,7 @@ wxNode_wxMenu::wxNode_wxMenu()
 
   
   /*
-   * id: _49885
+   * id: _44966
    */
   if(args.Length() == 0) {
     
@@ -556,11 +556,11 @@ wxNode_wxMenu::wxNode_wxMenu()
 
   
   /*
-   * id: _49886
+   * id: _44967
    */
   if(args.Length() == 2 && args[0]->IsNumber() && (args[1]->IsNull() || (args[1]->IsObject() && wxNode_wxMenuItem::AssignableFrom(args[1]->ToObject()->GetConstructorName())))) {
-    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _11150  */
-    wxNode_wxMenuItem* item = args[1]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenuItem>(args[1]->ToObject()); /* type: _57216 * */
+    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8711  */
+    wxNode_wxMenuItem* item = args[1]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenuItem>(args[1]->ToObject()); /* type: _51977 * */
     
 
     wxMenuItem* returnVal = self->Insert(pos, item);
@@ -569,14 +569,14 @@ wxNode_wxMenu::wxNode_wxMenu()
   }
   
   /*
-   * id: _49887
+   * id: _44968
    */
   if(args.Length() == 5 && args[0]->IsNumber() && args[1]->IsNumber() && args[2]->IsString() && args[3]->IsString() && args[4]->IsNumber()) {
-    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _11150  */
-    int itemid = (int)args[1]->ToInt32()->Value(); /* type: _233  */
-    v8::String::AsciiValue text(args[2]->ToString()); /* type: _18997  */
-    v8::String::AsciiValue help(args[3]->ToString()); /* type: _18997  */
-    wxItemKind kind = (wxItemKind)args[4]->ToNumber()->Value(); /* type: _6215  */
+    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8711  */
+    int itemid = (int)args[1]->ToInt32()->Value(); /* type: _165  */
+    v8::String::AsciiValue text(args[2]->ToString()); /* type: _14975  */
+    v8::String::AsciiValue help(args[3]->ToString()); /* type: _14975  */
+    wxItemKind kind = (wxItemKind)args[4]->ToNumber()->Value(); /* type: _4680  */
     
 
     wxMenuItem* returnVal = self->Insert(pos, itemid, *text, *help, kind);
@@ -585,13 +585,13 @@ wxNode_wxMenu::wxNode_wxMenu()
   }
   
   /*
-   * id: _49887
+   * id: _44968
    */
   if(args.Length() == 4 && args[0]->IsNumber() && args[1]->IsNumber() && args[2]->IsString() && args[3]->IsString()) {
-    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _11150  */
-    int itemid = (int)args[1]->ToInt32()->Value(); /* type: _233  */
-    v8::String::AsciiValue text(args[2]->ToString()); /* type: _18997  */
-    v8::String::AsciiValue help(args[3]->ToString()); /* type: _18997  */
+    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8711  */
+    int itemid = (int)args[1]->ToInt32()->Value(); /* type: _165  */
+    v8::String::AsciiValue text(args[2]->ToString()); /* type: _14975  */
+    v8::String::AsciiValue help(args[3]->ToString()); /* type: _14975  */
     
 
     wxMenuItem* returnVal = self->Insert(pos, itemid, *text, *help);
@@ -600,12 +600,12 @@ wxNode_wxMenu::wxNode_wxMenu()
   }
   
   /*
-   * id: _49887
+   * id: _44968
    */
   if(args.Length() == 3 && args[0]->IsNumber() && args[1]->IsNumber() && args[2]->IsString()) {
-    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _11150  */
-    int itemid = (int)args[1]->ToInt32()->Value(); /* type: _233  */
-    v8::String::AsciiValue text(args[2]->ToString()); /* type: _18997  */
+    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8711  */
+    int itemid = (int)args[1]->ToInt32()->Value(); /* type: _165  */
+    v8::String::AsciiValue text(args[2]->ToString()); /* type: _14975  */
     
 
     wxMenuItem* returnVal = self->Insert(pos, itemid, *text);
@@ -614,11 +614,11 @@ wxNode_wxMenu::wxNode_wxMenu()
   }
   
   /*
-   * id: _49887
+   * id: _44968
    */
   if(args.Length() == 2 && args[0]->IsNumber() && args[1]->IsNumber()) {
-    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _11150  */
-    int itemid = (int)args[1]->ToInt32()->Value(); /* type: _233  */
+    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8711  */
+    int itemid = (int)args[1]->ToInt32()->Value(); /* type: _165  */
     
 
     wxMenuItem* returnVal = self->Insert(pos, itemid);
@@ -627,14 +627,14 @@ wxNode_wxMenu::wxNode_wxMenu()
   }
   
   /*
-   * id: _49891
+   * id: _44972
    */
   if(args.Length() == 5 && args[0]->IsNumber() && args[1]->IsNumber() && args[2]->IsString() && (args[3]->IsNull() || (args[3]->IsObject() && wxNode_wxMenu::AssignableFrom(args[3]->ToObject()->GetConstructorName()))) && args[4]->IsString()) {
-    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _11150  */
-    int itemid = (int)args[1]->ToInt32()->Value(); /* type: _233  */
-    v8::String::AsciiValue text(args[2]->ToString()); /* type: _18997  */
-    wxNode_wxMenu* submenu = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenu>(args[3]->ToObject()); /* type: _58498 * */
-    v8::String::AsciiValue help(args[4]->ToString()); /* type: _18997  */
+    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8711  */
+    int itemid = (int)args[1]->ToInt32()->Value(); /* type: _165  */
+    v8::String::AsciiValue text(args[2]->ToString()); /* type: _14975  */
+    wxNode_wxMenu* submenu = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenu>(args[3]->ToObject()); /* type: _53132 * */
+    v8::String::AsciiValue help(args[4]->ToString()); /* type: _14975  */
     
 
     wxMenuItem* returnVal = self->Insert(pos, itemid, *text, submenu, *help);
@@ -643,13 +643,13 @@ wxNode_wxMenu::wxNode_wxMenu()
   }
   
   /*
-   * id: _49891
+   * id: _44972
    */
   if(args.Length() == 4 && args[0]->IsNumber() && args[1]->IsNumber() && args[2]->IsString() && (args[3]->IsNull() || (args[3]->IsObject() && wxNode_wxMenu::AssignableFrom(args[3]->ToObject()->GetConstructorName())))) {
-    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _11150  */
-    int itemid = (int)args[1]->ToInt32()->Value(); /* type: _233  */
-    v8::String::AsciiValue text(args[2]->ToString()); /* type: _18997  */
-    wxNode_wxMenu* submenu = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenu>(args[3]->ToObject()); /* type: _58498 * */
+    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8711  */
+    int itemid = (int)args[1]->ToInt32()->Value(); /* type: _165  */
+    v8::String::AsciiValue text(args[2]->ToString()); /* type: _14975  */
+    wxNode_wxMenu* submenu = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenu>(args[3]->ToObject()); /* type: _53132 * */
     
 
     wxMenuItem* returnVal = self->Insert(pos, itemid, *text, submenu);
@@ -658,14 +658,14 @@ wxNode_wxMenu::wxNode_wxMenu()
   }
   
   /*
-   * id: _49938
+   * id: _45019
    */
   if(args.Length() == 5 && args[0]->IsNumber() && args[1]->IsNumber() && args[2]->IsString() && args[3]->IsString() && args[4]->IsBoolean()) {
-    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _11150  */
-    int itemid = (int)args[1]->ToInt32()->Value(); /* type: _233  */
-    v8::String::AsciiValue text(args[2]->ToString()); /* type: _18997  */
-    v8::String::AsciiValue help(args[3]->ToString()); /* type: _18997  */
-    bool isCheckable = args[4]->ToBoolean()->Value(); /* type: _18804  */
+    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8711  */
+    int itemid = (int)args[1]->ToInt32()->Value(); /* type: _165  */
+    v8::String::AsciiValue text(args[2]->ToString()); /* type: _14975  */
+    v8::String::AsciiValue help(args[3]->ToString()); /* type: _14975  */
+    bool isCheckable = args[4]->ToBoolean()->Value(); /* type: _14830  */
     
 
     self->Insert(pos, itemid, *text, *help, isCheckable);
@@ -690,10 +690,10 @@ wxNode_wxMenu::wxNode_wxMenu()
 
   
   /*
-   * id: _49888
+   * id: _44969
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _11150  */
+    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8711  */
     
 
     wxMenuItem* returnVal = self->InsertSeparator(pos);
@@ -718,13 +718,13 @@ wxNode_wxMenu::wxNode_wxMenu()
 
   
   /*
-   * id: _49889
+   * id: _44970
    */
   if(args.Length() == 4 && args[0]->IsNumber() && args[1]->IsNumber() && args[2]->IsString() && args[3]->IsString()) {
-    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _11150  */
-    int itemid = (int)args[1]->ToInt32()->Value(); /* type: _233  */
-    v8::String::AsciiValue text(args[2]->ToString()); /* type: _18997  */
-    v8::String::AsciiValue help(args[3]->ToString()); /* type: _18997  */
+    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8711  */
+    int itemid = (int)args[1]->ToInt32()->Value(); /* type: _165  */
+    v8::String::AsciiValue text(args[2]->ToString()); /* type: _14975  */
+    v8::String::AsciiValue help(args[3]->ToString()); /* type: _14975  */
     
 
     wxMenuItem* returnVal = self->InsertCheckItem(pos, itemid, *text, *help);
@@ -733,12 +733,12 @@ wxNode_wxMenu::wxNode_wxMenu()
   }
   
   /*
-   * id: _49889
+   * id: _44970
    */
   if(args.Length() == 3 && args[0]->IsNumber() && args[1]->IsNumber() && args[2]->IsString()) {
-    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _11150  */
-    int itemid = (int)args[1]->ToInt32()->Value(); /* type: _233  */
-    v8::String::AsciiValue text(args[2]->ToString()); /* type: _18997  */
+    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8711  */
+    int itemid = (int)args[1]->ToInt32()->Value(); /* type: _165  */
+    v8::String::AsciiValue text(args[2]->ToString()); /* type: _14975  */
     
 
     wxMenuItem* returnVal = self->InsertCheckItem(pos, itemid, *text);
@@ -763,13 +763,13 @@ wxNode_wxMenu::wxNode_wxMenu()
 
   
   /*
-   * id: _49890
+   * id: _44971
    */
   if(args.Length() == 4 && args[0]->IsNumber() && args[1]->IsNumber() && args[2]->IsString() && args[3]->IsString()) {
-    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _11150  */
-    int itemid = (int)args[1]->ToInt32()->Value(); /* type: _233  */
-    v8::String::AsciiValue text(args[2]->ToString()); /* type: _18997  */
-    v8::String::AsciiValue help(args[3]->ToString()); /* type: _18997  */
+    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8711  */
+    int itemid = (int)args[1]->ToInt32()->Value(); /* type: _165  */
+    v8::String::AsciiValue text(args[2]->ToString()); /* type: _14975  */
+    v8::String::AsciiValue help(args[3]->ToString()); /* type: _14975  */
     
 
     wxMenuItem* returnVal = self->InsertRadioItem(pos, itemid, *text, *help);
@@ -778,12 +778,12 @@ wxNode_wxMenu::wxNode_wxMenu()
   }
   
   /*
-   * id: _49890
+   * id: _44971
    */
   if(args.Length() == 3 && args[0]->IsNumber() && args[1]->IsNumber() && args[2]->IsString()) {
-    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _11150  */
-    int itemid = (int)args[1]->ToInt32()->Value(); /* type: _233  */
-    v8::String::AsciiValue text(args[2]->ToString()); /* type: _18997  */
+    unsigned int pos = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8711  */
+    int itemid = (int)args[1]->ToInt32()->Value(); /* type: _165  */
+    v8::String::AsciiValue text(args[2]->ToString()); /* type: _14975  */
     
 
     wxMenuItem* returnVal = self->InsertRadioItem(pos, itemid, *text);
@@ -808,10 +808,10 @@ wxNode_wxMenu::wxNode_wxMenu()
 
   
   /*
-   * id: _49892
+   * id: _44973
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxMenuItem::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxMenuItem* item = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenuItem>(args[0]->ToObject()); /* type: _57216 * */
+    wxNode_wxMenuItem* item = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenuItem>(args[0]->ToObject()); /* type: _51977 * */
     
 
     wxMenuItem* returnVal = self->Prepend(item);
@@ -820,13 +820,13 @@ wxNode_wxMenu::wxNode_wxMenu()
   }
   
   /*
-   * id: _49893
+   * id: _44974
    */
   if(args.Length() == 4 && args[0]->IsNumber() && args[1]->IsString() && args[2]->IsString() && args[3]->IsNumber()) {
-    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
-    v8::String::AsciiValue text(args[1]->ToString()); /* type: _18997  */
-    v8::String::AsciiValue help(args[2]->ToString()); /* type: _18997  */
-    wxItemKind kind = (wxItemKind)args[3]->ToNumber()->Value(); /* type: _6215  */
+    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _165  */
+    v8::String::AsciiValue text(args[1]->ToString()); /* type: _14975  */
+    v8::String::AsciiValue help(args[2]->ToString()); /* type: _14975  */
+    wxItemKind kind = (wxItemKind)args[3]->ToNumber()->Value(); /* type: _4680  */
     
 
     wxMenuItem* returnVal = self->Prepend(itemid, *text, *help, kind);
@@ -835,12 +835,12 @@ wxNode_wxMenu::wxNode_wxMenu()
   }
   
   /*
-   * id: _49893
+   * id: _44974
    */
   if(args.Length() == 3 && args[0]->IsNumber() && args[1]->IsString() && args[2]->IsString()) {
-    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
-    v8::String::AsciiValue text(args[1]->ToString()); /* type: _18997  */
-    v8::String::AsciiValue help(args[2]->ToString()); /* type: _18997  */
+    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _165  */
+    v8::String::AsciiValue text(args[1]->ToString()); /* type: _14975  */
+    v8::String::AsciiValue help(args[2]->ToString()); /* type: _14975  */
     
 
     wxMenuItem* returnVal = self->Prepend(itemid, *text, *help);
@@ -849,11 +849,11 @@ wxNode_wxMenu::wxNode_wxMenu()
   }
   
   /*
-   * id: _49893
+   * id: _44974
    */
   if(args.Length() == 2 && args[0]->IsNumber() && args[1]->IsString()) {
-    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
-    v8::String::AsciiValue text(args[1]->ToString()); /* type: _18997  */
+    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _165  */
+    v8::String::AsciiValue text(args[1]->ToString()); /* type: _14975  */
     
 
     wxMenuItem* returnVal = self->Prepend(itemid, *text);
@@ -862,10 +862,10 @@ wxNode_wxMenu::wxNode_wxMenu()
   }
   
   /*
-   * id: _49893
+   * id: _44974
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _165  */
     
 
     wxMenuItem* returnVal = self->Prepend(itemid);
@@ -874,13 +874,13 @@ wxNode_wxMenu::wxNode_wxMenu()
   }
   
   /*
-   * id: _49897
+   * id: _44978
    */
   if(args.Length() == 4 && args[0]->IsNumber() && args[1]->IsString() && (args[2]->IsNull() || (args[2]->IsObject() && wxNode_wxMenu::AssignableFrom(args[2]->ToObject()->GetConstructorName()))) && args[3]->IsString()) {
-    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
-    v8::String::AsciiValue text(args[1]->ToString()); /* type: _18997  */
-    wxNode_wxMenu* submenu = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenu>(args[2]->ToObject()); /* type: _58498 * */
-    v8::String::AsciiValue help(args[3]->ToString()); /* type: _18997  */
+    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _165  */
+    v8::String::AsciiValue text(args[1]->ToString()); /* type: _14975  */
+    wxNode_wxMenu* submenu = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenu>(args[2]->ToObject()); /* type: _53132 * */
+    v8::String::AsciiValue help(args[3]->ToString()); /* type: _14975  */
     
 
     wxMenuItem* returnVal = self->Prepend(itemid, *text, submenu, *help);
@@ -889,12 +889,12 @@ wxNode_wxMenu::wxNode_wxMenu()
   }
   
   /*
-   * id: _49897
+   * id: _44978
    */
   if(args.Length() == 3 && args[0]->IsNumber() && args[1]->IsString() && (args[2]->IsNull() || (args[2]->IsObject() && wxNode_wxMenu::AssignableFrom(args[2]->ToObject()->GetConstructorName())))) {
-    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
-    v8::String::AsciiValue text(args[1]->ToString()); /* type: _18997  */
-    wxNode_wxMenu* submenu = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenu>(args[2]->ToObject()); /* type: _58498 * */
+    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _165  */
+    v8::String::AsciiValue text(args[1]->ToString()); /* type: _14975  */
+    wxNode_wxMenu* submenu = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenu>(args[2]->ToObject()); /* type: _53132 * */
     
 
     wxMenuItem* returnVal = self->Prepend(itemid, *text, submenu);
@@ -903,13 +903,13 @@ wxNode_wxMenu::wxNode_wxMenu()
   }
   
   /*
-   * id: _49939
+   * id: _45020
    */
   if(args.Length() == 4 && args[0]->IsNumber() && args[1]->IsString() && args[2]->IsString() && args[3]->IsBoolean()) {
-    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
-    v8::String::AsciiValue text(args[1]->ToString()); /* type: _18997  */
-    v8::String::AsciiValue help(args[2]->ToString()); /* type: _18997  */
-    bool isCheckable = args[3]->ToBoolean()->Value(); /* type: _18804  */
+    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _165  */
+    v8::String::AsciiValue text(args[1]->ToString()); /* type: _14975  */
+    v8::String::AsciiValue help(args[2]->ToString()); /* type: _14975  */
+    bool isCheckable = args[3]->ToBoolean()->Value(); /* type: _14830  */
     
 
     self->Prepend(itemid, *text, *help, isCheckable);
@@ -934,7 +934,7 @@ wxNode_wxMenu::wxNode_wxMenu()
 
   
   /*
-   * id: _49894
+   * id: _44975
    */
   if(args.Length() == 0) {
     
@@ -961,12 +961,12 @@ wxNode_wxMenu::wxNode_wxMenu()
 
   
   /*
-   * id: _49895
+   * id: _44976
    */
   if(args.Length() == 3 && args[0]->IsNumber() && args[1]->IsString() && args[2]->IsString()) {
-    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
-    v8::String::AsciiValue text(args[1]->ToString()); /* type: _18997  */
-    v8::String::AsciiValue help(args[2]->ToString()); /* type: _18997  */
+    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _165  */
+    v8::String::AsciiValue text(args[1]->ToString()); /* type: _14975  */
+    v8::String::AsciiValue help(args[2]->ToString()); /* type: _14975  */
     
 
     wxMenuItem* returnVal = self->PrependCheckItem(itemid, *text, *help);
@@ -975,11 +975,11 @@ wxNode_wxMenu::wxNode_wxMenu()
   }
   
   /*
-   * id: _49895
+   * id: _44976
    */
   if(args.Length() == 2 && args[0]->IsNumber() && args[1]->IsString()) {
-    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
-    v8::String::AsciiValue text(args[1]->ToString()); /* type: _18997  */
+    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _165  */
+    v8::String::AsciiValue text(args[1]->ToString()); /* type: _14975  */
     
 
     wxMenuItem* returnVal = self->PrependCheckItem(itemid, *text);
@@ -1004,12 +1004,12 @@ wxNode_wxMenu::wxNode_wxMenu()
 
   
   /*
-   * id: _49896
+   * id: _44977
    */
   if(args.Length() == 3 && args[0]->IsNumber() && args[1]->IsString() && args[2]->IsString()) {
-    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
-    v8::String::AsciiValue text(args[1]->ToString()); /* type: _18997  */
-    v8::String::AsciiValue help(args[2]->ToString()); /* type: _18997  */
+    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _165  */
+    v8::String::AsciiValue text(args[1]->ToString()); /* type: _14975  */
+    v8::String::AsciiValue help(args[2]->ToString()); /* type: _14975  */
     
 
     wxMenuItem* returnVal = self->PrependRadioItem(itemid, *text, *help);
@@ -1018,11 +1018,11 @@ wxNode_wxMenu::wxNode_wxMenu()
   }
   
   /*
-   * id: _49896
+   * id: _44977
    */
   if(args.Length() == 2 && args[0]->IsNumber() && args[1]->IsString()) {
-    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
-    v8::String::AsciiValue text(args[1]->ToString()); /* type: _18997  */
+    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _165  */
+    v8::String::AsciiValue text(args[1]->ToString()); /* type: _14975  */
     
 
     wxMenuItem* returnVal = self->PrependRadioItem(itemid, *text);
@@ -1047,10 +1047,10 @@ wxNode_wxMenu::wxNode_wxMenu()
 
   
   /*
-   * id: _49898
+   * id: _44979
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _165  */
     
 
     wxMenuItem* returnVal = self->Remove(itemid);
@@ -1059,10 +1059,10 @@ wxNode_wxMenu::wxNode_wxMenu()
   }
   
   /*
-   * id: _49899
+   * id: _44980
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxMenuItem::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxMenuItem* item = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenuItem>(args[0]->ToObject()); /* type: _57216 * */
+    wxNode_wxMenuItem* item = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenuItem>(args[0]->ToObject()); /* type: _51977 * */
     
 
     wxMenuItem* returnVal = self->Remove(item);
@@ -1087,10 +1087,10 @@ wxNode_wxMenu::wxNode_wxMenu()
 
   
   /*
-   * id: _49900
+   * id: _44981
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _165  */
     
 
     bool returnVal = self->Delete(itemid);
@@ -1099,10 +1099,10 @@ wxNode_wxMenu::wxNode_wxMenu()
   }
   
   /*
-   * id: _49901
+   * id: _44982
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxMenuItem::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxMenuItem* item = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenuItem>(args[0]->ToObject()); /* type: _57216 * */
+    wxNode_wxMenuItem* item = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenuItem>(args[0]->ToObject()); /* type: _51977 * */
     
 
     bool returnVal = self->Delete(item);
@@ -1127,10 +1127,10 @@ wxNode_wxMenu::wxNode_wxMenu()
 
   
   /*
-   * id: _49902
+   * id: _44983
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _165  */
     
 
     bool returnVal = self->Destroy(itemid);
@@ -1139,10 +1139,10 @@ wxNode_wxMenu::wxNode_wxMenu()
   }
   
   /*
-   * id: _49903
+   * id: _44984
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxMenuItem::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxMenuItem* item = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenuItem>(args[0]->ToObject()); /* type: _57216 * */
+    wxNode_wxMenuItem* item = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenuItem>(args[0]->ToObject()); /* type: _51977 * */
     
 
     bool returnVal = self->Destroy(item);
@@ -1167,7 +1167,7 @@ wxNode_wxMenu::wxNode_wxMenu()
 
   
   /*
-   * id: _49904
+   * id: _44985
    */
   if(args.Length() == 0) {
     
@@ -1194,7 +1194,7 @@ wxNode_wxMenu::wxNode_wxMenu()
 
   
   /*
-   * id: _49905
+   * id: _44986
    */
   if(args.Length() == 0) {
     
@@ -1205,7 +1205,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   }
   
   /*
-   * id: _49906
+   * id: _44987
    */
   if(args.Length() == 0) {
     
@@ -1232,10 +1232,10 @@ wxNode_wxMenu::wxNode_wxMenu()
 
   
   /*
-   * id: _49907
+   * id: _44988
    */
   if(args.Length() == 1 && args[0]->IsString()) {
-    v8::String::AsciiValue item(args[0]->ToString()); /* type: _18997  */
+    v8::String::AsciiValue item(args[0]->ToString()); /* type: _14975  */
     
 
     int returnVal = self->FindItem(*item);
@@ -1244,11 +1244,11 @@ wxNode_wxMenu::wxNode_wxMenu()
   }
   
   /*
-   * id: _49908
+   * id: _44989
    */
   if(args.Length() == 2 && args[0]->IsNumber() && false) {
-    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
-    wxMenu* menu; /* type: _71440 ** */
+    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _165  */
+    wxMenu* menu; /* type: _65427 ** */
     
 
     wxMenuItem* returnVal = self->FindItem(itemid, &menu);
@@ -1257,10 +1257,10 @@ wxNode_wxMenu::wxNode_wxMenu()
   }
   
   /*
-   * id: _49908
+   * id: _44989
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _165  */
     
 
     wxMenuItem* returnVal = self->FindItem(itemid);
@@ -1285,10 +1285,10 @@ wxNode_wxMenu::wxNode_wxMenu()
 
   
   /*
-   * id: _49909
+   * id: _44990
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    unsigned int position = (unsigned int)args[0]->ToInt32()->Value(); /* type: _11150  */
+    unsigned int position = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8711  */
     
 
     wxMenuItem* returnVal = self->FindItemByPosition(position);
@@ -1313,11 +1313,11 @@ wxNode_wxMenu::wxNode_wxMenu()
 
   
   /*
-   * id: _49910
+   * id: _44991
    */
   if(args.Length() == 2 && args[0]->IsNumber() && args[1]->IsBoolean()) {
-    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
-    bool enable = args[1]->ToBoolean()->Value(); /* type: _18804  */
+    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _165  */
+    bool enable = args[1]->ToBoolean()->Value(); /* type: _14830  */
     
 
     self->Enable(itemid, enable);
@@ -1342,10 +1342,10 @@ wxNode_wxMenu::wxNode_wxMenu()
 
   
   /*
-   * id: _49911
+   * id: _44992
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _165  */
     
 
     bool returnVal = self->IsEnabled(itemid);
@@ -1370,11 +1370,11 @@ wxNode_wxMenu::wxNode_wxMenu()
 
   
   /*
-   * id: _49912
+   * id: _44993
    */
   if(args.Length() == 2 && args[0]->IsNumber() && args[1]->IsBoolean()) {
-    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
-    bool check = args[1]->ToBoolean()->Value(); /* type: _18804  */
+    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _165  */
+    bool check = args[1]->ToBoolean()->Value(); /* type: _14830  */
     
 
     self->Check(itemid, check);
@@ -1399,10 +1399,10 @@ wxNode_wxMenu::wxNode_wxMenu()
 
   
   /*
-   * id: _49913
+   * id: _44994
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _165  */
     
 
     bool returnVal = self->IsChecked(itemid);
@@ -1427,11 +1427,11 @@ wxNode_wxMenu::wxNode_wxMenu()
 
   
   /*
-   * id: _49914
+   * id: _44995
    */
   if(args.Length() == 2 && args[0]->IsNumber() && args[1]->IsString()) {
-    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
-    v8::String::AsciiValue label(args[1]->ToString()); /* type: _18997  */
+    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _165  */
+    v8::String::AsciiValue label(args[1]->ToString()); /* type: _14975  */
     
 
     self->SetLabel(itemid, *label);
@@ -1456,10 +1456,10 @@ wxNode_wxMenu::wxNode_wxMenu()
 
   
   /*
-   * id: _49915
+   * id: _44996
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _165  */
     
 
     wxString returnVal = self->GetLabel(itemid);
@@ -1484,10 +1484,10 @@ wxNode_wxMenu::wxNode_wxMenu()
 
   
   /*
-   * id: _49916
+   * id: _44997
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _165  */
     
 
     wxString returnVal = self->GetLabelText(itemid);
@@ -1512,11 +1512,11 @@ wxNode_wxMenu::wxNode_wxMenu()
 
   
   /*
-   * id: _49917
+   * id: _44998
    */
   if(args.Length() == 2 && args[0]->IsNumber() && args[1]->IsString()) {
-    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
-    v8::String::AsciiValue helpString(args[1]->ToString()); /* type: _18997  */
+    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _165  */
+    v8::String::AsciiValue helpString(args[1]->ToString()); /* type: _14975  */
     
 
     self->SetHelpString(itemid, *helpString);
@@ -1541,10 +1541,10 @@ wxNode_wxMenu::wxNode_wxMenu()
 
   
   /*
-   * id: _49918
+   * id: _44999
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _165  */
     
 
     wxString returnVal = self->GetHelpString(itemid);
@@ -1569,10 +1569,10 @@ wxNode_wxMenu::wxNode_wxMenu()
 
   
   /*
-   * id: _49919
+   * id: _45000
    */
   if(args.Length() == 1 && args[0]->IsString()) {
-    v8::String::AsciiValue title(args[0]->ToString()); /* type: _18997  */
+    v8::String::AsciiValue title(args[0]->ToString()); /* type: _14975  */
     
 
     self->SetTitle(*title);
@@ -1597,7 +1597,7 @@ wxNode_wxMenu::wxNode_wxMenu()
 
   
   /*
-   * id: _49920
+   * id: _45001
    */
   if(args.Length() == 0) {
     
@@ -1624,10 +1624,10 @@ wxNode_wxMenu::wxNode_wxMenu()
 
   
   /*
-   * id: _49921
+   * id: _45002
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxEvtHandler::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxEvtHandler* handler = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxEvtHandler>(args[0]->ToObject()); /* type: _2228 * */
+    wxNode_wxEvtHandler* handler = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxEvtHandler>(args[0]->ToObject()); /* type: _1680 * */
     
 
     self->SetEventHandler(handler);
@@ -1652,7 +1652,7 @@ wxNode_wxMenu::wxNode_wxMenu()
 
   
   /*
-   * id: _49922
+   * id: _45003
    */
   if(args.Length() == 0) {
     
@@ -1679,10 +1679,10 @@ wxNode_wxMenu::wxNode_wxMenu()
 
   
   /*
-   * id: _49923
+   * id: _45004
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxWindow::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxWindow* win = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _1326 * */
+    wxNode_wxWindow* win = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _1000 * */
     
 
     self->SetInvokingWindow(win);
@@ -1707,7 +1707,7 @@ wxNode_wxMenu::wxNode_wxMenu()
 
   
   /*
-   * id: _49924
+   * id: _45005
    */
   if(args.Length() == 0) {
     
@@ -1734,7 +1734,7 @@ wxNode_wxMenu::wxNode_wxMenu()
 
   
   /*
-   * id: _49925
+   * id: _45006
    */
   if(args.Length() == 0) {
     
@@ -1761,7 +1761,7 @@ wxNode_wxMenu::wxNode_wxMenu()
 
   
   /*
-   * id: _49926
+   * id: _45007
    */
   if(args.Length() == 0) {
     
@@ -1788,10 +1788,10 @@ wxNode_wxMenu::wxNode_wxMenu()
 
   
   /*
-   * id: _49927
+   * id: _45008
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxEvtHandler::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxEvtHandler* source = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxEvtHandler>(args[0]->ToObject()); /* type: _2228 * */
+    wxNode_wxEvtHandler* source = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxEvtHandler>(args[0]->ToObject()); /* type: _1680 * */
     
 
     self->UpdateUI(source);
@@ -1800,7 +1800,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   }
   
   /*
-   * id: _49927
+   * id: _45008
    */
   if(args.Length() == 0) {
     
@@ -1827,7 +1827,7 @@ wxNode_wxMenu::wxNode_wxMenu()
 
   
   /*
-   * id: _49928
+   * id: _45009
    */
   if(args.Length() == 0) {
     
@@ -1854,10 +1854,10 @@ wxNode_wxMenu::wxNode_wxMenu()
 
   
   /*
-   * id: _49929
+   * id: _45010
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxMenuBar::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxMenuBar* menubar = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenuBar>(args[0]->ToObject()); /* type: _65749 * */
+    wxNode_wxMenuBar* menubar = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenuBar>(args[0]->ToObject()); /* type: _59633 * */
     
 
     self->Attach(menubar);
@@ -1882,7 +1882,7 @@ wxNode_wxMenu::wxNode_wxMenu()
 
   
   /*
-   * id: _49930
+   * id: _45011
    */
   if(args.Length() == 0) {
     
@@ -1909,7 +1909,7 @@ wxNode_wxMenu::wxNode_wxMenu()
 
   
   /*
-   * id: _49931
+   * id: _45012
    */
   if(args.Length() == 0) {
     
@@ -1936,10 +1936,10 @@ wxNode_wxMenu::wxNode_wxMenu()
 
   
   /*
-   * id: _49932
+   * id: _45013
    */
   if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxMenu::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxMenu* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenu>(args[0]->ToObject()); /* type: _58498 * */
+    wxNode_wxMenu* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxMenu>(args[0]->ToObject()); /* type: _53132 * */
     
 
     self->SetParent(parent);
@@ -1964,7 +1964,7 @@ wxNode_wxMenu::wxNode_wxMenu()
 
   
   /*
-   * id: _49933
+   * id: _45014
    */
   if(args.Length() == 0) {
     
@@ -1991,11 +1991,11 @@ wxNode_wxMenu::wxNode_wxMenu()
 
   
   /*
-   * id: _49934
+   * id: _45015
    */
   if(args.Length() == 2 && args[0]->IsNumber() && false) {
-    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
-    unsigned int pos; /* type: _33951 * */
+    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _165  */
+    unsigned int pos; /* type: _28812 * */
     
 
     wxMenuItem* returnVal = self->FindChildItem(itemid, &pos);
@@ -2004,10 +2004,10 @@ wxNode_wxMenu::wxNode_wxMenu()
   }
   
   /*
-   * id: _49934
+   * id: _45015
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _165  */
     
 
     wxMenuItem* returnVal = self->FindChildItem(itemid);
@@ -2032,11 +2032,11 @@ wxNode_wxMenu::wxNode_wxMenu()
 
   
   /*
-   * id: _49935
+   * id: _45016
    */
   if(args.Length() == 2 && args[0]->IsNumber() && args[1]->IsNumber()) {
-    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
-    int checked = (int)args[1]->ToInt32()->Value(); /* type: _233  */
+    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _165  */
+    int checked = (int)args[1]->ToInt32()->Value(); /* type: _165  */
     
 
     bool returnVal = self->SendEvent(itemid, checked);
@@ -2045,10 +2045,10 @@ wxNode_wxMenu::wxNode_wxMenu()
   }
   
   /*
-   * id: _49935
+   * id: _45016
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _233  */
+    int itemid = (int)args[0]->ToInt32()->Value(); /* type: _165  */
     
 
     bool returnVal = self->SendEvent(itemid);
@@ -2073,10 +2073,10 @@ wxNode_wxMenu::wxNode_wxMenu()
 
   
   /*
-   * id: _49940
+   * id: _45021
    */
   if(args.Length() == 1 && args[0]->IsBoolean()) {
-    bool locked = args[0]->ToBoolean()->Value(); /* type: _18804  */
+    bool locked = args[0]->ToBoolean()->Value(); /* type: _14830  */
     
 
     self->LockAccels(locked);
