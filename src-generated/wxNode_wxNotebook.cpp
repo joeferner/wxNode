@@ -77,6 +77,7 @@ wxNode_wxNotebook::wxNode_wxNotebook(wxWindow* parent, int id)
   NODE_SET_PROTOTYPE_METHOD(target, "sendPageChangedEvent", _SendPageChangedEvent);
   NODE_SET_PROTOTYPE_METHOD(target, "acceptsFocus", _AcceptsFocus);
   
+  
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxNotebook::New(const wxNode_wxNotebook* obj) {
@@ -489,4 +490,6 @@ wxNode_wxNotebook::wxNode_wxNotebook(wxWindow* parent, int id)
   }
   return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
+
+
 

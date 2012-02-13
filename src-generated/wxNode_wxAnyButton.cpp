@@ -61,6 +61,7 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
   NODE_SET_PROTOTYPE_METHOD(target, "dontShowLabel", _DontShowLabel);
   NODE_SET_PROTOTYPE_METHOD(target, "showsLabel", _ShowsLabel);
   
+  
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxAnyButton::New(const wxNode_wxAnyButton* obj) {
@@ -876,4 +877,6 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
   }
   return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
+
+
 

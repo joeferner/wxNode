@@ -39,6 +39,7 @@ var files = [
   { className: 'wxWebView', allowNew: false, allowStaticNew: true },
   { className: 'wxWebViewArchiveHandler', allowNew: true, noNewCopy: true },
   { className: 'wxWebViewHandler', allowNew: false },
+  { className: 'wxWebViewHistoryItem', allowNew: true, noNewCopy: true },
   { className: 'wxItemContainer', allowNew: false },
   { className: 'wxItemContainerImmutable', allowNew: false },
   { className: 'wxSizer', allowNew: false },
@@ -421,6 +422,10 @@ function methodJsonToCtx(parent, rawJson, methodJson) {
         + 'sprintf(returnValTemp, "%lc", returnVal);\n'
         + "return scope.Close(v8::String::New(returnValTemp));";
     } else if(ctx.returnTypeName && ctx.returnTypeName.match(/^wx.*/)) {
+      if(ctx.returnTypeName.indexOf('Vector') > 0) {
+        ctx.includes = concatUnique(ctx.includes, ["wxNode_wxVector.h"]);
+      }
+
       if(returnType.refs == '&' || (returnType.refs == '' && returnType.pointers == '')) {
         ctx.returnEq = ctx.returnTypeName + " returnVal = ";
         ctx.returnStmt = "return scope.Close(wxNode_" + ctx.returnTypeName + "::NewCopy(returnVal));";
@@ -475,6 +480,26 @@ function toJsName(str) {
   } else {
     return str.toLowerCase();
   }
+}
+
+function addField(rawJson, ctx, member, fields) {
+  if(member['access'] != 'public') {
+    return;
+  }
+  if(member['attributes'] && member['attributes'].match(/deprecated/)) {
+    return;
+  }
+  if(member.name.match(/^m_/)) {
+    return;
+  }
+
+  var field = {
+    parent: ctx,
+    name: member.name,
+    addFieldStmt: "target->PrototypeTemplate()->SetAccessor(v8::String::New(\"" + member.name + "\"), _" + member.name + "Get, _" + member.name + "Set);"
+  };
+
+  fields.push(field);
 }
 
 function addMethod(rawJson, ctx, member, dest) {
@@ -570,6 +595,7 @@ function rawJsonToCtx(rawJson, file) {
     name: file.className,
     outputFilename: "wxNode" + "_" + file.className + "." + file.outputFileType,
     methods: [],
+    fields: [],
     constructors: [],
     includes: [],
     classes: [],
@@ -670,6 +696,7 @@ function rawJsonToCtx(rawJson, file) {
       }
 
       if(member.elementName == "Field") {
+        addField(rawJson, ctx, member, ctx.fields);
         continue;
       }
 

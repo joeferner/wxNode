@@ -52,6 +52,7 @@ wxNode_wxInfoBar::wxNode_wxInfoBar(wxWindow* parent)
   NODE_SET_PROTOTYPE_METHOD(target, "addButton", _AddButton);
   NODE_SET_PROTOTYPE_METHOD(target, "removeButton", _RemoveButton);
   
+  
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxInfoBar::New(const wxNode_wxInfoBar* obj) {
@@ -316,4 +317,6 @@ wxNode_wxInfoBar::wxNode_wxInfoBar(wxWindow* parent)
   }
   return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
+
+
 

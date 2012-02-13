@@ -55,6 +55,7 @@ wxNode_wxWebViewEvent::wxNode_wxWebViewEvent(int type, int id, const wxString ur
   NODE_SET_PROTOTYPE_METHOD(target, "getClassInfo", _GetClassInfo);
   NODE_SET_METHOD(target, "wxCreateObject", _wxCreateObject);
   
+  
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxWebViewEvent::New(const wxNode_wxWebViewEvent* obj) {
@@ -315,4 +316,6 @@ wxNode_wxWebViewEvent::wxNode_wxWebViewEvent(int type, int id, const wxString ur
   }
   return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
+
+
 

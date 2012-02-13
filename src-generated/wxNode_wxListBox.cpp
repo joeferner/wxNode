@@ -144,6 +144,7 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
   NODE_SET_PROTOTYPE_METHOD(target, "hasClientObjectData", _HasClientObjectData);
   NODE_SET_PROTOTYPE_METHOD(target, "hasClientUntypedData", _HasClientUntypedData);
   
+  
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxListBox::New(const wxNode_wxListBox* obj) {
@@ -1519,4 +1520,6 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
   }
   return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
+
+
 

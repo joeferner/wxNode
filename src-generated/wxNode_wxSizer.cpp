@@ -75,6 +75,7 @@
   NODE_SET_PROTOTYPE_METHOD(target, "showItems", _ShowItems);
   NODE_SET_PROTOTYPE_METHOD(target, "getClassInfo", _GetClassInfo);
   
+  
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxSizer::New(const wxNode_wxSizer* obj) {
@@ -2573,4 +2574,6 @@
   }
   return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
+
+
 

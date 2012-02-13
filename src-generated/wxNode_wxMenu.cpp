@@ -104,6 +104,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   NODE_SET_PROTOTYPE_METHOD(target, "sendEvent", _SendEvent);
   NODE_SET_METHOD(target, "lockAccels", _LockAccels);
   
+  
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxMenu::New(const wxNode_wxMenu* obj) {
@@ -2096,4 +2097,6 @@ wxNode_wxMenu::wxNode_wxMenu()
   }
   return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
+
+
 

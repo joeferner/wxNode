@@ -39,6 +39,7 @@ private:
   static v8::Handle<v8::Value> _RecalcSizes(const v8::Arguments& args);
   static v8::Handle<v8::Value> _GetClassInfo(const v8::Arguments& args);
   
+  
 
   static v8::Persistent<v8::FunctionTemplate> s_ct;
 };

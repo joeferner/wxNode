@@ -84,6 +84,7 @@ private:
   static v8::Handle<v8::Value> _OSXSetModified(const v8::Arguments& args);
   static v8::Handle<v8::Value> _OSXIsModified(const v8::Arguments& args);
   
+  
 
   static v8::Persistent<v8::FunctionTemplate> s_ct;
 };

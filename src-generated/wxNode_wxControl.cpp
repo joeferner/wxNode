@@ -95,6 +95,7 @@ wxNode_wxControl::wxNode_wxControl(wxWindow* parent, int id)
   NODE_SET_METHOD(target, "findAccelIndex", _FindAccelIndex);
   NODE_SET_METHOD(target, "getCompositeControlsDefaultAttributes", _GetCompositeControlsDefaultAttributes);
   
+  
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxControl::New(const wxNode_wxControl* obj) {
@@ -1068,4 +1069,6 @@ wxNode_wxControl::wxNode_wxControl(wxWindow* parent, int id)
   }
   return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
+
+
 

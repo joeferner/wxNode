@@ -68,6 +68,7 @@ wxNode_wxCommandEvent::wxNode_wxCommandEvent(wxCommandEvent& event)
   NODE_SET_PROTOTYPE_METHOD(target, "getClassInfo", _GetClassInfo);
   NODE_SET_METHOD(target, "wxCreateObject", _wxCreateObject);
   
+  
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxCommandEvent::New(const wxNode_wxCommandEvent* obj) {
@@ -564,4 +565,6 @@ wxNode_wxCommandEvent::wxNode_wxCommandEvent(wxCommandEvent& event)
   }
   return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
+
+
 

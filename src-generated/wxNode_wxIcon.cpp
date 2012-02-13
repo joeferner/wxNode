@@ -84,6 +84,7 @@ wxNode_wxIcon::wxNode_wxIcon(wxIconLocation& loc)
   NODE_SET_PROTOTYPE_METHOD(target, "getClassInfo", _GetClassInfo);
   NODE_SET_METHOD(target, "wxCreateObject", _wxCreateObject);
   
+  
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxIcon::New(const wxNode_wxIcon* obj) {
@@ -415,4 +416,6 @@ wxNode_wxIcon::wxNode_wxIcon(wxIconLocation& loc)
   }
   return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
+
+
 

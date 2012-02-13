@@ -28,6 +28,7 @@
   wxNode_wxWindowWithItems_wxControl_wxItemContainer::AddMethods(target);
   NODE_SET_PROTOTYPE_METHOD(target, "shouldInheritColours", _ShouldInheritColours);
   
+  
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxControlWithItems::New(const wxNode_wxControlWithItems* obj) {
@@ -152,4 +153,6 @@
   }
   return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
+
+
 

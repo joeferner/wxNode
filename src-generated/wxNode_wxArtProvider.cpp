@@ -60,6 +60,7 @@ wxNode_wxArtProvider::wxNode_wxArtProvider()
   NODE_SET_METHOD(target, "getSizeHint", _GetSizeHint);
   NODE_SET_PROTOTYPE_METHOD(target, "getClassInfo", _GetClassInfo);
   
+  
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxArtProvider::New(const wxNode_wxArtProvider* obj) {
@@ -638,4 +639,6 @@ wxNode_wxArtProvider::wxNode_wxArtProvider()
   }
   return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
+
+
 

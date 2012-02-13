@@ -52,6 +52,9 @@ v8::Handle<v8::Value> NewEvent_wxWebViewEvent(wxEvent& event) {
   else if(args.Length() == 5) {
     int32_t winId = args[0]->ToInt32()->Value();
     int32_t eventType = args[1]->ToInt32()->Value();
+    if(!args[2]->IsFunction()) {
+      return v8::ThrowException(v8::Exception::TypeError(v8::String::New("Invalid 3nd argument, expected function.")));
+    }
     v8::Local<v8::Object> func = args[2]->ToObject();
     void* userData = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<void>(args[3]->ToObject());
     wxNode_wxEvtHandler* eventSink = args[4]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxEvtHandler>(args[4]->ToObject());;

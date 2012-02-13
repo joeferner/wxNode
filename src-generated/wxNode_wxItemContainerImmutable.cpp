@@ -37,6 +37,7 @@
   NODE_SET_PROTOTYPE_METHOD(target, "getStringSelection", _GetStringSelection);
   NODE_SET_PROTOTYPE_METHOD(target, "select", _Select);
   
+  
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxItemContainerImmutable::New(const wxNode_wxItemContainerImmutable* obj) {
@@ -467,4 +468,6 @@
   }
   return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
+
+
 

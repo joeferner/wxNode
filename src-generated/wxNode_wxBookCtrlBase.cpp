@@ -65,6 +65,7 @@
   NODE_SET_PROTOTYPE_METHOD(target, "canApplyThemeBorder", _CanApplyThemeBorder);
   NODE_SET_PROTOTYPE_METHOD(target, "getClassInfo", _GetClassInfo);
   
+  
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxBookCtrlBase::New(const wxNode_wxBookCtrlBase* obj) {
@@ -1218,4 +1219,6 @@
   }
   return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
+
+
 

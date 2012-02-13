@@ -99,6 +99,7 @@ wxNode_wxMenuItem::wxNode_wxMenuItem()
   NODE_SET_PROTOTYPE_METHOD(target, "getAccel", _GetAccel);
   NODE_SET_PROTOTYPE_METHOD(target, "setAccel", _SetAccel);
   
+  
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxMenuItem::New(const wxNode_wxMenuItem* obj) {
@@ -1026,4 +1027,6 @@ wxNode_wxMenuItem::wxNode_wxMenuItem()
   }
   return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
+
+
 

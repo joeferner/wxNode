@@ -100,6 +100,7 @@ wxNode_wxFrame::wxNode_wxFrame(wxWindow* parent, int id, const wxString& title)
   NODE_SET_PROTOTYPE_METHOD(target, "doGiveHelp", _DoGiveHelp);
   NODE_SET_PROTOTYPE_METHOD(target, "isClientAreaChild", _IsClientAreaChild);
   
+  
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxFrame::New(const wxNode_wxFrame* obj) {
@@ -1156,4 +1157,6 @@ wxNode_wxFrame::wxNode_wxFrame(wxWindow* parent, int id, const wxString& title)
   }
   return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
+
+
 

@@ -72,6 +72,7 @@ wxNode_wxStaticText::wxNode_wxStaticText(wxWindow* parent, int id, const wxStrin
   NODE_SET_PROTOTYPE_METHOD(target, "hasTransparentBackground", _HasTransparentBackground);
   NODE_SET_PROTOTYPE_METHOD(target, "isEllipsized", _IsEllipsized);
   
+  
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxStaticText::New(const wxNode_wxStaticText* obj) {
@@ -364,4 +365,6 @@ wxNode_wxStaticText::wxNode_wxStaticText(wxWindow* parent, int id, const wxStrin
   }
   return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
+
+
 

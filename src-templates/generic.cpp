@@ -34,6 +34,8 @@ wxNode_{{parent.parent.name}}::wxNode_{{parent.parent.name}}({{{argDeclCode}}})
   {{{baseClassAddMethodsCallCode}}}
   {{#methods}}{{{addMethodStmt}}}
   {{/methods}}
+  {{#fields}}{{{addFieldStmt}}}
+  {{/fields}}
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_{{name}}::New(const wxNode_{{name}}* obj) {
@@ -156,3 +158,19 @@ wxNode_{{parent.parent.name}}::wxNode_{{parent.parent.name}}({{{argDeclCode}}})
   return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
 {{/methods}}
+
+{{#fields}}
+/*static*/ v8::Handle<v8::Value> wxNode_{{parent.name}}::_{{name}}Get(v8::Local<v8::String> name, const v8::AccessorInfo& info) {
+  v8::HandleScope scope;
+  wxNode_{{parent.name}}* self = unwrap<wxNode_{{parent.name}}>(info.This());
+
+  return scope.Close(v8::Number::New(self->{{name}}));
+}
+
+/*static*/ void wxNode_{{parent.name}}::_{{name}}Set(v8::Local<v8::String> name, v8::Local<v8::Value> val, const v8::AccessorInfo& info) {
+  v8::HandleScope scope;
+  wxNode_{{parent.name}}* self = unwrap<wxNode_{{parent.name}}>(info.This());
+
+  self->{{name}} = val->ToNumber()->Value();
+}
+{{/fields}}

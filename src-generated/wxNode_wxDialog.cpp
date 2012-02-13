@@ -107,6 +107,7 @@ wxNode_wxDialog::wxNode_wxDialog(wxWindow* parent, int id, const wxString& title
   NODE_SET_METHOD(target, "enableLayoutAdaptation", _EnableLayoutAdaptation);
   NODE_SET_PROTOTYPE_METHOD(target, "getModality", _GetModality);
   
+  
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxDialog::New(const wxNode_wxDialog* obj) {
@@ -1299,4 +1300,6 @@ wxNode_wxDialog::wxNode_wxDialog(wxWindow* parent, int id, const wxString& title
   }
   return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
+
+
 

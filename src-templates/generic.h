@@ -29,6 +29,9 @@ private:
 
   {{#methods}}static v8::Handle<v8::Value> _{{name}}(const v8::Arguments& args);
   {{/methods}}
+  {{#fields}}static v8::Handle<v8::Value> _{{name}}Get(v8::Local<v8::String> name, const v8::AccessorInfo& info);
+  static void _{{name}}Set(v8::Local<v8::String> name, v8::Local<v8::Value> val, const v8::AccessorInfo& info);
+  {{/fields}}
 
   static v8::Persistent<v8::FunctionTemplate> s_ct;
 };

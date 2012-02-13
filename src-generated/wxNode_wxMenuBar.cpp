@@ -85,6 +85,7 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
   NODE_SET_PROTOTYPE_METHOD(target, "updateMenus", _UpdateMenus);
   NODE_SET_PROTOTYPE_METHOD(target, "canBeOutsideClientArea", _CanBeOutsideClientArea);
   
+  
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxMenuBar::New(const wxNode_wxMenuBar* obj) {
@@ -1114,4 +1115,6 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
   }
   return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
+
+
 

@@ -69,6 +69,7 @@ private:
   static v8::Handle<v8::Value> _GetAccel(const v8::Arguments& args);
   static v8::Handle<v8::Value> _SetAccel(const v8::Arguments& args);
   
+  
 
   static v8::Persistent<v8::FunctionTemplate> s_ct;
 };

@@ -54,6 +54,7 @@ wxNode_wxLogWindow::wxNode_wxLogWindow(wxWindow* pParent, const wxString& szTitl
   NODE_SET_PROTOTYPE_METHOD(target, "onFrameClose", _OnFrameClose);
   NODE_SET_PROTOTYPE_METHOD(target, "onFrameDelete", _OnFrameDelete);
   
+  
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxLogWindow::New(const wxNode_wxLogWindow* obj) {
@@ -293,4 +294,6 @@ wxNode_wxLogWindow::wxNode_wxLogWindow(wxWindow* pParent, const wxString& szTitl
   }
   return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
+
+
 

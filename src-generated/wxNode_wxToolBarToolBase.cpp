@@ -69,6 +69,7 @@
   NODE_SET_PROTOTYPE_METHOD(target, "getClassInfo", _GetClassInfo);
   NODE_SET_METHOD(target, "wxCreateObject", _wxCreateObject);
   
+  
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxToolBarToolBase::New(const wxNode_wxToolBarToolBase* obj) {
@@ -1141,4 +1142,6 @@
   }
   return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
+
+
 

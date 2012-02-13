@@ -43,6 +43,7 @@ wxNode_wxWebViewArchiveHandler::wxNode_wxWebViewArchiveHandler(const wxString& s
   wxNode_wxWebViewHandler::AddMethods(target);
   NODE_SET_PROTOTYPE_METHOD(target, "getFile", _GetFile);
   
+  
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxWebViewArchiveHandler::New(const wxNode_wxWebViewArchiveHandler* obj) {
@@ -177,4 +178,6 @@ wxNode_wxWebViewArchiveHandler::wxNode_wxWebViewArchiveHandler(const wxString& s
   }
   return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
+
+
 

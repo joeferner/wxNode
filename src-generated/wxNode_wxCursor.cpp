@@ -126,6 +126,7 @@ wxNode_wxCursor::wxNode_wxCursor(const char* bits, int width, int height)
   NODE_SET_PROTOTYPE_METHOD(target, "getClassInfo", _GetClassInfo);
   NODE_SET_METHOD(target, "wxCreateObject", _wxCreateObject);
   
+  
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxCursor::New(const wxNode_wxCursor* obj) {
@@ -507,4 +508,6 @@ wxNode_wxCursor::wxNode_wxCursor(const char* bits, int width, int height)
   }
   return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
+
+
 

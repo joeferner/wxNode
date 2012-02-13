@@ -88,6 +88,7 @@
   NODE_SET_PROTOTYPE_METHOD(target, "acceptsFocus", _AcceptsFocus);
   NODE_SET_PROTOTYPE_METHOD(target, "setDropdownMenu", _SetDropdownMenu);
   
+  
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxToolBarBase::New(const wxNode_wxToolBarBase* obj) {
@@ -2092,4 +2093,6 @@
   }
   return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
+
+
 

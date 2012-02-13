@@ -60,6 +60,9 @@ wxNode_wxSize::wxNode_wxSize(int xx, int yy)
   NODE_SET_PROTOTYPE_METHOD(target, "getX", _GetX);
   NODE_SET_PROTOTYPE_METHOD(target, "getY", _GetY);
   
+  target->PrototypeTemplate()->SetAccessor(v8::String::New("x"), _xGet, _xSet);
+  target->PrototypeTemplate()->SetAccessor(v8::String::New("y"), _yGet, _ySet);
+  
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxSize::New(const wxNode_wxSize* obj) {
@@ -645,5 +648,35 @@ wxNode_wxSize::wxNode_wxSize(int xx, int yy)
     errStr << "  arg[" << i << "]: " << *argStr << "\n";
   }
   return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
+}
+
+
+
+/*static*/ v8::Handle<v8::Value> wxNode_wxSize::_xGet(v8::Local<v8::String> name, const v8::AccessorInfo& info) {
+  v8::HandleScope scope;
+  wxNode_wxSize* self = unwrap<wxNode_wxSize>(info.This());
+
+  return scope.Close(v8::Number::New(self->x));
+}
+
+/*static*/ void wxNode_wxSize::_xSet(v8::Local<v8::String> name, v8::Local<v8::Value> val, const v8::AccessorInfo& info) {
+  v8::HandleScope scope;
+  wxNode_wxSize* self = unwrap<wxNode_wxSize>(info.This());
+
+  self->x = val->ToNumber()->Value();
+}
+
+/*static*/ v8::Handle<v8::Value> wxNode_wxSize::_yGet(v8::Local<v8::String> name, const v8::AccessorInfo& info) {
+  v8::HandleScope scope;
+  wxNode_wxSize* self = unwrap<wxNode_wxSize>(info.This());
+
+  return scope.Close(v8::Number::New(self->y));
+}
+
+/*static*/ void wxNode_wxSize::_ySet(v8::Local<v8::String> name, v8::Local<v8::Value> val, const v8::AccessorInfo& info) {
+  v8::HandleScope scope;
+  wxNode_wxSize* self = unwrap<wxNode_wxSize>(info.This());
+
+  self->y = val->ToNumber()->Value();
 }
 

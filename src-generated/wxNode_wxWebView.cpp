@@ -8,6 +8,7 @@
 #include "wxNode_wxSize.h"
 #include "wxNode_wxWebViewHandler.h"
 #include "wxNode_wxInputStream.h"
+#include "wxNode_wxVector.h"
 #include "wxNode_wxWebViewHistoryItem.h"
 #include "wxNode_wxClassInfo.h"
 
@@ -80,6 +81,7 @@
   NODE_SET_PROTOTYPE_METHOD(target, "undo", _Undo);
   NODE_SET_PROTOTYPE_METHOD(target, "redo", _Redo);
   NODE_SET_PROTOTYPE_METHOD(target, "getClassInfo", _GetClassInfo);
+  
   
 }
 
@@ -1692,4 +1694,6 @@
   }
   return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
+
+
 

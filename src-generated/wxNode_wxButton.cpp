@@ -85,6 +85,7 @@ wxNode_wxButton::wxNode_wxButton(wxWindow* parent, int id)
   NODE_SET_PROTOTYPE_METHOD(target, "setDefault", _SetDefault);
   NODE_SET_METHOD(target, "getDefaultSize", _GetDefaultSize);
   
+  
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxButton::New(const wxNode_wxButton* obj) {
@@ -443,4 +444,6 @@ wxNode_wxButton::wxNode_wxButton(wxWindow* parent, int id)
   }
   return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
+
+
 

@@ -470,7 +470,7 @@ var WebFrame = wx.Frame.extend({
     var item;
 
     var i;
-    for(i = 0; i < back.size(); i++)
+    for(i = 0; i < back.length; i++)
     {
       item = this.m_tools_history_menu.appendRadioItem(wx.ID_ANY, back[i].getTitle());
       this.m_histMenuItems[item.getId()] = back[i];
@@ -484,7 +484,7 @@ var WebFrame = wx.Frame.extend({
     //No need to connect the current item
     this.m_histMenuItems[item.getId()] = new wx.WebViewHistoryItem(this.m_browser.getCurrentURL(), this.m_browser.getCurrentTitle());
 
-    for(i = 0; i < forward.size(); i++)
+    for(i = 0; i < forward.length; i++)
     {
         item = this.m_tools_history_menu.appendRadioItem(wx.ID_ANY, forward[i].getTitle());
         this.m_histMenuItems[item.getId()] = forward[i];
@@ -492,7 +492,7 @@ var WebFrame = wx.Frame.extend({
                 this.onHistory, null, this );
     }
 
-    var position = this.screenToClient( wx.GetMousePosition() );
+    var position = this.screenToClient( wx.getMousePosition() );
     this.popupMenu(this.m_tools_menu, position.x, position.y);
   },
 

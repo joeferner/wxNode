@@ -38,6 +38,7 @@ wxNode_wxNonOwnedWindow::wxNode_wxNonOwnedWindow()
   wxNode_wxWindow::AddMethods(target);
   NODE_SET_PROTOTYPE_METHOD(target, "setShape", _SetShape);
   
+  
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxNonOwnedWindow::New(const wxNode_wxNonOwnedWindow* obj) {
@@ -277,4 +278,6 @@ wxNode_wxNonOwnedWindow::wxNode_wxNonOwnedWindow()
   }
   return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
+
+
 

@@ -66,6 +66,7 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
   NODE_SET_PROTOTYPE_METHOD(target, "getFlags", _GetFlags);
   NODE_SET_PROTOTYPE_METHOD(target, "getBorderInPixels", _GetBorderInPixels);
   
+  
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxSizerFlags::New(const wxNode_wxSizerFlags* obj) {
@@ -806,4 +807,6 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
   }
   return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
+
+
 

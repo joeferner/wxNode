@@ -28,6 +28,7 @@
   NODE_SET_PROTOTYPE_METHOD(target, "getName", _GetName);
   NODE_SET_PROTOTYPE_METHOD(target, "getFile", _GetFile);
   
+  
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxWebViewHandler::New(const wxNode_wxWebViewHandler* obj) {
@@ -163,4 +164,6 @@
   }
   return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
+
+
 

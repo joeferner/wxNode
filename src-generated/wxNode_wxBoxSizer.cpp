@@ -51,6 +51,7 @@ wxNode_wxBoxSizer::wxNode_wxBoxSizer(int orient)
   NODE_SET_PROTOTYPE_METHOD(target, "recalcSizes", _RecalcSizes);
   NODE_SET_PROTOTYPE_METHOD(target, "getClassInfo", _GetClassInfo);
   
+  
 }
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxBoxSizer::New(const wxNode_wxBoxSizer* obj) {
@@ -355,4 +356,6 @@ wxNode_wxBoxSizer::wxNode_wxBoxSizer(int orient)
   }
   return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
+
+
 
