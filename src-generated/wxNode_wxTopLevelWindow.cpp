@@ -1036,7 +1036,7 @@ wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxWindow* parent, int winid, co
   if(args.Length() == 0) {
     
 
-    wxSize returnVal = self->GetDefaultSize();
+    wxSize returnVal = wxTopLevelWindow::GetDefaultSize();
 
     return scope.Close(wxNode_wxSize::NewCopy(returnVal));
   }

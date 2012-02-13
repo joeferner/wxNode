@@ -596,7 +596,7 @@ return scope.Close(v8::String::New(returnValTemp));
   if(args.Length() == 0) {
     
 
-    wxObject* returnVal = self->wxCreateObject();
+    wxObject* returnVal = wxKeyEvent::wxCreateObject();
 
     return scope.Close(wxNode_wxObject::New(returnVal));
   }

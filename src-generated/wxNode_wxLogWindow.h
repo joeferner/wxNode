@@ -6,6 +6,7 @@
 #include "wxNode_wxEvtHandler.h"
 class wxNode_wxEvtHandler;
 class wxNode_wxLogInterposer;
+class wxNode_wxWindow;
 
 
 class wxNode_wxLogWindow : public wxLogWindow, public wxNodeObject, public NodeExEvtHandlerImpl {
@@ -19,6 +20,14 @@ public:
   static v8::Handle<v8::Value> New(const wxNode_wxLogWindow* obj);
   static v8::Handle<v8::Value> NewCopy(const wxLogWindow& obj);
 
+  
+  
+  wxNode_wxLogWindow(wxWindow* pParent, const wxString& szTitle, bool bShow, bool bPassToOld);
+  
+  wxNode_wxLogWindow(wxWindow* pParent, const wxString& szTitle, bool bShow);
+  
+  wxNode_wxLogWindow(wxWindow* pParent, const wxString& szTitle);
+  
   
 
 private:

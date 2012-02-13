@@ -138,7 +138,7 @@ wxNode_{{parent.parent.name}}::wxNode_{{parent.parent.name}}({{{argDeclCode}}})
     {{#args}}{{{argCode}}}
     {{/args}}
 
-    {{{returnEq}}}self->{{name}}({{{argCallCode}}});
+    {{{returnEq}}}{{{methodCallCtx}}}{{name}}({{{argCallCode}}});
 
     {{{returnStmt}}}
   }

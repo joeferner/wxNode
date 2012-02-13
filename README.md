@@ -45,6 +45,7 @@ app.run();
 ## Building wxWidgets
 ```bash
 $ sudo apt-get install libwebkitgtk-dev
+$ sudo ldconfig
 $ ./configure --enable-webview --enable-webview-webkit && make
 $ sudo make install
 ```

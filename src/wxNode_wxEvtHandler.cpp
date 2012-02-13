@@ -31,15 +31,31 @@ v8::Handle<v8::Value> NewEvent_wxKeyEvent(wxEvent& event) {
   wxEvtHandler* evtHandler = unwrap<wxEvtHandler>(args.This());
   NodeExEvtHandlerImpl* self = unwrapEvtHandler(args.This());
 
-  v8::Local<v8::Int32> idObj = args[0]->ToInt32();
-  int32_t eventType = idObj->Value();
+  if(args.Length() == 2) {
+    v8::Local<v8::Int32> idObj = args[0]->ToInt32();
+    int32_t eventType = idObj->Value();
 
-  if(!args[1]->IsFunction()) {
-    printf("Invalid Arg\n"); // TODO: throw exception
+    if(!args[1]->IsFunction()) {
+      return v8::ThrowException(v8::Exception::TypeError(v8::String::New("Invalid 2nd argument, expected function.")));
+    }
+    v8::Local<v8::Object> fnObj = args[1]->ToObject();
+
+    self->connect(evtHandler, eventType, fnObj, NewEvent_wxEvent);
   }
-  v8::Local<v8::Object> fnObj = args[1]->ToObject();
 
-  self->connect(evtHandler, eventType, fnObj, NewEvent_wxEvent);
+  else if(args.Length() == 5) {
+    int32_t winId = args[0]->ToInt32()->Value();
+    int32_t eventType = args[1]->ToInt32()->Value();
+    v8::Local<v8::Object> func = args[2]->ToObject();
+    void* userData = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<void>(args[3]->ToObject());
+    wxNode_wxEvtHandler* eventSink = args[4]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxEvtHandler>(args[4]->ToObject());;
+
+    self->connect(evtHandler, winId, eventType, func, userData, eventSink, NewEvent_wxEvent);
+  }
+
+  else {
+    return v8::ThrowException(v8::Exception::TypeError(v8::String::New("Invalid number of arguments.")));
+  }
 
   return v8::Undefined();
 }
@@ -157,6 +173,19 @@ void NodeExEvtHandlerImpl::connect(wxEvtHandler* evtHandler, int eventType, v8::
   data->m_iListener = iListener;
 
   evtHandler->Connect(eventType, (wxObjectEventFunction)&EventProxy::forwardEvent, data);
+}
+
+void NodeExEvtHandlerImpl::connect(wxEvtHandler* evtHandler, int id, int eventType, v8::Local<v8::Object> fn, void* userData, wxEvtHandler* eventSink, fnNewEvent* NewEvent) {
+  // TODO: memory cleanup
+  m_listeners->push_back(new ListenerData(eventType, fn, NewEvent));
+  int iListener = m_listeners->size() - 1;
+
+  EventProxyData* data = new EventProxyData();
+  data->m_self = this;
+  data->m_iListener = iListener;
+  data->m_userData = userData;
+
+  evtHandler->Connect(id, eventType, (wxObjectEventFunction)&EventProxy::forwardEvent, data, eventSink);
 }
 
 void NodeExEvtHandlerImpl::addEventListener(wxEvtHandler* evtHandler, int eventType, v8::Local<v8::Object> fn, fnNewEvent* NewEvent) {

@@ -398,7 +398,7 @@ wxNode_wxIcon::wxNode_wxIcon(wxIconLocation& loc)
   if(args.Length() == 0) {
     
 
-    wxObject* returnVal = self->wxCreateObject();
+    wxObject* returnVal = wxIcon::wxCreateObject();
 
     return scope.Close(wxNode_wxObject::New(returnVal));
   }

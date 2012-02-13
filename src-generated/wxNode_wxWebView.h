@@ -31,6 +31,7 @@ private:
   static v8::Handle<v8::Value> _init(const v8::Arguments& args);
 
   static v8::Handle<v8::Value> _Create(const v8::Arguments& args);
+  static v8::Handle<v8::Value> _New(const v8::Arguments& args);
   static v8::Handle<v8::Value> _GetCurrentTitle(const v8::Arguments& args);
   static v8::Handle<v8::Value> _GetCurrentURL(const v8::Arguments& args);
   static v8::Handle<v8::Value> _GetPageSource(const v8::Arguments& args);

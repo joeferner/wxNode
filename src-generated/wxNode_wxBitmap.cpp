@@ -984,7 +984,7 @@ wxNode_wxBitmap::wxNode_wxBitmap(wxImage& image)
   if(args.Length() == 0) {
     
 
-    wxList returnVal = self->GetHandlers();
+    wxList returnVal = wxBitmap::GetHandlers();
 
     return scope.Close(wxNode_wxList::NewCopy(returnVal));
   }
@@ -1012,7 +1012,7 @@ wxNode_wxBitmap::wxNode_wxBitmap(wxImage& image)
     wxNode_wxBitmapHandler* handler = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmapHandler>(args[0]->ToObject()); /* type: _59460 * */
     
 
-    self->AddHandler(handler);
+    wxBitmap::AddHandler(handler);
 
     return v8::Undefined();
   }
@@ -1040,7 +1040,7 @@ wxNode_wxBitmap::wxNode_wxBitmap(wxImage& image)
     wxNode_wxBitmapHandler* handler = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmapHandler>(args[0]->ToObject()); /* type: _59460 * */
     
 
-    self->InsertHandler(handler);
+    wxBitmap::InsertHandler(handler);
 
     return v8::Undefined();
   }
@@ -1068,7 +1068,7 @@ wxNode_wxBitmap::wxNode_wxBitmap(wxImage& image)
     v8::String::AsciiValue name(args[0]->ToString()); /* type: _14975  */
     
 
-    bool returnVal = self->RemoveHandler(*name);
+    bool returnVal = wxBitmap::RemoveHandler(*name);
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
@@ -1096,7 +1096,7 @@ wxNode_wxBitmap::wxNode_wxBitmap(wxImage& image)
     v8::String::AsciiValue name(args[0]->ToString()); /* type: _14975  */
     
 
-    wxBitmapHandler* returnVal = self->FindHandler(*name);
+    wxBitmapHandler* returnVal = wxBitmap::FindHandler(*name);
 
     return scope.Close(wxNode_wxBitmapHandler::New(returnVal));
   }
@@ -1109,7 +1109,7 @@ wxNode_wxBitmap::wxNode_wxBitmap(wxImage& image)
     wxBitmapType bitmapType = (wxBitmapType)args[1]->ToNumber()->Value(); /* type: _2567  */
     
 
-    wxBitmapHandler* returnVal = self->FindHandler(*extension, bitmapType);
+    wxBitmapHandler* returnVal = wxBitmap::FindHandler(*extension, bitmapType);
 
     return scope.Close(wxNode_wxBitmapHandler::New(returnVal));
   }
@@ -1121,7 +1121,7 @@ wxNode_wxBitmap::wxNode_wxBitmap(wxImage& image)
     wxBitmapType bitmapType = (wxBitmapType)args[0]->ToNumber()->Value(); /* type: _2567  */
     
 
-    wxBitmapHandler* returnVal = self->FindHandler(bitmapType);
+    wxBitmapHandler* returnVal = wxBitmap::FindHandler(bitmapType);
 
     return scope.Close(wxNode_wxBitmapHandler::New(returnVal));
   }
@@ -1148,7 +1148,7 @@ wxNode_wxBitmap::wxNode_wxBitmap(wxImage& image)
   if(args.Length() == 0) {
     
 
-    self->CleanUpHandlers();
+    wxBitmap::CleanUpHandlers();
 
     return v8::Undefined();
   }

@@ -6,6 +6,7 @@
 #include "wxNode_wxEvtHandler.h"
 class wxNode_wxEvtHandler;
 class wxNode_wxWebViewHandler;
+class wxNode_wxWebViewArchiveHandler;
 
 
 class wxNode_wxWebViewArchiveHandler : public wxWebViewArchiveHandler, public wxNodeObject, public NodeExEvtHandlerImpl {
@@ -19,6 +20,12 @@ public:
   static v8::Handle<v8::Value> New(const wxNode_wxWebViewArchiveHandler* obj);
   static v8::Handle<v8::Value> NewCopy(const wxWebViewArchiveHandler& obj);
 
+  
+  
+  wxNode_wxWebViewArchiveHandler(wxWebViewArchiveHandler& arg0);
+  
+  wxNode_wxWebViewArchiveHandler(const wxString& scheme);
+  
   
 
 private:

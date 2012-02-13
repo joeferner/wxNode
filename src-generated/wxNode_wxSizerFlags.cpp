@@ -443,7 +443,7 @@ wxNode_wxSizerFlags::wxNode_wxSizerFlags()
   if(args.Length() == 0) {
     
 
-    int returnVal = self->GetDefaultBorder();
+    int returnVal = wxSizerFlags::GetDefaultBorder();
 
     return scope.Close(v8::Number::New(returnVal));
   }

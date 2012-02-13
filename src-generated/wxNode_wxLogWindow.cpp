@@ -3,10 +3,31 @@
 #include "wxNode_wxLogWindow.h"
 #include "wxNode_wxEvtHandler.h"
 #include "wxNode_wxLogInterposer.h"
+#include "wxNode_wxWindow.h"
 #include "wxNode_wxFrame.h"
 
 
 /* static */ v8::Persistent<v8::FunctionTemplate> wxNode_wxLogWindow::s_ct;
+
+
+
+wxNode_wxLogWindow::wxNode_wxLogWindow(wxWindow* pParent, const wxString& szTitle, bool bShow, bool bPassToOld)
+  : wxLogWindow(pParent, szTitle, bShow, bPassToOld)
+{
+
+}
+
+wxNode_wxLogWindow::wxNode_wxLogWindow(wxWindow* pParent, const wxString& szTitle, bool bShow)
+  : wxLogWindow(pParent, szTitle, bShow)
+{
+
+}
+
+wxNode_wxLogWindow::wxNode_wxLogWindow(wxWindow* pParent, const wxString& szTitle)
+  : wxLogWindow(pParent, szTitle)
+{
+
+}
 
 
 
@@ -97,6 +118,53 @@
 /*static*/ v8::Handle<v8::Value> wxNode_wxLogWindow::_init(const v8::Arguments& args) {
   v8::HandleScope scope;
 
+  
+  
+  /*
+   * id: _52979
+   */
+  if(args.Length() == 4 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxWindow::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsString() && args[2]->IsBoolean() && args[3]->IsBoolean()) {
+    wxNode_wxWindow* pParent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _1000 * */
+    v8::String::AsciiValue szTitle(args[1]->ToString()); /* type: _14975  */
+    bool bShow = args[2]->ToBoolean()->Value(); /* type: _14830  */
+    bool bPassToOld = args[3]->ToBoolean()->Value(); /* type: _14830  */
+    
+
+    wxNode_wxLogWindow *self = new wxNode_wxLogWindow(pParent, *szTitle, bShow, bPassToOld);
+    NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>(self);
+    self->wrap(args.This(), self, evtHandler);
+    return args.This();
+  }
+  
+  /*
+   * id: _52979
+   */
+  if(args.Length() == 3 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxWindow::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsString() && args[2]->IsBoolean()) {
+    wxNode_wxWindow* pParent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _1000 * */
+    v8::String::AsciiValue szTitle(args[1]->ToString()); /* type: _14975  */
+    bool bShow = args[2]->ToBoolean()->Value(); /* type: _14830  */
+    
+
+    wxNode_wxLogWindow *self = new wxNode_wxLogWindow(pParent, *szTitle, bShow);
+    NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>(self);
+    self->wrap(args.This(), self, evtHandler);
+    return args.This();
+  }
+  
+  /*
+   * id: _52979
+   */
+  if(args.Length() == 2 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxWindow::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsString()) {
+    wxNode_wxWindow* pParent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _1000 * */
+    v8::String::AsciiValue szTitle(args[1]->ToString()); /* type: _14975  */
+    
+
+    wxNode_wxLogWindow *self = new wxNode_wxLogWindow(pParent, *szTitle);
+    NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>(self);
+    self->wrap(args.This(), self, evtHandler);
+    return args.This();
+  }
+  
   
 
   std::ostringstream errStr;

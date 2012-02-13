@@ -11,6 +11,7 @@ var async = require('async');
 
 var files = [
   { className: 'wxMenu', baseClassName: 'wxMenuBase', allowNew: true },
+  { className: 'wxMenuItem', baseClassName: 'wxMenuItemBase', allowNew: true },
   { className: 'wxMenuBar', baseClassName: 'wxMenuBarBase', allowNew: true },
   { className: 'wxFrame', baseClassName: 'wxFrameBase', allowNew: true },
   { className: 'wxTopLevelWindow', baseClassName: 'wxTopLevelWindowBase', allowNew: true },
@@ -30,10 +31,14 @@ var files = [
   { className: 'wxInfoBar', baseClassName: 'wxInfoBarBase', allowNew: true },
   { className: 'wxControlWithItems', baseClassName: 'wxControlWithItemsBase', allowNew: false, addMethodsClass: 'wxNode_wxWindowWithItems_wxControl_wxItemContainer' },
   { className: 'wxWindow', baseClassName: 'wxWindowBase', allowNew: true },
-  { className: 'wxLogWindow', allowNew: true, allowNew: false },
+  { className: 'wxLogWindow', allowNew: true, noNewCopy: true },
+  { className: 'wxToolBarToolBase', allowNew: false },
+  { className: 'wxToolBarBase', allowNew: false },
   { className: 'wxArtProvider', allowNew: true },
-  { className: 'wxWebView', allowNew: false },
-  { className: 'wxWebViewArchiveHandler', allowNew: false },
+  { className: 'wxCursor', allowNew: true },
+  { className: 'wxWebView', allowNew: false, allowStaticNew: true },
+  { className: 'wxWebViewArchiveHandler', allowNew: true, noNewCopy: true },
+  { className: 'wxWebViewHandler', allowNew: false },
   { className: 'wxItemContainer', allowNew: false },
   { className: 'wxItemContainerImmutable', allowNew: false },
   { className: 'wxSizer', allowNew: false },
@@ -90,7 +95,7 @@ fs.readFile('./wxapi.json', 'utf8', function(err, data) {
             var id = elem[i]['id'];
             apiJson[id] = elem[i];
             apiJson[id].elementName = elementName;
-            if(elementName == "Class" || elementName == "Enumeration") {
+            if(elementName == "Class" || elementName == "Enumeration" || elementName == "Union") {
               var name = removeTemplateFromClassName(elem[i]['name']);
               apiJson.classNameToId[name] = id;
               var bases = elem[i]['bases'];
@@ -386,6 +391,11 @@ function methodJsonToCtx(parent, rawJson, methodJson) {
     ctx.returnTypeName = returnType['name'];
     ctx.returnTypeId = returnType['id'];
     ctx.returnEq = "";
+    if(methodJson['static'] == 1) {
+      ctx.methodCallCtx = parent.parent.name + '::';
+    }else{
+      ctx.methodCallCtx = "self->";
+    }
     ctx.returnStmt = "return v8::Undefined();";
     if(ctx.returnTypeName == "void") {
       // do nothing
@@ -523,6 +533,9 @@ function getClassByName(rawJson, name) {
 }
 
 function removeTemplateFromClassName(name) {
+  if(!name) {
+    return name;
+  }
   if(name.indexOf('<')) {
     name = name.split('<')[0];
   }
@@ -592,7 +605,9 @@ function rawJsonToCtx(rawJson, file) {
 
   // process members
   if(file.allowNew) {
-    if(file.hasCopyConstructor) {
+    if(file.noNewCopy) {
+      // don't create a new copy
+    } else if(file.hasCopyConstructor) {
       ctx.newCopyCode = "v8::HandleScope scope;\n";
       ctx.newCopyCode += "  wxNode_" + ctx.name + "* returnVal = new wxNode_" + ctx.name + "(*((" + ctx.name + "*)&obj));\n";
       ctx.newCopyCode += "  return scope.Close(New(returnVal));\n";
@@ -640,7 +655,7 @@ function rawJsonToCtx(rawJson, file) {
 
       var member = rawJson[memberId];
       if(member.elementName == "Method") {
-        if(member.name == "New") {
+        if(!file.allowStaticNew && member.name == "New") {
           continue;
         }
         addMethod(rawJson, ctx, member, ctx.methods);
@@ -676,6 +691,10 @@ function rawJsonToCtx(rawJson, file) {
       }
 
       if(member.elementName == "Enumeration") {
+        continue;
+      }
+
+      if(member.elementName == "Union") {
         continue;
       }
 

@@ -23,9 +23,11 @@
 #include "wxNode_wxInfoBar.h"
 #include "wxNode_wxLogWindow.h"
 #include "wxNode_wxWebView.h"
+#include "wxNode_wxCursor.h"
 #include "wxNode_wxWebViewArchiveHandler.h"
 #include "wxLogStatus.h"
 #include "messageBox.h"
+#include "globalFunctions.h"
 
 extern "C" {
   static void init(v8::Handle<v8::Object> target) {
@@ -52,6 +54,7 @@ extern "C" {
     wxNode_wxLogWindow::Init(target);
     wxNode_wxWebView::Init(target);
     wxNode_wxWebViewArchiveHandler::Init(target);
+    GlobalFunctions::Init(target);
     NodeWxMessageBox::Init(target);
     NodeWxLogStatus::Init(target);
 
@@ -78,6 +81,9 @@ extern "C" {
       initFn->Call(s, 2, initArgv);
       target->Set(v8::String::NewSymbol("DefaultPosition"), s);
     }
+
+    target->Set(v8::String::NewSymbol("CURSOR_ARROWWAIT"), v8::Number::New(wxCURSOR_ARROWWAIT));
+    target->Set(v8::String::NewSymbol("NullCursor"), wxNode_wxCursor::New(&wxNullCursor));
   }
 
   NODE_MODULE(wxnode_bindings, init);

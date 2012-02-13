@@ -34,6 +34,7 @@
 /*static*/ void wxNode_wxWebView::AddMethods(v8::Handle<v8::FunctionTemplate> target) {
   wxNode_wxControl::AddMethods(target);
   NODE_SET_PROTOTYPE_METHOD(target, "create", _Create);
+  NODE_SET_METHOD(target, "new", _New);
   NODE_SET_PROTOTYPE_METHOD(target, "getCurrentTitle", _GetCurrentTitle);
   NODE_SET_PROTOTYPE_METHOD(target, "getCurrentURL", _GetCurrentURL);
   NODE_SET_PROTOTYPE_METHOD(target, "getPageSource", _GetPageSource);
@@ -258,6 +259,157 @@
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWebView::Create).\n";
+  errStr << "  arg count: " << args.Length() << "\n";
+  for(int i = 0; i < args.Length(); i++) {
+    v8::String::AsciiValue argStr(args[i]);
+    errStr << "  arg[" << i << "]: " << *argStr << "\n";
+  }
+  return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
+}
+
+/*static*/ v8::Handle<v8::Value> wxNode_wxWebView::_New(const v8::Arguments& args) {
+  v8::HandleScope scope;
+  wxNode_wxWebView* self = unwrap<wxNode_wxWebView>(args.This());
+
+  
+  /*
+   * id: _43473
+   */
+  if(args.Length() == 1 && args[0]->IsNumber()) {
+    wxWebViewBackend backend = (wxWebViewBackend)args[0]->ToNumber()->Value(); /* type: _683  */
+    
+
+    wxWebView* returnVal = wxWebView::New(backend);
+
+    return scope.Close(wxNode_wxWebView::New(returnVal));
+  }
+  
+  /*
+   * id: _43473
+   */
+  if(args.Length() == 0) {
+    
+
+    wxWebView* returnVal = wxWebView::New();
+
+    return scope.Close(wxNode_wxWebView::New(returnVal));
+  }
+  
+  /*
+   * id: _43474
+   */
+  if(args.Length() == 8 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxWindow::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsNumber() && args[2]->IsString() && (args[3]->IsNull() || (args[3]->IsObject() && wxNode_wxPoint::AssignableFrom(args[3]->ToObject()->GetConstructorName()))) && (args[4]->IsNull() || (args[4]->IsObject() && wxNode_wxSize::AssignableFrom(args[4]->ToObject()->GetConstructorName()))) && args[5]->IsNumber() && args[6]->IsNumber() && args[7]->IsString()) {
+    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _1000 * */
+    int id = (int)args[1]->ToInt32()->Value(); /* type: _8725  */
+    v8::String::AsciiValue url(args[2]->ToString()); /* type: _14975  */
+    wxNode_wxPoint* pos = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[3]->ToObject()); /* type: _20518  */
+    wxNode_wxSize* size = args[4]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[4]->ToObject()); /* type: _20628  */
+    wxWebViewBackend backend = (wxWebViewBackend)args[5]->ToNumber()->Value(); /* type: _683  */
+    long int style = (long int)args[6]->ToInt32()->Value(); /* type: _592  */
+    v8::String::AsciiValue name(args[7]->ToString()); /* type: _14975  */
+    
+
+    wxWebView* returnVal = wxWebView::New(parent, id, *url, *pos, *size, backend, style, *name);
+
+    return scope.Close(wxNode_wxWebView::New(returnVal));
+  }
+  
+  /*
+   * id: _43474
+   */
+  if(args.Length() == 7 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxWindow::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsNumber() && args[2]->IsString() && (args[3]->IsNull() || (args[3]->IsObject() && wxNode_wxPoint::AssignableFrom(args[3]->ToObject()->GetConstructorName()))) && (args[4]->IsNull() || (args[4]->IsObject() && wxNode_wxSize::AssignableFrom(args[4]->ToObject()->GetConstructorName()))) && args[5]->IsNumber() && args[6]->IsNumber()) {
+    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _1000 * */
+    int id = (int)args[1]->ToInt32()->Value(); /* type: _8725  */
+    v8::String::AsciiValue url(args[2]->ToString()); /* type: _14975  */
+    wxNode_wxPoint* pos = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[3]->ToObject()); /* type: _20518  */
+    wxNode_wxSize* size = args[4]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[4]->ToObject()); /* type: _20628  */
+    wxWebViewBackend backend = (wxWebViewBackend)args[5]->ToNumber()->Value(); /* type: _683  */
+    long int style = (long int)args[6]->ToInt32()->Value(); /* type: _592  */
+    
+
+    wxWebView* returnVal = wxWebView::New(parent, id, *url, *pos, *size, backend, style);
+
+    return scope.Close(wxNode_wxWebView::New(returnVal));
+  }
+  
+  /*
+   * id: _43474
+   */
+  if(args.Length() == 6 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxWindow::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsNumber() && args[2]->IsString() && (args[3]->IsNull() || (args[3]->IsObject() && wxNode_wxPoint::AssignableFrom(args[3]->ToObject()->GetConstructorName()))) && (args[4]->IsNull() || (args[4]->IsObject() && wxNode_wxSize::AssignableFrom(args[4]->ToObject()->GetConstructorName()))) && args[5]->IsNumber()) {
+    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _1000 * */
+    int id = (int)args[1]->ToInt32()->Value(); /* type: _8725  */
+    v8::String::AsciiValue url(args[2]->ToString()); /* type: _14975  */
+    wxNode_wxPoint* pos = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[3]->ToObject()); /* type: _20518  */
+    wxNode_wxSize* size = args[4]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[4]->ToObject()); /* type: _20628  */
+    wxWebViewBackend backend = (wxWebViewBackend)args[5]->ToNumber()->Value(); /* type: _683  */
+    
+
+    wxWebView* returnVal = wxWebView::New(parent, id, *url, *pos, *size, backend);
+
+    return scope.Close(wxNode_wxWebView::New(returnVal));
+  }
+  
+  /*
+   * id: _43474
+   */
+  if(args.Length() == 5 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxWindow::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsNumber() && args[2]->IsString() && (args[3]->IsNull() || (args[3]->IsObject() && wxNode_wxPoint::AssignableFrom(args[3]->ToObject()->GetConstructorName()))) && (args[4]->IsNull() || (args[4]->IsObject() && wxNode_wxSize::AssignableFrom(args[4]->ToObject()->GetConstructorName())))) {
+    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _1000 * */
+    int id = (int)args[1]->ToInt32()->Value(); /* type: _8725  */
+    v8::String::AsciiValue url(args[2]->ToString()); /* type: _14975  */
+    wxNode_wxPoint* pos = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[3]->ToObject()); /* type: _20518  */
+    wxNode_wxSize* size = args[4]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[4]->ToObject()); /* type: _20628  */
+    
+
+    wxWebView* returnVal = wxWebView::New(parent, id, *url, *pos, *size);
+
+    return scope.Close(wxNode_wxWebView::New(returnVal));
+  }
+  
+  /*
+   * id: _43474
+   */
+  if(args.Length() == 4 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxWindow::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsNumber() && args[2]->IsString() && (args[3]->IsNull() || (args[3]->IsObject() && wxNode_wxPoint::AssignableFrom(args[3]->ToObject()->GetConstructorName())))) {
+    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _1000 * */
+    int id = (int)args[1]->ToInt32()->Value(); /* type: _8725  */
+    v8::String::AsciiValue url(args[2]->ToString()); /* type: _14975  */
+    wxNode_wxPoint* pos = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[3]->ToObject()); /* type: _20518  */
+    
+
+    wxWebView* returnVal = wxWebView::New(parent, id, *url, *pos);
+
+    return scope.Close(wxNode_wxWebView::New(returnVal));
+  }
+  
+  /*
+   * id: _43474
+   */
+  if(args.Length() == 3 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxWindow::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsNumber() && args[2]->IsString()) {
+    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _1000 * */
+    int id = (int)args[1]->ToInt32()->Value(); /* type: _8725  */
+    v8::String::AsciiValue url(args[2]->ToString()); /* type: _14975  */
+    
+
+    wxWebView* returnVal = wxWebView::New(parent, id, *url);
+
+    return scope.Close(wxNode_wxWebView::New(returnVal));
+  }
+  
+  /*
+   * id: _43474
+   */
+  if(args.Length() == 2 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxWindow::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsNumber()) {
+    wxNode_wxWindow* parent = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[0]->ToObject()); /* type: _1000 * */
+    int id = (int)args[1]->ToInt32()->Value(); /* type: _8725  */
+    
+
+    wxWebView* returnVal = wxWebView::New(parent, id);
+
+    return scope.Close(wxNode_wxWebView::New(returnVal));
+  }
+  
+
+  std::ostringstream errStr;
+  errStr << "Could not find matching method for arguments (method name: wxWebView::New).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);

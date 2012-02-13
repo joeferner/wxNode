@@ -1352,7 +1352,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxWindow* parent, int id)
     int count = (int)args[0]->ToInt32()->Value(); /* type: _165  */
     
 
-    int returnVal = self->NewControlId(count);
+    int returnVal = wxWindow::NewControlId(count);
 
     return scope.Close(v8::Number::New(returnVal));
   }
@@ -1363,7 +1363,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxWindow* parent, int id)
   if(args.Length() == 0) {
     
 
-    int returnVal = self->NewControlId();
+    int returnVal = wxWindow::NewControlId();
 
     return scope.Close(v8::Number::New(returnVal));
   }
@@ -1392,7 +1392,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxWindow* parent, int id)
     int count = (int)args[1]->ToInt32()->Value(); /* type: _165  */
     
 
-    self->UnreserveControlId(id, count);
+    wxWindow::UnreserveControlId(id, count);
 
     return v8::Undefined();
   }
@@ -1404,7 +1404,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxWindow* parent, int id)
     int id = (int)args[0]->ToInt32()->Value(); /* type: _8725  */
     
 
-    self->UnreserveControlId(id);
+    wxWindow::UnreserveControlId(id);
 
     return v8::Undefined();
   }
@@ -4038,7 +4038,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxWindow* parent, int id)
   if(args.Length() == 0) {
     
 
-    const wxWindow* returnVal = self->FindFocus();
+    const wxWindow* returnVal = wxWindow::FindFocus();
 
     return scope.Close(wxNode_wxWindow::New(returnVal));
   }
@@ -4065,7 +4065,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxWindow* parent, int id)
   if(args.Length() == 0) {
     
 
-    const wxWindow* returnVal = self->DoFindFocus();
+    const wxWindow* returnVal = wxWindow::DoFindFocus();
 
     return scope.Close(wxNode_wxWindow::New(returnVal));
   }
@@ -4880,7 +4880,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxWindow* parent, int id)
     wxNode_wxWindow* parent = args[1]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[1]->ToObject()); /* type: _62278 * */
     
 
-    const wxWindow* returnVal = self->FindWindowById(winid, parent);
+    const wxWindow* returnVal = wxWindow::FindWindowById(winid, parent);
 
     return scope.Close(wxNode_wxWindow::New(returnVal));
   }
@@ -4892,7 +4892,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxWindow* parent, int id)
     long int winid = (long int)args[0]->ToInt32()->Value(); /* type: _592  */
     
 
-    const wxWindow* returnVal = self->FindWindowById(winid);
+    const wxWindow* returnVal = wxWindow::FindWindowById(winid);
 
     return scope.Close(wxNode_wxWindow::New(returnVal));
   }
@@ -4921,7 +4921,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxWindow* parent, int id)
     wxNode_wxWindow* parent = args[1]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[1]->ToObject()); /* type: _62278 * */
     
 
-    const wxWindow* returnVal = self->FindWindowByName(*name, parent);
+    const wxWindow* returnVal = wxWindow::FindWindowByName(*name, parent);
 
     return scope.Close(wxNode_wxWindow::New(returnVal));
   }
@@ -4933,7 +4933,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxWindow* parent, int id)
     v8::String::AsciiValue name(args[0]->ToString()); /* type: _14975  */
     
 
-    const wxWindow* returnVal = self->FindWindowByName(*name);
+    const wxWindow* returnVal = wxWindow::FindWindowByName(*name);
 
     return scope.Close(wxNode_wxWindow::New(returnVal));
   }
@@ -4962,7 +4962,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxWindow* parent, int id)
     wxNode_wxWindow* parent = args[1]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxWindow>(args[1]->ToObject()); /* type: _62278 * */
     
 
-    const wxWindow* returnVal = self->FindWindowByLabel(*label, parent);
+    const wxWindow* returnVal = wxWindow::FindWindowByLabel(*label, parent);
 
     return scope.Close(wxNode_wxWindow::New(returnVal));
   }
@@ -4974,7 +4974,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxWindow* parent, int id)
     v8::String::AsciiValue label(args[0]->ToString()); /* type: _14975  */
     
 
-    const wxWindow* returnVal = self->FindWindowByLabel(*label);
+    const wxWindow* returnVal = wxWindow::FindWindowByLabel(*label);
 
     return scope.Close(wxNode_wxWindow::New(returnVal));
   }
@@ -5672,7 +5672,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxWindow* parent, int id)
   if(args.Length() == 0) {
     
 
-    const wxWindow* returnVal = self->GetCapture();
+    const wxWindow* returnVal = wxWindow::GetCapture();
 
     return scope.Close(wxNode_wxWindow::New(returnVal));
   }
@@ -6214,7 +6214,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxWindow* parent, int id)
     wxWindowVariant variant = (wxWindowVariant)args[0]->ToNumber()->Value(); /* type: _10583  */
     
 
-    wxVisualAttributes returnVal = self->GetClassDefaultAttributes(variant);
+    wxVisualAttributes returnVal = wxWindow::GetClassDefaultAttributes(variant);
 
     return scope.Close(wxNode_wxVisualAttributes::NewCopy(returnVal));
   }
@@ -6225,7 +6225,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxWindow* parent, int id)
   if(args.Length() == 0) {
     
 
-    wxVisualAttributes returnVal = self->GetClassDefaultAttributes();
+    wxVisualAttributes returnVal = wxWindow::GetClassDefaultAttributes();
 
     return scope.Close(wxNode_wxVisualAttributes::NewCopy(returnVal));
   }

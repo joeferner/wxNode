@@ -179,7 +179,7 @@ wxNode_wxArtProvider::wxNode_wxArtProvider()
   if(args.Length() == 0) {
     
 
-    bool returnVal = self->HasNativeProvider();
+    bool returnVal = wxArtProvider::HasNativeProvider();
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
@@ -207,7 +207,7 @@ wxNode_wxArtProvider::wxNode_wxArtProvider()
     wxNode_wxArtProvider* provider = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxArtProvider>(args[0]->ToObject()); /* type: _64568 * */
     
 
-    self->Push(provider);
+    wxArtProvider::Push(provider);
 
     return v8::Undefined();
   }
@@ -235,7 +235,7 @@ wxNode_wxArtProvider::wxNode_wxArtProvider()
     wxNode_wxArtProvider* provider = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxArtProvider>(args[0]->ToObject()); /* type: _64568 * */
     
 
-    self->PushBack(provider);
+    wxArtProvider::PushBack(provider);
 
     return v8::Undefined();
   }
@@ -262,7 +262,7 @@ wxNode_wxArtProvider::wxNode_wxArtProvider()
   if(args.Length() == 0) {
     
 
-    bool returnVal = self->Pop();
+    bool returnVal = wxArtProvider::Pop();
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
@@ -290,7 +290,7 @@ wxNode_wxArtProvider::wxNode_wxArtProvider()
     wxNode_wxArtProvider* provider = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxArtProvider>(args[0]->ToObject()); /* type: _64568 * */
     
 
-    bool returnVal = self->Remove(provider);
+    bool returnVal = wxArtProvider::Remove(provider);
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
@@ -318,7 +318,7 @@ wxNode_wxArtProvider::wxNode_wxArtProvider()
     wxNode_wxArtProvider* provider = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxArtProvider>(args[0]->ToObject()); /* type: _64568 * */
     
 
-    bool returnVal = self->Delete(provider);
+    bool returnVal = wxArtProvider::Delete(provider);
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
@@ -348,7 +348,7 @@ wxNode_wxArtProvider::wxNode_wxArtProvider()
     wxNode_wxSize* size = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[2]->ToObject()); /* type: _20628  */
     
 
-    wxBitmap returnVal = self->GetBitmap(*id, *client, *size);
+    wxBitmap returnVal = wxArtProvider::GetBitmap(*id, *client, *size);
 
     return scope.Close(wxNode_wxBitmap::NewCopy(returnVal));
   }
@@ -361,7 +361,7 @@ wxNode_wxArtProvider::wxNode_wxArtProvider()
     v8::String::AsciiValue client(args[1]->ToString()); /* type: _64570  */
     
 
-    wxBitmap returnVal = self->GetBitmap(*id, *client);
+    wxBitmap returnVal = wxArtProvider::GetBitmap(*id, *client);
 
     return scope.Close(wxNode_wxBitmap::NewCopy(returnVal));
   }
@@ -373,7 +373,7 @@ wxNode_wxArtProvider::wxNode_wxArtProvider()
     v8::String::AsciiValue id(args[0]->ToString()); /* type: _64569  */
     
 
-    wxBitmap returnVal = self->GetBitmap(*id);
+    wxBitmap returnVal = wxArtProvider::GetBitmap(*id);
 
     return scope.Close(wxNode_wxBitmap::NewCopy(returnVal));
   }
@@ -403,7 +403,7 @@ wxNode_wxArtProvider::wxNode_wxArtProvider()
     wxNode_wxSize* size = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[2]->ToObject()); /* type: _20628  */
     
 
-    wxIcon returnVal = self->GetIcon(*id, *client, *size);
+    wxIcon returnVal = wxArtProvider::GetIcon(*id, *client, *size);
 
     return scope.Close(wxNode_wxIcon::NewCopy(returnVal));
   }
@@ -416,7 +416,7 @@ wxNode_wxArtProvider::wxNode_wxArtProvider()
     v8::String::AsciiValue client(args[1]->ToString()); /* type: _64570  */
     
 
-    wxIcon returnVal = self->GetIcon(*id, *client);
+    wxIcon returnVal = wxArtProvider::GetIcon(*id, *client);
 
     return scope.Close(wxNode_wxIcon::NewCopy(returnVal));
   }
@@ -428,7 +428,7 @@ wxNode_wxArtProvider::wxNode_wxArtProvider()
     v8::String::AsciiValue id(args[0]->ToString()); /* type: _64569  */
     
 
-    wxIcon returnVal = self->GetIcon(*id);
+    wxIcon returnVal = wxArtProvider::GetIcon(*id);
 
     return scope.Close(wxNode_wxIcon::NewCopy(returnVal));
   }
@@ -456,7 +456,7 @@ wxNode_wxArtProvider::wxNode_wxArtProvider()
     int flags = (int)args[0]->ToInt32()->Value(); /* type: _165  */
     
 
-    wxString returnVal = self->GetMessageBoxIconId(flags);
+    wxString returnVal = wxArtProvider::GetMessageBoxIconId(flags);
 
     return scope.Close(v8::String::New(returnVal.mb_str()));
   }
@@ -484,7 +484,7 @@ wxNode_wxArtProvider::wxNode_wxArtProvider()
     int flags = (int)args[0]->ToInt32()->Value(); /* type: _165  */
     
 
-    wxIcon returnVal = self->GetMessageBoxIcon(flags);
+    wxIcon returnVal = wxArtProvider::GetMessageBoxIcon(flags);
 
     return scope.Close(wxNode_wxIcon::NewCopy(returnVal));
   }
@@ -513,7 +513,7 @@ wxNode_wxArtProvider::wxNode_wxArtProvider()
     v8::String::AsciiValue client(args[1]->ToString()); /* type: _64570  */
     
 
-    wxIconBundle returnVal = self->GetIconBundle(*id, *client);
+    wxIconBundle returnVal = wxArtProvider::GetIconBundle(*id, *client);
 
     return scope.Close(wxNode_wxIconBundle::NewCopy(returnVal));
   }
@@ -525,7 +525,7 @@ wxNode_wxArtProvider::wxNode_wxArtProvider()
     v8::String::AsciiValue id(args[0]->ToString()); /* type: _64569  */
     
 
-    wxIconBundle returnVal = self->GetIconBundle(*id);
+    wxIconBundle returnVal = wxArtProvider::GetIconBundle(*id);
 
     return scope.Close(wxNode_wxIconBundle::NewCopy(returnVal));
   }
@@ -553,7 +553,7 @@ wxNode_wxArtProvider::wxNode_wxArtProvider()
     v8::String::AsciiValue client(args[0]->ToString()); /* type: _64570  */
     
 
-    wxSize returnVal = self->GetNativeSizeHint(*client);
+    wxSize returnVal = wxArtProvider::GetNativeSizeHint(*client);
 
     return scope.Close(wxNode_wxSize::NewCopy(returnVal));
   }
@@ -582,7 +582,7 @@ wxNode_wxArtProvider::wxNode_wxArtProvider()
     bool platform_dependent = args[1]->ToBoolean()->Value(); /* type: _14830  */
     
 
-    wxSize returnVal = self->GetSizeHint(*client, platform_dependent);
+    wxSize returnVal = wxArtProvider::GetSizeHint(*client, platform_dependent);
 
     return scope.Close(wxNode_wxSize::NewCopy(returnVal));
   }
@@ -594,7 +594,7 @@ wxNode_wxArtProvider::wxNode_wxArtProvider()
     v8::String::AsciiValue client(args[0]->ToString()); /* type: _64570  */
     
 
-    wxSize returnVal = self->GetSizeHint(*client);
+    wxSize returnVal = wxArtProvider::GetSizeHint(*client);
 
     return scope.Close(wxNode_wxSize::NewCopy(returnVal));
   }

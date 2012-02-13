@@ -33,6 +33,7 @@ protected:
   virtual void addCommandListener(wxEvtHandler* evtHandler, int id, int eventType, v8::Local<v8::Object> fn, fnNewEvent* NewEvent);
   virtual void connect(wxEvtHandler* evtHandler, int id, int lastId, int eventType, v8::Local<v8::Object> fn, fnNewEvent* NewEvent);
   virtual void connect(wxEvtHandler* evtHandler, int eventType, v8::Local<v8::Object> fn, fnNewEvent* NewEvent);
+  virtual void connect(wxEvtHandler* evtHandler, int id, int eventType, v8::Local<v8::Object> fn, void* userData, wxEvtHandler* eventSink, fnNewEvent* NewEvent);
 
   virtual v8::Handle<v8::Object> self() = 0;
 
@@ -51,6 +52,7 @@ public:
 struct EventProxyData : public wxObject {
   NodeExEvtHandlerImpl* m_self;
   uint32_t m_iListener;
+  void* m_userData;
 };
 
 class EventProxy : public wxEvtHandler

@@ -677,7 +677,7 @@ wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxWindow* parent, int id)
     wxWindowVariant variant = (wxWindowVariant)args[0]->ToNumber()->Value(); /* type: _10583  */
     
 
-    wxVisualAttributes returnVal = self->GetClassDefaultAttributes(variant);
+    wxVisualAttributes returnVal = wxTextCtrl::GetClassDefaultAttributes(variant);
 
     return scope.Close(wxNode_wxVisualAttributes::NewCopy(returnVal));
   }
@@ -688,7 +688,7 @@ wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxWindow* parent, int id)
   if(args.Length() == 0) {
     
 
-    wxVisualAttributes returnVal = self->GetClassDefaultAttributes();
+    wxVisualAttributes returnVal = wxTextCtrl::GetClassDefaultAttributes();
 
     return scope.Close(wxNode_wxVisualAttributes::NewCopy(returnVal));
   }

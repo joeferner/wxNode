@@ -2079,7 +2079,7 @@ wxNode_wxMenu::wxNode_wxMenu()
     bool locked = args[0]->ToBoolean()->Value(); /* type: _14830  */
     
 
-    self->LockAccels(locked);
+    wxMenu::LockAccels(locked);
 
     return v8::Undefined();
   }

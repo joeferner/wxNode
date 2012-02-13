@@ -740,7 +740,7 @@ wxNode_wxControl::wxNode_wxControl(wxWindow* parent, int id)
     v8::String::AsciiValue label(args[0]->ToString()); /* type: _14975  */
     
 
-    wxString returnVal = self->GetLabelText(*label);
+    wxString returnVal = wxControl::GetLabelText(*label);
 
     return scope.Close(v8::String::New(returnVal.mb_str()));
   }
@@ -907,7 +907,7 @@ wxNode_wxControl::wxNode_wxControl(wxWindow* parent, int id)
     v8::String::AsciiValue str(args[0]->ToString()); /* type: _14975  */
     
 
-    wxString returnVal = self->RemoveMnemonics(*str);
+    wxString returnVal = wxControl::RemoveMnemonics(*str);
 
     return scope.Close(v8::String::New(returnVal.mb_str()));
   }
@@ -935,7 +935,7 @@ wxNode_wxControl::wxNode_wxControl(wxWindow* parent, int id)
     v8::String::AsciiValue str(args[0]->ToString()); /* type: _14975  */
     
 
-    wxString returnVal = self->EscapeMnemonics(*str);
+    wxString returnVal = wxControl::EscapeMnemonics(*str);
 
     return scope.Close(v8::String::New(returnVal.mb_str()));
   }
@@ -967,7 +967,7 @@ wxNode_wxControl::wxNode_wxControl(wxWindow* parent, int id)
     int flags = (int)args[4]->ToInt32()->Value(); /* type: _165  */
     
 
-    wxString returnVal = self->Ellipsize(*label, *dc, mode, maxWidth, flags);
+    wxString returnVal = wxControl::Ellipsize(*label, *dc, mode, maxWidth, flags);
 
     return scope.Close(v8::String::New(returnVal.mb_str()));
   }
@@ -982,7 +982,7 @@ wxNode_wxControl::wxNode_wxControl(wxWindow* parent, int id)
     int maxWidth = (int)args[3]->ToInt32()->Value(); /* type: _165  */
     
 
-    wxString returnVal = self->Ellipsize(*label, *dc, mode, maxWidth);
+    wxString returnVal = wxControl::Ellipsize(*label, *dc, mode, maxWidth);
 
     return scope.Close(v8::String::New(returnVal.mb_str()));
   }
@@ -1011,7 +1011,7 @@ wxNode_wxControl::wxNode_wxControl(wxWindow* parent, int id)
     wxString* labelOnly; /* type: _24013 * */
     
 
-    int returnVal = self->FindAccelIndex(*label, labelOnly);
+    int returnVal = wxControl::FindAccelIndex(*label, labelOnly);
 
     return scope.Close(v8::Number::New(returnVal));
   }
@@ -1023,7 +1023,7 @@ wxNode_wxControl::wxNode_wxControl(wxWindow* parent, int id)
     v8::String::AsciiValue label(args[0]->ToString()); /* type: _14975  */
     
 
-    int returnVal = self->FindAccelIndex(*label);
+    int returnVal = wxControl::FindAccelIndex(*label);
 
     return scope.Close(v8::Number::New(returnVal));
   }
@@ -1051,7 +1051,7 @@ wxNode_wxControl::wxNode_wxControl(wxWindow* parent, int id)
     wxWindowVariant variant = (wxWindowVariant)args[0]->ToNumber()->Value(); /* type: _10583  */
     
 
-    wxVisualAttributes returnVal = self->GetCompositeControlsDefaultAttributes(variant);
+    wxVisualAttributes returnVal = wxControl::GetCompositeControlsDefaultAttributes(variant);
 
     return scope.Close(wxNode_wxVisualAttributes::NewCopy(returnVal));
   }

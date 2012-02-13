@@ -1173,7 +1173,7 @@ wxNode_wxDialog::wxNode_wxDialog(wxWindow* parent, int id, const wxString& title
     wxNode_wxDialogLayoutAdapter* adapter = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxDialogLayoutAdapter>(args[0]->ToObject()); /* type: _67063 * */
     
 
-    wxDialogLayoutAdapter* returnVal = self->SetLayoutAdapter(adapter);
+    wxDialogLayoutAdapter* returnVal = wxDialog::SetLayoutAdapter(adapter);
 
     return scope.Close(wxNode_wxDialogLayoutAdapter::New(returnVal));
   }
@@ -1200,7 +1200,7 @@ wxNode_wxDialog::wxNode_wxDialog(wxWindow* parent, int id, const wxString& title
   if(args.Length() == 0) {
     
 
-    wxDialogLayoutAdapter* returnVal = self->GetLayoutAdapter();
+    wxDialogLayoutAdapter* returnVal = wxDialog::GetLayoutAdapter();
 
     return scope.Close(wxNode_wxDialogLayoutAdapter::New(returnVal));
   }
@@ -1227,7 +1227,7 @@ wxNode_wxDialog::wxNode_wxDialog(wxWindow* parent, int id, const wxString& title
   if(args.Length() == 0) {
     
 
-    bool returnVal = self->IsLayoutAdaptationEnabled();
+    bool returnVal = wxDialog::IsLayoutAdaptationEnabled();
 
     return scope.Close(v8::Boolean::New(returnVal));
   }
@@ -1255,7 +1255,7 @@ wxNode_wxDialog::wxNode_wxDialog(wxWindow* parent, int id, const wxString& title
     bool enable = args[0]->ToBoolean()->Value(); /* type: _14830  */
     
 
-    self->EnableLayoutAdaptation(enable);
+    wxDialog::EnableLayoutAdaptation(enable);
 
     return v8::Undefined();
   }

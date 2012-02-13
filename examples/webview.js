@@ -65,7 +65,7 @@ var WebFrame = wx.Frame.extend({
     topsizer.add(this.m_info, new wx.SizerFlags().expand());
 
     // Create the webview
-    this.m_browser = wx.WebView.New(this, wx.ID_ANY, "http://www.wxwidgets.org");
+    this.m_browser = wx.WebView.new(this, wx.ID_ANY, "http://www.wxwidgets.org");
     topsizer.add(this.m_browser, new wx.SizerFlags().expand().proportion(1));
 
     //We register the wxfs:// protocol for testing purposes
@@ -108,14 +108,14 @@ var WebFrame = wx.Frame.extend({
     this.m_edit_cut = editmenu.append(wx.ID_ANY, "Cut");
     this.m_edit_copy = editmenu.append(wx.ID_ANY, "Copy");
     this.m_edit_paste = editmenu.append(wx.ID_ANY, "Paste");
-    this.editmenu.appendSeparator();
+    editmenu.appendSeparator();
     this.m_edit_undo = editmenu.append(wx.ID_ANY, "Undo");
     this.m_edit_redo = editmenu.append(wx.ID_ANY, "Redo");
-    this.editmenu.appendSeparator();
+    editmenu.appendSeparator();
     this.m_edit_mode = editmenu.appendCheckItem(wx.ID_ANY, "Edit Mode");
 
     this.m_tools_menu.appendSeparator();
-    this.m_tools_menu.appendSubMenu(this.editmenu, "Edit");
+    this.m_tools_menu.appendSubMenu(editmenu, "Edit");
 
     var script = this.m_tools_menu.append(wx.ID_ANY, "Run Script");
 
@@ -147,71 +147,71 @@ var WebFrame = wx.Frame.extend({
     this.connect(this.m_toolbar_reload.getId(), wx.EVT_COMMAND_TOOL_CLICKED,
             this.onReload, null, this );
     this.connect(this.m_toolbar_tools.getId(), wx.EVT_COMMAND_TOOL_CLICKED,
-            onToolsClicked, null, this );
+            this.onToolsClicked, null, this );
 
     this.connect(this.m_url.getId(), wx.EVT_COMMAND_TEXT_ENTER,
             this.onUrl, null, this );
 
     // Connect the webview events
     this.connect(this.m_browser.getId(), wx.EVT_COMMAND_WEB_VIEW_NAVIGATING,
-            OnNavigationRequest, null, this);
+            this.onNavigationRequest, null, this);
     this.connect(this.m_browser.getId(), wx.EVT_COMMAND_WEB_VIEW_NAVIGATED,
-            OnNavigationComplete, null, this);
+            this.onNavigationComplete, null, this);
     this.connect(this.m_browser.getId(), wx.EVT_COMMAND_WEB_VIEW_LOADED,
-            OnDocumentLoaded, null, this);
+            this.onDocumentLoaded, null, this);
     this.connect(this.m_browser.getId(), wx.EVT_COMMAND_WEB_VIEW_ERROR,
-            OnError, null, this);
+            this.onError, null, this);
     this.connect(this.m_browser.getId(), wx.EVT_COMMAND_WEB_VIEW_NEWWINDOW,
-            OnNewWindow, null, this);
+            this.onNewWindow, null, this);
     this.connect(this.m_browser.getId(), wx.EVT_COMMAND_WEB_VIEW_TITLE_CHANGED,
-            OnTitleChanged, null, this);
+            this.onTitleChanged, null, this);
 
     // Connect the menu events
     this.connect(viewSource.getId(), wx.EVT_COMMAND_MENU_SELECTED,
-           OnViewSourceRequest,  null, this );
+           this.onViewSourceRequest,  null, this );
     this.connect(print.getId(), wx.EVT_COMMAND_MENU_SELECTED,
-            OnPrint,  null, this );
+            this.onPrint,  null, this );
     this.connect(this.m_tools_layout.getId(), wx.EVT_COMMAND_MENU_SELECTED,
-            OnZoomLayout,  null, this );
+            this.onZoomLayout,  null, this );
     this.connect(this.m_tools_tiny.getId(), wx.EVT_COMMAND_MENU_SELECTED,
-            OnSetZoom,  null, this );
+            this.onSetZoom,  null, this );
     this.connect(this.m_tools_small.getId(), wx.EVT_COMMAND_MENU_SELECTED,
-            OnSetZoom,  null, this );
+            this.onSetZoom,  null, this );
     this.connect(this.m_tools_medium.getId(), wx.EVT_COMMAND_MENU_SELECTED,
-            OnSetZoom,  null, this );
+            this.onSetZoom,  null, this );
     this.connect(this.m_tools_large.getId(), wx.EVT_COMMAND_MENU_SELECTED,
-            OnSetZoom,  null, this );
+            this.onSetZoom,  null, this );
     this.connect(this.m_tools_largest.getId(), wx.EVT_COMMAND_MENU_SELECTED,
-            OnSetZoom,  null, this );
+            this.onSetZoom,  null, this );
     this.connect(clearhist.getId(), wx.EVT_COMMAND_MENU_SELECTED,
-            OnClearHistory,  null, this );
+            this.onClearHistory,  null, this );
     this.connect(this.m_tools_enable_history.getId(), wx.EVT_COMMAND_MENU_SELECTED,
-            OnEnableHistory,  null, this );
+            this.onEnableHistory,  null, this );
     this.connect(this.m_edit_cut.getId(), wx.EVT_COMMAND_MENU_SELECTED,
-            OnCut,  null, this );
+            this.onCut,  null, this );
     this.connect(this.m_edit_copy.getId(), wx.EVT_COMMAND_MENU_SELECTED,
-            OnCopy,  null, this );
+            this.onCopy,  null, this );
     this.connect(this.m_edit_paste.getId(), wx.EVT_COMMAND_MENU_SELECTED,
-            OnPaste,  null, this );
+            this.onPaste,  null, this );
     this.connect(this.m_edit_undo.getId(), wx.EVT_COMMAND_MENU_SELECTED,
-            OnUndo,  null, this );
+            this.onUndo,  null, this );
     this.connect(this.m_edit_redo.getId(), wx.EVT_COMMAND_MENU_SELECTED,
-            OnRedo,  null, this );
+            this.onRedo,  null, this );
     this.connect(this.m_edit_mode.getId(), wx.EVT_COMMAND_MENU_SELECTED,
-            OnMode,  null, this );
+            this.onMode,  null, this );
     this.connect(script.getId(), wx.EVT_COMMAND_MENU_SELECTED,
-            OnRunScript,  null, this );
+            this.onRunScript,  null, this );
     this.connect(this.m_selection_clear.getId(), wx.EVT_COMMAND_MENU_SELECTED,
-            OnClearSelection,  null, this );
+            this.onClearSelection,  null, this );
     this.connect(this.m_selection_delete.getId(), wx.EVT_COMMAND_MENU_SELECTED,
-            OnDeleteSelection,  null, this );
+            this.onDeleteSelection,  null, this );
     this.connect(selectall.getId(), wx.EVT_COMMAND_MENU_SELECTED,
-            OnSelectAll,  null, this );
+            this.onSelectAll,  null, this );
     this.connect(loadscheme.getId(), wx.EVT_COMMAND_MENU_SELECTED,
-            OnLoadScheme,  null, this );
+            this.onLoadScheme,  null, this );
 
     //Connect the idle events
-    this.connect(wxID_ANY, wxEVT_IDLE, this.onIdle, null, this);
+    this.EVT_IDLE(this.onIdle);
   },
   
   /**
@@ -239,12 +239,12 @@ var WebFrame = wx.Frame.extend({
   {
     if(this.m_browser.isBusy())
     {
-        wx.SetCursor(wx.CURSOR_ARROWWAIT);
+        wx.setCursor(wx.CURSOR_ARROWWAIT);
         this.m_toolbar.enableTool(this.m_toolbar_stop.getId(), true);
     }
     else
     {
-        wx.SetCursor(wx.NullCursor);
+        wx.setCursor(wx.NullCursor);
         this.m_toolbar.enableTool(this.m_toolbar_stop.getId(), false);
     }
   },

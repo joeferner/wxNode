@@ -426,7 +426,7 @@ wxNode_wxButton::wxNode_wxButton(wxWindow* parent, int id)
   if(args.Length() == 0) {
     
 
-    wxSize returnVal = self->GetDefaultSize();
+    wxSize returnVal = wxButton::GetDefaultSize();
 
     return scope.Close(wxNode_wxSize::NewCopy(returnVal));
   }
