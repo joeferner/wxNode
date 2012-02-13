@@ -542,7 +542,7 @@ var WebFrame = wx.Frame.extend({
 
   onRunScript: function(evt)
   {
-    var dialog = new wx.TextEntryDialog(this, "Enter JavaScript to run.", wx.GetTextFromUserPromptStr, "", wx.OK|wx.CANCEL|wx.CENTRE|wx.TE_MULTILINE);
+    var dialog = new wx.TextEntryDialog(this, "Enter JavaScript to run.", "", "", wx.OK|wx.CANCEL|wx.CENTRE|wx.TE_MULTILINE);
     if(dialog.showModal() == wx.ID_OK)
     {
       this.m_browser.runScript(dialog.getValue());
