@@ -10,6 +10,7 @@ public:
 
 private:
   static v8::Handle<v8::Value> _setCursor(const v8::Arguments& args);
+  static v8::Handle<v8::Value> _logMessage(const v8::Arguments& args);
 };
 
 #endif

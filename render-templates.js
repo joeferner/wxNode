@@ -48,6 +48,9 @@ var files = [
   { className: 'wxSize', allowNew: true },
   { className: 'wxEvent', allowNew: false },
   { className: 'wxKeyEvent', allowNew: true },
+  { className: 'wxWebViewEvent', allowNew: true },
+  { className: 'wxNotifyEvent', allowNew: true },
+  { className: 'wxCommandEvent', allowNew: true },
   { className: 'wxIcon', allowNew: true },
   /*
   { className: 'wxBitmap', baseClassName: 'wxBitmapBase' },
@@ -313,7 +316,7 @@ function argJsonToCtx(ctx, rawJson, arg, i) {
     }
     ctx.includes = concatUnique(ctx.includes, ["wxNode_" + typeName + ".h"]);
     ctx.classes = concatUnique(ctx.classes, ["wxNode_" + typeName]);
-  } else if(typeName == '_GtkWidget') {
+  } else if(typeName == '_GtkWidget' || typeName == '_GdkCursor') {
     return null;
   } else {
     throw new Error(argCode);
@@ -430,7 +433,7 @@ function methodJsonToCtx(parent, rawJson, methodJson) {
       }
 
       ctx.includes = concatUnique(ctx.includes, ["wxNode_" + ctx.returnTypeName + ".h"]);
-    } else if(ctx.returnTypeName == "_GtkWidget") {
+    } else if(ctx.returnTypeName == "_GtkWidget" || ctx.returnTypeName == "_GdkCursor") {
       return null;
     } else {
       console.error(red("Unhandled return type"), returnType);

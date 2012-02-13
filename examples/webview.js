@@ -12,11 +12,6 @@ var util = require("util");
 // Licence:     wxWindows licence
 /////////////////////////////////////////////////////////////////////////////
 
-//We map menu items to their history items
-// TODO
-//WX_DECLARE_HASH_MAP(int, wxSharedPtr<wxWebViewHistoryItem>,
-//                    wxIntegerHash, wxIntegerEqual, wxMenuHistoryMap);
-
 var WebApp = wx.App.extend({
   onInit: function() {
     this._super();
@@ -34,6 +29,8 @@ var WebFrame = wx.Frame.extend({
     
     //Required from virtual file system archive support
     // TODO wx.FileSystem.addHandler(new wx.ArchiveFSHandler());
+
+    this.m_histMenuItems = {};
 
     // set the frame icon
     this.setIcon(new wx.Icon("./examples/sample.ico", wx.BITMAP_TYPE_ICO));
@@ -153,18 +150,12 @@ var WebFrame = wx.Frame.extend({
             this.onUrl, null, this );
 
     // Connect the webview events
-    this.connect(this.m_browser.getId(), wx.EVT_COMMAND_WEB_VIEW_NAVIGATING,
-            this.onNavigationRequest, null, this);
-    this.connect(this.m_browser.getId(), wx.EVT_COMMAND_WEB_VIEW_NAVIGATED,
-            this.onNavigationComplete, null, this);
-    this.connect(this.m_browser.getId(), wx.EVT_COMMAND_WEB_VIEW_LOADED,
-            this.onDocumentLoaded, null, this);
-    this.connect(this.m_browser.getId(), wx.EVT_COMMAND_WEB_VIEW_ERROR,
-            this.onError, null, this);
-    this.connect(this.m_browser.getId(), wx.EVT_COMMAND_WEB_VIEW_NEWWINDOW,
-            this.onNewWindow, null, this);
-    this.connect(this.m_browser.getId(), wx.EVT_COMMAND_WEB_VIEW_TITLE_CHANGED,
-            this.onTitleChanged, null, this);
+    this.m_browser.EVT_WEB_VIEW(wx.EVT_COMMAND_WEB_VIEW_NAVIGATING, this.onNavigationRequest.bind(this));
+    this.m_browser.EVT_WEB_VIEW(wx.EVT_COMMAND_WEB_VIEW_NAVIGATED, this.onNavigationComplete.bind(this));
+    this.m_browser.EVT_WEB_VIEW(wx.EVT_COMMAND_WEB_VIEW_LOADED, this.onDocumentLoaded.bind(this));
+    this.m_browser.EVT_WEB_VIEW(wx.EVT_COMMAND_WEB_VIEW_ERROR, this.onError.bind(this));
+    this.m_browser.EVT_WEB_VIEW(wx.EVT_COMMAND_WEB_VIEW_NEWWINDOW, this.onNewWindow.bind(this));
+    this.m_browser.EVT_WEB_VIEW(wx.EVT_COMMAND_WEB_VIEW_TITLE_CHANGED, this.onTitleChanged.bind(this));
 
     // Connect the menu events
     this.connect(viewSource.getId(), wx.EVT_COMMAND_MENU_SELECTED,
@@ -359,8 +350,7 @@ var WebFrame = wx.Frame.extend({
       this.m_info.dismiss();
     }
 
-    wx.LogMessage("%s", "Navigation request to '" + evt.getURL() + "' (target='" +
-      evt.getTarget() + "')");
+    wx.logMessage("Navigation request to '" + evt.getURL() + "' (target='" + evt.getTarget() + "')");
 
     //If we don't want to handle navigation then veto the event and navigation
     //will not take place, we also need to stop the loading animation
@@ -380,7 +370,7 @@ var WebFrame = wx.Frame.extend({
    */
   onNavigationComplete: function(evt)
   {
-    wx.LogMessage("%s", "Navigation complete; url='" + evt.getURL() + "'");
+    wx.logMessage("Navigation complete; url='" + evt.getURL() + "'");
     this.updateState();
   },
 
@@ -392,7 +382,7 @@ var WebFrame = wx.Frame.extend({
     //Only notify if the document is the main frame, not a subframe
     if(evt.getURL() == this.m_browser.getCurrentURL())
     {
-        wx.LogMessage("%s", "Document loaded; url='" + evt.getURL() + "'");
+        wx.logMessage("Document loaded; url='" + evt.getURL() + "'");
     }
     this.updateState();
   },
@@ -402,7 +392,7 @@ var WebFrame = wx.Frame.extend({
    */
   onNewWindow: function(evt)
   {
-    wx.LogMessage("%s", "New window; url='" + evt.getURL() + "'");
+    wx.logMessage("New window; url='" + evt.getURL() + "'");
 
     //If we handle new window events then just load them in this window as we
     //are a single window browser
@@ -415,7 +405,7 @@ var WebFrame = wx.Frame.extend({
   onTitleChanged: function(evt)
   {
     this.setTitle(evt.getString());
-    wx.LogMessage("%s", "Title changed; title='" + evt.getString() + "'");
+    wx.logMessage("Title changed; title='" + evt.getString() + "'");
   },
 
   /**
@@ -472,11 +462,7 @@ var WebFrame = wx.Frame.extend({
     this.m_selection_delete.enable(this.m_browser.hasSelection());
 
     //Firstly we clear the existing menu items, then we add the current ones
-    for( it = this.m_histMenuItems.begin(); it != this.m_histMenuItems.end(); ++it )
-    {
-      this.m_tools_history_menu.destroy(it.first);
-    }
-    this.m_histMenuItems.clear();
+    this.m_histMenuItems = {};
 
     var back = this.m_browser.getBackwardHistory();
     var forward = this.m_browser.getForwardHistory();
@@ -583,7 +569,7 @@ var WebFrame = wx.Frame.extend({
    */
   onError: function(evt)
   {
-    var errorCategory;
+    var errorCategory = "UNKNOWN";
     switch (evt.getInt())
     {
     case wx.WEB_NAV_ERR_CONNECTION:
@@ -619,7 +605,7 @@ var WebFrame = wx.Frame.extend({
         break;
     }
 
-    wx.LogMessage("%s", "Error; url='" + evt.getURL() + "', error='" + errorCategory + "' (" + evt.getString() + ")");
+    wx.logMessage("Error; url='" + evt.getURL() + "', error='" + errorCategory + "' (" + evt.getString() + ")");
 
     //Show the info bar with an error
     this.m_info.showMessage(_("An error occurred loading ") + evt.getURL() + "\n" +

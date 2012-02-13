@@ -166,7 +166,9 @@ wxNode_wxCursor::wxNode_wxCursor(const char* bits, int width, int height)
   v8::Handle<v8::Value> returnObjArgs[0];
   v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
   returnObj->SetPointerInInternalField(0, (void*)obj);
-  returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+  NodeExEvtHandlerImplWrap* wrap = new NodeExEvtHandlerImplWrap(returnObj);
+  NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>(wrap);
+  returnObj->SetPointerInInternalField(1, evtHandler);
 
   return scope.Close(returnObj);
 }
@@ -440,17 +442,6 @@ wxNode_wxCursor::wxNode_wxCursor(const char* bits, int width, int height)
   v8::HandleScope scope;
   wxNode_wxCursor* self = unwrap<wxNode_wxCursor>(args.This());
 
-  
-  /*
-   * id: _45565
-   */
-  if(args.Length() == 0) {
-    
-
-    self->GetCursor();
-
-    return v8::Undefined();
-  }
   
 
   std::ostringstream errStr;

@@ -117,7 +117,9 @@ wxNode_wxNotebook::wxNode_wxNotebook(wxWindow* parent, int id)
   v8::Handle<v8::Value> returnObjArgs[0];
   v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
   returnObj->SetPointerInInternalField(0, (void*)obj);
-  returnObj->SetPointerInInternalField(1, new NodeExEvtHandlerImplWrap(returnObj));
+  NodeExEvtHandlerImplWrap* wrap = new NodeExEvtHandlerImplWrap(returnObj);
+  NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>(wrap);
+  returnObj->SetPointerInInternalField(1, evtHandler);
 
   return scope.Close(returnObj);
 }
