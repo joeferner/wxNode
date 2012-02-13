@@ -26,6 +26,7 @@
 #include "wxNode_wxCursor.h"
 #include "wxNode_wxWebViewArchiveHandler.h"
 #include "wxNode_wxWebViewHistoryItem.h"
+#include "wxNode_wxTextEntryDialog.h"
 #include "wxLogStatus.h"
 #include "messageBox.h"
 #include "globalFunctions.h"
@@ -56,6 +57,7 @@ extern "C" {
     wxNode_wxWebView::Init(target);
     wxNode_wxWebViewArchiveHandler::Init(target);
     wxNode_wxWebViewHistoryItem::Init(target);
+    wxNode_wxTextEntryDialog::Init(target);
     GlobalFunctions::Init(target);
     NodeWxMessageBox::Init(target);
     NodeWxLogStatus::Init(target);

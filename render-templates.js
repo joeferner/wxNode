@@ -29,12 +29,15 @@ var files = [
   { className: 'wxToolBar', baseClassName: 'wxToolBarBase', allowNew: true },
   { className: 'wxBitmap', baseClassName: 'wxBitmapBase', allowNew: true },
   { className: 'wxInfoBar', baseClassName: 'wxInfoBarBase', allowNew: true },
+  { className: 'wxTextEntry', baseClassName: 'wxTextEntryBase', allowNew: false },
   { className: 'wxControlWithItems', baseClassName: 'wxControlWithItemsBase', allowNew: false, addMethodsClass: 'wxNode_wxWindowWithItems_wxControl_wxItemContainer' },
   { className: 'wxWindow', baseClassName: 'wxWindowBase', allowNew: true },
   { className: 'wxLogWindow', allowNew: true, noNewCopy: true },
   { className: 'wxToolBarToolBase', allowNew: false },
   { className: 'wxToolBarBase', allowNew: false },
   { className: 'wxArtProvider', allowNew: true },
+  { className: 'wxTextEntryDialog', allowNew: true, noNewCopy: true },
+  { className: 'wxTextValidator', allowNew: true },
   { className: 'wxCursor', allowNew: true },
   { className: 'wxWebView', allowNew: false, allowStaticNew: true },
   { className: 'wxWebViewArchiveHandler', allowNew: true, noNewCopy: true },
@@ -229,7 +232,7 @@ function argJsonToCtx(ctx, rawJson, arg, i) {
     }
   }
 
-  if(typeName == "int" || typeName == "long int" || typeName == "size_t" || typeName == "unsigned int") {
+  if(typeName == "int" || typeName == "long int" || typeName == "size_t" || typeName == "unsigned int" || typeName == "long unsigned int") {
     if(type.pointers == '*') {
       argCode = util.format("%s %s;", typeName, argName);
       argDeclCode = util.format("%s* %s", typeName, argName);
@@ -262,15 +265,20 @@ function argJsonToCtx(ctx, rawJson, arg, i) {
     argDeclCode = util.format("unsigned char %s", argName);
     argTestCode = util.format("args[%d]->IsNumber()", i);
   } else if(typeName == "wxString") {
+    // patch because xmlgcc doesn't report the const correctly
+    if(ctx.name == 'wxTextValidator' && arg.name == 'val') {
+      type['const'] = false;
+    }
+
     if(type.pointers == '*') {
       argCode = util.format("wxString* %s;", argName);
       argCallCode = argName;
-      argDeclCode = util.format("const wxString%s %s", type.refs + type.pointers, argName);
+      argDeclCode = util.format("%s wxString%s %s", type['const'] ? 'const' : '', type.refs + type.pointers, argName);
       argTestCode = util.format("args[%d]->IsString()", i);
     } else {
       argCode = util.format("v8::String::AsciiValue %s(args[%d]->ToString());", argName, i);
       argCallCode = "*" + argName;
-      argDeclCode = util.format("const wxString%s %s", type.refs + type.pointers, argName);
+      argDeclCode = util.format("%s wxString%s %s", type['const'] ? 'const' : '', type.refs + type.pointers, argName);
       argTestCode = util.format("args[%d]->IsString()", i);
     }
   } else if(typeName == "wchar_t" || typeName == "char") {
