@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 var path = require('path');
 var fs = require('fs');
 var util = require('util');
@@ -76,66 +74,68 @@ var files = [
   */
 ];
 
-fs.readFile('./wxapi.json', 'utf8', function(err, data) {
-  if(err) {
-    console.error("reading xml file");
-    fs.readFile('./wxapi.xml', 'utf8', function(err, data) {
-      if(err) { throw err; }
-      console.log("wxapi.xml read");
+exports.renderTemplates = function(callback) {
+  fs.readFile('./wxapi.json', 'utf8', function(err, data) {
+    if(err) {
+      console.error("reading xml file");
+      fs.readFile('./wxapi.xml', 'utf8', function(err, data) {
+        if(err) { callback(err); return; }
+        console.log("wxapi.xml read");
 
-      var xmlParser = new xml2js.Parser({
-        explicitRoot: true,
-        explicitArray: true,
-        mergeAttrs: true
-      });
-      xmlParser.parseString(data, function(err, result) {
-        if(err) { throw err; }
-        console.log("wxapi.xml parsed");
+        var xmlParser = new xml2js.Parser({
+          explicitRoot: true,
+          explicitArray: true,
+          mergeAttrs: true
+        });
+        xmlParser.parseString(data, function(err, result) {
+          if(err) { callback(err); return; }
+          console.log("wxapi.xml parsed");
 
-        var apiJson = {
-          classNameToId: {},
-          subClasses: {}
-        };
-        for(var elementName in result['GCC_XML']) {
-          var elem = result['GCC_XML'][elementName];
-          for(var i=0; i<elem.length; i++) {
-            var id = elem[i]['id'];
-            apiJson[id] = elem[i];
-            apiJson[id].elementName = elementName;
-            if(elementName == "Class" || elementName == "Enumeration" || elementName == "Union") {
-              var name = removeTemplateFromClassName(elem[i]['name']);
-              apiJson.classNameToId[name] = id;
-              var bases = elem[i]['bases'];
-              if(bases) {
-                bases = bases.split(' ');
-                for(var baseIdx=0; baseIdx<bases.length; baseIdx++) {
-                  var base = bases[baseIdx];
-                  if(base == "") { continue; }
-                  var subClasses = apiJson.subClasses[base];
-                  if(!subClasses) {
-                    apiJson.subClasses[base] = [];
+          var apiJson = {
+            classNameToId: {},
+            subClasses: {}
+          };
+          for(var elementName in result['GCC_XML']) {
+            var elem = result['GCC_XML'][elementName];
+            for(var i=0; i<elem.length; i++) {
+              var id = elem[i]['id'];
+              apiJson[id] = elem[i];
+              apiJson[id].elementName = elementName;
+              if(elementName == "Class" || elementName == "Enumeration" || elementName == "Union") {
+                var name = removeTemplateFromClassName(elem[i]['name']);
+                apiJson.classNameToId[name] = id;
+                var bases = elem[i]['bases'];
+                if(bases) {
+                  bases = bases.split(' ');
+                  for(var baseIdx=0; baseIdx<bases.length; baseIdx++) {
+                    var base = bases[baseIdx];
+                    if(base == "") { continue; }
+                    var subClasses = apiJson.subClasses[base];
+                    if(!subClasses) {
+                      apiJson.subClasses[base] = [];
+                    }
+                    apiJson.subClasses[base].push(id);
                   }
-                  apiJson.subClasses[base].push(id);
                 }
               }
             }
           }
-        }
 
-        fs.writeFile('./wxapi.json', JSON.stringify(apiJson, null, '\t'), function(err) {
-          if(err) { throw err; }
+          fs.writeFile('./wxapi.json', JSON.stringify(apiJson, null, '\t'), function(err) {
+            if(err) { callback(err); return; }
 
-          renderFiles(files, apiJson, function() { console.log("done"); });
+            renderFiles(files, apiJson, function() { console.log("done"); callback(); });
+          });
         });
       });
-    });
-  } else {
-    console.error("wxapi.json read");
-    var json = JSON.parse(data);
-    console.error("json parsed");
-    renderFiles(files, json, function() { console.log("done"); });
-  }
-});
+    } else {
+      console.error("wxapi.json read");
+      var json = JSON.parse(data);
+      console.error("json parsed");
+      renderFiles(files, json, function() { console.log("done"); callback(); });
+    }
+  });
+};
 
 function lookupClassById(rawJson, typeId) {
   var clazz = rawJson[typeId];

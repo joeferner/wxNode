@@ -4,6 +4,7 @@ var path = require('path');
 var childProcess = require('child_process');
 var Builder = require('mnm');
 var builder = new Builder();
+var RenderTemplates = require('./render-templates.js');
 
 builder.appendUnique('CXXFLAGS', ['-Isrc/', '-Isrc-dummy/']);
 
@@ -20,12 +21,26 @@ function build(wxCxxFlags, wxLibs) {
   builder.run();
 }
 
+var renderTemplates = true;
+for(var i=0; i<process.argv.length; i++) {
+  if(process.argv[i] == '--skip-render-templates') {
+    renderTemplates = false;
+  }
+}
+
 // get the wx command line flags
 runCommandLine('wx-config', ['--cxxflags'], function(err, wxCxxFlags) {
   if(err) { builder.fail(err); return; }
   runCommandLine('wx-config', ['--libs'], function(err, wxLibs) {
     if(err) { builder.fail(err); return; }
-    build(wxCxxFlags, wxLibs);
+    if(renderTemplates) {
+      RenderTemplates.renderTemplates(function(err){
+        if(err) { builder.fail(err); return; }
+        build(wxCxxFlags, wxLibs);
+      });
+    }else{
+      build(wxCxxFlags, wxLibs);
+    }
   });
 });
 
