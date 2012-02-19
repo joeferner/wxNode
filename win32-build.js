@@ -1,13 +1,15 @@
+var path = require('path');
+var fs = require('fs');
+path.existsSync = fs.existsSync || path.existsSync;
+var resolve = path.resolve;
 
-var resolve = require('path').resolve;
-var childProcess = require('child_process');
 var Builder =require('../mnm');
 
 var wx = new (function wxWidgets(){
   var base = '/wxWidgets';
   this.base = resolve(base);
-  this.lib = resolve(base, 'lib', 'vc_lib');
-  this.include =  resolve(base, 'include');
+  var lib = this.lib = resolve(base, 'lib', 'vc_lib');
+  var include = this.include =  resolve(base, 'include');
 
   var builder = new Builder;
   function bind(name){ return builder[name].bind(builder) }
@@ -20,7 +22,6 @@ var wx = new (function wxWidgets(){
     lib: bind('appendLinkerLibrary'),
   };
 
-
   this.bindings.build = function buildBindings(cxxFlags, customLibs) {
     cxxFlags && builder.appendUnique('CXXFLAGS', cxxFlags);
 
@@ -28,15 +29,15 @@ var wx = new (function wxWidgets(){
     builder.verbose = true;
 
 
-    [].concat(customLibs ? customLibs : this.lib).forEach(add.libDir);
-    add.includeDir(this.include);
+    [].concat(customLibs ? customLibs : lib).forEach(add.libDir);
+    add.includeDir(include);
 
 
     var src = resolve(__dirname, 'src');
     var dummy = resolve(__dirname, 'src-dummy');
     var generated = resolve(__dirname, 'src-generated');
 
-    [src, dummy, generated].forEach(add.IncludeDir);
+    [src, dummy, generated].forEach(add.includeDir);
     [src, generated].forEach(add.sourceDir);
 
 
@@ -46,7 +47,7 @@ var wx = new (function wxWidgets(){
   };
 
   this.getConfig = function getConfig(){
-    var configFile = resolve(this.lib, 'mswud', 'build.cfg');
+    var configFile = resolve(lib, 'mswud', 'build.cfg');
 
     return fs.readFileSync(configFile, 'utf8').split('\n').reduce(function(r,s){
       s = s.split('=');
@@ -55,6 +56,5 @@ var wx = new (function wxWidgets(){
     }, {});
   };
 });
-
 
 wx.bindings.build('-DUNICODE', 'wxmsw29ud');
