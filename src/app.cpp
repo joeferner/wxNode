@@ -37,9 +37,9 @@
   return args.This();
 }
 
+
 bool NodeWxApp::OnInit() {
-  v8::Handle<v8::Value> args[0];
-  v8::Handle<v8::Value> result = call("onInit", 0, args);
+  v8::Handle<v8::Value> result = call("onInit", 0, new v8::Local<v8::Value>[0]);
   if(result.IsEmpty()) return false;
   return result->ToBoolean()->Value();
 }

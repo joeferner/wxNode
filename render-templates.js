@@ -826,3 +826,5 @@ function yellow(msg) {
 function red(msg) {
   return '\u001b[31m' + msg + '\u001b[0m';
 }
+
+renderTemplates()

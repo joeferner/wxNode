@@ -30,8 +30,7 @@ v8::Handle<v8::Value> wxNodeObject::call(const char *fnName, int argc, v8::Handl
   v8::Handle<v8::Object> subClass = argsData->Get(v8::String::New("subClass"))->ToObject();
 
   // create new object
-  v8::Local<v8::Value> argv[0];
-  result = v8::Object::Cast(*baseClass->CallAsConstructor(0, argv));
+  result = v8::Object::Cast(*baseClass->CallAsConstructor(0, new v8::Local<v8::Value>[0]));
 
   v8::Function* superWrapMethod = v8::Function::Cast(*v8::Context::GetCurrent()->Global()->Get(v8::String::New("__superWrapMethod")));
 
