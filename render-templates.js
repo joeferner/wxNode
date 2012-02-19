@@ -1,5 +1,6 @@
 var path = require('path');
 var fs = require('fs');
+path.existsSync = fs.existsSync;
 var util = require('util');
 var Mustache = require("mustache");
 var xml2js = require('xml2js');
@@ -74,7 +75,9 @@ var files = [
   */
 ];
 
-exports.renderTemplates = function(callback) {
+exports.renderTemplates = renderTemplates;
+
+function renderTemplates(callback) {
   fs.readFile('./wxapi.json', 'utf8', function(err, data) {
     if(err) {
       console.error("reading xml file");
