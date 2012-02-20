@@ -6,7 +6,8 @@ var Builder = require('mnm');
 var builder = new Builder();
 var RenderTemplates = require('./render-templates.js');
 
-builder.appendUnique('CXXFLAGS', ['-Isrc/', '-Isrc-dummy/']);
+builder.appendIncludeDir('src/');
+builder.appendIncludeDir('src-dummy/');
 
 function build(wxCxxFlags, wxLibs) {
   builder.appendUnique('CXXFLAGS', wxCxxFlags);
@@ -14,9 +15,9 @@ function build(wxCxxFlags, wxLibs) {
 
   builder.target = "wxnode_bindings";
   builder.appendSourceDir('./src');
-  builder.appendUnique('CXXFLAGS', '-Isrc/');
+  builder.appendIncludeDir('src/');
   builder.appendSourceDir('./src-generated');
-  builder.appendUnique('CXXFLAGS', '-Isrc-generated/');
+  builder.appendIncludeDir('src-generated/');
 
   builder.run();
 }
