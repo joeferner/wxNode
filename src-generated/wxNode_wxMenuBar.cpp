@@ -189,7 +189,7 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
    */
   if(args.Length() == 4 && args[0]->IsNumber() && false && args[2]->IsString() && args[3]->IsNumber()) {
     unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8711  */
-    wxMenu* menus; /* type: _65427 ** */
+    wxMenu menus = static_cast<wxMenu>(args[1]->ToInt32()->Value()); /* type: _65427 ** */
     wxString* titles; /* type: _20631 * */
     long int style = (long int)args[3]->ToInt32()->Value(); /* type: _592  */
     
@@ -205,7 +205,7 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
    */
   if(args.Length() == 3 && args[0]->IsNumber() && false && args[2]->IsString()) {
     unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _8711  */
-    wxMenu* menus; /* type: _65427 ** */
+    wxMenu menus = static_cast<wxMenu>(args[1]->ToInt32()->Value()); /* type: _65427 ** */
     wxString* titles; /* type: _20631 * */
     
 
@@ -581,7 +581,7 @@ wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxStrin
    */
   if(args.Length() == 2 && args[0]->IsNumber() && false) {
     int itemid = (int)args[0]->ToInt32()->Value(); /* type: _165  */
-    wxMenu* menu; /* type: _65427 ** */
+    wxMenu menu = static_cast<wxMenu>(args[1]->ToInt32()->Value()); /* type: _65427 ** */
     
 
     wxMenuItem* returnVal = self->FindItem(itemid, &menu);

@@ -309,7 +309,7 @@ function argJsonToCtx(ctx, rawJson, arg, i) {
     return null;
   } else if(typeName && (typeName.match(/^wx.*/))) {
     if(type.pointers == '**') {
-      argCode = util.format("%s* %s;", typeName, argName);
+      argCode = util.format("%s %s = static_cast<%s>(args[%d]->ToInt32()->Value());", typeName, argName, typeName, i);
       argDeclCode = util.format("%s** %s", typeName, argName);
       argCallCode = "&" + argName;
     } else {

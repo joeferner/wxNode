@@ -1250,7 +1250,7 @@ wxNode_wxMenu::wxNode_wxMenu()
    */
   if(args.Length() == 2 && args[0]->IsNumber() && false) {
     int itemid = (int)args[0]->ToInt32()->Value(); /* type: _165  */
-    wxMenu* menu; /* type: _65427 ** */
+    wxMenu menu = static_cast<wxMenu>(args[1]->ToInt32()->Value()); /* type: _65427 ** */
     
 
     wxMenuItem* returnVal = self->FindItem(itemid, &menu);
