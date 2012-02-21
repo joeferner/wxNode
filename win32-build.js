@@ -3,58 +3,61 @@ var fs = require('fs');
 path.existsSync = fs.existsSync || path.existsSync;
 var resolve = path.resolve;
 
-var Builder =require('../mnm');
-
-var wx = new (function wxWidgets(){
-  var base = '/wxWidgets';
-  this.base = resolve(base);
-  var lib = this.lib = resolve(base, 'lib', 'vc_lib');
-  var include = this.include =  resolve(base, 'include');
-
-  var builder = new Builder;
-  function bind(name){ return builder[name].bind(builder) }
-
-  var add = this.bindings = {
-    includeDir: bind('appendIncludeDir'),
-    sourceDir: bind('appendSourceDir'),
-    libDir: bind('appendLinkerSearchDir'),
-    source: bind('appendSource'),
-    lib: bind('appendLinkerLibrary'),
-  };
-
-  this.bindings.build = function buildBindings(cxxFlags, customLibs) {
-    cxxFlags && builder.appendUnique('CXXFLAGS', cxxFlags);
-
-    builder.target = 'wxnode_bindings';
-    builder.verbose = true;
+var Builder = require('mnm');
 
 
-    [].concat(customLibs ? customLibs : lib).forEach(add.libDir);
-    add.includeDir(include);
+function wxBuilder(base){
+  base = base || '/wxWidgets'
+  this.wxBase = resolve(base);
+  this.wxLibDir = resolve(base, 'lib/vc_'+(this.dll ? 'dll' : 'lib'));
+  this.wxIncludeDir = resolve(base, 'include');
+  this.srcDir =  resolve(__dirname, 'src');
+  this.name = 'wxnode_bindings';
+  this.wxBuildConfig = wxBuilder.readConfig(resolve(this.wxLibDir, 'mswu/build.cfg'));
+}
 
+wxBuilder.readConfig = function readConfig(file){
+  return fs.readFileSync(file, 'utf8').split(' \r\n').reduce(function(r,s){
+    if (s) {
+      s = s.split('=');
+      r[s[0].toLowerCase()] = s[1];
+    }
+    return r;
+  }, {});
+}
 
-    var src = resolve(__dirname, 'src');
-    var dummy = resolve(__dirname, 'src-dummy');
-    var generated = resolve(__dirname, 'src-generated');
+wxBuilder.prototype = {
+  verbose: false,
+  dll: true,
+  build: function build(){
+    var b = new Builder;
+    b.target = this.name;
+    b.verbose = this.verbose;
+    
+    b.appendUnique('CXXFLAGS', '-DUNICODE');
 
-    [src, dummy, generated].forEach(add.includeDir);
-    [src, generated].forEach(add.sourceDir);
+    if (this.dll)
+      b.appendUnique('CXXFLAGS', '-DWXUSINGDLL');
 
+    if (this.wxBuildConfig.cxxflags)
+      b.appendUnique('CXXFLAGS', this.wxBuildConfig.cxxflags);
 
-    builder.compileAndLink(function(e){
+    ['IncludeDir', 'SourceDir', 'LinkerSearchDir','Source', 'LinkerLibrary'].forEach(function(s){
+      b[s] = function(){ [].forEach.call(arguments, Builder.prototype['append'+s].bind(b)) };
+    });
+
+    b.LinkerSearchDir(this.wxLibDir);
+    b.LinkerLibrary.apply(null, fs.readdirSync(this.wxLibDir).filter(function(s){ return path.extname(s) === '.lib' }));
+
+    b.IncludeDir(this.srcDir, this.srcDir+'-dummy', this.srcDir+'-generated', this.wxIncludeDir);
+    b.SourceDir(this.srcDir, this.srcDir+'-generated');
+
+    b.compileAndLink(function(e){
       console.log(e || 'complete');
     });
-  };
+  }
+}
 
-  this.getConfig = function getConfig(){
-    var configFile = resolve(lib, 'mswud', 'build.cfg');
 
-    return fs.readFileSync(configFile, 'utf8').split('\n').reduce(function(r,s){
-      s = s.split('=');
-      if (s[1]) r[s[0]] = s[1];
-      return r;
-    }, {});
-  };
-});
-
-wx.bindings.build('-DUNICODE', 'wxmsw29ud');
+var builder = new wxBuilder;
+builder.build();
