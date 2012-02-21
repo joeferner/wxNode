@@ -82,7 +82,7 @@ function renderTemplates(callback) {
     if(err) {
       console.error("reading xml file");
       fs.readFile('./wxapi.xml', 'utf8', function(err, data) {
-        if(err) { callback(err); return; }
+        if(err) { return callback && callback(err); }
         console.log("wxapi.xml read");
 
         var xmlParser = new xml2js.Parser({
@@ -91,7 +91,7 @@ function renderTemplates(callback) {
           mergeAttrs: true
         });
         xmlParser.parseString(data, function(err, result) {
-          if(err) { callback(err); return; }
+          if(err) { return callback && callback(err); }
           console.log("wxapi.xml parsed");
 
           var apiJson = {
@@ -125,9 +125,9 @@ function renderTemplates(callback) {
           }
 
           fs.writeFile('./wxapi.json', JSON.stringify(apiJson, null, '\t'), function(err) {
-            if(err) { callback(err); return; }
+            if(err) { return callback && callback(err); }
 
-            renderFiles(files, apiJson, function() { console.log("done"); callback(); });
+            renderFiles(files, apiJson, function() { console.log("done"); callback && callback(); });
           });
         });
       });
@@ -135,7 +135,7 @@ function renderTemplates(callback) {
       console.error("wxapi.json read");
       var json = JSON.parse(data);
       console.error("json parsed");
-      renderFiles(files, json, function() { console.log("done"); callback(); });
+      renderFiles(files, json, function() { console.log("done"); callback && callback(); });
     }
   });
 };
@@ -494,13 +494,7 @@ function toJsName(str) {
 }
 
 function addField(rawJson, ctx, member, fields) {
-  if(member['access'] != 'public') {
-    return;
-  }
-  if(member['attributes'] && member['attributes'].match(/deprecated/)) {
-    return;
-  }
-  if(member.name.match(/^m_/)) {
+  if(member.access !== 'public' || (member.attributes||'').match(/deprecated/) || member.name.match(/^m_/)) {
     return;
   }
 
@@ -514,10 +508,7 @@ function addField(rawJson, ctx, member, fields) {
 }
 
 function addMethod(rawJson, ctx, member, dest) {
-  if(member['access'] != 'public') {
-    return;
-  }
-  if(member['attributes'] && member['attributes'].match(/deprecated/)) {
+  if(member.access !== 'public' || (member.attributes||'').match(/deprecated/)) {
     return;
   }
 
@@ -694,52 +685,28 @@ function rawJsonToCtx(rawJson, file) {
       }
 
       var member = rawJson[memberId];
-      if(member.elementName == "Method") {
-        if(!file.allowStaticNew && member.name == "New") {
+      switch (member.elementName) {
+        case "Method":
+          if(!file.allowStaticNew && member.name == "New") {
+            continue;
+          }
+          addMethod(rawJson, ctx, member, ctx.methods);
           continue;
-        }
-        addMethod(rawJson, ctx, member, ctx.methods);
-        continue;
+        case "Field":
+          addField(rawJson, ctx, member, ctx.fields);
+          continue;
+        case "Constructor":
+        case "Variable":
+        case "Destructor":
+        case "OperatorMethod":
+        case "Class":
+        case "Union":
+        case "Enumeration":
+        case "Typedef":
+          continue;
+        default:
+          throw new Error("Could not find member with id '" + memberId + "'");
       }
-
-      if(member.elementName == "Constructor") {
-        continue;
-      }
-
-      if(member.elementName == "Field") {
-        addField(rawJson, ctx, member, ctx.fields);
-        continue;
-      }
-
-      if(member.elementName == "Variable") {
-        continue;
-      }
-
-      if(member.elementName == "Destructor") {
-        continue;
-      }
-
-      if(member.elementName == "OperatorMethod") {
-        continue;
-      }
-
-      if(member.elementName == "Typedef") {
-        continue;
-      }
-
-      if(member.elementName == "Class") {
-        continue;
-      }
-
-      if(member.elementName == "Enumeration") {
-        continue;
-      }
-
-      if(member.elementName == "Union") {
-        continue;
-      }
-
-      throw new Error("Could not find member with id '" + memberId + "'");
     }
   }
 
@@ -827,4 +794,13 @@ function red(msg) {
   return '\u001b[31m' + msg + '\u001b[0m';
 }
 
-renderTemplates()
+
+
+function refresh(){
+  var srcdir = path.resolve('./src-generated');
+  fs.readdirSync(srcdir).map(path.resolve.bind(null, srcdir)).forEach(fs.unlinkSync);
+  renderTemplates();
+}
+
+
+refresh()
