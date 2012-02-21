@@ -100,8 +100,8 @@ wxNode_wxIcon::wxNode_wxIcon(wxIconLocation& loc)
   wxNode_wxIcon::AddMethods(returnObjFt);
 
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-
-  v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, new v8::Local<v8::Value>[0])->ToObject();
+ 
+  v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, new v8::Handle<v8::Value>[0])->ToObject();
   returnObj->SetPointerInInternalField(0, (void*)obj);
   NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>((wxNode_wxIcon*)obj);
   returnObj->SetPointerInInternalField(1, evtHandler);
@@ -122,7 +122,7 @@ wxNode_wxIcon::wxNode_wxIcon(wxIconLocation& loc)
   wxNode_wxIcon::AddMethods(returnObjFt);
 
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-  v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, new v8::Local<v8::Value>[0])->ToObject();
+  v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, new v8::Handle<v8::Value>[0])->ToObject();
   returnObj->SetPointerInInternalField(0, (void*)obj);
   NodeExEvtHandlerImplWrap* wrap = new NodeExEvtHandlerImplWrap(returnObj);
   NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>(wrap);
@@ -199,7 +199,7 @@ wxNode_wxIcon::wxNode_wxIcon(wxIconLocation& loc)
    */
   if(args.Length() == 4 && args[0]->IsString() && args[1]->IsNumber() && args[2]->IsNumber() && args[3]->IsNumber()) {
     v8::String::AsciiValue filename(args[0]->ToString()); /* type: _14975  */
-    wxBitmapType type = (wxBitmapType)args[1]->ToNumber()->Value(); /* type: _2567  */
+    wxBitmapType type = static_cast<wxBitmapType>(args[1]->ToInt32()->Value()); /* type: _2567  */
     int arg2 = (int)args[2]->ToInt32()->Value(); /* type: _165  */
     int arg3 = (int)args[3]->ToInt32()->Value(); /* type: _165  */
     
@@ -215,7 +215,7 @@ wxNode_wxIcon::wxNode_wxIcon(wxIconLocation& loc)
    */
   if(args.Length() == 3 && args[0]->IsString() && args[1]->IsNumber() && args[2]->IsNumber()) {
     v8::String::AsciiValue filename(args[0]->ToString()); /* type: _14975  */
-    wxBitmapType type = (wxBitmapType)args[1]->ToNumber()->Value(); /* type: _2567  */
+    wxBitmapType type = static_cast<wxBitmapType>(args[1]->ToInt32()->Value()); /* type: _2567  */
     int arg2 = (int)args[2]->ToInt32()->Value(); /* type: _165  */
     
 
@@ -230,7 +230,7 @@ wxNode_wxIcon::wxNode_wxIcon(wxIconLocation& loc)
    */
   if(args.Length() == 2 && args[0]->IsString() && args[1]->IsNumber()) {
     v8::String::AsciiValue filename(args[0]->ToString()); /* type: _14975  */
-    wxBitmapType type = (wxBitmapType)args[1]->ToNumber()->Value(); /* type: _2567  */
+    wxBitmapType type = static_cast<wxBitmapType>(args[1]->ToInt32()->Value()); /* type: _2567  */
     
 
     wxNode_wxIcon *self = new wxNode_wxIcon(*filename, type);
@@ -288,7 +288,7 @@ wxNode_wxIcon::wxNode_wxIcon(wxIconLocation& loc)
    */
   if(args.Length() == 4 && args[0]->IsString() && args[1]->IsNumber() && args[2]->IsNumber() && args[3]->IsNumber()) {
     v8::String::AsciiValue name(args[0]->ToString()); /* type: _14975  */
-    wxBitmapType flags = (wxBitmapType)args[1]->ToNumber()->Value(); /* type: _2567  */
+    wxBitmapType flags = static_cast<wxBitmapType>(args[1]->ToInt32()->Value()); /* type: _2567  */
     int arg2 = (int)args[2]->ToInt32()->Value(); /* type: _165  */
     int arg3 = (int)args[3]->ToInt32()->Value(); /* type: _165  */
     
@@ -303,7 +303,7 @@ wxNode_wxIcon::wxNode_wxIcon(wxIconLocation& loc)
    */
   if(args.Length() == 2 && args[0]->IsString() && args[1]->IsNumber()) {
     v8::String::AsciiValue name(args[0]->ToString()); /* type: _14975  */
-    wxBitmapType flags = (wxBitmapType)args[1]->ToNumber()->Value(); /* type: _2567  */
+    wxBitmapType flags = static_cast<wxBitmapType>(args[1]->ToInt32()->Value()); /* type: _2567  */
     
 
     bool returnVal = self->LoadFile(*name, flags);
@@ -415,6 +415,5 @@ wxNode_wxIcon::wxNode_wxIcon(wxIconLocation& loc)
   }
   return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
-
 
 
