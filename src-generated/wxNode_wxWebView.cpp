@@ -279,7 +279,7 @@
    * id: _43473
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    wxWebViewBackend backend = (wxWebViewBackend)args[0]->ToNumber()->Value(); /* type: _683  */
+    wxWebViewBackend backend = static_cast<wxWebViewBackend>(args[0]->ToInt32()->Value()); /* type: _683  */
     
 
     wxWebView* returnVal = wxWebView::New(backend);
@@ -307,7 +307,7 @@
     v8::String::AsciiValue url(args[2]->ToString()); /* type: _14975  */
     wxNode_wxPoint* pos = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[3]->ToObject()); /* type: _20518  */
     wxNode_wxSize* size = args[4]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[4]->ToObject()); /* type: _20628  */
-    wxWebViewBackend backend = (wxWebViewBackend)args[5]->ToNumber()->Value(); /* type: _683  */
+    wxWebViewBackend backend = static_cast<wxWebViewBackend>(args[5]->ToInt32()->Value()); /* type: _683  */
     long int style = (long int)args[6]->ToInt32()->Value(); /* type: _592  */
     v8::String::AsciiValue name(args[7]->ToString()); /* type: _14975  */
     
@@ -326,7 +326,7 @@
     v8::String::AsciiValue url(args[2]->ToString()); /* type: _14975  */
     wxNode_wxPoint* pos = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[3]->ToObject()); /* type: _20518  */
     wxNode_wxSize* size = args[4]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[4]->ToObject()); /* type: _20628  */
-    wxWebViewBackend backend = (wxWebViewBackend)args[5]->ToNumber()->Value(); /* type: _683  */
+    wxWebViewBackend backend = static_cast<wxWebViewBackend>(args[5]->ToInt32()->Value()); /* type: _683  */
     long int style = (long int)args[6]->ToInt32()->Value(); /* type: _592  */
     
 
@@ -344,7 +344,7 @@
     v8::String::AsciiValue url(args[2]->ToString()); /* type: _14975  */
     wxNode_wxPoint* pos = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[3]->ToObject()); /* type: _20518  */
     wxNode_wxSize* size = args[4]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxSize>(args[4]->ToObject()); /* type: _20628  */
-    wxWebViewBackend backend = (wxWebViewBackend)args[5]->ToNumber()->Value(); /* type: _683  */
+    wxWebViewBackend backend = static_cast<wxWebViewBackend>(args[5]->ToInt32()->Value()); /* type: _683  */
     
 
     wxWebView* returnVal = wxWebView::New(parent, id, *url, *pos, *size, backend);
@@ -675,7 +675,7 @@
    * id: _43484
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    wxWebViewReloadFlags flags = (wxWebViewReloadFlags)args[0]->ToNumber()->Value(); /* type: _3573  */
+    wxWebViewReloadFlags flags = static_cast<wxWebViewReloadFlags>(args[0]->ToInt32()->Value()); /* type: _3573  */
     
 
     self->Reload(flags);
@@ -1106,7 +1106,7 @@
    * id: _43499
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    wxWebViewZoomType type = (wxWebViewZoomType)args[0]->ToNumber()->Value(); /* type: _10476  */
+    wxWebViewZoomType type = static_cast<wxWebViewZoomType>(args[0]->ToInt32()->Value()); /* type: _10476  */
     
 
     bool returnVal = self->CanSetZoomType(type);
@@ -1188,7 +1188,7 @@
    * id: _43502
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    wxWebViewZoom zoom = (wxWebViewZoom)args[0]->ToNumber()->Value(); /* type: _12462  */
+    wxWebViewZoom zoom = static_cast<wxWebViewZoom>(args[0]->ToInt32()->Value()); /* type: _12462  */
     
 
     self->SetZoom(zoom);
@@ -1216,7 +1216,7 @@
    * id: _43503
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    wxWebViewZoomType zoomType = (wxWebViewZoomType)args[0]->ToNumber()->Value(); /* type: _10476  */
+    wxWebViewZoomType zoomType = static_cast<wxWebViewZoomType>(args[0]->ToInt32()->Value()); /* type: _10476  */
     
 
     self->SetZoomType(zoomType);

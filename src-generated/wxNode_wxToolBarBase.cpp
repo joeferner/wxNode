@@ -182,7 +182,7 @@
     v8::String::AsciiValue label(args[1]->ToString()); /* type: _14975  */
     wxNode_wxBitmap* bitmap = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[2]->ToObject()); /* type: _15645  */
     wxNode_wxBitmap* bmpDisabled = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[3]->ToObject()); /* type: _15645  */
-    wxItemKind kind = (wxItemKind)args[4]->ToNumber()->Value(); /* type: _4680  */
+    wxItemKind kind = static_cast<wxItemKind>(args[4]->ToInt32()->Value()); /* type: _4680  */
     v8::String::AsciiValue shortHelp(args[5]->ToString()); /* type: _14975  */
     v8::String::AsciiValue longHelp(args[6]->ToString()); /* type: _14975  */
     wxNode_wxObject* data = args[7]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxObject>(args[7]->ToObject()); /* type: _15746 * */
@@ -201,7 +201,7 @@
     v8::String::AsciiValue label(args[1]->ToString()); /* type: _14975  */
     wxNode_wxBitmap* bitmap = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[2]->ToObject()); /* type: _15645  */
     wxNode_wxBitmap* bmpDisabled = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[3]->ToObject()); /* type: _15645  */
-    wxItemKind kind = (wxItemKind)args[4]->ToNumber()->Value(); /* type: _4680  */
+    wxItemKind kind = static_cast<wxItemKind>(args[4]->ToInt32()->Value()); /* type: _4680  */
     v8::String::AsciiValue shortHelp(args[5]->ToString()); /* type: _14975  */
     v8::String::AsciiValue longHelp(args[6]->ToString()); /* type: _14975  */
     
@@ -219,7 +219,7 @@
     v8::String::AsciiValue label(args[1]->ToString()); /* type: _14975  */
     wxNode_wxBitmap* bitmap = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[2]->ToObject()); /* type: _15645  */
     wxNode_wxBitmap* bmpDisabled = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[3]->ToObject()); /* type: _15645  */
-    wxItemKind kind = (wxItemKind)args[4]->ToNumber()->Value(); /* type: _4680  */
+    wxItemKind kind = static_cast<wxItemKind>(args[4]->ToInt32()->Value()); /* type: _4680  */
     v8::String::AsciiValue shortHelp(args[5]->ToString()); /* type: _14975  */
     
 
@@ -236,7 +236,7 @@
     v8::String::AsciiValue label(args[1]->ToString()); /* type: _14975  */
     wxNode_wxBitmap* bitmap = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[2]->ToObject()); /* type: _15645  */
     wxNode_wxBitmap* bmpDisabled = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[3]->ToObject()); /* type: _15645  */
-    wxItemKind kind = (wxItemKind)args[4]->ToNumber()->Value(); /* type: _4680  */
+    wxItemKind kind = static_cast<wxItemKind>(args[4]->ToInt32()->Value()); /* type: _4680  */
     
 
     const wxToolBarToolBase* returnVal = self->AddTool(toolid, *label, *bitmap, *bmpDisabled, kind);
@@ -267,7 +267,7 @@
     v8::String::AsciiValue label(args[1]->ToString()); /* type: _14975  */
     wxNode_wxBitmap* bitmap = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[2]->ToObject()); /* type: _15645  */
     v8::String::AsciiValue shortHelp(args[3]->ToString()); /* type: _14975  */
-    wxItemKind kind = (wxItemKind)args[4]->ToNumber()->Value(); /* type: _4680  */
+    wxItemKind kind = static_cast<wxItemKind>(args[4]->ToInt32()->Value()); /* type: _4680  */
     
 
     const wxToolBarToolBase* returnVal = self->AddTool(toolid, *label, *bitmap, *shortHelp, kind);
@@ -533,7 +533,7 @@
     v8::String::AsciiValue label(args[2]->ToString()); /* type: _14975  */
     wxNode_wxBitmap* bitmap = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[3]->ToObject()); /* type: _15645  */
     wxNode_wxBitmap* bmpDisabled = args[4]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[4]->ToObject()); /* type: _15645  */
-    wxItemKind kind = (wxItemKind)args[5]->ToNumber()->Value(); /* type: _4680  */
+    wxItemKind kind = static_cast<wxItemKind>(args[5]->ToInt32()->Value()); /* type: _4680  */
     v8::String::AsciiValue shortHelp(args[6]->ToString()); /* type: _14975  */
     v8::String::AsciiValue longHelp(args[7]->ToString()); /* type: _14975  */
     wxNode_wxObject* clientData = args[8]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxObject>(args[8]->ToObject()); /* type: _15746 * */
@@ -553,7 +553,7 @@
     v8::String::AsciiValue label(args[2]->ToString()); /* type: _14975  */
     wxNode_wxBitmap* bitmap = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[3]->ToObject()); /* type: _15645  */
     wxNode_wxBitmap* bmpDisabled = args[4]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[4]->ToObject()); /* type: _15645  */
-    wxItemKind kind = (wxItemKind)args[5]->ToNumber()->Value(); /* type: _4680  */
+    wxItemKind kind = static_cast<wxItemKind>(args[5]->ToInt32()->Value()); /* type: _4680  */
     v8::String::AsciiValue shortHelp(args[6]->ToString()); /* type: _14975  */
     v8::String::AsciiValue longHelp(args[7]->ToString()); /* type: _14975  */
     
@@ -572,7 +572,7 @@
     v8::String::AsciiValue label(args[2]->ToString()); /* type: _14975  */
     wxNode_wxBitmap* bitmap = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[3]->ToObject()); /* type: _15645  */
     wxNode_wxBitmap* bmpDisabled = args[4]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[4]->ToObject()); /* type: _15645  */
-    wxItemKind kind = (wxItemKind)args[5]->ToNumber()->Value(); /* type: _4680  */
+    wxItemKind kind = static_cast<wxItemKind>(args[5]->ToInt32()->Value()); /* type: _4680  */
     v8::String::AsciiValue shortHelp(args[6]->ToString()); /* type: _14975  */
     
 
@@ -590,7 +590,7 @@
     v8::String::AsciiValue label(args[2]->ToString()); /* type: _14975  */
     wxNode_wxBitmap* bitmap = args[3]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[3]->ToObject()); /* type: _15645  */
     wxNode_wxBitmap* bmpDisabled = args[4]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[4]->ToObject()); /* type: _15645  */
-    wxItemKind kind = (wxItemKind)args[5]->ToNumber()->Value(); /* type: _4680  */
+    wxItemKind kind = static_cast<wxItemKind>(args[5]->ToInt32()->Value()); /* type: _4680  */
     
 
     const wxToolBarToolBase* returnVal = self->InsertTool(pos, toolid, *label, *bitmap, *bmpDisabled, kind);

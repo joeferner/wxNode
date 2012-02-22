@@ -100,8 +100,8 @@ wxNode_wxIcon::wxNode_wxIcon(wxIconLocation& loc)
   wxNode_wxIcon::AddMethods(returnObjFt);
 
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
- 
-  v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, new v8::Handle<v8::Value>[0])->ToObject();
+
+  v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, new v8::Local<v8::Value>[0])->ToObject();
   returnObj->SetPointerInInternalField(0, (void*)obj);
   NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>((wxNode_wxIcon*)obj);
   returnObj->SetPointerInInternalField(1, evtHandler);
@@ -122,7 +122,7 @@ wxNode_wxIcon::wxNode_wxIcon(wxIconLocation& loc)
   wxNode_wxIcon::AddMethods(returnObjFt);
 
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-  v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, new v8::Handle<v8::Value>[0])->ToObject();
+  v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, new v8::Local<v8::Value>[0])->ToObject();
   returnObj->SetPointerInInternalField(0, (void*)obj);
   NodeExEvtHandlerImplWrap* wrap = new NodeExEvtHandlerImplWrap(returnObj);
   NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>(wrap);
@@ -415,5 +415,6 @@ wxNode_wxIcon::wxNode_wxIcon(wxIconLocation& loc)
   }
   return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
+
 
 

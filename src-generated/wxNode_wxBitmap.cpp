@@ -157,8 +157,8 @@ wxNode_wxBitmap::wxNode_wxBitmap(wxImage& image)
   wxNode_wxBitmap::AddMethods(returnObjFt);
 
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
- 
-  v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, new v8::Handle<v8::Value>[0])->ToObject();
+
+  v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, new v8::Local<v8::Value>[0])->ToObject();
   returnObj->SetPointerInInternalField(0, (void*)obj);
   NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>((wxNode_wxBitmap*)obj);
   returnObj->SetPointerInInternalField(1, evtHandler);
@@ -179,7 +179,7 @@ wxNode_wxBitmap::wxNode_wxBitmap(wxImage& image)
   wxNode_wxBitmap::AddMethods(returnObjFt);
 
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-  v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, new v8::Handle<v8::Value>[0])->ToObject();
+  v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, new v8::Local<v8::Value>[0])->ToObject();
   returnObj->SetPointerInInternalField(0, (void*)obj);
   NodeExEvtHandlerImplWrap* wrap = new NodeExEvtHandlerImplWrap(returnObj);
   NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>(wrap);
@@ -1084,7 +1084,6 @@ wxNode_wxBitmap::wxNode_wxBitmap(wxImage& image)
   return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
 
-
 /*static*/ v8::Handle<v8::Value> wxNode_wxBitmap::_CleanUpHandlers(const v8::Arguments& args) {
   v8::HandleScope scope;
   wxNode_wxBitmap* self = unwrap<wxNode_wxBitmap>(args.This());
@@ -1112,7 +1111,6 @@ wxNode_wxBitmap::wxNode_wxBitmap(wxImage& image)
   return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
 
-
 /*static*/ v8::Handle<v8::Value> wxNode_wxBitmap::_GetClassInfo(const v8::Arguments& args) {
   v8::HandleScope scope;
   wxNode_wxBitmap* self = unwrap<wxNode_wxBitmap>(args.This());
@@ -1139,5 +1137,6 @@ wxNode_wxBitmap::wxNode_wxBitmap(wxImage& image)
   }
   return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
+
 
 

@@ -987,7 +987,7 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
    */
   if(args.Length() == 2 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxArrayString::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && false) {
     wxNode_wxArrayString* items = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxArrayString>(args[0]->ToObject()); /* type: _20632  */
-    wxClientData clientData = static_cast<wxClientData>(args[1]->ToInt32()->Value()); /* type: _63378 ** */
+    wxClientData* clientData; /* type: _63378 ** */
     
 
     int returnVal = self->Append(*items, &clientData);
@@ -1014,7 +1014,7 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
   if(args.Length() == 3 && args[0]->IsNumber() && args[1]->IsString() && false) {
     unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _44  */
     wxString* items; /* type: _20631 * */
-    wxClientData clientData = static_cast<wxClientData>(args[2]->ToInt32()->Value()); /* type: _63378 ** */
+    wxClientData* clientData; /* type: _63378 ** */
     
 
     int returnVal = self->Append(n, items, &clientData);
@@ -1112,7 +1112,7 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
   if(args.Length() == 3 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxArrayString::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsNumber() && false) {
     wxNode_wxArrayString* items = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxArrayString>(args[0]->ToObject()); /* type: _20632  */
     unsigned int pos = (unsigned int)args[1]->ToInt32()->Value(); /* type: _44  */
-    wxClientData clientData = static_cast<wxClientData>(args[2]->ToInt32()->Value()); /* type: _63378 ** */
+    wxClientData* clientData; /* type: _63378 ** */
     
 
     int returnVal = self->Insert(*items, pos, &clientData);
@@ -1141,7 +1141,7 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
     unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _44  */
     wxString* items; /* type: _20631 * */
     unsigned int pos = (unsigned int)args[2]->ToInt32()->Value(); /* type: _44  */
-    wxClientData clientData = static_cast<wxClientData>(args[3]->ToInt32()->Value()); /* type: _63378 ** */
+    wxClientData* clientData; /* type: _63378 ** */
     
 
     int returnVal = self->Insert(n, items, pos, &clientData);
@@ -1182,7 +1182,7 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
    */
   if(args.Length() == 2 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxArrayString::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && false) {
     wxNode_wxArrayString* items = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxArrayString>(args[0]->ToObject()); /* type: _20632  */
-    wxClientData clientData = static_cast<wxClientData>(args[1]->ToInt32()->Value()); /* type: _63378 ** */
+    wxClientData* clientData; /* type: _63378 ** */
     
 
     self->Set(*items, &clientData);
@@ -1209,7 +1209,7 @@ wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSiz
   if(args.Length() == 3 && args[0]->IsNumber() && args[1]->IsString() && false) {
     unsigned int n = (unsigned int)args[0]->ToInt32()->Value(); /* type: _44  */
     wxString* items; /* type: _20631 * */
-    wxClientData clientData = static_cast<wxClientData>(args[2]->ToInt32()->Value()); /* type: _63378 ** */
+    wxClientData* clientData; /* type: _63378 ** */
     
 
     self->Set(n, items, &clientData);

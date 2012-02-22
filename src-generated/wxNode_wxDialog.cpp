@@ -1062,7 +1062,7 @@ wxNode_wxDialog::wxNode_wxDialog(wxWindow* parent, int id, const wxString& title
    * id: _48105
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    wxDialogLayoutAdaptationMode mode = (wxDialogLayoutAdaptationMode)args[0]->ToNumber()->Value(); /* type: _13430  */
+    wxDialogLayoutAdaptationMode mode = static_cast<wxDialogLayoutAdaptationMode>(args[0]->ToInt32()->Value()); /* type: _13430  */
     
 
     self->SetLayoutAdaptationMode(mode);

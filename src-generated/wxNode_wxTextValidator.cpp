@@ -623,7 +623,7 @@ wxNode_wxTextValidator::wxNode_wxTextValidator(wxTextValidator& val)
    * id: _41330
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    wxTextValidatorStyle style = (wxTextValidatorStyle)args[0]->ToNumber()->Value(); /* type: _3917  */
+    wxTextValidatorStyle style = static_cast<wxTextValidatorStyle>(args[0]->ToInt32()->Value()); /* type: _3917  */
     
 
     bool returnVal = self->HasFlag(style);
