@@ -301,7 +301,7 @@ function argJsonToCtx(ctx, rawJson, arg, i) {
       typeName = 'wxHelpEvent::Origin';
     }
 
-    argCode = util.format("%s %s = (%s)args[%d]->ToNumber()->Value();", typeName, argName, typeName, i);
+    argCode = util.format("%s %s = static_cast<%s>(args[%d]->ToInt32()->Value());", typeName, argName, typeName, i);
     argCallCode = argName;
     argDeclCode = util.format("%s%s %s", typeName, type.refs + type.pointers, argName);
     argTestCode = util.format("args[%d]->IsNumber()", i);
@@ -309,7 +309,7 @@ function argJsonToCtx(ctx, rawJson, arg, i) {
     return null;
   } else if(typeName && (typeName.match(/^wx.*/))) {
     if(type.pointers == '**') {
-      argCode = util.format("%s %s = static_cast<%s>(args[%d]->ToInt32()->Value());", typeName, argName, typeName, i);
+      argCode = util.format("%s* %s;", typeName, argName);
       argDeclCode = util.format("%s** %s", typeName, argName);
       argCallCode = "&" + argName;
     } else {
