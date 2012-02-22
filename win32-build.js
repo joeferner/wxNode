@@ -26,6 +26,9 @@ wxBuilder.readConfig = function readConfig(file){
   }, {});
 }
 
+wxBuilder.msLibs = [ 'kernel32', 'user32', 'gdi32', 'comdlg32', 'comctl32', 'advapi32',
+                     'shell32', 'ole32', 'oleaut32', 'rpcrt4', 'winspool', 'winmm' ];
+
 wxBuilder.prototype = {
   verbose: false,
   dll: true,
@@ -34,7 +37,7 @@ wxBuilder.prototype = {
     b.target = this.name;
     b.verbose = this.verbose;
     
-    b.appendUnique('CXXFLAGS', '-DUNICODE');
+    b.appendUnique('CXXFLAGS', ['-DUNICODE', '-DNDEBUG']);
 
     if (this.dll)
       b.appendUnique('CXXFLAGS', '-DWXUSINGDLL');
@@ -48,6 +51,7 @@ wxBuilder.prototype = {
 
     b.LinkerSearchDir(this.wxLibDir);
     b.LinkerLibrary.apply(null, fs.readdirSync(this.wxLibDir).filter(function(s){ return path.extname(s) === '.lib' }));
+    b.LinkerLibrary.apply(null, wxBuilder.msLibs);
 
     b.IncludeDir(this.srcDir, this.srcDir+'-dummy', this.srcDir+'-generated', this.wxIncludeDir);
     b.SourceDir(this.srcDir, this.srcDir+'-generated');
