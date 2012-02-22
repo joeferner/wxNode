@@ -4,16 +4,20 @@ var child_process = require('child_process');
 
 var Builder = require('mnm');
 
+var fsExplorer = require('./fsExplorer');
 
-var exists = fs.existsSync || path.existsSync;
-var resolve = path.resolve;
+var Path = fsExplorer.Path;
+var File = fsExplorer.File;
+var Directory = fsExplorer.Directory;
+var exists = fsExplorer.existsSync;
+var resolve = fsExplorer.resolve;
 
 
 
 function wxBuilder(o){
   o = Object.keys(o || {}).reduce(function(r,s){ r[s]=o[s]; return r; }, {
     wxBase: '/wxWidgets',
-    wxConfig: resolve('build', 'config-'+process.platform+'.json'),
+    wxConfig: resolve('config-'+process.platform+'.json'),
     useDll: false,
     verbose: false,
     name: 'wxnode',
@@ -21,12 +25,12 @@ function wxBuilder(o){
 
   this.wxConfig = new Config(o.wxConfig);
   this.name = this.wxConfig.CFG = o.name;
-  this.wxBase = resolve(o.wxBase);
-  this.wxLibDir = resolve(o.wxBase, 'lib/vc_'+(o.useDll ? 'dll' : 'lib')+o.name);
-  this.wxBuildDir = resolve(o.wxBase, 'build/msw');
-  this.wxIncludeDir = resolve(o.wxBase, 'include');
-  this.srcDir =  resolve(__dirname, 'src');
-  this.buildDir =  resolve(__dirname, 'build');
+  this.wxBase = new Directory(o.wxBase);
+  this.wxLibDir = new Directory(o.wxBase+'/lib/vc_'+(o.useDll ? 'dll' : 'lib')+o.name);
+  this.wxBuildDir = new Directory(o.wxBase+'/build/msw');
+  this.wxIncludeDir = new Directory(o.wxBase+'/include');
+  this.srcDir =  new Directory(__dirname+'/src');
+  this.buildDir =  new Directory(__dirname+'/build');
 }
 
 wxBuilder.msLibs = [ 'kernel32', 'user32', 'gdi32', 'comdlg32',
@@ -36,7 +40,7 @@ wxBuilder.msLibs = [ 'kernel32', 'user32', 'gdi32', 'comdlg32',
 wxBuilder.prototype = {
   build: function build(callback){
     var self = this;
-    if (!exists(this.wxLibDir)) {
+    if (!this.wxLibDir.exists()) {
       this.buildWX(function(e){
         self.buildBindings(callback);
       });
@@ -50,17 +54,14 @@ wxBuilder.prototype = {
     callback = callback || function(){};
 
     var configname = 'config_'+this.name;
-    var config = new File(this.wxBuildDir + '/'+configname);
-    var makefile = new File(this.wxBuildDir + '/makefile_'+this.name);
-
-    this.wxConfig.save(config);
-    new File(this.wxBuildDir + '/makefile.vc').copy(makefile, function(s){
+    var config = this.wxConfig.save(this.wxBuildDir.resolve(configname));
+    var makefile = this.wxBuildDir.resolve('makefile.vc').copy(this.wxBuildDir.resolve('makefile_'+this.name), function(s){
       return s.replace('config.vc', configname);
     });
-    new File(this.wxIncludeDir + '/wx/msw/setup0.h').copy(this.wxIncludeDir + '/wx/msw/setup.h');
+    this.wxIncludeDir.resolve('wx/msw/setup0.h').copy(this.wxIncludeDir.resolve('wx/msw/setup.h'));
 
     child_process.spawn('nmake', [ makefile.path ], {
-      cwd: this.wxBuildDir,
+      cwd: this.wxBuildDir.path,
       env: process.env,
       customFds: [0,1,2]
     }).on('exit', function(code) {
@@ -83,20 +84,20 @@ wxBuilder.prototype = {
     if (this.dll)
       builder.appendUnique('CXXFLAGS', '-DWXUSINGDLL');
 
-    builder.appendLinkerSearchDir(this.wxLibDir);
+    builder.appendLinkerSearchDir(this.wxLibDir.path);
 
-    builder.appendLinkerLibrary(dir(this.wxLibDir, '.lib'));
+    builder.appendLinkerLibrary(this.wxLibDir.filter('.lib'));
     builder.appendLinkerLibrary(wxBuilder.msLibs);
 
     builder.appendIncludeDir([
-      this.srcDir,
+      this.srcDir+'',
       this.srcDir+'-dummy',
       this.srcDir+'-generated',
       this.wxIncludeDir
     ]);
 
     builder.appendSourceDir([
-      this.srcDir,
+      this.srcDir+'',
       this.srcDir+'-generated'
     ]);
 
@@ -104,7 +105,9 @@ wxBuilder.prototype = {
   },
 
   vcVars: function vcVars(){
-    var vcpath = [10,9,8].reduce(function(r,s){ return r ? r : (s = 'VS'+s+'0COMNTOOLS') in process.env ? process.env[s] : r; }, null);
+    var vcpath = [10,9,8].reduce(function(r,s){
+      return r ? r : (s = 'VS'+s+'0COMNTOOLS') in process.env ? process.env[s] : r;
+    }, null);
     var vars;
     if (!vcpath || !exists(vcpath = resolve(vcpath, '../../vc/vcvarsall.bat'))) {
       vars = null;
@@ -126,6 +129,7 @@ wxBuilder.prototype = {
 
 
 function Config(o){
+  if (Path.isPath(o)) o = o.path;
   if (typeof o === 'string' && path.extname(o) === '.json' && exists(o)) {
     o = require(o);
   }
@@ -151,7 +155,7 @@ Config.prototype = {
     }, this).join('\r\n')+'\r\n';
   },
   save: function save(path){
-    new File(path).write(this.serialize());
+    return new File(path).write(this.serialize());
   },
   load: function load(path){
     return this.parse(new File(path).read());
@@ -159,79 +163,17 @@ Config.prototype = {
 }
 
 
-function File(name){
-  if (File.prototype.isPrototypeOf(name)) return name;
-  if (!File.prototype.isPrototypeOf(this)) return new File(name);
-  this.path = path.resolve(name);
-}
-
-File.prototype = {
-  constructor: File,
-  encoding: 'utf8',
-  chunkSize: 2 << 15,
-  exists: function exists(){
-    return fs.existsSync(this.path);
-  },
-  read: function read(){
-    return fs.readFileSync(this.path, this.encoding);
-  },
-  write: function write(content){
-    fs.writeFileSync(this.path, content);
-  },
-  delete: function delete_(){
-    fs.unlinkSync(this.path);
-  },
-  open: function open(flag){
-    this.fd && this.close();
-    return this.fd = fs.openSync(this.path, flag);
-  },
-  close: function close(){
-    this.fd && fs.closeSync(this.fd);
-    delete this.fd;
-  },
-  copy: function copy(to, processor){
-    to = new File(to);
-    to.write(processor ? processor(this.read()) : this.read());
-    return to.path;
-  }
-};
-  // copy: function copy(to){
-  //   var buffer = new Buffer(this.chunkSize);
-  //   var dest = new File(to);
-  //   var read = 1, offset = 0;
-
-  //   this.open('r');
-  //   dest.open('w');
-  //   while (read > 0) {
-  //     read = fs.readSync(this.fd, buffer, 0, this.chunkSize, offset);
-  //     fs.writeSync(dest.fd, buffer, 0, read);
-  //     offset += read;
-  //   }
-  //   this.close();
-  //   dest.close();
-  // }
-
-
-
-
-function dir(name, filter){
-  if (!exists(name))
-    throw new Error('Path not found: '+pnameath);
-  var files = fs.readdirSync(name);
-  return filter ? files.filter(function(s){ return path.extname(s) === filter }) : files;
-}
-
 function execSync(params){
   var f = Math.random().toString(36).slice(2)+'.temp';
   child_process.exec(params+' 1>'+f+' 2>&1 & ren '+f+' _'+f);
   f = new File('_'+f);
-  while (!f.exists());
+  while (!exists(f.path));
   var output = f.read();
   f.delete();
   return output;
 }
 
 
-
 var builder = new wxBuilder;
-builder.build();
+console.log(builder.build());
+//builder.build();
