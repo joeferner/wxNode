@@ -31,7 +31,7 @@ wxBuilder.msLibs = [ 'kernel32', 'user32', 'gdi32', 'comdlg32', 'comctl32', 'adv
 
 wxBuilder.prototype = {
   verbose: false,
-  dll: true,
+  dll: false,
   build: function build(){
     var b = new Builder;
     b.target = this.name;
