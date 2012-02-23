@@ -57,43 +57,44 @@ Path.prototype = {
   constructor: Path,
 
   getExtname: function getExtname(){
-    return this.define('extname', path.extname(this.path));
+    return defineIfUnset(this, 'extname', path.extname(this.path));
   },
   get extname(){ return this.getExtname() },
 
   getDirname: function getDirname(){
-    return this.define('dirname', path.dirname(this.path));
+    return defineIfUnset(this, 'dirname', path.dirname(this.path));
   },
   get dirname(){ return this.getDirname() },
 
   getBasename: function getBasename(){ 
-    return this.define('basename', path.basename(this.path));
+    return defineIfUnset(this, 'basename', path.basename(this.path));
   },
   get basename(){ return this.getBasename() },
 
   getName: function getName(){
-    return this.define('name', this.basename.slice(0, -this.extname.length));
+    return defineIfUnset(this, 'name', this.basename.slice(0, -this.extname.length));
   },
   get name(){ return this.getName() },
 
 
   getStats: function getStats(){
-    return this.define('stats', fs.statSync(this.path));
+    return defineIfUnset(this, 'stats', fs.statSync(this.path));
   },
   get stats(){ return this.getStats() },
 
   getParts: function getParts(){
-    this.define('parts', this.path.split(Path.separator[0]));
-    if (isWin) {
-      this.define('drive', this.parts.shift());
-    }
-    return this.parts;
+    return defineIfUnset(this, 'parts', this.path.split(Path.separator[0]), function(parts){
+      isWin && define(this, 'drive', parts.shift());
+      return parts;
+    });
   },
   get parts(){ return this.getParts() },
 
   getType: function getType(){
     if (!this.exists()) return null;
-    var stats = fs.statSync(this.path);
+    if ('type' in this) return this[type];
+
+    var stats = this.stats;
     if (stats.isFile()) {
       this.__proto__ = File.prototype;
       return 'File';
@@ -108,11 +109,13 @@ Path.prototype = {
 
   getParent: function getParent(){
     if (this.root) return
-    this.define('parent', new Directory([this.path, '..']));
-    if (this.parent === this) {
-      this.define('root', true);
-    }
-    return this.parent;
+    return defineIfUnset(this, 'parent', new Directory([this.path, '..']), function(parent){
+      if (parent === this) {
+        define(this, 'root', true);
+        return;
+      }
+      return parent;
+    });
   },
   get parent(){ return this.getParent() },
 
@@ -126,11 +129,11 @@ Path.prototype = {
   },
 
   toUnix: function toUnix(){
-    return '/'+this.split.join('/');
+    return '/'+this.parts.join('/');
   },
 
   toWin: function toWin(){
-    return [this.drive ? this.drive : 'C:'].concat(this.split).join('\\');
+    return [this.drive ? this.drive : 'C:'].concat(this.parts).join('\\');
   },
 
   toIdentifier: function toIdentifier(){
@@ -150,22 +153,8 @@ Path.prototype = {
       setTimeout(function(){ delete existCache[this.path] }.bind(this), 10000)
     ];
     return existCache[this.path][0];
-  },
-
-  define: function define(name, value, hidden, readonly){
-    if (arguments.length === 2) {
-      hidden = this.constructor.prototype === this;
-    }
-    Object.defineProperty(this, name, {
-      value: value,
-      enumerable: !hidden,
-      writable: !readonly,
-      configurable: true
-    });
-    return value;
   }
 };
-
 
 
 function File(name){
@@ -277,6 +266,37 @@ Directory.prototype = {
     return this.read().filter(callback);
   }
 };
+
+
+function get(o, name){
+  if (o.hasOwnProperty(name)) return o[name];
+}
+
+function defineIfUnset(o, name, value, hidden, readonly){
+  var val = get(o, name);
+  if (typeof val !== 'undefined') return val;
+
+  var args = slice(arguments);
+  if (args.length > 3 && typeof args[args.length-1] === 'function') {
+    var cb = args.pop();
+  }
+  val = define.apply(this, args);
+  return cb ? cb.call(o, val) : val;
+}
+
+function define(o, name, value, hidden, readonly){
+  if (arguments.length === 2) {
+    hidden = o.constructor.prototype === o;
+  }
+  Object.defineProperty(o, name, {
+    value: value,
+    enumerable: !hidden,
+    writable: !readonly,
+    configurable: true
+  });
+  return value;
+}
+
 
 
 
