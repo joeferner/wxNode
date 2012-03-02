@@ -123,8 +123,8 @@ wxNode_wxDialog::wxNode_wxDialog(wxWindow* parent, int id, const wxString& title
   wxNode_wxDialog::AddMethods(returnObjFt);
 
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-  v8::Handle<v8::Value> returnObjArgs[0];
-  v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+
+  v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, new v8::Local<v8::Value>[0])->ToObject();
   returnObj->SetPointerInInternalField(0, (void*)obj);
   NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>((wxNode_wxDialog*)obj);
   returnObj->SetPointerInInternalField(1, evtHandler);
@@ -145,8 +145,7 @@ wxNode_wxDialog::wxNode_wxDialog(wxWindow* parent, int id, const wxString& title
   wxNode_wxDialog::AddMethods(returnObjFt);
 
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-  v8::Handle<v8::Value> returnObjArgs[0];
-  v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+  v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, new v8::Local<v8::Value>[0])->ToObject();
   returnObj->SetPointerInInternalField(0, (void*)obj);
   NodeExEvtHandlerImplWrap* wrap = new NodeExEvtHandlerImplWrap(returnObj);
   NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>(wrap);
@@ -1063,7 +1062,7 @@ wxNode_wxDialog::wxNode_wxDialog(wxWindow* parent, int id, const wxString& title
    * id: _48105
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    wxDialogLayoutAdaptationMode mode = (wxDialogLayoutAdaptationMode)args[0]->ToNumber()->Value(); /* type: _13430  */
+    wxDialogLayoutAdaptationMode mode = static_cast<wxDialogLayoutAdaptationMode>(args[0]->ToInt32()->Value()); /* type: _13430  */
     
 
     self->SetLayoutAdaptationMode(mode);

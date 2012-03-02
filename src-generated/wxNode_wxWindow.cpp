@@ -376,8 +376,8 @@ wxNode_wxWindow::wxNode_wxWindow(wxWindow* parent, int id)
   wxNode_wxWindow::AddMethods(returnObjFt);
 
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-  v8::Handle<v8::Value> returnObjArgs[0];
-  v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+
+  v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, new v8::Local<v8::Value>[0])->ToObject();
   returnObj->SetPointerInInternalField(0, (void*)obj);
   NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>((wxNode_wxWindow*)obj);
   returnObj->SetPointerInInternalField(1, evtHandler);
@@ -398,8 +398,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxWindow* parent, int id)
   wxNode_wxWindow::AddMethods(returnObjFt);
 
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-  v8::Handle<v8::Value> returnObjArgs[0];
-  v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+  v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, new v8::Local<v8::Value>[0])->ToObject();
   returnObj->SetPointerInInternalField(0, (void*)obj);
   NodeExEvtHandlerImplWrap* wrap = new NodeExEvtHandlerImplWrap(returnObj);
   NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>(wrap);
@@ -1157,7 +1156,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxWindow* parent, int id)
    * id: _43034
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    wxWindowVariant variant = (wxWindowVariant)args[0]->ToNumber()->Value(); /* type: _10583  */
+    wxWindowVariant variant = static_cast<wxWindowVariant>(args[0]->ToInt32()->Value()); /* type: _10583  */
     
 
     self->SetWindowVariant(variant);
@@ -1239,7 +1238,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxWindow* parent, int id)
    * id: _43037
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    wxLayoutDirection arg0 = (wxLayoutDirection)args[0]->ToNumber()->Value(); /* type: _6401  */
+    wxLayoutDirection arg0 = static_cast<wxLayoutDirection>(args[0]->ToInt32()->Value()); /* type: _6401  */
     
 
     self->SetLayoutDirection(arg0);
@@ -3359,7 +3358,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxWindow* parent, int id)
    * id: _43117
    */
   if(args.Length() == 2 && args[0]->IsNumber() && args[1]->IsNumber()) {
-    wxShowEffect arg0 = (wxShowEffect)args[0]->ToNumber()->Value(); /* type: _4531  */
+    wxShowEffect arg0 = static_cast<wxShowEffect>(args[0]->ToInt32()->Value()); /* type: _4531  */
     unsigned int arg1 = (unsigned int)args[1]->ToInt32()->Value(); /* type: _44  */
     
 
@@ -3372,7 +3371,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxWindow* parent, int id)
    * id: _43117
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    wxShowEffect arg0 = (wxShowEffect)args[0]->ToNumber()->Value(); /* type: _4531  */
+    wxShowEffect arg0 = static_cast<wxShowEffect>(args[0]->ToInt32()->Value()); /* type: _4531  */
     
 
     bool returnVal = self->ShowWithEffect(arg0);
@@ -3400,7 +3399,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxWindow* parent, int id)
    * id: _43118
    */
   if(args.Length() == 2 && args[0]->IsNumber() && args[1]->IsNumber()) {
-    wxShowEffect arg0 = (wxShowEffect)args[0]->ToNumber()->Value(); /* type: _4531  */
+    wxShowEffect arg0 = static_cast<wxShowEffect>(args[0]->ToInt32()->Value()); /* type: _4531  */
     unsigned int arg1 = (unsigned int)args[1]->ToInt32()->Value(); /* type: _44  */
     
 
@@ -3413,7 +3412,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxWindow* parent, int id)
    * id: _43118
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    wxShowEffect arg0 = (wxShowEffect)args[0]->ToNumber()->Value(); /* type: _4531  */
+    wxShowEffect arg0 = static_cast<wxShowEffect>(args[0]->ToInt32()->Value()); /* type: _4531  */
     
 
     bool returnVal = self->HideWithEffect(arg0);
@@ -6214,7 +6213,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxWindow* parent, int id)
    * id: _43220
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    wxWindowVariant variant = (wxWindowVariant)args[0]->ToNumber()->Value(); /* type: _10583  */
+    wxWindowVariant variant = static_cast<wxWindowVariant>(args[0]->ToInt32()->Value()); /* type: _10583  */
     
 
     wxVisualAttributes returnVal = wxWindow::GetClassDefaultAttributes(variant);
@@ -6473,7 +6472,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxWindow* parent, int id)
    * id: _43229
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    wxBackgroundStyle style = (wxBackgroundStyle)args[0]->ToNumber()->Value(); /* type: _7671  */
+    wxBackgroundStyle style = static_cast<wxBackgroundStyle>(args[0]->ToInt32()->Value()); /* type: _7671  */
     
 
     bool returnVal = self->SetBackgroundStyle(style);
@@ -7804,7 +7803,7 @@ wxNode_wxWindow::wxNode_wxWindow(wxWindow* parent, int id)
    */
   if(args.Length() == 2 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxPoint::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsNumber()) {
     wxNode_wxPoint* pt = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPoint>(args[0]->ToObject()); /* type: _20518  */
-    wxHelpEvent::Origin origin = (wxHelpEvent::Origin)args[1]->ToNumber()->Value(); /* type: _48816  */
+    wxHelpEvent::Origin origin = static_cast<wxHelpEvent::Origin>(args[1]->ToInt32()->Value()); /* type: _48816  */
     
 
     wxString returnVal = self->GetHelpTextAtPoint(*pt, origin);

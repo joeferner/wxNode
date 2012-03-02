@@ -1,5 +1,6 @@
 var path = require('path');
 var fs = require('fs');
+path.existsSync = fs.existsSync;
 var util = require('util');
 var Mustache = require("mustache");
 var xml2js = require('xml2js');
@@ -74,12 +75,14 @@ var files = [
   */
 ];
 
-exports.renderTemplates = function(callback) {
+exports.renderTemplates = renderTemplates;
+
+function renderTemplates(callback) {
   fs.readFile('./wxapi.json', 'utf8', function(err, data) {
     if(err) {
       console.error("reading xml file");
       fs.readFile('./wxapi.xml', 'utf8', function(err, data) {
-        if(err) { callback(err); return; }
+        if(err) { return callback && callback(err); }
         console.log("wxapi.xml read");
 
         var xmlParser = new xml2js.Parser({
@@ -88,7 +91,7 @@ exports.renderTemplates = function(callback) {
           mergeAttrs: true
         });
         xmlParser.parseString(data, function(err, result) {
-          if(err) { callback(err); return; }
+          if(err) { return callback && callback(err); }
           console.log("wxapi.xml parsed");
 
           var apiJson = {
@@ -122,9 +125,9 @@ exports.renderTemplates = function(callback) {
           }
 
           fs.writeFile('./wxapi.json', JSON.stringify(apiJson, null, '\t'), function(err) {
-            if(err) { callback(err); return; }
+            if(err) { return callback && callback(err); }
 
-            renderFiles(files, apiJson, function() { console.log("done"); callback(); });
+            renderFiles(files, apiJson, function() { console.log("done"); callback && callback(); });
           });
         });
       });
@@ -132,7 +135,7 @@ exports.renderTemplates = function(callback) {
       console.error("wxapi.json read");
       var json = JSON.parse(data);
       console.error("json parsed");
-      renderFiles(files, json, function() { console.log("done"); callback(); });
+      renderFiles(files, json, function() { console.log("done"); callback && callback(); });
     }
   });
 };
@@ -298,7 +301,7 @@ function argJsonToCtx(ctx, rawJson, arg, i) {
       typeName = 'wxHelpEvent::Origin';
     }
 
-    argCode = util.format("%s %s = (%s)args[%d]->ToNumber()->Value();", typeName, argName, typeName, i);
+    argCode = util.format("%s %s = static_cast<%s>(args[%d]->ToInt32()->Value());", typeName, argName, typeName, i);
     argCallCode = argName;
     argDeclCode = util.format("%s%s %s", typeName, type.refs + type.pointers, argName);
     argTestCode = util.format("args[%d]->IsNumber()", i);
@@ -491,13 +494,7 @@ function toJsName(str) {
 }
 
 function addField(rawJson, ctx, member, fields) {
-  if(member['access'] != 'public') {
-    return;
-  }
-  if(member['attributes'] && member['attributes'].match(/deprecated/)) {
-    return;
-  }
-  if(member.name.match(/^m_/)) {
+  if(member.access !== 'public' || (member.attributes||'').match(/deprecated/) || member.name.match(/^m_/)) {
     return;
   }
 
@@ -511,10 +508,7 @@ function addField(rawJson, ctx, member, fields) {
 }
 
 function addMethod(rawJson, ctx, member, dest) {
-  if(member['access'] != 'public') {
-    return;
-  }
-  if(member['attributes'] && member['attributes'].match(/deprecated/)) {
+  if(member.access !== 'public' || (member.attributes||'').match(/deprecated/)) {
     return;
   }
 
@@ -691,52 +685,28 @@ function rawJsonToCtx(rawJson, file) {
       }
 
       var member = rawJson[memberId];
-      if(member.elementName == "Method") {
-        if(!file.allowStaticNew && member.name == "New") {
+      switch (member.elementName) {
+        case "Method":
+          if(!file.allowStaticNew && member.name == "New") {
+            continue;
+          }
+          addMethod(rawJson, ctx, member, ctx.methods);
           continue;
-        }
-        addMethod(rawJson, ctx, member, ctx.methods);
-        continue;
+        case "Field":
+          addField(rawJson, ctx, member, ctx.fields);
+          continue;
+        case "Constructor":
+        case "Variable":
+        case "Destructor":
+        case "OperatorMethod":
+        case "Class":
+        case "Union":
+        case "Enumeration":
+        case "Typedef":
+          continue;
+        default:
+          throw new Error("Could not find member with id '" + memberId + "'");
       }
-
-      if(member.elementName == "Constructor") {
-        continue;
-      }
-
-      if(member.elementName == "Field") {
-        addField(rawJson, ctx, member, ctx.fields);
-        continue;
-      }
-
-      if(member.elementName == "Variable") {
-        continue;
-      }
-
-      if(member.elementName == "Destructor") {
-        continue;
-      }
-
-      if(member.elementName == "OperatorMethod") {
-        continue;
-      }
-
-      if(member.elementName == "Typedef") {
-        continue;
-      }
-
-      if(member.elementName == "Class") {
-        continue;
-      }
-
-      if(member.elementName == "Enumeration") {
-        continue;
-      }
-
-      if(member.elementName == "Union") {
-        continue;
-      }
-
-      throw new Error("Could not find member with id '" + memberId + "'");
     }
   }
 
@@ -823,3 +793,14 @@ function yellow(msg) {
 function red(msg) {
   return '\u001b[31m' + msg + '\u001b[0m';
 }
+
+
+
+function refresh(){
+  var srcdir = path.resolve('./src-generated');
+  fs.readdirSync(srcdir).map(path.resolve.bind(null, srcdir)).forEach(fs.unlinkSync);
+  renderTemplates();
+}
+
+
+refresh()

@@ -138,9 +138,7 @@ wxNode_wxBitmap::wxNode_wxBitmap(wxImage& image)
   NODE_SET_METHOD(target, "addHandler", _AddHandler);
   NODE_SET_METHOD(target, "insertHandler", _InsertHandler);
   NODE_SET_METHOD(target, "removeHandler", _RemoveHandler);
-  NODE_SET_METHOD(target, "findHandler", _FindHandler);
   NODE_SET_METHOD(target, "cleanUpHandlers", _CleanUpHandlers);
-  NODE_SET_PROTOTYPE_METHOD(target, "quantizeColour", _QuantizeColour);
   NODE_SET_PROTOTYPE_METHOD(target, "getClassInfo", _GetClassInfo);
   
   
@@ -159,8 +157,8 @@ wxNode_wxBitmap::wxNode_wxBitmap(wxImage& image)
   wxNode_wxBitmap::AddMethods(returnObjFt);
 
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-  v8::Handle<v8::Value> returnObjArgs[0];
-  v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+
+  v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, new v8::Local<v8::Value>[0])->ToObject();
   returnObj->SetPointerInInternalField(0, (void*)obj);
   NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>((wxNode_wxBitmap*)obj);
   returnObj->SetPointerInInternalField(1, evtHandler);
@@ -181,8 +179,7 @@ wxNode_wxBitmap::wxNode_wxBitmap(wxImage& image)
   wxNode_wxBitmap::AddMethods(returnObjFt);
 
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-  v8::Handle<v8::Value> returnObjArgs[0];
-  v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+  v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, new v8::Local<v8::Value>[0])->ToObject();
   returnObj->SetPointerInInternalField(0, (void*)obj);
   NodeExEvtHandlerImplWrap* wrap = new NodeExEvtHandlerImplWrap(returnObj);
   NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>(wrap);
@@ -350,7 +347,7 @@ wxNode_wxBitmap::wxNode_wxBitmap(wxImage& image)
    */
   if(args.Length() == 2 && args[0]->IsString() && args[1]->IsNumber()) {
     v8::String::AsciiValue filename(args[0]->ToString()); /* type: _14975  */
-    wxBitmapType type = (wxBitmapType)args[1]->ToNumber()->Value(); /* type: _2567  */
+    wxBitmapType type = static_cast<wxBitmapType>(args[1]->ToInt32()->Value()); /* type: _2567  */
     
 
     wxNode_wxBitmap *self = new wxNode_wxBitmap(*filename, type);
@@ -747,7 +744,7 @@ wxNode_wxBitmap::wxNode_wxBitmap(wxImage& image)
    */
   if(args.Length() == 3 && args[0]->IsString() && args[1]->IsNumber() && (args[2]->IsNull() || (args[2]->IsObject() && wxNode_wxPalette::AssignableFrom(args[2]->ToObject()->GetConstructorName())))) {
     v8::String::AsciiValue name(args[0]->ToString()); /* type: _14975  */
-    wxBitmapType type = (wxBitmapType)args[1]->ToNumber()->Value(); /* type: _2567  */
+    wxBitmapType type = static_cast<wxBitmapType>(args[1]->ToInt32()->Value()); /* type: _2567  */
     wxNode_wxPalette* palette = args[2]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxPalette>(args[2]->ToObject()); /* type: _59456 * */
     
 
@@ -761,7 +758,7 @@ wxNode_wxBitmap::wxNode_wxBitmap(wxImage& image)
    */
   if(args.Length() == 2 && args[0]->IsString() && args[1]->IsNumber()) {
     v8::String::AsciiValue name(args[0]->ToString()); /* type: _14975  */
-    wxBitmapType type = (wxBitmapType)args[1]->ToNumber()->Value(); /* type: _2567  */
+    wxBitmapType type = static_cast<wxBitmapType>(args[1]->ToInt32()->Value()); /* type: _2567  */
     
 
     bool returnVal = self->SaveFile(*name, type);
@@ -790,7 +787,7 @@ wxNode_wxBitmap::wxNode_wxBitmap(wxImage& image)
    */
   if(args.Length() == 2 && args[0]->IsString() && args[1]->IsNumber()) {
     v8::String::AsciiValue name(args[0]->ToString()); /* type: _14975  */
-    wxBitmapType type = (wxBitmapType)args[1]->ToNumber()->Value(); /* type: _2567  */
+    wxBitmapType type = static_cast<wxBitmapType>(args[1]->ToInt32()->Value()); /* type: _2567  */
     
 
     bool returnVal = self->LoadFile(*name, type);
@@ -1087,59 +1084,6 @@ wxNode_wxBitmap::wxNode_wxBitmap(wxImage& image)
   return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
 
-/*static*/ v8::Handle<v8::Value> wxNode_wxBitmap::_FindHandler(const v8::Arguments& args) {
-  v8::HandleScope scope;
-  wxNode_wxBitmap* self = unwrap<wxNode_wxBitmap>(args.This());
-
-  
-  /*
-   * id: _16949
-   */
-  if(args.Length() == 1 && args[0]->IsString()) {
-    v8::String::AsciiValue name(args[0]->ToString()); /* type: _14975  */
-    
-
-    wxBitmapHandler* returnVal = wxBitmap::FindHandler(*name);
-
-    return scope.Close(wxNode_wxBitmapHandler::New(returnVal));
-  }
-  
-  /*
-   * id: _16950
-   */
-  if(args.Length() == 2 && args[0]->IsString() && args[1]->IsNumber()) {
-    v8::String::AsciiValue extension(args[0]->ToString()); /* type: _14975  */
-    wxBitmapType bitmapType = (wxBitmapType)args[1]->ToNumber()->Value(); /* type: _2567  */
-    
-
-    wxBitmapHandler* returnVal = wxBitmap::FindHandler(*extension, bitmapType);
-
-    return scope.Close(wxNode_wxBitmapHandler::New(returnVal));
-  }
-  
-  /*
-   * id: _16951
-   */
-  if(args.Length() == 1 && args[0]->IsNumber()) {
-    wxBitmapType bitmapType = (wxBitmapType)args[0]->ToNumber()->Value(); /* type: _2567  */
-    
-
-    wxBitmapHandler* returnVal = wxBitmap::FindHandler(bitmapType);
-
-    return scope.Close(wxNode_wxBitmapHandler::New(returnVal));
-  }
-  
-
-  std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxBitmap::FindHandler).\n";
-  errStr << "  arg count: " << args.Length() << "\n";
-  for(int i = 0; i < args.Length(); i++) {
-    v8::String::AsciiValue argStr(args[i]);
-    errStr << "  arg[" << i << "]: " << *argStr << "\n";
-  }
-  return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
-}
-
 /*static*/ v8::Handle<v8::Value> wxNode_wxBitmap::_CleanUpHandlers(const v8::Arguments& args) {
   v8::HandleScope scope;
   wxNode_wxBitmap* self = unwrap<wxNode_wxBitmap>(args.This());
@@ -1159,34 +1103,6 @@ wxNode_wxBitmap::wxNode_wxBitmap(wxImage& image)
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxBitmap::CleanUpHandlers).\n";
-  errStr << "  arg count: " << args.Length() << "\n";
-  for(int i = 0; i < args.Length(); i++) {
-    v8::String::AsciiValue argStr(args[i]);
-    errStr << "  arg[" << i << "]: " << *argStr << "\n";
-  }
-  return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
-}
-
-/*static*/ v8::Handle<v8::Value> wxNode_wxBitmap::_QuantizeColour(const v8::Arguments& args) {
-  v8::HandleScope scope;
-  wxNode_wxBitmap* self = unwrap<wxNode_wxBitmap>(args.This());
-
-  
-  /*
-   * id: _16953
-   */
-  if(args.Length() == 1 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxColour::AssignableFrom(args[0]->ToObject()->GetConstructorName())))) {
-    wxNode_wxColour* colour = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxColour>(args[0]->ToObject()); /* type: _15649  */
-    
-
-    wxColour returnVal = self->QuantizeColour(*colour);
-
-    return scope.Close(wxNode_wxColour::NewCopy(returnVal));
-  }
-  
-
-  std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxBitmap::QuantizeColour).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);

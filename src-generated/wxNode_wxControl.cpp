@@ -111,8 +111,8 @@ wxNode_wxControl::wxNode_wxControl(wxWindow* parent, int id)
   wxNode_wxControl::AddMethods(returnObjFt);
 
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-  v8::Handle<v8::Value> returnObjArgs[0];
-  v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+
+  v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, new v8::Local<v8::Value>[0])->ToObject();
   returnObj->SetPointerInInternalField(0, (void*)obj);
   NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>((wxNode_wxControl*)obj);
   returnObj->SetPointerInInternalField(1, evtHandler);
@@ -133,8 +133,7 @@ wxNode_wxControl::wxNode_wxControl(wxWindow* parent, int id)
   wxNode_wxControl::AddMethods(returnObjFt);
 
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-  v8::Handle<v8::Value> returnObjArgs[0];
-  v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+  v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, new v8::Local<v8::Value>[0])->ToObject();
   returnObj->SetPointerInInternalField(0, (void*)obj);
   NodeExEvtHandlerImplWrap* wrap = new NodeExEvtHandlerImplWrap(returnObj);
   NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>(wrap);
@@ -965,7 +964,7 @@ wxNode_wxControl::wxNode_wxControl(wxWindow* parent, int id)
   if(args.Length() == 5 && args[0]->IsString() && (args[1]->IsNull() || (args[1]->IsObject() && wxNode_wxDC::AssignableFrom(args[1]->ToObject()->GetConstructorName()))) && args[2]->IsNumber() && args[3]->IsNumber() && args[4]->IsNumber()) {
     v8::String::AsciiValue label(args[0]->ToString()); /* type: _14975  */
     wxNode_wxDC* dc = args[1]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxDC>(args[1]->ToObject()); /* type: _59108  */
-    wxEllipsizeMode mode = (wxEllipsizeMode)args[2]->ToNumber()->Value(); /* type: _180  */
+    wxEllipsizeMode mode = static_cast<wxEllipsizeMode>(args[2]->ToInt32()->Value()); /* type: _180  */
     int maxWidth = (int)args[3]->ToInt32()->Value(); /* type: _165  */
     int flags = (int)args[4]->ToInt32()->Value(); /* type: _165  */
     
@@ -981,7 +980,7 @@ wxNode_wxControl::wxNode_wxControl(wxWindow* parent, int id)
   if(args.Length() == 4 && args[0]->IsString() && (args[1]->IsNull() || (args[1]->IsObject() && wxNode_wxDC::AssignableFrom(args[1]->ToObject()->GetConstructorName()))) && args[2]->IsNumber() && args[3]->IsNumber()) {
     v8::String::AsciiValue label(args[0]->ToString()); /* type: _14975  */
     wxNode_wxDC* dc = args[1]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxDC>(args[1]->ToObject()); /* type: _59108  */
-    wxEllipsizeMode mode = (wxEllipsizeMode)args[2]->ToNumber()->Value(); /* type: _180  */
+    wxEllipsizeMode mode = static_cast<wxEllipsizeMode>(args[2]->ToInt32()->Value()); /* type: _180  */
     int maxWidth = (int)args[3]->ToInt32()->Value(); /* type: _165  */
     
 
@@ -1051,7 +1050,7 @@ wxNode_wxControl::wxNode_wxControl(wxWindow* parent, int id)
    * id: _54594
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    wxWindowVariant variant = (wxWindowVariant)args[0]->ToNumber()->Value(); /* type: _10583  */
+    wxWindowVariant variant = static_cast<wxWindowVariant>(args[0]->ToInt32()->Value()); /* type: _10583  */
     
 
     wxVisualAttributes returnVal = wxControl::GetCompositeControlsDefaultAttributes(variant);

@@ -77,8 +77,8 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
   wxNode_wxAnyButton::AddMethods(returnObjFt);
 
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-  v8::Handle<v8::Value> returnObjArgs[0];
-  v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+
+  v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, new v8::Local<v8::Value>[0])->ToObject();
   returnObj->SetPointerInInternalField(0, (void*)obj);
   NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>((wxNode_wxAnyButton*)obj);
   returnObj->SetPointerInInternalField(1, evtHandler);
@@ -99,8 +99,7 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
   wxNode_wxAnyButton::AddMethods(returnObjFt);
 
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-  v8::Handle<v8::Value> returnObjArgs[0];
-  v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+  v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, new v8::Local<v8::Value>[0])->ToObject();
   returnObj->SetPointerInInternalField(0, (void*)obj);
   NodeExEvtHandlerImplWrap* wrap = new NodeExEvtHandlerImplWrap(returnObj);
   NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>(wrap);
@@ -201,7 +200,7 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
    */
   if(args.Length() == 2 && (args[0]->IsNull() || (args[0]->IsObject() && wxNode_wxBitmap::AssignableFrom(args[0]->ToObject()->GetConstructorName()))) && args[1]->IsNumber()) {
     wxNode_wxBitmap* bitmap = args[0]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxBitmap>(args[0]->ToObject()); /* type: _15645  */
-    wxDirection dir = (wxDirection)args[1]->ToNumber()->Value(); /* type: _10279  */
+    wxDirection dir = static_cast<wxDirection>(args[1]->ToInt32()->Value()); /* type: _10279  */
     
 
     self->SetBitmap(*bitmap, dir);
@@ -611,7 +610,7 @@ wxNode_wxAnyButton::wxNode_wxAnyButton()
    * id: _37441
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    wxDirection dir = (wxDirection)args[0]->ToNumber()->Value(); /* type: _10279  */
+    wxDirection dir = static_cast<wxDirection>(args[0]->ToInt32()->Value()); /* type: _10279  */
     
 
     self->SetBitmapPosition(dir);

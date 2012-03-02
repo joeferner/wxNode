@@ -65,7 +65,6 @@ private:
   static v8::Handle<v8::Value> _Toggle(const v8::Arguments& args);
   static v8::Handle<v8::Value> _SetHelp(const v8::Arguments& args);
   static v8::Handle<v8::Value> _GetHelp(const v8::Arguments& args);
-  static v8::Handle<v8::Value> _GetAccelFromString(const v8::Arguments& args);
   static v8::Handle<v8::Value> _GetAccel(const v8::Arguments& args);
   static v8::Handle<v8::Value> _SetAccel(const v8::Arguments& args);
   
