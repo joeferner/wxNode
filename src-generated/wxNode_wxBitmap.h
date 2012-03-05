@@ -83,7 +83,9 @@ private:
   static v8::Handle<v8::Value> _AddHandler(const v8::Arguments& args);
   static v8::Handle<v8::Value> _InsertHandler(const v8::Arguments& args);
   static v8::Handle<v8::Value> _RemoveHandler(const v8::Arguments& args);
+  static v8::Handle<v8::Value> _FindHandler(const v8::Arguments& args);
   static v8::Handle<v8::Value> _CleanUpHandlers(const v8::Arguments& args);
+  static v8::Handle<v8::Value> _QuantizeColour(const v8::Arguments& args);
   static v8::Handle<v8::Value> _GetClassInfo(const v8::Arguments& args);
   
   

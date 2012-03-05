@@ -41,7 +41,20 @@ public:
   wxNode_wxCursor(const wxString& name, wxBitmapType type);
   
   wxNode_wxCursor(const wxString& name);
-
+  
+  wxNode_wxCursor(const char* bits, int width, int height, int hotSpotX, int hotSpotY, const char* maskBits, wxColour* fg, wxColour* bg);
+  
+  wxNode_wxCursor(const char* bits, int width, int height, int hotSpotX, int hotSpotY, const char* maskBits, wxColour* fg);
+  
+  wxNode_wxCursor(const char* bits, int width, int height, int hotSpotX, int hotSpotY, const char* maskBits);
+  
+  wxNode_wxCursor(const char* bits, int width, int height, int hotSpotX, int hotSpotY);
+  
+  wxNode_wxCursor(const char* bits, int width, int height, int hotSpotX);
+  
+  wxNode_wxCursor(const char* bits, int width, int height);
+  
+  
 
 private:
   static v8::Handle<v8::Value> _init(const v8::Arguments& args);

@@ -1,6 +1,6 @@
 var path = require('path');
 var fs = require('fs');
-path.existsSync = fs.existsSync;
+path.existsSync = path.existsSync || fs.existsSync;
 var util = require('util');
 var Mustache = require("mustache");
 var xml2js = require('xml2js');
@@ -794,13 +794,3 @@ function red(msg) {
   return '\u001b[31m' + msg + '\u001b[0m';
 }
 
-
-
-function refresh(){
-  var srcdir = path.resolve('./src-generated');
-  fs.readdirSync(srcdir).map(path.resolve.bind(null, srcdir)).forEach(fs.unlinkSync);
-  renderTemplates();
-}
-
-
-refresh()

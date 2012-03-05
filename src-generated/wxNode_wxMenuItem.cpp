@@ -95,6 +95,7 @@ wxNode_wxMenuItem::wxNode_wxMenuItem()
   NODE_SET_PROTOTYPE_METHOD(target, "toggle", _Toggle);
   NODE_SET_PROTOTYPE_METHOD(target, "setHelp", _SetHelp);
   NODE_SET_PROTOTYPE_METHOD(target, "getHelp", _GetHelp);
+  NODE_SET_METHOD(target, "getAccelFromString", _GetAccelFromString);
   NODE_SET_PROTOTYPE_METHOD(target, "getAccel", _GetAccel);
   NODE_SET_PROTOTYPE_METHOD(target, "setAccel", _SetAccel);
   
@@ -943,6 +944,33 @@ wxNode_wxMenuItem::wxNode_wxMenuItem()
   return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
 
+/*static*/ v8::Handle<v8::Value> wxNode_wxMenuItem::_GetAccelFromString(const v8::Arguments& args) {
+  v8::HandleScope scope;
+  wxNode_wxMenuItem* self = unwrap<wxNode_wxMenuItem>(args.This());
+
+  
+  /*
+   * id: _29825
+   */
+  if(args.Length() == 1 && args[0]->IsString()) {
+    v8::String::AsciiValue label(args[0]->ToString()); /* type: _14975  */
+    
+
+    wxAcceleratorEntry* returnVal = wxMenuItem::GetAccelFromString(*label);
+
+    return scope.Close(wxNode_wxAcceleratorEntry::New(returnVal));
+  }
+  
+
+  std::ostringstream errStr;
+  errStr << "Could not find matching method for arguments (method name: wxMenuItem::GetAccelFromString).\n";
+  errStr << "  arg count: " << args.Length() << "\n";
+  for(int i = 0; i < args.Length(); i++) {
+    v8::String::AsciiValue argStr(args[i]);
+    errStr << "  arg[" << i << "]: " << *argStr << "\n";
+  }
+  return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
+}
 
 /*static*/ v8::Handle<v8::Value> wxNode_wxMenuItem::_GetAccel(const v8::Arguments& args) {
   v8::HandleScope scope;
