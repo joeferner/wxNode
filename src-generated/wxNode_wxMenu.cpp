@@ -120,8 +120,8 @@ wxNode_wxMenu::wxNode_wxMenu()
   wxNode_wxMenu::AddMethods(returnObjFt);
 
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-  v8::Handle<v8::Value> returnObjArgs[0];
-  v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+
+  v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, new v8::Local<v8::Value>[0])->ToObject();
   returnObj->SetPointerInInternalField(0, (void*)obj);
   NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>((wxNode_wxMenu*)obj);
   returnObj->SetPointerInInternalField(1, evtHandler);
@@ -142,8 +142,7 @@ wxNode_wxMenu::wxNode_wxMenu()
   wxNode_wxMenu::AddMethods(returnObjFt);
 
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-  v8::Handle<v8::Value> returnObjArgs[0];
-  v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+  v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, new v8::Local<v8::Value>[0])->ToObject();
   returnObj->SetPointerInInternalField(0, (void*)obj);
   NodeExEvtHandlerImplWrap* wrap = new NodeExEvtHandlerImplWrap(returnObj);
   NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>(wrap);
@@ -256,7 +255,7 @@ wxNode_wxMenu::wxNode_wxMenu()
     int itemid = (int)args[0]->ToInt32()->Value(); /* type: _165  */
     v8::String::AsciiValue text(args[1]->ToString()); /* type: _14975  */
     v8::String::AsciiValue help(args[2]->ToString()); /* type: _14975  */
-    wxItemKind kind = (wxItemKind)args[3]->ToNumber()->Value(); /* type: _4680  */
+    wxItemKind kind = static_cast<wxItemKind>(args[3]->ToInt32()->Value()); /* type: _4680  */
     
 
     wxMenuItem* returnVal = self->Append(itemid, *text, *help, kind);
@@ -579,7 +578,7 @@ wxNode_wxMenu::wxNode_wxMenu()
     int itemid = (int)args[1]->ToInt32()->Value(); /* type: _165  */
     v8::String::AsciiValue text(args[2]->ToString()); /* type: _14975  */
     v8::String::AsciiValue help(args[3]->ToString()); /* type: _14975  */
-    wxItemKind kind = (wxItemKind)args[4]->ToNumber()->Value(); /* type: _4680  */
+    wxItemKind kind = static_cast<wxItemKind>(args[4]->ToInt32()->Value()); /* type: _4680  */
     
 
     wxMenuItem* returnVal = self->Insert(pos, itemid, *text, *help, kind);
@@ -829,7 +828,7 @@ wxNode_wxMenu::wxNode_wxMenu()
     int itemid = (int)args[0]->ToInt32()->Value(); /* type: _165  */
     v8::String::AsciiValue text(args[1]->ToString()); /* type: _14975  */
     v8::String::AsciiValue help(args[2]->ToString()); /* type: _14975  */
-    wxItemKind kind = (wxItemKind)args[3]->ToNumber()->Value(); /* type: _4680  */
+    wxItemKind kind = static_cast<wxItemKind>(args[3]->ToInt32()->Value()); /* type: _4680  */
     
 
     wxMenuItem* returnVal = self->Prepend(itemid, *text, *help, kind);

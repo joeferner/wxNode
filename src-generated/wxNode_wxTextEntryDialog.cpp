@@ -69,7 +69,6 @@ wxNode_wxTextEntryDialog::wxNode_wxTextEntryDialog(wxWindow* parent, const wxStr
   NODE_SET_PROTOTYPE_METHOD(target, "getTextValidator", _GetTextValidator);
   NODE_SET_PROTOTYPE_METHOD(target, "onOK", _OnOK);
   NODE_SET_PROTOTYPE_METHOD(target, "getClassInfo", _GetClassInfo);
-  NODE_SET_METHOD(target, "wxCreateObject", _wxCreateObject);
   
   
 }
@@ -87,8 +86,8 @@ wxNode_wxTextEntryDialog::wxNode_wxTextEntryDialog(wxWindow* parent, const wxStr
   wxNode_wxTextEntryDialog::AddMethods(returnObjFt);
 
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-  v8::Handle<v8::Value> returnObjArgs[0];
-  v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+
+  v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, new v8::Local<v8::Value>[0])->ToObject();
   returnObj->SetPointerInInternalField(0, (void*)obj);
   NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>((wxNode_wxTextEntryDialog*)obj);
   returnObj->SetPointerInInternalField(1, evtHandler);
@@ -109,8 +108,7 @@ wxNode_wxTextEntryDialog::wxNode_wxTextEntryDialog(wxWindow* parent, const wxStr
   wxNode_wxTextEntryDialog::AddMethods(returnObjFt);
 
   v8::Local<v8::Function> returnObjFn = returnObjFt->GetFunction();
-  v8::Handle<v8::Value> returnObjArgs[0];
-  v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, returnObjArgs)->ToObject();
+  v8::Local<v8::Object> returnObj = returnObjFn->CallAsConstructor(0, new v8::Local<v8::Value>[0])->ToObject();
   returnObj->SetPointerInInternalField(0, (void*)obj);
   NodeExEvtHandlerImplWrap* wrap = new NodeExEvtHandlerImplWrap(returnObj);
   NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>(wrap);
@@ -311,7 +309,7 @@ wxNode_wxTextEntryDialog::wxNode_wxTextEntryDialog(wxWindow* parent, const wxStr
    * id: _34205
    */
   if(args.Length() == 1 && args[0]->IsNumber()) {
-    wxTextValidatorStyle style = (wxTextValidatorStyle)args[0]->ToNumber()->Value(); /* type: _3917  */
+    wxTextValidatorStyle style = static_cast<wxTextValidatorStyle>(args[0]->ToInt32()->Value()); /* type: _3917  */
     
 
     self->SetTextValidator(style);
@@ -410,33 +408,3 @@ wxNode_wxTextEntryDialog::wxNode_wxTextEntryDialog(wxWindow* parent, const wxStr
   }
   return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
-
-/*static*/ v8::Handle<v8::Value> wxNode_wxTextEntryDialog::_wxCreateObject(const v8::Arguments& args) {
-  v8::HandleScope scope;
-  wxNode_wxTextEntryDialog* self = unwrap<wxNode_wxTextEntryDialog>(args.This());
-
-  
-  /*
-   * id: _34211
-   */
-  if(args.Length() == 0) {
-    
-
-    wxObject* returnVal = wxTextEntryDialog::wxCreateObject();
-
-    return scope.Close(wxNode_wxObject::New(returnVal));
-  }
-  
-
-  std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxTextEntryDialog::wxCreateObject).\n";
-  errStr << "  arg count: " << args.Length() << "\n";
-  for(int i = 0; i < args.Length(); i++) {
-    v8::String::AsciiValue argStr(args[i]);
-    errStr << "  arg[" << i << "]: " << *argStr << "\n";
-  }
-  return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
-}
-
-
-
