@@ -3,7 +3,6 @@
   "description": "node.js wrapper for wxWidgets.",
   "author": "Joe Ferner <joe.ferner@nearinfinity.com>",
   "keywords": ["wxwidgets", "bridge", "native"],
-  "homepage": "https://github.com/joeferner/wxNode",
   "version": "0.0.2",
   "engines": { "node" : ">=0.6.0" },
   "maintainers": [
@@ -13,8 +12,8 @@
     { "name": "Brandon Benvie" }
   ],
   "bugs": { "url": "https://github.com/joeferner/wxNode/issues" },
-  "licenses": [ { "type" : "MIT" } ],
-  "repositories": { "type": "git", "url": "https://github.com/joeferner/wxNode.git" },
+  "license": "MIT",
+  "repository": { "type": "git", "url": "https://github.com/joeferner/wxNode.git" },
   "dependencies": {
     "mnm": "0.0.3"
   },
