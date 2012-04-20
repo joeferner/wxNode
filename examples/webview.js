@@ -2,6 +2,7 @@
 
 var wx = require("../");
 var util = require("util");
+var path = require("path");
 
 /////////////////////////////////////////////////////////////////////////////
 // Name:        webview.cpp
@@ -44,8 +45,8 @@ var WebFrame = wx.Frame.extend({
 
     var back = wx.ArtProvider.getBitmap(wx.ART_GO_BACK, wx.ART_TOOLBAR);
     var forward = wx.ArtProvider.getBitmap(wx.ART_GO_FORWARD, wx.ART_TOOLBAR);
-    var stop = new wx.Bitmap("./examples/stop.xpm");
-    var refresh = new wx.Bitmap("./examples/refresh.xpm");
+    var stop = new wx.Bitmap(path.join(__dirname, "stop.ico"), wx.BITMAP_TYPE_ICO);
+    var refresh = new wx.Bitmap(path.join(__dirname, "refresh.ico"), wx.BITMAP_TYPE_ICO);
 
     this.m_toolbar_back = this.m_toolbar.addTool(wx.ID_ANY, "Back", back);
     this.m_toolbar_forward = this.m_toolbar.addTool(wx.ID_ANY, "Forward", forward);
@@ -53,7 +54,7 @@ var WebFrame = wx.Frame.extend({
     this.m_toolbar_reload = this.m_toolbar.addTool(wx.ID_ANY, "Reload", refresh);
     this.m_url = new wx.TextCtrl(this.m_toolbar, wx.ID_ANY, "", wx.DefaultPosition, new wx.Size(400, -1), wx.TE_PROCESS_ENTER );
     this.m_toolbar.addControl(this.m_url, "URL");
-    this.m_toolbar_tools = this.m_toolbar.addTool(wx.ID_ANY, "Menu", new wx.Bitmap("./examples/wxlogo.xpm"));
+    this.m_toolbar_tools = this.m_toolbar.addTool(wx.ID_ANY, "Menu", new wx.Bitmap(path.join(__dirname, "wxlogo.ico"), wx.BITMAP_TYPE_ICO));
 
     this.m_toolbar.realize();
 
