@@ -9,6 +9,9 @@ var RenderTemplates = require('./render-templates.js');
 builder.appendIncludeDir('src/');
 builder.appendIncludeDir('src-dummy/');
 
+var wxConfigAdditionalCxxParams = [];
+var wxConfigAdditionalLibsParams = [];
+
 function build (wxCxxFlags, wxLibs) {
   builder.appendUnique('CXXFLAGS', wxCxxFlags);
   builder.appendUnique('LINKFLAGS', wxLibs);
@@ -42,14 +45,17 @@ if (process.platform === 'win32') {
   wxConfigPath = './deps/wx-config.exe';
 
   builder.appendUnique('CXXFLAGS', '-DUNICODE');
+  builder.appendUnique('LINKFLAGS', 'wxmsw29u_webview.lib');
+
+  wxConfigAdditionalLibsParams.push('webview,xrc,qa,html,adv,core,xml,net,base');
 }
 
-runCommandLine(wxConfigPath, ['--cxxflags'], function (err, wxCxxFlags) {
+runCommandLine(wxConfigPath, ['--cxxflags'].concat(wxConfigAdditionalCxxParams), function (err, wxCxxFlags) {
   if (err) {
     builder.fail(err);
     return;
   }
-  runCommandLine(wxConfigPath, ['--libs'], function (err, wxLibs) {
+  runCommandLine(wxConfigPath, ['--libs'].concat(wxConfigAdditionalLibsParams), function (err, wxLibs) {
     if (err) {
       builder.fail(err);
       return;

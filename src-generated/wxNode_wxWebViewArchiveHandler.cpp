@@ -3,7 +3,6 @@
 #include "wxNode_wxWebViewArchiveHandler.h"
 #include "wxNode_wxEvtHandler.h"
 #include "wxNode_wxWebViewHandler.h"
-#include "wxNode_wxFSFile.h"
 
 
 /* static */ v8::Persistent<v8::FunctionTemplate> wxNode_wxWebViewArchiveHandler::s_ct;
@@ -38,7 +37,6 @@ wxNode_wxWebViewArchiveHandler::wxNode_wxWebViewArchiveHandler(wxWebViewArchiveH
 
 /*static*/ void wxNode_wxWebViewArchiveHandler::AddMethods(v8::Handle<v8::FunctionTemplate> target) {
   wxNode_wxWebViewHandler::AddMethods(target);
-  NODE_SET_PROTOTYPE_METHOD(target, "getFile", _GetFile);
   
   
 }
@@ -133,34 +131,6 @@ wxNode_wxWebViewArchiveHandler::wxNode_wxWebViewArchiveHandler(wxWebViewArchiveH
   return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
 }
 
-
-/*static*/ v8::Handle<v8::Value> wxNode_wxWebViewArchiveHandler::_GetFile(const v8::Arguments& args) {
-  v8::HandleScope scope;
-  wxNode_wxWebViewArchiveHandler* self = unwrap<wxNode_wxWebViewArchiveHandler>(args.This());
-
-  
-  /*
-   * id: _31335
-   */
-  if(args.Length() == 1 && args[0]->IsString()) {
-    v8::String::AsciiValue uri(args[0]->ToString()); /* type: _14975  */
-    
-
-    wxFSFile* returnVal = self->GetFile(*uri);
-
-    return scope.Close(wxNode_wxFSFile::New(returnVal));
-  }
-  
-
-  std::ostringstream errStr;
-  errStr << "Could not find matching method for arguments (method name: wxWebViewArchiveHandler::GetFile).\n";
-  errStr << "  arg count: " << args.Length() << "\n";
-  for(int i = 0; i < args.Length(); i++) {
-    v8::String::AsciiValue argStr(args[i]);
-    errStr << "  arg[" << i << "]: " << *argStr << "\n";
-  }
-  return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
-}
 
 
 
