@@ -4,6 +4,8 @@
 #include "wxNode_wxEvtHandler.h"
 #include "wxNode_wxNotifyEvent.h"
 #include "wxNode_wxEvent.h"
+#include "wxNode_wxClassInfo.h"
+#include "wxNode_wxObject.h"
 
 
 /* static */ v8::Persistent<v8::FunctionTemplate> wxNode_wxWebViewEvent::s_ct;
@@ -59,6 +61,8 @@ wxNode_wxWebViewEvent::wxNode_wxWebViewEvent(int type, int id, const wxString ur
   NODE_SET_PROTOTYPE_METHOD(target, "getURL", _GetURL);
   NODE_SET_PROTOTYPE_METHOD(target, "getTarget", _GetTarget);
   NODE_SET_PROTOTYPE_METHOD(target, "clone", _Clone);
+  NODE_SET_PROTOTYPE_METHOD(target, "getClassInfo", _GetClassInfo);
+  NODE_SET_METHOD(target, "wxCreateObject", _wxCreateObject);
   
   
 }
@@ -259,6 +263,60 @@ wxNode_wxWebViewEvent::wxNode_wxWebViewEvent(int type, int id, const wxString ur
 
   std::ostringstream errStr;
   errStr << "Could not find matching method for arguments (method name: wxWebViewEvent::Clone).\n";
+  errStr << "  arg count: " << args.Length() << "\n";
+  for(int i = 0; i < args.Length(); i++) {
+    v8::String::AsciiValue argStr(args[i]);
+    errStr << "  arg[" << i << "]: " << *argStr << "\n";
+  }
+  return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
+}
+
+/*static*/ v8::Handle<v8::Value> wxNode_wxWebViewEvent::_GetClassInfo(const v8::Arguments& args) {
+  v8::HandleScope scope;
+  wxNode_wxWebViewEvent* self = unwrap<wxNode_wxWebViewEvent>(args.This());
+
+  
+  /*
+   * id: _47425
+   */
+  if(args.Length() == 0) {
+    
+
+    wxClassInfo* returnVal = self->GetClassInfo();
+
+    return scope.Close(wxNode_wxClassInfo::New(returnVal));
+  }
+  
+
+  std::ostringstream errStr;
+  errStr << "Could not find matching method for arguments (method name: wxWebViewEvent::GetClassInfo).\n";
+  errStr << "  arg count: " << args.Length() << "\n";
+  for(int i = 0; i < args.Length(); i++) {
+    v8::String::AsciiValue argStr(args[i]);
+    errStr << "  arg[" << i << "]: " << *argStr << "\n";
+  }
+  return v8::ThrowException(v8::Exception::TypeError(v8::String::New(errStr.str().c_str())));
+}
+
+/*static*/ v8::Handle<v8::Value> wxNode_wxWebViewEvent::_wxCreateObject(const v8::Arguments& args) {
+  v8::HandleScope scope;
+  wxNode_wxWebViewEvent* self = unwrap<wxNode_wxWebViewEvent>(args.This());
+
+  
+  /*
+   * id: _47426
+   */
+  if(args.Length() == 0) {
+    
+
+    wxObject* returnVal = wxWebViewEvent::wxCreateObject();
+
+    return scope.Close(wxNode_wxObject::New(returnVal));
+  }
+  
+
+  std::ostringstream errStr;
+  errStr << "Could not find matching method for arguments (method name: wxWebViewEvent::wxCreateObject).\n";
   errStr << "  arg count: " << args.Length() << "\n";
   for(int i = 0; i < args.Length(); i++) {
     v8::String::AsciiValue argStr(args[i]);
