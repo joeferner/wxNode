@@ -12,48 +12,72 @@
 
 
 
+/*
+ * id: _16782
+ */
 wxNode_wxIcon::wxNode_wxIcon(wxIcon& arg0)
   : wxIcon(arg0)
 {
 
 }
 
+/*
+ * id: _16783
+ */
 wxNode_wxIcon::wxNode_wxIcon()
   : wxIcon()
 {
 
 }
 
+/*
+ * id: _16784
+ */
 wxNode_wxIcon::wxNode_wxIcon(const char** bits)
   : wxIcon(bits)
 {
 
 }
 
+/*
+ * id: _16785
+ */
 wxNode_wxIcon::wxNode_wxIcon(const wxString& filename, wxBitmapType type, int arg2, int arg3)
   : wxIcon(filename, type, arg2, arg3)
 {
 
 }
 
+/*
+ * id: _16785
+ */
 wxNode_wxIcon::wxNode_wxIcon(const wxString& filename, wxBitmapType type, int arg2)
   : wxIcon(filename, type, arg2)
 {
 
 }
 
+/*
+ * id: _16785
+ */
 wxNode_wxIcon::wxNode_wxIcon(const wxString& filename, wxBitmapType type)
   : wxIcon(filename, type)
 {
 
 }
 
+/*
+ * id: _16785
+ */
 wxNode_wxIcon::wxNode_wxIcon(const wxString& filename)
   : wxIcon(filename)
 {
 
 }
 
+/*
+ * id: _16786
+ */
 wxNode_wxIcon::wxNode_wxIcon(wxIconLocation& loc)
   : wxIcon(loc)
 {

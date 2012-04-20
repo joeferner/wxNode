@@ -11,6 +11,9 @@
 
 
 
+/*
+ * id: _32562
+ */
 wxNode_wxAnyButton::wxNode_wxAnyButton()
   : wxAnyButton()
 {

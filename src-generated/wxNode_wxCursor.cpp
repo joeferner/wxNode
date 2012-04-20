@@ -4,7 +4,6 @@
 #include "wxNode_wxEvtHandler.h"
 #include "wxNode_wxGDIObject.h"
 #include "wxNode_wxImage.h"
-#include "wxNode_wxColour.h"
 #include "wxNode_wxClassInfo.h"
 #include "wxNode_wxObject.h"
 
@@ -13,92 +12,83 @@
 
 
 
+/*
+ * id: _45557
+ */
 wxNode_wxCursor::wxNode_wxCursor(wxCursor& arg0)
   : wxCursor(arg0)
 {
 
 }
 
+/*
+ * id: _45558
+ */
 wxNode_wxCursor::wxNode_wxCursor()
   : wxCursor()
 {
 
 }
 
+/*
+ * id: _45559
+ */
 wxNode_wxCursor::wxNode_wxCursor(wxStockCursor id)
   : wxCursor(id)
 {
 
 }
 
+/*
+ * id: _45560
+ */
 wxNode_wxCursor::wxNode_wxCursor(int id)
   : wxCursor(id)
 {
 
 }
 
+/*
+ * id: _45561
+ */
 wxNode_wxCursor::wxNode_wxCursor(wxImage& image)
   : wxCursor(image)
 {
 
 }
 
+/*
+ * id: _45562
+ */
 wxNode_wxCursor::wxNode_wxCursor(const wxString& name, wxBitmapType type, int hotSpotX, int hotSpotY)
   : wxCursor(name, type, hotSpotX, hotSpotY)
 {
 
 }
 
+/*
+ * id: _45562
+ */
 wxNode_wxCursor::wxNode_wxCursor(const wxString& name, wxBitmapType type, int hotSpotX)
   : wxCursor(name, type, hotSpotX)
 {
 
 }
 
+/*
+ * id: _45562
+ */
 wxNode_wxCursor::wxNode_wxCursor(const wxString& name, wxBitmapType type)
   : wxCursor(name, type)
 {
 
 }
 
+/*
+ * id: _45562
+ */
 wxNode_wxCursor::wxNode_wxCursor(const wxString& name)
   : wxCursor(name)
-{
-
-}
-
-wxNode_wxCursor::wxNode_wxCursor(const char* bits, int width, int height, int hotSpotX, int hotSpotY, const char* maskBits, wxColour* fg, wxColour* bg)
-  : wxCursor(bits, width, height, hotSpotX, hotSpotY, maskBits, fg, bg)
-{
-
-}
-
-wxNode_wxCursor::wxNode_wxCursor(const char* bits, int width, int height, int hotSpotX, int hotSpotY, const char* maskBits, wxColour* fg)
-  : wxCursor(bits, width, height, hotSpotX, hotSpotY, maskBits, fg)
-{
-
-}
-
-wxNode_wxCursor::wxNode_wxCursor(const char* bits, int width, int height, int hotSpotX, int hotSpotY, const char* maskBits)
-  : wxCursor(bits, width, height, hotSpotX, hotSpotY, maskBits)
-{
-
-}
-
-wxNode_wxCursor::wxNode_wxCursor(const char* bits, int width, int height, int hotSpotX, int hotSpotY)
-  : wxCursor(bits, width, height, hotSpotX, hotSpotY)
-{
-
-}
-
-wxNode_wxCursor::wxNode_wxCursor(const char* bits, int width, int height, int hotSpotX)
-  : wxCursor(bits, width, height, hotSpotX)
-{
-
-}
-
-wxNode_wxCursor::wxNode_wxCursor(const char* bits, int width, int height)
-  : wxCursor(bits, width, height)
 {
 
 }
@@ -315,111 +305,6 @@ wxNode_wxCursor::wxNode_wxCursor(const char* bits, int width, int height)
     
 
     wxNode_wxCursor *self = new wxNode_wxCursor(*name);
-    NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>(self);
-    self->wrap(args.This(), self, evtHandler);
-    return args.This();
-  }
-  
-  /*
-   * id: _45563
-   */
-  if(args.Length() == 8 && args[0]->IsString() && args[1]->IsNumber() && args[2]->IsNumber() && args[3]->IsNumber() && args[4]->IsNumber() && args[5]->IsString() && (args[6]->IsNull() || (args[6]->IsObject() && wxNode_wxColour::AssignableFrom(args[6]->ToObject()->GetConstructorName()))) && (args[7]->IsNull() || (args[7]->IsObject() && wxNode_wxColour::AssignableFrom(args[7]->ToObject()->GetConstructorName())))) {
-    char* bits; /* type: _14642 * */
-    int width = (int)args[1]->ToInt32()->Value(); /* type: _165  */
-    int height = (int)args[2]->ToInt32()->Value(); /* type: _165  */
-    int hotSpotX = (int)args[3]->ToInt32()->Value(); /* type: _165  */
-    int hotSpotY = (int)args[4]->ToInt32()->Value(); /* type: _165  */
-    char* maskBits; /* type: _14642 * */
-    wxNode_wxColour* fg = args[6]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxColour>(args[6]->ToObject()); /* type: _37949 * */
-    wxNode_wxColour* bg = args[7]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxColour>(args[7]->ToObject()); /* type: _37949 * */
-    
-
-    wxNode_wxCursor *self = new wxNode_wxCursor(bits, width, height, hotSpotX, hotSpotY, maskBits, fg, bg);
-    NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>(self);
-    self->wrap(args.This(), self, evtHandler);
-    return args.This();
-  }
-  
-  /*
-   * id: _45563
-   */
-  if(args.Length() == 7 && args[0]->IsString() && args[1]->IsNumber() && args[2]->IsNumber() && args[3]->IsNumber() && args[4]->IsNumber() && args[5]->IsString() && (args[6]->IsNull() || (args[6]->IsObject() && wxNode_wxColour::AssignableFrom(args[6]->ToObject()->GetConstructorName())))) {
-    char* bits; /* type: _14642 * */
-    int width = (int)args[1]->ToInt32()->Value(); /* type: _165  */
-    int height = (int)args[2]->ToInt32()->Value(); /* type: _165  */
-    int hotSpotX = (int)args[3]->ToInt32()->Value(); /* type: _165  */
-    int hotSpotY = (int)args[4]->ToInt32()->Value(); /* type: _165  */
-    char* maskBits; /* type: _14642 * */
-    wxNode_wxColour* fg = args[6]->IsNull() ? NULL : wxNodeObject::unwrap<wxNode_wxColour>(args[6]->ToObject()); /* type: _37949 * */
-    
-
-    wxNode_wxCursor *self = new wxNode_wxCursor(bits, width, height, hotSpotX, hotSpotY, maskBits, fg);
-    NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>(self);
-    self->wrap(args.This(), self, evtHandler);
-    return args.This();
-  }
-  
-  /*
-   * id: _45563
-   */
-  if(args.Length() == 6 && args[0]->IsString() && args[1]->IsNumber() && args[2]->IsNumber() && args[3]->IsNumber() && args[4]->IsNumber() && args[5]->IsString()) {
-    char* bits; /* type: _14642 * */
-    int width = (int)args[1]->ToInt32()->Value(); /* type: _165  */
-    int height = (int)args[2]->ToInt32()->Value(); /* type: _165  */
-    int hotSpotX = (int)args[3]->ToInt32()->Value(); /* type: _165  */
-    int hotSpotY = (int)args[4]->ToInt32()->Value(); /* type: _165  */
-    char* maskBits; /* type: _14642 * */
-    
-
-    wxNode_wxCursor *self = new wxNode_wxCursor(bits, width, height, hotSpotX, hotSpotY, maskBits);
-    NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>(self);
-    self->wrap(args.This(), self, evtHandler);
-    return args.This();
-  }
-  
-  /*
-   * id: _45563
-   */
-  if(args.Length() == 5 && args[0]->IsString() && args[1]->IsNumber() && args[2]->IsNumber() && args[3]->IsNumber() && args[4]->IsNumber()) {
-    char* bits; /* type: _14642 * */
-    int width = (int)args[1]->ToInt32()->Value(); /* type: _165  */
-    int height = (int)args[2]->ToInt32()->Value(); /* type: _165  */
-    int hotSpotX = (int)args[3]->ToInt32()->Value(); /* type: _165  */
-    int hotSpotY = (int)args[4]->ToInt32()->Value(); /* type: _165  */
-    
-
-    wxNode_wxCursor *self = new wxNode_wxCursor(bits, width, height, hotSpotX, hotSpotY);
-    NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>(self);
-    self->wrap(args.This(), self, evtHandler);
-    return args.This();
-  }
-  
-  /*
-   * id: _45563
-   */
-  if(args.Length() == 4 && args[0]->IsString() && args[1]->IsNumber() && args[2]->IsNumber() && args[3]->IsNumber()) {
-    char* bits; /* type: _14642 * */
-    int width = (int)args[1]->ToInt32()->Value(); /* type: _165  */
-    int height = (int)args[2]->ToInt32()->Value(); /* type: _165  */
-    int hotSpotX = (int)args[3]->ToInt32()->Value(); /* type: _165  */
-    
-
-    wxNode_wxCursor *self = new wxNode_wxCursor(bits, width, height, hotSpotX);
-    NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>(self);
-    self->wrap(args.This(), self, evtHandler);
-    return args.This();
-  }
-  
-  /*
-   * id: _45563
-   */
-  if(args.Length() == 3 && args[0]->IsString() && args[1]->IsNumber() && args[2]->IsNumber()) {
-    char* bits; /* type: _14642 * */
-    int width = (int)args[1]->ToInt32()->Value(); /* type: _165  */
-    int height = (int)args[2]->ToInt32()->Value(); /* type: _165  */
-    
-
-    wxNode_wxCursor *self = new wxNode_wxCursor(bits, width, height);
     NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>(self);
     self->wrap(args.This(), self, evtHandler);
     return args.This();

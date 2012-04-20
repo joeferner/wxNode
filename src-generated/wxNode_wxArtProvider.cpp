@@ -14,12 +14,18 @@
 
 
 
+/*
+ * id: _35328
+ */
 wxNode_wxArtProvider::wxNode_wxArtProvider(wxArtProvider& arg0)
   : wxArtProvider(arg0)
 {
 
 }
 
+/*
+ * id: _35329
+ */
 wxNode_wxArtProvider::wxNode_wxArtProvider()
   : wxArtProvider()
 {

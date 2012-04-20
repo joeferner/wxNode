@@ -11,18 +11,27 @@
 
 
 
+/*
+ * id: _52979
+ */
 wxNode_wxLogWindow::wxNode_wxLogWindow(wxWindow* pParent, const wxString& szTitle, bool bShow, bool bPassToOld)
   : wxLogWindow(pParent, szTitle, bShow, bPassToOld)
 {
 
 }
 
+/*
+ * id: _52979
+ */
 wxNode_wxLogWindow::wxNode_wxLogWindow(wxWindow* pParent, const wxString& szTitle, bool bShow)
   : wxLogWindow(pParent, szTitle, bShow)
 {
 
 }
 
+/*
+ * id: _52979
+ */
 wxNode_wxLogWindow::wxNode_wxLogWindow(wxWindow* pParent, const wxString& szTitle)
   : wxLogWindow(pParent, szTitle)
 {

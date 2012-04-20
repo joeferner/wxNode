@@ -7,6 +7,9 @@
 
 {{#constructors}}
 {{#overloads}}
+/*
+ * id: {{id}}
+ */
 wxNode_{{parent.parent.name}}::wxNode_{{parent.parent.name}}({{{argDeclCode}}})
   : {{parent.parent.name}}({{{argConstructorCallCode}}})
 {

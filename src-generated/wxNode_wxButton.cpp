@@ -13,48 +13,72 @@
 
 
 
+/*
+ * id: _45056
+ */
 wxNode_wxButton::wxNode_wxButton()
   : wxButton()
 {
 
 }
 
+/*
+ * id: _45057
+ */
 wxNode_wxButton::wxNode_wxButton(wxWindow* parent, int id, const wxString& label, wxPoint& pos, wxSize& size, long int style, wxValidator& validator, const wxString& name)
   : wxButton(parent, id, label, pos, size, style, validator, name)
 {
 
 }
 
+/*
+ * id: _45057
+ */
 wxNode_wxButton::wxNode_wxButton(wxWindow* parent, int id, const wxString& label, wxPoint& pos, wxSize& size, long int style, wxValidator& validator)
   : wxButton(parent, id, label, pos, size, style, validator)
 {
 
 }
 
+/*
+ * id: _45057
+ */
 wxNode_wxButton::wxNode_wxButton(wxWindow* parent, int id, const wxString& label, wxPoint& pos, wxSize& size, long int style)
   : wxButton(parent, id, label, pos, size, style)
 {
 
 }
 
+/*
+ * id: _45057
+ */
 wxNode_wxButton::wxNode_wxButton(wxWindow* parent, int id, const wxString& label, wxPoint& pos, wxSize& size)
   : wxButton(parent, id, label, pos, size)
 {
 
 }
 
+/*
+ * id: _45057
+ */
 wxNode_wxButton::wxNode_wxButton(wxWindow* parent, int id, const wxString& label, wxPoint& pos)
   : wxButton(parent, id, label, pos)
 {
 
 }
 
+/*
+ * id: _45057
+ */
 wxNode_wxButton::wxNode_wxButton(wxWindow* parent, int id, const wxString& label)
   : wxButton(parent, id, label)
 {
 
 }
 
+/*
+ * id: _45057
+ */
 wxNode_wxButton::wxNode_wxButton(wxWindow* parent, int id)
   : wxButton(parent, id)
 {

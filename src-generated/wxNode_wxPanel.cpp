@@ -12,60 +12,90 @@
 
 
 
+/*
+ * id: _28304
+ */
 wxNode_wxPanel::wxNode_wxPanel()
   : wxPanel()
 {
 
 }
 
+/*
+ * id: _28305
+ */
 wxNode_wxPanel::wxNode_wxPanel(wxWindow* parent, int winid, wxPoint& pos, wxSize& size, long int style, const wxString& name)
   : wxPanel(parent, winid, pos, size, style, name)
 {
 
 }
 
+/*
+ * id: _28305
+ */
 wxNode_wxPanel::wxNode_wxPanel(wxWindow* parent, int winid, wxPoint& pos, wxSize& size, long int style)
   : wxPanel(parent, winid, pos, size, style)
 {
 
 }
 
+/*
+ * id: _28305
+ */
 wxNode_wxPanel::wxNode_wxPanel(wxWindow* parent, int winid, wxPoint& pos, wxSize& size)
   : wxPanel(parent, winid, pos, size)
 {
 
 }
 
+/*
+ * id: _28305
+ */
 wxNode_wxPanel::wxNode_wxPanel(wxWindow* parent, int winid, wxPoint& pos)
   : wxPanel(parent, winid, pos)
 {
 
 }
 
+/*
+ * id: _28305
+ */
 wxNode_wxPanel::wxNode_wxPanel(wxWindow* parent, int winid)
   : wxPanel(parent, winid)
 {
 
 }
 
+/*
+ * id: _28305
+ */
 wxNode_wxPanel::wxNode_wxPanel(wxWindow* parent)
   : wxPanel(parent)
 {
 
 }
 
+/*
+ * id: _28306
+ */
 wxNode_wxPanel::wxNode_wxPanel(wxWindow* parent, int x, int y, int width, int height, long int style, const wxString& name)
   : wxPanel(parent, x, y, width, height, style, name)
 {
 
 }
 
+/*
+ * id: _28306
+ */
 wxNode_wxPanel::wxNode_wxPanel(wxWindow* parent, int x, int y, int width, int height, long int style)
   : wxPanel(parent, x, y, width, height, style)
 {
 
 }
 
+/*
+ * id: _28306
+ */
 wxNode_wxPanel::wxNode_wxPanel(wxWindow* parent, int x, int y, int width, int height)
   : wxPanel(parent, x, y, width, height)
 {

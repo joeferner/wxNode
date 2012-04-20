@@ -10,18 +10,27 @@
 
 
 
+/*
+ * id: _54296
+ */
 wxNode_wxInfoBar::wxNode_wxInfoBar()
   : wxInfoBar()
 {
 
 }
 
+/*
+ * id: _54297
+ */
 wxNode_wxInfoBar::wxNode_wxInfoBar(wxWindow* parent, int winid)
   : wxInfoBar(parent, winid)
 {
 
 }
 
+/*
+ * id: _54297
+ */
 wxNode_wxInfoBar::wxNode_wxInfoBar(wxWindow* parent)
   : wxInfoBar(parent)
 {

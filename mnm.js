@@ -9,7 +9,7 @@ var RenderTemplates = require('./render-templates.js');
 builder.appendIncludeDir('src/');
 builder.appendIncludeDir('src-dummy/');
 
-function build(wxCxxFlags, wxLibs) {
+function build (wxCxxFlags, wxLibs) {
   builder.appendUnique('CXXFLAGS', wxCxxFlags);
   builder.appendUnique('LINKFLAGS', wxLibs);
 
@@ -23,33 +23,56 @@ function build(wxCxxFlags, wxLibs) {
 }
 
 var renderTemplates = true;
-for(var i=0; i<process.argv.length; i++) {
-  if(process.argv[i] == '--skip-render-templates') {
+for (var i = 0; i < process.argv.length; i++) {
+  if (process.argv[i] == '--skip-render-templates') {
     renderTemplates = false;
   }
 }
 
 // get the wx command line flags
-runCommandLine('wx-config', ['--cxxflags'], function(err, wxCxxFlags) {
-  if(err) { builder.fail(err); return; }
-  runCommandLine('wx-config', ['--libs'], function(err, wxLibs) {
-    if(err) { builder.fail(err); return; }
-    if(renderTemplates) {
-      RenderTemplates.renderTemplates(function(err){
-        if(err) { builder.fail(err); return; }
+var wxConfigPath = 'wx-config';
+if (process.platform === 'win32') {
+  var wxHome = process.env['WXWIN'];
+  if (!wxHome) {
+    builder.fail("Could not find wxWidgets home. Set the WXWIN environment variable.");
+  }
+  if (!path.existsSync(wxHome)) {
+    builder.fail("Could not find wxWidgets home. WXWIN is pointing to an invalid directory. " + wxHome);
+  }
+  wxConfigPath = './deps/wx-config.exe';
+
+  builder.appendUnique('CXXFLAGS', '-DUNICODE');
+}
+
+runCommandLine(wxConfigPath, ['--cxxflags'], function (err, wxCxxFlags) {
+  if (err) {
+    builder.fail(err);
+    return;
+  }
+  runCommandLine(wxConfigPath, ['--libs'], function (err, wxLibs) {
+    if (err) {
+      builder.fail(err);
+      return;
+    }
+    if (renderTemplates) {
+      RenderTemplates.renderTemplates(function (err) {
+        if (err) {
+          builder.fail(err);
+          return;
+        }
         build(wxCxxFlags, wxLibs);
       });
-    }else{
+    } else {
       build(wxCxxFlags, wxLibs);
     }
   });
 });
 
-String.prototype.trim = function() {
-	return this.replace(/^\s+|\s+$/g,"");
-}
+String.prototype.trim = function () {
+  return this.replace(/^\s+|\s+$/g, "");
+};
 
-function runCommandLine(cmd, args, callback) {
+function runCommandLine (cmd, args, callback) {
   var results = "";
   var child = childProcess.spawn(cmd, args);
   child.stdout.on('data', function (data) {
@@ -58,7 +81,11 @@ function runCommandLine(cmd, args, callback) {
   child.stderr.on('data', function (data) {
     results += data;
   });
-  child.on('exit', function(code) {
-    callback(code, results.trim().split(' ').filter(function(item) { return item.length > 0; }));
+  child.on('exit', function (code) {
+    if (code != 0) {
+      callback(new Error(results));
+      return;
+    }
+    callback(code, results.trim().split(' ').filter(function (item) { return item.length > 0; }));
   });
 }

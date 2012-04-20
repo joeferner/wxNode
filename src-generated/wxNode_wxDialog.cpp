@@ -17,36 +17,54 @@
 
 
 
+/*
+ * id: _38403
+ */
 wxNode_wxDialog::wxNode_wxDialog()
   : wxDialog()
 {
 
 }
 
+/*
+ * id: _38404
+ */
 wxNode_wxDialog::wxNode_wxDialog(wxWindow* parent, int id, const wxString& title, wxPoint& pos, wxSize& size, long int style, const wxString& name)
   : wxDialog(parent, id, title, pos, size, style, name)
 {
 
 }
 
+/*
+ * id: _38404
+ */
 wxNode_wxDialog::wxNode_wxDialog(wxWindow* parent, int id, const wxString& title, wxPoint& pos, wxSize& size, long int style)
   : wxDialog(parent, id, title, pos, size, style)
 {
 
 }
 
+/*
+ * id: _38404
+ */
 wxNode_wxDialog::wxNode_wxDialog(wxWindow* parent, int id, const wxString& title, wxPoint& pos, wxSize& size)
   : wxDialog(parent, id, title, pos, size)
 {
 
 }
 
+/*
+ * id: _38404
+ */
 wxNode_wxDialog::wxNode_wxDialog(wxWindow* parent, int id, const wxString& title, wxPoint& pos)
   : wxDialog(parent, id, title, pos)
 {
 
 }
 
+/*
+ * id: _38404
+ */
 wxNode_wxDialog::wxNode_wxDialog(wxWindow* parent, int id, const wxString& title)
   : wxDialog(parent, id, title)
 {

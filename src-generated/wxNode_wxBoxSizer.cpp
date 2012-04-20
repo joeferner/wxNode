@@ -12,12 +12,18 @@
 
 
 
+/*
+ * id: _28245
+ */
 wxNode_wxBoxSizer::wxNode_wxBoxSizer(wxBoxSizer& arg0)
   : wxBoxSizer(arg0)
 {
 
 }
 
+/*
+ * id: _28246
+ */
 wxNode_wxBoxSizer::wxNode_wxBoxSizer(int orient)
   : wxBoxSizer(orient)
 {

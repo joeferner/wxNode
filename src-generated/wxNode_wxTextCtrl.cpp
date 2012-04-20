@@ -18,48 +18,72 @@
 
 
 
+/*
+ * id: _18295
+ */
 wxNode_wxTextCtrl::wxNode_wxTextCtrl()
   : wxTextCtrl()
 {
 
 }
 
+/*
+ * id: _18296
+ */
 wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxWindow* parent, int id, const wxString& value, wxPoint& pos, wxSize& size, long int style, wxValidator& validator, const wxString& name)
   : wxTextCtrl(parent, id, value, pos, size, style, validator, name)
 {
 
 }
 
+/*
+ * id: _18296
+ */
 wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxWindow* parent, int id, const wxString& value, wxPoint& pos, wxSize& size, long int style, wxValidator& validator)
   : wxTextCtrl(parent, id, value, pos, size, style, validator)
 {
 
 }
 
+/*
+ * id: _18296
+ */
 wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxWindow* parent, int id, const wxString& value, wxPoint& pos, wxSize& size, long int style)
   : wxTextCtrl(parent, id, value, pos, size, style)
 {
 
 }
 
+/*
+ * id: _18296
+ */
 wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxWindow* parent, int id, const wxString& value, wxPoint& pos, wxSize& size)
   : wxTextCtrl(parent, id, value, pos, size)
 {
 
 }
 
+/*
+ * id: _18296
+ */
 wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxWindow* parent, int id, const wxString& value, wxPoint& pos)
   : wxTextCtrl(parent, id, value, pos)
 {
 
 }
 
+/*
+ * id: _18296
+ */
 wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxWindow* parent, int id, const wxString& value)
   : wxTextCtrl(parent, id, value)
 {
 
 }
 
+/*
+ * id: _18296
+ */
 wxNode_wxTextCtrl::wxNode_wxTextCtrl(wxWindow* parent, int id)
   : wxTextCtrl(parent, id)
 {

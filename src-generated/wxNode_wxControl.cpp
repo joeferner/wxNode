@@ -17,42 +17,63 @@
 
 
 
+/*
+ * id: _37482
+ */
 wxNode_wxControl::wxNode_wxControl()
   : wxControl()
 {
 
 }
 
+/*
+ * id: _37483
+ */
 wxNode_wxControl::wxNode_wxControl(wxWindow* parent, int id, wxPoint& pos, wxSize& size, long int style, wxValidator& validator, const wxString& name)
   : wxControl(parent, id, pos, size, style, validator, name)
 {
 
 }
 
+/*
+ * id: _37483
+ */
 wxNode_wxControl::wxNode_wxControl(wxWindow* parent, int id, wxPoint& pos, wxSize& size, long int style, wxValidator& validator)
   : wxControl(parent, id, pos, size, style, validator)
 {
 
 }
 
+/*
+ * id: _37483
+ */
 wxNode_wxControl::wxNode_wxControl(wxWindow* parent, int id, wxPoint& pos, wxSize& size, long int style)
   : wxControl(parent, id, pos, size, style)
 {
 
 }
 
+/*
+ * id: _37483
+ */
 wxNode_wxControl::wxNode_wxControl(wxWindow* parent, int id, wxPoint& pos, wxSize& size)
   : wxControl(parent, id, pos, size)
 {
 
 }
 
+/*
+ * id: _37483
+ */
 wxNode_wxControl::wxNode_wxControl(wxWindow* parent, int id, wxPoint& pos)
   : wxControl(parent, id, pos)
 {
 
 }
 
+/*
+ * id: _37483
+ */
 wxNode_wxControl::wxNode_wxControl(wxWindow* parent, int id)
   : wxControl(parent, id)
 {

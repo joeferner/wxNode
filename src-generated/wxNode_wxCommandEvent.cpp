@@ -12,24 +12,36 @@
 
 
 
+/*
+ * id: _16540
+ */
 wxNode_wxCommandEvent::wxNode_wxCommandEvent(int commandType, int winid)
   : wxCommandEvent(commandType, winid)
 {
 
 }
 
+/*
+ * id: _16540
+ */
 wxNode_wxCommandEvent::wxNode_wxCommandEvent(int commandType)
   : wxCommandEvent(commandType)
 {
 
 }
 
+/*
+ * id: _16540
+ */
 wxNode_wxCommandEvent::wxNode_wxCommandEvent()
   : wxCommandEvent()
 {
 
 }
 
+/*
+ * id: _16541
+ */
 wxNode_wxCommandEvent::wxNode_wxCommandEvent(wxCommandEvent& event)
   : wxCommandEvent(event)
 {

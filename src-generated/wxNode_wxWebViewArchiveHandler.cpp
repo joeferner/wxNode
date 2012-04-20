@@ -10,14 +10,11 @@
 
 
 
+/*
+ * id: _31332
+ */
 wxNode_wxWebViewArchiveHandler::wxNode_wxWebViewArchiveHandler(wxWebViewArchiveHandler& arg0)
   : wxWebViewArchiveHandler(arg0)
-{
-
-}
-
-wxNode_wxWebViewArchiveHandler::wxNode_wxWebViewArchiveHandler(const wxString& scheme)
-  : wxWebViewArchiveHandler(scheme)
 {
 
 }
@@ -119,19 +116,6 @@ wxNode_wxWebViewArchiveHandler::wxNode_wxWebViewArchiveHandler(const wxString& s
     
 
     wxNode_wxWebViewArchiveHandler *self = new wxNode_wxWebViewArchiveHandler(*arg0);
-    NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>(self);
-    self->wrap(args.This(), self, evtHandler);
-    return args.This();
-  }
-  
-  /*
-   * id: _31333
-   */
-  if(args.Length() == 1 && args[0]->IsString()) {
-    v8::String::AsciiValue scheme(args[0]->ToString()); /* type: _14975  */
-    
-
-    wxNode_wxWebViewArchiveHandler *self = new wxNode_wxWebViewArchiveHandler(*scheme);
     NodeExEvtHandlerImpl* evtHandler = dynamic_cast<NodeExEvtHandlerImpl*>(self);
     self->wrap(args.This(), self, evtHandler);
     return args.This();

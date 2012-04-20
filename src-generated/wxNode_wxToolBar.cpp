@@ -17,36 +17,54 @@
 
 
 
+/*
+ * id: _53558
+ */
 wxNode_wxToolBar::wxNode_wxToolBar()
   : wxToolBar()
 {
 
 }
 
+/*
+ * id: _53559
+ */
 wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id, wxPoint& pos, wxSize& size, long int style, const wxString& name)
   : wxToolBar(parent, id, pos, size, style, name)
 {
 
 }
 
+/*
+ * id: _53559
+ */
 wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id, wxPoint& pos, wxSize& size, long int style)
   : wxToolBar(parent, id, pos, size, style)
 {
 
 }
 
+/*
+ * id: _53559
+ */
 wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id, wxPoint& pos, wxSize& size)
   : wxToolBar(parent, id, pos, size)
 {
 
 }
 
+/*
+ * id: _53559
+ */
 wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id, wxPoint& pos)
   : wxToolBar(parent, id, pos)
 {
 
 }
 
+/*
+ * id: _53559
+ */
 wxNode_wxToolBar::wxNode_wxToolBar(wxWindow* parent, int id)
   : wxToolBar(parent, id)
 {

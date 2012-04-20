@@ -7,18 +7,27 @@
 
 
 
+/*
+ * id: _40880
+ */
 wxNode_wxSizerFlags::wxNode_wxSizerFlags(wxSizerFlags& arg0)
   : wxSizerFlags(arg0)
 {
 
 }
 
+/*
+ * id: _40881
+ */
 wxNode_wxSizerFlags::wxNode_wxSizerFlags(int proportion)
   : wxSizerFlags(proportion)
 {
 
 }
 
+/*
+ * id: _40881
+ */
 wxNode_wxSizerFlags::wxNode_wxSizerFlags()
   : wxSizerFlags()
 {

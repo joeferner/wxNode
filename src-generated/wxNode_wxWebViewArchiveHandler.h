@@ -24,8 +24,6 @@ public:
   
   wxNode_wxWebViewArchiveHandler(wxWebViewArchiveHandler& arg0);
   
-  wxNode_wxWebViewArchiveHandler(const wxString& scheme);
-  
   
 
 private:

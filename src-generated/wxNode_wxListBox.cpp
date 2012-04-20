@@ -17,78 +17,117 @@
 
 
 
+/*
+ * id: _36634
+ */
 wxNode_wxListBox::wxNode_wxListBox()
   : wxListBox()
 {
 
 }
 
+/*
+ * id: _36635
+ */
 wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSize& size, int n, const wxString* choices, long int style, wxValidator& validator, const wxString& name)
   : wxListBox(parent, id, pos, size, n, choices, style, validator, name)
 {
 
 }
 
+/*
+ * id: _36635
+ */
 wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSize& size, int n, const wxString* choices, long int style, wxValidator& validator)
   : wxListBox(parent, id, pos, size, n, choices, style, validator)
 {
 
 }
 
+/*
+ * id: _36635
+ */
 wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSize& size, int n, const wxString* choices, long int style)
   : wxListBox(parent, id, pos, size, n, choices, style)
 {
 
 }
 
+/*
+ * id: _36635
+ */
 wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSize& size, int n, const wxString* choices)
   : wxListBox(parent, id, pos, size, n, choices)
 {
 
 }
 
+/*
+ * id: _36635
+ */
 wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSize& size, int n)
   : wxListBox(parent, id, pos, size, n)
 {
 
 }
 
+/*
+ * id: _36635
+ */
 wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSize& size)
   : wxListBox(parent, id, pos, size)
 {
 
 }
 
+/*
+ * id: _36635
+ */
 wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos)
   : wxListBox(parent, id, pos)
 {
 
 }
 
+/*
+ * id: _36635
+ */
 wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id)
   : wxListBox(parent, id)
 {
 
 }
 
+/*
+ * id: _36636
+ */
 wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSize& size, wxArrayString& choices, long int style, wxValidator& validator, const wxString& name)
   : wxListBox(parent, id, pos, size, choices, style, validator, name)
 {
 
 }
 
+/*
+ * id: _36636
+ */
 wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSize& size, wxArrayString& choices, long int style, wxValidator& validator)
   : wxListBox(parent, id, pos, size, choices, style, validator)
 {
 
 }
 
+/*
+ * id: _36636
+ */
 wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSize& size, wxArrayString& choices, long int style)
   : wxListBox(parent, id, pos, size, choices, style)
 {
 
 }
 
+/*
+ * id: _36636
+ */
 wxNode_wxListBox::wxNode_wxListBox(wxWindow* parent, int id, wxPoint& pos, wxSize& size, wxArrayString& choices)
   : wxListBox(parent, id, pos, size, choices)
 {

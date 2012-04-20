@@ -8,24 +8,36 @@
 
 
 
+/*
+ * id: _26648
+ */
 wxNode_wxPoint::wxNode_wxPoint(wxPoint& arg0)
   : wxPoint(arg0)
 {
 
 }
 
+/*
+ * id: _26649
+ */
 wxNode_wxPoint::wxNode_wxPoint()
   : wxPoint()
 {
 
 }
 
+/*
+ * id: _26650
+ */
 wxNode_wxPoint::wxNode_wxPoint(int xx, int yy)
   : wxPoint(xx, yy)
 {
 
 }
 
+/*
+ * id: _26651
+ */
 wxNode_wxPoint::wxNode_wxPoint(wxRealPoint& pt)
   : wxPoint(pt)
 {

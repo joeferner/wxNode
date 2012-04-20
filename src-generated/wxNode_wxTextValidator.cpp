@@ -14,24 +14,36 @@
 
 
 
+/*
+ * id: _41312
+ */
 wxNode_wxTextValidator::wxNode_wxTextValidator(long int style,  wxString* val)
   : wxTextValidator(style, val)
 {
 
 }
 
+/*
+ * id: _41312
+ */
 wxNode_wxTextValidator::wxNode_wxTextValidator(long int style)
   : wxTextValidator(style)
 {
 
 }
 
+/*
+ * id: _41312
+ */
 wxNode_wxTextValidator::wxNode_wxTextValidator()
   : wxTextValidator()
 {
 
 }
 
+/*
+ * id: _41313
+ */
 wxNode_wxTextValidator::wxNode_wxTextValidator(wxTextValidator& val)
   : wxTextValidator(val)
 {

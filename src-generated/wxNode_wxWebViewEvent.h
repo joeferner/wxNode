@@ -36,8 +36,6 @@ private:
   static v8::Handle<v8::Value> _GetURL(const v8::Arguments& args);
   static v8::Handle<v8::Value> _GetTarget(const v8::Arguments& args);
   static v8::Handle<v8::Value> _Clone(const v8::Arguments& args);
-  static v8::Handle<v8::Value> _GetClassInfo(const v8::Arguments& args);
-  static v8::Handle<v8::Value> _wxCreateObject(const v8::Arguments& args);
   
   
 

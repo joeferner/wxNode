@@ -15,36 +15,54 @@
 
 
 
+/*
+ * id: _21172
+ */
 wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow()
   : wxTopLevelWindow()
 {
 
 }
 
+/*
+ * id: _21173
+ */
 wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxWindow* parent, int winid, const wxString& title, wxPoint& pos, wxSize& size, long int style, const wxString& name)
   : wxTopLevelWindow(parent, winid, title, pos, size, style, name)
 {
 
 }
 
+/*
+ * id: _21173
+ */
 wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxWindow* parent, int winid, const wxString& title, wxPoint& pos, wxSize& size, long int style)
   : wxTopLevelWindow(parent, winid, title, pos, size, style)
 {
 
 }
 
+/*
+ * id: _21173
+ */
 wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxWindow* parent, int winid, const wxString& title, wxPoint& pos, wxSize& size)
   : wxTopLevelWindow(parent, winid, title, pos, size)
 {
 
 }
 
+/*
+ * id: _21173
+ */
 wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxWindow* parent, int winid, const wxString& title, wxPoint& pos)
   : wxTopLevelWindow(parent, winid, title, pos)
 {
 
 }
 
+/*
+ * id: _21173
+ */
 wxNode_wxTopLevelWindow::wxNode_wxTopLevelWindow(wxWindow* parent, int winid, const wxString& title)
   : wxTopLevelWindow(parent, winid, title)
 {

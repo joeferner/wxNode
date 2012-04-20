@@ -12,24 +12,36 @@
 
 
 
+/*
+ * id: _27675
+ */
 wxNode_wxNotifyEvent::wxNode_wxNotifyEvent(int commandType, int winid)
   : wxNotifyEvent(commandType, winid)
 {
 
 }
 
+/*
+ * id: _27675
+ */
 wxNode_wxNotifyEvent::wxNode_wxNotifyEvent(int commandType)
   : wxNotifyEvent(commandType)
 {
 
 }
 
+/*
+ * id: _27675
+ */
 wxNode_wxNotifyEvent::wxNode_wxNotifyEvent()
   : wxNotifyEvent()
 {
 
 }
 
+/*
+ * id: _27676
+ */
 wxNode_wxNotifyEvent::wxNode_wxNotifyEvent(wxNotifyEvent& event)
   : wxNotifyEvent(event)
 {

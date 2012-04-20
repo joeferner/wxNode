@@ -8,18 +8,27 @@
 
 
 
+/*
+ * id: _37347
+ */
 wxNode_wxSize::wxNode_wxSize(wxSize& arg0)
   : wxSize(arg0)
 {
 
 }
 
+/*
+ * id: _37348
+ */
 wxNode_wxSize::wxNode_wxSize()
   : wxSize()
 {
 
 }
 
+/*
+ * id: _37349
+ */
 wxNode_wxSize::wxNode_wxSize(int xx, int yy)
   : wxSize(xx, yy)
 {

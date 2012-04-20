@@ -7,12 +7,18 @@
 
 
 
+/*
+ * id: _53949
+ */
 wxNode_wxWebViewHistoryItem::wxNode_wxWebViewHistoryItem(wxWebViewHistoryItem& arg0)
   : wxWebViewHistoryItem(arg0)
 {
 
 }
 
+/*
+ * id: _53950
+ */
 wxNode_wxWebViewHistoryItem::wxNode_wxWebViewHistoryItem(const wxString& url, const wxString& title)
   : wxWebViewHistoryItem(url, title)
 {

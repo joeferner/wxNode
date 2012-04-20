@@ -17,36 +17,54 @@
 
 
 
+/*
+ * id: _35768
+ */
 wxNode_wxFrame::wxNode_wxFrame()
   : wxFrame()
 {
 
 }
 
+/*
+ * id: _35769
+ */
 wxNode_wxFrame::wxNode_wxFrame(wxWindow* parent, int id, const wxString& title, wxPoint& pos, wxSize& size, long int style, const wxString& name)
   : wxFrame(parent, id, title, pos, size, style, name)
 {
 
 }
 
+/*
+ * id: _35769
+ */
 wxNode_wxFrame::wxNode_wxFrame(wxWindow* parent, int id, const wxString& title, wxPoint& pos, wxSize& size, long int style)
   : wxFrame(parent, id, title, pos, size, style)
 {
 
 }
 
+/*
+ * id: _35769
+ */
 wxNode_wxFrame::wxNode_wxFrame(wxWindow* parent, int id, const wxString& title, wxPoint& pos, wxSize& size)
   : wxFrame(parent, id, title, pos, size)
 {
 
 }
 
+/*
+ * id: _35769
+ */
 wxNode_wxFrame::wxNode_wxFrame(wxWindow* parent, int id, const wxString& title, wxPoint& pos)
   : wxFrame(parent, id, title, pos)
 {
 
 }
 
+/*
+ * id: _35769
+ */
 wxNode_wxFrame::wxNode_wxFrame(wxWindow* parent, int id, const wxString& title)
   : wxFrame(parent, id, title)
 {

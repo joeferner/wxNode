@@ -13,36 +13,54 @@
 
 
 
+/*
+ * id: _31978
+ */
 wxNode_wxNotebook::wxNode_wxNotebook()
   : wxNotebook()
 {
 
 }
 
+/*
+ * id: _31979
+ */
 wxNode_wxNotebook::wxNode_wxNotebook(wxWindow* parent, int id, wxPoint& pos, wxSize& size, long int style, const wxString& name)
   : wxNotebook(parent, id, pos, size, style, name)
 {
 
 }
 
+/*
+ * id: _31979
+ */
 wxNode_wxNotebook::wxNode_wxNotebook(wxWindow* parent, int id, wxPoint& pos, wxSize& size, long int style)
   : wxNotebook(parent, id, pos, size, style)
 {
 
 }
 
+/*
+ * id: _31979
+ */
 wxNode_wxNotebook::wxNode_wxNotebook(wxWindow* parent, int id, wxPoint& pos, wxSize& size)
   : wxNotebook(parent, id, pos, size)
 {
 
 }
 
+/*
+ * id: _31979
+ */
 wxNode_wxNotebook::wxNode_wxNotebook(wxWindow* parent, int id, wxPoint& pos)
   : wxNotebook(parent, id, pos)
 {
 
 }
 
+/*
+ * id: _31979
+ */
 wxNode_wxNotebook::wxNode_wxNotebook(wxWindow* parent, int id)
   : wxNotebook(parent, id)
 {

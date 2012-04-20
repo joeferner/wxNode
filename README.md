@@ -10,6 +10,27 @@ node.js wrapper for wxWidgets.
 $ npm install wxnode
 ```
 
+## Installation Windows
+
+* Download wxWidgets 2.9.3.
+* Download and install node from source (release, 64-bit) "vcbuild.bat release"
+
+```bash
+cd d:\dev\wxWidgets-2.9.3\build\msw
+nmake -f makefile.vc BUILD=release UNICODE=1 RUNTIME_LIBS=static DEBUG_FLAG=0
+set WXWIN=d:\dev\wxWidgets-2.9.3
+set WXCFG=vc_lib\mswu
+cd d:\dev\wxNode
+node mnm.js build
+```
+
+## Try an example
+
+```javascript
+node examples/helloWorld.js
+node examples/...
+```
+
 ## Quick Examples
 
 ```javascript
@@ -42,7 +63,7 @@ var app = new MyApp();
 app.run();
 ```
 
-## Building wxWidgets
+## Building wxWidgets linux
 ```bash
 $ sudo apt-get install libwebkitgtk-dev
 $ sudo ldconfig

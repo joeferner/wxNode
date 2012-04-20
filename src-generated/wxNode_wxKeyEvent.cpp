@@ -12,24 +12,36 @@
 
 
 
+/*
+ * id: _42556
+ */
 wxNode_wxKeyEvent::wxNode_wxKeyEvent(int keyType)
   : wxKeyEvent(keyType)
 {
 
 }
 
+/*
+ * id: _42556
+ */
 wxNode_wxKeyEvent::wxNode_wxKeyEvent()
   : wxKeyEvent()
 {
 
 }
 
+/*
+ * id: _42557
+ */
 wxNode_wxKeyEvent::wxNode_wxKeyEvent(wxKeyEvent& evt)
   : wxKeyEvent(evt)
 {
 
 }
 
+/*
+ * id: _42558
+ */
 wxNode_wxKeyEvent::wxNode_wxKeyEvent(int eventType, wxKeyEvent& evt)
   : wxKeyEvent(eventType, evt)
 {

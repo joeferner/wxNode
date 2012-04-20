@@ -12,24 +12,36 @@
 
 
 
+/*
+ * id: _43643
+ */
 wxNode_wxMenuBar::wxNode_wxMenuBar()
   : wxMenuBar()
 {
 
 }
 
+/*
+ * id: _43644
+ */
 wxNode_wxMenuBar::wxNode_wxMenuBar(long int style)
   : wxMenuBar(style)
 {
 
 }
 
+/*
+ * id: _43645
+ */
 wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxString* titles, long int style)
   : wxMenuBar(n, menus, titles, style)
 {
 
 }
 
+/*
+ * id: _43645
+ */
 wxNode_wxMenuBar::wxNode_wxMenuBar(unsigned int n, wxMenu** menus, const wxString* titles)
   : wxMenuBar(n, menus, titles)
 {

@@ -12,24 +12,36 @@
 
 
 
+/*
+ * id: _17846
+ */
 wxNode_wxMenu::wxNode_wxMenu(const wxString& title, long int style)
   : wxMenu(title, style)
 {
 
 }
 
+/*
+ * id: _17846
+ */
 wxNode_wxMenu::wxNode_wxMenu(const wxString& title)
   : wxMenu(title)
 {
 
 }
 
+/*
+ * id: _17847
+ */
 wxNode_wxMenu::wxNode_wxMenu(long int style)
   : wxMenu(style)
 {
 
 }
 
+/*
+ * id: _17847
+ */
 wxNode_wxMenu::wxNode_wxMenu()
   : wxMenu()
 {
