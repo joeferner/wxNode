@@ -1,10 +1,13 @@
 #!/usr/bin/env node
 
+var fs = require('fs');
 var path = require('path');
 var childProcess = require('child_process');
 var Builder = require('mnm');
 var builder = new Builder();
 var RenderTemplates = require('./render-templates.js');
+
+var existsSync = fs.existsSync || path.existsSync;
 
 builder.appendIncludeDir('src/');
 builder.appendIncludeDir('src-dummy/');
@@ -39,7 +42,7 @@ if (process.platform === 'win32') {
   if (!wxHome) {
     builder.fail("Could not find wxWidgets home. Set the WXWIN environment variable.");
   }
-  if (!path.existsSync(wxHome)) {
+  if (!existsSync(wxHome)) {
     builder.fail("Could not find wxWidgets home. WXWIN is pointing to an invalid directory. " + wxHome);
   }
   wxConfigPath = './deps/wx-config.exe';
