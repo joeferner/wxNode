@@ -2,7 +2,7 @@ var path = require('path');
 var fs = require('fs');
 
 var exists =  fs.exists || fs.exists;
-var existsSync = fs.existsSync || path.existsSync;
+var existsSync = fs.existsSync || fs.existsSync;
 var isWin = process.platform === 'win32';
 var slice = Function.call.bind([].slice);
 

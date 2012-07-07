@@ -39,7 +39,7 @@ if (process.platform === 'win32') {
   if (!wxHome) {
     builder.fail("Could not find wxWidgets home. Set the WXWIN environment variable.");
   }
-  if (!path.existsSync(wxHome)) {
+  if (!fs.existsSync(wxHome)) {
     builder.fail("Could not find wxWidgets home. WXWIN is pointing to an invalid directory. " + wxHome);
   }
   wxConfigPath = './deps/wx-config.exe';
