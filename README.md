@@ -1,3 +1,5 @@
+# Feel free to use this module but, I am no longer supporting it in favor of [AppJs](https://github.com/appjs/appjs)
+
 # wxNode
 
 node.js wrapper for wxWidgets.
